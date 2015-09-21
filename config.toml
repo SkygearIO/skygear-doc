@@ -1,3 +1,5 @@
 baseurl = "http://doc.oursky.io/"
 languageCode = "en-us"
 title = "Dream of Oursky"
+PygmentsCodeFences = true
+PygmentsStyle = "friendly"
