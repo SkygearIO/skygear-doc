@@ -49,3 +49,9 @@ jsourd.publicDB.save(new Note({
 - Store file
 - iOS/Android
 - javascript - node.js, browser, react-native
+
+
+### What's next?
+
+[Interact with server using cli]({{< relref "cli/intro.md" >}})
+[Create your plugin]({{< relref "plugin/intro.md" >}})
