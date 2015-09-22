@@ -1,4 +1,4 @@
-baseurl = "http://doc.oursky.io/"
+baseurl = "http://doc.pandadb.com/"
 languageCode = "en-us"
 title = "Dream of Oursky"
 PygmentsCodeFences = true
