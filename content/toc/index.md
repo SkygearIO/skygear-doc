@@ -10,9 +10,9 @@ Collection of article help you unleash the power of ourd.
 
 - Introduction
   - [What is ourd?]({{< relref "intro/index.md" >}})
-  - Architecture (like how our main ourd system, handler, plugins works) introduction & Glossary
+  - [Architecture]({{< relref "intro/architecture.md" >}})
   - [Getting Started]({{< relref "intro/getting-started.md" >}})
-    - [Setup by Docker](https://github.com/oursky/ourd/wiki/Getting-Started-by-Docker) 
+    - [Setup by Docker]({{< relref "intro/setup-by-docker.md" >}})
     - Connect by (iOS SDK / JS SDK)
     - Create your first user
     - Create your first record
