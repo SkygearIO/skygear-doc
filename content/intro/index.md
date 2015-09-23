@@ -24,7 +24,7 @@ jsourd.publicDB.save(new Note({
 });
 ```
 
-[Get Start!]({{< relref "intro/getting-start.md" >}})
+[Get Start!]({{< relref "intro/getting-started.md" >}})
 
 [SDK Doc]({{< relref "ios/getting-started.md" >}})
 
