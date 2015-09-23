@@ -54,6 +54,19 @@ if (container.currentUserRecordID) {
 [container logoutUserWithcompletionHandler:nil];
 ```
 
+## Disocver users by emails
+
+```obj-c
+ODQueryUsersOperation *operation = [ODQueryUsersOperation discoverUsersOperationByEmails:@[@"john.doe@example.com", @"jane.doe@example.com"]];
+operation.queryUserCompletionBlock = ^(NSArray /* ODUser */ *users, NSError *operationError) {
+    for (ODUser *user in users) {
+        // do something with the user
+    }
+};
+operation.container = [ODContainer defaultContainer];
+[[[NSOperationQueue alloc] init] addOperation:operation];
+```
+
 ## User Relations
 
 See [Friends and Followers]({{< relref "relation.md" >}}).
