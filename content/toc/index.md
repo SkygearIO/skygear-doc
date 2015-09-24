@@ -38,7 +38,7 @@ Collection of article help you unleash the power of ourd.
 - API
   - API reference => to another class reference site
 - iOS SDK
-  - [How to install ourd SDK in Xcode]({{< relref "intro/index.md" >}})
+  - [How to install ourd SDK in Xcode]({{< relref "ios/getting-started.md" >}})
   - [Fucking simple app (Create user / record / query)]({{< relref "ios/first-app.md" >}})
   - [CRUD Records]({{< relref "ios/record.md" >}})
   - [Records Relations (References)]({{< relref "ios/reference.md" >}})
