@@ -32,9 +32,9 @@ Collection of article help you unleash the power of ourd.
   - *Error code list
   - *Access control
 - Plugins
-  - Plugin introduction (what is this, what can it do)
-  - How to develop your own plugin
-  - Plugin doc
+  - [Plugin Introduction]({{< relref "plugin/intro.md" >}})
+  - [Developing Your First Plugin]({{< relref "plugin/first-plugin.md" >}})
+  - [Plugin Development Guide]({{< relref "plugin/dev-guide.md" >}})
 - API
   - API reference => to another class reference site
 - iOS SDK
