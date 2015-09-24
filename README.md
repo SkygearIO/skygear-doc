@@ -1,7 +1,13 @@
 This site use hugo: http://gohugo.io
 
 ```
-brew install hugo
+go get -u -v github.com/spf13/hugo
+```
+
+Install syntax hightlight
+
+```
+sudo pip install Pygments
 ```
 
 Clone to use the default theme before we have one
