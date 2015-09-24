@@ -76,7 +76,8 @@ $ ourd-cli record get note/1 content
 I am a note.
 ```
 
-If the field being accessed is an asset, we can instruct `ourd-cli` to download it too (**NOT IMPLEMENTED**):
+If the field being accessed is an asset, we can instruct `ourd-cli` to
+download it too (**NOT IMPLEMENTED**):
 
 ```bash
 $ ourd-cli record get --asset note/1 attachment
@@ -85,13 +86,15 @@ ourd-cli: Downloaded 1 asset to ./attachment-ef678c.doc
 
 ## Modifying records
 
-`ourd-cli` provides several subcommands to modify existing records, but in order to write on any databases, we have to set an access token:
+`ourd-cli provides several subcommands to modify existing records, but in
+`order to write on any databases, we have to set an access token:
 
 ```bash
 $ export ODCLI_ACCESS_TOKEN=A_USER_ACCESS_TOKEN
 ```
 
-**DEV NOTE**: We should support read / write by a master key or something that would allow us to bypass normal authentication.
+**DEV NOTE: We should support read / write by a master key or something that
+**would allow us to bypass normal authentication.
 
 We can then set a field on a record:
 
@@ -101,7 +104,9 @@ $ ourd-cli record get note/1 content
 This note is a new...note.
 ```
 
-If you are going to modify several fields at once, try `record edit`. It will bring up an interactive editing session with `$EDITOR`, and save the result record when you end the session (**Not Implemented**):
+If you are going to modify several fields at once, try `record edit`. It will
+bring up an interactive editing session with `$EDITOR`, and save the result
+record when you end the session (**Not Implemented**):
 
 ```bash
 EXAMLPE MISSING
@@ -109,7 +114,9 @@ EXAMLPE MISSING
 
 ## Working on private database
 
-In case you want to work on a user's private database, all the `record` subcommands accept a flag `--private, -p` which makes the command operates on private database, like this:
+In case you want to work on a user's private database, all the `record`
+subcommands accept a flag `--private, -p` which makes the command operates on
+private database, like this:
 
 ```bash
 $ ourd-cli record -p set note/1 content="It is a private note, obviously"
@@ -133,9 +140,11 @@ Error: record not found
 
 ## What now?
 
-You now have a basic understanding of working with records with `ourd-cli`, great work!
+You now have a basic understanding of working with records with `ourd-cli`,
+great work!
 
-Want more? There are some advanced uses of `ourd-cli` intended for data administration, in case you are interested...
+Want more? There are some advanced uses of `ourd-cli` intended for data
+administration, in case you are interested...
 
 * [Exporting and importing records]({{< relref "import-export.md" >}})
 * [Altering record schema]({{< relref "schema.md" >}}) 
