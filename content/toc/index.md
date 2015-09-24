@@ -24,7 +24,7 @@ Collection of article help you unleash the power of ourd.
 - Command Line Interface (CLI)
   - [CLI introduction and usage]({{< relref "cli/intro.md" >}})
   - Import / Export data tutorial
-  - Schema migration
+  - [Managing Record Schema]({{< relref "cli/schema.md" >}})
   - *Development / Production database setup
 - Backend / Database
   - *App versioning (how to support backward compatibility in released app)
