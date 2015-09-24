@@ -56,7 +56,7 @@ Collection of article help you unleash the power of ourd.
   - **User Interfaces
   - **In App Purchases
 - JS SDK
-  - How to install ourd JS SDK in your website
+  - [How to install ourd JS SDK in your website]({{< relref "js/index.md" >}})
   - Fucking simple app (Create user / record / query)
   - CRUD Records
   - Records Relations (References)
