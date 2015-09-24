@@ -45,14 +45,14 @@ Collection of article help you unleash the power of ourd.
   - [Users (Authentication)]({{< relref "ios/user.md" >}})
   - [Access Control]({{< relref "ios/acl.md" >}})
   - [Friends & Followers]({{< relref "ios/relation.md" >}})
-  - [Local Storage (RecordStorage, CachedQuery)]({{< relref "intro/index.md" >}})
+  - [Local Storage (RecordStorage, CachedQuery)]({{< relref "local-storage.md" >}})
   - [Subscription]({{< relref "ios/subscription.md" >}})
-  - Push Notification
-  - Pubsub
-  - Geo-location
-  - Assets (File Upload)
-  - Plugins
-  - Handling Errors
+  - [Push Notification]({{< relref "ios/push.md" >}})
+  - [Pubsub]({{< relref "ios/pubsub.md" >}})
+  - [Geo-location]({{< relref "ios/geolocation.md" >}})
+  - [Assets (File Upload)]({{< relref "ios/asset.md" >}})
+  - [Plugins]({{< relref "ios/plugin.md" >}})
+  - [Handling Errors]({{< relref "ios/handling-errors.md" >}})
   - **User Interfaces
   - **In App Purchases
 - JS SDK
