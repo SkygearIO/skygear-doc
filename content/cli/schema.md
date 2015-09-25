@@ -7,8 +7,8 @@ title = "Managing Record Schema"
 
 Whole document **NOT IMPLEMENTED**
 
-`schema subcommands help to add, rename and delete record fields -- the kind
-`of schema operations that cannot be achieved via regular record handlers.
+`schema` subcommands help to add, rename and delete record fields -- the kind
+of schema operations that cannot be achieved via regular record handlers.
 
 All `schema` subcommands deal with postgres backend directly, as such you
 should have already configured information necessary to connect to the
@@ -43,8 +43,8 @@ This command removes an existing field of `record_type`.
 ## Adding a new field
 
 **NOTE: To add a field, you might simply save a record with that specific
-**field. Our just-in-time schema migration would take care of the rest.
-**`schema add` exists solely for command suite completeness.
+field. Our just-in-time schema migration would take care of the rest.
+`schema add` exists solely for command suite completeness.
 
 ```bash
 $ ourd-cli schema alter <record_type> add <existing_field> <field_def>
