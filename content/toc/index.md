@@ -63,7 +63,7 @@ Collection of article help you unleash the power of ourd.
   - Simple app to get started (Create user / record / query)
   - CRUD Records
   - **[Not implemented]** Records Relations (References)
-  - Users (Authentication)
+  - [Users (Authentication)]({{< relref "js/users.md" >}})
   - **[Not implemented]** Access Control
   - **[Not implemented]** Friends & Followers
   - **[Not implemented]** Local Storage (RecordStorage, CachedQuery)
