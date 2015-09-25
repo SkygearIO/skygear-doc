@@ -51,6 +51,7 @@ Collection of article help you unleash the power of ourd.
   - [Handling Errors]({{< relref "ios/handling-errors.md" >}})
   - **[Furture release]** User Interfaces
   - **[Furture release]** In App Purchases
+  - [Class Reference] (http://docs.pandadb.com/ios/) (External site)
 - JS SDK
   - [How to install ourd JS SDK in your website]({{< relref "js/index.md" >}})
   - Simple app to get started (Create user / record / query)
