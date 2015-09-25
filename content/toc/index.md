@@ -30,7 +30,13 @@ Collection of article help you unleash the power of ourd.
 - Plugins
   - [Plugin Introduction]({{< relref "plugin/intro.md" >}})
   - [Developing Your First Plugin]({{< relref "plugin/first-plugin.md" >}})
-  - [Plugin Development Guide]({{< relref "plugin/dev-guide.md" >}})
+  - [Database Extension Point]({{< relref "plugin/guide-database.md" >}})
+  - [Handler Extension Point]({{< relref "plugin/guide-handler.md" >}})
+  - [Lambda Function]({{< relref "plugin/guide-lambda.md" >}})
+  - [Authentication Provider]({{< relref "plugin/guide-auth.md" >}})
+  - [Scheduled Tasks]({{< relref "plugin/guide-scheduled.md" >}})
+  - Calling Ourd API
+  - Using Pubsub API
 - API
   - API reference => to another class reference site
 - iOS SDK
