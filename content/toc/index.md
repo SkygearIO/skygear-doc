@@ -57,7 +57,7 @@ Collection of article help you unleash the power of ourd.
   - [Handling Errors]({{< relref "ios/handling-errors.md" >}})
   - **[Future release]** User Interfaces
   - **[Future release]** In App Purchases
-  - [Class Reference] (http://docs.pandadb.com/ios/) (External site)
+  - [Class Reference](http://docs.pandadb.com/ios/) (External site)
 - JS SDK
   - [How to install ourd JS SDK in your website]({{< relref "js/index.md" >}})
   - Simple app to get started (Create user / record / query)
@@ -73,10 +73,10 @@ Collection of article help you unleash the power of ourd.
   - **[Not implemented]** Geo-location
   - **[Not implemented]** Assets (File Upload)
   - **[Not implemented]** Plugins
-  - **[Not implemented]** Handling Errors
-  - **[Future release]** User Interfaces
-- **[Future release]** React.js
-- **[Future release]** Best Practices (TBC)
+  - **[Not implemented]** [Handling Errors]({{< relref "js/handling-errors.md" >}})
+  - **[Furture release]** User Interfaces
+- **[Furture release]** React.js
+- **[Furture release]** Best Practices (TBC)
  - How to Debug?
  - CI / CD integration
  - Performance
