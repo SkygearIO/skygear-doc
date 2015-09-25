@@ -36,7 +36,7 @@ Collection of article help you unleash the power of ourd.
   - [Authentication Provider]({{< relref "plugin/guide-auth.md" >}})
   - [Scheduled Tasks]({{< relref "plugin/guide-scheduled.md" >}})
   - [Calling Ourd API]({{< relref "plugin/ourd-api.md" >}})
-  - Using Pubsub API
+  - **[Not implemented]** [Using Pubsub]({{< relref "plugin/pubsub.md" >}})
 - API
   - API reference => to another class reference site
 - iOS SDK
