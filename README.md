@@ -22,3 +22,5 @@ Edit Content
 ```
 hugo server --theme=purehugo --buildDrafts --watch
 ```
+
+View Table of Content: http://127.0.0.1:1313/toc/
