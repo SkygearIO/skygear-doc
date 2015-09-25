@@ -1,0 +1,104 @@
++++
+date = "2015-09-24T18:33:04+08:00"
+draft = false
+title = "Container, Databases and Records"
+
++++
+
+# Saving a record
+
+You can save a public note to server as follow.
+
+``` javascript
+jsourd.publicDB.save(new Note({
+    'content': 'Hello World!'
+})).then(function (record) {
+    console.log(record);
+}, function (error) {
+    console.log(error);
+});
+```
+
+To understand the code above, you need you know what is _container_, _database_
+and _record_.
+
+# Container
+
+Container is the uppermost layer of jsoud. In practice, 
+`import jsoud from 'jsourd'` will give you a container instance at variable
+jsoud. In most case you will only need one instance of containter.
+
+The first things you need to interact with container is setting `endPoint` and
+`accessToken`.
+
+``` javascript
+JSOurd.endPoint = 'http://mydeployment.dev/api/';
+JSOurd.configApiKey('mysecrect');
+```
+
+# Database
+
+You will provide with private and public database.
+
+- Everything in private database is truely private, regardless of what access
+control entity you set to the record.
+- Record saved at public database is defualt public. To control the access, you
+may set difference access control entity to the record.
+
+# Record
+
+- `Record` must have type.
+- `Record` is a key-value data object that store at _database_.
+- `Record` will belong to the currently logged in user.
+
+
+# Defining a record type
+
+You will design different record type to model your app. Just like define table
+in SQL.
+
+``` javascript
+const Note = jsourd.Record.extend('note');
+const Blog = jsourd.Record.extend('blog');
+```
+
+# Modify a record
+
+``` javascript
+jsourd.publicDB.save(new Note({
+    'content': 'Hello World!'
+})).then(function (record) {
+    console.log(record);
+}, function (error) {
+    console.log(error);
+});
+```
+
+# Fetching an existing records
+
+You can construct a Query object by providing a Record Type.
+You can config the query by mutating its state.
+
+``` javascript
+var query = new jsourd.Query(Blog);
+query.greaterThan('popular', 10);
+query.addDescending('popular');
+query.limit = 10;
+
+jsourd.publicDB.query(query).then(function (records) {
+  console.log(records)
+}, function (error) {
+  console.log(error);
+})
+```
+
+# Deleting a record
+
+
+``` javascript
+jsourd.publicDB.del(record).then(function () {
+  console.log(record);
+}, function (error) {
+  console.log(error);
+});
+```

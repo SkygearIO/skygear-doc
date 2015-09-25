@@ -61,7 +61,7 @@ Collection of article help you unleash the power of ourd.
 - JS SDK
   - [How to install ourd JS SDK in your website]({{< relref "js/index.md" >}})
   - Simple app to get started (Create user / record / query)
-  - CRUD Records
+  - [CRUD Records]({{< relref "js/record.md" >}})
   - **[Not implemented]** Records Relations (References)
   - [Users (Authentication)]({{< relref "js/users.md" >}})
   - **[Not implemented]** Access Control
