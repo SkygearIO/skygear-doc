@@ -19,7 +19,7 @@ Collection of article help you unleash the power of ourd.
   - Upgrade ourd
 - Command Line Interface (CLI)
   - **[Not implemented]** [CLI introduction and usage]({{< relref "cli/intro.md" >}})
-  - **[Not implemented]** Import / Export data tutorial
+  - **[Not implemented]** [Exporting and Importing Records]({{< relref "cli/import-export.md" >}})
   - **[Not implemented]** [Managing Record Schema]({{< relref "cli/schema.md" >}})
   - **[To be discussed]** Development / Production database setup
 - Backend / Database
