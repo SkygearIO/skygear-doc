@@ -1,4 +1,4 @@
-baseurl = "http://doc.pandadb.com/"
+baseurl = "http://docs.pandadb.com/tutorial"
 languageCode = "en-us"
 title = "Ourd Doc"
 PygmentsCodeFences = true
