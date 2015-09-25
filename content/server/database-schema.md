@@ -24,6 +24,10 @@ Each records table contains the following reserved columns:
 * `_database_id` (string) This column contains identifier of the record database that this record is saved into. If this column is empty, the record is saved into the public database. Otherwise, it is saved into the private database with that identifier. Note: Although the private database identifier is currently the same as the User ID, this is an implementation and this is subject to change.
 * `_owner_id` (string) This columns contains the unique identifier of the user who owns this record.
 * `_access` (json) This column contains access control definition of the record.
+* `_created_at` (datetime) This column contains the time that the record was created.
+* `_created_by` (string) This column contains the identifier of the user who created this record.
+* `_updated_at` (datetime) This column contains the time that the record was last updated.
+* `_updated_by` (string) This column contains the identifier of the user who last updated this record.
 
 User-defined columns contain data that is set by your app. The type of each user-defined column is determined at the time when data to a column is first written. During development mode, the schema of records table is migrated as new columns are found in record.
 
