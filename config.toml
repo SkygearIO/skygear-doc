@@ -1,5 +1,5 @@
 baseurl = "http://doc.pandadb.com/"
 languageCode = "en-us"
-title = "Dream of Oursky"
+title = "Ourd Doc"
 PygmentsCodeFences = true
 PygmentsStyle = "friendly"
