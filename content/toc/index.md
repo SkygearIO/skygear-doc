@@ -60,7 +60,7 @@ Collection of article help you unleash the power of ourd.
   - [Class Reference](http://docs.pandadb.com/ios/) (External site)
 - JS SDK
   - [How to install ourd JS SDK in your website]({{< relref "js/index.md" >}})
-  - Simple app to get started (Create user / record / query)
+  - [Simple app to get started (Create user / record / query)]({{< relref "js/simple-app.md" >}})
   - [CRUD Records]({{< relref "js/record.md" >}})
   - **[Not implemented]** Records Relations (References)
   - [Users (Authentication)]({{< relref "js/users.md" >}})
