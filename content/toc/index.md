@@ -69,7 +69,7 @@ Collection of article help you unleash the power of ourd.
   - **[Not implemented]** Local Storage (RecordStorage, CachedQuery)
   - **[Not implemented]** Subscription
   - **[Future release]** Push Notification
-  - **[Not implemented]** Pubsub
+  - **[Not implemented]** [Pubsub]({{< relref "js/pubsub.md" >}})
   - **[Not implemented]** Geo-location
   - **[Not implemented]** Assets (File Upload)
   - **[Not implemented]** Plugins
