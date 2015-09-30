@@ -64,7 +64,7 @@ Collection of article help you unleash the power of ourd.
   - [CRUD Records]({{< relref "js/record.md" >}})
   - **[Not implemented]** Records Relations (References)
   - [Users (Authentication)]({{< relref "js/users.md" >}})
-  - **[Not implemented]** Access Control
+  - **[Not implemented]** [Access Control]({{< relref "js/acl.md" >}})
   - **[Not implemented]** Friends & Followers
   - **[Not implemented]** Local Storage (RecordStorage, CachedQuery)
   - **[Not implemented]** Subscription
