@@ -7,7 +7,7 @@ title = "Architecture"
 
 Introduction & Glossary to Ourd Architecture
 
-{{< img src="/intro/blocks.jpg" title="Compoent blocks connection" 
+{{< img src="/tutorial/intro/blocks.jpg" title="Compoent blocks connection" 
     caption="Showing the data flow between component">}}
 
 
