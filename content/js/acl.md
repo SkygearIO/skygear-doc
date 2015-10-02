@@ -63,9 +63,19 @@ jsourd.publicDB.query(query).then(function (records) {
   console.log(error);
 });
 if (!note.getReadAccess(jsourd.FRIEND)) {
-  note.setReadAccess(jsourd.FRIEND);
+  note.addReadAccess(jsourd.FRIEND);
   jsourd.public.save(note);
 }
+```
+
+_Removing a existing record access control_
+
+Anyone with `write` permission will be able to modify the access control.
+
+``` javascript
+note.removePublicReadAccess();
+note.removeReadAccess(jsourd.FRIEND);
+jsourd.publicDB.save(note);
 ```
 
 ## Complex ACL
@@ -78,6 +88,6 @@ const note = new Note({
 const acl = jsoud.ACL();
 acl.addWriteAccess(ben);
 acl.addReadAccess(jsourd.FRIEND);
-acl.setPublicReadAccess(true);
+acl.addPublicReadAccess();
 note.acl = acl; // This will overwrite all existing acl.
 ```
