@@ -6,5 +6,6 @@ title = "Index of design document"
 +++
 
 # Access Control exercise of taylors
-- [Role-base]({{< relref "design/role-base.md" >}})
-- [Plugin-base]({{< relref "design/plugin-base.md" >}})
+- [Role-based]({{< relref "design/role-base.md" >}})
+- [Plugin-based]({{< relref "design/plugin-base.md" >}})
+- [Relationship-based]({{< relref "design/plugin-base.md" >}})
