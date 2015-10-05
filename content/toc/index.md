@@ -62,7 +62,7 @@ Collection of article help you unleash the power of ourd.
   - [How to install ourd JS SDK in your website]({{< relref "js/index.md" >}})
   - [Simple app to get started (Create user / record / query)]({{< relref "js/simple-app.md" >}})
   - [CRUD Records]({{< relref "js/record.md" >}})
-  - **[Not implemented]** Records Relations (References)
+  - **[Not implemented]** [Records Relations (References)]({{< relref "js/reference.md" >}})
   - [Users (Authentication)]({{< relref "js/users.md" >}})
   - **[Not implemented]** [Access Control]({{< relref "js/acl.md" >}})
   - **[Not implemented]** Friends & Followers
