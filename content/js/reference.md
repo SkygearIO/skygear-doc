@@ -44,7 +44,9 @@ You can also reference to an array of record.
 const note = new Note({
   'content': 'This is intro, please see the document list for detail.'
 });
-const details = [note1, note2, note3];
+const details = [note1, note2, note3].map((note) => {
+  return jsourd.Reference(note);
+})
 note.details = details;
 jsourd.publicDB.save(note);
 ```
