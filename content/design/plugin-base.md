@@ -5,6 +5,153 @@ title = "plugin base"
 
 +++
 
+It is possible to control access to records by making Skygear plugin. You
+can implement custom logic in access control that cannot be easily implemented
+by using other approaches.
+
+## Deny before record save
+
+You can use the decorator `before_save` to deny changes to record.
+For example, in order to deny changes to a record after the record is saved
+once:
+
+``` python
+@skygear.before_save("book")
+def before_save_book(record, original, db):
+    if original:
+        raise Exception("Cannot change a saved book.")
+```
+
+When an exception is raised by a plugin when Skygear is handling a record
+hook, the change operation of the record is aborted. In this example,
+when the original record is available, an exception is raised to prevent
+the client from overwritting a record.
+
+Note: Raising an exception in `after_save` has no effect. The record
+is already saved when `after_save` is called.
+
+## Deny before record delete
+
+You can also make use of `before_delete` to permit a record from deleting:
+
+``` python
+@skygear.before_delete("book")
+def before_delete_book(record, db):
+    if record['checked_out']:
+        raise Exception("Cannot delete a checked-out book.")
+```
+
+In this example, the delete operation is aborted when the `checked_out`
+field of the record to be deleted is `True`.
+
+## Deny before record fetch
+
+**NOT IMPLEMENTED**: `before_fetch` hook is not implemented yet.
+
+**NOT IMPLEMENTED**: Context variable is not implemented yet.
+
+**NOT IMPLEMENTED**: User role is not implemented yet.
+
+**TO BE DISCUSSED**: How will `before_fetch` affects `record:query`?
+
+``` python
+from skygear import context as ctx
+
+@skygear.before_fetch("book")
+def before_fetch_book(record, db):
+    if 'admin' not in ctx.user.roles:
+        raise Exception("Only admin can fetch a book.")
+```
+
+## To deny access based on user
+
+**NOT IMPLEMENTED**: Context variable is not implemented yet.
+
+**NOT IMPLEMENTED**: User role is not implemented yet.
+
+You can also deny changes to a record based on the current user. The
+current user can be accessed
+
+``` python
+from skygear import context as ctx
+
+@skygear.before_delete("book")
+def before_delete_book(record, db):
+    if 'admin' not in ctx.user.roles:
+        raise Exception("Only admin can delete a book.")
+```
+
+In this example, no one can delete a book unless the user has a 'admin' role.
+
+## To deny access based on a referenced record
+
+**NOT IMPLEMENTED**: Eager loading with database hooks are not implemented.
+
+Occassionally you might want to control access to a record based on the value
+of a field of a referenced record. To do that, you need to eager load
+the referenced record.
+
+``` python
+from skygear import context as ctx
+
+@skygear.before_save("book", eager_load="writer")
+def before_save_book(record, original, db):
+    writer = record['_transient']['writer']
+    if writer['is_dead'] 
+        raise Exception("Cannot make changes to a book whose writer is dead.")
+```
+
+Specify the name of the field where a reference of a record is to be eager
+loaded in the `eager_load` parameter. When Skygear calls your hook, it
+will also load the referenced record.
+
+## To deny access based on an unreferenced record
+
+**NOT IMPLEMENTED**: Fetching unreferenced record is not yet implemented.
+
+``` python
+@skygear.before_save("book")
+def before_save_book(record, original, db):
+    writer = db.fetch("writer/24")
+    if writer['is_dead'] 
+        raise Exception("Cannot make changes to a book.")
+```
+
+## Covenient decorators for access control
+
+**NOT IMPLEMENTED**: Convenient decorators not implemented yet.
+
+There are convenient decorators to make access control easier to implement
+with plugins. When decorated, your function will be called with the
+affected record as the only parameter.
+
+Your function should return `True` if access is allowed and `False` if access
+is not allowed.
+
+These convenient decorators are `allow_save`, `allow_delete` and `allow_fetch`.
+
+``` python
+
+@skygear.allow_delete("book")
+def allow_delete_book(record):
+    return record['checked_out']:
+```
+
+This is equivalent to hooking the function to `before_delete` and raising
+an exception when `checked_out` is not `True`.
+
+These decorators can be chained together:
+
+``` python
+
+@skygear.allow_save("book")
+@skygear.allow_delete("book")
+def allow_delete_book(record):
+    return record['checked_out']:
+```
+
+## Example
+
 Example of plugin base access control of taylors
 
 ``` python
