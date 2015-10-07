@@ -49,6 +49,15 @@ $ ourd-cli record import initial-import/records.json
 ourd-cli: Imported 1130 records.
 ```
 
+When importing records, each record found in the file is saved to the
+database. If the record to be saved already exists in the database, each
+field in the record to be saved will overwrite the respective field in the
+existing record.
+
+Existing records and existing fields are not removed before the import
+operation. Therefore, records and fields that exist in the database but
+not in the file will remain in place.
+
 ### Concatenated JSON
 
 Ref: https://en.wikipedia.org/wiki/JSON_Streaming#Concatenated_JSON
