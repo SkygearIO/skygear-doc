@@ -20,7 +20,7 @@ Consider the following HTML:
 </form>
 ```
 
-## Signing up
+# Signing up
 
 ```js
 var username = document.getElementById("username").value;
@@ -32,7 +32,7 @@ jsourd.signup(username, username, password).then(function() {
 });
 ```
 
-## Logging in
+# Logging in
 
 ```js
 var username = document.getElementById("username").value;
@@ -44,7 +44,7 @@ jsourd.login(username, password).then(function() {
 });
 ```
 
-## Logging out
+# Logging out
 
 ```js
 jsourd.logout().then(function() {
@@ -52,4 +52,30 @@ jsourd.logout().then(function() {
 }, function(error) {
   console.log('error logging out: %o', error);
 });
+```
+
+# Changing password **[Not implemented]**
+
+``` javascript
+jsourd.changePassword(oldPassword, newPassword).then(function(_user) {
+  console.log('User now have new password', user);
+}, function (error) {
+  console.log('You need too login before changing password!', user);
+  console.log('Old password not match?', error);
+});
+```
+
+__Good to have__
+
+Allow use to logout all other session.
+
+``` javascript
+jsourd.changePassword(oldPassword, newPassword, invalidateTokens=true).then(
+  function (user) {
+    console.log('jsourd will got new accessToken automatically', user);
+  },
+  function (error) {
+    console.log('Failed', error);
+  }
+);
 ```

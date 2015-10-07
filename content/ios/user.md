@@ -54,6 +54,20 @@ if (container.currentUserRecordID) {
 [container logoutUserWithcompletionHandler:nil];
 ```
 
+## Changing user password
+
+```obj-c
+[container changePassword:@"oldPassword" password:@"newPassword" completionHandler:^(ODUserRecordID *user, NSError *error) {
+    if (error) {
+        NSLog(@"Can't change password: %@", error);
+        // Can be old password not matched?
+        return;
+    }
+
+    NSLog(@"Password change successfully");
+}]
+```
+
 ## Disocver users by emails
 
 ```obj-c
