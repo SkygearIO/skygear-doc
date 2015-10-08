@@ -95,3 +95,61 @@ When response is available from the server, your implementation of
 
 ```
 
+## Calling Authentication Provider
+
+**NOT IMPLEMENTED**
+
+### Facebook Authentication
+
+If you expect your user to log in to your app with a Facebook account, you
+should have the CocoaPod for ODKit Facebook integration included. Once you did
+that, you can call this method to have your user log in to Facebook.
+
+``` Objective-C
+
+- (void)login
+{
+    [[ODContainer defaultContainer] loginUsingFacebookCompletionHandler:^(ODUserRecordID *userID, NSError *error){
+        NSLog(@"User ID: %@", userID)
+    }];
+}
+
+```
+
+You can also create an instance of `ODFacebookLoginButton` and add it to
+your view. The button calls the `loginUsingFacebookCompletionhandler:` for you.
+
+If you want to implement your own login flow and experience, you should
+obtain a Facebook access token using Facebook SDK, and call a category
+method on `ODUserLoginOperation` for logging a user in with the Facebook
+access token:
+
+``` Objective-C
+
+- (void)loginWithFacebookAccessToken:(FBSDKAccessToken *)accessToken
+{
+    ODUserLoginOperation *op = [ODUserLoginOperation operationWithFacebookAccessToken:accessToken]
+    op.loginCompletionBlock = ^(ODUserRecordID *userID, ODAccessToken *accessToken, NSError *error) {
+        NSLog(@"User ID: %@", userID)
+    };
+    [[ODContainer defaultContainer] addOperation:op];
+}
+```
+
+### Custom Authentication Provider
+
+If you implement your own authentication provider, you should create
+an NSDictionary of authentication data and call `ODUserLoginOperation`
+`operationWithAuthenticationProvider:data:` method:
+
+``` Objective-C
+
+- (void)loginWithData:(NSDictionary *)dict
+{
+    ODUserLoginOperation *op = [ODUserLoginOperation operationWithAuthenticationProvider:@"com.example" data:dict]
+    op.loginCompletionBlock = ^(ODUserRecordID *userID, ODAccessToken *accessToken, NSError *error) {
+        NSLog(@"User ID: %@", userID)
+    };
+    [[ODContainer defaultContainer] addOperation:op];
+}
+```
