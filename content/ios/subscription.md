@@ -31,6 +31,22 @@ title = "Subscriptions"
 }
 ```
 
+**NOT IMPLEMENTED**: Creating a device without remote notification device token.
+
+If your app cannot get a notification device token, you can still register
+the device and receive notification through a pubsub channel:
+
+```obj-c
+[[ODContainer defaultContainer] registerPusbsubNotificationCompletionHandler:^(NSString *deviceID, NSError *error) {
+    if (error) {
+        NSLog(@"Failed to register pubsub device: %@", error);
+        return;
+    }
+
+    // TODO: add subscriptions here
+}];
+```
+
 ### Adding subscription
 
 ```obj-c
