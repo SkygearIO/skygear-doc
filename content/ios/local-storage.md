@@ -8,7 +8,7 @@ title = "Local Storages"
 ## Cached Query
 
 ```obj-c
-ODQuery *query = [ODQuery queryWithRecordType:@"todo" predicate:nil];
+SKYQuery *query = [SKYQuery queryWithRecordType:@"todo" predicate:nil];
 [publicDB performCachedQuery:query completionHandler:^(NSArray *results, BOOL cached, NSError *error) {
     if (cached) {
         // results from cache
@@ -26,10 +26,10 @@ ODQuery *query = [ODQuery queryWithRecordType:@"todo" predicate:nil];
 Record storage relies on [subscription]({{< relref "subscription.md" >}})
 
 ```obj-c
-- (void)container:(ODContainer *)container didReceiveNotification:(ODNotification *)notification
+- (void)container:(SKYContainer *)container didReceiveNotification:(SKYNotification *)notification
 {
     // ...
-    [[ODRecordStorageCoordinator defaultCoordinator] handleUpdateWithRemoteNotification:notification];
+    [[SKYRecordStorageCoordinator defaultCoordinator] handleUpdateWithRemoteNotification:notification];
 }
 
 ```
@@ -37,16 +37,16 @@ Record storage relies on [subscription]({{< relref "subscription.md" >}})
 ### Creating a record storage
 
 ```obj-c
-ODQuery *query = [[ODQuery alloc] initWithRecordType:@"note" predicate:nil];
-ODRecordStorageCoordinator *coordinator = [ODRecordStorageCoordinator defaultCoordinator];
-ODRecordStorage* recordStorage = [coordinator recordStorageWithDatabase:self.database
+SKYQuery *query = [[SKYQuery alloc] initWithRecordType:@"note" predicate:nil];
+SKYRecordStorageCoordinator *coordinator = [SKYRecordStorageCoordinator defaultCoordinator];
+SKYRecordStorage* recordStorage = [coordinator recordStorageWithDatabase:self.database
                                                                   query:query options:nil];
 ```
 
 ### Saving records
 
 ```obj-c
-ODRecord *note = [ODRecord recordWithRecordType:@"note"];
+SKYRecord *note = [SKYRecord recordWithRecordType:@"note"];
 note[@"content"] = @"record storage is fun!";
 [recordStorage saveRecord:note];
 ```
@@ -60,13 +60,13 @@ note[@"content"] = @"record storage is fun!";
 ### Fetching records
 
 ```obj-c
-ODRecord *record = [recordStorage recordWithRecordID:recordID];
+SKYRecord *record = [recordStorage recordWithRecordID:recordID];
 ```
 
 ### Querying records
 
 ```obj-c
-for (ODRecord *note in [recordStorage recordsWithType:@"note"]) {
+for (SKYRecord *note in [recordStorage recordsWithType:@"note"]) {
     // do something with note
 }
 ```
@@ -76,7 +76,7 @@ NSPredicate *predicate = [NSPredicate predicateWithFormat:@"done == false"];
 NSArray *records = [recordStorage recordsWithType:@"todo"
                                         predicate:predicate
                                   sortDescriptors:nil];
-for (ODRecord *note in records) {
+for (SKYRecord *note in records) {
     // do something with note
 }
 ```
@@ -84,7 +84,7 @@ for (ODRecord *note in records) {
 ### Listening to change event
 
 ```obj-c
-[[NSNotificationCenter defaultCenter] addObserverForName:ODRecordStorageDidUpdateNotification
+[[NSNotificationCenter defaultCenter] addObserverForName:SKYRecordStorageDidUpdateNotification
                                                   object:recordStorage
                                                    queue:[NSOperationQueue mainQueue]
                                               usingBlock:^(NSNotification *note) {

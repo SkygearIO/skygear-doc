@@ -8,12 +8,12 @@ title = "Installing iOS SDK"
 ## Using cocoapods
 
 ``` bash
-pod install ODKit
+pod install SkyKit
 ```
 
 ## Install the latest
 
 ``` bash
-git submodule git@github.com:oursky/ODKit.git ODKit
-pod install ODKit
+git submodule git@github.com:oursky/skygear-SDK-JS.git SkyKit
+pod install SkyKit
 ```

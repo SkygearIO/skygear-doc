@@ -26,20 +26,20 @@ response content.
 ## Calling handler
 
 If you defined a custom handler in a plugin, your app can make use of the
-handler by creating a subclass of `ODOperation`.
+handler by creating a subclass of `SKYOperation`.
 
-Your subclass of `ODOperation` should implement the following methods:
+Your subclass of `SKYOperation` should implement the following methods:
 
-*  `prepareForRequest` - Create an instance of `ODRequest` and set the request
-    to the `request` property of the `ODOperation`. The `ODRequest` should
+*  `prepareForRequest` - Create an instance of `SKYRequest` and set the request
+    to the `request` property of the `SKYOperation`. The `SKYRequest` should
     contains all data to be sent to the server.
 
     If this method is not implemented, you should at least call
     `initWithRequest:` or set the `request` property with an instance of
-    `ODRequest` before adding the operation to an operation queue.
+    `SKYRequest` before adding the operation to an operation queue.
      
 *  `handleResponse:` - When server response is available, this method
-    is called with an instance of `ODResponse`, which the `responseDictionary`
+    is called with an instance of `SKYResponse`, which the `responseDictionary`
     contains the data of server response.
 
     If this method is not implemented, the default implementation does nothing.
@@ -52,10 +52,10 @@ Your subclass of `ODOperation` should implement the following methods:
 ### Example
 
 Suppose you have a custom handler that returns the current time based on
-time zone. You should create a subclass of `ODOperation` called
-`ODCurrentTimeInZoneOperation`.
+time zone. You should create a subclass of `SKYOperation` called
+`SKYCurrentTimeInZoneOperation`.
 
-You should implement the `prepareForRequest` method by creating `ODRequest`
+You should implement the `prepareForRequest` method by creating `SKYRequest`
 containing data of the request.
 
 ``` Objective-C
@@ -65,20 +65,20 @@ containing data of the request.
     NSDictionary *payload = @{
                               @"timezone": self.timezone
                               };
-    self.request = [[ODRequest alloc] initWithAction:self.action payload:payload];
+    self.request = [[SKYRequest alloc] initWithAction:self.action payload:payload];
     self.request.accessToken = self.container.currentAccessToken;
 }
 
 ```
 
 When calling this handler, you should add an instance of this operation to
-an operation queue, such as by calling `-[ODContainer addOperation:]`:
+an operation queue, such as by calling `-[SKYContainer addOperation:]`:
 
 ``` Objective-C
 
-ODCurrentTImeInZoneOperation *op = [[ODCurrentTImeInZoneOperation alloc] init];
+SKYCurrentTImeInZoneOperation *op = [[SKYCurrentTImeInZoneOperation alloc] init];
 op.timezone = "Asia/Hong_Kong";
-[[ODContainer defaultContainer] addOperation:op];
+[[SKYContainer defaultContainer] addOperation:op];
 
 ```
 
@@ -87,7 +87,7 @@ When response is available from the server, your implementation of
 
 ``` Objective-C
 
-- (void)handleResponse:(ODResponse *)responseObject
+- (void)handleResponse:(SKYResponse *)responseObject
 {
     NSDictionary *response = responseObject.responseDictionary;
     NSLog("Time Now is: %@", response[@"result"][@"time"]
@@ -102,54 +102,54 @@ When response is available from the server, your implementation of
 ### Facebook Authentication
 
 If you expect your user to log in to your app with a Facebook account, you
-should have the CocoaPod for ODKit Facebook integration included. Once you did
+should have the CocoaPod for SkyKit Facebook integration included. Once you did
 that, you can call this method to have your user log in to Facebook.
 
 ``` Objective-C
 
 - (void)login
 {
-    [[ODContainer defaultContainer] loginUsingFacebookCompletionHandler:^(ODUserRecordID *userID, NSError *error){
+    [[SKYContainer defaultContainer] loginUsingFacebookCompletionHandler:^(SKYUserRecordID *userID, NSError *error){
         NSLog(@"User ID: %@", userID)
     }];
 }
 
 ```
 
-You can also create an instance of `ODFacebookLoginButton` and add it to
+You can also create an instance of `SKYFacebookLoginButton` and add it to
 your view. The button calls the `loginUsingFacebookCompletionhandler:` for you.
 
 If you want to implement your own login flow and experience, you should
 obtain a Facebook access token using Facebook SDK, and call a category
-method on `ODUserLoginOperation` for logging a user in with the Facebook
+method on `SKYUserLoginOperation` for logging a user in with the Facebook
 access token:
 
 ``` Objective-C
 
 - (void)loginWithFacebookAccessToken:(FBSDKAccessToken *)accessToken
 {
-    ODUserLoginOperation *op = [ODUserLoginOperation operationWithFacebookAccessToken:accessToken]
-    op.loginCompletionBlock = ^(ODUserRecordID *userID, ODAccessToken *accessToken, NSError *error) {
+    SKYUserLoginOperation *op = [SKYUserLoginOperation operationWithFacebookAccessToken:accessToken]
+    op.loginCompletionBlock = ^(SKYUserRecordID *userID, SKYAccessToken *accessToken, NSError *error) {
         NSLog(@"User ID: %@", userID)
     };
-    [[ODContainer defaultContainer] addOperation:op];
+    [[SKYContainer defaultContainer] addOperation:op];
 }
 ```
 
 ### Custom Authentication Provider
 
 If you implement your own authentication provider, you should create
-an NSDictionary of authentication data and call `ODUserLoginOperation`
+an NSDictionary of authentication data and call `SKYUserLoginOperation`
 `operationWithAuthenticationProvider:data:` method:
 
 ``` Objective-C
 
 - (void)loginWithData:(NSDictionary *)dict
 {
-    ODUserLoginOperation *op = [ODUserLoginOperation operationWithAuthenticationProvider:@"com.example" data:dict]
-    op.loginCompletionBlock = ^(ODUserRecordID *userID, ODAccessToken *accessToken, NSError *error) {
+    SKYUserLoginOperation *op = [SKYUserLoginOperation operationWithAuthenticationProvider:@"com.example" data:dict]
+    op.loginCompletionBlock = ^(SKYUserRecordID *userID, SKYAccessToken *accessToken, NSError *error) {
         NSLog(@"User ID: %@", userID)
     };
-    [[ODContainer defaultContainer] addOperation:op];
+    [[SKYContainer defaultContainer] addOperation:op];
 }
 ```

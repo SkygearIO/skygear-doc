@@ -35,7 +35,7 @@ notification, you can also do so when the application launches.
 
 ```obj-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[ODContainer defaultContainer] registerDeviceCompletionHandler:^(NSString *deviceID, NSError *error) {
+    [[SKYContainer defaultContainer] registerDeviceCompletionHandler:^(NSString *deviceID, NSError *error) {
         if (error) {
             NSLog(@"Failed to register device: %@", error);
             return;
@@ -60,7 +60,7 @@ with a device token.
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     NSLog(@"Registered for Push notifications with token: %@", deviceToken);
-    [[ODContainer defaultContainer] registerRemoteNotificationDeviceToken:deviceToken completionHandler:^(NSString *deviceID, NSError *error) {
+    [[SKYContainer defaultContainer] registerRemoteNotificationDeviceToken:deviceToken completionHandler:^(NSString *deviceID, NSError *error) {
         if (error) {
             NSLog(@"Failed to register device token: %@", error);
             return;
@@ -82,11 +82,11 @@ After you have registered device, you can create a subscription.
 ### Adding subscription
 
 ```obj-c
-ODQuery *query = [[ODQuery alloc] initWithRecordType:@"note" predicate:nil];
-ODSubscription *subscription =
-[[ODSubscription alloc] initWithQuery:query subscriptionID:@"my notes"];
-[[[ODContainer defaultContainer] privateCloudDatabase] saveSubscription:subscription
-                                                       completionHandler:^(ODSubscription *subscription, NSError *error) {
+SKYQuery *query = [[SKYQuery alloc] initWithRecordType:@"note" predicate:nil];
+SKYSubscription *subscription =
+[[SKYSubscription alloc] initWithQuery:query subscriptionID:@"my notes"];
+[[[SKYContainer defaultContainer] privateCloudDatabase] saveSubscription:subscription
+                                                       completionHandler:^(SKYSubscription *subscription, NSError *error) {
     if (error) {
         NSLog(@"Failed to subscribe for my note: %@", error);
         return;
@@ -96,18 +96,18 @@ ODSubscription *subscription =
 }];
 ```
 
-### Implementing `ODContainerDelegate` to receive notification
+### Implementing `SKYContainerDelegate` to receive notification
 
 Add protocol declaration in `AppDelegate`.
 
 ```obj-c
-@interface AppDelegate : UIResponder <UIApplicationDelegate, ODContainerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, SKYContainerDelegate>
 ```
 
 Implement the delegate method
 
 ```obj-c
-- (void)container:(ODContainer *)container didReceiveNotification:(ODNotification *)notification
+- (void)container:(SKYContainer *)container didReceiveNotification:(SKYNotification *)notification
 {
     NSLog(@"received notification = %@", notification);
     // do more with the notification (not implemented)
@@ -118,7 +118,7 @@ Set `AppDelegate` as container's delegate
 
 ```obj-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [ODContainer defaultContainer].delegate = self;
+    [SKYContainer defaultContainer].delegate = self;
     // ...
 }
 ```

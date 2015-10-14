@@ -17,8 +17,8 @@ title = "Access Controls"
 Example: Grant read to friends
 
 ```obj-c
-ODRecord *post = [ODRecord recordWithRecordType:@"post"];
-[post.accessControl addReadAccessForRelation:[ODRelation relationFriend]];
+SKYRecord *post = [SKYRecord recordWithRecordType:@"post"];
+[post.accessControl addReadAccessForRelation:[SKYRelation relationFriend]];
 ```
 
 TODO: remember to save the record to make the access control effective
@@ -29,6 +29,6 @@ Example: Share docs to colleages
 
 ```obj-c
 // supervisor is a placeholder of user id
-ODRecord *document = [ODRecord recordWithRecordType:@"doc"];
+SKYRecord *document = [SKYRecord recordWithRecordType:@"doc"];
 [document.accessControl addWriteAccessForUserID:supervisor];
 ```

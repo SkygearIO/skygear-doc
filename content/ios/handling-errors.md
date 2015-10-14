@@ -10,25 +10,25 @@ available in the completion callback. For example, the completion callback of
 `saveRecord:completion:` is:
 
 ```obj-c
-void(^)(ODRecord *record, NSError *error)
+void(^)(SKYRecord *record, NSError *error)
 ```
 
 All errors passed from Ourd will have `error.domain` equaled to
-`ODOperationErrorDomain`.
+`SKYOperationErrorDomain`.
 
 *What documented below is not implemented*
 
 Imaginary complete error handling of fetching record
 
 ```obj-c
-[privateDB fetchRecordWithID:recordID completion:^(ODRecord *record, NSError *error){
+[privateDB fetchRecordWithID:recordID completion:^(SKYRecord *record, NSError *error){
     // we don't need to check for error.domain here, Ourd should ensure all
-    // errors thrown are in ODOperationErrorDomain
+    // errors thrown are in SKYOperationErrorDomain
 
-    if (error.code == ODErrorNotFound) {
+    if (error.code == SKYErrorNotFound) {
         NSLog(@"record %@ doesn't exist", recordID);
         return;
-    } else if (error.code == ODErrorNetworkFailure) {
+    } else if (error.code == SKYErrorNetworkFailure) {
         // generally this block of code should reside in manager written by
         // user
         NSError *urlSessionError = error.userInfo[NSUnderlyingErrorKey];

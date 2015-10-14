@@ -10,10 +10,10 @@ title = "Push Notifications"
 ## Sending push notification to users
 
 ```obj-c
-ODNotificationInfo *info = [ODNotificationInfo notificationInfo];
+SKYNotificationInfo *info = [SKYNotificationInfo notificationInfo];
 info.alertBody = @"Hi there!";
 
-ODSendPushNotificationOperation *operation = [ODSendPushNotificationOperation operationWithNotificationInfo:info userIDsToSend:@[kenji, rick]];
+SKYSendPushNotificationOperation *operation = [SKYSendPushNotificationOperation operationWithNotificationInfo:info userIDsToSend:@[kenji, rick]];
 operation.sendCompletionHandler = ^(NSArray *userIDs, NSError *error) {
     if (error) {
         NSLog(@"error sending push notification");
@@ -29,10 +29,10 @@ operation.sendCompletionHandler = ^(NSArray *userIDs, NSError *error) {
 ## Sending push notification to devices
 
 ```
-ODNotificationInfo *info = [ODNotificationInfo notificationInfo];
+SKYNotificationInfo *info = [SKYNotificationInfo notificationInfo];
 info.alertBody = @"Hi device!";
 
-ODSendPushNotificationOperation *operation = [ODSendPushNotificationOperation operationWithNotificationInfo:info deviceIDsToSend:@[@"device0", @"device1"]];
+SKYSendPushNotificationOperation *operation = [SKYSendPushNotificationOperation operationWithNotificationInfo:info deviceIDsToSend:@[@"device0", @"device1"]];
 operation.sendCompletionHandler = ^(NSArray *deviceIDs, NSError *error) {
     if (error) {
         NSLog(@"error sending push notification");
@@ -54,4 +54,4 @@ operation.sendCompletionHandler = ^(NSArray *deviceIDs, NSError *error) {
    notification to devices that have an outdated version of app.
 3. The first array argument of `sendCompletionHandler` is always of `NSString`
    In the case of sending to users, it would be expected to be an array of
-   `ODUserRecordID`.
+   `SKYUserRecordID`.

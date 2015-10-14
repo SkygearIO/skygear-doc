@@ -10,16 +10,16 @@ title = "Friends and Followers"
 ## Adding relation between users
 
 ```obj-c
-ODAddRelationsOperation *operation = [ODAddRelationsOperation operationWithType:@"friend" usersToRelated:@[rick, ben]];
-operation.container = [ODContainer defaultContainer];
+SKYAddRelationsOperation *operation = [SKYAddRelationsOperation operationWithType:@"friend" usersToRelated:@[rick, ben]];
+operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
 
 ## Removing relations
 
 ```obj-c
-ODRemoveRelationsOperation *operation = [ODRemoveRelationsOperation operationWithType:@"follower" usersToRemove:@[faseng, chima]];
-operation.container = [ODContainer defaultContainer];
+SKYRemoveRelationsOperation *operation = [SKYRemoveRelationsOperation operationWithType:@"follower" usersToRemove:@[faseng, chima]];
+operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
 
@@ -28,39 +28,39 @@ operation.container = [ODContainer defaultContainer];
 Get all friends:
 
 ```obj-c
-ODQueryUsersOperation *operation = [ODQueryUsersOperation queryUsersOperationByRelation:[ODRelation relationFriend]];
-operation.container = [ODContainer defaultContainer];
+SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation relationFriend]];
+operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
 
 Get all followers:
 
 ```obj-c
-ODQueryUsersOperation *operation = [ODQueryUsersOperation queryUsersOperationByRelation:[ODRelation relationFollow] direction:ODRelationDirectionPassive];
-operation.container = [ODContainer defaultContainer];
+SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation relationFollow] direction:SKYRelationDirectionPassive];
+operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
 
-`ODQueryUsersOperation-relationDirection` is only effective on `relationFollow`.
+`SKYQueryUsersOperation-relationDirection` is only effective on `relationFollow`.
 
 ### Relation directions
 
 TODO: talks about directional and undirectional relation, and how friend and
 follower are examples of them
-TODO: Discuss the values of ODRelationDirection
+TODO: Discuss the values of SKYRelationDirection
 
 Get all following users:
 
 ```obj-c
-ODQueryUsersOperation *operation = [ODQueryUsersOperation queryUsersOperationByRelation:[ODRelation relationFollow] direction:ODRelationDirectionActive];
-operation.container = [ODContainer defaultContainer];
+SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation relationFollow] direction:SKYRelationDirectionActive];
+operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
 
 Get all mutual followers:
 
 ```obj-c
-ODQueryUsersOperation *operation = [ODQueryUsersOperation queryUsersOperationByRelation:[ODRelation relationFollow] direction:ODRelationDirectionMutual];
-operation.container = [ODContainer defaultContainer];
+SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation relationFollow] direction:SKYRelationDirectionMutual];
+operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
