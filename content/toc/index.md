@@ -5,7 +5,7 @@ title = "Table of Content"
 
 +++
 
-Collection of article help you unleash the power of ourd.
+Collection of article help you unleash the power of Skygear.
 
 
 - Introduction
