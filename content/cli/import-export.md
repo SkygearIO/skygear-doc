@@ -13,8 +13,8 @@ Whole document **NOT IMPLEMENTED**
 
 ```bash
 $ mkdir my-precious-backup
-$ ourd-cli record export -o my-precious-backup
-ourd-cli: Exported 1130 records.
+$ skycli record export -o my-precious-backup
+skycli: Exported 1130 records.
 ```
 
 It will dump the whole database into `my-precious-backup`, in a format that is
@@ -41,12 +41,12 @@ file in concatenated JSON format:
 
 ```bash
 # importing from exported directory
-$ ourd-cli record import my-previous-backup
-ourd-cli: Imported 1130 records.
+$ skycli record import my-previous-backup
+skycli: Imported 1130 records.
 
 # importing from concatenated JSON
-$ ourd-cli record import initial-import/records.json
-ourd-cli: Imported 1130 records.
+$ skycli record import initial-import/records.json
+skycli: Imported 1130 records.
 ```
 
 When importing records, each record found in the file is saved to the
@@ -63,7 +63,7 @@ not in the file will remain in place.
 Ref: https://en.wikipedia.org/wiki/JSON_Streaming#Concatenated_JSON
 
 The format of each JSON object is specified in the
-[documentation](https://github.com/oursky/ourd-cli#record-import) of `record
+[documentation](https://github.com/oursky/skycli#record-import) of `record
 import`.
 
 ## Handling assets

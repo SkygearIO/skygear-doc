@@ -27,7 +27,7 @@ definitions.
 ## Renaming an existing field
 
 ```bash
-$ ourd-cli schema alter <record_type> mv <existing_field> <new_field>
+$ skycli schema alter <record_type> mv <existing_field> <new_field>
 ```
 
 This command renames an existing field of `record_type`.
@@ -35,7 +35,7 @@ This command renames an existing field of `record_type`.
 ## Removing an existing field
 
 ```bash
-$ ourd-cli schema alter <record_type> rm <existing_field>
+$ skycli schema alter <record_type> rm <existing_field>
 ```
 
 This command removes an existing field of `record_type`.
@@ -47,7 +47,7 @@ field. Our just-in-time schema migration would take care of the rest.
 `schema add` exists solely for command suite completeness.
 
 ```bash
-$ ourd-cli schema alter <record_type> add <existing_field> <field_def>
+$ skycli schema alter <record_type> add <existing_field> <field_def>
 ```
 
 `field_def` means the type of field you wanted to create. The permitted
