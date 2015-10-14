@@ -9,7 +9,7 @@ Upgrading Ourd is simple if you use Docker. If you have Docker configured
 to run Ourd. You can fetch a new docker image by running:
 
 ```
-docker pull oursky/ourd
+docker pull oursky/skygear
 ```
 
 With the new docker image in place, you need to rebuild the Ourd docker
@@ -17,9 +17,9 @@ container. This is achieved by first deleting the Ourd container, and then
 recreate it:
 
 ```
-docker stop ourd
-docker rm ourd
-docker run --name ourd oursky/ourd
+docker stop skygear
+docker rm skygear
+docker run --name skygear oursky/skygear
 ```
 
 Note: the exact command varies in your environment.
@@ -34,15 +34,15 @@ up-to-date. If the database version is not up to date. You will see
 an error similar to the following in the Ourd log.
 
 ```
-docker logs ourd
-ourd: oddb/pq: got version_num = bd=d120fadd, want fef0a121
+docker logs skygear
+skygear: oddb/pq: got version_num = bd=d120fadd, want fef0a121
 ```
 
 When this happens, you are required to run database migration. You can
-trigger migration to happen by running the `ourd-db` utility.
+trigger migration to happen by running the `skygear-db` utility.
 
 ```
-docker exec -i -t ourd ourd-db migrate
+docker exec -i -t skygear skygear-db migrate
 ```
 
 
