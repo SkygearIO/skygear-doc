@@ -5,10 +5,10 @@ title = "Handler Extension Point"
 
 +++
 
-To define a function as a custom handler, decorate it with `pyourd.handler`.
+To define a function as a custom handler, decorate it with `py-skygear.handler`.
 
 ```
-@pyourd.handler("chima:echo", auth_required=True)
+@py-skygear.handler("chima:echo", auth_required=True)
 def meow(payload, io):
     io.write(payload)
     return

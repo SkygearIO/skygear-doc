@@ -9,14 +9,14 @@ The Ourd API is also available to plugins. You can make use of the Ourd API
 to save records, send notification or perform any actions that are also
 available to the client SDK.
 
-Pyourd contains a lightweight Ourd API wrapper so that you can call
+Py-skygear contains a lightweight Ourd API wrapper so that you can call
 the Ourd API in your python program.
 
 The first thing you need to do is to import `OurdContainer` from
-`pyourd.container` module.
+`py-skygear.container` module.
 
 ```
-from pyourd.container import OurdContainer
+from py-skygear.container import OurdContainer
 ```
 
 For example, to send a push notification to a user:

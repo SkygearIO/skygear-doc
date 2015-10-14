@@ -5,10 +5,10 @@ title = "Scheduled Tasks"
 
 +++
 
-You can decorate a function with `pyourd.every` so that the function is executed periodically. To schedule that a task to be executed every minute:
+You can decorate a function with `py-skygear.every` so that the function is executed periodically. To schedule that a task to be executed every minute:
 
 ```
-@pyourd.every("@every 1m")
+@py-skygear.every("@every 1m")
 def watch(io):
     open('/tmp/messages.txt', 'a').write('Hello World!\n')
 ```

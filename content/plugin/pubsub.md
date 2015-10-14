@@ -21,7 +21,7 @@ when a create a new `note` record containing special words.
 To build pubsub into Ourd, you have to import `OurdContainer`.
 
 ```
-from pyourd.container import OurdContainer
+from py-skygear.container import OurdContainer
 ```
 
 When you have an instance of OurdContainer, you can create a pubsub socket

@@ -35,7 +35,7 @@ Collection of article help you unleash the power of ourd.
   - [Lambda Function]({{< relref "plugin/guide-lambda.md" >}})
   - [Authentication Provider]({{< relref "plugin/guide-auth.md" >}})
   - [Scheduled Tasks]({{< relref "plugin/guide-scheduled.md" >}})
-  - [Calling Ourd API]({{< relref "plugin/ourd-api.md" >}})
+  - [Calling Ourd API]({{< relref "plugin/skygear-api.md" >}})
   - **[Not implemented]** [Using Pubsub]({{< relref "plugin/pubsub.md" >}})
 - API
   - API reference => to another class reference site
