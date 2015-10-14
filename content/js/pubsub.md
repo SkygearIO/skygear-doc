@@ -8,7 +8,7 @@ title = "Pubsub"
 ## Subscribing to an event
 
 ```js
-jsourd.on('ping', function(data) {
+skygear.on('ping', function(data) {
   let from_ = data.from;
   console.log('received a ping from %s', from_);
 });
@@ -17,7 +17,7 @@ jsourd.on('ping', function(data) {
 ## Publishing an event
 
 ```js
-jsourd.trigger('ping', {'from': 'Specialized Ping Force'});
+skygear.trigger('ping', {'from': 'Specialized Ping Force'});
 ```
 
 ## Unsubscribing an event
@@ -25,7 +25,7 @@ jsourd.trigger('ping', {'from': 'Specialized Ping Force'});
 ### Unsubscribing from all events
 
 ```js
-jsourd.off('ping');
+skygear.off('ping');
 ```
 
 ### Unsubscribing a specific handler
@@ -33,7 +33,7 @@ jsourd.off('ping');
 **DEV NOTE**: Should we implement it? :D
 
 ```js
-let subscriber = jsourd.on('ping', function(data) {
+let subscriber = skygear.on('ping', function(data) {
   console.log('received a ping');
 });
 
