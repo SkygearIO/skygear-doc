@@ -27,9 +27,9 @@ If you are not already docker user, you will follow the instruction at
 
 
 ``` javascript
-import jsourd from 'jsourd';
-jsourd.endPoint = 'http://192.168.99.100:3000/';
-jsourd.configApiKey('secret_at_development.ini')
+import skygear from 'skygear';
+skygear.endPoint = 'http://192.168.99.100:3000/';
+skygear.configApiKey('secret_at_development.ini')
 ```
 
 ### Create your first user
@@ -38,8 +38,8 @@ jsourd.configApiKey('secret_at_development.ini')
 const username = 'ben';
 const email = 'user@myapp.com';
 const password = 'truelyrandom';
-jsourd.signup(username, email, password).then(function() {
-  console.log('Signup ok, got token', jsourd.currentAccessToken);
+skygear.signup(username, email, password).then(function() {
+  console.log('Signup ok, got token', skygear.currentAccessToken);
 }, function(error) {
   console.log('Signup failed with error', error);
 });
@@ -48,11 +48,11 @@ jsourd.signup(username, email, password).then(function() {
 ### Create your first record
 
 ``` javascript
-const Note = jsourd.Record.extend('note');
+const Note = skygear.Record.extend('note');
 const note = new Note({
   'content': 'Hello World.'
 });
-jsourd.publicDB.save(note).then(function (record) {
+skygear.publicDB.save(note).then(function (record) {
   console.log('Record saved', record);
 }, function (error) {
   console.log('Saving failed', error);
