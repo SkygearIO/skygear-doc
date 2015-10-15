@@ -1,11 +1,9 @@
 +++
 date = "2015-09-29T18:39:50+08:00"
 draft = true
-title = "acl"
+title = "Access Control by relation"
 
 +++
-
-## Access controls by relations
 
 1. PrivateDB are turely private. Setting ACL will have no effect (and no exception)
 1. Record saved to PublicDB will default grant read access to public.
