@@ -23,7 +23,7 @@ ready to be [imported]({{< relref "#importing-records" >}}).
 By default `record export` also downloads the file of a record's asset field.
 Use the option `--skip-asset` to avoid this download and have `record export`
 instead written the JSON representation of that asset. `record import` will
-work as long as the asset is still being kept in Ourd DB.
+work as long as the asset is still being kept in Skygear DB.
 
 ### Directory structure
 

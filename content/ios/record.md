@@ -7,13 +7,13 @@ title = "Container, Databases and Records"
 
 ## Saving a record
 
-Let's imagine we are writing a To-Do app with Ourd. When user creates
+Let's imagine we are writing a To-Do app with Skygear. When user creates
 an to-do item, we want to save that item on server. We probably will save that
 to-do item like this:
 
 ```obj-c
 SKYRecord *todo = [SKYRecord recordWithRecordType:@"todo"];
-todo[@"title"] = @"Write documents for Ourd";
+todo[@"title"] = @"Write documents for Skygear";
 todo[@"order"] = @1;
 todo[@"done"] = @NO;
 
@@ -45,7 +45,7 @@ one by one.
 record has a _type_, which describes what kind of data this record holds.
 
 A record can store whatever values that's JSON-serializable, it include
-strings, numbers, booleans, dates, plus several custom type that Ourd
+strings, numbers, booleans, dates, plus several custom type that Skygear
 supports (TODO: add references to other pages).
 
 ### SKYContainer
@@ -67,7 +67,7 @@ Container provides [User Authentication]({{< relref "user.md" >}}),
 
 `SKYDatabase` is the central hub of data storage in `SkyKit`. The main
 responsibility of database is to store [records]({{< relref "#SKYRecord" >}}),
-the data storage unit in Ourd.
+the data storage unit in Skygear.
 
 Every container has one _pubic database_, which stores data accessible to
 every users. Every user also has its own _private database_, which stores data
@@ -79,7 +79,7 @@ Now let's return to our to-do item example:
 
 ```obj-c
 SKYRecord *todo = [SKYRecord recordWithRecordType:@"todo"];
-todo[@"title"] = @"Write documents for Ourd";
+todo[@"title"] = @"Write documents for Skygear";
 todo[@"order"] = @1;
 todo[@"done"] = @NO;
 
@@ -147,7 +147,7 @@ method.
 
 We have shown how to fetch individual records by ids, but in real-world
 application there are usually needs to show a list of items according to
-some criteria. It is supported by queries in Ourd.
+some criteria. It is supported by queries in Skygear.
 
 Let's see how to fetch a list of to-do items to be displayed in our
 hypothetical To-Do app:
@@ -173,7 +173,7 @@ query.sortDescriptors = @[sortDescriptor];
 
 We constructed a `SKYQuery` to search for `todo` records. There are no additional
 criteria needed so we put the predicate to `nil`. Then we assigned a
-`NSSortDescription` to ask Ourd to sort the `todo` records by `order` field
+`NSSortDescription` to ask Skygear to sort the `todo` records by `order` field
 ascendingly.
 
 `SKYQuery` utilizes `NSPredicate` to apply filtering on query results. For

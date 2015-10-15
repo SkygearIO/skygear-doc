@@ -5,8 +5,8 @@ title = "Introduction to CLI"
 
 +++
 
-Ourd provides a default command-line interface `skycli` to interact with
-Ourd's handlers and postgres backend to facilitate application development
+Skygear provides a default command-line interface `skycli` to interact with
+Skygear's handlers and postgres backend to facilitate application development
 and some common administration works.
 
 ## Getting started
@@ -20,7 +20,7 @@ $ git clone http://github.com/oursky/skycli
 $ go get -u github.com/oursky/skycli
 ```
 
-Then configure the API key of your Ourd app so that it can call Ourd's
+Then configure the API key of your Skygear app so that it can call Skygear's
 handler:
 
 ```bash

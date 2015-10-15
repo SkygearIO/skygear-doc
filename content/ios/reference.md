@@ -5,7 +5,7 @@ title = "Record Relations"
 
 +++
 
-Ourd supports many-to-one (aka. parent-child) relation between records via _reference_.
+Skygear supports many-to-one (aka. parent-child) relation between records via _reference_.
 `SKYReference` is a pointer to a record in database. Let's say we are going to
 reference _Record A_ in _Record B_, we first construct a reference of Record A
 using its id.
@@ -26,7 +26,7 @@ It will establish a reference from _Record B_ to _Record A_.
 
 ## Eager Loading
 
-Ourd support eager loading of referenced records when you are querying the
+Skygear support eager loading of referenced records when you are querying the
 referencing records. It's done by supplying a key path expression to
 `SKYQuery-transientIncludes`:
 

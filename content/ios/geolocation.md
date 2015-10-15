@@ -40,7 +40,7 @@ SKYQuery *query = [SKYQuery queryWithRecordType:@"photo" predicate:predicate];
 }];
 ```
 
-`distanceToLocation:fromLocation:` is a Ourd function which returns distance
+`distanceToLocation:fromLocation:` is a Skygear function which returns distance
 between a location field in a record and a specific location.
 
 ## Sorting records by distance

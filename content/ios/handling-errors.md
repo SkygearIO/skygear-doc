@@ -5,7 +5,7 @@ title = "Handling Errors"
 
 +++
 
-Whenever you invoke an async operation in Ourd, there is a `NSError` parameter
+Whenever you invoke an async operation in Skygear, there is a `NSError` parameter
 available in the completion callback. For example, the completion callback of
 `saveRecord:completion:` is:
 
@@ -13,7 +13,7 @@ available in the completion callback. For example, the completion callback of
 void(^)(SKYRecord *record, NSError *error)
 ```
 
-All errors passed from Ourd will have `error.domain` equaled to
+All errors passed from Skygear will have `error.domain` equaled to
 `SKYOperationErrorDomain`.
 
 *What documented below is not implemented*
@@ -22,7 +22,7 @@ Imaginary complete error handling of fetching record
 
 ```obj-c
 [privateDB fetchRecordWithID:recordID completion:^(SKYRecord *record, NSError *error){
-    // we don't need to check for error.domain here, Ourd should ensure all
+    // we don't need to check for error.domain here, Skygear should ensure all
     // errors thrown are in SKYOperationErrorDomain
 
     if (error.code == SKYErrorNotFound) {

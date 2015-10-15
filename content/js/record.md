@@ -32,8 +32,8 @@ The first things you need to interact with container is setting `endPoint` and
 `accessToken`.
 
 ``` javascript
-JSOurd.endPoint = 'http://mydeployment.dev/api/';
-JSOurd.configApiKey('mysecrect');
+JSSkygear.endPoint = 'http://mydeployment.dev/api/';
+JSSkygear.configApiKey('mysecrect');
 ```
 
 # Database

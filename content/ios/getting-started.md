@@ -5,15 +5,15 @@ title = "iOS: Getting started"
 
 +++
 
-This guide will show you how to integrate Ourd into an existing iOS project.
+This guide will show you how to integrate Skygear into an existing iOS project.
 
 It is assumed that you use [CocoaPods](https://cocoapods.org/) to manage your
 iOS application dependency.
 
-## Include Ourd as a dependency
+## Include Skygear as a dependency
 
 1. [Download the source](https://github.com/oursky/skygear-SDK-JS/archive/master.zip)
-   of Ourd's iOS SDK (_SkyKit_) and unzip it to your project folder.
+   of Skygear's iOS SDK (_SkyKit_) and unzip it to your project folder.
 
    * If you use _git_ for source control, it is recommended to submodule SkyKit
      instead:
@@ -31,7 +31,7 @@ iOS application dependency.
 3. `pod install`
 4. Done!
 
-## Configure Ourd container
+## Configure Skygear container
 
 Now, edit `AppDelegate.m` and include SkyKit:
 
@@ -44,10 +44,10 @@ Then add the followings in the `application:didFinishLaunchingWithOptions:` meth
 ```obj-c
 SKYContainer *container = [SKYContainer defaultContainer];
 [container configAddress:@"localhost:3000"];
-[container configAddress:@"OURD_API_KEY"];
+[container configAddress:@"Skygear_API_KEY"];
 ```
 
-Note: Replace `localhost:3000` and `OURD_API_KEY` with your server configuration.
+Note: Replace `localhost:3000` and `Skygear_API_KEY` with your server configuration.
 
 ## Test the SDK
 

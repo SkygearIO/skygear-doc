@@ -7,8 +7,8 @@ title = "Developing Your First Plugin"
 
 It is simple to create your first plugin. 
 
-To create a plugin, you have to define functions in your Python program that takes arguments defined by each type of extension point. For Ourd to find your function, you have to decorate your
-functions using decorators provided by the `py-skygear` package. Doing so will also allows py-skygear to register your hooks to Ourd when the plugin program starts. When Ourd calls your plugin, `py-skygear` will take the plugin message and calls the appropriate function automatically.
+To create a plugin, you have to define functions in your Python program that takes arguments defined by each type of extension point. For Skygear to find your function, you have to decorate your
+functions using decorators provided by the `py-skygear` package. Doing so will also allows py-skygear to register your hooks to Skygear when the plugin program starts. When Skygear calls your plugin, `py-skygear` will take the plugin message and calls the appropriate function automatically.
 
 # Install py-skygear
 
@@ -60,7 +60,7 @@ $ py-skygear sample.py --subprocess init
 {"provider": [], "timer": [], "op": [], "hook": [], "handler": {}}
 ```
 
-This command finds all hooks already defined in the plugin. The command has a `--subprocess` flag so that you can verify that the plugin works without running Ourd. This is standalone version allows you to call plugin hooks by command line.
+This command finds all hooks already defined in the plugin. The command has a `--subprocess` flag so that you can verify that the plugin works without running Skygear. This is standalone version allows you to call plugin hooks by command line.
 
 All types of hooks are now empty because we have not defined any! Let’s go ahead to implement the easiest extension point—lambda function:
 
@@ -84,21 +84,21 @@ $ echo '["Bob"]' | py-skygear sample.py --subprocess op chima:hello
 {"result": {"message": "Hello Bob"}}
 ```
 
-# Add plugin to Ourd configuration
+# Add plugin to Skygear configuration
 
-Add the following section to Ourd configuration to declare a new plugin.
+Add the following section to Skygear configuration to declare a new plugin.
 
 [plugin "sample"]
 transport = zmq
 path = python
 args = tcp://0.0.0.0:5555/
 
-When Ourd starts, it will wait for plugin registration information before serving requests. We need to start our plugin so that the plugin can send registration information to Ourd.
+When Skygear starts, it will wait for plugin registration information before serving requests. We need to start our plugin so that the plugin can send registration information to Skygear.
 
 ```
 $ py-skygear sample.py
 Connecting to address tcp://127.0.0.1:5555
 ```
 
-You can now try out your new lambda function by calling it through Ourd API or calling it from your app.
+You can now try out your new lambda function by calling it through Skygear API or calling it from your app.
 

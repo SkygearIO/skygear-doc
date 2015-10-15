@@ -14,6 +14,6 @@ def meow(payload, io):
     return
 ```
 
-This will allows your app to send a `chima:echo` request to Ourd, with the request sent to your plugin for processing. In this example, the request is echoed back to the app when calling `io.write`.
+This will allows your app to send a `chima:echo` request to Skygear, with the request sent to your plugin for processing. In this example, the request is echoed back to the app when calling `io.write`.
 
-`auth_required=True` allows Ourd to restrict requests to authenticated users only.
+`auth_required=True` allows Skygear to restrict requests to authenticated users only.

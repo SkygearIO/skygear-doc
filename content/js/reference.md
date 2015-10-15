@@ -5,9 +5,9 @@ title = "Record Relation"
 
 +++
 
-# What Ourd provide
+# What Skygear provide
 
-Ourd support parent-child relation between records via _reference_.
+Skygear support parent-child relation between records via _reference_.
 `skygear.Reference` is a pointer class, which will translate to foreignkey in
 skygear database for efficient query.
 
