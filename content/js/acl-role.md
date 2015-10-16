@@ -59,6 +59,20 @@ skygear.setDefaultRole(Visitor);
 Remember that the above definitions are freezed at the time the application
 is switched to production mode.
 
+## Access types
+
+There are two access types: read and write.
+
+A user having read access to a record will be able to fetch and query the
+record. This includes getting all fields of the record as well as the access
+control settings for the record.
+
+A user having write access to a record will be able to save and delete the
+record. This includes adding, updating and removing all fields of the record
+as well as the access control settings for the record.
+
+A user having write access cannot change the ownership of the records.
+
 ## Add role-based access for each record
 
 In role-based access control, you add access to a record by specifying which

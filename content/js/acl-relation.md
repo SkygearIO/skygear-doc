@@ -11,29 +11,86 @@ title = "Access Control by relation"
 1. Able to grant permission base on owner relations.
 1. Record must have owner, and owner always have full access.
 
-## Common access control operation
+Relation-based access control is suitable for making social application in
+which access to records are defined by whether the user has certain relationship
+with the creator of the record.
 
-### Grant read to friends
+There are two types of user relationships: Friend is a mutual relationship
+while follow is a directional relationship.
+
+In this guide, we are going to walk you through making a blogging application
+in which users can create posts that their friends can see.
+
+## Add relation-based access for each record
+
+In relation-based access control, you add access to a record by specifying
+which type of relation will have access to it, and which type of access is
+added.
+
+In our example, suppose that a post can only be see by friends of the owner of
+the record:
 
 ```javascript
-const note = new Note({
-  'content': 'Note for friends.'
+const post = new Post({
+  'content': 'This is a funny joke: ...'
 });
-note.addReadAccess(skygear.FRIEND);
-skygear.public.save(note);
+post.acl.addReadAccess(skygear.FRIEND);
+skygear.publicDB.save(post);
 ```
 
-### Grant Access controls by user
+For an existing post, the access control for a record can be changed this way:
+
+``` javascript
+skygear.publicDB.query(query).then(function (records) {
+  const post = records[0];
+  post.acl.addReadAccess(skygear.FRIEND);
+  skygear.publicDB.save(post);
+}, function (error) {
+  console.log(error);
+});
+```
+
+When adding a read access to a record, the default access control for
+the record is ignored, and hence the record is no longer public readable.
+
+## Remove relation-based access for each record
+
+Suppose that the social application support a feature to hide a post from
+all users, you can do that by removing both public read access and removing
+friend read access from record:
+
+``` javascript
+skygear.publicDB.query(query).then(function (records) {
+  const post = records[0];
+  post.acl.removePublicReadAccess();
+  post.acl.removeReadAccess(skygear.FRIEND);
+  skygear.publicDB.save(post);
+}, function (error) {
+  console.log(error);
+});
+```
+
+Since the owner of a record have full access to it, the creator of the post
+can still see it.
+
+## Relationship sub-types
+
+It is possible to define sub-types of relationship. You do this by giving
+a sub-type name to an existing relation type. For example, you
+can add a `special`, and a `acquaintance` sub-type to the friend relation type.
+If you add read access to friends having the `special` sub-type, only
+friends who have this `special` relationship will be able to see this record.
 
 ```javascript
-const ben = skygear.getUserByEmail('ben@mail.com'); // Discover user.
-const note = new Note({
-  'content': 'Note for ben.'
+const specialFriend = new skygear.FriendRelation("special");
+const post = new Post({
+  'content': 'This is super secret: ...'
 });
-note.addWriteAccess(ben);
+post.acl.addReadAccess(specialFriend);
+skygear.publicDB.save(post);
 ```
 
-### Examine a record access
+## Examine a record access
 
 After you query a record. You can query its access control. And modify it if
 wished.
@@ -49,43 +106,4 @@ skygear.publicDB.query(query).then(function (records) {
 }, function (error) {
   console.log(error);
 });
-```
-
-_Modifying a existing record access control_
-
-``` javascript
-let note;
-skygear.publicDB.query(query).then(function (records) {
-  const note = records[0];
-}, function (error) {
-  console.log(error);
-});
-if (!note.getReadAccess(skygear.FRIEND)) {
-  note.addReadAccess(skygear.FRIEND);
-  skygear.public.save(note);
-}
-```
-
-_Removing a existing record access control_
-
-Anyone with `write` permission will be able to modify the access control.
-
-``` javascript
-note.removePublicReadAccess();
-note.removeReadAccess(skygear.FRIEND);
-skygear.publicDB.save(note);
-```
-
-## Complex ACL
-
-```javascript
-const ben = skygear.getUserByEmail('ben@mail.com'); // Discover user.
-const note = new Note({
-  'content': 'Note for ben.'
-});
-const acl = skygear.ACL();
-acl.addWriteAccess(ben);
-acl.addReadAccess(skygear.FRIEND);
-acl.addPublicReadAccess();
-note.acl = acl; // This will overwrite all existing acl.
 ```
