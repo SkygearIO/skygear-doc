@@ -62,6 +62,7 @@ Collection of article help you unleash the power of Skygear.
   - [How to install Skygear JS SDK in your website]({{< relref "js/index.md" >}})
   - [Simple app to get started (Create user / record / query)]({{< relref "js/simple-app.md" >}})
   - [CRUD Records]({{< relref "js/record.md" >}})
+  - [Querying Records]({{< relref "js/query.md" >}})
   - **[Not implemented]** [Records Relations (References)]({{< relref "js/reference.md" >}})
   - [Users (Authentication)]({{< relref "js/users.md" >}})
   - **[Not implemented]** [Access Control by relation]({{< relref "js/acl-relation.md" >}})
