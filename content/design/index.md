@@ -11,7 +11,7 @@ title = "Index of design document"
 
 - [Role-based]({{< relref "design/role-base.md" >}})
 - [Plugin-based]({{< relref "design/plugin-base.md" >}})
-- [Relationship-based]({{< relref "design/plugin-base.md" >}})
+- [Relationship-based]({{< relref "design/relationship-base.md" >}})
 
 **AskQ**
 
