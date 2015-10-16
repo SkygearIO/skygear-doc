@@ -1,4 +1,3 @@
-baseurl = "http://docs.pandadb.com/tutorial"
 languageCode = "en-us"
 title = "Skygear Doc"
 PygmentsCodeFences = true
