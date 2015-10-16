@@ -82,5 +82,5 @@ Great!
 
 Explore Skygear's SDKs to start developing :D
 
-* [Objective C SDK](https://github.com/oursky/ODKit)
+* [Objective C SDK](https://github.com/oursky/skygear-SDK-iOS)
 * [Javascript SDK](https://github.com/oursky/skygear)

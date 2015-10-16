@@ -1,5 +1,5 @@
 baseurl = "http://docs.pandadb.com/tutorial"
 languageCode = "en-us"
-title = "Ourd Doc"
+title = "Skygear Doc"
 PygmentsCodeFences = true
 PygmentsStyle = "friendly"

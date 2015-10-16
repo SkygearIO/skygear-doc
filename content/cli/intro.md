@@ -24,7 +24,7 @@ Then configure the API key of your Skygear app so that it can call Skygear's
 handler:
 
 ```bash
-$ export ODCLI_API_KEY=YOUR_API_KEY
+$ export SKYCLI_API_KEY=YOUR_API_KEY
 ```
 
 Let's verify it is working by getting a non-existed record:
@@ -90,7 +90,7 @@ skycli: Downloaded 1 asset to ./attachment-ef678c.doc
 `order to write on any databases, we have to set an access token:
 
 ```bash
-$ export ODCLI_ACCESS_TOKEN=A_USER_ACCESS_TOKEN
+$ export SKYCLI_ACCESS_TOKEN=A_USER_ACCESS_TOKEN
 ```
 
 **DEV NOTE: We should support read / write by a master key or something that
