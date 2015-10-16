@@ -5,56 +5,56 @@ title = "iOS: Getting started"
 
 +++
 
-This guide will show you how to integrate Ourd into an existing iOS project.
+This guide will show you how to integrate Skygear into an existing iOS project.
 
 It is assumed that you use [CocoaPods](https://cocoapods.org/) to manage your
 iOS application dependency.
 
-## Include Ourd as a dependency
+## Include Skygear as a dependency
 
-1. [Download the source](https://github.com/oursky/ODKit/archive/master.zip)
-   of Ourd's iOS SDK (_ODKit_) and unzip it to your project folder.
+1. [Download the source](https://github.com/oursky/skygear-SDK-JS/archive/master.zip)
+   of Skygear's iOS SDK (_SkyKit_) and unzip it to your project folder.
 
-   * If you use _git_ for source control, it is recommended to submodule ODKit
+   * If you use _git_ for source control, it is recommended to submodule SkyKit
      instead:
 
      	```bash
-     	git submodule add git@github.com:oursky/ODKit.git
+     	git submodule add git@github.com:oursky/skygear-SDK-JS.git
      	```
 
 2. Edit your `Podfile` to include the this line:
 
    	```ruby
-   	pod "ODKit", :path => './ODKit'
+   	pod "SkyKit", :path => './SkyKit'
    	```
 
 3. `pod install`
 4. Done!
 
-## Configure Ourd container
+## Configure Skygear container
 
-Now, edit `AppDelegate.m` and include ODKit:
+Now, edit `AppDelegate.m` and include SkyKit:
 
 ```obj-c
-import <ODKit/ODKit.h>
+import <SkyKit/SkyKit.h>
 ```
 
 Then add the followings in the `application:didFinishLaunchingWithOptions:` method:
 
 ```obj-c
-ODContainer *container = [ODContainer defaultContainer];
+SKYContainer *container = [SKYContainer defaultContainer];
 [container configAddress:@"localhost:3000"];
-[container configAddress:@"OURD_API_KEY"];
+[container configAddress:@"Skygear_API_KEY"];
 ```
 
-Note: Replace `localhost:3000` and `OURD_API_KEY` with your server configuration.
+Note: Replace `localhost:3000` and `Skygear_API_KEY` with your server configuration.
 
 ## Test the SDK
 
 Now let's test the SDK installation by signing up a new user.
 
 ```obj-c
-[[ODContainer defaultContainer] signupUserWithUsername:@"john.doe@example.com" password:@"supersecurepasswd" completionHandler:^(ODUserRecordID *user, NSError *error) {
+[[SKYContainer defaultContainer] signupUserWithUsername:@"john.doe@example.com" password:@"supersecurepasswd" completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"Error occurried while signing up: %@", error);
         return;

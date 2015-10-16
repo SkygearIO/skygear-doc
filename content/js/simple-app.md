@@ -8,8 +8,8 @@ title = "Simple Application"
 ## Creating users
 
 ```js
-jsourd.signup(username, email, password).then(function() {
-  console.log('access token: %s', jsourd.currentAccessToken);
+skygear.signup(username, email, password).then(function() {
+  console.log('access token: %s', skygear.currentAccessToken);
 }, function(error) {
   console.log('error signing up: %o', error);
 });
@@ -18,11 +18,11 @@ jsourd.signup(username, email, password).then(function() {
 ## Saving records
 
 ```js
-record = jsourd.Record({
+record = skygear.Record({
   _type: 'note',
   content: 'I am a note.'
 })
-jsourd.privateDB().save(record).then(function(record) {
+skygear.privateDB().save(record).then(function(record) {
   console.log('record saved successfully: %o', record);
 }, function(error) {
   console.log('error saving record: %o', error)
@@ -32,7 +32,7 @@ jsourd.privateDB().save(record).then(function(record) {
 ## Fetching records (not implemented)
 
 ```js
-jsourd.privateDB().fetch('note', 'id').then(function(record) {
+skygear.privateDB().fetch('note', 'id').then(function(record) {
   console.log('record fetched successfully: %o', record);
 }, function(error) {
   console.log('error fetching record note/id: %o', error)
@@ -43,7 +43,7 @@ jsourd.privateDB().fetch('note', 'id').then(function(record) {
 
 ```js
 let query = Query('note');
-jsourd.privateDB().query(query).then(function(notes) {
+skygear.privateDB().query(query).then(function(notes) {
   console.log('received %d notes', notes.length);
   // do something with your notes
 }, function(error) {

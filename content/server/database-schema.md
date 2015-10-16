@@ -5,7 +5,7 @@ title = "Database Schema"
 
 +++
 
-This section describes the database schema used by Ourd.
+This section describes the database schema used by Skygear.
 
 Tables in the database can be classified into Records Table and Reserved Table.
 Name of reserved table is always prefixed with underscore (`_`).
@@ -42,7 +42,7 @@ For example, consider a `note` record in JSON representation like this:
 }
 ```
 
-When saved to Ourd, the above record will be saved in a records table called `note` like this:
+When saved to Skygear, the above record will be saved in a records table called `note` like this:
 
 * _id (string): "abcdef"
 * _database_id (string): null
@@ -53,7 +53,7 @@ When saved to Ourd, the above record will be saved in a records table called `no
 
 ## Reserved Tables
 
-Reserved tables stores all data that is not records. For example, user data and device data is not stored in a records table but in a reserved table. The schema of the reserved tables are fixed for each version, but you may need to migrate the schema of these tables when upgrading from an old version of Ourd to a new version. Do not manually change the schema of reserved tables.
+Reserved tables stores all data that is not records. For example, user data and device data is not stored in a records table but in a reserved table. The schema of the reserved tables are fixed for each version, but you may need to migrate the schema of these tables when upgrading from an old version of Skygear to a new version. Do not manually change the schema of reserved tables.
 
 It is possible to manipulate data in reserved tables directly, but this is not advised as doing so may make the data inconsistent. Exercise cautions when modifying data in reserved tables.
 
@@ -61,7 +61,7 @@ This section describes each reserved table.
 
 ### User
 
-The `_user` reserved table stores data of each user in Ourd. This is the most important reserved tables as the majority part of the system depends on user data.
+The `_user` reserved table stores data of each user in Skygear. This is the most important reserved tables as the majority part of the system depends on user data.
 
 ### Device
 

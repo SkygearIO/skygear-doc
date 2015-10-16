@@ -8,21 +8,21 @@ title = "Installing Javascript SDK"
 # Using npm
 
 ``` bash
-npm install jsoud --save
+npm install skygear --save
 ```
 
 # Install the latest
 
 ``` bash
-git submodule git@github.com:oursky/jsourd.git 
-cd jsourd
+git submodule git@github.com:oursky/skygear.git 
+cd skygear
 npm install
 cd ..
-npm install jsoud/
+npm install skygear/
 ```
 
 # Includ in your website
 
 ``` html
-<script src="//cdn.jsourd.io/jsourd.js"></script>
+<script src="//cdn.skygear.io/skygear.js"></script>
 ```

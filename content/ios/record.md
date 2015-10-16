@@ -7,18 +7,18 @@ title = "Container, Databases and Records"
 
 ## Saving a record
 
-Let's imagine we are writing a To-Do app with Ourd. When user creates
+Let's imagine we are writing a To-Do app with Skygear. When user creates
 an to-do item, we want to save that item on server. We probably will save that
 to-do item like this:
 
 ```obj-c
-ODRecord *todo = [ODRecord recordWithRecordType:@"todo"];
-todo[@"title"] = @"Write documents for Ourd";
+SKYRecord *todo = [SKYRecord recordWithRecordType:@"todo"];
+todo[@"title"] = @"Write documents for Skygear";
 todo[@"order"] = @1;
 todo[@"done"] = @NO;
 
-ODDatabase *privateDB = [[ODContainer defaultContainer] privateCloudDatabase];
-[privateDB saveRecord:todo completion:^(ODRecord *record, NSError *error) {
+SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
+[privateDB saveRecord:todo completion:^(SKYRecord *record, NSError *error) {
     if (error) {
         NSLog(@"error saving todo: %@", error);
         return;
@@ -39,35 +39,35 @@ There are couples of things we have done here:
 We have mentioned _record_, _container_ and _database_. Let's look at them
 one by one.
 
-### ODRecord
+### SKYRecord
 
-`ODRecord` is a key-value data object which can be stored in a _database_. Each
+`SKYRecord` is a key-value data object which can be stored in a _database_. Each
 record has a _type_, which describes what kind of data this record holds.
 
 A record can store whatever values that's JSON-serializable, it include
-strings, numbers, booleans, dates, plus several custom type that Ourd
+strings, numbers, booleans, dates, plus several custom type that Skygear
 supports (TODO: add references to other pages).
 
-### ODContainer
+### SKYContainer
 
-`ODContainer` is the uppermost layer of `ODKit`. It represents the root of all
+`SKYContainer` is the uppermost layer of `SkyKit`. It represents the root of all
 resources accessible by an application and one application should have exactly
-one container. In `ODKit`, such container is accessed via the singleton
+one container. In `SkyKit`, such container is accessed via the singleton
 `defaultContainer`:
 
 ```obj-c
-ODContainer *container = [ODContainer defaultContainer];
+SKYContainer *container = [SKYContainer defaultContainer];
 ```
 
 Container provides [User Authentication]({{< relref "user.md" >}}),
 [Asset Storage]({{< relref "asset.md" >}}) and access to
-[public and private databases]({{< relref "#ODDatabase" >}}).
+[public and private databases]({{< relref "#SKYDatabase" >}}).
 
-### ODDatabase
+### SKYDatabase
 
-`ODDatabase` is the central hub of data storage in `ODKit`. The main
-responsibility of database is to store [records]({{< relref "#ODRecord" >}}),
-the data storage unit in Ourd.
+`SKYDatabase` is the central hub of data storage in `SkyKit`. The main
+responsibility of database is to store [records]({{< relref "#SKYRecord" >}}),
+the data storage unit in Skygear.
 
 Every container has one _pubic database_, which stores data accessible to
 every users. Every user also has its own _private database_, which stores data
@@ -78,13 +78,13 @@ only accessible to that user alone.
 Now let's return to our to-do item example:
 
 ```obj-c
-ODRecord *todo = [ODRecord recordWithRecordType:@"todo"];
-todo[@"title"] = @"Write documents for Ourd";
+SKYRecord *todo = [SKYRecord recordWithRecordType:@"todo"];
+todo[@"title"] = @"Write documents for Skygear";
 todo[@"order"] = @1;
 todo[@"done"] = @NO;
 
-ODDatabase *privateDB = [[ODContainer defaultContainer] privateCloudDatabase];
-[privateDB saveRecord:todo completion:^(ODRecord *record, NSError *error) {
+SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
+[privateDB saveRecord:todo completion:^(SKYRecord *record, NSError *error) {
     if (error) {
         NSLog(@"error saving todo: %@", error);
         return;
@@ -97,7 +97,7 @@ ODDatabase *privateDB = [[ODContainer defaultContainer] privateCloudDatabase];
 If you run the code above, you console should show:
 
 ```
-2015-09-22 16:16:37.893 todoapp[89631:1349388] saved todo with recordID = <ODRecordID: 0x7ff93ac37940; recordType = todo, recordName = 369067DC-BDBC-49D5-A6A2-D83061D83BFC>
+2015-09-22 16:16:37.893 todoapp[89631:1349388] saved todo with recordID = <SKYRecordID: 0x7ff93ac37940; recordType = todo, recordName = 369067DC-BDBC-49D5-A6A2-D83061D83BFC>
 ```
 
 The `recordID` property on your saved todo is an id which uniquely identifies
@@ -105,7 +105,7 @@ the record in a database. With it you can modify the record later on. Say if
 you have to mark this todo as done:
 
 ```obj-c
-ODRecord *todo = [ODRecord recordWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
+SKYRecord *todo = [SKYRecord recordWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
 todo[@"done"] = @YES;
 [privateDB saveRecord:todo completion:nil];
 ```
@@ -115,8 +115,8 @@ todo[@"done"] = @YES;
 With the record ID we could also fetch the record from a database:
 
 ```obj-c
-ODRecordID *recordID = [ODRecordID recordIDWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
-[privateDB fetchRecordWithID:recordID completionHandler:^(ODRecord *record, NSError *error) {
+SKYRecordID *recordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
+[privateDB fetchRecordWithID:recordID completionHandler:^(SKYRecord *record, NSError *error) {
     if (error) {
         NSLog(@"error fetching todo: %@", error);
         return;
@@ -135,25 +135,25 @@ ODRecordID *recordID = [ODRecordID recordIDWithRecordType:@"todo" name:@"369067D
 Deleting a record requires its id too:
 
 ```obj-c
-ODRecordID *recordID = [ODRecordID recordIDWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
+SKYRecordID *recordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
 [privateDB deleteRecordWithID:recordID completionHandler:nil];
 ```
 
 If you are to delete records in batch, you could also use the
-`ODDatabase-deleteRecordsWithIDs:completionHandler:perRecordErrorHandler:`
+`SKYDatabase-deleteRecordsWithIDs:completionHandler:perRecordErrorHandler:`
 method.
 
 ## Queries
 
 We have shown how to fetch individual records by ids, but in real-world
 application there are usually needs to show a list of items according to
-some criteria. It is supported by queries in Ourd.
+some criteria. It is supported by queries in Skygear.
 
 Let's see how to fetch a list of to-do items to be displayed in our
 hypothetical To-Do app:
 
 ```obj-c
-ODQuery *query = [ODQuery queryWithRecordType:@"todo" predicate:nil];
+SKYQuery *query = [SKYQuery queryWithRecordType:@"todo" predicate:nil];
 
 NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
 query.sortDescriptors = @[sortDescriptor];
@@ -165,17 +165,17 @@ query.sortDescriptors = @[sortDescriptor];
     }
 
     NSLog(@"Received %@ todos.", @(results.count));
-    for (ODRecord *todo in results) {
+    for (SKYRecord *todo in results) {
         NSLog(@"Got a todo: %@", todo[@"title"]);
     }
 }];
 ```
 
-We constructed a `ODQuery` to search for `todo` records. There are no additional
+We constructed a `SKYQuery` to search for `todo` records. There are no additional
 criteria needed so we put the predicate to `nil`. Then we assigned a
-`NSSortDescription` to ask Ourd to sort the `todo` records by `order` field
+`NSSortDescription` to ask Skygear to sort the `todo` records by `order` field
 ascendingly.
 
-`ODQuery` utilizes `NSPredicate` to apply filtering on query results. For
+`SKYQuery` utilizes `NSPredicate` to apply filtering on query results. For
 an overview of features support, please refer to the
 [Query Guide]({{< relref "query.md" >}}).

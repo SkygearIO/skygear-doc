@@ -25,8 +25,8 @@ Consider the following HTML:
 ```js
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-jsourd.signup(username, username, password).then(function() {
-  console.log('access token: %s', jsourd.currentAccessToken);
+skygear.signup(username, username, password).then(function() {
+  console.log('access token: %s', skygear.currentAccessToken);
 }, function(error) {
   console.log('error signing up: %o', error);
 });
@@ -37,8 +37,8 @@ jsourd.signup(username, username, password).then(function() {
 ```js
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-jsourd.login(username, password).then(function() {
-  console.log('access token: %s', jsourd.currentAccessToken);
+skygear.login(username, password).then(function() {
+  console.log('access token: %s', skygear.currentAccessToken);
 }, function(error) {
   console.log('error logging in: %o', error);
 });
@@ -47,7 +47,7 @@ jsourd.login(username, password).then(function() {
 # Logging out
 
 ```js
-jsourd.logout().then(function() {
+skygear.logout().then(function() {
   console.log('logout successfully');
 }, function(error) {
   console.log('error logging out: %o', error);
@@ -57,7 +57,7 @@ jsourd.logout().then(function() {
 # Changing password **[Not implemented]**
 
 ``` javascript
-jsourd.changePassword(oldPassword, newPassword).then(function(_user) {
+skygear.changePassword(oldPassword, newPassword).then(function(_user) {
   console.log('User now have new password', user);
 }, function (error) {
   console.log('You need too login before changing password!', user);
@@ -70,9 +70,9 @@ __Good to have__
 Allow use to logout all other session.
 
 ``` javascript
-jsourd.changePassword(oldPassword, newPassword, invalidateTokens=true).then(
+skygear.changePassword(oldPassword, newPassword, invalidateTokens=true).then(
   function (user) {
-    console.log('jsourd will got new accessToken automatically', user);
+    console.log('skygear will got new accessToken automatically', user);
   },
   function (error) {
     console.log('Failed', error);

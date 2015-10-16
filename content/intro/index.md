@@ -1,7 +1,7 @@
 +++
 date = "2015-09-22T16:58:04+08:00"
 draft = true
-title = "What is ourd?"
+title = "What is skygear?"
 
 +++
 
@@ -9,13 +9,13 @@ The cloud backend
 
 How to kick start the server
 ```
-docker run oursky/ourd
+docker run oursky/skygear
 ```
 
 Save a record to DB using SDK
 
 ``` javascript
-jsourd.publicDB.save(new Note({
+skygear.publicDB.save(new Note({
     'content': 'Hello World!'
 })).then(function (record) {
     console.log(record);

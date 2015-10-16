@@ -5,32 +5,32 @@ title = "Introduction to CLI"
 
 +++
 
-Ourd provides a default command-line interface `ourd-cli` to interact with
-Ourd's handlers and postgres backend to facilitate application development
+Skygear provides a default command-line interface `skycli` to interact with
+Skygear's handlers and postgres backend to facilitate application development
 and some common administration works.
 
 ## Getting started
 
-To install `ourd-cli`:
+To install `skycli`:
 
 ```bash
 $ mkdir -P $GOPATH/src/github.com/oursky
 $ cd $GOPATH/src/github.com/oursky
-$ git clone http://github.com/oursky/ourd-cli
-$ go get -u github.com/oursky/ourd-cli
+$ git clone http://github.com/oursky/skycli
+$ go get -u github.com/oursky/skycli
 ```
 
-Then configure the API key of your Ourd app so that it can call Ourd's
+Then configure the API key of your Skygear app so that it can call Skygear's
 handler:
 
 ```bash
-$ export ODCLI_API_KEY=YOUR_API_KEY
+$ export SKYCLI_API_KEY=YOUR_API_KEY
 ```
 
 Let's verify it is working by getting a non-existed record:
 
 ```bash
-$ ourd-cli record get note/id _id
+$ skycli record get note/id _id
 Error: record not found
 ```
 
@@ -38,13 +38,13 @@ API key can also be overrided on a per command basis by supplying the
 `api_key` flag:
 
 ```bash
-$ ourd-cli --api_key ANOTHER_API_KEY record get note/id _id
+$ skycli --api_key ANOTHER_API_KEY record get note/id _id
 Error: record not found
 ```
 
 **DEV NOTE**: Global options like _API key_, _access token_ and _endpoint
 address_ should be persisted on a project-by-project basis (e.g. on
-`./.odcli/config`) s.t. cli user doesn't have to configure it on every new
+`./.skycli/config`) s.t. cli user doesn't have to configure it on every new
 shell.
 
 ## Accessing records
@@ -54,7 +54,7 @@ shell.
 You can fetch a record's content:
 
 ```bash
-$ ourd-cli record export --pretty-print --asset false note/id
+$ skycli record export --pretty-print --asset false note/id
 {
   "_id": "note/1",
   "_ownerID": "772adc86-9e0e-4f09-be74-965b0e7d3198",
@@ -72,25 +72,25 @@ $ ourd-cli record export --pretty-print --asset false note/id
 Or access its individual field very quickly:
 
 ```bash
-$ ourd-cli record get note/1 content
+$ skycli record get note/1 content
 I am a note.
 ```
 
-If the field being accessed is an asset, we can instruct `ourd-cli` to
+If the field being accessed is an asset, we can instruct `skycli` to
 download it too (**NOT IMPLEMENTED**):
 
 ```bash
-$ ourd-cli record get --asset note/1 attachment
-ourd-cli: Downloaded 1 asset to ./attachment-ef678c.doc
+$ skycli record get --asset note/1 attachment
+skycli: Downloaded 1 asset to ./attachment-ef678c.doc
 ```
 
 ## Modifying records
 
-`ourd-cli provides several subcommands to modify existing records, but in
+`skycli provides several subcommands to modify existing records, but in
 `order to write on any databases, we have to set an access token:
 
 ```bash
-$ export ODCLI_ACCESS_TOKEN=A_USER_ACCESS_TOKEN
+$ export SKYCLI_ACCESS_TOKEN=A_USER_ACCESS_TOKEN
 ```
 
 **DEV NOTE: We should support read / write by a master key or something that
@@ -99,8 +99,8 @@ $ export ODCLI_ACCESS_TOKEN=A_USER_ACCESS_TOKEN
 We can then set a field on a record:
 
 ```bash
-$ ourd-cli record set note/1 content="This note is a new...note."
-$ ourd-cli record get note/1 content
+$ skycli record set note/1 content="This note is a new...note."
+$ skycli record get note/1 content
 This note is a new...note.
 ```
 
@@ -119,7 +119,7 @@ subcommands accept a flag `--private, -p` which makes the command operates on
 private database, like this:
 
 ```bash
-$ ourd-cli record -p set note/1 content="It is a private note, obviously"
+$ skycli record -p set note/1 content="It is a private note, obviously"
 ```
 
 Of course you have to set the corresponding access token.
@@ -133,17 +133,17 @@ Use `record edit` to create a record.
 Use `record delete`
 
 ```bash
-$ ourd-cli record delete note/1
-$ ourd-cli record get note/1 _id
+$ skycli record delete note/1
+$ skycli record get note/1 _id
 Error: record not found
 ```
 
 ## What now?
 
-You now have a basic understanding of working with records with `ourd-cli`,
+You now have a basic understanding of working with records with `skycli`,
 great work!
 
-Want more? There are some advanced uses of `ourd-cli` intended for data
+Want more? There are some advanced uses of `skycli` intended for data
 administration, in case you are interested...
 
 * [Exporting and importing records]({{< relref "import-export.md" >}})

@@ -19,14 +19,14 @@ title = "Access Control by relation"
 const note = new Note({
   'content': 'Note for friends.'
 });
-note.addReadAccess(jsourd.FRIEND);
-jsourd.public.save(note);
+note.addReadAccess(skygear.FRIEND);
+skygear.public.save(note);
 ```
 
 ### Grant Access controls by user
 
 ```javascript
-const ben = jsourd.getUserByEmail('ben@mail.com'); // Discover user.
+const ben = skygear.getUserByEmail('ben@mail.com'); // Discover user.
 const note = new Note({
   'content': 'Note for ben.'
 });
@@ -41,10 +41,10 @@ wished.
 _Querying a record and examine the access control_
 
 ``` javascript
-jsourd.publicDB.query(query).then(function (records) {
+skygear.publicDB.query(query).then(function (records) {
   const acl = records[0].acl;
   console.log(acl.getFullAccess()); // All access entities
-  console.log(acl.getReadAccess(jsourd.FOLLOWER)); // Boolean value 
+  console.log(acl.getReadAccess(skygear.FOLLOWER)); // Boolean value 
   console.log(acl.getWriteAccess(ben));
 }, function (error) {
   console.log(error);
@@ -55,14 +55,14 @@ _Modifying a existing record access control_
 
 ``` javascript
 let note;
-jsourd.publicDB.query(query).then(function (records) {
+skygear.publicDB.query(query).then(function (records) {
   const note = records[0];
 }, function (error) {
   console.log(error);
 });
-if (!note.getReadAccess(jsourd.FRIEND)) {
-  note.addReadAccess(jsourd.FRIEND);
-  jsourd.public.save(note);
+if (!note.getReadAccess(skygear.FRIEND)) {
+  note.addReadAccess(skygear.FRIEND);
+  skygear.public.save(note);
 }
 ```
 
@@ -72,20 +72,20 @@ Anyone with `write` permission will be able to modify the access control.
 
 ``` javascript
 note.removePublicReadAccess();
-note.removeReadAccess(jsourd.FRIEND);
-jsourd.publicDB.save(note);
+note.removeReadAccess(skygear.FRIEND);
+skygear.publicDB.save(note);
 ```
 
 ## Complex ACL
 
 ```javascript
-const ben = jsourd.getUserByEmail('ben@mail.com'); // Discover user.
+const ben = skygear.getUserByEmail('ben@mail.com'); // Discover user.
 const note = new Note({
   'content': 'Note for ben.'
 });
-const acl = jsoud.ACL();
+const acl = skygear.ACL();
 acl.addWriteAccess(ben);
-acl.addReadAccess(jsourd.FRIEND);
+acl.addReadAccess(skygear.FRIEND);
 acl.addPublicReadAccess();
 note.acl = acl; // This will overwrite all existing acl.
 ```

@@ -5,14 +5,14 @@ title = "Record Relations"
 
 +++
 
-Ourd supports many-to-one (aka. parent-child) relation between records via _reference_.
-`ODReference` is a pointer to a record in database. Let's say we are going to
+Skygear supports many-to-one (aka. parent-child) relation between records via _reference_.
+`SKYReference` is a pointer to a record in database. Let's say we are going to
 reference _Record A_ in _Record B_, we first construct a reference of Record A
 using its id.
 
 ```obj-c
 // aID is a placeholder of Record A's id
-ODReference *aRef = [ODReference referenceWithRecordID:aID];
+SKYReference *aRef = [SKYReference referenceWithRecordID:aID];
 ```
 
 Then assign this reference as a regular field of Record B:
@@ -26,12 +26,12 @@ It will establish a reference from _Record B_ to _Record A_.
 
 ## Eager Loading
 
-Ourd support eager loading of referenced records when you are querying the
+Skygear support eager loading of referenced records when you are querying the
 referencing records. It's done by supplying a key path expression to
-`ODQuery-transientIncludes`:
+`SKYQuery-transientIncludes`:
 
 ```obj-c
-ODQuery *query = [ODQuery queryWithRecordType:@"child" predicate:nil];
+SKYQuery *query = [SKYQuery queryWithRecordType:@"child" predicate:nil];
 NSExpression *keyPath = [NSExpression expressionForKeyPath:@"parent"];
 query.transientIncludes = @{@"parentRecord": keyPath};
 
@@ -42,8 +42,8 @@ query.transientIncludes = @{@"parentRecord": keyPath};
     }
 
     NSLog(@"received %@ children", @(results.count));
-    for (ODRecord *child in results) {
-        ODRecord *parent = child.transient[@"parentRecord"];
+    for (SKYRecord *child in results) {
+        SKYRecord *parent = child.transient[@"parentRecord"];
         NSLog(@"%@'s parent is %@", child.recordID, parent.recordID);
     }
 }];

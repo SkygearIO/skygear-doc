@@ -188,21 +188,21 @@ class UnauthorizedException(Exception):
 
 # admin
 #
-@ourd.before_save("admin")
-@ourd.before_delete("admin")
+@skygear.before_save("admin")
+@skygear.before_delete("admin")
 def before_save_admin(r, o, db):
     if not 'admin' in ctx.user.roles:
         raise UnauthorizedException()
 
-@ourd.before_fetch("admin")
+@skygear.before_fetch("admin")
 def before_fetch_admin(r, o, db):
     pass  # S0
 
 
 # staff
 #
-@ourd.before_save("staff")
-@ourd.before_delete("staff")
+@skygear.before_save("staff")
+@skygear.before_delete("staff")
 def before_save_staff(r, o, db):
     def can_save():
         if 'admin' in ctx.user.roles:
@@ -213,14 +213,14 @@ def before_save_staff(r, o, db):
     if not can_save():
         raise UnauthorizedException()
 
-@ourd.before_fetch("staff")
+@skygear.before_fetch("staff")
 def before_fetch_staff(r, o, db):
     pass  # S0
 
 # writer
 #
-@ourd.before_save("writer")
-@ourd.before_delete("writer")
+@skygear.before_save("writer")
+@skygear.before_delete("writer")
 def before_save_writer(r, o, db):
     def can_save():
         if 'admin' in ctx.user.roles:
@@ -233,20 +233,20 @@ def before_save_writer(r, o, db):
     if not can_save():
         raise UnauthorizedException()
 
-@ourd.before_fetch("writer")
+@skygear.before_fetch("writer")
 def before_fetch_writer(r, o, db):
     pass  # S0
 
 
 # project
 #
-@ourd.before_save("project")
-@ourd.before_delete("project")
+@skygear.before_save("project")
+@skygear.before_delete("project")
 def before_save_project(r, o, db):
     if not ('admin' in ctx.user.roles or 'staff' in ctx.user.roles):
         raise UnauthorizedException()  # S3, S4
 
-@ourd.before_fetch("project")
+@skygear.before_fetch("project")
 def before_fetch_project(r, o, db):
     if not ('admin' in ctx.user.roles or 'staff' in ctx.user.roles) \
             and not r.get('isRecruiting', False):
@@ -254,20 +254,20 @@ def before_fetch_project(r, o, db):
 
 # project task
 #
-@ourd.before_save("project_task")
-@ourd.before_delete("project_task")
+@skygear.before_save("project_task")
+@skygear.before_delete("project_task")
 def before_save_project_task(r, o, db):
     if not ('admin' in ctx.user.roles or 'staff' in ctx.user.roles):
         raise UnauthorizedException()  # S3, S5
 
-@ourd.before_fetch("project_task")
+@skygear.before_fetch("project_task")
 def before_fetch_project_task(r, o, db):
     pass  # S0
 
 # project ticket
 #
-@ourd.before_save("project_ticket")
-@ourd.before_delete("project_ticket")
+@skygear.before_save("project_ticket")
+@skygear.before_delete("project_ticket")
 def before_save_project_ticket(r, o, db):
     def can_save():
         if 'admin' in ctx.user.roles:
@@ -280,26 +280,26 @@ def before_save_project_ticket(r, o, db):
     if not can_save():
         raise UnauthorizedException()
 
-@ourd.before_fetch("project_ticket")
+@skygear.before_fetch("project_ticket")
 def before_fetch_project_ticket(r, o, db):
     pass  # S0
 
 # customer
 #
-@ourd.before_save("customer")
-@ourd.before_delete("customer")
+@skygear.before_save("customer")
+@skygear.before_delete("customer")
 def before_save_project(r, o, db):
     if not ('admin' in ctx.user.roles or 'staff' in ctx.user.roles):
         raise UnauthorizedException()  # S7
 
-@ourd.before_fetch("customer")
+@skygear.before_fetch("customer")
 def before_fetch_project(r, o, db):
     pass  # S0
 
 # project application
 #
-@ourd.before_save("project_application")
-@ourd.before_delete("project_application")
+@skygear.before_save("project_application")
+@skygear.before_delete("project_application")
 def before_save_project_application(r, o, db):
     def can_save():
         if 'admin' in ctx.user.roles:
@@ -311,7 +311,7 @@ def before_save_project_application(r, o, db):
     if not can_save():
         raise UnauthorizedException()
 
-@ourd.before_fetch("project_application")
+@skygear.before_fetch("project_application")
 def before_fetch_project_application(r, o, db):
     def can_fetch():
         if 'admin' in ctx.user.roles:
@@ -326,8 +326,8 @@ def before_fetch_project_application(r, o, db):
 
 # project document
 #
-@ourd.before_save("project_document")
-@ourd.before_delete("project_document")
+@skygear.before_save("project_document")
+@skygear.before_delete("project_document")
 def before_save_project_document(r, o, db):
     def can_save():
         if 'admin' in ctx.user.roles:
@@ -339,7 +339,7 @@ def before_save_project_document(r, o, db):
     if not can_save():
         raise UnauthorizedException()
 
-@ourd.before_fetch("project_document")
+@skygear.before_fetch("project_document")
 def before_fetch_project_document(r, o, db):
     def can_fetch():
         if 'admin' in ctx.user.roles:
@@ -353,13 +353,13 @@ def before_fetch_project_document(r, o, db):
 
 # payment
 #
-@ourd.before_save("payment")
-@ourd.before_delete("payment")
+@skygear.before_save("payment")
+@skygear.before_delete("payment")
 def before_save_project(r, o, db):
     if not 'admin' in ctx.user.roles:
         raise UnauthorizedException()  # S3
 
-@ourd.before_fetch("payment")
+@skygear.before_fetch("payment")
 def before_fetch_project(r, o, db):
     def can_fetch():
         if 'admin' in ctx.user.roles:

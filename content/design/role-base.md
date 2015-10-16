@@ -43,9 +43,9 @@ Specifiying Role on bootstrap. It will freeze on production.
 
 _role.js_
 ``` javascript
-const Admin = jsourd.Role.define('admin');
-const Staff = jsourd.Role.define('staff');
-const Writer = jsourd.Role.define('writer');
+const Admin = skygear.Role.define('admin');
+const Staff = skygear.Role.define('staff');
+const Writer = skygear.Role.define('writer');
 ```
 
 ## Providing site wide default role
@@ -63,8 +63,8 @@ implicit,
 
 ``` javascript
 // S1, S2, SA1, SA5
-jsourd.setAdminRole([role.Admin, role.Staff]); // Same as Dev Schema JIT
-jsourd.setDefaultRole(role.Writer);
+skygear.setAdminRole([role.Admin, role.Staff]); // Same as Dev Schema JIT
+skygear.setDefaultRole(role.Writer);
 ```
 
 ## Changing role
@@ -72,11 +72,11 @@ jsourd.setDefaultRole(role.Writer);
 Seem it is quite normal to allow oneself to remove it from an existing Role.
 
 ``` javascript
-jsourd.login('writer@taylor.com').then((user) => {
+skygear.login('writer@taylor.com').then((user) => {
   const myself = user;
   myself.removeRole(role.Writer);
   myself.addRole(role.Staff); //This will raise exception since, myself is writer
-  jsourd.saveUser(myself);
+  skygear.saveUser(myself);
 }, (error) => {
   console.log('Can\'t login', error);
 });
@@ -87,11 +87,11 @@ User at `AdminRole` will be able to change everyone role.
 _Example on removing itself from the Admin role_
 ``` javascript
 let admin;
-jsourd.login('admin@taylor.com').then((user) => {
+skygear.login('admin@taylor.com').then((user) => {
   admin = user;
   admin.removeRole(role.Admin);
   admin.addRole(role.Staff);
-  jsoourd.saveUser(admin);
+  jsoskygear.saveUser(admin);
   // User is nolonger admin
 }, (error) => {
   console.log('Can\'t login', error);
@@ -100,11 +100,11 @@ jsourd.login('admin@taylor.com').then((user) => {
 
 _Example on promote other Staff to Admin_
 ``` javascript
-// Assuming jsourd.currentUser has role.Admin
-jsourd.getUserByEmail('jim@oursky.com').then((jim) => {
+// Assuming skygear.currentUser has role.Admin
+skygear.getUserByEmail('jim@oursky.com').then((jim) => {
   if (jim.hasRole(role.Staff)) {
     jim.addRole(role.Admin);
-    jsourd.saveUser(jim).then((jim) => {
+    skygear.saveUser(jim).then((jim) => {
       console.log('Jim have admin role now');
     }, () => {
       console.log('Jim cannot promote');
@@ -123,7 +123,7 @@ const attrs = {
   country: 'HK',
   phone: '21559299'
 };
-jsourd.signup({
+skygear.signup({
   username: 'rick.mak@gmail.com',
   email: 'rick.mak@gmail.com',
   password: 'password',
@@ -134,7 +134,7 @@ jsourd.signup({
   // S9, S10, S11
   userAttrs.addWriteAccess(role.Staff);
   userAttrs.addWriteAccess(user); // Grant the user modify his own attrs
-  jsourd.publicDB.save(userAttrs).then(() => {
+  skygear.publicDB.save(userAttrs).then(() => {
     console.log('done');
   }, errHandler);
 }, errHandler);
@@ -166,18 +166,18 @@ The default ACL of records without explicit seting is `public readable`
 _role.js
 
 ``` javascript
-const defaultACL = new jsourd.ACL();
+const defaultACL = new skygear.ACL();
 acl.addPublicReadAccess();
-jsourd.setDefaultACL(acl);
+skygear.setDefaultACL(acl);
 ```
-Above code will take no effect, since it same as the default of what jsourd
+Above code will take no effect, since it same as the default of what skygear
 provided.
 
 ``` javascript
 // S3
-const acl = new jsourd.ACL();
+const acl = new skygear.ACL();
 acl.addWriteAccess(role.Admin);
-jsourd.setDefaultACL(acl); // This ACL have no read access for public
+skygear.setDefaultACL(acl); // This ACL have no read access for public
 ```
 
 ## Setting ACL on creating a project.
@@ -191,7 +191,7 @@ project.addWriteAccess(role.Staff);
 if (project.isRecruiting) {
   project.addReadAccess(role.Writer);
 }
-jsourd.public.save(note);
+skygear.public.save(note);
 ```
 
 ## Creating Project Application
@@ -209,7 +209,7 @@ application.addReadAccess(role.Admin);
 ## Writer will not able to read the project when it is no loner recuriting.
 
 Client size hook. The call back will run **before** jsour serialize the project 
-and send to the ourd serve. _Good to have_
+and send to the skygear serve. _Good to have_
 
 ``` javascript
 Project.beforeSave((project) => {
@@ -230,18 +230,18 @@ project.isRecuriting = false;
 project.assignee = rick;
 project.removeReadAccess(role.Writer);
 project.addReadAccess(rick);
-jsourd.save(project);
+skygear.save(project);
 // Staff will create the respective bucket for Writer Document and Ticket.
 // S15, S16
 const rickDocument = new ProjectDocument();
-rickDocument.project = jsourd.Reference(project);
+rickDocument.project = skygear.Reference(project);
 rickDocument.addWriteAccess(rick);
-rickDocument.writer = jsourd.Reference(rick);
+rickDocument.writer = skygear.Reference(rick);
 const rickTicket = new ProjectDocument();
-rickTicket.project = jsourd.Reference(project);
+rickTicket.project = skygear.Reference(project);
 rickTicket.addWriteAccess(rick);
-rickTicket.writer = jsourd.Reference(rick);
-jsourd.publicDB.save([rickDocument, rickTicket]);
+rickTicket.writer = skygear.Reference(rick);
+skygear.publicDB.save([rickDocument, rickTicket]);
 ```
 
 ## Writer can read the document when Project is recruiting
@@ -258,8 +258,8 @@ doc.addWriteAccess(role.Staff);
 if (project.isRecruiting) {
   doc.addReadAccess(role.Writer);
 }
-doc.project = jsourd.Reference(project);
-jsourd.publicDB.save(doc).then((result) => {
+doc.project = skygear.Reference(project);
+skygear.publicDB.save(doc).then((result) => {
   console.log(result[0]); // The document
 }, (error) => {
   console.log(error);
@@ -271,7 +271,7 @@ let toRecruiting = project.tranient['documents'].map((doc) => {
   doc.addReadAccess(role.Writer);
 });
 toRecruiting.push(project);
-jsourd.publicDB.save(toRecruiting);
+skygear.publicDB.save(toRecruiting);
 
 // At change to non recuriting
 project.isRecruiting = false;
@@ -279,14 +279,14 @@ let toSave = project.tranient['documents'].map((doc) => {
   doc.removeReadAccess(role.Writer);
 });
 toSave.push(project);
-jsourd.publicDB.save(toSave);
+skygear.publicDB.save(toSave);
 
 // How writer query the recruiting project documents
-const projectQuery = jsourd.Query(Project);
+const projectQuery = skygear.Query(Project);
 projectQuery.equal('id', 'theid');
 projectQuery.transientInclude('documents');
 let docsForWriter;
-jsourd.publicDB.query(projectDocumentQuery).then((pds) => {
+skygear.publicDB.query(projectDocumentQuery).then((pds) => {
   docsForWriter = pds.tranient['documents'];
 }, (error) => {
   console.log(error);
@@ -299,12 +299,12 @@ jsourd.publicDB.query(projectDocumentQuery).then((pds) => {
 // Login as Writer
 // How writer query the Project documents of a Project upload by himself.
 // S15
-const projectDocumentQuery = jsourd.Query(ProjectDocument);
-projectDocumentQuery.equal('project', jsourd.Reference(project));
-projectDocumentQuery.equal('writer', jsourd.Reference(jsourd.currentUser));
+const projectDocumentQuery = skygear.Query(ProjectDocument);
+projectDocumentQuery.equal('project', skygear.Reference(project));
+projectDocumentQuery.equal('writer', skygear.Reference(skygear.currentUser));
 projectDocumentQuery.transientInclude('documents');
 let docsForWriter;
-jsourd.publicDB.query(projectDocumentQuery).then((pds) => {
+skygear.publicDB.query(projectDocumentQuery).then((pds) => {
   docsForWriter = pds.tranient['documents'];
 }, (error) => {
   console.log(error);
@@ -321,7 +321,7 @@ jsourd.publicDB.query(projectDocumentQuery).then((pds) => {
 const q;
 let projectTicket;
 let tickets;
-jsourd.publicDB.query(q).then((result) => {
+skygear.publicDB.query(q).then((result) => {
   projectTicket = result[0];
   tickets = result[0].tickets;
   console.log(result[0].tickets);
@@ -335,9 +335,9 @@ const newTicket = new Ticket({
 });
 newTicket.addWriteAccess(role.Staff);
 // If no eager save
-jsourd.publicDB.save([newTicket]).then(() => {
-  projectTicket.tickets.push(jsourd.Reference(newTicket));
-  jsourd.publicDB.save(projectTicket); // Eager save?????
+skygear.publicDB.save([newTicket]).then(() => {
+  projectTicket.tickets.push(skygear.Reference(newTicket));
+  skygear.publicDB.save(projectTicket); // Eager save?????
 }, (error) => {
   console.log(error);
 });
@@ -355,8 +355,8 @@ const payment = new Payment({
   identifier: 'rick@taylors.com'
   amount: 30
 });
-payment.project = jsourd.Reference(project);
+payment.project = skygear.Reference(project);
 payment.writer = rick;
 payment.addReadAccess(rick);
-jsourd.publicDB.save(payment);
+skygear.publicDB.save(payment);
 ```

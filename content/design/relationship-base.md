@@ -62,7 +62,7 @@ project.private = Reference(privateProject)
 ### Write
 
 ```python
-@ourd.hook("beforeSave", type="project", sync=True)
+@skygear.hook("beforeSave", type="project", sync=True)
 def before_save_project(proj, old_proj, db):  # booking is record
     writer_relation = Relation('project_%s_writer' % proj.id.name)
     if project['isRecruiting']:
@@ -70,11 +70,11 @@ def before_save_project(proj, old_proj, db):  # booking is record
     else:
         proj.notReadablyBy(writer_relation)
 
-    proj_doc = pyourd.public_db.get(proj.doc)
-    proj_task = pyourd.public_db.get(proj.task)
-    proj_ticket = pyourd.public_db.get(proj.ticket)
-    proj_app = pyourd.public_db.get(proj.app)
-    proj_payment = pyourd.public_db.get(proj.payment)
+    proj_doc = skygear.public_db.get(proj.doc)
+    proj_task = skygear.public_db.get(proj.task)
+    proj_ticket = skygear.public_db.get(proj.ticket)
+    proj_app = skygear.public_db.get(proj.app)
+    proj_payment = skygear.public_db.get(proj.payment)
 
     // duplicate isRecruiting to implement those recruiting
     // access control on document and applicationoikl9
@@ -99,7 +99,7 @@ doc.readableBy(projectWriterRelation)
 
 ```python
 # will be triggered by Project's beforeSave
-@ourd.hook("beforeSave", type="project", sync=True)
+@skygear.hook("beforeSave", type="project", sync=True)
 def before_save_project(doc, old_doc, db):  # booking is record
     writer_relation = Relation('writer')
     if doc['isRecruiting']:

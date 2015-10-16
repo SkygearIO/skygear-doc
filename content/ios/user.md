@@ -10,7 +10,7 @@ TODO: Only logged in user can do write operation on databases
 ## Signing up
 
 ```obj-c
-[container signupUserWithUsername:@"john.doe@example.com" password:@"verysecurepasswd" completionHandler:^(ODUserRecordID *user, NSError *error) {
+[container signupUserWithUsername:@"john.doe@example.com" password:@"verysecurepasswd" completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"error signing up user: %@", error);
         return;
@@ -27,7 +27,7 @@ TODO: Remind developer to use email as username when necessary
 ## Logging in
 
 ```obj-c
-[container loginUserWithUsername:@"john.doe@example.com" password:@"verysecurepasswd" completionHandler:^(ODUserRecordID *user, NSError *error) {
+[container loginUserWithUsername:@"john.doe@example.com" password:@"verysecurepasswd" completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"error loggin user in: %@", error);
         return;
@@ -57,7 +57,7 @@ if (container.currentUserRecordID) {
 ## Changing user password
 
 ```obj-c
-[container changePassword:@"oldPassword" password:@"newPassword" completionHandler:^(ODUserRecordID *user, NSError *error) {
+[container changePassword:@"oldPassword" password:@"newPassword" completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"Can't change password: %@", error);
         // Can be old password not matched?
@@ -71,13 +71,13 @@ if (container.currentUserRecordID) {
 ## Disocver users by emails
 
 ```obj-c
-ODQueryUsersOperation *operation = [ODQueryUsersOperation discoverUsersOperationByEmails:@[@"john.doe@example.com", @"jane.doe@example.com"]];
-operation.queryUserCompletionBlock = ^(NSArray /* ODUser */ *users, NSError *operationError) {
-    for (ODUser *user in users) {
+SKYQueryUsersOperation *operation = [SKYQueryUsersOperation discoverUsersOperationByEmails:@[@"john.doe@example.com", @"jane.doe@example.com"]];
+operation.queryUserCompletionBlock = ^(NSArray /* SKYUser */ *users, NSError *operationError) {
+    for (SKYUser *user in users) {
         // do something with the user
     }
 };
-operation.container = [ODContainer defaultContainer];
+operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
 

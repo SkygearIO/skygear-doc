@@ -10,7 +10,7 @@ title = "Container, Databases and Records"
 You can save a public note to server as follow.
 
 ``` javascript
-jsourd.publicDB.save(new Note({
+skygear.publicDB.save(new Note({
     'content': 'Hello World!'
 })).then(function (record) {
     console.log(record);
@@ -24,16 +24,16 @@ and _record_.
 
 # Container
 
-Container is the uppermost layer of jsoud. In practice, 
-`import jsoud from 'jsourd'` will give you a container instance at variable
-jsoud. In most case you will only need one instance of containter.
+Container is the uppermost layer of skygear. In practice, 
+`import skygear from 'skygear'` will give you a container instance at variable
+skygear. In most case you will only need one instance of containter.
 
 The first things you need to interact with container is setting `endPoint` and
 `accessToken`.
 
 ``` javascript
-JSOurd.endPoint = 'http://mydeployment.dev/api/';
-JSOurd.configApiKey('mysecrect');
+JSSkygear.endPoint = 'http://mydeployment.dev/api/';
+JSSkygear.configApiKey('mysecrect');
 ```
 
 # Database
@@ -58,14 +58,14 @@ You will design different record type to model your app. Just like define table
 in SQL.
 
 ``` javascript
-const Note = jsourd.Record.extend('note');
-const Blog = jsourd.Record.extend('blog');
+const Note = skygear.Record.extend('note');
+const Blog = skygear.Record.extend('blog');
 ```
 
 # Modify a record
 
 ``` javascript
-jsourd.publicDB.save(new Note({
+skygear.publicDB.save(new Note({
     'content': 'Hello World!'
 })).then(function (record) {
     console.log(record);
@@ -80,12 +80,12 @@ You can construct a Query object by providing a Record Type.
 You can config the query by mutating its state.
 
 ``` javascript
-var query = new jsourd.Query(Blog);
+var query = new skygear.Query(Blog);
 query.greaterThan('popular', 10);
 query.addDescending('popular');
 query.limit = 10;
 
-jsourd.publicDB.query(query).then(function (records) {
+skygear.publicDB.query(query).then(function (records) {
   console.log(records)
 }, function (error) {
   console.log(error);
@@ -96,7 +96,7 @@ jsourd.publicDB.query(query).then(function (records) {
 
 
 ``` javascript
-jsourd.publicDB.del(record).then(function () {
+skygear.publicDB.del(record).then(function () {
   console.log(record);
 }, function (error) {
   console.log(error);

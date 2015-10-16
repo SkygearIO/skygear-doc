@@ -5,15 +5,15 @@ title = "Handling Errors"
 
 +++
 
-All asynchronous methods in `jsourd` return [Promise](https://www.promisejs.org/).
+All asynchronous methods in `skygear` return [Promise](https://www.promisejs.org/).
 
 ## Basic flow
 
 ```js
-jsourd.signup('johndoe', 'john.doe@example.com', 'verysecurepassword').then(function() {
+skygear.signup('johndoe', 'john.doe@example.com', 'verysecurepassword').then(function() {
   // user logged in successfully
 }, function(error) {
-  if (error.code == jsourd.Error.DUPLICATED) {
+  if (error.code == skygear.Error.DUPLICATED) {
     console.log('username has been taken');
   } else {
     console.log('unexpected error', error.code)
@@ -26,7 +26,7 @@ jsourd.signup('johndoe', 'john.doe@example.com', 'verysecurepassword').then(func
 
 ```js
 // omit the error callback
-jsourd.signup('johndoe', 'john.doe@example.com', 'verysecurepassword').then(function() {
+skygear.signup('johndoe', 'john.doe@example.com', 'verysecurepassword').then(function() {
   // user logged in successfully
 });
 

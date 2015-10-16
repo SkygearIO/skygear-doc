@@ -5,7 +5,7 @@ title = "Getting Start by Docker"
 
 +++
 
-This guide will show you how to run Ourd on docker for development and verify that it is working.
+This guide will show you how to run Skygear on docker for development and verify that it is working.
 
 ## Getting Docker
 
@@ -13,7 +13,7 @@ This guide will show you how to run Ourd on docker for development and verify th
 
 Please consult the official guide from docker to install docker toolbox: http://docs.docker.com/mac/step_one/
 
-Ourd would need `docker` and `docker-compose`. Let's see if they are working:
+Skygear would need `docker` and `docker-compose`. Let's see if they are working:
 
 ```bash
 $ docker run hello-world
@@ -27,33 +27,33 @@ docker-compose version: 1.4.0
 
 If similiar message is seen, then you are good to go.
 
-## Running Ourd
+## Running Skygear
 
-Ourd has an official [Docker Hub repository](https://hub.docker.com/r/oursky/ourd/). It saves you the effort to build docker images yourself. For development, we have a pre-configured `docker-compose` file to start with.
+Skygear has an official [Docker Hub repository](https://hub.docker.com/r/oursky/skygear/). It saves you the effort to build docker images yourself. For development, we have a pre-configured `docker-compose` file to start with.
 
-Now to clone and set up Ourd from scratch:
+Now to clone and set up Skygear from scratch:
 
 ```bash
-$ git clone git@github.com:oursky/ourd.git
-Cloning into 'ourd'...
+$ git clone git@github.com:oursky/skygear.git
+Cloning into 'skygear'...
 remote: Counting objects: 2724, done.
 remote: Compressing objects: 100% (17/17), done.
 remote: Total 2724 (delta 5), reused 0 (delta 0), pack-reused 2707
 Receiving objects: 100% (2724/2724), 650.80 KiB | 94.00 KiB/s, done.
 Resolving deltas: 100% (1797/1797), done.
 Checking connectivity... done.
-$ cd ourd
+$ cd skygear
 $ cp docker-compose.yml.sample docker-compose.yml
 $ docker-compose up
-Creating ourd_db_1...
-Creating ourd_ourd_1...
-Attaching to ourd_db_1, ourd_ourd_1
+Creating skygear_db_1...
+Creating skygear_skygear_1...
+Attaching to skygear_db_1, skygear_skygear_1
 # more db initialization skipped
 ```
 
 If it is the first time that you run `docker-compose up` on this directory, there will be lots of logging describing what is going on. Stay calm and wait for the log to stabilize.
 
-Now let's try a simple cURL to see whether the ourd server is up and running. On Mac OS X, you will have to determine the docker machine's ip first:
+Now let's try a simple cURL to see whether the skygear server is up and running. On Mac OS X, you will have to determine the docker machine's ip first:
 
 ```bash
 $ docker-machine ip default
@@ -80,7 +80,7 @@ Great!
 
 ## What Now?
 
-Explore Ourd's SDKs to start developing :D
+Explore Skygear's SDKs to start developing :D
 
-* [Objective C SDK](https://github.com/oursky/ODKit)
-* [Javascript SDK](https://github.com/oursky/jsourd)
+* [Objective C SDK](https://github.com/oursky/skygear-SDK-iOS)
+* [Javascript SDK](https://github.com/oursky/skygear)

@@ -5,11 +5,11 @@ title = "Record Relation"
 
 +++
 
-# What Ourd provide
+# What Skygear provide
 
-Ourd support parent-child relation between records via _reference_.
-`jsourd.Reference` is a pointer class, which will translate to foreignkey in
-ourd database for efficient query.
+Skygear support parent-child relation between records via _reference_.
+`skygear.Reference` is a pointer class, which will translate to foreignkey in
+skygear database for efficient query.
 
 You can reference a record to a user.
 
@@ -18,9 +18,9 @@ const note = new Note({
   heading: 'Working Draft',
   content: 'People involed please fill in'
 });
-const involed = jsourd.Reference(rick); // rick is a user.
+const involed = skygear.Reference(rick); // rick is a user.
 note.involed = involed;
-jsourd.publicDB.save(note);
+skygear.publicDB.save(note);
 ```
 
 You can build up reference between records.
@@ -34,8 +34,8 @@ const note2 = new Note({
   heading: 'Specification page 2',
   content: 'This is second section'
 });
-note1.nextPage = jsourd.Reference(note2);
-jsourd.publicDB.save([note1, note2]);
+note1.nextPage = skygear.Reference(note2);
+skygear.publicDB.save([note1, note2]);
 ```
 
 You can also reference to an array of record.
@@ -45,10 +45,10 @@ const note = new Note({
   'content': 'This is intro, please see the document list for detail.'
 });
 const details = [note1, note2, note3].map((note) => {
-  return jsourd.Reference(note);
+  return skygear.Reference(note);
 })
 note.details = details;
-jsourd.publicDB.save(note);
+skygear.publicDB.save(note);
 ```
 
 # Eager Loading
@@ -56,12 +56,12 @@ jsourd.publicDB.save(note);
 After you give a relation, you can 
 
 ``` javascript
-const q = jsourd.Query(Note);
+const q = skygear.Query(Note);
 q.transientInclude('details');
-jsourd.publicDB.query(q).then((records) => {
+skygear.publicDB.query(q).then((records) => {
   records.map((record) => {
-    console.log(record.details); // Array of jsourd.Reference
-    console.log(record.transient['details']); // Array of jsourd.Record
+    console.log(record.details); // Array of skygear.Reference
+    console.log(record.transient['details']); // Array of skygear.Record
   });
 }, (error) => {
   console.log(error);

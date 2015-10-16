@@ -35,8 +35,8 @@ Follow instruction at https://golang.org/doc/install
 ``` bash
 mkdir -p $GOPATH/src/github.com/oursky
 cd $GOPATH/src/github.com/oursky
-git clone git@github.com:oursky/ourd.git
-cd ourd
+git clone git@github.com:oursky/skygear.git
+cd skygear
 go generate ./...
 go build
 ```
@@ -44,7 +44,7 @@ go build
 Modify the development.ini
 
 ``` bash
-ourd development.ini
+skygear development.ini
 ```
 
 You should see following output

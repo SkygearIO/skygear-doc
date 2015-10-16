@@ -8,7 +8,7 @@ title = "Publish / Subscribe"
 ## Subscribing a channel
 
 ```obj-c
-ODContainer *container = [ODContainer defaultContainer];
+SKYContainer *container = [SKYContainer defaultContainer];
 [container.pubsubClient subscribeTo:@"hello" handler:^(NSDictionary *info) {
     NSString *name = info[@"name"];
     NSLog(@"%@ says hello", name);
@@ -30,7 +30,7 @@ ODContainer *container = [ODContainer defaultContainer];
 ## Example: PING-PONG
 
 ```obj-c
-ODContainer *container = [ODContainer defaultContainer];
+SKYContainer *container = [SKYContainer defaultContainer];
 
 // Pinger
 [container.pubsubClient subscribeTo:@"PING" handler:^(NSDictionary *info) {

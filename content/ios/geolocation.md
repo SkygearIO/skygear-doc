@@ -5,7 +5,7 @@ title = "Geolocations"
 
 +++
 
-1. Supported by saving `CLLocation` in `ODRecord`
+1. Supported by saving `CLLocation` in `SKYRecord`
 2. Only latitude and longitude of CLLocation is recorded
 
 ## Saving a location on record
@@ -28,7 +28,7 @@ Get all photos taken within 400 meters of some location.
 ```obj-c
 CLLocation *distanceFromLoc = [[CLLocation alloc] initWithLatitude:22.283 longitude:114.15];
 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"distanceToLocation:fromLocation:(location, %@) < %f", distanceFromLoc, 400.f];
-ODQuery *query = [ODQuery queryWithRecordType:@"photo" predicate:predicate];
+SKYQuery *query = [SKYQuery queryWithRecordType:@"photo" predicate:predicate];
 
 [privateDB performQuery:query completionHandler:^(NSArray *photos, NSError *error) {
     if (error) {
@@ -40,7 +40,7 @@ ODQuery *query = [ODQuery queryWithRecordType:@"photo" predicate:predicate];
 }];
 ```
 
-`distanceToLocation:fromLocation:` is a Ourd function which returns distance
+`distanceToLocation:fromLocation:` is a Skygear function which returns distance
 between a location field in a record and a specific location.
 
 ## Sorting records by distance
@@ -48,7 +48,7 @@ between a location field in a record and a specific location.
 Cont. from the example above.
 
 ```obj-c
-query.sortDescriptors = @[[ODLocationSortDescriptor locationSortDescriptorWithKey:@"location"
+query.sortDescriptors = @[[SKYLocationSortDescriptor locationSortDescriptorWithKey:@"location"
                                                                  relativeLocation:distanceToLoc
                                                                         ascending:YES]];
 ```
@@ -71,7 +71,7 @@ Then we can access the distance in `completionHandler` like this:
         return;
     }
 
-    for (ODRecord *photo in photos) {
+    for (SKYRecord *photo in photos) {
         NSNumber *distance = photo.transient[@"distance"];
         NSLog(@"Photo taken from distance = %@", distance);
     }

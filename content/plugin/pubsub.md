@@ -10,7 +10,7 @@ sent to all the clients subscribed to a channel. This allows you to make
 an app that listens to events as it happens so that user gets a fast
 and responsive experience.
 
-Pubsub works out of the box and this feature is built into Ourd. To have
+Pubsub works out of the box and this feature is built into Skygear. To have
 a server event trigger an message to be sent to the client, you have to
 create a plugin that hooks into extension point, where you will determine
 whether and what messages to publish to channel.
@@ -18,17 +18,17 @@ whether and what messages to publish to channel.
 For example, you can make an app that automatically sends a pubsub message
 when a create a new `note` record containing special words.
 
-To build pubsub into Ourd, you have to import `OurdContainer`.
+To build pubsub into Skygear, you have to import `SkygearContainer`.
 
 ```
-from pyourd.container import OurdContainer
+from py-skygear.container import SkygearContainer
 ```
 
-When you have an instance of OurdContainer, you can create a pubsub socket
+When you have an instance of SkygearContainer, you can create a pubsub socket
 so that you can send messages over the pubsub channel.
 
 ```
-container = OurdContainer()
+container = SkygearContainer()
 pubsub = container.pubsub()
 ```
 
