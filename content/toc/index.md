@@ -73,7 +73,7 @@ Collection of article help you unleash the power of Skygear.
   - **[Future release]** Push Notification
   - **[Not implemented]** [Pubsub]({{< relref "js/pubsub.md" >}})
   - **[Not implemented]** Geo-location
-  - **[Not implemented]** Assets (File Upload)
+  - **[Not implemented]** [Assets (File Upload)]({{< relref "js/asset.md" >}})
   - **[Not implemented]** Plugins
   - **[Not implemented]** [Handling Errors]({{< relref "js/handling-errors.md" >}})
   - **[Furture release]** User Interfaces
