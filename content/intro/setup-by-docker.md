@@ -5,6 +5,13 @@ title = "Getting Start by Docker"
 
 +++
 
+**DEPRECATION NOTICE**: Please see our [Getting Started]({{< relref "intro/getting-started.md" >}}) guide instead. The information contained here is no longer relevant.
+
+**NOT IMPLEMENTED**: In a future version of this guide, we should focus on how
+people can contribute to Skygear by checking out the source. There will be two
+sections for those who want to develop using the barebone way or those who want
+to develop using the Docker way.
+
 This guide will show you how to run Skygear on docker for development and verify that it is working.
 
 ## Getting Docker

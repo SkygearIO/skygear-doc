@@ -1,24 +1,41 @@
+# docker-compose.yml for Skygear Getting Started Guide
+
+# The volume container for database
+# This container provides persistent storage for the `db` container. To
+# remove this storage, run `docker-compose rm db_data`.
+db_data:
+  image: mdillon/postgis:9.4
+  command: /bin/true
+
+# The database container
 db:
   image: mdillon/postgis:9.4
-  volumes:
-  - ./initdb-postgis.sh:/docker-entrypoint-initdb.d/postgis.sh
-  # NOTE: the following mount is commented out because it fails on Mac OS X.
-  # The error can be fixed by running initdb manually on that directory by the host.
-  # - /usr/local/var/postgres:/var/lib/postgresql/data
+  volumes_from:
+  - db_data
   ports:
-  - "5432"
+  - "5432:5432"
 
-ourd:
-  image: oursky/ourd:master
+# The volume container for skygear
+# This container provides persistent storage for the `app` container. To
+# remove this storage, run `docker-compose rm app_data`.
+app_data:
+  image: oursky/skygear:master
+  command: /bin/true
+
+# The Skygear container
+app:
+  image: oursky/skygear:master
   ports:
-  - "3000:3000"
-  - "5555"
-  volumes:
-  - ./development.ini:/go/src/app/config.ini
-  - ./data:/var/lib/ourd/data
+  - "3000:3000" # Skygear API Endpoint (HTTP)
+  - "5555:5555" # Skygear Plugin Endpoint (ZMQ)
+  volumes_from:
+  - app_data
   links:
   - db
-  command: sh -c "PGHOST=db PGPORT=$DB_PORT_5432_TCP_PORT $GOPATH/bin/ourd config.ini"
+  command: sh -c '$GOPATH/bin/skygear development.ini'
   environment:
-    DATABASE_URL: dbname=postgres sslmode=disable
-    PGUSER: postgres
+    # `db` in the following string should match the name of the database
+    # container above.
+    DATABASE_URL: postgresql://postgres:@db/postgres?sslmode=disable
+    DB_IMPL_NAME: pq
+    API_KEY: changeme
