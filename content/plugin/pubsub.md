@@ -21,7 +21,7 @@ when a create a new `note` record containing special words.
 To build pubsub into Skygear, you have to import `SkygearContainer`.
 
 ```
-from py-skygear.container import SkygearContainer
+from skygear.container import SkygearContainer
 ```
 
 When you have an instance of SkygearContainer, you can create a pubsub socket

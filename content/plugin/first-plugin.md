@@ -43,10 +43,10 @@ The first thing you have to do is create a main plugin file. This file is where 
 
 The name of the main file is arbitrary. You can name it however you want, but you have to specify the name of the main file when executing the plugin. We will call the main plugin file `sample.py`.
 
-The first thing you have to include in your plugin code is to import the `py-skygear` module:
+The first thing you have to include in your plugin code is to import the `skygear` module:
 
 ```
-import py-skygear
+import skygear
 ```
 
 This will import decorators for your plugin function.
@@ -65,15 +65,15 @@ This command finds all hooks already defined in the plugin. The command has a `-
 All types of hooks are now empty because we have not defined any! Let’s go ahead to implement the easiest extension point—lambda function:
 
 ```
-import py-skygear
+import skygear
 
-@py-skygear.op("chima:echo")
+@skygear.op("chima:echo")
 def echo():
     return {"message": "Hello World"}
 ```
 
 ```
-$ py-skygear sample.py --subprocess init
+$ skygear sample.py --subprocess init
 {"op": ["chima:hello"], "provider": [], "hook": [], "timer": [], "handler": {}}
 ```
 

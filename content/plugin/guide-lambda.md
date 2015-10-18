@@ -8,7 +8,7 @@ title = "Lambda Function"
 Lambda function is the easiest to implement. In fact, you can decorate any python function with this decorator to instantly make it available to your app via Skygear.
 
 ```
-@py-skygear.op("hello:world")
+@skygear.op("hello:world")
 def say(name="world!"):
     return {"message": "Hello " + name}
 ```

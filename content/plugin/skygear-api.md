@@ -13,10 +13,10 @@ Py-skygear contains a lightweight Skygear API wrapper so that you can call
 the Skygear API in your python program.
 
 The first thing you need to do is to import `SkygearContainer` from
-`py-skygear.container` module.
+`skygear.container` module.
 
 ```
-from py-skygear.container import SkygearContainer
+from skygear.container import SkygearContainer
 ```
 
 For example, to send a push notification to a user:
