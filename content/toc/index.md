@@ -43,6 +43,7 @@ Collection of article help you unleash the power of Skygear.
   - [How to install SkyKit SDK in Xcode]({{< relref "ios/getting-started.md" >}})
   - [Simple app to get started (Create user / record / query)]({{< relref "ios/first-app.md" >}})
   - [CRUD Records]({{< relref "ios/record.md" >}})
+  - [Queries]({{< relref "ios/query.md" >}})
   - [Records Relations (References)]({{< relref "ios/reference.md" >}})
   - [Users (Authentication)]({{< relref "ios/user.md" >}})
   - [Access Control]({{< relref "ios/acl.md" >}})
