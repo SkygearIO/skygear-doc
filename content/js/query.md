@@ -5,8 +5,8 @@ title = "Querying Records"
 
 +++
 
-Skygear provie query of records with condition. You can put condition to Skygear
-query, only geting the records you want.
+Skygear provides query of records with conditions. You can apply condition to
+Skygear queries, only getting the records you want.
 
 To start with a simple query with `equalTo`
 
@@ -21,7 +21,7 @@ skygear.privateDB.query(query).then(function(notes) {
 });
 ```
 
-You can put multiple consitions in same query object
+You can put multiple conditions in same query object
 
 ``` javascript
 let query = Query(Note);
@@ -34,8 +34,8 @@ skygear.privateDB.query(query).then(function(notes) {
 });
 ```
 
-Instead of querying with `order` attributes with less than. We can attain the
-same result by applyinh `limit` and other to the `query`
+Instead of querying on `order` attribute with less than. We can obtain the
+same result by applying `limit` and `order` to the `query`
 
 ``` javascript
 let query = Query(Note);
@@ -49,8 +49,8 @@ skygear.privateDB.query(query).then(function(notes) {
 });
 ```
 
-By default, the condition add to query are compose with `AND`. To construct an
-`OR` query, we need to specific it with following syntax.
+By default, the condition added to the query are combined with `AND`. To
+construct an `OR` query, we need to specify it with the following syntax.
 
 ``` javascript
 let likeQuery = Query(Note);
@@ -68,7 +68,7 @@ skygear.publicDB.query(query).then(function(notes) {
 });
 ```
 
-You can configure complex condition as following
+You can configure complex conditions as the following:
 
 ``` javascript
 let clickQuery = Query(Note);
