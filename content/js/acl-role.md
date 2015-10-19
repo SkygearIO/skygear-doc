@@ -99,7 +99,7 @@ article.addWriteAccess(Webmaster);
 article.addWriteAccess(Author);
 article.addReadAccess(Visitor);
 
-skygear.public.save(article);
+skygear.publicDB.save(article);
 ```
 
 Role-based access control are applied to each record individually. In other
@@ -119,9 +119,9 @@ Suppose that a locked article can only be modified by `webmaster`. You need
 to remove the write access previously granted to the `author` role.
 
 ```javascript
-article.isLocked = false;
+article.isLocked = true;
 article.removeWriteAccess(Author);
-skygear.public.save(article);
+skygear.publicDB.save(article);
 ```
 
 Note that the owner of a record always have access to a record. Therefore,
@@ -202,4 +202,4 @@ skygear.getUserByEmail('johndoe@example.com').then((john) => {
 }, (error) => {
   console.log('John is not found');
 });
-
+```
