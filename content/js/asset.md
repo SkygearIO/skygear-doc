@@ -14,7 +14,7 @@ fs.readFile('my-awesome-picture.jpg', function(err, data) {
     throw err;
   }
 
-  let profilePic = new skygear.Asset(data);
+  let profilePic = new skygear.Asset({data: data});
   // Profile = skygear.Record.extend('profile');
   let profile = new Profile({
     name: 'Handsome Guy',
