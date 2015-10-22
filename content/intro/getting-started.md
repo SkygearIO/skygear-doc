@@ -80,15 +80,22 @@ and log in to Docker Hub by running `docker login`.
 
 ## Run Skygear
 
-**NOTE**: Due to a problem the order in which the container are started,
-you are recommended to run `docker-compose up db` and wait 10-15 seconds for the
-database initization to complete. This is only required for the first time the
-database container is created.
+Start the database of the Skygear by running:
 
-You start Skygear with this command:
+```shell
+$ docker-compose start db
+```
+
+If this is the first time you start Skygear database, you should wait 10-15
+seconds for the database initialization to complete.
+
+When the database is up, run this command to start the Skygear daemon:
 
 ```
-$ docker-compose up
+$ docker-compose start app
+# Alternatively, you can run the following command to run Skygear in the
+foreground:
+$ docker-compose up app
 ```
 
 What Docker does here is to read the `docker-compose.yml` in the directory
