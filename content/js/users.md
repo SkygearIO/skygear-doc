@@ -25,9 +25,9 @@ Consider the following HTML:
 ```js
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-skygear.signup(username, username, password).then(function() {
+skygear.signup(username, username, password).then(() => {
   console.log('access token: %s', skygear.currentAccessToken);
-}, function(error) {
+}, (error) => {
   console.log('error signing up: %o', error);
 });
 ```
@@ -37,9 +37,9 @@ skygear.signup(username, username, password).then(function() {
 ```js
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-skygear.login(username, password).then(function() {
+skygear.login(username, password).then(() => {
   console.log('access token: %s', skygear.currentAccessToken);
-}, function(error) {
+}, (error) => {
   console.log('error logging in: %o', error);
 });
 ```
@@ -47,9 +47,9 @@ skygear.login(username, password).then(function() {
 # Logging out
 
 ```js
-skygear.logout().then(function() {
+skygear.logout().then(() => {
   console.log('logout successfully');
-}, function(error) {
+}, (error) => {
   console.log('error logging out: %o', error);
 });
 ```
@@ -57,9 +57,9 @@ skygear.logout().then(function() {
 # Changing password **[Not implemented]**
 
 ``` javascript
-skygear.changePassword(oldPassword, newPassword).then(function(_user) {
+skygear.changePassword(oldPassword, newPassword).then((_user) => {
   console.log('User now have new password', user);
-}, function (error) {
+}, (error) => {
   console.log('You need too login before changing password!', user);
   console.log('Old password not match?', error);
 });
@@ -71,10 +71,10 @@ Allow use to logout all other session.
 
 ``` javascript
 skygear.changePassword(oldPassword, newPassword, invalidateTokens=true).then(
-  function (user) {
+  (user) => {
     console.log('skygear will got new accessToken automatically', user);
   },
-  function (error) {
+  (error) => {
     console.log('Failed', error);
   }
 );

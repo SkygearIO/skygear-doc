@@ -20,9 +20,9 @@ skygear.publicDB.saveSubscription(subscription);
 ## Fetching subscription
 
 ```js
-skygear.publicDB.fetchSubscription('my notes').then(subscription => {
+skygear.publicDB.fetchSubscription('my notes').then((subscription) => {
   // examine the subscription here
-}, error => {
+}, (error) => {
   console.log('error fetching "my notes": %o', error);
 });
 ```
@@ -30,11 +30,11 @@ skygear.publicDB.fetchSubscription('my notes').then(subscription => {
 ## Fetching all subscriptions
 
 ```js
-skygear.publicDB.fetchAllSubscriptions.then(subscriptions => {
+skygear.publicDB.fetchAllSubscriptions.then((subscriptions) => {
   subscriptions.forEach(sub => {
     // do something with the subscription here
   });
-}, error => {
+}, (error) => {
   console.log('error fetching all subscriptions: %o', error);
 });
 ```
@@ -42,9 +42,9 @@ skygear.publicDB.fetchAllSubscriptions.then(subscriptions => {
 ## Deleting a subscription
 
 ```js
-skygear.publicDB.deleteSubscription('my notes').then(subscription => {
+skygear.publicDB.deleteSubscription('my notes').then((subscription) => {
   console.log('success deleting "my notes"')
-}, error => {
+}, (error) => {
   console.log('error deleting "my notes": %o', error)
 });
 ```
@@ -52,7 +52,7 @@ skygear.publicDB.deleteSubscription('my notes').then(subscription => {
 ## Listening to subscription notification
 
 ```js
-skygear.addNotificationListener(notification => {
+skygear.addNotificationListener((notification) => {
   if (notification.subscriptionID === 'my notes') {
     switch (notification.reason) {
       case skygear.NOTIFICATION_REASON_DELETED:
@@ -72,7 +72,7 @@ skygear.addNotificationListener(notification => {
 # Removing a notification listener
 
 ```js
-let listener = skygear.addNotificationListener(notification => {
+let listener = skygear.addNotificationListener((notification) => {
   // ...
 });
 

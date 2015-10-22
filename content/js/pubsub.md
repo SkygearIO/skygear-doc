@@ -8,7 +8,7 @@ title = "Pubsub"
 ## Subscribing to an event
 
 ```js
-skygear.on('ping', function(data) {
+skygear.on('ping', (data) => {
   let from_ = data.from;
   console.log('received a ping from %s', from_);
 });
@@ -33,7 +33,7 @@ skygear.off('ping');
 **DEV NOTE**: Should we implement it? :D
 
 ```js
-let subscriber = skygear.on('ping', function(data) {
+let subscriber = skygear.on('ping', (data) => {
   console.log('received a ping');
 });
 

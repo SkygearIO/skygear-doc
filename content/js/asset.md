@@ -9,7 +9,7 @@ title = "Assets"
 
 ```js
 // node.js
-fs.readFile('my-awesome-picture.jpg', function(err, data) {
+fs.readFile('my-awesome-picture.jpg', (err, data) => {
   if (err) {
     throw err;
   }
@@ -20,7 +20,7 @@ fs.readFile('my-awesome-picture.jpg', function(err, data) {
     name: 'Handsome Guy',
     picture: profilePic
   });
-  skygear.publicDB.save(profile).then(function(p) {
+  skygear.publicDB.save(profile).then((p) => {
     // fetched record field will have a `url` attribute available
     console.log('Download my handsome selfie here => %s', p.picture.url);
   });
@@ -42,7 +42,7 @@ Consider the following HTML:
 Javascript:
 
 ```js
-$('#profile-form').on('submit', function() {
+$('#profile-form').on('submit', () => {
   let name = $('#profile-form-name').val();
   let pic = $('#profile-form-pic').attr('files')[0];
 

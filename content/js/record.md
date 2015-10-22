@@ -12,9 +12,9 @@ You can save a public note to server as follow.
 ``` javascript
 skygear.publicDB.save(new Note({
     'content': 'Hello World!'
-})).then(function (record) {
+})).then((record) => {
     console.log(record);
-}, function (error) {
+}, (error) => {
     console.log(error);
 });
 ```
@@ -67,9 +67,9 @@ const Blog = skygear.Record.extend('blog');
 ``` javascript
 skygear.publicDB.save(new Note({
     'content': 'Hello World!'
-})).then(function (record) {
+})).then((record) => {
     console.log(record);
-}, function (error) {
+}, (error) => {
     console.log(error);
 });
 ```
@@ -85,9 +85,9 @@ query.greaterThan('popular', 10);
 query.addDescending('popular');
 query.limit = 10;
 
-skygear.publicDB.query(query).then(function (records) {
+skygear.publicDB.query(query).then((records) => {
   console.log(records)
-}, function (error) {
+}, (error) => {
   console.log(error);
 })
 ```
@@ -96,9 +96,9 @@ skygear.publicDB.query(query).then(function (records) {
 
 
 ``` javascript
-skygear.publicDB.del(record).then(function () {
+skygear.publicDB.del(record).then(() => {
   console.log(record);
-}, function (error) {
+}, (error) => {
   console.log(error);
 });
 ```

@@ -13,10 +13,10 @@ To start with a simple query with `equalTo`
 ``` javascript
 let query = Query(Note);
 query.equalTo('title', 'First note');
-skygear.privateDB.query(query).then(function(notes) {
+skygear.privateDB.query(query).then((notes) => {
   console.log('Received note with title === First note', notes[0].title);
   // do something with your notes
-}, function(error) {
+}, (error) => {
   console.log('error: ', error);
 });
 ```
@@ -27,9 +27,9 @@ You can put multiple conditions in same query object
 let query = Query(Note);
 query.lessThan('order', 10);
 query.equalTo('category', 'diary');
-skygear.privateDB.query(query).then(function(notes) {
+skygear.privateDB.query(query).then((notes) => {
   console.log('Received note with order less then 10 and is a diary');
-}, function(error) {
+}, (error) => {
   console.log('error: ', error);
 });
 ```
@@ -42,9 +42,9 @@ let query = Query(Note);
 query.addAscending('order');
 query.equalTo('category', 'diary');
 query.limit = 10;
-skygear.privateDB.query(query).then(function(notes) {
+skygear.privateDB.query(query).then((notes) => {
   console.log('Received 10 note with order');
-}, function(error) {
+}, (error) => {
   console.log('error: ', error);
 });
 ```
@@ -61,9 +61,9 @@ let query = Query.or(likeQuery, shareQuery);
 query.equalTo('category', 'diary');
 query.addAscending('share');
 query.limit = 10;
-skygear.publicDB.query(query).then(function(notes) {
+skygear.publicDB.query(query).then((notes) => {
   console.log('Received max 10 notes with (like > 50 || share > 10) && category == diary');
-}, function(error) {
+}, (error) => {
   console.log('error: ', error);
 });
 ```
@@ -78,11 +78,11 @@ let shareQuery = Query(Note);
 shareQuery.greaterThan('share', 10);
 let query = Query.or(clickQuery, shareQuery);
 query.equalTo('category', 'diary');
-skygear.publicDB.query(query).then(function(notes) {
+skygear.publicDB.query(query).then((notes) => {
   console.log('Too complex for words.');
   // Translate to SQL
   // SELECT * from note WHERE categoty = 'category' AND share > 10 OR (like > 50 AND click > 100);
-}, function(error) {
+}, (error) => {
   console.log('error: ', error);
 });
 ```

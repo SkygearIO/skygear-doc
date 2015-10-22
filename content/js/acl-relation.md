@@ -41,11 +41,11 @@ skygear.publicDB.save(post);
 For an existing post, the access control for a record can be changed this way:
 
 ``` javascript
-skygear.publicDB.query(query).then(function (records) {
+skygear.publicDB.query(query).then((records) => {
   const post = records[0];
   post.acl.addReadAccess(skygear.FRIEND);
   skygear.publicDB.save(post);
-}, function (error) {
+}, (error) => {
   console.log(error);
 });
 ```
@@ -60,12 +60,12 @@ all users, you can do that by removing both public read access and removing
 friend read access from record:
 
 ``` javascript
-skygear.publicDB.query(query).then(function (records) {
+skygear.publicDB.query(query).then((records) => {
   const post = records[0];
   post.acl.removePublicReadAccess();
   post.acl.removeReadAccess(skygear.FRIEND);
   skygear.publicDB.save(post);
-}, function (error) {
+}, (error) => {
   console.log(error);
 });
 ```
@@ -98,12 +98,12 @@ wished.
 _Querying a record and examine the access control_
 
 ``` javascript
-skygear.publicDB.query(query).then(function (records) {
+skygear.publicDB.query(query).then((records) => {
   const acl = records[0].acl;
   console.log(acl.getFullAccess()); // All access entities
   console.log(acl.getReadAccess(skygear.FOLLOWER)); // Boolean value 
   console.log(acl.getWriteAccess(ben));
-}, function (error) {
+}, (error) => {
   console.log(error);
 });
 ```

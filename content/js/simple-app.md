@@ -8,9 +8,9 @@ title = "Simple Application"
 ## Creating users
 
 ```js
-skygear.signup(username, email, password).then(function() {
+skygear.signup(username, email, password).then(() => {
   console.log('access token: %s', skygear.currentAccessToken);
-}, function(error) {
+}, (error) => {
   console.log('error signing up: %o', error);
 });
 ```
@@ -22,9 +22,9 @@ record = skygear.Record({
   _type: 'note',
   content: 'I am a note.'
 })
-skygear.privateDB().save(record).then(function(record) {
+skygear.privateDB().save(record).then((record) => {
   console.log('record saved successfully: %o', record);
-}, function(error) {
+}, (error) => {
   console.log('error saving record: %o', error)
 });
 ```
@@ -32,9 +32,9 @@ skygear.privateDB().save(record).then(function(record) {
 ## Fetching records (not implemented)
 
 ```js
-skygear.privateDB().fetch('note', 'id').then(function(record) {
+skygear.privateDB().fetch('note', 'id').then((record) => {
   console.log('record fetched successfully: %o', record);
-}, function(error) {
+}, (error) => {
   console.log('error fetching record note/id: %o', error)
 });
 ```
@@ -43,10 +43,10 @@ skygear.privateDB().fetch('note', 'id').then(function(record) {
 
 ```js
 let query = Query('note');
-skygear.privateDB().query(query).then(function(notes) {
+skygear.privateDB().query(query).then((notes) => {
   console.log('received %d notes', notes.length);
   // do something with your notes
-}, function(error) {
+}, (error) => {
   console.log('error querying notes: %o', error);
 });
 ```
