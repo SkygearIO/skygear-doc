@@ -175,8 +175,9 @@ is public readable.
 The default setting can be changed by calling `setDefaultAccessControl` method:
 
 ```objective-c
-SKYAccessControl *acl = [SKYAccessControl publicReadAccessControl];
-[acl addReadAccessForRole:webmaster];
+SKYAccessControl *acl = [[SKYContainer defaultContainer] defaultAccessControl];
+[acl removePublicReadAccess];
+[acl addWriteAccessForRole:webmaster];
 [[SKYContainer defaultContainer] setDefaultAccessControl:acl];
 ```
 

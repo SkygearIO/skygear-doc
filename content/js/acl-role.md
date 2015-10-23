@@ -168,8 +168,8 @@ is public readable.
 The default setting can be changed by calling `setDefaultACL` function:
 
 ```javascript
-const defaultACL = new skygear.ACL();
-acl.addPublicReadAccess();
+const defaultACL = new skygear.defaultACL();
+acl.removePublicReadAccess();
 acl.addWriteAccess(Webmaster);
 skygear.setDefaultACL(acl);
 ```
@@ -177,10 +177,6 @@ skygear.setDefaultACL(acl);
 In the above example, each newly created record is readable by public and it
 can be modified by a `webmaster`. If you add access control to a specific
 record, the above settings will be ignored for that record.
-
-If you do not include `addPublicReadAccess` when setting default access control,
-The new access control setting will not include public read access. In other
-words, new records will not be readable by public by default.
 
 ## Changing role of a user
 
