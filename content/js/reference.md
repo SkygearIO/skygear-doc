@@ -57,11 +57,11 @@ After you give a relation, you can
 
 ``` javascript
 const q = skygear.Query(Note);
-q.transientInclude('details');
+q.transientInclude('details', 'my_details');
 skygear.publicDB.query(q).then((records) => {
   records.map((record) => {
     console.log(record.details); // Array of skygear.Reference
-    console.log(record.transient['details']); // Array of skygear.Record
+    console.log(record.transient['my_details']); // Array of skygear.Record
   });
 }, (error) => {
   console.log(error);
