@@ -25,10 +25,10 @@ Consider the following HTML:
 ```js
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-skygear.signup(username, username, password).then(() => {
-  console.log('access token: %s', skygear.currentAccessToken);
+skygear.signup(username, password).then(() => {
+  console.log('access token', skygear.currentAccessToken);
 }, (error) => {
-  console.log('error signing up: %o', error);
+  console.log('error signing up', error);
 });
 ```
 
@@ -38,9 +38,9 @@ skygear.signup(username, username, password).then(() => {
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
 skygear.login(username, password).then(() => {
-  console.log('access token: %s', skygear.currentAccessToken);
+  console.log('access token', skygear.currentAccessToken);
 }, (error) => {
-  console.log('error logging in: %o', error);
+  console.log('error logging in', error);
 });
 ```
 
@@ -50,7 +50,7 @@ skygear.login(username, password).then(() => {
 skygear.logout().then(() => {
   console.log('logout successfully');
 }, (error) => {
-  console.log('error logging out: %o', error);
+  console.log('error logging out', error);
 });
 ```
 
@@ -62,6 +62,33 @@ skygear.changePassword(oldPassword, newPassword).then((_user) => {
 }, (error) => {
   console.log('You need too login before changing password!', user);
   console.log('Old password not match?', error);
+});
+```
+
+# Using email as login name
+
+At Skygear, we allow you use email as the user identifier. When you specified
+you are using email as identifier, Skygear will ensure the email are in proper
+format. And you may enable the recover password by email function. 
+
+You will signup and login the user as follow.
+
+``` javascript
+skygear.signupWithEmail(email, password).then(() => {
+  console.log('access token', skygear.currentAccessToken);
+}, (error) => {
+  console.log('May be incorrect email format?');
+  console.log('error signing up', error);
+});
+```
+
+## Login by email
+
+``` javascript
+skygear.loginWithEmail(email, password).then(() => {
+  console.log('access token', skygear.currentAccessToken);
+}, (error) => {
+  console.log('error logging up:', error);
 });
 ```
 

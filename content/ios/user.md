@@ -10,7 +10,9 @@ TODO: Only logged in user can do write operation on databases
 ## Signing up
 
 ```obj-c
-[container signupUserWithUsername:@"john.doe@example.com" password:@"verysecurepasswd" completionHandler:^(SKYUserRecordID *user, NSError *error) {
+[container signup:@"john.doe@example.com"
+         password:@"verysecurepasswd"
+completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"error signing up user: %@", error);
         return;
@@ -27,7 +29,41 @@ TODO: Remind developer to use email as username when necessary
 ## Logging in
 
 ```obj-c
-[container loginUserWithUsername:@"john.doe@example.com" password:@"verysecurepasswd" completionHandler:^(SKYUserRecordID *user, NSError *error) {
+[container login:@"john.doe@example.com"
+        password:@"verysecurepasswd"
+completionHandler:^(SKYUserRecordID *user, NSError *error) {
+    if (error) {
+        NSLog(@"error loggin user in: %@", error);
+        return;
+    }
+
+    NSLog(@"login successful");
+    // do something else
+}];
+```
+
+## Signup and login with email
+
+We allow signup and login by email too.
+
+```obj-c
+[container signupWithEmail:@"john.doe@example.com"
+                  password:@"verysecurepasswd"
+         completionHandler:^(SKYUserRecordID *user, NSError *error) {
+    if (error) {
+        NSLog(@"error signing up user: %@", error);
+        return;
+    }
+
+    NSLog(@"sign up successful");
+    // do something else
+}];
+```
+
+```obj-c
+[container loginWithEmail:@"john.doe@example.com"
+                 password:@"verysecurepasswd"
+        completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"error loggin user in: %@", error);
         return;
@@ -57,7 +93,9 @@ if (container.currentUserRecordID) {
 ## Changing user password
 
 ```obj-c
-[container changePassword:@"oldPassword" password:@"newPassword" completionHandler:^(SKYUserRecordID *user, NSError *error) {
+[container changePassword:@"oldPassword"
+                 password:@"newPassword"
+        completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"Can't change password: %@", error);
         // Can be old password not matched?
