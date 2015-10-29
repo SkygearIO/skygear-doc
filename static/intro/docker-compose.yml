@@ -13,26 +13,26 @@ db:
   volumes_from:
   - db_data
   ports:
-  - "5432:5432"
+  - "5433:5432"
 
 # The volume container for skygear
 # This container provides persistent storage for the `app` container. To
 # remove this storage, run `docker-compose rm app_data`.
 app_data:
-  image: oursky/skygear:master
+  image: oursky/skygear:latest
   command: /bin/true
 
 # The Skygear container
 app:
-  image: oursky/skygear:master
+  image: oursky/skygear:latest
   ports:
-  - "3000:3000" # Skygear API Endpoint (HTTP)
-  - "5555:5555" # Skygear Plugin Endpoint (ZMQ)
+  - "3001:3000" # Skygear API Endpoint (HTTP)
+  - "5556:5555" # Skygear Plugin Endpoint (ZMQ)
   volumes_from:
   - app_data
   links:
   - db
-  command: sh -c '$GOPATH/bin/skygear development.ini'
+  command: skygear development.ini
   environment:
     # `db` in the following string should match the name of the database
     # container above.
