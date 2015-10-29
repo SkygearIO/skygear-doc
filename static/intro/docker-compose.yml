@@ -19,12 +19,12 @@ db:
 # This container provides persistent storage for the `app` container. To
 # remove this storage, run `docker-compose rm app_data`.
 app_data:
-  image: oursky/skygear:master
+  image: oursky/skygear:latest
   command: /bin/true
 
 # The Skygear container
 app:
-  image: oursky/skygear:master
+  image: oursky/skygear:latest
   ports:
   - "3000:3000" # Skygear API Endpoint (HTTP)
   - "5555:5555" # Skygear Plugin Endpoint (ZMQ)
