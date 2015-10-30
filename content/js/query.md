@@ -87,6 +87,25 @@ skygear.publicDB.query(query).then((notes) => {
 });
 ```
 
+To get the number of records matching a query, set the `overallCount`
+of the Query to `true`. In this case, you will get the count of all records
+matching the query together with the query result. The count is not affected
+by the limit set on the query.
+
+``` javascript
+let query = Query(Note);
+query.lessThan('order', 10);
+query.equalTo('category', 'diary');
+query.overallCount = true;
+skygear.privateDB.query(query).then((notes, count) => {
+  console.log('%d records matching query.', count);
+}, (error) => {
+  console.log('error: ', error);
+});
+```
+
+If you want to get the count without fetching any records, set `limit = 0`.
+
 ## Operators
 
 ### Contains

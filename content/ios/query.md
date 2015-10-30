@@ -53,3 +53,10 @@ SKYDatabase *privateDB = database;
 ## Limiting and Offset
 
 ## Cached Queries
+
+## Record Count
+
+To get the number of all records matching a query, set the property
+`overallCount` property of `SKYQuery` to `YES`. The record count can be
+retrieved from `overallCount` property of `SKYQueryOperation` when
+`perRecordCompletionBlock` is first called.
