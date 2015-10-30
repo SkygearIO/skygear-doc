@@ -13,6 +13,18 @@ title = "Queries"
 
 ### Strings
 
+### Aggregate Oprations
+
+#### IN
+
+The `IN` operator can be used to query a key for value that matches one of the
+item in an `NSArray`.
+
+```obj-c
+NSPredicate *inPredicate =
+            [NSPredicate predicateWithFormat: @"attribute IN %@", aCollection];
+```
+
 ### Full-text search (**NOT IMPLEMENTED**)
 
 ### References

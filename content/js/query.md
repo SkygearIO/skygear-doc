@@ -86,3 +86,15 @@ skygear.publicDB.query(query).then((notes) => {
   console.log('error: ', error);
 });
 ```
+
+## Operators
+
+### Contains
+
+The `contains` function can be used to query a key for value that matches one of the
+item in an array.
+
+```javascript
+let query = Query(Note);
+query.contains('category', ['interesting', 'funny']);
+```
