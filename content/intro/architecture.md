@@ -7,7 +7,7 @@ title = "Architecture"
 
 Introduction & Glossary to Skygear Architecture
 
-{{< img src="/tutorial/intro/blocks.jpg" title="Compoent blocks connection" 
+{{< img src="/intro/blocks.jpg" title="Compoent blocks connection" 
     caption="Showing the data flow between component">}}
 
 
