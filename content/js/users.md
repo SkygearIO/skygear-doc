@@ -54,7 +54,7 @@ skygear.logout().then(() => {
 });
 ```
 
-# Changing password **[Not implemented]**
+# Changing password
 
 ``` javascript
 skygear.changePassword(oldPassword, newPassword).then((_user) => {
