@@ -39,13 +39,10 @@ skygear: oddb/pq: got version_num = bd=d120fadd, want fef0a121
 ```
 
 When this happens, you are required to run database migration. You can
-trigger migration to happen by running the `skygear-db` utility.
+trigger migration to happen by using the skygear-migrate docker image.
 
 ```
-docker exec -i -t skygear skygear-db migrate
+docker run --rm --link skygear_db_1:db oursky/skygear-migrate
 ```
 
-
-
-
-
+Note: skygear_db_1 is the docker container in your setup.
