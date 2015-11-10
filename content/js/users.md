@@ -106,3 +106,34 @@ skygear.changePassword(oldPassword, newPassword, invalidateTokens=true).then(
   }
 );
 ```
+
+# User **[Not implemented]**
+
+Skygear provide currentUser object after login.
+
+``` javascript
+const actor = skygear.currentUser;
+
+```
+
+Skygear provide a user discovery method by username or email
+
+``` javascript
+const ben = skygear.User.discoverByEmail('ben@skygear.com').then((ben) => {
+  console.log(ben);
+}, (error) => {
+  console.log('Failed', error);
+});
+```
+
+``` javascript
+const ben = skygear.User.discover('chpapa').then((ben) => {
+  console.log(ben);
+}, (error) => {
+  console.log('Failed', error);
+});
+```
+
+## User Relations
+
+See [Friends and Followers]({{< relref "relation.md" >}}).

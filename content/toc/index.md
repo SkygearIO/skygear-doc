@@ -69,7 +69,7 @@ Collection of article help you unleash the power of Skygear.
   - [Users (Authentication)]({{< relref "js/users.md" >}})
   - **[Not implemented]** [Access Control by relation]({{< relref "js/acl-relation.md" >}})
   - **[Not implemented]** [Access Control by role]({{< relref "js/acl-role.md" >}})
-  - **[Not implemented]** Friends & Followers
+  - **[Not implemented]** [User relations (Friends & Followers)]({{< relref "js/relation.md" >}})
   - **[Not implemented]** Local Storage (RecordStorage, CachedQuery)
   - **[Not implemented]** [Subscription]({{< relref "js/subscription.md" >}})
   - **[Future release]** Push Notification

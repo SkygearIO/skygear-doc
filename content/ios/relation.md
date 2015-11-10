@@ -57,7 +57,7 @@ operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
 
-Get all mutual followers:
+Get all mutual followers: **[Not implemented]**
 
 ```obj-c
 SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation relationFollow] direction:SKYRelationDirectionMutual];
