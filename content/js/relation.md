@@ -48,6 +48,16 @@ skygear.Relation.queryFollower(ben).then((users) => {
 });
 ```
 
+Get follower 
+
+``` javascript
+skygear.Relation.queryFollowing(skygear.currentUser).then((users) => {
+  console.log(users);
+}, () => {
+  console.warn(error);
+});
+```
+
 ### Complex user query by relation
 
 ``` javascript
@@ -83,11 +93,12 @@ skygear.Relation.remove(unFollow).then((ok) => {
 ```
 
 
-# Custom relation **[Furture release]**
+# Custom relation **[Future release]**
 
-We are supporting unary relation and mutual relation.
+We are supporting non-mutual relation and mutual relation.
 
-`follower` and `following` are one unary relation with direction.
+`follower` and `following` are one non-mutual relation with direction. You can
+follow a user without his explicit consensus.
 
 `friend` is mutual relation without direction.
 
