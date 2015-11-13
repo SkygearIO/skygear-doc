@@ -29,6 +29,12 @@ app:
   - "3001:3000" # Skygear API Endpoint (HTTP)
   - "5556:5555" # Skygear Plugin Endpoint (ZMQ)
   volumes_from:
+  # Uncomment the following line to override the default configuration file.
+  # Put the configuration file in the same directory with this file and call it
+  # `development.ini`.
+  # The default configuration file can be obtained from
+  # https://github.com/oursky/skygear/blob/master/development.ini.
+  #- ./development.ini:/go/src/app/development.ini
   - app_data
   links:
   - db
