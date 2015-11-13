@@ -25,7 +25,8 @@ Consider the following HTML:
 ```js
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-skygear.signup(username, password).then(() => {
+skygear.signup(username, password).then((user) => {
+  console.log('user id', user.ID);
   console.log('access token', skygear.currentAccessToken);
 }, (error) => {
   console.log('error signing up', error);
@@ -37,7 +38,8 @@ skygear.signup(username, password).then(() => {
 ```js
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-skygear.login(username, password).then(() => {
+skygear.login(username, password).then((user) => {
+  console.log('user id', user.ID);
   console.log('access token', skygear.currentAccessToken);
 }, (error) => {
   console.log('error logging in', error);
@@ -57,7 +59,7 @@ skygear.logout().then(() => {
 # Changing password
 
 ``` javascript
-skygear.changePassword(oldPassword, newPassword).then((_user) => {
+skygear.changePassword(oldPassword, newPassword).then((user) => {
   console.log('User now have new password', user);
 }, (error) => {
   console.log('You need too login before changing password!', user);
@@ -74,7 +76,8 @@ format. And you may enable the recover password by email function.
 You will signup and login the user as follow.
 
 ``` javascript
-skygear.signupWithEmail(email, password).then(() => {
+skygear.signupWithEmail(email, password).then((user) => {
+  console.log('user id', user.ID);
   console.log('access token', skygear.currentAccessToken);
 }, (error) => {
   console.log('May be incorrect email format?');
@@ -85,7 +88,8 @@ skygear.signupWithEmail(email, password).then(() => {
 ## Login by email
 
 ``` javascript
-skygear.loginWithEmail(email, password).then(() => {
+skygear.loginWithEmail(email, password).then((user) => {
+  console.log('user id', user.ID);
   console.log('access token', skygear.currentAccessToken);
 }, (error) => {
   console.log('error logging up:', error);
