@@ -19,11 +19,28 @@ The first thing you need to do is to import `SkygearContainer` from
 from skygear.container import SkygearContainer
 ```
 
-For example, to send a push notification to a user:
+For example, to send a push notification to some users:
 
 ```
+from skygear.action import push_users
 container = SkygearContainer()
-container.send_action('push:user', {
-    'user_id': "user@example.com"
-    })
+push_users(container, ['jodn.doe@example.com', 'jane.doe@example.com'], {
+    'aps': {
+        'alert': 'Greetings from Skygear Plugin',
+    },
+    'gcm': {
+        'notification': {
+            'title': 'Exciting News for you',
+            'body': 'Skygear Plugin sending notifications',
+        },
+    },
+    # put custom fields here
+    # will be applied to both aps and gcm
+    'data': {
+        'from': 'skygear',
+        'operation': 'notification',
+    },
+})
+
+# notification can also be sent to devices, see push_devices in the same package
 ```
