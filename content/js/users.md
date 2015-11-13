@@ -27,7 +27,7 @@ var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
 skygear.signup(username, password).then((user) => {
   console.log('user id', user.ID);
-  console.log('access token', skygear.currentAccessToken);
+  console.log('access token', skygear.accessToken);
 }, (error) => {
   console.log('error signing up', error);
 });
@@ -40,7 +40,7 @@ var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
 skygear.login(username, password).then((user) => {
   console.log('user id', user.ID);
-  console.log('access token', skygear.currentAccessToken);
+  console.log('access token', skygear.accessToken);
 }, (error) => {
   console.log('error logging in', error);
 });
@@ -77,8 +77,9 @@ You will signup and login the user as follow.
 
 ``` javascript
 skygear.signupWithEmail(email, password).then((user) => {
+  console.log('skygear get the current user object', skygear.currentUser)
   console.log('user id', user.ID);
-  console.log('access token', skygear.currentAccessToken);
+  console.log('access token', skygear.accessToken);
 }, (error) => {
   console.log('May be incorrect email format?');
   console.log('error signing up', error);
@@ -90,7 +91,7 @@ skygear.signupWithEmail(email, password).then((user) => {
 ``` javascript
 skygear.loginWithEmail(email, password).then((user) => {
   console.log('user id', user.ID);
-  console.log('access token', skygear.currentAccessToken);
+  console.log('access token', skygear.accessToken);
 }, (error) => {
   console.log('error logging up:', error);
 });
