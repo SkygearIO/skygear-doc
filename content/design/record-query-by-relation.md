@@ -14,34 +14,34 @@ This document describe how to query recrod based on user-creator relation.
   "func",
   "userRelation",
   {"$type": "keypath", "$val": "_owner"},
-  {"$type": "relation", "$type": "friend"}
+  {"$type": "relation", "$name": "_friend"}
 ]
 ```
 
 Record owned by following user.
 
-Note: `follow` x `active` = `following`
-Note: `follow` x `passive` = `follower`
+Note: `follow` x `inward` = `following`
+Note: `follow` x `outward` = `follower`
 
 ``` json
 [
   "func",
   "userRelation",
   {"$type": "keypath", "$val": "_owner"},
-  {"$type": "relation", "$type": "follow", "$direction": "active"}
+  {"$type": "relation", "$name": "_follow", "$direction": "inward"}
 ]
 ```
 
 
 ## API
 
-An example of querying a note owned by friend or following
+An example of querying a note owned by friend or user I follow
 
 
 ``` json
 {
   "action": "record:query",
-  "access_token": "ACCES_TOEKEN",
+  "access_token": "ACCESS_TOKEN",
   "record_type": "note",
   "predicate": [
     "or",
@@ -49,18 +49,18 @@ An example of querying a note owned by friend or following
       "func",
       "userRelation",
       {"$type": "keypath", "$val": "_owner"},
-      {"$type": "relation", "$type": "friend"}
+      {"$type": "relation", "$name": "_friend", "$direction": "mutual"}
     ],
     [
       "func",
       "userRelation",
       {"$type": "keypath", "$val": "_owner"},
-      {"$type": "relation", "$type": "follow", "$direction": "active"}
+      {"$type": "relation", "$name": "_follow", "$direction": "outward"}
     ]
   ],
   "include": {
     "owner": {"$type": "keypath", "$val": "_owner"}
-  }
+  },
   "sort": []
 }
 ```
@@ -73,13 +73,13 @@ Following is an example of `query note that assigned to a person I manage`
 ``` json
 {
   "action": "record:query",
-  "access_token": "ACCES_TOEKEN",
+  "access_token": "ACCESS_TOKEN",
   "record_type": "note",
   "predicate": [
     "func",
     "userRelation",
     {"$type": "keypath", "$val": "assignee"},
-    {"$type": "relation", "$type": "manage", "$direction": "active"}
+    {"$type": "relation", "$name": "manage", "$direction": "outward"}
   ]
 }
 ```
