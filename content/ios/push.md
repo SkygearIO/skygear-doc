@@ -10,8 +10,12 @@ title = "Push Notifications"
 ## Sending push notification to users
 
 ```obj-c
+// send notification through APNS
+SKYAPSNotificationInfo *apsInfo = [SKYAPSNotificationInfo notificationInfo];
+apsInfo.alertBody = @"Hi iOS!";
+
 SKYNotificationInfo *info = [SKYNotificationInfo notificationInfo];
-info.alertBody = @"Hi there!";
+info.apsNotificationInfo = apsInfo;
 
 SKYSendPushNotificationOperation *operation = [SKYSendPushNotificationOperation operationWithNotificationInfo:info userIDsToSend:@[kenji, rick]];
 operation.sendCompletionHandler = ^(NSArray *userIDs, NSError *error) {
@@ -29,8 +33,18 @@ operation.sendCompletionHandler = ^(NSArray *userIDs, NSError *error) {
 ## Sending push notification to devices
 
 ```
+// send notification through both APNS and GCM
+SKYAPSNotificationInfo *apsInfo = [SKYAPSNotificationInfo notificationInfo];
+apsInfo.alertBody = @"Hi iOS!";
+
+SKYGCMNotificationInfo *gcmInfo = [SKYGCMNotificationInfo notificationInfo];
+gcmInfo.collapseKey = @"hello";
+gcmInfo.notification.title = @"Greetings from Skygear";
+gcmInfo.notification.body = @"Hi Android!";
+
 SKYNotificationInfo *info = [SKYNotificationInfo notificationInfo];
-info.alertBody = @"Hi device!";
+info.apsNotificationInfo = apsInfo;
+info.gcmNotificationInfo = gcmInfo;
 
 SKYSendPushNotificationOperation *operation = [SKYSendPushNotificationOperation operationWithNotificationInfo:info deviceIDsToSend:@[@"device0", @"device1"]];
 operation.sendCompletionHandler = ^(NSArray *deviceIDs, NSError *error) {

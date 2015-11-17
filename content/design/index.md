@@ -5,6 +5,10 @@ title = "Index of design document"
 
 +++
 
+# Push Notification
+
+[Design docs]({{< relref "design/notification.md" >}})
+
 # Access Control exercise
 
 **Taylors**
