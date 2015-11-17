@@ -25,20 +25,22 @@ For example, to send a push notification to some users:
 from skygear.action import push_users
 container = SkygearContainer()
 push_users(container, ['jodn.doe@example.com', 'jane.doe@example.com'], {
-    'aps': {
-        'alert': 'Greetings from Skygear Plugin',
+    'apns': {
+        'aps': {
+            'alert': 'Greetings from Skygear Plugin',
+        },
+        'from': 'skygear',
+        'operation': 'notification',
     },
     'gcm': {
         'notification': {
             'title': 'Exciting News for you',
             'body': 'Skygear Plugin sending notifications',
         },
-    },
-    # put custom fields here
-    # will be applied to both aps and gcm
-    'data': {
-        'from': 'skygear',
-        'operation': 'notification',
+        'data': {
+            'from': 'skygear',
+            'operation': 'notification',
+        },
     },
 })
 
