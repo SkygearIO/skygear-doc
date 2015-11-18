@@ -21,8 +21,19 @@ cd ..
 npm install skygear/
 ```
 
-# Includ in your website
+# Include in react-native
+``` js
+require('babel-polyfill');
+var React = require('react-native');
+
+/* ... */
+
+var skygear = require('skygear');
+```
+
+# Include in your website
 
 ``` html
+<script src="//cdn.skygear.io/polyfill.min.js"></script>
 <script src="//cdn.skygear.io/skygear.js"></script>
 ```
