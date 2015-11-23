@@ -45,3 +45,7 @@ app:
     DATABASE_URL: postgresql://postgres:@db/postgres?sslmode=disable
     DB_IMPL_NAME: pq
     API_KEY: changeme
+    # GOMAXPROCS - The maximum number of Go threads for execution.
+    # When unspecified, the default is the number of CPU available, which
+    # is the recommended setting.
+    #GOMAXPROCS: 1

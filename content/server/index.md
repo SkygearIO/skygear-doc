@@ -10,7 +10,7 @@ start the server on your own by following steps.
 
 ### Prerequisite
 
-1. go v1.4+
+1. go v1.5+
 2. https://github.com/tools/godep is used for managing go lib
 3. PostgreSQL, Recommended version: 9.4
 4. zmq is used for connecting plugin
