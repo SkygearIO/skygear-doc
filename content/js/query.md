@@ -111,9 +111,17 @@ If you want to get the count without fetching any records, set `limit = 0`.
 ### Contains
 
 The `contains` function can be used to query a key for value that matches one of the
-item in an array.
+item in a specified array.
 
 ```javascript
 let query = Query(Note);
 query.contains('category', ['interesting', 'funny']);
+```
+
+If a key is of JSON type, the `containsValue` function can also be used to query
+a key if an array contains a specified value.
+
+```javascript
+let query = Query(Note);
+query.containsValue('category', 'interesting');
 ```

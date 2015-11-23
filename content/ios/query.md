@@ -25,6 +25,14 @@ NSPredicate *inPredicate =
             [NSPredicate predicateWithFormat: @"attribute IN %@", aCollection];
 ```
 
+If the key being queried is a JSON type, the `IN` operator can also be used to
+query the key to check if it contains a particular value:
+
+```obj-c
+NSPredicate *inPredicate =
+            [NSPredicate predicateWithFormat: @"%@ IN attribute", aValue];
+```
+
 ### Full-text search (**NOT IMPLEMENTED**)
 
 ### References
