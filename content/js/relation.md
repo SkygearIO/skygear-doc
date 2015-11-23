@@ -15,7 +15,7 @@ The save user relation operation is operation on currently logged in user.
 
 ``` javascript
 const toFollow = skygear.Relation.Following([ben]); // skygear.currentUser follow;
-skygear.Relation.save(toFollow).then((ok) => {
+skygear.Relation.add(toFollow).then((ok) => {
   console.log(ok);
 }, (error) => {
   console.warn(error);
@@ -69,8 +69,7 @@ skygear.Relation.queryFriend(skygear.currentUser, {
   console.log(error);
 });
 
-const query = skygear.Relation.Query('follower');
-query.direction = skygear.Relation.Active; // Passive, Mutual
+const query = skygear.Relation.Query(skygear.Relation.Follower);
 query.user = skygear.currentUser;
 query.limit = 10;
 query.page = 3;
@@ -84,7 +83,7 @@ skygear.Relation.query(query).then((users) => {
 ## Removing relations
 
 ``` javascript
-const unFollow = skygear.Relation.Follower([ben]);
+const unFollow = new skygear.Relation.Follower([ben]);
 skygear.Relation.remove(unFollow).then((ok) => {
   console.log(ok);
 }, (error) => {
@@ -105,7 +104,7 @@ follow a user without his explicit consensus.
 ## Add custom relation between users
 
 ``` javascript
-const FansOf = skygear.Relation.extend('fans', skygear.Relation.Passive);
+const FansOf = skygear.Relation.extend('fans', skygear.Relation.Outward);
 const becomeFans = FansOf(coldPlay);
 skygear.Relation.save(becomeFans).then((ok) => {
   console.log(ok);
