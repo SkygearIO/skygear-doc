@@ -110,6 +110,11 @@ todo[@"done"] = @YES;
 [privateDB saveRecord:todo completion:nil];
 ```
 
+Note that the data in the returned record in the completion block may be
+different from the originally saved record. This is because additional
+fields maybe applied on the server side when the record is saved. You may
+want to inspect the returned record for any changes applied on the server side.
+
 ## Fetching an existing record
 
 With the record ID we could also fetch the record from a database:

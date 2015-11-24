@@ -74,6 +74,11 @@ skygear.publicDB.save(new Note({
 });
 ```
 
+After saving a record, any attributes modified from the server side will
+be updated on the saved record object in place. The local transient fields of
+the records are merged with any remote transient fields applied on the server
+side.
+
 # Fetching an existing records
 
 You can construct a Query object by providing a Record Type.
