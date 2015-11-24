@@ -125,3 +125,19 @@ a key if an array contains a specified value.
 let query = Query(Note);
 query.containsValue('category', 'interesting');
 ```
+
+### Like
+
+The `like` function can be used to query a key for complete or partial matches
+of a specified string. The percent character (`%`) can be used in place
+ for a number of characters while the underscore (`_`) can be used in place
+ for a single character.
+
+```javascript
+let query = Query(Note);
+query.like('category', 'science%');
+```
+
+The above query will match notes with category `science` or `science-fiction`.
+
+Use `caseInsensitiveLike` for case insensitive match.
