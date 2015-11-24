@@ -17,7 +17,7 @@ skygear.on('ping', (data) => {
 ## Publishing an event
 
 ```js
-skygear.trigger('ping', {'from': 'Specialized Ping Force'});
+skygear.publish('ping', {'from': 'Specialized Ping Force'});
 ```
 
 ## Unsubscribing an event
