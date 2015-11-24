@@ -9,10 +9,6 @@ This guide will guide you through setting up Skygear for app developers.
 At the end of the guide, you will have a working installation for Skygear
 in your computer that is suitable for app development.
 
-**NOT IMPLEMENTED** In a future version of this guide, we will have a
-one stop script to fetch the needed files and automatically configure the
-environment for app developer.
-
 ## Install Docker
 
 The recommended way to run Skygear is to run it using Docker.
