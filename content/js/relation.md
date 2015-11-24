@@ -84,8 +84,8 @@ skygear.Relation.query(query).then((users) => {
 
 ``` javascript
 const unFollow = new skygear.Relation.Follower([ben]);
-skygear.Relation.remove(unFollow).then((ok) => {
-  console.log(ok);
+skygear.Relation.remove(unFollow).then((result) => {
+  console.log(result.success); // Return an array of user, here is [ben]
 }, (error) => {
   console.warn(error);
 });
@@ -105,9 +105,9 @@ follow a user without his explicit consensus.
 
 ``` javascript
 const FansOf = skygear.Relation.extend('fans', skygear.Relation.Outward);
-const becomeFans = FansOf(coldPlay);
-skygear.Relation.save(becomeFans).then((ok) => {
-  console.log(ok);
+const becomeFans = new FansOf([coldPlay]);
+skygear.Relation.save(becomeFans).then((result) => {
+  console.log(result.success);
 }, (error) => {
   console.warn(error);
 });
