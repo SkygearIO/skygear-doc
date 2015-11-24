@@ -86,3 +86,4 @@ Collection of article help you unleash the power of Skygear.
  - CI / CD integration
  - Performance
  - Security
+- [How to contribute]({{< relref "contributing.md" >}})
