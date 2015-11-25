@@ -15,10 +15,12 @@ $ git clone git@github.com:oursky/skygear.git
 $ cd skygear
 ```
 
-You can choose whether to develop Skygear with Docker or not. You are not required
-to install Go if you are developing Skygear with Docker.
+# Install Docker
 
-## Develop with Docker
+Please follow the Getting Started guide to set up the Docker environment.
+You do not need to install Go to develop Skygear in docker environment.
+
+# Develop with Docker
 
 You need development-specific configuration for Docker Compose. Create
 a file named `docker-compose.override.yml` in the same directory where
@@ -50,7 +52,7 @@ Docker development image.
 Each time you run `docker-compose up app`, the Skygear daemon is compiled
 from the source files in your project directory.
 
-### Running test case
+# Running test case
 
 ```sh
 # initialize skygear database for testing
@@ -61,13 +63,8 @@ $ docker-compose run db psql -h db -c 'CREATE EXTENSION postgis;' -U postgres -d
 $ docker-compose run --rm app go test ./...
 ```
 
-### Running other commands with Docker
+# Running other commands with Docker
 
 ```sh
 $ docker-compose run --rm --service-ports app <command>
 ```
-
-## Develop without Docker
-
-**TODO**
-
