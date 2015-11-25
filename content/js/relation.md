@@ -14,8 +14,8 @@ Skygear provide two default relations: friend and follower.
 The save user relation operation is operation on currently logged in user.
 
 ``` javascript
-const toFollow = skygear.Relation.Following([ben]); // skygear.currentUser follow;
-skygear.Relation.save(toFollow).then((ok) => {
+const toFollow = skygear.relation.Following([ben]); // skygear.currentUser follow;
+skygear.relation.add(toFollow).then((ok) => {
   console.log(ok);
 }, (error) => {
   console.warn(error);
@@ -29,7 +29,7 @@ You may query the follower of another user.
 ### Get friends list
 
 ``` javascript
-skygear.Relation.queryFriend(skygear.currentUser).then((users) => {
+skygear.relation.queryFriend(skygear.currentUser).then((users) => {
   console.log(users);
 }, (error) => {
   console.warn(error);
@@ -41,7 +41,7 @@ skygear.Relation.queryFriend(skygear.currentUser).then((users) => {
 Get ben's follower list.
 
 ``` javascript
-skygear.Relation.queryFollower(ben).then((users) => {
+skygear.relation.queryFollower(ben).then((users) => {
   console.log(users);
 }, (error) => {
   console.warn(error);
@@ -51,7 +51,7 @@ skygear.Relation.queryFollower(ben).then((users) => {
 Get follower 
 
 ``` javascript
-skygear.Relation.queryFollowing(skygear.currentUser).then((users) => {
+skygear.relation.queryFollowing(skygear.currentUser).then((users) => {
   console.log(users);
 }, () => {
   console.warn(error);
@@ -61,7 +61,7 @@ skygear.Relation.queryFollowing(skygear.currentUser).then((users) => {
 ### Complex user query by relation
 
 ``` javascript
-skygear.Relation.queryFriend(skygear.currentUser, {
+skygear.relation.queryFriend(skygear.currentUser, {
   page: 2, limit: 100
 }).then((users) => {
   console.log(users);
@@ -69,12 +69,11 @@ skygear.Relation.queryFriend(skygear.currentUser, {
   console.log(error);
 });
 
-const query = skygear.Relation.Query('follower');
-query.direction = skygear.Relation.Active; // Passive, Mutual
+const query = new skygear.relation.Query(skygear.relation.Follower);
 query.user = skygear.currentUser;
 query.limit = 10;
 query.page = 3;
-skygear.Relation.query(query).then((users) => {
+skygear.relation.query(query).then((users) => {
   console.log(users);
 }, (error) => {
   console.log(error);
@@ -84,9 +83,9 @@ skygear.Relation.query(query).then((users) => {
 ## Removing relations
 
 ``` javascript
-const unFollow = skygear.Relation.Follower([ben]);
-skygear.Relation.remove(unFollow).then((ok) => {
-  console.log(ok);
+const unFollow = new skygear.relation.Follower([ben]);
+skygear.relation.remove(unFollow).then((result) => {
+  console.log(result.success); // Return an array of user, here is [ben]
 }, (error) => {
   console.warn(error);
 });
@@ -105,10 +104,10 @@ follow a user without his explicit consensus.
 ## Add custom relation between users
 
 ``` javascript
-const FansOf = skygear.Relation.extend('fans', skygear.Relation.Passive);
-const becomeFans = FansOf(coldPlay);
-skygear.Relation.save(becomeFans).then((ok) => {
-  console.log(ok);
+const FansOf = skygear.relation.extend('fans', skygear.relation.Outward);
+const becomeFans = new FansOf([coldPlay]);
+skygear.relation.save(becomeFans).then((result) => {
+  console.log(result.success);
 }, (error) => {
   console.warn(error);
 });
