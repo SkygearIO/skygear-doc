@@ -12,13 +12,6 @@ the [GitHub repository](https://github.com/oursky/skygear).
 
 ```sh
 $ git clone git@github.com:oursky/skygear.git
-Cloning into 'skygear'...
-remote: Counting objects: 2724, done.
-remote: Compressing objects: 100% (17/17), done.
-remote: Total 2724 (delta 5), reused 0 (delta 0), pack-reused 2707
-Receiving objects: 100% (2724/2724), 650.80 KiB | 94.00 KiB/s, done.
-Resolving deltas: 100% (1797/1797), done.
-Checking connectivity... done.
 $ cd skygear
 ```
 
