@@ -10,8 +10,8 @@ TODO: Only logged in user can do write operation on databases
 ## Signing up
 
 ```obj-c
-[container signup:@"john.doe@example.com"
-         password:@"verysecurepasswd"
+[container signupWithUsername:@"john.doe"
+                     password:@"verysecurepasswd"
 completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"error signing up user: %@", error);
@@ -29,8 +29,8 @@ TODO: Remind developer to use email as username when necessary
 ## Logging in
 
 ```obj-c
-[container login:@"john.doe@example.com"
-        password:@"verysecurepasswd"
+[container loginWithUsername:@"john.doe"
+                    password:@"verysecurepasswd"
 completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"error loggin user in: %@", error);
