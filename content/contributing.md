@@ -5,22 +5,29 @@ title = "How to contribute"
 
 +++
 
-# Obtaining the source
+# How to contribute?
 
-Skygear is written in Go. To obtain Skygear source files, you can clone the
-the [GitHub repository](https://github.com/oursky/skygear).
+**TODO** Where to file issue? How to propose new features? Where to ask
+questions? What are the style guideline / coding standard.
 
-```sh
-$ git clone git@github.com:oursky/skygear.git
-$ cd skygear
-```
+We recommend contributors to develop Skygear in Docker image provided,
+please follows the instruction below to set up your development environment.
 
 # Install Docker
 
 Please follow the Getting Started guide to set up the Docker environment.
 You do not need to install Go to develop Skygear in docker environment.
 
-# Develop with Docker
+# Obtaining the source
+
+Clone the [GitHub repository](https://github.com/oursky/skygear).
+
+```sh
+$ git clone git@github.com:oursky/skygear.git
+$ cd skygear
+```
+
+# Config Docker for Skygear Development
 
 You need development-specific configuration for Docker Compose. Create
 a file named `docker-compose.override.yml` in the same directory where
@@ -68,3 +75,4 @@ $ docker-compose run --rm app go test ./...
 ```sh
 $ docker-compose run --rm --service-ports app <command>
 ```
+
