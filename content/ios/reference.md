@@ -28,7 +28,7 @@ It will establish a reference from _Record B_ to _Record A_.
 
 Skygear support eager loading of referenced records when you are querying the
 referencing records. It's done by supplying a key path expression to
-`SKYQuery-transientIncludes`:
+`[SKYQuery -transientIncludes]`:
 
 ```obj-c
 SKYQuery *query = [SKYQuery queryWithRecordType:@"child" predicate:nil];
@@ -48,6 +48,9 @@ query.transientIncludes = @{@"parentRecord": keyPath};
     }
 }];
 ```
+
+It is possible to eager load records from multiple keys, but doing so will
+impair performance.
 
 ## Reference Actions (not implemented)
 
