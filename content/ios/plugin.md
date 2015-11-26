@@ -121,14 +121,14 @@ your view. The button calls the `loginUsingFacebookCompletionhandler:` for you.
 
 If you want to implement your own login flow and experience, you should
 obtain a Facebook access token using Facebook SDK, and call a category
-method on `SKYUserLoginOperation` for logging a user in with the Facebook
+method on `SKYLoginUserOperation` for logging a user in with the Facebook
 access token:
 
 ``` Objective-C
 
 - (void)loginWithFacebookAccessToken:(FBSDKAccessToken *)accessToken
 {
-    SKYUserLoginOperation *op = [SKYUserLoginOperation operationWithFacebookAccessToken:accessToken]
+    SKYLoginUserOperation *op = [SKYLoginUserOperation operationWithFacebookAccessToken:accessToken]
     op.loginCompletionBlock = ^(SKYUserRecordID *userID, SKYAccessToken *accessToken, NSError *error) {
         NSLog(@"User ID: %@", userID)
     };
@@ -139,14 +139,14 @@ access token:
 ### Custom Authentication Provider
 
 If you implement your own authentication provider, you should create
-an NSDictionary of authentication data and call `SKYUserLoginOperation`
+an NSDictionary of authentication data and call `SKYLoginUserOperation`
 `operationWithAuthenticationProvider:data:` method:
 
 ``` Objective-C
 
 - (void)loginWithData:(NSDictionary *)dict
 {
-    SKYUserLoginOperation *op = [SKYUserLoginOperation operationWithAuthenticationProvider:@"com.example" data:dict]
+    SKYLoginUserOperation *op = [SKYLoginUserOperation operationWithAuthenticationProvider:@"com.example" data:dict]
     op.loginCompletionBlock = ^(SKYUserRecordID *userID, SKYAccessToken *accessToken, NSError *error) {
         NSLog(@"User ID: %@", userID)
     };
