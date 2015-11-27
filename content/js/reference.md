@@ -68,6 +68,9 @@ skygear.publicDB.query(q).then((records) => {
 });
 ```
 
+It is possible to eager load records from multiple keys, but doing so will
+impair performance.
+
 # Reference Action
 
 Provide delete cascade.
