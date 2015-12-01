@@ -25,7 +25,7 @@ Consider the following HTML:
 ```js
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-skygear.signup(username, password).then((user) => {
+skygear.signupWithUsername(username, password).then((user) => {
   console.log('user id', user.ID);
   console.log('access token', skygear.accessToken);
 }, (error) => {
@@ -38,7 +38,7 @@ skygear.signup(username, password).then((user) => {
 ```js
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-skygear.login(username, password).then((user) => {
+skygear.loginWithUsername(username, password).then((user) => {
   console.log('user id', user.ID);
   console.log('access token', skygear.accessToken);
 }, (error) => {
