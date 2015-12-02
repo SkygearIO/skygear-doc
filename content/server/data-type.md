@@ -42,11 +42,16 @@ type. More keys in the JSON object specifies the actual value.
     *   `$url`: The URL to the asset. It is only available when the record is
         fetched.
 
-## Bogus Types
+## Sequeuen Types
 
-Bogus types are types that contain only schematic definition without any
-user data. It is used to utilize the JIT schema migration of Skygear to create
-or modify record field. For example, to create a sequence field:
+* `seq`: Create a unique number field that has a strictly increasing
+  integer default value. If a value `i` is assigned to a sequence field
+  currently at `j`, the next default value of this field will be
+  greater than `max(i, j)`.
+
+Sequeuen type contain only schematic definition without any user data. It is
+used to utilize the JIT schema migration of Skygear to create
+or modify record field. To create a sequence field:
 
 ```bash
 curl -X POST -H "Content-Type: application/json" \
@@ -64,10 +69,3 @@ curl -X POST -H "Content-Type: application/json" \
 }
 EOF
 ```
-
-Currently there is only one bogus type in Skygear:
-
-* `seq`: Create a unique number field that has a strictly increasing
-  integer default value. If a value `i` is assigned to a sequence field
-  currently at `j`, the next default value of this field will be
-  greater than `max(i, j)`.
