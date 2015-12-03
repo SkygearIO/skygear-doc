@@ -33,6 +33,21 @@ NSPredicate *inPredicate =
             [NSPredicate predicateWithFormat: @"%@ IN attribute", aValue];
 ```
 
+### Relation Predicate
+
+The `SKYRelationPredicate` can be used to query for records having a relation with
+the current user. For this kind of query, the record have an relation with
+the current user if the record has an attribte that contains a user having
+the relation with the current user.
+
+For example, to query for records owned by a user that the current user is following:
+
+```obj-c
+NSPredicate *p =
+            [SKYRelationPredicate predicateWithRelation:[SKYRelation followingRelation]
+                                                    key:@"_owner"]
+```
+
 ### Full-text search (**NOT IMPLEMENTED**)
 
 ### References

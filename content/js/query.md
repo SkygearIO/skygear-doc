@@ -141,3 +141,21 @@ query.like('category', 'science%');
 The above query will match notes with category `science` or `science-fiction`.
 
 Use `caseInsensitiveLike` for case insensitive match.
+
+### Having relation
+
+The `havingRelation` can be used to query for records having a relation with
+the current user. For this kind of query, the record have an relation with
+the current user if the record has an attribte that contains a user having
+the relation with the current user.
+
+For example, to query
+for records owned by a user that the current user is following:
+
+```javascript
+let query = Query(Note)
+query.havingRelation("_owner", skygear.relation.Following)
+```
+
+See [User Relations (JS SDK)]({{< relref "js/relation.md" >}}) for defined
+relation.
