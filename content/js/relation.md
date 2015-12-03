@@ -74,6 +74,7 @@ query.user = skygear.currentUser;
 query.limit = 10;
 query.page = 3;
 skygear.relation.query(query).then((users) => {
+  console.log(users.overallCount); // The total count match the relation.
   console.log(users);
 }, (error) => {
   console.log(error);

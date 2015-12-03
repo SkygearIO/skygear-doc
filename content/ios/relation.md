@@ -38,6 +38,11 @@ Get all followers:
 ```obj-c
 SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation relationFollow] direction:SKYRelationDirectionPassive];
 operation.container = [SKYContainer defaultContainer];
+__weak SKYQueryUsersOperation *weakOperation = operation;
+operation.queryUserCompletionBlock = ^(NSArray *users, NSError *operationError) {
+    NSLog(@"Operation will have overallCount after execution, %d", weakOperation.overallCount);
+};
+
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
 
