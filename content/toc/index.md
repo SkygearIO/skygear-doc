@@ -67,17 +67,17 @@ Collection of article help you unleash the power of Skygear.
   - [Simple app to get started (Create user / record / query)]({{< relref "js/simple-app.md" >}})
   - [CRUD Records]({{< relref "js/record.md" >}})
   - [Querying Records]({{< relref "js/query.md" >}})
-  - **[Not implemented]** [Records Relations (References)]({{< relref "js/reference.md" >}})
+  - [Records Relations (References)]({{< relref "js/reference.md" >}})
   - [Users (Authentication)]({{< relref "js/users.md" >}})
   - **[Not implemented]** [Access Control by relation]({{< relref "js/acl-relation.md" >}})
   - **[Not implemented]** [Access Control by role]({{< relref "js/acl-role.md" >}})
-  - **[Not implemented]** [User relations (Friends & Followers)]({{< relref "js/relation.md" >}})
+  - [User relations (Friends & Followers)]({{< relref "js/relation.md" >}})
   - **[Not implemented]** Local Storage (RecordStorage, CachedQuery)
   - **[Not implemented]** [Subscription]({{< relref "js/subscription.md" >}})
   - **[Future release]** Push Notification
   - [Pubsub]({{< relref "js/pubsub.md" >}})
   - **[Not implemented]** [Geo-location]({{< relref "js/geolocation.md" >}})
-  - **[Not implemented]** [Assets (File Upload)]({{< relref "js/asset.md" >}})
+  - [Assets (File Upload)]({{< relref "js/asset.md" >}})
   - **[Not implemented]** Plugins
   - **[Not implemented]** [Handling Errors]({{< relref "js/handling-errors.md" >}})
   - **[Furture release]** User Interfaces
