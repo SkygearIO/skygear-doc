@@ -28,7 +28,7 @@ operation.container = [SKYContainer defaultContainer];
 Get all friends:
 
 ```obj-c
-SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation relationFriend]];
+SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation friendRelation]];
 operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
@@ -36,7 +36,7 @@ operation.container = [SKYContainer defaultContainer];
 Get all followers:
 
 ```obj-c
-SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation relationFollow] direction:SKYRelationDirectionPassive];
+SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation followRelation] direction:SKYRelationDirectionPassive];
 operation.container = [SKYContainer defaultContainer];
 __weak SKYQueryUsersOperation *weakOperation = operation;
 operation.queryUserCompletionBlock = ^(NSArray *users, NSError *operationError) {
@@ -46,7 +46,7 @@ operation.queryUserCompletionBlock = ^(NSArray *users, NSError *operationError) 
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
 
-`SKYQueryUsersOperation-relationDirection` is only effective on `relationFollow`.
+`SKYQueryUsersOperation-relationDirection` is only effective on `followRelation`.
 
 ### Relation directions
 
@@ -57,7 +57,7 @@ TODO: Discuss the values of SKYRelationDirection
 Get all following users:
 
 ```obj-c
-SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation relationFollow] direction:SKYRelationDirectionActive];
+SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation followRelation] direction:SKYRelationDirectionActive];
 operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
@@ -65,7 +65,7 @@ operation.container = [SKYContainer defaultContainer];
 Get all mutual followers: **[Not implemented]**
 
 ```obj-c
-SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation relationFollow] direction:SKYRelationDirectionMutual];
+SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation followRelation] direction:SKYRelationDirectionMutual];
 operation.container = [SKYContainer defaultContainer];
 [[[NSOperationQueue alloc] init] addOperation:operation];
 ```
