@@ -66,6 +66,7 @@ Collection of article help you unleash the power of Skygear.
   - [How to install Skygear JS SDK in your website]({{< relref "js/index.md" >}})
   - [Simple app to get started (Create user / record / query)]({{< relref "js/simple-app.md" >}})
   - [CRUD Records]({{< relref "js/record.md" >}})
+  - [Create an Auto-Incrementing Field]({{< relref "js/auto-increment.md" >}})
   - [Querying Records]({{< relref "js/query.md" >}})
   - [Records Relations (References)]({{< relref "js/reference.md" >}})
   - [Users (Authentication)]({{< relref "js/users.md" >}})
