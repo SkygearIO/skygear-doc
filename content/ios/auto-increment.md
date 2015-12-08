@@ -15,7 +15,7 @@ purpose. The sequence is guaranteed unique.
 ```obj-c
 SKYRecord *todo = [SKYRecord recordWithRecordType:@"todo"];
 todo[@"title"] = @"Write documents for Skygear";
-todo[@"noteID"] = [SKYSequence autoIncrement];
+todo[@"noteID"] = [SKYSequence sequence];
 
 SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
 [privateDB saveRecord:todo completion:^(SKYRecord *record, NSError *error) {
