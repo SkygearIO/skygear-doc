@@ -20,3 +20,7 @@ title = "Index of design document"
 **AskQ**
 
 - [Relationship-based]({{< relref "design/acl-askq.md" >}})
+
+# Errors
+
+[Errors]({{< relref "design/errors.md" >}})
