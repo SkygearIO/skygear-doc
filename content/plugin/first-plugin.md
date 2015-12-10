@@ -14,27 +14,27 @@ functions using decorators provided by the `py-skygear` package. Doing so will a
 
 Install `py-skygear` by using `pip`.
 
-```
-pip install py-skygear
+```shell
+$ pip install py-skygear
 ```
 
 Alternatively, you can install py-skygear from source by cloning`py-skygear` from the official repository.
 
 Depending on your operating system, you may need to install extra dependencies to install from source. 
 
-```
+```shell
 # Ubuntu 14.04
-sudo apt-get install python3-dev libpq-dev libzmq3-dev
+$ sudo apt-get install python3-dev libpq-dev libzmq3-dev
 
 # Mac OS X with homebrew
-brew install zeromq
+$ brew install zeromq
 ```
 
 With the above dependencies installed, run:
 
-```
-git clone git@github.com:oursky/py-skygear.git
-python setup.py install
+```shell
+$ git clone git@github.com:oursky/py-skygear.git
+$ python setup.py install
 ```
 
 # Create main plugin file
@@ -45,7 +45,7 @@ The name of the main file is arbitrary. You can name it however you want, but yo
 
 The first thing you have to include in your plugin code is to import the `skygear` module:
 
-```
+```python
 import skygear
 ```
 
@@ -55,7 +55,7 @@ This will import decorators for your plugin function.
 
 To verify our setup, run this:
 
-```
+```shell
 $ py-skygear sample.py --subprocess init
 {"provider": [], "timer": [], "op": [], "hook": [], "handler": {}}
 ```
@@ -64,7 +64,7 @@ This command finds all hooks already defined in the plugin. The command has a `-
 
 All types of hooks are now empty because we have not defined any! Let’s go ahead to implement the easiest extension point—lambda function:
 
-```
+```python
 import skygear
 
 @skygear.op("chima:echo")
@@ -72,7 +72,7 @@ def echo():
     return {"message": "Hello World"}
 ```
 
-```
+```shell
 $ skygear sample.py --subprocess init
 {"op": ["chima:hello"], "provider": [], "hook": [], "timer": [], "handler": {}}
 ```
@@ -88,10 +88,12 @@ $ echo '["Bob"]' | py-skygear sample.py --subprocess op chima:hello
 
 Add the following section to Skygear configuration to declare a new plugin.
 
+```ini
 [plugin "sample"]
 transport = zmq
 path = python
 args = tcp://0.0.0.0:5555/
+```
 
 When Skygear starts, it will wait for plugin registration information before serving requests. We need to start our plugin so that the plugin can send registration information to Skygear.
 
