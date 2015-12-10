@@ -5,12 +5,11 @@ title = "Cached Query"
 
 +++
 
-# Cached Query
-
-Skygear provide a simple cached query mechanism for application that want to
-display the last state of data before it get new data from Skygear. You just
-provide an extra callback function to the `query` function. And Skygear will try
-to return you an cached result before it can get the latest result from the
+Skygear provides a simple cached query mechanism for application that wants to
+display the data last seen before it gets new data from Skygear. To make use
+of this, you just need
+to provide an extra callback function to the `query` function, and Skygear will try
+to return an cached result before it gets the latest result from the
 Skygear server.
 
 ``` javascript
@@ -27,10 +26,12 @@ skygear.publicDB.query(query, successCallback).then(successCallback, (error) => 
 });
 ```
 
-### Note:
+## Note:
 
-- The cached query is not guaranteed to be called. If the Skygear don't see
-  the query before and don't have a cache, it won't called.
+- It is not guaranteed that the callback is called before a request takes
+  place, espcially if a cached result of the query is not available.
+  In other words, if the result is not in the cache, the callback is only
+  called once, after the requested result is returned from the server.
 - You may use one callback to handle both cached callback and server
-  callback as above. But you are free to use two callbacks if it works better in
-  your usecases.
+  callback as above. But you are free to use two callbacks if it works
+  better in your use cases.
