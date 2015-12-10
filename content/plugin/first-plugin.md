@@ -104,3 +104,11 @@ Connecting to address tcp://127.0.0.1:5555
 
 You can now try out your new lambda function by calling it through Skygear API or calling it from your app.
 
+# Integrate with Docker
+
+To integrate the plugin with Docker, see the [catapi
+example](https://github.com/oursky/py-skygear/blob/master/examples/catapi) in `py-skygear`
+repo.
+
+The example contains everything you need to start a Skygear plugin in the
+Docker environment.
