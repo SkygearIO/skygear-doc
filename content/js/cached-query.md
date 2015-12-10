@@ -1,0 +1,37 @@
++++
+date = "2015-12-09T12:19:07+08:00"
+draft = true
+title = "Cached Query"
+
++++
+
+Skygear provides a simple cached query mechanism for application that wants to
+display the data last seen before it gets new data from Skygear. To make use
+of this, you just need
+to provide an extra callback function to the `query` function, and Skygear will try
+to return an cached result before it gets the latest result from the
+Skygear server.
+
+``` javascript
+let query = Query(Note);
+query.equalTo('title', 'First note');
+function successCallback(notes, cached = false) => {
+    if (cached) {
+        console.log('The result is a cached one');
+    }
+    console.log('Result', notes);
+}
+skygear.publicDB.query(query, successCallback).then(successCallback, (error) => {
+  console.log('error: ', error);
+});
+```
+
+## Note:
+
+- It is not guaranteed that the callback is called before a request takes
+  place, espcially if a cached result of the query is not available.
+  In other words, if the result is not in the cache, the callback is only
+  called once, after the requested result is returned from the server.
+- You may use one callback to handle both cached callback and server
+  callback as above. But you are free to use two callbacks if it works
+  better in your use cases.
