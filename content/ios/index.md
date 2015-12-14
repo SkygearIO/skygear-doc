@@ -8,12 +8,12 @@ title = "Installing iOS SDK"
 ## Using cocoapods
 
 ``` bash
-pod install SkyKit
+pod install SKYKit
 ```
 
 ## Install the latest
 
 ``` bash
-git submodule git@github.com:oursky/skygear-SDK-JS.git SkyKit
-pod install SkyKit
+git submodule git@github.com:oursky/skygear-SDK-JS.git SKYKit
+pod install SKYKit
 ```

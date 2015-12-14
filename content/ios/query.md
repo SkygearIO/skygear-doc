@@ -52,7 +52,7 @@ NSPredicate *p =
 
 ### References
 
-SkyKit's query supports filtering records by the reference field of records:
+SKYKit's query supports filtering records by the reference field of records:
 
 ```obj-c
 SKYReference *resturantRef = [SKYReference referenceWithRecordID:[SKYRecordID recordIDWithRecordType:@"restaurant" name:@"my resturant"]];

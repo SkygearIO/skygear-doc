@@ -50,9 +50,9 @@ supports (TODO: add references to other pages).
 
 ### SKYContainer
 
-`SKYContainer` is the uppermost layer of `SkyKit`. It represents the root of all
+`SKYContainer` is the uppermost layer of `SKYKit`. It represents the root of all
 resources accessible by an application and one application should have exactly
-one container. In `SkyKit`, such container is accessed via the singleton
+one container. In `SKYKit`, such container is accessed via the singleton
 `defaultContainer`:
 
 ```obj-c
@@ -65,7 +65,7 @@ Container provides [User Authentication]({{< relref "user.md" >}}),
 
 ### SKYDatabase
 
-`SKYDatabase` is the central hub of data storage in `SkyKit`. The main
+`SKYDatabase` is the central hub of data storage in `SKYKit`. The main
 responsibility of database is to store [records]({{< relref "#SKYRecord" >}}),
 the data storage unit in Skygear.
 

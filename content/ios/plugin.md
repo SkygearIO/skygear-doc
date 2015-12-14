@@ -102,7 +102,7 @@ When response is available from the server, your implementation of
 ### Facebook Authentication
 
 If you expect your user to log in to your app with a Facebook account, you
-should have the CocoaPod for SkyKit Facebook integration included. Once you did
+should have the CocoaPod for SKYKit Facebook integration included. Once you did
 that, you can call this method to have your user log in to Facebook.
 
 ``` Objective-C

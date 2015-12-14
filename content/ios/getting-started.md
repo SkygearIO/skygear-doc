@@ -13,9 +13,9 @@ iOS application dependency.
 ## Include Skygear as a dependency
 
 1. [Download the source](https://github.com/oursky/skygear-SDK-JS/archive/master.zip)
-   of Skygear's iOS SDK (_SkyKit_) and unzip it to your project folder.
+   of Skygear's iOS SDK (_SKYKit_) and unzip it to your project folder.
 
-   * If you use _git_ for source control, it is recommended to submodule SkyKit
+   * If you use _git_ for source control, it is recommended to submodule SKYKit
      instead:
 
      	```bash
@@ -25,7 +25,7 @@ iOS application dependency.
 2. Edit your `Podfile` to include the this line:
 
    	```ruby
-   	pod "SkyKit", :path => './SkyKit'
+   	pod "SKYKit", :path => './SKYKit'
    	```
 
 3. `pod install`
@@ -33,10 +33,10 @@ iOS application dependency.
 
 ## Configure Skygear container
 
-Now, edit `AppDelegate.m` and include SkyKit:
+Now, edit `AppDelegate.m` and include SKYKit:
 
 ```obj-c
-import <SkyKit/SkyKit.h>
+import <SKYKit/SKYKit.h>
 ```
 
 Then add the followings in the `application:didFinishLaunchingWithOptions:` method:
