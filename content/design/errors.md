@@ -15,15 +15,15 @@ Error code is an integer that indicates what kind of error has occurred. The pur
 
 Error code should uniquely identify an error. The same error can be reused at multiple locations, but single error code cannot mean two different kind of errors.
 
-Error code are divided into two groups: Normal Error and Internal Error.
+Error code are divided into two groups: Normal Error and Unexpected Error.
 
 ## Normal Error
 
 Normal Error (100 - 999): Errors that are likely or expected to occur in normal operation. Client should handle such error gracefully. Error of this kind should be high level and as generic as possible to reduce the number of errors that the client has to handle.
 
-## Internal Error
+## Unexpected Error
 
-Internal Error (> 10000): Errors that are unlikely or unexpected to occur in normal operation. Client should treat all errors of this kind as internal error. Error of this kind should be as specific as possible.
+Unexpected Error (> 10000): Errors that are unlikely or unexpected to occur in normal operation. Client should treat all errors of this kind as internal error. Error of this kind should be as specific as possible.
 
 When returning an error, the handler must assign an error code in the response.
 
@@ -50,11 +50,11 @@ Error info is a dictionary of data providing details for the error occurred. The
 # Examples
 
 * In record fetch handler, it should return a “resource not found” error instead of a “record not found” because the client already knew the context that the error has occurred.
-* In record save handler, it should not return a “unable to save” error code because returning an Internal Error implies that the record cannot be saved.
+* In record save handler, it should not return a “unable to save” error code because returning an Unexpected Error implies that the record cannot be saved.
 
 # Wrapping error
 
-Discussion: Handler should wrap Internal Error with a Normal Error. The Internal Error should be available for debug mode.
+Discussion: Handler should wrap Unexpected Error with a Normal Error. The Unexpected Error should be available for debug mode.
 
 # Platform differences
 
@@ -72,40 +72,3 @@ The promise should be rejected with an Error object indicating an error code and
 
 By default, the plugin handler would raise SkygearError to Skygear, which indicates an unexpected error has occurred. The Plugin may raise SkygearException with a error code and message to be returned to the client.
 
-# The List
-
-1 - 99 (Client-side errors generated locally)
-
-* Network Unavailable - Network is not available
-* Network Failure - Network is available, but the network operation cannot be
-  completed
-* Service Unavailable - Service is unavailable
-* Partial Failure
-* Bad Response - Server returned a response that the client does not understand
-
-100 - 999 (Normal Error)
-
-* Unspecified Error
-* Not Authenticated - The client or the user is not authenticated
-* Permission Denied - The client or the user is authenticated, but they do not
-  have permission to access the resource or perform the operation
-* Token Not Accepted - The supplied access token is not accepted
-* Bad Credentials - The credentials supplied are not correct
-* Bad Request - The server does not understand the request
-* Resource Not Found - The requested resource is not found
-* Invalid Argument - The server understand the request, but the supplied argument is not valid
-* Constraint Violated - Resources cannot be modified because doing so would
-  violate a constraint
-* Incompatible Schema - Resources cannot be modified because the saving
-  record is incompatible with the existing schema
-* Not Implemented - The requested operation is not implemented
-* Timed Out - The server timed out while waiting for other request to complete
-
-1000-9999 (Reserved)
-
-10000+ (Internal Error)
-
-* Unserializable Response - A response is available, but the server is unable
-  to serialize the response
-* Unprocessable Query - The server understands the query, but the query cannot
-  be performed

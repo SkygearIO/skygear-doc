@@ -27,7 +27,7 @@ Collection of article help you unleash the power of Skygear.
 - Backend / Database
   - **[To be discussed]** App versioning (how to support backward compatibility in released app)
   - **[To be discussed]** Development vs Production Database
-  - **[To be discussed]** Error code list
+  - [Error code list]({{< relref "backend/errorcode.md" >}})
   - **[To be discussed]** Access control
 - Plugins
   - [Plugin Introduction]({{< relref "plugin/intro.md" >}})
