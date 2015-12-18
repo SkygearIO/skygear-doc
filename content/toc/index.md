@@ -91,3 +91,4 @@ Collection of article help you unleash the power of Skygear.
  - Performance
  - Security
 - [How to contribute]({{< relref "contributing.md" >}})
+- [FAQ]({{< relref "faq.md" >}})

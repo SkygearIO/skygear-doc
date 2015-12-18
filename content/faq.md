@@ -1,0 +1,15 @@
++++
+date = "2015-12-18T14:36:42+08:00"
+draft = true
+title = "FAQ"
+
++++
+
+## How to dump postgres of skygear using docker
+
+```shell
+$ docker run --rm -i --link skygear_db_1:db mdillon/postgis:9.4 pg_dump -h db -U postgres > dumpfile
+```
+
+**Note**: `skygear_db_1` is the name of the *running* postgres database container. If you use Docker Compose,
+the name of the container is usually `<foldername>_<servicename>_1`.
