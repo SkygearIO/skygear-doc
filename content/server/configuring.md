@@ -42,6 +42,29 @@ configuration file is loaded.
 $ skygear /path/to/development.ini
 ```
 
+### Configurations
+
+#### S3 Asset Store
+
+Copy the following section into your `development.ini` and replace
+the `asset-store` section if the section is in the config file already.
+Fill out the AWS access key, secret key, region and bucket.
+
+```ini
+# development.ini
+[asset-store]
+implementation = s3
+path = data/asset
+access-key = AKXXXXXXXXXXXXXXXXXX
+secret-key = 3XXx/X/XxxXXXXxXxXxxXXXXxx00x0XXxXxx0xxX
+region = us-east-1
+bucket = thebucketname
+public = false¬
+```
+
+If the S3 is public readable, you can set `public` to `true` such that
+access signature can be omitted.
+
 ## Environment variable
 
 You can override configuration in the default configuration file by
