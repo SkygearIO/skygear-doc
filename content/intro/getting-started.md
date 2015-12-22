@@ -79,11 +79,8 @@ and log in to Docker Hub by running `docker login`.
 Start the database of the Skygear by running:
 
 ```shell
-$ docker-compose start db
+$ docker-compose start db redis
 ```
-
-If this is the first time you start Skygear database, you should wait 10-15
-seconds for the database initialization to complete.
 
 When the database is up, run this command to start the Skygear daemon:
 
