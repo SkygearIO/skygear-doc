@@ -13,6 +13,7 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info
 {
     NSURL *url = info[UIImagePickerControllerReferenceURL];
     SKYAsset *asset = [SKYAsset assetWithName:@"profile-picture" fileURL:url];
+    asset.mimeType = @"image/png";
 
     SKYContainer *container = [SKYContainer defaultContainer];
     [container uploadAsset:asset completionHandler:^(SKYAsset *asset, NSError *error) {
