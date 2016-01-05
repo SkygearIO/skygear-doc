@@ -24,7 +24,7 @@ For example, to send a push notification to some users:
 ```
 from skygear.action import push_users
 container = SkygearContainer()
-push_users(container, ['jodn.doe@example.com', 'jane.doe@example.com'], {
+push_users(container, ['user_id1', 'user_id2'], {
     'apns': {
         'aps': {
             'alert': 'Greetings from Skygear Plugin',
