@@ -46,18 +46,21 @@ the `original_record` parameter. This is how you detect what data is changed in 
 The `after_save` and `after_delete` works similarly to the `before_save` and `before_delete` counterparts. They are different in that the relevant operation has already completed when the function is called. Changing record attributes will not affect the saved record.
 
 
-## Using database outside Database Extension Point:
+## Using database outside Database Extension Point
 
 py-skygear provide a database connection context func for developer to use db
 connection at `handler`, `lambda` and `schedule`.
 
 ``` python
+from skygear.utils.db import conn
+
+
 @skygear.op('user:reset-password')
 def reset_password(email, password):
     if not email:
         return {'success': False}
 
-    with skygear.db_conn() as conn:
+    with conn() as conn:
         hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
         result = conn.execute(
             'UPDATE _user SET password = %s WHERE email = %s',
