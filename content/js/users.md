@@ -97,7 +97,7 @@ skygear.loginWithEmail(email, password).then((user) => {
 });
 ```
 
-__Good to have__
+__Good to have__ **[Not implemented]**
 
 Allow use to logout all other session.
 
@@ -112,7 +112,7 @@ skygear.changePassword(oldPassword, newPassword, invalidateTokens=true).then(
 );
 ```
 
-# User **[Not implemented]**
+# User 
 
 Skygear provide currentUser object after login.
 
@@ -124,13 +124,14 @@ const actor = skygear.currentUser;
 Skygear provide a user discovery method by username or email
 
 ``` javascript
-const ben = skygear.User.discoverByEmail('ben@skygear.com').then((ben) => {
-  console.log(ben);
+const ben = skygear.User.getUsersByEmail('ben@skygear.com').then(([users]) => {
+  console.log(users);
 }, (error) => {
   console.log('Failed', error);
 });
 ```
 
+**[Not implemented]**
 ``` javascript
 const ben = skygear.User.discover('chpapa').then((ben) => {
   console.log(ben);
