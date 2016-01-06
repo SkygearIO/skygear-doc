@@ -121,6 +121,25 @@ const actor = skygear.currentUser;
 
 ```
 
+## Receiving currentUser changed callback
+
+When access token is expired, Skygear will return `401 Unauthorized`. SDK will
+clear the presisted access token and current user info. To handle the forced
+logout gracefully at your application, you should register a call back by 
+`onUserChanged` and do appropriate application logic to alert the user.
+
+``` javascript
+const handler = skygear.onUserChanged(function (user) {
+  if (user === null) {
+    console.log('The user is logged out');
+  } else {
+    console.log('The user id logged in or changed');
+  }
+});
+handler.cancel(); // The callback is cancelable
+```
+
+
 Skygear provide a user discovery method by username or email
 
 ``` javascript
