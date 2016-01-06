@@ -14,15 +14,9 @@ skygear.on('ping', (data) => {
 });
 ```
 
-## Publishing an event
-
-```js
-skygear.publish('ping', {'from': 'Specialized Ping Force'});
-```
-
 ## Unsubscribing an event
 
-### Unsubscribing from all events
+### Unsubscribing from all handler
 
 ```js
 skygear.off('ping');
@@ -30,13 +24,42 @@ skygear.off('ping');
 
 ### Unsubscribing a specific handler
 
-**DEV NOTE**: Should we implement it? :D
-
 ```js
-let subscriber = skygear.on('ping', (data) => {
+const handler = (data) => {
   console.log('received a ping');
-});
+};
+let subscriber = skygear.on('ping', handler);
 
 // later
-subscriber.off();
+subscriber.off('ping', handler);
+```
+
+## More control on pubsub package
+
+Developer will need to interact directly with `pubsub` package for more advanced
+usages.
+
+## Publishing an event
+
+```js
+skygear.pubsub.publish('ping', {'from': 'Specialized Ping Force'});
+```
+
+## Listening to Connection state
+
+For application need more knowledge on pubsub connection status, we provide
+`onOpen` and `onClose` callback.
+
+
+```js
+function welcome() {
+  console.log('Chat are ready!');
+}
+
+function alert() {
+  console.log('Chat is temporarily unavaliable');
+}
+
+skygear.pubsub.onOpen(welcome);
+skygear.pubsub.onClose(alert);
 ```
