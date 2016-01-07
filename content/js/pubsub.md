@@ -47,8 +47,8 @@ skygear.pubsub.publish('ping', {'from': 'Specialized Ping Force'});
 
 ## Listening to Connection state
 
-For application need more knowledge on pubsub connection status, we provide
-`onOpen` and `onClose` callback.
+For application that needs to know the status of pubsub connection, we
+provide `onOpen` and `onClose` callback for that.
 
 
 ```js
