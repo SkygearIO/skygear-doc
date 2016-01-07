@@ -60,6 +60,10 @@ function alert() {
   console.log('Chat is temporarily unavaliable');
 }
 
-skygear.pubsub.onOpen(welcome);
-skygear.pubsub.onClose(alert);
+const welcomeHandle = skygear.pubsub.onOpen(welcome);
+const alertHandle = skygear.pubsub.onClose(alert);
+
+// You may cancel the registered callback by calling cancel
+welcomeHandle.cancel();
+alertHandle.cancel();
 ```
