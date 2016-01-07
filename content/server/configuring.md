@@ -126,20 +126,20 @@ api_key = thisissupersecret
 
 # Logging
 
-Logging let you keep track on what happening at Skygear. Information from log
-are very import for bugs and performance diagnosis.
+Logging let you keep track of what is happening in Skygear. Information
+from log are very important for bugs and performance diagnosis.
 
 Level of logging: `debug`, `info`, `warn`, `error`, `fatal`, `panic`
 
-To change the Skygear logging level, modify the `.ini` `[log]` section will do.
+To change the Skygear logging level, modify the `.ini` `[log]` section.
 
 ```
 [log]
 level = warn
 ```
 
-Skygear support [Sentry](https://getsentry.com/) as logging backend, to enable
-logging to Sentry, just add dsn config to the `.ini` as follow.
+Skygear support [Sentry](https://getsentry.com/) as logging backend, to
+enable logging to Sentry, just add dsn config to the `.ini` as follows.
 
 ```
 [log-hook]
