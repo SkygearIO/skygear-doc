@@ -31,3 +31,25 @@ When calling this function, the `name` variable contains the string `"Bob"`, whi
   "message": "Hello Bob"
 }
 ```
+
+## Authenticated requests
+
+By default, the lambda function created can be accessed by everyone, to restrict
+access, you can specify `user_required` or `key_required` in the argument
+of the `op` decorator.
+
+* `user_required` - User access token is required to access the lambda function.
+* `key_required` - Client API key is required to access the lambda function.
+
+When logged in, information of the user who made the request is available
+from the `current_user_id` function.
+
+For example:
+
+```
+from skygear.utils.context import current_user_id
+
+@skygear.op("hello:world", user_required=True)
+def say(name="world!"):
+    return {"message": "Hello " + current_user_id()}
+```

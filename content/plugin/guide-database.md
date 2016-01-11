@@ -45,6 +45,19 @@ the `original_record` parameter. This is how you detect what data is changed in 
 
 The `after_save` and `after_delete` works similarly to the `before_save` and `before_delete` counterparts. They are different in that the relevant operation has already completed when the function is called. Changing record attributes will not affect the saved record.
 
+## Getting user context
+
+The user context is available in database hook by calling the `current_user_id`
+function.
+
+``` python
+from skygear.utils.context import current_user_id
+
+@skygear.before_save("note", async=False)
+def update_note(record, original_record, db):
+    record["annotation"] = "This note is created by user: " + current_user_id()
+    return record
+```
 
 ## Using database outside Database Extension Point
 
