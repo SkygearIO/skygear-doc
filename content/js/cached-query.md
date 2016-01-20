@@ -32,6 +32,8 @@ skygear.publicDB.query(query, successCallback).then(successCallback, (error) => 
   place, espcially if a cached result of the query is not available.
   In other words, if the result is not in the cache, the callback is only
   called once, after the requested result is returned from the server.
+- It is guaranteed once the callback from server is called, cached callback will
+  not get called.
 - You may use one callback to handle both cached callback and server
   callback as above. But you are free to use two callbacks if it works
   better in your use cases.
