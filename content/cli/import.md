@@ -23,37 +23,22 @@ not in the file will remain in place.
 skycli record import [options] [<path> ...]
 ```
 
-## Options
-- *[\<path\> ...]*
+Records data stored in `<path>` will be imported.<br>
+If `<path>` is a directory, all files in the directory with `.json` extension are imported.<br>
+If `<path>` is not specified, skycli will import from stdin.
 
-    Path to one or more files for importing.<br>
-    If \<path\> is a directory, all files in the directory with `.json` extension are imported.<br>
-    If \<path\> is not specified, skycli will import from stdin.
+For the file format of imported files, see [File format](#File format)
 
-    For the file format of imported files, see [File format](#File format)
 
-- *-\-skip-asset*
+Use `skycli record import --help` to view a list of available options.
 
-    Do not import asset in record. The corresponding field will be skipped.
-
-- *-d, -\-basedir=\<basedir\>*
-
-    Base path for locating asset files to be uploaded.
-
-- *-i, -\-no-warn-complex*
-
-    Ignore complex values conversion warnings.
-
-- *-\-config, -\-endpoint, -\-api_key, -\-access_token*
-
-    See `skycli`
 
 ## File Format <a name="File format"> </a>
 
 Each JSON file/stdin follows the [concatenated JSON format](https://en.wikipedia.org/wiki/JSON_Streaming#Concatenated_JSON), where each record is represented by one JSON object.
 
 ### Example
-records.js:
+records.json:
 ```javascript
 { "_id": "city/hongkong", "name": "Hong Kong", "image": "@file:images/hongkong.jpg" }
 {
