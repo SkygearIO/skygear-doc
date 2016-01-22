@@ -13,7 +13,7 @@ db:
   volumes_from:
   - db_data
   ports:
-  - "5433:5432"
+  - "5432:5432"
 
 # The volume container for skygear
 # This container provides persistent storage for the `app` container. To
@@ -26,8 +26,8 @@ app_data:
 app:
   image: oursky/skygear:latest
   ports:
-  - "3001:3000" # Skygear API Endpoint (HTTP)
-  - "5556:5555" # Skygear Plugin Endpoint (ZMQ)
+  - "3000:3000" # Skygear API Endpoint (HTTP)
+  - "5555:5555" # Skygear Plugin Endpoint (ZMQ)
   volumes_from:
   # Uncomment the following line to override the default configuration file.
   # Put the configuration file in the same directory with this file and call it
