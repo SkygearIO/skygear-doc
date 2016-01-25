@@ -107,7 +107,7 @@ You can now try out your new lambda function by calling it through Skygear API o
 # Integrate with Docker
 
 To integrate the plugin with Docker, see the [catapi
-example](https://github.com/oursky/py-skygear/blob/master/examples/catapi) in `py-skygear`
+example](https://github.com/skygeario/py-skygear/tree/master/examples/catapi) in `py-skygear`
 repo.
 
 The example contains everything you need to start a Skygear plugin in the
