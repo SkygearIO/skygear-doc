@@ -9,7 +9,7 @@ title = "Editing a record"
 
 The record will be fetched, then an editor program will be opened including the record. After the editor is closed, the modified record will be uploaded.
 
-If only the record type is specified, a new record with random generated ID will be created.
+If only the record type is specified, a new record with new ID will be created.
 
 Note that removing an attribute in the editor WILL NOT remove the corresponding attribute in Skygear. The attribute will remain unchanged with the original value.
 
@@ -27,20 +27,19 @@ Use `skycli record edit --help` to view a list of available options.
 
 ### Record ID:
 ```bash
-$ skycli record edit city/hongkong
+$ skycli record edit student/123
 <<Vim>>
 {
-    "_id": "city/hongkong",
-    "name": "hongkong"
+    "_id": "student/123",
+    "name": "Alice"
 }
 ```
 
 ### Record Type:
 ```bash
-$ skycli record edit city
+$ skycli record edit student
 <<Vim>>
 {
     "_id": "city/0123456",
-    "name": "hongkong"
 }
 ```

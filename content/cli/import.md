@@ -40,6 +40,7 @@ Each JSON file/stdin follows the [concatenated JSON format](https://en.wikipedia
 ### Example
 records.json:
 ```javascript
+{ "_id": "student/123", "name": "Alice", "age": 10}
 { "_id": "city/hongkong", "name": "Hong Kong", "image": "@file:images/hongkong.jpg" }
 {
     "_id"       : "country/japan",
@@ -80,6 +81,7 @@ By default, the location of the asset file is assumed to be relative to the impo
 ### Stdin:
 ```bash
 $ skycli record import
+{ "_id": "student/123", "name": "Alice", "age": 10}
 { "_id": "city/hongkong", "name": "Hong Kong", "image": "@file:images/hongkong.jpg" }
 {
     "_id"       : "country/japan",

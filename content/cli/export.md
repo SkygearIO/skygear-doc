@@ -1,45 +1,53 @@
 +++
-date = "2016-01-25T17:00:00+08:00"
+date = "2016-01-26T22:18:00+08:00"
 draft = true
 title = "Exporting Records"
 +++
 
 ## Description
-`skycli record export` exports record data from Skygear.
+`skycli record export` exports records from Skygear.
+
+If `<record_type>` is specified, all records with that record type will be fetched. Otherwise, all records in Skygear will be fetched.
 
 The result will be printed to stdout. If `-o` is specified, then the result will be stored with the given filename.
 
-For each record with field containing `@asset:<assetID>`, the corresponding
-asset will be downloaded. The file will be stored at the working directory,
-unless `--basedir` is specified.
+Each record will be printed as a JSON object delimited by a newline character. If `--pretty-print` is specified, then each record will be printed with proper indentation, otherwise each record will be printed in a single line.
+
+For downloading assets, please see `skycli record get`
 
 ## Synopsis
 
 ```bash
-skycli record export [options] <record_id> [<record_id> ...]
+skycli record export [options] [<record_type> ...]
 ```
-
-Record with ID `<record_id>` will be fetched from Skygear.
 
 Use `skycli record export --help` to view a list of available options.
 
 ## Examples
 
-### Stdin:
+### Record ID:
 ```bash
-$ skycli record export city/hongkong
-{ "_id": "city/hongkong", "name": "Hong Kong" }
+$ skycli record export city --pretty-print
+{
+    "_id": "city/hongkong",
+    "name": "hongkong"
+}
+{
+    "_id": "city/newyork",
+    "country": "USA"
+}
+$ skycli record export
+{ "_id": "city/hongkong", "name": "hongkong" }
+{ "_id": "city/newyork", "country": "USA" }
+{ "_id": "student/123", "name": "Alice", "age": 10}
 ```
 
-### Files and Base Directories:
+### Record Type:
 ```bash
-$ skycli record export -o out.json --basedir=file --pretty-print
-$ ls file
-someassetid-hongkong.jpg
-$ cat out.json
-{ 
-    "_id": "city/hongkong",
-    "name": "Hong Kong",
-    "image": "@file:tmp/someassetid-hongkong.jpg" 
-}
+$ skycli record export country -o country.json --basedir=image
+$ cat country.json
+{"_id": "country/japan", "image":"@file:image/someassetid-japan.jpg"}
+{"_id": "country/uk", "name": "United Kingdom"}
+$ ls image
+someassetid-japan.jpg
 ```

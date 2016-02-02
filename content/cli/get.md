@@ -1,40 +1,46 @@
 +++
-date = "2016-01-26T20:33:00+08:00"
+date = "2016-01-25T17:00:00+08:00"
 draft = true
-title = "Getting attribute of a record"
+title = "Getting Records"
 +++
 
 ## Description
-`skycli record get` gets the value of an attribute of a record.
+`skycli record get` exports record data from Skygear.
 
-The value of the attribute will be printed to stdout.
+The result will be printed to stdout. If `-o` is specified, then the result will be stored with the given filename.
 
-If the attribute is `@asset:<assetID>`, the corresponding
+For each record with field containing `@asset:<assetID>`, the corresponding
 asset will be downloaded. The file will be stored at the working directory,
 unless `--basedir` is specified.
 
 ## Synopsis
 
 ```bash
-skycli record get [options] <record_id> <key>
+skycli record get [options] <record_id> [<record_id> ...]
 ```
 
-The attribute `<key>` of the record with ID `<record_id>` will be fetched from Skygear.
+Record with ID `<record_id>` will be fetched from Skygear.
 
 Use `skycli record get --help` to view a list of available options.
 
 ## Examples
 
-### Normal value:
+### Stdin:
 ```bash
-$ skycli record get city/hongkong name
-Hong Kong
+$ skycli record get city/hongkong student/123
+{ "_id": "city/hongkong", "name": "Hong Kong" }
+{ "_id": "student/123", "name": "Alice", "age": 10}
 ```
 
-### Asset:
+### Files and Base Directories:
 ```bash
-$ skycli record get city/hongkong image --basedir=file
-@file:someassetid-hongkong.jpg
+$ skycli record get -o out.json --basedir=file --pretty-print
 $ ls file
 someassetid-hongkong.jpg
+$ cat out.json
+{ 
+    "_id": "city/hongkong",
+    "name": "Hong Kong",
+    "image": "@file:tmp/someassetid-hongkong.jpg" 
+}
 ```
