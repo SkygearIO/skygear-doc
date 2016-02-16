@@ -1,5 +1,5 @@
 +++
-date = "2015-09-18T16:59:25+08:00"
+date = "2016-02-16T11:10:04+08:00"
 draft = true
 title = "Getting Started"
 
@@ -9,151 +9,79 @@ This guide will guide you through setting up Skygear for app developers.
 At the end of the guide, you will have a working installation for Skygear
 in your computer that is suitable for app development.
 
-## Install Docker
+### How to setup Skygear for development in Mac
 
-The recommended way to run Skygear is to run it using Docker.
+First, go to install homebrew. http://brew.sh
 
-On Mac, you can download and install [Docker Toolbox](http://docs.docker.com/mac/step_one/),
-which has everything you need to get started.
+Skygear require `golang`, `python3` and `PostgreSQL` to run, you may acquired
+by using homebrew as follow
 
-If you run Linux, you need to install Docker daemon and Docker Compose.
-
-## Create Docker Machine
-
-**Note** If you use a Mac and you have installed Docker Toolbox, you can run
-Kitematic to have the Docker Machine automatically created and started for you.
-
-Since Mac cannot run Docker natively, you need to start a Docker Machine. In
-this guide, we will use VirtualBox to run your Docker Machine, which is included
-in Docker Toolbox you installed in last section.
-
-If you run Linux and you have Docker daemon installed, you can skip this
-section.
-
-To create a Docker Machine:
-
-```
-$ docker-machine create --driver virtualbox default
+``` bash
+$ brew install go
+$ brew install python3
+$ brew install postgresql
 ```
 
-When the Docker Machine is created, you need to start the virtual machine. You
-also need to do this if the Docker Machine is stopped.
+After the dependencies are installed, you can install Skygear into your system
+by following command
 
+``` bash
+$ go install github.com/oursky/skygear
+$ pip install skygear
 ```
-$ docker-machine start default
-$ eval `docker-machine env default`
-```
 
-The last line tells your Mac how to reach the Docker Machine. Alternatively,
-you can open a Docker Command Line Terminal in Kitematic to have the environment
-automatically configured for you.
+## Start working with skygear
 
-## Install Skygear
-
-On your Mac, create a directory called `skygear`. You can also call it with any
-name.
+On your Mac, create a directory called `skygear`. You can also call it with
+any name.
 
 ```
 $ mkdir skygear
 $ cd skygear
 ```
 
-Download the docker-compose.yml file and save it in the directory you have just created.
+Download the development file and save it in the directory you have just
+created.
 
 ```
-curl -O {{< ref "intro/index.md" >}}docker-compose.yml
+curl -O http://skygear.io/development.ini
 ```
 
-Now is the time to fetch Skygear from Docker Hub.
+You may want to modify the app `name` and `api-key` as wishes.
+
+Run Skygear using following command:
 
 ```
-$ docker-compose pull
+$ skygear development.ini
 ```
-
-**NOTE**: If Skygear is in private beta, you may not be able to download
-the Docker image for Skygear. You should register an account on Docker Hub
-and log in to Docker Hub by running `docker login`.
-
-## Run Skygear
-
-Start the database of the Skygear by running:
-
-```shell
-$ docker-compose start db redis
-```
-
-When the database is up, run this command to start the Skygear daemon:
-
-```
-$ docker-compose start app
-# Alternatively, you can run the following command to run Skygear in the
-foreground:
-$ docker-compose up app
-```
-
-What Docker does here is to read the `docker-compose.yml` in the directory
-you created, fetch the Skygear images and other dependencies, and run the
-server with Docker.
-
-To verify that the Skygear server is running. You can create a HTTP request
-using the cURL utility or by entering the server endpoint in a browser.
-
-For Windows/Mac, Skygear is listening in the Docker Machine. You find out the IP
-of the Docker Machine by running `docker-machine ip default`.
-
-``` bash
-$ docker-machine ip default
-192.168.99.100
-```
-
-In this case, the endpoint of Skygear is `http://192.168.99.100:3000`
-
-For Linux, and if you run Docker locally, the endpoint is `http://localhost:3000`
 
 To test that Skygear is running, run:
 
 ```
-$ curl http://192.168.99.100:3000/
+$ curl http://127.0.0.1:3000/
 {"result":{"status":"OK"}}
 ```
 
-## Connect to Skygear with SDK
-
-To call API on Skygear, you need two pieces of information: the API Endpoint
-and the API key.
-
-The API endpoint is the URL where Skygear is listening on.
-The API key is configured in Skype configuration or `docker-compose.yml`.
-
-In this guide, the API endpoint and key is `http://192.168.99.100:3000` and
-`changeme` respectively.
-
-Please see Configuring Skygear section for how to change these settings. It is
-recommended that you change the API key to something else when you publish your app.
-
 ## Connect with cURL
 
-Assuming the IP of the Docker Machine remain unchanged, you can
-try creating a new user by sending a request to Skygear using cURL:
+You can try creating a new user by sending a request to Skygear using cURL:
 
 ```
-curl -XPOST http://192.168.99.100:3000/ -d '{"action": "auth:signup", "api_key":
-"changeme"}'
+curl -XPOST http://127.0.0.1:3000/ -d '{"action": "auth:signup", "api_key": "changeme"}'
 ```
 
 ### Connect by (iOS SDK / JS SDK)
 
-
 ``` javascript
 import skygear from 'skygear';
-skygear.endPoint = 'http://192.168.99.100:3000/';
+skygear.endPoint = 'http://127.0.0.1:3000/';
 skygear.configApiKey('changeme')
 ```
 
 ### Create your first user
 
 ``` javascript
-const username = 'ben';
+const username = 'user';
 const email = 'user@myapp.com';
 const password = 'truelyrandom';
 skygear.signup(username, email, password).then(function() {
@@ -176,9 +104,50 @@ skygear.publicDB.save(note).then(function (record) {
   console.log('Saving failed', error);
 });
 
+You may use iOS-SDK, we provide a simple example here [Simple app to get started in iOS]({{< relref "ios/first-app.md" >}})
+
 ```
 
-### What's next?
+## Setting up plugin
+
+Create an `plugin.py` as follow
+
+```python
+import skygear
+
+@skygear.op("chima:echo")
+def echo():
+    return {"message": "Hello World"}
+```
+
+To verify the plugin code can load into skygear, run this:
+
+```shell
+$ py-skygear plugin.py --subprocess init
+{"op": ["chima:hello"], "provider": [], "hook": [], "timer": [], "handler": {}}
+```
+
+Add plugin configuration to development.ini
+
+```
+[plugin "first-plugin"]
+transport = exec
+args = plugin.py
+```
+
+Restart skygear, verify the skygear load plugin by following cURL
+
+```
+curl -XPOST http://127.0.0.1:3000/ -d '{"api_key": "secret","action": "chima:hello"}'
+```
+
+## Upgrade of `skygear` and `py-skyegar`
+
+`go install -u github.com/oursky/skygear`
+`pip install -U skygear`
+
+## What's next?
 
 - [Interact with server using cli]({{< relref "cli/intro.md" >}})
 - [Create your plugin]({{< relref "plugin/intro.md" >}})
+
