@@ -50,3 +50,14 @@ push_users(
 
 # notification can also be sent to devices, see push_devices in the same package
 ```
+
+## Impersonate user using master key
+
+With master key, you can act on behalf of an existing user. When creating
+a container, you need to specify the master key as the API key and specify
+the user ID of the user. Access token is no required.
+
+```python
+from .options import options
+container = SkygearContainer(api_key=options.masterkey, user_id='abcdef1234')
+```
