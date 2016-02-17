@@ -106,6 +106,9 @@ $ edit SKYKit.podspec
 $ git add CHANGELOG.md SKYKit.podspec
 $ git commit -m "Update CHANGELOG for $SKYGEAR_VERSION"
 
+# Test podspec before pushing
+$ pod spec --verbose lint SKYKit.podspec
+
 # Tag and push commit
 $ git tag -a $SKYGEAR_VERSION -s -u $KEY_ID -m "Release $SKYGEAR_VERSION"
 $ git push --follow-tags origin $SKYGEAR_VERSION
