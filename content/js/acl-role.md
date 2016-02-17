@@ -53,7 +53,7 @@ To do this, you have to set `visitor` as the default role. New user will
 automatically gain the `visitor` role.
 
 ```javascript
-skygear.setDefaultRole(Visitor);
+skygear.setDefaultRole([Visitor]);
 ```
 
 Remember that the above definitions are freezed at the time the application

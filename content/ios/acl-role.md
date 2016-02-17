@@ -56,7 +56,7 @@ To do this, you have to set `visitor` as the default role. New user will
 automatically gain the `visitor` role.
 
 ```objective-c
-[[SKYContainer defaultContainer] setUserDefaultRole:visitor];
+[[SKYContainer defaultContainer] setUserDefaultRole:@[visitor]];
 ```
 
 Remember that the above definitions are freezed at the time the application
