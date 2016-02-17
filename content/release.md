@@ -35,6 +35,11 @@ $ brew install github-release
 $ brew install gpg2
 ```
 
+*IMPORTANT*: This guide assumes that your `origin` points to
+`oursky/skygear` and `skygeario` points to `skygeario/skygear` for skygear
+repo. Make sure you are on `master` branch and the branch is the same
+as the `origin/master`.
+
 ## skygear
 
 ```shell
@@ -51,6 +56,7 @@ $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERISON"
 # Tag and push commit
 $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERISON"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
+$ git push origin
 
 # Click `Publish release` in github release page
 ```
@@ -79,6 +85,7 @@ $ python setup.py sdist upload
 $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push --follow-tags skygeario v$SKYGEAR_VERSION
+$ git push origin && git push skygeario
 
 # Click `Publish release` in github release page
 ```
@@ -111,11 +118,14 @@ $ pod spec --verbose lint SKYKit.podspec
 
 # Tag and push commit
 $ git tag -a $SKYGEAR_VERSION -s -u $KEY_ID -m "Release $SKYGEAR_VERSION"
-$ git push --follow-tags origin $SKYGEAR_VERSION
 $ git push --follow-tags skygeario $SKYGEAR_VERSION
 
 # Push commit to Cocoapods
 $ pod trunk push SKYKit.podspec
+
+# Push commits to internal repos
+$ git push --follow-tags origin $SKYGEAR_VERSION
+$ git push origin && git push skygeario
 
 # Click `Publish release` in github release page
 ```
@@ -144,6 +154,17 @@ $ npm publish
 $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push --follow-tags skygeario v$SKYGEAR_VERSION
+$ git push origin && git push skygeario
 
 # Click `Publish release` in github release page
+```
+
+# Other notes
+
+To delete tags:
+
+```
+$ git tag -d 0.5.0
+$ git push origin :refs/tags/0.5.0
+$ git push skygeario :refs/tags/0.5.0
 ```
