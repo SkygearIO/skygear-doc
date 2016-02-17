@@ -149,12 +149,13 @@ but such access control does not apply when creating a new instance of
 the record. At this point a `visitor` cannot modify an existing article, but
 a `visitor` can create a new instance of article.
 
-To restrict record creation to a certain role, you call `createAccess` on
-a record class in the bootstrapping phrase.
+To restrict record creation to a certain role, you can call
+`setRecordCreateAccess` to tell Skygear which roles can create which record
+instance in the bootstrapping phrase.
 
 ```javascript
-Article.createAccess([Webmaster, Author])
-Comment.createAccess([Webmaster, Author, Visitor])
+skygear.setRecordCreateAccess(Article, [Webmaster, Author])
+skygear.setRecordCreateAccess(Comment, [Webmaster, Author, Visitor])
 ```
 
 Note that creation access is freezed in production mode.
