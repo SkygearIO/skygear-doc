@@ -11,10 +11,10 @@ in your computer that is suitable for app development.
 
 ### How to setup Skygear for development in Mac
 
-First, go to install homebrew. http://brew.sh
+First, install homebrew. http://brew.sh
 
-Skygear require `golang`, `python3` and `PostgreSQL` to run, you may acquired
-by using homebrew as follow
+Skygear require `golang`, `python3` and `PostgreSQL` to run, you may install
+them by using homebrew as follows:
 
 ``` bash
 $ brew install go
@@ -23,7 +23,7 @@ $ brew install postgresql
 ```
 
 After the dependencies are installed, you can install Skygear into your system
-by following command
+by following these commands:
 
 ``` bash
 $ go install github.com/oursky/skygear
@@ -32,7 +32,7 @@ $ pip install skygear
 
 ## Start working with skygear
 
-On your Mac, create a directory called `skygear`. You can also call it with
+On your Mac, create a directory called `skygear`. You can also call it by
 any name.
 
 ```
@@ -40,14 +40,16 @@ $ mkdir skygear
 $ cd skygear
 ```
 
-Download the development file and save it in the directory you have just
-created.
+Download the development config file and save it in the directory you have
+just created.
 
 ```
-curl -O http://skygear.io/development.ini
+curl -O {{< ref "index.md" >}}intro/development.ini
 ```
 
-You may want to modify the app `name` and `api-key` as wishes.
+You should modify the app `name` and `api-key` with your app name
+and a generated random string. This guide assumes you have set the API Key
+to `changeme`. However, you should generate your own API Key.
 
 Run Skygear using following command:
 
@@ -82,7 +84,7 @@ skygear.configApiKey('changeme')
 
 ``` javascript
 const username = 'user';
-const email = 'user@myapp.com';
+const email = 'user@example.com';
 const password = 'truelyrandom';
 skygear.signup(username, email, password).then(function() {
   console.log('Signup ok, got token', skygear.currentAccessToken);
@@ -103,10 +105,9 @@ skygear.publicDB.save(note).then(function (record) {
 }, function (error) {
   console.log('Saving failed', error);
 });
-
-You may use iOS-SDK, we provide a simple example here [Simple app to get started in iOS]({{< relref "ios/first-app.md" >}})
-
 ```
+
+You may use iOS SDK, we provide a simple example here [Simple app to get started in iOS]({{< relref "ios/first-app.md" >}})
 
 ## Setting up plugin
 
