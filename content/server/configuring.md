@@ -155,6 +155,8 @@ sentry-level = warn
   application
 * `api-key` (env `API_KEY`) - string, shared secret between backend and client
   app
+* `master-key` (env `MASTER_KEY`) - string, for potentially
+  destructive operation and request options restricted to system administrator
 * `cors-host` (env `CORS_HOST`) - string, hostname for cross origin access control
 
 
