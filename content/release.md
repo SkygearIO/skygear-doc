@@ -58,6 +58,10 @@ $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERISON"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
 
+# Build release binaries
+$ VERSION=$SKYGEAR_VERSION ./scripts/build-binary.sh
+# or docker run -it --rm -v `pwd`:/go/src/app -w /go/src/app -e VERSION=0.5.0 golang:1.5 /go/src/app/scripts/build-binary.sh
+
 # Click `Publish release` in github release page
 ```
 
