@@ -12,6 +12,7 @@ Collection of article help you unleash the power of Skygear.
   - [What is Skygear?]({{< relref "intro/index.md" >}})
   - [Architecture]({{< relref "intro/architecture.md" >}})
   - **[Not implemented]** [Getting Started]({{< relref "intro/getting-started.md" >}})
+  - **[Not implemented]** [Getting Started with CloudFormation]({{< relref "intro/getting-started-formation.md" >}})
   - **[DEPRECATED]** [Getting Started by Docker]({{< relref "intro/getting-started-docker.md" >}})
   - **[DEPRECATED]** [Setup by Docker]({{< relref "intro/setup-by-docker.md" >}})
 - Server
