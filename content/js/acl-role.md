@@ -169,7 +169,7 @@ is public readable.
 The default setting can be changed by calling `setDefaultACL` function:
 
 ```javascript
-const defaultACL = new skygear.defaultACL();
+const acl = skygear.defaultACL;
 acl.removePublicReadAccess();
 acl.addWriteAccess(Webmaster);
 skygear.setDefaultACL(acl);
