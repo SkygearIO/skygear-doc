@@ -32,19 +32,19 @@ $ pip install skygear
 
 ## Start working with skygear
 
-On your Mac, create a directory called `skygear`. You can also call it by
+Create a directory called `myapp`. You can also call it by
 any name.
 
 ```
-$ mkdir skygear
-$ cd skygear
+$ mkdir myapp
+$ cd myapp
 ```
 
 Download the development config file and save it in the directory you have
 just created.
 
 ```
-curl -O {{< ref "index.md" >}}intro/development.ini
+$ curl -O {{< ref "index.md" >}}intro/development.ini
 ```
 
 You should modify the app `name` and `api-key` with your app name
