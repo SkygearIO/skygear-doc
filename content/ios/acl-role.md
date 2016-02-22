@@ -36,9 +36,6 @@ bootstrapping phrase:
 SKYRole *webmaster = [SKYRole roleWithName:@"webmaster"];
 SKYRole *author = [SKYRole roleWithName:@"author"];
 SKYRole *visitor = [SKYRole roleWithName:@"visitor"];
-[[SKYContainer defaultContainer] defineRole:webmaster];
-[[SKYContainer defaultContainer] defineRole:author];
-[[SKYContainer defaultContainer] defineRole:visitor];
 ```
 
 At this pont, the `webmaster` role is an ordinary role without special powers
