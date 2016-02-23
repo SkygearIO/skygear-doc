@@ -30,19 +30,8 @@ From time to time, the database schema might change and this requires
 migrating the database to a new version.
 
 When Skygear runs, it will first check if the version of the database is
-up-to-date. If the database version is not up to date. You will see
-an error similar to the following in the Skygear log.
+up-to-date. Skygear Server will automatically upgrade the schema to the
+latest version when Skygear Server starts in development mode.
 
-```
-docker logs skygear
-skygear: oddb/pq: got version_num = bd=d120fadd, want fef0a121
-```
-
-When this happens, you are required to run database migration. You can
-trigger migration to happen by using the skygear-migrate docker image.
-
-```
-docker run --rm --link skygear_db_1:db oursky/skygear-migrate
-```
-
-Note: skygear_db_1 is the docker container in your setup.
+To put Skygear Server in development, either set `dev-mode = true` in
+`development.ini` or set `DEV_MODE=YES` in environment variable.
