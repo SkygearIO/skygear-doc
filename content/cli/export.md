@@ -1,11 +1,11 @@
 +++
 date = "2016-01-26T22:18:00+08:00"
 draft = true
-title = "Exporting Records"
+title = "Querying Records"
 +++
 
 ## Description
-`skycli record export` exports records from Skygear.
+`skycli record query` query records from Skygear.
 
 If `<record_type>` is specified, all records with that record type will be fetched. Otherwise, all records in Skygear will be fetched.
 
@@ -18,16 +18,16 @@ For downloading assets, please see `skycli record get`
 ## Synopsis
 
 ```bash
-skycli record export [options] [<record_type> ...]
+skycli record query [options] <record_type>
 ```
 
-Use `skycli record export --help` to view a list of available options.
+Use `skycli record query --help` to view a list of available options.
 
 ## Examples
 
 ### Record ID:
 ```bash
-$ skycli record export city --pretty-print
+$ skycli record query city --pretty-print
 {
     "_id": "city/hongkong",
     "name": "hongkong"
@@ -36,7 +36,7 @@ $ skycli record export city --pretty-print
     "_id": "city/newyork",
     "country": "USA"
 }
-$ skycli record export
+$ skycli record query city student
 { "_id": "city/hongkong", "name": "hongkong" }
 { "_id": "city/newyork", "country": "USA" }
 { "_id": "student/123", "name": "Alice", "age": 10}
@@ -44,7 +44,7 @@ $ skycli record export
 
 ### Record Type:
 ```bash
-$ skycli record export country -o country.json --basedir=image
+$ skycli record query country -o country.json --basedir=image
 $ cat country.json
 {"_id": "country/japan", "image":"@file:image/someassetid-japan.jpg"}
 {"_id": "country/uk", "name": "United Kingdom"}
