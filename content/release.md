@@ -51,10 +51,10 @@ $ open https://github.com/oursky/skygear/releases/edit/v$SKYGEAR_VERSION
 
 # Update changelog
 $ edit CHANGELOG.md
-$ git commit -m "Update CHANGELOG for v$SKYGEAR_VERISON"
+$ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 
 # Tag and push commit
-$ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERISON"
+$ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
 
