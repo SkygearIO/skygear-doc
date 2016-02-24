@@ -165,6 +165,13 @@ $ git push origin && git push skygeario
 
 # Other notes
 
+To show tag info:
+
+```shell
+$ git show v0.5.0
+```
+
+
 To delete tags:
 
 ```
