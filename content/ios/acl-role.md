@@ -36,9 +36,6 @@ bootstrapping phrase:
 SKYRole *webmaster = [SKYRole roleWithName:@"webmaster"];
 SKYRole *author = [SKYRole roleWithName:@"author"];
 SKYRole *visitor = [SKYRole roleWithName:@"visitor"];
-[[SKYContainer defaultContainer] defineRole:webmaster];
-[[SKYContainer defaultContainer] defineRole:author];
-[[SKYContainer defaultContainer] defineRole:visitor];
 ```
 
 At this pont, the `webmaster` role is an ordinary role without special powers
@@ -46,7 +43,14 @@ from the view of Skygear. To actually give the role the power to assign
 roles to other users, you have to designate those as admin roles.
 
 ```objective-c
-[[SKYContainer defaultContainer] defineAdminRoles:@[webmaster]];
+[[SKYContainer defaultContainer] defineAdminRoles:@[webmaster]
+                                       completion:^(NSError *error) {
+                                         if (!error) {
+                                           NSLog(@"Success!");
+                                         } else {
+                                           NSLog(@"Error: %@", error.localizedDescription);
+                                         }
+                                       }];
 ```
 
 It is possible to designate multiple roles to have admin privilege.
@@ -56,7 +60,14 @@ To do this, you have to set `visitor` as the default role. New user will
 automatically gain the `visitor` role.
 
 ```objective-c
-[[SKYContainer defaultContainer] setUserDefaultRole:@[visitor]];
+[[SKYContainer defaultContainer] setUserDefaultRole:@[visitor]
+                                         completion:^(NSError *error) {
+                                           if (!error) {
+                                             NSLog(@"Success!");
+                                           } else {
+                                             NSLog(@"Error: %@", error.localizedDescription)
+                                           }
+                                         }];
 ```
 
 Remember that the above definitions are freezed at the time the application
