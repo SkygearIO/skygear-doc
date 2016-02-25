@@ -26,6 +26,7 @@ After the dependencies are installed, you can install Skygear into your system
 by following these commands:
 
 ``` bash
+$ go get github.com/oursky/skygear
 $ go install github.com/oursky/skygear
 $ pip install skygear
 ```
