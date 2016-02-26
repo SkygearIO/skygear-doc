@@ -117,8 +117,11 @@ $ edit SKYKit.podspec
 $ git add CHANGELOG.md SKYKit.podspec
 $ git commit -m "Update CHANGELOG for $SKYGEAR_VERSION"
 
-# Test podspec before pushing
-$ pod spec --verbose lint SKYKit.podspec
+# Test podspec before pushing (optional)
+# Usually pushing cocoapods will not have issues, but it doesn't hurt to
+# double check. Travis does run `lib lint` but with the `--quick` option.
+# So this command is different than that run by Travis.
+$ pod lib lint SKYKit.podspec
 
 # Tag and push commit
 $ git tag -a $SKYGEAR_VERSION -s -u $KEY_ID -m "Release $SKYGEAR_VERSION"
