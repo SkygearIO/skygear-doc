@@ -171,8 +171,20 @@ a record class in the bootstrapping phrase.
 
 ```objective-c
 SKYContainer *container = [SKYContainer defaultContainer];
-[container defineCreationAccessWithRecordType:@"article" roles:@[webmaster, author]]
-[container defineCreationAccessWithRecordType:@"comment" roles:@[webmaster, author, visitor]]
+[container defineCreationAccessWithRecordType:@"article"
+                                        roles:@[webmaster, author]
+                                   completion:^(NSError *error) {
+                                     if (error) {
+                                       NSLog(error.localizedDescription);
+                                     }
+                                   }];
+[container defineCreationAccessWithRecordType:@"comment"
+                                        roles:@[webmaster, author, visitor]
+                                   completion:^(NSError *error) {
+                                     if (error) {
+                                       NSLog(error.localizedDescription);
+                                     }
+                                   }];
 ```
 
 Note that creation access is freezed in production mode.
