@@ -14,7 +14,7 @@ a user will be able to start using Skygear easily in AWS.
 
 Click the button below to get started:
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=myteststack&templateURL=https://s3.amazonaws.com/samplecfntemplates/mytemplate.template" target="_new">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=myskygear&templateURL=https://skygear-cf-templates.s3.amazonaws.com/quickstart/latest.template" target="_new">
 <img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png">
 </a>
 
@@ -28,7 +28,7 @@ Navigate to the created instance and follow the on-screen instructions.
 4. Select Amazon S3 template URL and enter:
 
 ```
-https://s3.amazonaws.com/samplecfntemplates/mytemplate.template
+https://skygear-cf-templates.s3.amazonaws.com/quickstart/latest.template
 ```
 
 ## ...or using the AWS command line interface
@@ -36,18 +36,14 @@ https://s3.amazonaws.com/samplecfntemplates/mytemplate.template
 Copy and paste the following command:
 
 ```
-aws cloudformation create-stack \
-  --region us-east-1 \
-  --stack-name SkygearServer \
-  --template-url https:// \
-  --parameters ParameterKey=Instance,ParameterValue=r3.large \
-  --parameters ParameterKey=Data,ParameterValue=50
-```
-
-## ...or using something else?
-
-Start an EC2 instance using the AMI `ami-8badf00d` using the EC2 Console
-or using any of your favourite tools.
+$ aws cloudformation create-stack \
+    --region us-east-1 \
+    --stack-name "myskygear" \
+    --template-url https://skygear-cf-templates.s3.amazonaws.com/quickstart/latest.template \
+    --parameters ParameterKey=Instance,ParameterValue=m3.medium \
+                 ParameterKey=Data,ParameterValue=30 \
+                 ParameterKey=KeyName,ParameterValue=mykeyname \
+    --capabilities CAPABILITY_IAM
 
 ## AWS Costs
 
