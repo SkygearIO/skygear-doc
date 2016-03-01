@@ -45,13 +45,6 @@ $ aws cloudformation create-stack \
                  ParameterKey=KeyName,ParameterValue=mykeyname \
     --capabilities CAPABILITY_IAM
 
-## ...or using something else?
-
-** NOTE**: The AMI image below might have changed.
-
-Start an EC2 instance using the AMI `ami-8badf00d` using the EC2 Console
-or using any of your favourite tools.
-
 ## AWS Costs
 
 Although Skygear is free and open source, AWS is not. See [EC2
