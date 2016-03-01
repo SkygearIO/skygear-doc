@@ -84,6 +84,45 @@ $ echo '["Bob"]' | py-skygear sample.py --subprocess op chima:hello
 {"result": {"message": "Hello Bob"}}
 ```
 
+## Working with multiple python files as packages
+
+When your plugin growth, it is very natural to separate the function into
+files according to it responsibility. Thus, you will write code like
+
+``` python
+from .utils import *
+```
+
+Where `utils.py` is sibling files in the same directory. You will got the
+`SystemError: Parent module '' not loaded, cannot perform relative import`, if
+you run your plugin as single files script.
+
+To make `py-skygear` works with your multiple file plugins, you will structure
+your files as following.
+
+```
+catapi/
+    __init__.py
+    catapi.py
+    feed.py
+```
+
+In `__init__.py`, you should import files Skygear hold hook definition.
+
+```
+from .catapi import *
+```
+
+Run the plugin using following command to enable relative import between your
+plugin files.
+
+``` shell
+$ py-skygear catapi/__init__.py --subprocess init
+```
+
+You may checkout the full example here:
+https://github.com/SkygearIO/py-skygear/tree/master/examples/catapi
+
 # Add plugin to Skygear configuration
 
 Add the following section to Skygear configuration to declare a new plugin.
