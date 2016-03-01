@@ -44,6 +44,7 @@ $ aws cloudformation create-stack \
                  ParameterKey=Data,ParameterValue=30 \
                  ParameterKey=KeyName,ParameterValue=mykeyname \
     --capabilities CAPABILITY_IAM
+```
 
 ## AWS Costs
 
