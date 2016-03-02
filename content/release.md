@@ -47,10 +47,10 @@ as the `origin/master`.
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
 $ github-release release -u oursky -r skygear --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
-$ open https://github.com/oursky/skygear/releases/edit/v$SKYGEAR_VERSION
 
 # Update changelog
 $ edit CHANGELOG.md
+$ git add CHANGELOG.md
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 
 # Tag and push commit
@@ -59,8 +59,9 @@ $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
 
 # Build release binaries
-$ VERSION=$SKYGEAR_VERSION ./scripts/build-binary.sh
-# or docker run -it --rm -v `pwd`:/go/src/app -w /go/src/app -e VERSION=0.5.0 golang:1.5 /go/src/app/scripts/build-binary.sh
+$ ./scripts/build-release-docker.sh
+$ docker push skygeario/skygear-server:v$SKYGEAR_VERSION
+$ ls -1 dist | xargs -I % -L 1 github-release upload -u oursky -r skygear --tag v$SKYGEAR_VERSION --name % --file dist/%
 
 # Click `Publish release` in github release page
 ```
@@ -72,13 +73,11 @@ $ VERSION=$SKYGEAR_VERSION ./scripts/build-binary.sh
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
 $ github-release release -u oursky -r py-skygear --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
-$ open https://github.com/oursky/py-skygear/releases/edit/v$SKYGEAR_VERSION
 $ github-release release -u skygeario -r py-skygear --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
-$ open https://github.com/skygeario/py-skygear/releases/edit/v$SKYGEAR_VERSION
 
 # Update changelog and version number
 $ edit CHANGELOG.md
-$ sed -i "" 's/version=".*"/version="$SKYGEAR_VERSION"/' setup.py
+$ sed -i "" "s/version='.*'/version='$SKYGEAR_VERSION'/" setup.py
 $ git add CHANGELOG.md setup.py
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 
@@ -107,21 +106,13 @@ it will accept a new release.
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
 $ github-release release -u oursky -r skygear-SDK-iOS --draft --tag $SKYGEAR_VERSION --name "$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
-$ open https://github.com/oursky/skygear-SDK-iOS/releases/edit/$SKYGEAR_VERSION
 $ github-release release -u skygeario -r skygear-SDK-iOS --draft --tag $SKYGEAR_VERSION --name "$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
-$ open https://github.com/skygeario/skygear-SDK-iOS/releases/edit/$SKYGEAR_VERSION
 
 # Update changelog and version number
 $ edit CHANGELOG.md
-$ edit SKYKit.podspec
+$ sed -i "" "s/\(s\.version[^=]*=[^\"]*\"\)[^\"]*/\1$SKYGEAR_VERSION/" SKYKit.podspec
 $ git add CHANGELOG.md SKYKit.podspec
 $ git commit -m "Update CHANGELOG for $SKYGEAR_VERSION"
-
-# Test podspec before pushing (optional)
-# Usually pushing cocoapods will not have issues, but it doesn't hurt to
-# double check. Travis does run `lib lint` but with the `--quick` option.
-# So this command is different than that run by Travis.
-$ pod lib lint SKYKit.podspec
 
 # Tag and push commit
 $ git tag -a $SKYGEAR_VERSION -s -u $KEY_ID -m "Release $SKYGEAR_VERSION"
@@ -144,13 +135,11 @@ $ git push origin && git push skygeario
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
 $ github-release release -u oursky -r skygear-SDK-JS --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
-$ open https://github.com/oursky/skygear-SDK-JS/releases/edit/v$SKYGEAR_VERSION
 $ github-release release -u skygeario -r skygear-SDK-JS --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
-$ open https://github.com/skygeario/skygear-SDK-JS/releases/edit/v$SKYGEAR_VERSION
 
 # Update changelog and version number
 $ edit CHANGELOG.md
-$ edit package.json
+$ sed -i "" "s/\"version\": \".*\"/\"version\": \"$SKYGEAR_VERSION\"/" package.json
 $ git add CHANGELOG.md package.json
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 
