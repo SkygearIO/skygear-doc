@@ -55,7 +55,7 @@ or modify record field. To create a sequence field:
 
 ```bash
 curl -X POST -H "Content-Type: application/json" \
-  -d @- http://localhost:3000/ <<EOF
+  -d @- http://localhost:3000/record/save <<EOF
 {
     "action": "record:save",
     "access_token": "ACCESS_TOKEN",

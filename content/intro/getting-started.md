@@ -70,7 +70,7 @@ $ curl http://127.0.0.1:3000/
 You can try creating a new user by sending a request to Skygear using cURL:
 
 ```
-curl -XPOST http://127.0.0.1:3000/ -d '{"action": "auth:signup", "api_key": "changeme"}'
+curl -XPOST http://127.0.0.1:3000/auth/signup -d '{"action": "auth:signup", "api_key": "changeme"}'
 ```
 
 ### Connect by (iOS SDK / JS SDK)
@@ -140,7 +140,7 @@ args = plugin.py
 Restart skygear, verify the skygear load plugin by following cURL
 
 ```
-curl -XPOST http://127.0.0.1:3000/ -d '{"api_key": "secret","action": "chima:hello"}'
+curl -XPOST http://127.0.0.1:3000/chima/hello -d '{"api_key": "secret","action": "chima:hello"}'
 ```
 
 ## Upgrade of `skygear` and `py-skyegar`
@@ -152,4 +152,3 @@ curl -XPOST http://127.0.0.1:3000/ -d '{"api_key": "secret","action": "chima:hel
 
 - [Interact with server using cli]({{< relref "cli/intro.md" >}})
 - [Create your plugin]({{< relref "plugin/intro.md" >}})
-

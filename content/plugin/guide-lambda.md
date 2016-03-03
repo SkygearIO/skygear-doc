@@ -17,11 +17,14 @@ In this function, a `hello:world` lambda function is created, ready to be called
 
 For example, the app can sends this request payload to Skygear:
 
-```
+```bash
+curl -XPOST -H "Content-Type: application/json" \
+-d @- http://localhost:3000/hello/world <<EOF
 {
   "action": "hello:world",
   "args": ["Bob"]
 }
+EOF
 ```
 
 When calling this function, the `name` variable contains the string `"Bob"`, which the function will include in the response like this:

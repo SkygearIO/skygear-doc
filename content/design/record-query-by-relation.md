@@ -38,7 +38,9 @@ Note: `follow` x `outward` = `follower`
 An example of querying a note owned by friend or user I follow
 
 
-``` json
+```bash
+curl -XPOST -H "Content-Type: application/json" \
+-d @- http://localhost:3000/record/query <<EOF
 {
   "action": "record:query",
   "access_token": "ACCESS_TOKEN",
@@ -48,21 +50,22 @@ An example of querying a note owned by friend or user I follow
     [
       "func",
       "userRelation",
-      {"$type": "keypath", "$val": "_owner"},
-      {"$type": "relation", "$name": "_friend", "$direction": "mutual"}
+      {"\$type": "keypath", "\$val": "_owner"},
+      {"\$type": "relation", "\$name": "_friend", "\$direction": "mutual"}
     ],
     [
       "func",
       "userRelation",
-      {"$type": "keypath", "$val": "_owner"},
-      {"$type": "relation", "$name": "_follow", "$direction": "outward"}
+      {"\$type": "keypath", "\$val": "_owner"},
+      {"\$type": "relation", "\$name": "_follow", "\$direction": "outward"}
     ]
   ],
   "include": {
-    "owner": {"$type": "keypath", "$val": "_owner"}
+    "owner": {"\$type": "keypath", "\$val": "_owner"}
   },
   "sort": []
 }
+EOF
 ```
 
 The format design will allow query of any normal attribute that referencing a
@@ -70,7 +73,9 @@ user.
 
 Following is an example of `query note that assigned to a person I manage`
 
-``` json
+```bash
+curl -XPOST -H "Content-Type: application/json" \
+-d @- http://localhost:3000/record/query <<EOF
 {
   "action": "record:query",
   "access_token": "ACCESS_TOKEN",
@@ -78,8 +83,9 @@ Following is an example of `query note that assigned to a person I manage`
   "predicate": [
     "func",
     "userRelation",
-    {"$type": "keypath", "$val": "assignee"},
-    {"$type": "relation", "$name": "manage", "$direction": "outward"}
+    {"\$type": "keypath", "\$val": "assignee"},
+    {"\$type": "relation", "\$name": "manage", "\$direction": "outward"}
   ]
 }
+EOF
 ```

@@ -79,7 +79,7 @@ Good! It's up and running.
 Now let's try signing up an anonymous user to see if the db is working fine:
 
 ```bash
-$ curl -XPOST http://192.168.99.100:3000/ -d '{"action": "auth:signup"}'
+$ curl -XPOST http://192.168.99.100:3000/auth/signup -d '{"action": "auth:signup"}'
 {"result":{"user_id":"e50bef5b-aa08-41ab-b0c6-d216ee227c49","access_token":"9aeca7b8-c4ae-4948-b5e6-cc2c80940cf1"}}
 ```
 

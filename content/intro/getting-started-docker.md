@@ -137,7 +137,7 @@ Assuming the IP of the Docker Machine remain unchanged, you can
 try creating a new user by sending a request to Skygear using cURL:
 
 ```
-curl -XPOST http://192.168.99.100:3000/ -d '{"action": "auth:signup", "api_key":
+curl -XPOST http://192.168.99.100:3000/auth/signup -d '{"action": "auth:signup", "api_key":
 "changeme"}'
 ```
 
@@ -182,4 +182,3 @@ skygear.publicDB.save(note).then(function (record) {
 
 - [Interact with server using cli]({{< relref "cli/intro.md" >}})
 - [Create your plugin]({{< relref "plugin/intro.md" >}})
-
