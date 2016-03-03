@@ -5,6 +5,8 @@ title = "Handler Extension Point"
 
 +++
 
+**Not implemented**: refs oursky/skygear#587
+
 To define a function as a custom handler, decorate it with `skygear.handler`.
 
 ```
