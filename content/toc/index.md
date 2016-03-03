@@ -24,7 +24,6 @@ Collection of article help you unleash the power of Skygear.
 - Command Line Interface (CLI)
   - [CLI introduction]({{< relref "cli/intro.md" >}})
   - [Usage]({{< relref "cli/usage.md" >}})
-  - **[Not implemented]** [Exporting and Importing Records]({{< relref "cli/import-export.md" >}})
   - **[Not implemented]** [Managing Record Schema]({{< relref "cli/schema.md" >}})
   - **[To be discussed]** Development / Production database setup
 - Backend / Database
