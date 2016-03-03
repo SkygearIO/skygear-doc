@@ -24,7 +24,7 @@ Collection of article help you unleash the power of Skygear.
 - Command Line Interface (CLI)
   - [CLI introduction]({{< relref "cli/intro.md" >}})
   - [Managing Records]({{< relref "cli/record.md" >}})
-  - **[Not implemented]** [Managing Record Schema]({{< relref "cli/schema.md" >}})
+  - [Managing Record Schema]({{< relref "cli/schema.md" >}})
   - **[To be discussed]** Development / Production database setup
 - Backend / Database
   - **[To be discussed]** App versioning (how to support backward compatibility in released app)
