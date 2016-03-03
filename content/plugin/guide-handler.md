@@ -5,15 +5,44 @@ title = "Handler Extension Point"
 
 +++
 
+**Not implemented**: refs oursky/skygear#587
+
 To define a function as a custom handler, decorate it with `skygear.handler`.
 
 ```
-@skygear.handler("chima:echo", auth_required=True)
-def meow(payload, io):
-    io.write(payload)
-    return
+@skygear.handler("chima:echo")
+def meow(request):
+    return request.body
 ```
 
-This will allows your app to send a `chima:echo` request to Skygear, with the request sent to your plugin for processing. In this example, the request is echoed back to the app when calling `io.write`.
+This will allows your app to send a `chima:echo` request to Skygear, with the 
+request sent to your plugin for processing. In this example, the request is
+echoed back to the app.
 
-`auth_required=True` allows Skygear to restrict requests to authenticated users only.
+
+## Required user
+
+```
+@skygear.handler("chima:food", user_required=True)
+def cats(request):
+    food_name = request.get('food_name')
+    if food_name in eatible:
+        return "meow"
+    else:
+        response = Response(418)
+        response.body = "I am chima"
+```
+
+`user_required=True` allows Skygear to restrict requests to authenticated users only.
+
+## Require Role
+
+```
+@skygear.handler("chima:age", role_required="admin")
+def age(request):
+    return 2
+```
+
+`role_required="admin"` allows Skygear to restrict requests to authenticated
+users with admin role only.
+

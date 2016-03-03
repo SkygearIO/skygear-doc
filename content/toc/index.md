@@ -40,6 +40,7 @@ Collection of article help you unleash the power of Skygear.
   - [Lambda Function]({{< relref "plugin/guide-lambda.md" >}})
   - [Authentication Provider]({{< relref "plugin/guide-auth.md" >}})
   - [Scheduled Tasks]({{< relref "plugin/guide-scheduled.md" >}})
+  - **[Not implemented]** [Handlers]({{< relref "plugin/guide-handler.md" >}})
   - [Calling Skygear API]({{< relref "plugin/skygear-api.md" >}})
   - **[Not implemented]** [Using Pubsub]({{< relref "plugin/pubsub.md" >}})
   - [Utility functions]({{< relref "plugin/utils.md" >}})
