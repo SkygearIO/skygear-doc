@@ -191,9 +191,6 @@ $ skycli record set city/f8cf1947-68ec-4fb0-9216-dc32ef92ddeb name="Hong Kong"
 
 # Get
 
-**NOT IMPLEMENTED**: This command is implemented but the feature is currently
-available by a different name: `export`, not `get`.
-
 ## Description
 `skycli record get` fetch records from Skygear.
 
@@ -236,9 +233,6 @@ $ cat out.json
 ```
 
 # Get attribute
-
-**NOT IMPLEMENTED**: This command is implemented but the feature is currently
-available by a different name: `get`, not `getattr`.
 
 ## Description
 `skycli record getattr` gets the value of an attribute of a record.
