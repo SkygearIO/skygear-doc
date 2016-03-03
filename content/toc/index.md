@@ -23,7 +23,7 @@ Collection of article help you unleash the power of Skygear.
   - [Upgrade Skygear]({{< relref "server/upgrade-skygear.md" >}})
 - Command Line Interface (CLI)
   - [CLI introduction]({{< relref "cli/intro.md" >}})
-  - [Usage]({{< relref "cli/usage.md" >}})
+  - [Managing Records]({{< relref "cli/record.md" >}})
   - **[Not implemented]** [Managing Record Schema]({{< relref "cli/schema.md" >}})
   - **[To be discussed]** Development / Production database setup
 - Backend / Database
