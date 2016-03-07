@@ -28,7 +28,7 @@ by following these commands:
 ``` bash
 $ go get github.com/oursky/skygear
 $ go install github.com/oursky/skygear
-$ pip install skygear
+$ pip3 install skygear
 ```
 
 ## Start working with skygear
