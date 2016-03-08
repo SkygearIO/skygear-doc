@@ -24,9 +24,8 @@ Collection of article help you unleash the power of Skygear.
   - [Upgrade Skygear]({{< relref "server/upgrade-skygear.md" >}})
 - Command Line Interface (CLI)
   - [CLI introduction]({{< relref "cli/intro.md" >}})
-  - [Usage]({{< relref "cli/usage.md" >}})
-  - **[Not implemented]** [Exporting and Importing Records]({{< relref "cli/import-export.md" >}})
-  - **[Not implemented]** [Managing Record Schema]({{< relref "cli/schema.md" >}})
+  - [Managing Records]({{< relref "cli/record.md" >}})
+  - [Managing Record Schema]({{< relref "cli/schema.md" >}})
   - **[To be discussed]** Development / Production database setup
 - Backend / Database
   - **[To be discussed]** App versioning (how to support backward compatibility in released app)

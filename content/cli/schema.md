@@ -5,16 +5,8 @@ title = "Managing Record Schema"
 
 +++
 
-Whole document **NOT IMPLEMENTED**
-
 `schema` subcommands help to add, rename and delete record fields -- the kind
 of schema operations that cannot be achieved via regular record handlers.
-
-All `schema` subcommands deal with postgres backend directly, as such you
-should have already configured information necessary to connect to the
-backend.
-
-*SHOW THEM HOW TO CONFIGURE*
 
 `schema` subcommands are provided as a convenient tool for simple schema
 operations and do not intended to be a full-featured database migration tool.
@@ -24,33 +16,47 @@ script or use whatever tools like `psql` to fulfill your needs. Refer to
 database structure guide for more information on our internal table
 definitions.
 
-## Renaming an existing field
+Managing record schema requires Skygear Server to be placed in dev mode
+or using a master key.
+
+# Fetch schema
+
+## Description
+
+`skycli schema fetch` fetches the record schema from the server.
+
+## Synopsis
 
 ```bash
-$ skycli schema alter <record_type> mv <existing_field> <new_field>
+$ skycli schema fetch
 ```
 
-This command renames an existing field of `record_type`.
-
-## Removing an existing field
+## Examples
 
 ```bash
-$ skycli schema alter <record_type> rm <existing_field>
+$ skycli schema fetch
+{
+  "user": {
+    "fields": [
+      { "name": "firstname", "type": "string" }
+    ]
+  }
+}
 ```
 
-This command removes an existing field of `record_type`.
+# Add new column
 
-## Adding a new field
+## Description
 
-**NOTE: To add a field, you might simply save a record with that specific
-field. Our just-in-time schema migration would take care of the rest.
-`schema add` exists solely for command suite completeness.
+`skycli schema add` adds a new column to a record type.
+
+## Synopsis
 
 ```bash
-$ skycli schema alter <record_type> add <existing_field> <field_def>
+$ skycli schema add <record_type> <column_name> <column_def>
 ```
 
-`field_def` means the type of field you wanted to create. The permitted
+`column_def` means the type of field you wanted to create. The permitted
 values are:
 
 * `string`
@@ -61,3 +67,71 @@ values are:
 * `datetime`
 * `asset`
 * `ref(record_type)`, where `record_type` is an existing record type
+
+## Examples
+
+```bash
+$ skycli schema add user lastname string
+$ skycli schema fetch
+{
+  "user": {
+    "fields": [
+      { "name": "firstname", "type": "string" },
+      { "name": "lastname", "type": "string" }
+    ]
+  }
+}
+```
+
+# Rename existing column
+
+## Description
+
+`skycli schema move` renames an existing column to another name.
+
+## Synopsis
+
+```bash
+$ skycli schema move <record_type> <column_name> <new_column_name>
+```
+
+## Examples
+
+```bash
+$ skycli schema move user lastname othername
+$ skycli schema fetch
+{
+  "user": {
+    "fields": [
+      { "name": "firstname", "type": "string" },
+      { "name": "othername", "type": "string" }
+    ]
+  }
+}
+```
+
+# Remove existing column
+
+## Description
+
+`skycli schema remove` removes an existing column.
+
+## Synopsis
+
+```bash
+$ skycli schema remove <record_type> <column_name>
+```
+
+## Examples
+
+```bash
+$ skycli schema remove user othername
+$ skycli schema fetch
+{
+  "user": {
+    "fields": [
+      { "name": "firstname", "type": "string" }
+    ]
+  }
+}
+```
