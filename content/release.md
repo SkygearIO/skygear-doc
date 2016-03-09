@@ -61,6 +61,8 @@ $ git push origin
 # Build release binaries
 $ ./scripts/build-release-docker.sh
 $ docker push skygeario/skygear-server:v$SKYGEAR_VERSION
+$ docker tag skygeario/skygear-server:v$SKYGEAR_VERSION skygeario/skygear-server:latest
+$ docker push skygeario/skygear-server:latest
 $ ls -1 dist | xargs -I % -L 1 github-release upload -u oursky -r skygear --tag v$SKYGEAR_VERSION --name % --file dist/%
 
 # Click `Publish release` in github release page
@@ -151,6 +153,34 @@ $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push --follow-tags skygeario v$SKYGEAR_VERSION
 $ git push origin && git push skygeario
+
+# Click `Publish release` in github release page
+```
+
+## skycli
+
+```shell
+# Draft new release changelog
+$ git log --first-parent `git describe --abbrev=0`.. > new-release
+$ edit new-release
+$ github-release release -u oursky -r skycli --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
+
+# Update changelog
+$ edit CHANGELOG.md
+$ git add CHANGELOG.md
+$ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
+
+# Tag and push commit
+$ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
+$ git push --follow-tags origin v$SKYGEAR_VERSION
+$ git push origin
+
+# Build release binaries
+$ ./scripts/build-release-docker.sh
+$ docker push skygeario/skycli:v$SKYGEAR_VERSION
+$ docker tag skygeario/skycli:v$SKYGEAR_VERSION skygeario/skycli:latest
+$ docker push skygeario/skycli:latest
+$ ls -1 dist | xargs -I % -L 1 github-release upload -u oursky -r skycli --tag v$SKYGEAR_VERSION --name % --file dist/%
 
 # Click `Publish release` in github release page
 ```
