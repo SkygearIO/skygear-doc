@@ -29,8 +29,12 @@ def cats(request):
     if food_name in eatible:
         return "meow"
     else:
-        response = Response(418)
-        response.body = "I am chima"
+        response = Response(
+            status=418,
+            headers={
+                "X-Skygear-Server": "faseng"
+            },
+            body="I am chima")
 ```
 
 `user_required=True` allows Skygear to restrict requests to authenticated users only.
