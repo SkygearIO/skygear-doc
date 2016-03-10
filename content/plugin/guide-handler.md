@@ -38,8 +38,10 @@ follow.
 ```
 @skygear.handler("chima:where", method=['GET'])
 def chima_location(request):
-    return "corner"
+    return request.values.get('size', 'too large')
 ```
+
+The `query_string` value is parsed and store at `request.value`
 
 You can mount multiple function to same handler with different method
 
