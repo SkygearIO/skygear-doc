@@ -38,6 +38,7 @@ To send a message to a channel, simply use the `publish` function.
 pubsub.publish("notes_channel", {"message": "Hello World!"})
 ```
 
+**[Not Implemented]**
 To subscribe to a channel, define a function and decorate it with `skygear.subscribe`
 
 ```python
