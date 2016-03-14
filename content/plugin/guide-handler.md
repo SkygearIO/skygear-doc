@@ -19,21 +19,22 @@ echoed back to the app.
 
 ## Return format of handlers
 
-`str`, user will get the string in response body
+You can return one of the followings in a custom handler function:
 
-`dict`, `list` or `int`, `py-skygear` will try to serialize the dict into json
-object. User will get a JSON object in response body with Content-Type set to
-`application/json`
+* `str`, user will get the string in response body
+ 
+* `dict`, `list` or `int`, `py-skygear` will try to serialize the dict into json
+  object. User will get a JSON object in response body with `Content-Type` set to
+  `application/json`
 
-`skygear.Response`, return a Response object with the custom headers and body
-you want. It will return to use directly.
+* `skygear.Response`, return a Response object with the custom headers and body
+  you want. It will return to user directly.
 
+## Accept specific HTTP method only
 
-## Only mount to specific HTTP method
-
-By default, handler is mount to all HTTP method supported, i.e. 'GET', 'POST'
-and 'PUT'. If you only want to mount to specific action, you can specific as
-follow.
+By default, handler accepts all the supported HTTP method, i.e. 'GET', 'POST'
+and 'PUT'. If you want your custom handler to accept specific action only,
+do the followings:
 
 ```
 @skygear.handler("chima:where", method=['GET'])
@@ -41,9 +42,10 @@ def chima_location(request):
     return request.values.get('size', 'too large')
 ```
 
-The `query_string` value is parsed and store at `request.value`
+The query string is parsed and store at `request.values`.
 
-You can mount multiple function to same handler with different method
+You can have another function that accepts a different method by decorating
+your function with a different `method` value:
 
 ```
 @skygear.handler("chima:where", method=['PUT'])
@@ -71,6 +73,8 @@ def cats(request):
 `user_required=True` allows Skygear to restrict requests to authenticated users only.
 
 ## Require Role
+
+**NOT IMPLEMENTED**
 
 ```
 @skygear.handler("chima:age", role_required="admin")
