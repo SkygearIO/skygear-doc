@@ -149,8 +149,7 @@ sentry-level = warn
 
 # List of configuration settings
 
-`[app]`
-
+## `app` section
 * `name` (env `APP_NAME`) - string, alphanumeric or underscore, name of the
   application
 * `api-key` (env `API_KEY`) - string, shared secret between backend and client
@@ -159,4 +158,6 @@ sentry-level = warn
   destructive operation and request options restricted to system administrator
 * `cors-host` (env `CORS_HOST`) - string, hostname for cross origin access control
 
-
+## `token-store` section
+* `prefix` (env `TOKEN_STORE_PREFIX`) - string, prefix to access token for
+  storing in redis.
