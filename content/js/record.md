@@ -95,13 +95,13 @@ skygear.publicDB.save([helloNote, foobarNote])
   if (helloError) {
     console.error('Fail to save hello note');
   } else {
-    helloNote = savedHelloNote;
+    console.log('updated hello note: ', savedHelloNote);
   }
 
   if (foobarError) {
     console.error('Fail to save foo bar note');
   } else {
-    foobarNote = savedFoobarNote;
+    console.log('updated foo bar note: ', savedFoobarNote);
   }
 }, (error) => {
   if (error) {
