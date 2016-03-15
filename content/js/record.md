@@ -24,7 +24,7 @@ and _record_.
 
 # Container
 
-Container is the uppermost layer of skygear. In practice, 
+Container is the uppermost layer of skygear. In practice,
 `import skygear from 'skygear'` will give you a container instance at variable
 skygear. In most case you will only need one instance of containter.
 
@@ -74,6 +74,42 @@ skygear.publicDB.save(new Note({
 });
 ```
 
+You can also save multiple records at one time.
+
+``` javascript
+let helloNote = new Note({
+  content: 'Hello world'
+});
+
+let foobarNote = new Note({
+  content: 'Foo bar'
+});
+
+skygear.publicDB.save([helloNote, foobarNote])
+.then((result) => {
+  let {
+    savedRecords: [savedHelloNote, savedFoobarNote],
+    errors:       [helloError, foobarError]
+  } = result;
+
+  if (helloError) {
+    console.error('Fail to save hello note');
+  } else {
+    helloNote = savedHelloNote;
+  }
+
+  if (foobarError) {
+    console.error('Fail to save foo bar note');
+  } else {
+    foobarNote = savedFoobarNote;
+  }
+}, (error) => {
+  if (error) {
+    console.error('Request error', error);
+  }
+});
+```
+
 After saving a record, any attributes modified from the server side will
 be updated on the saved record object in place. The local transient fields of
 the records are merged with any remote transient fields applied on the server
@@ -99,11 +135,37 @@ skygear.publicDB.query(query).then((records) => {
 
 # Deleting a record
 
-
 ``` javascript
-skygear.publicDB.del(record).then(() => {
+skygear.publicDB.delete(record)
+.then(() => {
   console.log(record);
 }, (error) => {
   console.log(error);
+});
+```
+
+You can also delete multiple records at one time.
+
+``` javascript
+let Note = skygear.Record.extend('note');
+let query = new skygear.Query(Note);
+query.lessThan('rating', 3);
+
+let foundNotes = [];
+skygear.publicDB.query(query)
+.then((notes) => {
+  console.log(`Found ${notes.length} notes, going to delete them.`);
+
+  foundNotes = notes;
+  return skygear.publicDB.delete(notes)
+})
+.then((errors) => {
+  errors.forEach((perError, idx) => {
+    if (perError) {
+      console.error('Fail to delete', foundNotes[idx]);
+    }
+  });
+}, (reqError) => {
+  console.error('Request error', reqError);
 });
 ```
