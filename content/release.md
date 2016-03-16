@@ -49,7 +49,7 @@ $ edit new-release
 $ github-release release -u oursky -r skygear --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
 # Update changelog
-$ edit CHANGELOG.md
+$ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
 $ git add CHANGELOG.md
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 
@@ -78,7 +78,7 @@ $ github-release release -u oursky -r py-skygear --draft --tag v$SKYGEAR_VERSION
 $ github-release release -u skygeario -r py-skygear --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
 # Update changelog and version number
-$ edit CHANGELOG.md
+$ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
 $ sed -i "" "s/version='.*'/version='$SKYGEAR_VERSION'/" setup.py
 $ git add CHANGELOG.md setup.py
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
@@ -111,7 +111,7 @@ $ github-release release -u oursky -r skygear-SDK-iOS --draft --tag $SKYGEAR_VER
 $ github-release release -u skygeario -r skygear-SDK-iOS --draft --tag $SKYGEAR_VERSION --name "$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
 # Update changelog and version number
-$ edit CHANGELOG.md
+$ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
 $ sed -i "" "s/\(s\.version[^=]*=[^\"]*\"\)[^\"]*/\1$SKYGEAR_VERSION/" SKYKit.podspec
 $ git add CHANGELOG.md SKYKit.podspec
 $ git commit -m "Update CHANGELOG for $SKYGEAR_VERSION"
@@ -140,7 +140,7 @@ $ github-release release -u oursky -r skygear-SDK-JS --draft --tag v$SKYGEAR_VER
 $ github-release release -u skygeario -r skygear-SDK-JS --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
 # Update changelog and version number
-$ edit CHANGELOG.md
+$ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
 $ sed -i "" "s/\"version\": \".*\"/\"version\": \"$SKYGEAR_VERSION\"/" package.json
 $ git add CHANGELOG.md package.json
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
@@ -166,7 +166,7 @@ $ edit new-release
 $ github-release release -u oursky -r skycli --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
 # Update changelog
-$ edit CHANGELOG.md
+$ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
 $ git add CHANGELOG.md
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 
