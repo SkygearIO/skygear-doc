@@ -27,7 +27,7 @@ by 1 and `z` is reset to 0 on the next release cycle.
 ## Preparation
 
 ```shell
-$ export GITHUB_TOKEN=abcdef1234
+$ export GITHUB_TOKEN=abcdef1234 # Need Repos scope for update release notes
 $ export SKYGEAR_VERSION="0.5.0"
 $ export KEY_ID="12CDA17C"
 
