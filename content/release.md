@@ -92,6 +92,9 @@ $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push --follow-tags skygeario v$SKYGEAR_VERSION
 $ git push origin && git push skygeario
 
+# Build the docker image to docker hub
+$ fab -R oursky deploy:branch_name=v$SKYGEAR_VERSION
+$ fab -R skygear deploy:branch_name=v$SKYGEAR_VERSION
 # Click `Publish release` in github release page
 ```
 
