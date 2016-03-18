@@ -10,7 +10,7 @@ title = "Next step with CloudFormation"
 ## Install Fabric
 
 The Quickstart instance is designed to be used with the [Fabric
-script](https://raw.githubusercontent.com/oursky/skygear/master/examples/quickstart/fabfile.py).
+script](https://raw.githubusercontent.com/skygeario/skygear-server/master/examples/quickstart/fabfile.py).
 To use the script, you need to install Fabric
 
 ```shell

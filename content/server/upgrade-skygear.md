@@ -9,7 +9,7 @@ Upgrading Skygear is simple if you use Docker. If you have Docker configured
 to run Skygear. You can fetch a new docker image by running:
 
 ```
-docker pull oursky/skygear
+docker pull skygeario/skygear-server
 ```
 
 With the new docker image in place, you need to rebuild the Skygear docker
@@ -19,7 +19,7 @@ recreate it:
 ```
 docker stop skygear
 docker rm skygear
-docker run --name skygear oursky/skygear
+docker run --name skygear-server skygeario/skygear-server
 ```
 
 Note: the exact command varies in your environment.

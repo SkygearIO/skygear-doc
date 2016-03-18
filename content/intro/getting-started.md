@@ -26,8 +26,8 @@ After the dependencies are installed, you can install Skygear into your system
 by following these commands:
 
 ``` bash
-$ go get github.com/oursky/skygear
-$ go install github.com/oursky/skygear
+$ go get github.com/skygeario/skygear-server
+$ go install github.com/skygeario/skygear-server
 $ pip3 install skygear
 ```
 
@@ -145,7 +145,7 @@ curl -XPOST http://127.0.0.1:3000/chima/hello -d '{"api_key": "secret","action":
 
 ## Upgrade of `skygear` and `py-skyegar`
 
-`go install -u github.com/oursky/skygear`
+`go install -u github.com/skygeario/skygear-server`
 `pip install -U skygear`
 
 ## What's next?

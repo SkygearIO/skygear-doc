@@ -12,14 +12,14 @@ iOS application dependency.
 
 ## Include Skygear as a dependency
 
-1. [Download the source](https://github.com/oursky/skygear-SDK-JS/archive/master.zip)
+1. [Download the source](https://github.com/skygeario/skygear-SDK-JS/archive/master.zip)
    of Skygear's iOS SDK (_SKYKit_) and unzip it to your project folder.
 
    * If you use _git_ for source control, it is recommended to submodule SKYKit
      instead:
 
      	```bash
-     	git submodule add git@github.com:oursky/skygear-SDK-JS.git
+     	git submodule add git@github.com:skygeario/skygear-SDK-JS.git
      	```
 
 2. Edit your `Podfile` to include the this line:

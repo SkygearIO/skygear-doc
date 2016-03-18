@@ -14,7 +14,7 @@ npm install skygear --save
 # Install the latest
 
 ``` bash
-git submodule git@github.com:oursky/skygear.git 
+git submodule git@github.com:skygeario/skygear-server.git
 cd skygear
 npm install
 cd ..

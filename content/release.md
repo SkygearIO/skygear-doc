@@ -36,7 +36,7 @@ $ brew install gpg2
 ```
 
 *IMPORTANT*: This guide assumes that your `origin` points to
-`oursky/skygear` and `skygeario` points to `skygeario/skygear` for skygear
+`oursky/skygear-server` and `skygeario` points to `skygeario/skygear-server` for skygear
 repo. Make sure you are on `master` branch and the branch is the same
 as the `origin/master`.
 

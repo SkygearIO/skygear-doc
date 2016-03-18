@@ -20,10 +20,10 @@ You do not need to install Go to develop Skygear in docker environment.
 
 # Obtaining the source
 
-Clone the [GitHub repository](https://github.com/oursky/skygear).
+Clone the [GitHub repository](https://github.com/skygeario/skygear-server).
 
 ```sh
-$ git clone git@github.com:oursky/skygear.git
+$ git clone git@github.com:skygeario/skygear-server.git
 $ cd skygear
 ```
 
@@ -75,4 +75,3 @@ $ docker-compose run --rm app go test ./...
 ```sh
 $ docker-compose run --rm --service-ports app <command>
 ```
-

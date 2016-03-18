@@ -36,12 +36,12 @@ If similiar message is seen, then you are good to go.
 
 ## Running Skygear
 
-Skygear has an official [Docker Hub repository](https://hub.docker.com/r/oursky/skygear/). It saves you the effort to build docker images yourself. For development, we have a pre-configured `docker-compose` file to start with.
+Skygear has an official [Docker Hub repository](https://hub.docker.com/r/skygeario/skygear-server/). It saves you the effort to build docker images yourself. For development, we have a pre-configured `docker-compose` file to start with.
 
 Now to clone and set up Skygear from scratch:
 
 ```bash
-$ git clone git@github.com:oursky/skygear.git
+$ git clone git@github.com:skygeario/skygear-server.git
 Cloning into 'skygear'...
 remote: Counting objects: 2724, done.
 remote: Compressing objects: 100% (17/17), done.
@@ -89,5 +89,5 @@ Great!
 
 Explore Skygear's SDKs to start developing :D
 
-* [Objective C SDK](https://github.com/oursky/skygear-SDK-iOS)
-* [Javascript SDK](https://github.com/oursky/skygear)
+* [Objective C SDK](https://github.com/skygeario/skygear-SDK-iOS)
+* [Javascript SDK](https://github.com/skygeario/skygear-server)
