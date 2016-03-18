@@ -14,7 +14,7 @@ basis, you grant accesses to users on a per-role basis. Each user of the same
 role can access records that you grant access to that role.
 
 In this guide, we are going to walk you through making a blogging application
-in which many authors can contribute articles to the same blog while 
+in which many authors can contribute articles to the same blog while
 others can post comments to the articles.
 
 ## Define roles for your app
@@ -29,7 +29,7 @@ role can post articles, while users with the `reader` role can post comments.
 
 The role of an `webmaster` is to assign roles to existing users.
 
-To tell Skygear you have these roles, you should define them during the
+To tell Skygear Server you have these roles, you should define them during the
 bootstrapping phrase:
 
 ```javascript
@@ -48,7 +48,7 @@ skygear.setAdminRole([Webmaster]);
 
 It is possible to designate multiple roles to have admin privilege.
 
-Finally, you have to tell Skygear what the default role a new user should have.
+Finally, you have to tell Skygear Server what the default role a new user should have.
 To do this, you have to set `visitor` as the default role. New user will
 automatically gain the `visitor` role.
 
@@ -76,7 +76,7 @@ A user having write access cannot change the ownership of the records.
 ## Add role-based access for each record
 
 In role-based access control, you add access to a record by specifying which
-roles have access to it, and which type of access is added. 
+roles have access to it, and which type of access is added.
 
 There are two types of access types: read and write.
 A role having read access can fetch and query the record from the database.
@@ -150,7 +150,7 @@ the record. At this point a `visitor` cannot modify an existing article, but
 a `visitor` can create a new instance of article.
 
 To restrict record creation to a certain role, you can call
-`setRecordCreateAccess` to tell Skygear which roles can create which record
+`setRecordCreateAccess` to tell Skygear Server which roles can create which record
 instance in the bootstrapping phrase.
 
 ```javascript
@@ -181,7 +181,7 @@ record, the above settings will be ignored for that record.
 
 ## Changing role of a user
 
-A user with an admin role is able to change roles of other users. In 
+A user with an admin role is able to change roles of other users. In
 previous section, we defined a `webmaster` will have admin privilege, and this
 user can promote a `visitor` to an `author`.
 

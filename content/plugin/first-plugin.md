@@ -5,10 +5,10 @@ title = "Developing Your First Plugin"
 
 +++
 
-It is simple to create your first plugin. 
+It is simple to create your first plugin.
 
-To create a plugin, you have to define functions in your Python program that takes arguments defined by each type of extension point. For Skygear to find your function, you have to decorate your
-functions using decorators provided by the `py-skygear` package. Doing so will also allows py-skygear to register your hooks to Skygear when the plugin program starts. When Skygear calls your plugin, `py-skygear` will take the plugin message and calls the appropriate function automatically.
+To create a plugin, you have to define functions in your Python program that takes arguments defined by each type of extension point. For Skygear Server to find your function, you have to decorate your
+functions using decorators provided by the `py-skygear` package. Doing so will also allows py-skygear to register your hooks to Skygear Server when the plugin program starts. When Skygear Server calls your plugin, `py-skygear` will take the plugin message and calls the appropriate function automatically.
 
 # Install py-skygear
 
@@ -20,7 +20,7 @@ $ pip install py-skygear
 
 Alternatively, you can install py-skygear from source by cloning`py-skygear` from the official repository.
 
-Depending on your operating system, you may need to install extra dependencies to install from source. 
+Depending on your operating system, you may need to install extra dependencies to install from source.
 
 ```shell
 # Ubuntu 14.04
@@ -107,7 +107,7 @@ catapi/
     feed.py
 ```
 
-In `__init__.py`, you should import files Skygear hold hook definition.
+In `__init__.py`, you should import files Skygear server hold hook definition.
 
 ```
 from .catapi import *
@@ -123,9 +123,9 @@ $ py-skygear catapi/__init__.py --subprocess init
 You may checkout the full example here:
 https://github.com/SkygearIO/py-skygear/tree/master/examples/catapi
 
-# Add plugin to Skygear configuration
+# Add plugin to Skygear Server configuration
 
-Add the following section to Skygear configuration to declare a new plugin.
+Add the following section to Skygear Server configuration to declare a new plugin.
 
 ```ini
 [plugin "sample"]
@@ -134,7 +134,7 @@ path = python
 args = tcp://0.0.0.0:5555/
 ```
 
-When Skygear starts, it will wait for plugin registration information before serving requests. We need to start our plugin so that the plugin can send registration information to Skygear.
+When Skygear Server starts, it will wait for plugin registration information before serving requests. We need to start our plugin so that the plugin can send registration information to Skygear.
 
 ```
 $ py-skygear sample.py

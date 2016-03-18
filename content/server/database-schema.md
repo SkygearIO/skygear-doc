@@ -53,7 +53,7 @@ When saved to Skygear, the above record will be saved in a records table called 
 
 ## Reserved Tables
 
-Reserved tables stores all data that is not records. For example, user data and device data is not stored in a records table but in a reserved table. The schema of the reserved tables are fixed for each version, but you may need to migrate the schema of these tables when upgrading from an old version of Skygear to a new version. Do not manually change the schema of reserved tables.
+Reserved tables stores all data that is not records. For example, user data and device data is not stored in a records table but in a reserved table. The schema of the reserved tables are fixed for each version, but you may need to migrate the schema of these tables when upgrading from an old version of Skygear Server to a new version. Do not manually change the schema of reserved tables.
 
 It is possible to manipulate data in reserved tables directly, but this is not advised as doing so may make the data inconsistent. Exercise cautions when modifying data in reserved tables.
 
@@ -81,5 +81,4 @@ The `_friend` reserved table contains friend-type relationship data between user
 
 ### Asset
 
-The `_asset` reserved table contains metadata about user-uploaded assets. The content of the asset is not stored in the database. 
-
+The `_asset` reserved table contains metadata about user-uploaded assets. The content of the asset is not stored in the database.

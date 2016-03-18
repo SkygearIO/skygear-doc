@@ -5,7 +5,7 @@ title = "FAQ"
 
 +++
 
-## How to dump postgres of skygear using docker
+## How to dump postgres of skygear server using docker
 
 ```shell
 $ docker run --rm -i --link skygear_db_1:db mdillon/postgis:9.4 pg_dump -h db -U postgres > dumpfile

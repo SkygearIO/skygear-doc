@@ -22,7 +22,7 @@ def before_save_book(record, original, db):
         raise Exception("Cannot change a saved book.")
 ```
 
-When an exception is raised by a plugin when Skygear is handling a record
+When an exception is raised by a plugin when Skygear Server is handling a record
 hook, the change operation of the record is aborted. In this example,
 when the original record is available, an exception is raised to prevent
 the client from overwritting a record.
@@ -97,12 +97,12 @@ from skygear import context as ctx
 @skygear.before_save("book", eager_load="writer")
 def before_save_book(record, original, db):
     writer = record['_transient']['writer']
-    if writer['is_dead'] 
+    if writer['is_dead']
         raise Exception("Cannot make changes to a book whose writer is dead.")
 ```
 
 Specify the name of the field where a reference of a record is to be eager
-loaded in the `eager_load` parameter. When Skygear calls your hook, it
+loaded in the `eager_load` parameter. When Skygear Server calls your hook, it
 will also load the referenced record.
 
 ## To deny access based on an unreferenced record
@@ -113,7 +113,7 @@ will also load the referenced record.
 @skygear.before_save("book")
 def before_save_book(record, original, db):
     writer = db.fetch("writer/24")
-    if writer['is_dead'] 
+    if writer['is_dead']
         raise Exception("Cannot make changes to a book.")
 ```
 

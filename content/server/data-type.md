@@ -50,7 +50,7 @@ type. More keys in the JSON object specifies the actual value.
   greater than `max(i, j)`.
 
 Sequeuen type contain only schematic definition without any user data. It is
-used to utilize the JIT schema migration of Skygear to create
+used to utilize the JIT schema migration of Skygear Server to create
 or modify record field. To create a sequence field:
 
 ```bash

@@ -7,11 +7,11 @@ title = "Architecture"
 
 Introduction & Glossary to Skygear Architecture
 
-{{< img src="/intro/blocks.jpg" title="Compoent blocks connection" 
+{{< img src="/intro/blocks.jpg" title="Compoent blocks connection"
     caption="Showing the data flow between component">}}
 
 
-### Skygear - Server
+### Skygear Server
 
 This is the component bring different part together. After you config it
 properly it will make sure every compoent is working normally. On any incident,
@@ -30,12 +30,12 @@ use cases. We also offer other DB storage if you need to scale the things out.
 #### Flexible Schema, protection at production
 
 Even it is SQL, you are not required to defined the schema before writing your
-code. Skygear automaticaly create the schema you need during development. This 
+code. Skygear Server automaticaly create the schema you need during development. This
 feature allow you to refine the schema during development. Resulting a
 similiar usage experience like develope with mongodb, get things done quickly.
 You can also check and modify the development schema as needed at Skygear dashboard.
 
-At the first time of your deployment, Skygear will copied the schema developed
+At the first time of your deployment, Skygear Server will copied the schema developed
 during development to production database. Once the schema is copied, schema
 will not able to change.
 
@@ -67,5 +67,5 @@ twitter auth plugin for your convenience.
 
 #### Custom Handler
 
-Expose custom handler that perform your app specific task. Skygear will take care
+Expose custom handler that perform your app specific task. Skygear Server will take care
 of the data transport and authentication, you just need to focus on the logic.

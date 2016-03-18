@@ -44,7 +44,7 @@ go build
 Modify the development.ini
 
 ``` bash
-skygear development.ini
+skygear-server development.ini
 ```
 
 You should see following output

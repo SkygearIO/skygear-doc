@@ -8,11 +8,11 @@ title = "Getting Start by Docker"
 **DEPRECATION NOTICE**: Please see our [Getting Started]({{< relref "intro/getting-started.md" >}}) guide instead. The information contained here is no longer relevant.
 
 **NOT IMPLEMENTED**: In a future version of this guide, we should focus on how
-people can contribute to Skygear by checking out the source. There will be two
+people can contribute to Skygear Server by checking out the source. There will be two
 sections for those who want to develop using the barebone way or those who want
 to develop using the Docker way.
 
-This guide will show you how to run Skygear on docker for development and verify that it is working.
+This guide will show you how to run Skygear Server on docker for development and verify that it is working.
 
 ## Getting Docker
 
@@ -20,7 +20,7 @@ This guide will show you how to run Skygear on docker for development and verify
 
 Please consult the official guide from docker to install docker toolbox: http://docs.docker.com/mac/step_one/
 
-Skygear would need `docker` and `docker-compose`. Let's see if they are working:
+Skygear Server would need `docker` and `docker-compose`. Let's see if they are working:
 
 ```bash
 $ docker run hello-world
@@ -34,11 +34,11 @@ docker-compose version: 1.4.0
 
 If similiar message is seen, then you are good to go.
 
-## Running Skygear
+## Running Skygear Server
 
-Skygear has an official [Docker Hub repository](https://hub.docker.com/r/skygeario/skygear-server/). It saves you the effort to build docker images yourself. For development, we have a pre-configured `docker-compose` file to start with.
+Skygear Server has an official [Docker Hub repository](https://hub.docker.com/r/skygeario/skygear-server/). It saves you the effort to build docker images yourself. For development, we have a pre-configured `docker-compose` file to start with.
 
-Now to clone and set up Skygear from scratch:
+Now to clone and set up Skygear Server from scratch:
 
 ```bash
 $ git clone git@github.com:skygeario/skygear-server.git

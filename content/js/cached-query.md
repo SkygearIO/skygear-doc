@@ -6,7 +6,7 @@ title = "Cached Query"
 +++
 
 Skygear provides a simple cached query mechanism for application that wants to
-display the data last seen before it gets new data from Skygear. To make use
+display the data last seen before it gets new data from Skygear Server. To make use
 of this, you just need
 to provide an extra callback function to the `query` function, and Skygear will try
 to return an cached result before it gets the latest result from the

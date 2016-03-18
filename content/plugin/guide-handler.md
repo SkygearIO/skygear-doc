@@ -13,7 +13,7 @@ def meow(request):
     return request.get_data(as_text=True)
 ```
 
-This will allows your app to send a `chima:echo` request to Skygear, with the 
+This will allows your app to send a `chima:echo` request to Skygear, with the
 request sent to your plugin for processing. In this example, the request is
 echoed back to the app.
 
@@ -22,7 +22,7 @@ echoed back to the app.
 You can return one of the followings in a custom handler function:
 
 * `str`, user will get the string in response body
- 
+
 * `dict`, `list` or `int`, `py-skygear` will try to serialize the dict into json
   object. User will get a JSON object in response body with `Content-Type` set to
   `application/json`
@@ -70,7 +70,7 @@ def cats(request):
             body="I am chima")
 ```
 
-`user_required=True` allows Skygear to restrict requests to authenticated users only.
+`user_required=True` allows Skygear Server to restrict requests to authenticated users only.
 
 ## Require Role
 
@@ -82,6 +82,5 @@ def age(request):
     return 2
 ```
 
-`role_required="admin"` allows Skygear to restrict requests to authenticated
+`role_required="admin"` allows Skygear Server to restrict requests to authenticated
 users with admin role only.
-
