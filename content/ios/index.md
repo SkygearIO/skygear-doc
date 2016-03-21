@@ -14,6 +14,6 @@ pod install SKYKit
 ## Install the latest
 
 ``` bash
-git submodule git@github.com:oursky/skygear-SDK-JS.git SKYKit
+git submodule git@github.com:skygeario/skygear-SDK-JS.git SKYKit
 pod install SKYKit
 ```

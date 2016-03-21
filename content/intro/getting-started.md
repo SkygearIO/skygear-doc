@@ -5,15 +5,15 @@ title = "Getting Started"
 
 +++
 
-This guide will guide you through setting up Skygear for app developers.
+This guide will guide you through setting up Skygear Server for app developers.
 At the end of the guide, you will have a working installation for Skygear
 in your computer that is suitable for app development.
 
-### How to setup Skygear for development in Mac
+### How to setup Skygear Server for development in Mac
 
 First, install homebrew. http://brew.sh
 
-Skygear require `golang`, `python3` and `PostgreSQL` to run, you may install
+Skygear Server require `golang`, `python3` and `PostgreSQL` to run, you may install
 them by using homebrew as follows:
 
 ``` bash
@@ -22,12 +22,12 @@ $ brew install python3
 $ brew install postgresql
 ```
 
-After the dependencies are installed, you can install Skygear into your system
+After the dependencies are installed, you can install Skygear Server into your system
 by following these commands:
 
 ``` bash
-$ go get github.com/oursky/skygear
-$ go install github.com/oursky/skygear
+$ go get github.com/skygeario/skygear-server
+$ go install github.com/skygeario/skygear-server
 $ pip3 install skygear
 ```
 
@@ -52,13 +52,13 @@ You should modify the app `name` and `api-key` with your app name
 and a generated random string. This guide assumes you have set the API Key
 to `changeme`. However, you should generate your own API Key.
 
-Run Skygear using following command:
+Run Skygear Server using following command:
 
 ```
-$ skygear development.ini
+$ skygear-server development.ini
 ```
 
-To test that Skygear is running, run:
+To test that Skygear Server is running, run:
 
 ```
 $ curl http://127.0.0.1:3000/
@@ -67,7 +67,7 @@ $ curl http://127.0.0.1:3000/
 
 ## Connect with cURL
 
-You can try creating a new user by sending a request to Skygear using cURL:
+You can try creating a new user by sending a request to Skygear Server using cURL:
 
 ```
 curl -XPOST http://127.0.0.1:3000/auth/signup -d '{"action": "auth:signup", "api_key": "changeme"}'
@@ -137,7 +137,7 @@ transport = exec
 args = plugin.py
 ```
 
-Restart skygear, verify the skygear load plugin by following cURL
+Restart skygear, verify the Skygear Server load plugin by following cURL
 
 ```
 curl -XPOST http://127.0.0.1:3000/chima/hello -d '{"api_key": "secret","action": "chima:hello"}'
@@ -145,7 +145,7 @@ curl -XPOST http://127.0.0.1:3000/chima/hello -d '{"api_key": "secret","action":
 
 ## Upgrade of `skygear` and `py-skyegar`
 
-`go install -u github.com/oursky/skygear`
+`go install -u github.com/skygeario/skygear-server`
 `pip install -U skygear`
 
 ## What's next?

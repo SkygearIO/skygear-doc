@@ -59,7 +59,7 @@ role hierarchy, Admin Role will able to change its role. Resulting the multiple
 Admin Role have no actual access control meaning, but only semantic meaning.
 
 ** [Compelx but works] ** The AdminRole array order represent hierarchy. Kinda
-implicit, 
+implicit,
 
 ``` javascript
 // S1, S2, SA1, SA5
@@ -208,8 +208,8 @@ application.addReadAccess(role.Admin);
 
 ## Writer will not able to read the project when it is no loner recuriting.
 
-Client size hook. The call back will run **before** jsour serialize the project 
-and send to the skygear serve. _Good to have_
+Client side hook. The call back will run **before** serializing the project
+and send to the skygear server. _Good to have_
 
 ``` javascript
 Project.beforeSave((project) => {

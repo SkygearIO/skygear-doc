@@ -178,7 +178,7 @@ query.sortDescriptors = @[sortDescriptor];
 
 We constructed a `SKYQuery` to search for `todo` records. There are no additional
 criteria needed so we put the predicate to `nil`. Then we assigned a
-`NSSortDescription` to ask Skygear to sort the `todo` records by `order` field
+`NSSortDescription` to ask Skygear Server to sort the `todo` records by `order` field
 ascendingly.
 
 `SKYQuery` utilizes `NSPredicate` to apply filtering on query results. For

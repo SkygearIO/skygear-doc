@@ -36,17 +36,17 @@ $ brew install gpg2
 ```
 
 *IMPORTANT*: This guide assumes that your `origin` points to
-`oursky/skygear` and `skygeario` points to `skygeario/skygear` for skygear
+`oursky/skygear-server` and `skygeario` points to `skygeario/skygear-server` for skygear
 repo. Make sure you are on `master` branch and the branch is the same
 as the `origin/master`.
 
-## skygear
+## skygear-server
 
 ```shell
 # Draft new release changelog
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
-$ github-release release -u oursky -r skygear --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
+$ github-release release -u oursky -r skygear-server --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
 # Update changelog
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
@@ -63,7 +63,7 @@ $ ./scripts/build-release-docker.sh
 $ docker push skygeario/skygear-server:v$SKYGEAR_VERSION
 $ docker tag skygeario/skygear-server:v$SKYGEAR_VERSION skygeario/skygear-server:latest
 $ docker push skygeario/skygear-server:latest
-$ ls -1 dist | xargs -I % -L 1 github-release upload -u oursky -r skygear --tag v$SKYGEAR_VERSION --name % --file dist/%
+$ ls -1 dist | xargs -I % -L 1 github-release upload -u oursky -r skygear-server --tag v$SKYGEAR_VERSION --name % --file dist/%
 
 # Click `Publish release` in github release page
 ```

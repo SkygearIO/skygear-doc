@@ -9,7 +9,7 @@ title = "Record Relation"
 
 Skygear support parent-child relation between records via _reference_.
 `skygear.Reference` is a pointer class, which will translate to foreignkey in
-skygear database for efficient query.
+skygear server database for efficient query.
 
 You can reference a record to a user.
 
@@ -53,7 +53,7 @@ skygear.publicDB.save(note);
 
 # Eager Loading
 
-After you give a relation, you can 
+After you give a relation, you can
 
 ``` javascript
 const q = skygear.Query(Note);

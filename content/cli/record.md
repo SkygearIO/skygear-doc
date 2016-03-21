@@ -50,7 +50,7 @@ records.json:
 }
 ```
 
-Each record is represented by a single JSON dictionary. The key `_id` is mandatory for every record, any other key that starts with underscore `_` is reserved by Skygear and should not be used.
+Each record is represented by a single JSON dictionary. The key `_id` is mandatory for every record, any other key that starts with underscore `_` is reserved by Skygear Server and should not be used.
 
 ## Complex Value
 
@@ -225,10 +225,10 @@ $ skycli record get -o out.json --basedir=file --pretty-print
 $ ls file
 someassetid-hongkong.jpg
 $ cat out.json
-{ 
+{
     "_id": "city/f8cf1947-68ec-4fb0-9216-dc32ef92ddeb",
     "name": "Hong Kong",
-    "image": "@file:tmp/someassetid-hongkong.jpg" 
+    "image": "@file:tmp/someassetid-hongkong.jpg"
 }
 ```
 

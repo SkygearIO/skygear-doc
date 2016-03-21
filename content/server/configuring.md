@@ -84,7 +84,7 @@ app:
 If you run skygear with Docker but not using Compose:
 
 ```
-$ docker run -e ENV_NAME=ENV_VALUE oursky/skygear
+$ docker run -e ENV_NAME=ENV_VALUE skygeario/skygear-server
 ```
 
 If you run Skygear without Docker:

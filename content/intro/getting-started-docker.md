@@ -5,13 +5,13 @@ title = "Getting Started by docker"
 
 +++
 
-This guide will guide you through setting up Skygear for app developers.
-At the end of the guide, you will have a working installation for Skygear
+This guide will guide you through setting up Skygear Server for app developers.
+At the end of the guide, you will have a working installation for Skygear Server
 in your computer that is suitable for app development.
 
 ## Install Docker
 
-The recommended way to run Skygear is to run it using Docker.
+The recommended way to run Skygear Server is to run it using Docker.
 
 On Mac, you can download and install [Docker Toolbox](http://docs.docker.com/mac/step_one/),
 which has everything you need to get started.
@@ -64,41 +64,41 @@ Download the docker-compose.yml file and save it in the directory you have just 
 curl -O {{< ref "intro/index.md" >}}docker-compose.yml
 ```
 
-Now is the time to fetch Skygear from Docker Hub.
+Now is the time to fetch Skygear Server from Docker Hub.
 
 ```
 $ docker-compose pull
 ```
 
-**NOTE**: If Skygear is in private beta, you may not be able to download
+**NOTE**: If Skygear Server is in private beta, you may not be able to download
 the Docker image for Skygear. You should register an account on Docker Hub
 and log in to Docker Hub by running `docker login`.
 
 ## Run Skygear
 
-Start the database of the Skygear by running:
+Start the database of the Skygear Server by running:
 
 ```shell
 $ docker-compose start db redis
 ```
 
-When the database is up, run this command to start the Skygear daemon:
+When the database is up, run this command to start the Skygear Server daemon:
 
 ```
 $ docker-compose start app
-# Alternatively, you can run the following command to run Skygear in the
+# Alternatively, you can run the following command to run Skygear Server in the
 foreground:
 $ docker-compose up app
 ```
 
 What Docker does here is to read the `docker-compose.yml` in the directory
-you created, fetch the Skygear images and other dependencies, and run the
+you created, fetch the Skygear Server images and other dependencies, and run the
 server with Docker.
 
-To verify that the Skygear server is running. You can create a HTTP request
+To verify that the Skygear Server is running. You can create a HTTP request
 using the cURL utility or by entering the server endpoint in a browser.
 
-For Windows/Mac, Skygear is listening in the Docker Machine. You find out the IP
+For Windows/Mac, Skygear Server is listening in the Docker Machine. You find out the IP
 of the Docker Machine by running `docker-machine ip default`.
 
 ``` bash
@@ -106,35 +106,35 @@ $ docker-machine ip default
 192.168.99.100
 ```
 
-In this case, the endpoint of Skygear is `http://192.168.99.100:3000`
+In this case, the endpoint of Skygear Server is `http://192.168.99.100:3000`
 
 For Linux, and if you run Docker locally, the endpoint is `http://localhost:3000`
 
-To test that Skygear is running, run:
+To test that Skygear Server is running, run:
 
 ```
 $ curl http://192.168.99.100:3000/
 {"result":{"status":"OK"}}
 ```
 
-## Connect to Skygear with SDK
+## Connect to Skygear Server with SDK
 
-To call API on Skygear, you need two pieces of information: the API Endpoint
+To call API on Skygear Server, you need two pieces of information: the API Endpoint
 and the API key.
 
-The API endpoint is the URL where Skygear is listening on.
+The API endpoint is the URL where Skygear Server is listening on.
 The API key is configured in Skype configuration or `docker-compose.yml`.
 
 In this guide, the API endpoint and key is `http://192.168.99.100:3000` and
 `changeme` respectively.
 
-Please see Configuring Skygear section for how to change these settings. It is
+Please see Configuring Skygear Server section for how to change these settings. It is
 recommended that you change the API key to something else when you publish your app.
 
 ## Connect with cURL
 
 Assuming the IP of the Docker Machine remain unchanged, you can
-try creating a new user by sending a request to Skygear using cURL:
+try creating a new user by sending a request to Skygear Server using cURL:
 
 ```
 curl -XPOST http://192.168.99.100:3000/auth/signup -d '{"action": "auth:signup", "api_key":

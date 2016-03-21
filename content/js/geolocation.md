@@ -50,7 +50,7 @@ To query by descending distance:
 photoQuery.addDescendingByDistance('location', reference);
 ```
 
-**DISCUSSION**: The Skygear API supports sorting by an expression, but the
+**DISCUSSION**: The Skygear Server API supports sorting by an expression, but the
 only supported expression is to sort by location. To make things simpler,
 the above convenient functions are preferred.
 

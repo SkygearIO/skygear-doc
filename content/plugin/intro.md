@@ -26,12 +26,12 @@ Database Extension Point allows plugin to intercept database-related API
 requests. At a database extension point, Plugin can modify the data to be
 persisted, or otherwise reject save or delete operation.
 
-For example, when Skygear receives a request to save a `note` record, Skygear calls
-registered plugin so that the plugin has a change to add additional data to the
-record, such as the number of words in the note content.
+For example, when Skygear Server receives a request to save a `note` record,
+Skygear Server calls registered plugin so that the plugin has a change to add
+additional data to the record, such as the number of words in the note content.
 
 It is also possible for plugin to reject the `note` from saving by returning an
-error. Skygear interprets an error as a reject to save a record.
+error. Skygear Server interprets an error as a reject to save a record.
 
 A third example is for plugin to send a push notification after the `note`
 record has been saved.
@@ -39,8 +39,8 @@ record has been saved.
 ## Handler Extension Point
 
 Handler Extension Point allows you to implement custom API between your app and
-Skygear. When an app sends a request to Skygear with a registered custom API, the
-request is forwarded to plugin. In turn, a plugin is able to call Skygear APIs,
+Skygear. When an app sends a request to Skygear Server with a registered custom API,
+the request is forwarded to plugin. In turn, a plugin is able to call Skygear APIs,
 Plugin APIs or other third-party APIs to perform custom login required by an
 app.
 
@@ -71,14 +71,14 @@ that password can be checked with your corporate directory.
 ## Scheduled Tasks
 
 Scheduled Tasks work similar to UNIX cron daemon: You may schedule a plugin to
-run at certain time or interval. At the right time, Skygear sends a message to
-plugin so that plugin can run periodic tasks.
+run at certain time or interval. At the right time, Skygear Server sends a message
+to plugin so that plugin can run periodic tasks.
 
 # Plugin Architecture
 
 In Skygear, plugin architecture consists of Skygear that acts as a message broker
-among all plugins. When processing an extension point, Skygear communicate with
-each plugin.
+among all plugins. When processing an extension point, Skygear Server communicate
+with each plugin.
 
 Plugin is an out-of-process program running alongside Skygear. One advantage of
 utilising an out-of-process and a message architecture, you can develop plugin
@@ -95,5 +95,3 @@ operation by returning an error.
 
 Secondly, you can call other Skygear API or Plugin API by sending an API request
 via a side channel. This is similar to how your app communicates to Skygear.
-
-

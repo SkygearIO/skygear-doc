@@ -9,7 +9,7 @@ The cloud backend
 
 How to kick start the server
 ```
-docker run oursky/skygear
+docker run skygeario/skygear-server
 ```
 
 Save a record to DB using SDK

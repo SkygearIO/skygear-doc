@@ -71,7 +71,7 @@ skygear.changePassword(oldPassword, newPassword).then((user) => {
 
 At Skygear, we allow you use email as the user identifier. When you specified
 you are using email as identifier, Skygear will ensure the email are in proper
-format. And you may enable the recover password by email function. 
+format. And you may enable the recover password by email function.
 
 You will signup and login the user as follow.
 
@@ -112,7 +112,7 @@ skygear.changePassword(oldPassword, newPassword, invalidateTokens=true).then(
 );
 ```
 
-# User 
+# User
 
 Skygear provide currentUser object after login.
 
@@ -123,9 +123,9 @@ const actor = skygear.currentUser;
 
 ## Receiving currentUser changed callback
 
-When access token is expired, Skygear will return `401 Unauthorized`. SDK will
+When access token is expired, Skygear Server will return `401 Unauthorized`. SDK will
 clear the presisted access token and current user info. To handle the forced
-logout gracefully at your application, you should register a call back by 
+logout gracefully at your application, you should register a call back by
 `onUserChanged` and do appropriate application logic to alert the user.
 
 ``` javascript
