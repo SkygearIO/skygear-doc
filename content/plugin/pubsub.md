@@ -27,14 +27,24 @@ from skygear.container import SkygearContainer
 When you have an instance of SkygearContainer, you can create a pubsub socket
 so that you can send messages over the pubsub channel.
 
-```
+```python
 container = SkygearContainer()
 pubsub = container.pubsub()
 ```
 
 To send a message to a channel, simply use the `publish` function.
 
-```
+```python
 pubsub.publish("notes_channel", {"message": "Hello World!"})
 ```
 
+**[Not Implemented]**
+To subscribe to a channel, define a function and decorate it with `skygear.subscribe`
+
+```python
+@skygear.subscribe("ping")
+def pinger(payload):
+    # publish to another channel
+    pubsub.publish("pong", {"message": "I have got a ping."})
+    return
+```

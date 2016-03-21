@@ -41,7 +41,7 @@ Collection of article help you unleash the power of Skygear.
   - [Authentication Provider]({{< relref "plugin/guide-auth.md" >}})
   - [Scheduled Tasks]({{< relref "plugin/guide-scheduled.md" >}})
   - [Calling Skygear API]({{< relref "plugin/skygear-api.md" >}})
-  - **[Not implemented]** [Using Pubsub]({{< relref "plugin/pubsub.md" >}})
+  - [Using Pubsub]({{< relref "plugin/pubsub.md" >}})
   - [Utility functions]({{< relref "plugin/utils.md" >}})
 - API
   - API reference => to another class reference site
