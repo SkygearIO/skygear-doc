@@ -20,10 +20,10 @@ def deploy(branch_name):
     local('cat Dockerfile | docker build -t skygear-doc-generator -')
     local('git submodule update --init --recursive')
 
-    local(docker_run + ' hugo --theme=purehugo --buildDrafts -b http://docs.pandadb.com/tutorial/')
+    local(docker_run + ' hugo --theme=purehugo --buildDrafts -b http://docs.skygear.io/tutorial/')
     # Fix baseurl with an extra "/" at the end
-    local(docker_run + ' find . -name "*.html" -exec sed -i "s/http:\/\/docs.pandadb.com\/tutorial\/\//http:\/\/docs.pandadb.com\/tutorial\//g" {} \;')
-    local(docker_run + ' aws s3 sync public/ s3://docs.pandadb.com/tutorial/')
+    local(docker_run + ' find . -name "*.html" -exec sed -i "s/http:\/\/docs.skygear.io\/tutorial\/\//http:\/\/docs.skygear.io\/tutorial\//g" {} \;')
+    local(docker_run + ' aws s3 sync public/ s3://docs.skygear.io/tutorial/')
 
 def restart():
     raise NotImplemented()
