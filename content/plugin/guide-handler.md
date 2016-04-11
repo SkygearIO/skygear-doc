@@ -84,3 +84,42 @@ def age(request):
 
 `role_required="admin"` allows Skygear Server to restrict requests to authenticated
 users with admin role only.
+
+## Restful Resource Decorator
+
+Restful resource is a special kind of `skygear.handler` that implements
+restful HTTP API. To use, define a class that subclass
+`restful.RestfulResource` and decorate this class with the `skygear.rest`
+decorator.
+
+```
+import skygear
+
+@skygear.rest('/notes')
+class RestfulNote(skygear.RestfulResource):
+    pass
+```
+
+The mapping of functions to implement and the HTTP restful endpoints are
+as follows:
+
+* `index(self)` (`GET /notes`) - list resources
+* `create(self)` (`POST /notes`) - create a resource
+* `delete(self, ident)` (`DELETE /notes/id`) - delete a resource
+* `update(self, ident)` (`PUT /notes/id`) - update a resource
+* `get(self, ident)` (`GET /notes/id`) - fetch a resource
+
+`skygear.RestfulRecord` is a restful class that manipulates
+skygear Record. To use it,
+
+```
+import skygear
+
+@skygear.rest('/notes')
+class RestfulUser(skygear.RestfulRecord):
+    record_type = 'note'
+    database_id = '_public'
+```
+
+If your skygear database has a record type called `note`, You can fetch
+a list of your `note` records from `GET /notes`.
