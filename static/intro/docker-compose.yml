@@ -49,3 +49,6 @@ app:
     # When unspecified, the default is the number of CPU available, which
     # is the recommended setting.
     #GOMAXPROCS: 1
+    # GODEBUG: netdns=cgo - Force go to use the cgo DNS resolver.
+    # This is required because Docker container name is in /etc/hosts.
+    GODEBUG: netdns=cgo
