@@ -92,7 +92,7 @@ restful HTTP API. To use, define a class that subclass
 `restful.RestfulResource` and decorate this class with the `skygear.rest`
 decorator.
 
-```
+```python
 import skygear
 
 @skygear.rest('/notes')
@@ -109,17 +109,75 @@ as follows:
 * `update(self, ident)` (`PUT /notes/id`) - update a resource
 * `get(self, ident)` (`GET /notes/id`) - fetch a resource
 
-`skygear.RestfulRecord` is a restful class that manipulates
-skygear Record. To use it,
+In order to get the payload for creating and updating a resource, you
+can call `self.get_payload()` in the above functions. It returns the
+dict sent to the restful resource from the client.
 
-```
+```python
 import skygear
 
 @skygear.rest('/notes')
+class RestfulNote(skygear.RestfulResource):
+    def create(self):
+        payload = self.get_payload()
+        # save the payload here
+        return payload
+```
+
+### Restful Record
+
+`skygear.RestfulRecord` is a restful class that manipulates
+skygear Record. To use it,
+
+```python
+import skygear
+
+@skygear.rest('/notes', user_required=True)
 class RestfulUser(skygear.RestfulRecord):
     record_type = 'note'
     database_id = '_public'
 ```
 
 If your skygear database has a record type called `note`, You can fetch
-a list of your `note` records from `GET /notes`.
+a list of your `note` records from `GET /notes`. You do not need to
+implement methods such as `index()` and `create()`.
+
+The `user_required=True` parameter will ensures that only authenticated
+user can access the restful resource and actions will be taken on
+behalf of the user. The usual Record ACL applies.
+
+You can modify the behavior of the `index()` function by implementing
+the following functions:
+
+* `predicate()` - This can be used to filter the returned resources
+  from Skygear Server. The returned value should be an array
+  containing Skygear query predicate.
+* `query_options()` - This function should return a dict containing
+  parameters to be sent to the Skygear Server `record:query` action.
+
+Here is an example of how to implement a restful record with pagination
+support:
+
+```python
+import skygear
+
+@skygear.rest('/notes')
+class RestfulUser(skygear.RestfulRecord):
+    record_type = 'note'
+    database_id = '_public'
+
+    def query_options(self):
+        # /notes?limit=50&offset=100 returns the 100th to 150th records,
+        # ordered by the `title` field
+        return {
+            'limit': self.request.values.get('limit', 100),
+            'offset': self.request.values.get('offset', 0),
+            'sort': [[{'$val': 'title', '$type': 'keypath'}, 'asc']],
+            'count': True
+        }
+
+    def predicate(self):
+        # Only records with the `genre` field equals to `funny` will be
+        # returned
+        return ['eq', {'$type': 'keypath', '$val': 'genre'}, 'funny']
+```
