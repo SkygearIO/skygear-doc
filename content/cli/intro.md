@@ -14,10 +14,10 @@ and some common administration works.
 To install `skycli`:
 
 ```bash
-$ mkdir -P $GOPATH/src/github.com/oursky
-$ cd $GOPATH/src/github.com/oursky
-$ git clone http://github.com/oursky/skycli
-$ go get -u github.com/oursky/skycli
+$ mkdir -P $GOPATH/src/github.com/SkygearIO
+$ cd $GOPATH/src/github.com/SkygearIO
+$ git clone http://github.com/SkygearIO/skycli
+$ go get -u github.com/SkygearIO/skycli
 ```
 
 Then configure the API key of your Skygear app so that it can call Skygear's
