@@ -131,8 +131,7 @@ post the SKYContainerWillSaveRecordNotification. By doing this, you put the
 access control logic in one place, and that access control settings are applied
 consistently.
 
-```objective-c
-
+``` objective-c
 NSNotificationCenter *center = [NSNotificationCenter defaultCenter]
 [center addObserverForName:SKYContainerWillSaveRecordNotification
                     object:nil
@@ -149,14 +148,6 @@ NSNotificationCenter *center = [NSNotificationCenter defaultCenter]
                         }
                     }
                 }];
-
-Article.beforeSave((article) => {
-  if (article.isLocked) {
-    article.removeWriteAccess(Author);
-  } else {
-    article.addWriteAccess(Author);
-  }
-});
 ```
 
 ## Setting creation access
