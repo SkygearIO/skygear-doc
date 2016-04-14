@@ -73,19 +73,20 @@ as well as the access control settings for the record.
 
 A user having write access cannot change the ownership of the records.
 
-## Add role-based access for each record
+## Set role-based access for each record
 
 In role-based access control, you add access to a record by specifying which
-roles have access to it, and which type of access is added.
+roles have access to it, and which type of access is allowed.
 
-There are two types of access types: read and write.
-A role having read access can fetch and query the record from the database.
-A role having write access can save and delete the record.
+There are three types of access types: no access, read only and read write.
+A role having read only access can fetch and query the record from the database.
+A role having read write access can save and delete the record in addition
+to fetch and query..
 
-You can add access by calling these functions on a record object:
-
-*   addWriteAccess(...) - Add write access of a record to the specified role
-*   addReadAccess(...) - Add read access of a record to the specified role
+You can set access by calling these methods on a record object:
+* `setNoAccessForRole(...)` - remove all access of a record to the specified role
+* `setReadOnlyForRole(...)` - set read only access of a record to the specified role
+* `setReadWriteAccessForRole(...)` - Add read write access of a record to the specified role
 
 In our example,
 when you create an article, you want `visitor` to see it, but only
@@ -95,9 +96,9 @@ access by calling these functions on a record object:
 ```javascript
 const article = new Article(params);
 
-article.addWriteAccess(Webmaster);
-article.addWriteAccess(Author);
-article.addReadAccess(Visitor);
+article.setReadWriteAccessForRole(Webmaster);
+article.setReadWriteAccessForRole(Author);
+article.setReadOnlyForRole(Visitor);
 
 skygear.publicDB.save(article);
 ```
@@ -106,26 +107,7 @@ Role-based access control are applied to each record individually. In other
 words, access control applied to a record does not affect access control
 applied to other records.
 
-## Removing role-based access for each record
-
-You can also remove a previously added access by calling these functions:
-
-*   removeWriteAccess(...) - remove write access of a record from the specified
-    role
-*   removeReadAccess(...) - Remove read access of a record from the specified
-    role
-
-Suppose that a locked article can only be modified by `webmaster`. You need
-to remove the write access previously granted to the `author` role.
-
-```javascript
-article.isLocked = true;
-article.removeWriteAccess(Author);
-skygear.publicDB.save(article);
-```
-
-Note that the owner of a record always have access to a record. Therefore,
-the creator themselves will still be able to modify it.
+Note that the owner of a record always have access to a record.
 
 Although the above scenario will work, it is recommended to modify access
 control of a record in client-side hooks. By doing this, you put the access
@@ -135,9 +117,9 @@ consistently.
 ```javascript
 Article.beforeSave((article) => {
   if (article.isLocked) {
-    article.removeWriteAccess(Author);
+    article.setReadOnlyForRole(Author);
   } else {
-    article.addWriteAccess(Author);
+    article.setReadWriteAccessForRole(Author);
   }
 });
 ```
@@ -170,8 +152,8 @@ The default setting can be changed by calling `setDefaultACL` function:
 
 ```javascript
 const acl = skygear.defaultACL;
-acl.removePublicReadAccess();
-acl.addWriteAccess(Webmaster);
+acl.setPublicReadOnly();
+acl.setReadOnlyForRole(Webmaster);
 skygear.setDefaultACL(acl);
 ```
 
