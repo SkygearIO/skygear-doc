@@ -76,11 +76,12 @@ A user having write access cannot change the ownership of the records.
 ## Set role-based access for each record
 
 In role-based access control, you add access to a record by specifying which
-roles have access to it, and which type of access is added.
+roles have access to it, and which type of access is allowed.
 
 There are three types of access types: no access, read only and read write.
 A role having read only access can fetch and query the record from the database.
-A role having read write access can save and delete the record.
+A role having read write access can save and delete the record in addition
+to fetch and query..
 
 You can set access by calling these methods on a record object:
 * `setNoAccessForRole(...)` - remove all access of a record to the specified role

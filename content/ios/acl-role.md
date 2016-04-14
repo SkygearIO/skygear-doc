@@ -76,11 +76,12 @@ is switched to production mode.
 ## Set role-based access for each record
 
 In role-based access control, you control access to a record by specifying which
-roles have access to it, and which type of access is added.
+roles have access to it, and which type of access is allowed.
 
 There are three types of access types: no access, read only and read write.
 A role having read only access can fetch and query the record from the database.
-A role having read write access can save and delete the record.
+A role having read write access can save and delete the record in addition
+to fetch and query..
 
 You can set access by calling these methods on a record object:
 
