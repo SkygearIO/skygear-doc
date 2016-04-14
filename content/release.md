@@ -58,12 +58,10 @@ $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
 
-# Build release binaries
-$ ./scripts/build-release-docker.sh
-$ docker push skygeario/skygear-server:v$SKYGEAR_VERSION
-$ docker tag skygeario/skygear-server:v$SKYGEAR_VERSION skygeario/skygear-server:latest
-$ docker push skygeario/skygear-server:latest
-$ ls -1 dist | xargs -I % -L 1 github-release upload -u oursky -r skygear-server --tag v$SKYGEAR_VERSION --name % --file dist/%
+# Wait for Travis deployment...
+
+# Push to latest branch
+git push origin master:latest
 
 # Click `Publish release` in github release page
 ```
@@ -92,9 +90,6 @@ $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push --follow-tags skygeario v$SKYGEAR_VERSION
 $ git push origin && git push skygeario
 
-# Build the docker image to docker hub
-$ fab -R oursky deploy:branch_name=v$SKYGEAR_VERSION
-$ fab -R skygear deploy:branch_name=v$SKYGEAR_VERSION
 # Click `Publish release` in github release page
 ```
 
@@ -177,13 +172,6 @@ $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
-
-# Build release binaries
-$ ./scripts/build-release-docker.sh
-$ docker push skygeario/skycli:v$SKYGEAR_VERSION
-$ docker tag skygeario/skycli:v$SKYGEAR_VERSION skygeario/skycli:latest
-$ docker push skygeario/skycli:latest
-$ ls -1 dist | xargs -I % -L 1 github-release upload -u oursky -r skycli --tag v$SKYGEAR_VERSION --name % --file dist/%
 
 # Click `Publish release` in github release page
 ```
