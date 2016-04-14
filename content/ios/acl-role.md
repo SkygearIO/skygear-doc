@@ -73,30 +73,32 @@ automatically gain the `visitor` role.
 Remember that the above definitions are freezed at the time the application
 is switched to production mode.
 
-## Add role-based access for each record
+## Set role-based access for each record
 
-In role-based access control, you add access to a record by specifying which
+In role-based access control, you control access to a record by specifying which
 roles have access to it, and which type of access is added.
 
-There are two types of access types: read and write.
-A role having read access can fetch and query the record from the database.
-A role having write access can save and delete the record.
+There are three types of access types: no access, read only and read write.
+A role having read only access can fetch and query the record from the database.
+A role having read write access can save and delete the record.
 
-You can add access by calling these methods on a record object:
+You can set access by calling these methods on a record object:
 
-*   addWriteAccessForRole: - Add write access of a record to the specified role
-*   addReadAccessForRole: - Add read access of a record to the specified role
+* `setNoAccessForRole:` - remove all access of a record to the specified role
+* `setReadOnlyForRole:` - set read only access of a record to the specified role
+* `setReadWriteAccessForRole:` - Add read write access of a record to the specified role
+
 
 In our example,
 when you create an article, you want `visitor` to see it, but only
-only `webmaster` and `author` will be able to change it. You can add
+only `webmaster` and `author` will be able to change it. You can set the
 access by calling these methods on a record object:
 
 ```objective-c
 SKYRecord *article = [SKYRecord recordWithRecordType:@"article"];
-[article.accessControl addWriteAccessForRole:webmaster];
-[article.accessControl addWriteAccessForRole:author];
-[article.accessControl addReadAccessForRole:visitor];
+[article setReadWriteAccessForRole:webmaster];
+[article setReadWriteAccessForRole:author];
+[article setReadOnlyForRole:visitor];
 [[SKYContainer publicCloudDatabase] saveRecord:article completion:nil];
 ```
 
@@ -104,34 +106,14 @@ Role-based access control are applied to each record individually. In other
 words, access control applied to a record does not affect access control
 applied to other records.
 
-## Removing role-based access for each record
-
-You can also remove a previously added access by calling these methods:
-
-*   removeWriteAccessForRole: - remove write access of a record from the specified
-    role
-*   removeReadAccessForRole: - Remove read access of a record from the specified
-    role
-
-Suppose that a locked article can only be modified by `webmaster`. You need
-to remove the write access previously granted to the `author` role.
-
-```objective-c
-article.isLocked = NO;
-[article.accessControl removeWriteAccessForRole:author];
-[[SKYContainer publicCloudDatabase] saveRecord:article completion:nil];
-
-```
-
-Note that the owner of a record always have access to a record. Therefore,
-the creator themselves will still be able to modify it.
+Note that the owner of a record always have access to a record.
 
 Alternatively, you can modify access control at the time when SKYContainer
 post the SKYContainerWillSaveRecordNotification. By doing this, you put the
 access control logic in one place, and that access control settings are applied
 consistently.
 
-``` objective-c
+```objective-c
 NSNotificationCenter *center = [NSNotificationCenter defaultCenter]
 [center addObserverForName:SKYContainerWillSaveRecordNotification
                     object:nil
@@ -141,9 +123,9 @@ NSNotificationCenter *center = [NSNotificationCenter defaultCenter]
                     for (SKYRecord *r in records) {
                         if ([r.RecordType isEqualToString:@"article"]) {
                             if (r["isLocked"]) {
-                                [r removeWriteAccessForRole:author]
+                                [r setReadOnlyForRole:author]
                             } else {
-                                [r addWriteAccessForRole:author]
+                                [r setReadWriteAccessForRole:author]
                             }
                         }
                     }
@@ -190,8 +172,8 @@ The default setting can be changed by calling `setDefaultAccessControl` method:
 
 ```objective-c
 SKYAccessControl *acl = [[SKYContainer defaultContainer] defaultAccessControl];
-[acl removePublicReadAccess];
-[acl addWriteAccessForRole:webmaster];
+[acl setReadOnlyForPublic];
+[acl setReadWriteAccessForRole:webmaster];
 [[SKYContainer defaultContainer] setDefaultAccessControl:acl];
 ```
 
