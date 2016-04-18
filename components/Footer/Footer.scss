@@ -1,0 +1,70 @@
+@import '../variables.scss';
+
+.Footer{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  color: #ffffff;
+
+  .container {
+    margin: 0 auto;
+    padding: 4rem 0 5.625rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a {
+      color: #cccccc;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .info {
+      color: #717171;
+
+      img {
+        display: block;
+        height: 2.5rem;
+        width: auto;
+      }
+
+      div {
+        margin: 0.5rem;
+      }
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      justify-content: flex-end;
+      margin: 0;
+      margin-right: 6.5rem;
+
+      .nav-item{
+        padding: .625rem 0;
+        margin: 0 0.5rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .Footer .container {
+    width: calc($screen-sm-min - 18px);
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .Footer .container {
+    width: calc($screen-md-min - 22px);
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .Footer .container {
+    width: calc($screen-lg-min - 30px);
+  }
+}
