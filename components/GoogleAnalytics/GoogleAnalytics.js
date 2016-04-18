@@ -16,11 +16,15 @@ const trackingCode = { __html:
   `ga('create','${googleAnalyticsId}','auto');`,
 };
 
+const emptyTrackingCode = {
+  __html: `window.ga = function() {}`,
+};
+
 class GoogleAnalytics extends Component {
 
   render() {
     if (!googleAnalyticsId) {
-      return <script />;
+      return <script dangerouslySetInnerHTML={emptyTrackingCode} />;
     }
 
     return <script dangerouslySetInnerHTML={trackingCode} />;
