@@ -1,26 +1,37 @@
-This site use hugo: http://gohugo.io
+# Skygear Documentation Site
 
+## Development
 ```
-go get -u -v github.com/spf13/hugo
-```
-
-Install syntax hightlight
-
-```
-sudo pip install Pygments
+npm install
+npm start
 ```
 
-Clone to use the default theme before we have one
 
+## Build
 ```
-git clone --recursive https://github.com/spf13/hugoThemes themes
- 
-```
-
-Edit Content
-
-```
-hugo server --theme=purehugo --buildDrafts --watch
+npm install
+npm run build
 ```
 
-View Table of Content: http://127.0.0.1:1313/toc/
+
+## Deployment
+[Not yet setup]
+
+
+## Folder Structure
+```
+.
+├── /build/            # The folder for compiled output
+├── /content/          # The folder for site content in markdown format
+├── /node_modules/     # 3rd-party libraries and utilities
+├── /components/       # React components
+├── /lib/              # Libraries and utilities
+├── /pages/            # React.js-based web pages
+├── /static/           # Static files such as favicon.ico etc.
+├── /test/             # Unit and integration tests
+├── /tools/            # Build automation scripts and utilities
+│── app.js             # The main JavaScript file (entry point)
+│── config.js          # Website configuration / settings
+│── package.json       # Dev dependencies and NPM scripts
+└── README.md          # Project overview
+```
