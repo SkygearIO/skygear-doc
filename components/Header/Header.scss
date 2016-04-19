@@ -4,7 +4,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin: 2rem 0 3.5rem 0;
+  padding: 2rem 0 3.5rem 0;
   justify-content: space-between;
 
   .Logo {
@@ -24,6 +24,7 @@
     list-style: none;
     justify-content: flex-end;
     margin: 0;
+    padding: 0;
 
     .Menu-item {
       padding: .625rem 0;
@@ -50,5 +51,27 @@
       }
     }
   }
+}
 
+@media (max-width: $screen-sm-min) {
+  .Header {
+    padding: 1rem 0 1rem 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+
+    .Menu {
+      justify-content: center;
+
+      .Menu-item.primary {
+        padding: .625rem 0;
+        background-color: transparent;
+        border-radius: 0;
+
+        .Menu-link {
+          color: $brand-color;
+        }
+      }
+    }
+  }
 }
