@@ -48,6 +48,19 @@
     li {
       display: inline-block;
       margin: 0 1rem;
+      font-size: .875rem;
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .Index .contributing-info {
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+
+    h2, ul {
+      @mixin horizontal-center-block;
     }
   }
 }
