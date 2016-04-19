@@ -1,0 +1,29 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+
+node_js:
+  - '5.0'
+
+script:
+  - npm run build
+
+deploy:
+  - provider: s3
+    access_key_id:
+      secure: 2EMv+j00/flkz/vwavmKIb6AllkJ5/HydupxTjdn7LutimmVXCJLvoJzrneJXVzvj75RYg3phyfgeigP4s7rGNNjNr/RuYkqwGsfJLVlXeS2+uBP3YluPLDDpG7cOCBmwelixDSanuMh6XGIwYk71ZKqk+Hh3pUkpCsjj0GgSmHu0rYdlLu0PGyp8vlvpboRPOy2nwHvHPaOr/3mqtUh+JHuvSI+HJvUY5/eQT3+o/Ay6ndLP0HZd5tXWqFr5MxKiNPm0aRJg+6mxhpY95OaKMoZkAu3dqxRXPAC830MbCXXUYX5OFdz7REWtQzvavOkSnI5rbcsL51midaxWfjKh5UKgGiPPTsaCNNUD8URPDNGqfDZtyFmu6UzFeTGKJLrTqkapZihmBPv4S2CZ71NPxU+rfAb+ZDJiZPndeLFJEx0t8ihRM4zCbgtNMbvzso9sG1L1BXqlVfNGQVQSG10r/A6IN4W9m2cGHcbsYJrTTQ5eSCwSDdS84EZc7cTjoW9nPi+Di05GEXvP7ASWU0AEBVw5aGL+e78olmh4/GMWPoGshl/d0SQPWHV7ulFh+dOa/cFhRTJNfeALQricdoKHa1OsxfP2jNg6sCkt27jMBKMNf6kZq8PhGNrmu757BhldCI4pQhSSEzDGMjMpU00Y/KtJtZ1TwBFepScZgZzOeM=
+    secret_access_key:
+      secure: rvYlXs2qfULxPfbksMMi3pwxFSLl0b8+72k+Zi7imtb1izLLyHZ8HPCAYe1+jKAL0JG5w8E7+dxepAwS3OYO7UAbTLrHDvlf/P5Zj/pseYaeaqNZzErbRHWZQUlGHASomyrahlswQgCFw1vuqRi3xLBN6gXh9gNMWA3iMuf5PQ8+Y+GWHpyLLzf49KIh+lIp1LBDmtxPmSA3T7Xrrx24/oNqjJ1h3htP+4QeIk04uOdhmMFAQlGYSW9N1XTvPPRpRXq+/7ZViyXr359HwgQS+yn1DIBOyMBcn6efdUZKMDZfK+poGzB28KjoueVjQ5H+eJ4gHbekMZo7xnzQVdcROEIZJQ1Y3hTkfRGB5vPQUrbCPUHS/leVP/LaCLXcjMcHaIDQ3XCw5Nmwy+oemyItyrqXsF6DWkmoQiaW33zqWjaK7ar6Iqye79iLxytmFEPfboGoX77YSkELxcmkGEFNProy01CxpifX6IJqSBC4hImbo7NbOE1M398+Yv9wrE3AXglgfY34XlNCqnSDu0EefCjgOqZ2lbnQrB97UuCS3Ur/aE8E+PnaGtUxiOrGawMK3dWL/SKNi1o9P+NUVm1sEgg+FRwOgeKM/5PWSmCYuybPd7cKxNFXsJsrkLAQkurJKbpftuxH6u601CZlXP1NNYmE9/Z+GZo5qC9wXRIfbjc=
+    bucket:
+      secure: cJBWCJ9zu4VmAVUL6RbXnMgFfjPv2N98ro/gX8SUsce4dzypS0aihZ4p4hV40/kl995t/4C8FE0eSemIGD5idMKvvBBnDfwozlAYn1bYdqDGo6rZ3oaoCC56gNPC6++JUUZmmQd17dmddzmhghIXIYCtYrZake4IVo3QPaCFJfE9wcKul8xjOVG/Lfm1Gyp/D7cF4/WS8Y9yvC/ATE0Dp56UtKY3F30A+UH1datDgM3buxBU8A83JWPZCleP9Qksii5SMXOm4aYdydL+i9ktjIYPu6mSP09TEGCbca4xUKKQ2rM9k8VXLLTDFonh73NiJUejBgCplU6wwnYon0Wn4y4JlWzgPbcTf+j6KtSG2az/yJG+YlMLaTXWggrnyz5mjmW9TXEs/l+S7dCTndnIXOIur6z9xBLiBj6I1DXExZVweuQ8ZNX+IeonFW0yvq8LCjTN6WMme9ELhHeUe1tKlamsrERiDeAD/QL27/9KyliG3+qRc/5b9x+lGa91+5cAfV60bdYxdwCChkUpPJiHdfACjt2pO0pcH2yHiR/Jk3x8cENOUP09UbhPb7s3kwjyZWmmDmeTB11f244kurxDL6QDaPRxpQeka5im/YOPiQHUPH2lb0sg58TboT5YhYnC5+ranvoLsn4zvWkwix/a3H7xBG92idEl57A0Z3HeXGU=
+    skip_cleanup: true
+    acl: public_read
+    local_dir: build
+    on:
+      repo: SkygearIO/skygear-doc
+      branch: master
+
+notifications:
+  slack: oursky:PxqsclRADehuWEs51vpgxeUh
