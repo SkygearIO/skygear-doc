@@ -1,0 +1,54 @@
+@import '../variables.scss';
+
+.Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-top: 1rem;
+  border: 1px solid $theme-light-gray;
+  border-radius: .625rem;
+  overflow: hidden;
+
+  .container {
+    display: flex;
+    align-items: flex-start;
+
+    img {
+      flex: 0 0 3rem;
+      margin-left: 1rem;
+      width: 3rem;
+      height: auto;
+    }
+
+    .info {
+      margin: 0 1rem;
+
+      h3 {
+        margin: 0;
+      }
+
+      span {
+        color: $theme-gray;
+        font-size: .875rem;
+      }
+    }
+  }
+
+  .button-list {
+    display: flex;
+
+    li {
+      flex: 1;
+      border-top: 1px solid $theme-light-gray;
+      border-left: 1px solid $theme-light-gray;
+      padding: .625rem;
+      text-align: center;
+      font-size: .75rem;
+
+      &:first-child {
+        border-left-width: 0;
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { map } from 'lodash';
 import React, { Component } from 'react';
 import Link from '../components/Link';
+import Card from '../components/Card';
 
 import '../styles/index.scss';
 
@@ -8,30 +9,15 @@ class IndexPage extends Component {
   _sectionList() {
     const { sectionInfo } = this.props;
     const sectionList = map(sectionInfo, (perSectionInfo, perSectionIndex) => {
-      let buttons = map(perSectionInfo.buttons, (perButtonInfo, perButtonIndex) => {
-        return (
-          <li key={'section-button-' + perButtonIndex}>
-            <a
-              href={perButtonInfo.url || '#'}
-              onClick={Link.handleClick}
-            >{perButtonInfo.name}</a>
-          </li>
-        );
-      });
-
       return (
-        <li className="section-item" key={'section-item-' + perSectionIndex}>
-          <div className="section-container">
-            <img src={perSectionInfo.icon} />
-            <div className="section-info">
-              <h3>{perSectionInfo.title}</h3>
-              <span>{perSectionInfo.description}</span>
-            </div>
-          </div>
-          <ul className="section-button-list">
-            {buttons}
-          </ul>
-        </li>
+        <Card
+          className="section-item"
+          key={'section-item-' + perSectionIndex}
+          title={perSectionInfo.title}
+          description={perSectionInfo.description}
+          icon={perSectionInfo.icon}
+          buttons={perSectionInfo.buttons}
+        />
       );
     });
 
