@@ -8,9 +8,17 @@
  * Scaffolding
  * -------------------------------------------------------------------------- */
 
+$brand-color: #036FFF;
+$theme-light-gray: #D8D8D8;
+
+
 $body-bg: #ffffff;
 $text-color: #000000;
-$brand-color: #036FFF;
+$link-color: $brand-color;
+
+$footer-bg: #000000;
+$footer-text-color: #717171;
+$footer-link-color: #cccccc;
 
 /*
  * Typography

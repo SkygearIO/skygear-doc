@@ -21,6 +21,14 @@ body {
   font-size: 16px;
 }
 
+a {
+  color: $link-color;
+}
+
+hr {
+  border-color: $theme-light-gray;
+}
+
 .Layout {
   margin: 0 auto;
   padding-bottom: 300px;

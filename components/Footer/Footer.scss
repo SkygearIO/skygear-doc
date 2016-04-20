@@ -5,8 +5,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: $footer-bg;
+  color: $footer-text-color;
 
   .container {
     margin: 0 auto;
@@ -17,14 +17,12 @@
     justify-content: space-between;
 
     a {
-      color: #cccccc;
+      color: $footer-link-color;
       text-decoration: none;
       cursor: pointer;
     }
 
     .info {
-      color: #717171;
-
       img {
         display: block;
         height: 2.5rem;
