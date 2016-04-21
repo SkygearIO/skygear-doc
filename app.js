@@ -14,6 +14,14 @@ import Layout from './components/Layout';
 const routes = {}; // Auto-generated on build. See tools/lib/routes-loader.js
 
 const route = async (path, callback) => {
+  if (path.endsWith('/')) {
+    path = path.substr(0, path.lastIndexOf('/'));
+  }
+
+  if (path === '') {
+    path = '/';
+  }
+
   const handler = routes[path] || routes['/404'];
   const component = await handler();
   await callback(<Layout>{React.createElement(component)}</Layout>);
@@ -22,10 +30,15 @@ const route = async (path, callback) => {
 function run() {
   const container = document.getElementById('app');
   Location.listen(location => {
-    route(location.pathname, async (component) => ReactDOM.render(component, container, () => {
-      // Track the page view event via Google Analytics
-      window.ga('send', 'pageview');
-    }));
+    route(location.pathname, async (component) => {
+        ReactDOM.render(component, container, () => {
+          if (location.hash.length === 0) {
+            window.scrollTo(0, 0);
+          }
+          // Track the page view event via Google Analytics
+          window.ga('send', 'pageview');
+        });
+    });
   });
 }
 

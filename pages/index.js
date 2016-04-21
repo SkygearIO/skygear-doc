@@ -34,38 +34,31 @@ class IndexPage extends Component {
         <hr />
         <div className="get-started-info">
           <h2>Just getting started?</h2>
-          <a
-            className="primary"
-            href="/get-started"
-            onClick={Link.handleClick}
-          >Guide</a>
-          <a
-            className="primary"
-            href="/tutorial"
-            onClick={Link.handleClick}
-          >Tutorials</a>
+          <Link className="primary" to="/get-started">
+            <span>Guide</span>
+          </Link>
+          <Link className="primary" to="/tutorial">
+            <span>Tutorials</span>
+          </Link>
         </div>
         {this._sectionList()}
         <div className="contributing-info">
           <h2>Contributing</h2>
           <ul>
             <li>
-              <a
-                href="/contributing"
-                onClick={Link.handleClick}
-              >How to contribute</a>
+              <Link to="/contributing">
+                <span>How to contribute</span>
+              </Link>
             </li>
             <li>
-              <a
-                href="/faq"
-                onClick={Link.handleClick}
-              >FAQ</a>
+              <Link to="/faq">
+                <span>FAQ</span>
+              </Link>
             </li>
             <li>
-              <a
-                href="/release-cycle"
-                onClick={Link.handleClick}
-              >Release cycle</a>
+              <Link to="/release-cycle">
+                <span>Release cycle</span>
+              </Link>
             </li>
           </ul>
         </div>

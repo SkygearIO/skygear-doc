@@ -8,42 +8,30 @@ export default class extends Component {
   render() {
     return (
       <div className="Header">
-        <a
-          className="Logo"
-          href="https://skygear.io"
-          onClick={Link.handleClick}
-        >
+        <a className="Logo" href="https://skygear.io">
           <img src={logoUrl} />
         </a>
 
         <ul className="Menu" role="menu">
           <li className="Menu-item">
-            <a
-              className="Menu-link"
-              href="https://skygear.io"
-              onClick={Link.handleClick}
-            >Features</a>
+            <a className="Menu-link" href="https://skygear.io">
+              Features
+            </a>
           </li>
           <li className="Menu-item">
-            <a
-              className="Menu-link"
-              href="/"
-              onClick={Link.handleClick}
-            >Docs</a>
+            <Link className="Menu-link" to="/">
+              <span>Docs</span>
+            </Link>
           </li>
           <li className="Menu-item">
-            <a
-              className="Menu-link"
-              href="https://github.com/skygearIO/"
-              onClick={Link.handleClick}
-            >Github</a>
+            <a className="Menu-link" href="https://github.com/skygearIO/">
+              Github
+            </a>
           </li>
           <li className="Menu-item primary">
-            <a
-              className="Menu-link"
-              href="/get-started"
-              onClick={Link.handleClick}
-            >Get Started</a>
+            <Link className="Menu-link" to="/get-started">
+              <span>Get Started</span>
+            </Link>
           </li>
         </ul>
       </div>

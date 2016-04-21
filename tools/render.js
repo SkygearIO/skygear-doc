@@ -25,7 +25,7 @@ function getPages() {
           if (path === '/index') {
             path = '/';
           } else if (path.endsWith('/index')) {
-            path = path.substr(0, path.lastIndexOf('/index'));
+            path = path.substr(0, path.lastIndexOf('index'));
           }
           return { path, file };
         });
@@ -39,7 +39,15 @@ async function renderPage(page, component) {
   const data = {
     body: ReactDOM.renderToString(component),
   };
-  const file = join(__dirname, '../build', page.file.substr(0, page.file.lastIndexOf('.')) + '.html');
+
+  let { path } = page;
+  if (!path.endsWith('/')) {
+    path += '/';
+  }
+
+  path += "index.html";
+
+  const file = join(__dirname, '../build', path);
   const html = '<!doctype html>\n' + ReactDOM.renderToStaticMarkup(<Html debug={DEBUG} {...data} />);
   await fs.mkdir(dirname(file));
   await fs.writeFile(file, html);

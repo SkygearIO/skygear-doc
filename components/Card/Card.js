@@ -17,10 +17,9 @@ class Card extends Component {
     let buttonList = map(buttons, (perButtonInfo, perButtonIndex) => {
       return (
         <li key={'button-' + perButtonIndex}>
-          <a
-            href={perButtonInfo.url || '#'}
-            onClick={Link.handleClick}
-          >{perButtonInfo.name}</a>
+          <Link to={perButtonInfo.url || '#'}>
+            <span>{perButtonInfo.name}</span>
+          </Link>
         </li>
       );
     });

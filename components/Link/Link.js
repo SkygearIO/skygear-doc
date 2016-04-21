@@ -27,12 +27,11 @@ class Link extends Component {
 
 Link.propTypes = {
   to: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
   state: PropTypes.object,
   onClick: PropTypes.func,
 };
 
-Link.handleClick = event => {
+Link.handleClick = function (event) {
   let allowTransition = true;
   let clickResult;
 

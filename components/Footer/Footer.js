@@ -10,11 +10,7 @@ export default class extends Component {
       <div className="Footer">
         <div className="container">
           <div className="info">
-            <a
-              className="Logo"
-              href="https://skygear.io"
-              onClick={Link.handleClick}
-            >
+            <a className="Logo" href="https://skygear.io">
               <img src={logoUrl} />
             </a>
             <div>© 2008-2016 All rights reserved Oursky Ltd.</div>
@@ -25,25 +21,19 @@ export default class extends Component {
           </div>
           <ul className="nav">
             <li className="nav-item">
-              <a
-                className="nav-link"
-                href="/get-started"
-                onClick={Link.handleClick}
-              >Get started</a>
+              <Link className="nav-link" to="/get-started">
+                <span>Get started</span>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                className="nav-link"
-                href="https://skygear.io"
-                onClick={Link.handleClick}
-              >Features</a>
+              <a className="nav-link" href="https://skygear.io">
+                Features
+              </a>
             </li>
             <li className="nav-item">
-              <a
-                className="nav-link"
-                href="https://github.com/skygearIO/"
-                onClick={Link.handleClick}
-              >Github</a>
+              <a className="nav-link" href="https://github.com/skygearIO/">
+                Github
+              </a>
             </li>
           </ul>
         </div>
