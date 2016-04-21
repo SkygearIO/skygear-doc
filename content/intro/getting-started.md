@@ -1,10 +1,3 @@
-+++
-date = "2016-02-16T11:10:04+08:00"
-draft = true
-title = "Getting Started"
-
-+++
-
 This guide will guide you through setting up Skygear Server for app developers.
 At the end of the guide, you will have a working installation for Skygear
 in your computer that is suitable for app development.
