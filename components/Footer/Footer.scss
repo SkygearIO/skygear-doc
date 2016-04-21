@@ -1,0 +1,89 @@
+@import '../variables.scss';
+
+.Footer{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $footer-bg;
+  color: $footer-text-color;
+
+  .container {
+    margin: 0 auto;
+    padding: 4rem 0 5.625rem 0;
+    width: calc($screen-lg-min - 30px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a {
+      color: $footer-link-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .info {
+      img {
+        display: block;
+        height: 2.5rem;
+        width: auto;
+      }
+
+      div {
+        margin: 0.5rem;
+      }
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      justify-content: flex-end;
+      padding: 0;
+      margin: 0;
+
+      .nav-item {
+        padding: .625rem 0;
+        margin: 0 0.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-lg-min) {
+  .Footer .container {
+    width: calc($screen-md-min - 22px);
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  .Footer .container {
+    width: calc($screen-sm-min - 18px);
+
+    .nav {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .Footer .container {
+    width: auto;
+    padding: 1rem 0 1rem 0;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    text-align: center;
+
+    .info {
+      @mixin horizontal-center-block;
+      img {
+        @mixin horizontal-center-block;
+      }
+    }
+
+    .nav {
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+  }
+}

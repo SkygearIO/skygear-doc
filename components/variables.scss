@@ -8,15 +8,24 @@
  * Scaffolding
  * -------------------------------------------------------------------------- */
 
-$body-bg: #f7f7f7;
-$text-color: #333;
-$brand-color: #21ce99;
+$brand-color: #036FFF;
+$theme-light-gray: #D8D8D8;
+
+
+$body-bg: #ffffff;
+$text-color: #000000;
+$link-color: $brand-color;
+
+$footer-bg: #000000;
+$footer-text-color: #717171;
+$footer-link-color: #cccccc;
 
 /*
  * Typography
  * -------------------------------------------------------------------------- */
 
-$font-family-base: 'Roboto', 'Helvetica', sans-serif;
+$font-family-base: 'Source Sans Pro', 'Helvetica', sans-serif;
+$rubik-font: 'Rubik', sans-serif;
 
 /*
  * Media queries breakpoints
@@ -25,3 +34,12 @@ $font-family-base: 'Roboto', 'Helvetica', sans-serif;
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
+
+/*
+ * Some commonly use mixins
+ * -------------------------------------------------------------------------- */
+@define-mixin horizontal-center-block $display: block {
+  display: $display;
+  margin-left: auto;
+  margin-right: auto;
+}

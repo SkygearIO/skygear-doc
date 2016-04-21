@@ -6,14 +6,16 @@
 
 import React, { Component, PropTypes } from 'react';
 import './Layout.scss';
-import Navigation from '../Navigation';
+import Header from '../Header';
+import Footer from '../Footer';
 
 class Layout extends Component {
   render() {
     return (
       <div className="Layout">
-        <Navigation />
+        <Header />
         {this.props.children}
+        <Footer />
       </div>
     );
   }
