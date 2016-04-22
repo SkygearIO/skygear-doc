@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Markdown from '../../components/Markdown';
+import Menu from './Menu';
 
 import './GuideTemplate.scss';
 
@@ -14,6 +15,25 @@ class GuideTemplate extends Component {
     return undefined;
   }
 
+  get menuComponent() {
+    const {
+      menu,
+      activeMenu,
+    } = this.props;
+
+    if (!menu) {
+      return undefined;
+    }
+
+    return (
+      <Menu
+        className="menu"
+        content={menu || []}
+        activeTitle={activeMenu}
+      />
+    );
+  }
+
   render() {
     const {
       content,
@@ -26,9 +46,7 @@ class GuideTemplate extends Component {
         <h1>{sectionName}</h1>
         <hr />
         <div className="container">
-          <div className="menu">
-            {/* TODO: add menu here */}
-          </div>
+          {this.menuComponent}
           <div className="content">
             {this.titleComponent}
             <Markdown content={content} />
@@ -42,11 +60,14 @@ class GuideTemplate extends Component {
 GuideTemplate.propTypes = {
   content: PropTypes.string.isRequired,
   sectionName: PropTypes.string.isRequired,
+  menu: PropTypes.array,
+
   title: PropTypes.string,
+  className: PropTypes.string,
+  activeMenu: PropTypes.string,
 };
 
 GuideTemplate.defaultProps = {
-  title: undefined,
   className: '',
 };
 
