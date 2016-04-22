@@ -6,7 +6,7 @@
 
 import path from 'path';
 import webpack from 'webpack';
-import merge from 'lodash.merge';
+import { merge } from 'lodash';
 
 const DEBUG = !process.argv.includes('release');
 const VERBOSE = process.argv.includes('verbose');
@@ -25,6 +25,7 @@ const JS_LOADER = {
   test: /\.jsx?$/,
   include: [
     path.resolve(__dirname, '../components'),
+    path.resolve(__dirname, '../store'),
     path.resolve(__dirname, '../lib'),
     path.resolve(__dirname, '../pages'),
     path.resolve(__dirname, '../app.js'),

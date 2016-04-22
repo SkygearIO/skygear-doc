@@ -8,13 +8,15 @@
  * Scaffolding
  * -------------------------------------------------------------------------- */
 
-$brand-color: #036FFF;
+$theme-primary-color: #036FFF;
+$theme-lighter-gray: #F7F7F7;
 $theme-light-gray: #D8D8D8;
+$theme-gray: #9B9B9B;
 
 
 $body-bg: #ffffff;
 $text-color: #000000;
-$link-color: $brand-color;
+$link-color: $theme-primary-color;
 
 $footer-bg: #000000;
 $footer-text-color: #717171;
@@ -42,4 +44,15 @@ $screen-lg-min: 1200px;
   display: $display;
   margin-left: auto;
   margin-right: auto;
+}
+
+@define-mixin primary-btn{
+  padding: .625rem 1rem;
+  background-color: $theme-primary-color;
+  border-radius: 1.25rem;
+  color: $body-bg;
+
+  a {
+    color: $body-bg;
+  }
 }

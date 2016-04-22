@@ -20,7 +20,7 @@
     "history": "^1.12.5",
     "html-loader": "^0.4.3",
     "hygienist-middleware": "^0.1.0",
-    "lodash.merge": "^3.3.2",
+    "lodash": "^4.11.1",
     "markdown-loader": "^0.1.7",
     "mkdirp": "^0.5.1",
     "mocha": "^2.3.3",

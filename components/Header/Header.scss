@@ -34,19 +34,10 @@
         padding: 0;
         font-size: .875rem;
         font-family: $rubik-font;
-        text-decoration: none;
-        cursor: pointer;
       }
 
       &.primary {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        background-color: $brand-color;
-        border-radius: 1.25rem;
-
-        .Menu-link {
-          color: $body-bg;
-        }
+        @mixin primary-btn;
       }
     }
   }
@@ -68,7 +59,7 @@
         border-radius: 0;
 
         .Menu-link {
-          color: $brand-color;
+          color: $link-color;
         }
       }
     }
