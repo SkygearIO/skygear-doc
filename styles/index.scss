@@ -54,13 +54,20 @@
 }
 
 @media (max-width: $screen-sm-min) {
-  .Index .contributing-info {
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
+  .Index {
+    h1 {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
 
-    h2, ul {
-      @mixin horizontal-center-block;
+    .contributing-info {
+      flex-direction: column;
+      justify-content: flex-start;
+      text-align: center;
+
+      h2, ul {
+        @mixin horizontal-center-block;
+      }
     }
   }
 }
