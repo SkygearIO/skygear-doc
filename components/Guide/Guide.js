@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import Markdown from '../../components/Markdown';
 import Menu from './Menu';
 
-import './GuideTemplate.scss';
+import './Guide.scss';
 
-class GuideTemplate extends Component {
+class Guide extends Component {
   get titleComponent() {
     const { title } = this.props;
 
@@ -57,7 +57,7 @@ class GuideTemplate extends Component {
   }
 }
 
-GuideTemplate.propTypes = {
+Guide.propTypes = {
   content: PropTypes.string.isRequired,
   sectionName: PropTypes.string.isRequired,
   menu: PropTypes.array,
@@ -67,8 +67,8 @@ GuideTemplate.propTypes = {
   activeMenu: PropTypes.string,
 };
 
-GuideTemplate.defaultProps = {
+Guide.defaultProps = {
   className: '',
 };
 
-export default GuideTemplate;
+export default Guide;

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import GuideTemplate from '../../components/GuideTemplate';
+import Guide from '../../components/Guide';
 
 import store from '../../store/ios';
 
 export default class extends Component {
   render() {
     return (
-      <GuideTemplate
+      <Guide
         sectionName="iOS SDK"
         menu={store.guide.menu}
         title="How to install SkyKit SDK in Xcode"
