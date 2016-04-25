@@ -1,64 +1,71 @@
 import { map } from 'lodash';
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 import Link from '../../Link';
 
 import './Menu.scss';
 
 class Menu extends Component {
-  renderSubMenu(content) {
-    if (!content || content.length === 0) {
+  _renderSubMenuItem(subMenuItemContent, index) {
+    const { activeSubtitle } = this.props;
+    const isActive =
+      activeSubtitle &&
+      subMenuItemContent.title === activeSubtitle;
+
+    return (
+      <li
+        className={classNames({
+          'sub-menu-item': true,
+          active: isActive,
+        })}
+        key={'sub-menu-item-' + index}
+      >
+        <Link to={subMenuItemContent.url || '#'}>
+          <span>{subMenuItemContent.title}</span>
+        </Link>
+      </li>
+    );
+  }
+
+  _renderSubMenu(menuItemContent, isActive) {
+    if (isActive && menuItemContent.sub && menuItemContent.sub.length > 0) {
+      return (
+        <ul className="sub-menu">{
+          map(menuItemContent.sub, this._renderSubMenuItem.bind(this))
+        }</ul>
+      );
+    } else {
       return undefined;
     }
+  }
 
-    const { activeSubtitle } = this.props;
-    const subMenuItems = map(content, (perMenuItem, idx) => {
-      const isActive = activeSubtitle && perMenuItem.title === activeSubtitle;
+  _renderMenuItem(menuItemContent, index) {
+    const { activeTitle } = this.props;
+    const isActive =
+      activeTitle &&
+      menuItemContent.title === activeTitle;
 
-      return (
-        <li
-          className={'sub-menu-item' + (isActive ? ' active' : '')}
-          key={'sub-menu-item-' + idx}
-        >
-          <Link to={perMenuItem.url || '#'}>
-            <span>{perMenuItem.title}</span>
-          </Link>
-        </li>
-      );
-    });
-
-    return <ul className="sub-menu">{subMenuItems}</ul>;
+    return (
+      <li
+        className={classNames({
+          'menu-item': true,
+          active: isActive,
+        })}
+        key={'menu-item-' + index}
+      >
+        <Link to={menuItemContent.url || '#'}>
+          <span>{menuItemContent.title}</span>
+        </Link>
+        {this._renderSubMenu(menuItemContent, isActive)}
+      </li>
+    );
   }
 
   render() {
-    const {
-      content,
-      activeTitle,
-      className,
-    } = this.props;
-
-    const menuItems = map(content, (perMenuItem, idx) => {
-      const isActive = activeTitle && perMenuItem.title === activeTitle;
-
-      let subMenu;
-      if (isActive) {
-        subMenu = this.renderSubMenu(perMenuItem.sub);
-      }
-
-      return (
-        <li
-          className={'menu-item' + (isActive ? ' active' : '')}
-          key={'menu-item-' + idx}
-        >
-          <Link to={perMenuItem.url || '#'}>
-            <span>{perMenuItem.title}</span>
-          </Link>
-          {subMenu}
-        </li>
-      );
-    });
-
-    return <ul className={'Guide-Menu ' + className}>{menuItems}</ul>;
+    return <ul className={classNames('Guide-Menu', this.props.className)}>{
+      map(this.props.content, this._renderMenuItem.bind(this))
+    }</ul>;
   }
 }
 
