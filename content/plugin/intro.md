@@ -1,10 +1,3 @@
-+++
-date = "2015-09-18T17:01:59+08:00"
-draft = true
-title = "Plugin Introduction"
-
-+++
-
 Plugin extends functionality of Skygear to provide additional functionality or
 modify existing behaviour. For example, a chatroom application may require
 instant messaging on the server. Skygear does not provide instant messaging
@@ -20,7 +13,7 @@ extension point may be called by Skygear so that Plugin can run additional code
 when certain events occurred. Skygear currently implement 5 types of extension
 points: Database, Handler, Lambda, Authentication and Scheduled Tasks.
 
-## Database Extension Point
+### Database Extension Point
 
 Database Extension Point allows plugin to intercept database-related API
 requests. At a database extension point, Plugin can modify the data to be
@@ -36,7 +29,7 @@ error. Skygear Server interprets an error as a reject to save a record.
 A third example is for plugin to send a push notification after the `note`
 record has been saved.
 
-## Handler Extension Point
+### Handler Extension Point
 
 Handler Extension Point allows you to implement custom API between your app and
 Skygear. When an app sends a request to Skygear Server with a registered custom API,
@@ -47,14 +40,14 @@ app.
 For example, an app for online shopping can create a handler that process
 payment and order confirmation using a third-party payment processor.
 
-## Lambda Function
+### Lambda Function
 
 Lambda Function are similar to Handler Extension Point. However, it is easier to
 set up and the processing overhead is less than a handler. A lambda function
 also has less flexibility in handling a request. If you want a quick way to get
 started using a plugin in, creating a lambda function is a great way to start
 
-## Authentication Provider
+### Authentication Provider
 
 Authentication Provider allows you to use an existing user database or social
 network to authenticate users. As part of user creation and authentication, Skygear
@@ -68,13 +61,13 @@ this Facebook user.
 If you develop an enterprise app, you can create an authentication provider so
 that password can be checked with your corporate directory.
 
-## Scheduled Tasks
+### Scheduled Tasks
 
 Scheduled Tasks work similar to UNIX cron daemon: You may schedule a plugin to
 run at certain time or interval. At the right time, Skygear Server sends a message
 to plugin so that plugin can run periodic tasks.
 
-# Plugin Architecture
+## Plugin Architecture
 
 In Skygear, plugin architecture consists of Skygear that acts as a message broker
 among all plugins. When processing an extension point, Skygear Server communicate

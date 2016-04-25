@@ -1,0 +1,38 @@
+@import '../variables.scss';
+
+.Markdown {
+  color: $content-color;
+  font-family: $content-font;
+
+  h1, h2, h3, h4, h5 {
+    color: $text-color;
+  }
+
+  h2 {
+    margin-top: 3rem;
+  }
+
+  ol, ul {
+    padding-left: 1rem;
+  }
+
+  code {
+    display: inline-block;
+    vertical-align: text-bottom;
+    box-sizing: border-box;
+    padding: 1px .375rem;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: scroll;
+    background-color: $inline-code-bg;
+    color: $inline-code-color;
+    font-size: .875rem;
+    font-family: $content-code-font;
+  }
+
+  pre > code {
+    padding: .75rem .625rem;
+    background-color: $code-block-bg;
+    color: $code-block-color;
+  }
+}

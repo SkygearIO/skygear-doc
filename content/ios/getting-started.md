@@ -1,9 +1,4 @@
-+++
-date = "2015-09-21T15:09:02+08:00"
-draft = true
-title = "iOS: Getting started"
-
-+++
+## Getting Started
 
 This guide will show you how to integrate Skygear into an existing iOS project.
 
@@ -18,15 +13,11 @@ iOS application dependency.
    * If you use _git_ for source control, it is recommended to submodule SKYKit
      instead:
 
-     	```bash
      	git submodule add git@github.com:skygeario/skygear-SDK-JS.git
-     	```
 
 2. Edit your `Podfile` to include the this line:
 
-   	```ruby
    	pod "SKYKit", :path => './SKYKit'
-   	```
 
 3. `pod install`
 4. Done!

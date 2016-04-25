@@ -1,10 +1,3 @@
-+++
-date = "2015-09-18T17:01:33+08:00"
-draft = true
-title = "Introduction to CLI"
-
-+++
-
 Skygear provides a default command-line interface `skycli` to interact with
 Skygear's handlers and postgres backend to facilitate application development
 and some common administration works.

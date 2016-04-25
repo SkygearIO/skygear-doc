@@ -1,16 +1,9 @@
-+++
-date = "2015-09-18T17:02:40+08:00"
-draft = true
-title = "Developing Your First Plugin"
-
-+++
-
 It is simple to create your first plugin.
 
 To create a plugin, you have to define functions in your Python program that takes arguments defined by each type of extension point. For Skygear Server to find your function, you have to decorate your
 functions using decorators provided by the `py-skygear` package. Doing so will also allows py-skygear to register your hooks to Skygear Server when the plugin program starts. When Skygear Server calls your plugin, `py-skygear` will take the plugin message and calls the appropriate function automatically.
 
-# Install py-skygear
+## Install py-skygear
 
 Install `py-skygear` by using `pip`.
 
@@ -23,10 +16,10 @@ Alternatively, you can install py-skygear from source by cloning`py-skygear` fro
 Depending on your operating system, you may need to install extra dependencies to install from source.
 
 ```shell
-# Ubuntu 14.04
+## Ubuntu 14.04
 $ sudo apt-get install python3-dev libpq-dev libzmq3-dev
 
-# Mac OS X with homebrew
+## Mac OS X with homebrew
 $ brew install zeromq
 ```
 
@@ -37,7 +30,7 @@ $ git clone git@github.com:oursky/py-skygear.git
 $ python setup.py install
 ```
 
-# Create main plugin file
+## Create main plugin file
 
 The first thing you have to do is create a main plugin file. This file is where you put all your plugin code. If your plugin consists of code that spread across multiple file, your must also import those files in your main plugin file.
 
@@ -51,7 +44,7 @@ import skygear
 
 This will import decorators for your plugin function.
 
-# Test run your first plugin
+## Test run your first plugin
 
 To verify our setup, run this:
 
@@ -84,7 +77,7 @@ $ echo '["Bob"]' | py-skygear sample.py --subprocess op chima:hello
 {"result": {"message": "Hello Bob"}}
 ```
 
-## Working with multiple python files as packages
+### Working with multiple python files as packages
 
 When your plugin growth, it is very natural to separate the function into
 files according to it responsibility. Thus, you will write code like
@@ -123,7 +116,7 @@ $ py-skygear catapi/__init__.py --subprocess init
 You may checkout the full example here:
 https://github.com/SkygearIO/py-skygear/tree/master/examples/catapi
 
-# Add plugin to Skygear Server configuration
+## Add plugin to Skygear Server configuration
 
 Add the following section to Skygear Server configuration to declare a new plugin.
 
@@ -143,7 +136,7 @@ Connecting to address tcp://127.0.0.1:5555
 
 You can now try out your new lambda function by calling it through Skygear API or calling it from your app.
 
-# Integrate with Docker
+## Integrate with Docker
 
 To integrate the plugin with Docker, see the [catapi
 example](https://github.com/skygeario/py-skygear/tree/master/examples/catapi) in `py-skygear`

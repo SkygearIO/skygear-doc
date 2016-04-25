@@ -1,11 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 
+import './Markdown.scss';
+
 class Markdown extends Component {
 
   render() {
     let { content } = this.props;
     return (
-      <div dangerouslySetInnerHTML={{__html: content}} />
+      <div
+        className="Markdown"
+        dangerouslySetInnerHTML={{__html: content}}
+      />
     );
   }
 }

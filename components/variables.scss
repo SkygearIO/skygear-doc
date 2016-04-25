@@ -13,20 +13,28 @@ $theme-lighter-gray: #F7F7F7;
 $theme-light-gray: #D8D8D8;
 $theme-gray: #9B9B9B;
 
-
-$body-bg: #ffffff;
+$body-bg: #FFFFFF;
 $text-color: #000000;
+$content-color: #4A4A4A;
 $link-color: $theme-primary-color;
+
+$inline-code-color: #000000;
+$inline-code-bg: #EFEFEF;
+
+$code-block-color: #FFFFFF;
+$code-block-bg: #000000;
 
 $footer-bg: #000000;
 $footer-text-color: #717171;
-$footer-link-color: #cccccc;
+$footer-link-color: #CCCCCC;
 
 /*
  * Typography
  * -------------------------------------------------------------------------- */
 
 $font-family-base: 'Source Sans Pro', 'Helvetica', sans-serif;
+$content-font: 'Helvetica Neue', 'Helvetica', sans-serif;
+$content-code-font: 'Courier', monospace;
 $rubik-font: 'Rubik', sans-serif;
 
 /*

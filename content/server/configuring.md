@@ -1,21 +1,14 @@
-+++
-date = "2015-11-17T11:28:18+08:00"
-draft = true
-title = "Configuration"
-
-+++
-
 This section covers how to configure skygear. While configuration is not
 required to get Skygar up and running, you should configure it for production
 deployment.
 
-# How to configure Skygear?
+## How to configure Skygear?
 
 The Skygear can be configured by modifying its configuration file, which
 is often referred to as `development.ini`. You can also override the
 default configuration file by using environment variables.
 
-## development.ini
+### development.ini
 
 A copy of the configuration file, `development.ini` can be obtained from
 the repository or from a running Docker container:
@@ -28,7 +21,7 @@ If you run Skygear using Docker Compose, change the `docker-compose.yml`
 so that your changes are mounted into the container.
 
 ```
-# docker-compose.yml
+## docker-compose.yml
 app:
   volumes:
   - ./development.ini:/go/src/app/development.ini
@@ -42,16 +35,16 @@ configuration file is loaded.
 $ skygear /path/to/development.ini
 ```
 
-### Configurations
+#### Configurations
 
-#### S3 Asset Store
+##### S3 Asset Store
 
 Copy the following section into your `development.ini` and replace
 the `asset-store` section if the section is in the config file already.
 Fill out the AWS access key, secret key, region and bucket.
 
 ```ini
-# development.ini
+## development.ini
 [asset-store]
 implementation = s3
 path = data/asset
@@ -65,7 +58,7 @@ public = false¬
 If the S3 is public readable, you can set `public` to `true` such that
 access signature can be omitted.
 
-## Environment variable
+### Environment variable
 
 You can override configuration in the default configuration file by
 specifying environment variable. Some environment variables are described
@@ -75,7 +68,7 @@ deployed across different services, such as Elastic Beanstalk or Heroku.
 If you run Skygear using Docker Compose:
 
 ```
-# docker-compose.yml
+## docker-compose.yml
 app:
   environment:
     ENV_NAME: ENV_VALUE
@@ -93,7 +86,7 @@ If you run Skygear without Docker:
 $ skygear development.ini
 ```
 
-# App Name and API Key
+## App Name and API Key
 
 It is strongly recommended that you change the App Name and API Key.
 The App Name should be a string of alphanumeric and underscore characters
@@ -109,7 +102,7 @@ The App Name and API Key can be configured by modifying `development.ini` or
 specifying environment variable in `docker-compose.yml`.
 
 ```
-# docker-compose.yml
+## docker-compose.yml
 app:
   environment:
     APP_NAME: simpleapp
@@ -117,14 +110,14 @@ app:
 ```
 
 ```
-# development.ini
+## development.ini
 [app]
 name = simpleapp
 api_key = thisissupersecret
 ```
 
 
-# Logging
+## Logging
 
 Logging let you keep track of what is happening in Skygear. Information
 from log are very important for bugs and performance diagnosis.
@@ -147,9 +140,9 @@ sentry-dsn = http://abcd:efgh@sentry.example.com/sentry/project1
 sentry-level = warn
 ```
 
-# List of configuration settings
+## List of configuration settings
 
-## `app` section
+### `app` section
 * `name` (env `APP_NAME`) - string, alphanumeric or underscore, name of the
   application
 * `api-key` (env `API_KEY`) - string, shared secret between backend and client
@@ -158,6 +151,6 @@ sentry-level = warn
   destructive operation and request options restricted to system administrator
 * `cors-host` (env `CORS_HOST`) - string, hostname for cross origin access control
 
-## `token-store` section
+### `token-store` section
 * `prefix` (env `TOKEN_STORE_PREFIX`) - string, prefix to access token for
   storing in redis.

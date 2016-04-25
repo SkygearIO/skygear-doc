@@ -1,17 +1,10 @@
-+++
-date = "2015-09-24T17:58:08+08:00"
-draft = true
-title = "Installing Javascript SDK"
-
-+++
-
-# Using latest stable release on npm
+## Using latest stable release on npm
 
 ``` bash
 npm install skygear --save
 ```
 
-# Install the latest development version
+## Install the latest development version
 
 ``` bash
 git submodule git@github.com:skygeario/skygear-server.git
@@ -21,7 +14,7 @@ cd ..
 npm install skygear/
 ```
 
-# Include in your npm project
+## Include in your npm project
 
 Since skygear-SDk-JS is develop by assuming ES6 runtime. If you want to run it
 on older runtime, you need to require the polyfill before import skygear
@@ -31,7 +24,7 @@ import 'babel-polyfill';
 import skygear from 'skygear';
 ```
 
-# Include in react-native
+## Include in react-native
 
 ``` js
 require('babel-polyfill');
@@ -42,7 +35,7 @@ var React = require('react-native');
 var skygear = require('skygear');
 ```
 
-# Include in your website __NOT IMPLEMENTED__
+## Include in your website __NOT IMPLEMENTED__
 
 ``` html
 <script src="//cdn.skygear.io/polyfill.min.js"></script>

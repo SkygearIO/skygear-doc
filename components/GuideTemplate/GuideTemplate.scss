@@ -1,0 +1,38 @@
+@import '../variables.scss';
+
+.Guide-Template {
+  .container {
+    margin: 3rem 0 0 0;
+    display: flex;
+
+    .menu {
+      flex: 0 0 18.75rem;
+      width: 18.75rem;
+      margin-right: 1.25rem;
+    }
+
+    .content {
+      overflow: hidden;
+
+      h1 {
+        color: $theme-primary-color;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  .Guide-Template .container {
+    .menu {
+      display: none;
+      flex-base: 0;
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .Guide-Template .container {
+    margin-top: 1rem;
+    padding: .625rem;
+  }
+}

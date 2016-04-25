@@ -1,10 +1,3 @@
-+++
-date = "2015-09-18T17:01:59+08:00"
-draft = true
-title = "Include plugin by git submodule"
-
-+++
-
 Skygear community provide a wide range of ready-to-use plugin, you can easily
 load the plugin by using git submodule.
 
