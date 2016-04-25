@@ -167,7 +167,7 @@ const pagesConfig = merge({}, config, {
   },
   target: 'node',
   node: {
-    console: false,
+    console: DEBUG,
     global: false,
     process: false,
     Buffer: false,

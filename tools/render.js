@@ -14,49 +14,28 @@ import fs from './lib/fs';
 
 const DEBUG = !process.argv.includes('release');
 
-function getPages() {
-  return new Promise((resolve, reject) => {
-    glob('**/*.js', { cwd: join(__dirname, '../pages') }, (err, files) => {
-      if (err) {
-        reject(err);
-      } else {
-        const result = files.map(file => {
-          let path = '/' + file.substr(0, file.lastIndexOf('.'));
-          if (path === '/index') {
-            path = '/';
-          } else if (path.endsWith('/index')) {
-            path = path.substr(0, path.lastIndexOf('index'));
-          }
-          return { path, file };
-        });
-        resolve(result);
-      }
-    });
-  });
-}
-
-async function renderPage(page, component) {
-  const data = {
-    body: ReactDOM.renderToString(component),
-  };
-
-  let { path } = page;
+async function renderRoute(route, component) {
+  let path = route;
   if (!path.endsWith('/')) {
     path += '/';
   }
-
   path += "index.html";
 
   const file = join(__dirname, '../build', path);
-  const html = '<!doctype html>\n' + ReactDOM.renderToStaticMarkup(<Html debug={DEBUG} {...data} />);
+  const data = { body: ReactDOM.renderToString(component) };
+  const html = '<!doctype html>\n' +
+    ReactDOM.renderToStaticMarkup(<Html debug={DEBUG} {...data} />);
+
+  console.log(`[Renderer] "${route}" --> ${file}`);
+
   await fs.mkdir(dirname(file));
   await fs.writeFile(file, html);
 }
 
 export default task(async function render() {
-  const pages = await getPages();
-  const { route } = require('../build/app.node');
-  for (const page of pages) {
-    await route(page.path, renderPage.bind(undefined, page));
+  const { route, routes } = require('../build/app.node');
+
+  for(const perRoute in routes) {
+    await route(perRoute, renderRoute.bind(undefined, perRoute));
   }
 });
