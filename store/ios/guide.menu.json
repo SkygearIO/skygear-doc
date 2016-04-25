@@ -1,7 +1,7 @@
 [
     {
         "title": "How to install SkyKit SDK in Xcode",
-        "url": "/ios/guide/",
+        "url": "/ios/guide",
         "sub": [
             {
                 "title": "Getting Started",
@@ -23,27 +23,27 @@
     },
     {
         "title": "Simple app to get started (Create user / record / query)",
-        "url": "/ios/guide/first-app/"
+        "url": "/ios/guide/first-app"
     },
     {
         "title": "CRUD Records",
-        "url": "/ios/guide/record/"
+        "url": "/ios/guide/record"
     },
     {
         "title": "Create an Auto-Incrementing Field",
-        "url": "/ios/guide/auto-increment/"
+        "url": "/ios/guide/auto-increment"
     },
     {
         "title": "Queries",
-        "url": "/ios/guide/query/"
+        "url": "/ios/guide/query"
     },
     {
         "title": "Records Relations (References)",
-        "url": "/ios/guide/reference/"
+        "url": "/ios/guide/reference"
     },
     {
         "title": "Users (Authentication)",
-        "url": "/ios/guide/user/"
+        "url": "/ios/guide/user"
     },
     {
         "title": "Access Control by Record Type"
@@ -53,38 +53,38 @@
     },
     {
         "title": "Friends & Followers",
-        "url": "/ios/guide/relation/"
+        "url": "/ios/guide/relation"
     },
     {
         "title": "Local Storage (RecordStorage, CachedQuery)",
-        "url": "/ios/guide/local-storage/"
+        "url": "/ios/guide/local-storage"
     },
     {
         "title": "Subscription",
-        "url": "/ios/guide/subscription/"
+        "url": "/ios/guide/subscription"
     },
     {
         "title": "Push Notification",
-        "url": "/ios/guide/push/"
+        "url": "/ios/guide/push"
     },
     {
         "title": "Pubsub",
-        "url": "/ios/guide/pubsub/"
+        "url": "/ios/guide/pubsub"
     },
     {
         "title": "Geo-location",
-        "url": "/ios/guide/geolocation/"
+        "url": "/ios/guide/geolocation"
     },
     {
         "title": "Assets (File Upload)",
-        "url": "/ios/guide/asset/"
+        "url": "/ios/guide/asset"
     },
     {
         "title": "Plugins",
-        "url": "/ios/guide/plugin/"
+        "url": "/ios/guide/plugin"
     },
     {
         "title": "Handling Errors",
-        "url": "/ios/guide/handling-errors/"
+        "url": "/ios/guide/handling-errors"
     }
 ]
