@@ -1,0 +1,47 @@
+@import '../../variables.scss';
+
+.Guide-Menu {
+  padding: 0;
+  list-style: none;
+
+  .menu-item {
+    margin: 0;
+    margin-bottom: 1rem;
+
+    span {
+      color: $content-color;
+    }
+
+    &.active {
+      span {
+        color: $link-color;
+      }
+    }
+
+    .sub-menu {
+      margin-top: .875rem;
+      padding: .3125rem;
+      border-left: 2px solid $theme-light-gray;
+      list-style: none;
+
+      .sub-menu-item {
+        margin-top: .875rem;
+        font-size: .875rem;
+
+        span {
+          color: $theme-medium-gray;
+        }
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &.active {
+          span {
+            color: $link-color;
+          }
+        }
+      }
+    }
+  }
+}

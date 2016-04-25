@@ -31,8 +31,15 @@
 }
 
 @media (max-width: $screen-sm-min) {
-  .Guide-Template .container {
-    margin-top: 1rem;
-    padding: .625rem;
+  .Guide-Template {
+    h1 {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .container {
+      margin-top: 1rem;
+      padding: .625rem;
+    }
   }
 }
