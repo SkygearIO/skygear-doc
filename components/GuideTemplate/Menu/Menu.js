@@ -8,10 +8,12 @@ import './Menu.scss';
 
 class Menu extends Component {
   _renderSubMenuItem(subMenuItemContent, index) {
-    const { activeSubtitle } = this.props;
-    const isActive =
-      activeSubtitle &&
-      subMenuItemContent.title === activeSubtitle;
+    let isActive = false;
+    if (window.location.hash) {
+      isActive = subMenuItemContent.url === window.location.hash;
+    } else {
+      isActive = index === 0;
+    }
 
     return (
       <li
@@ -41,10 +43,7 @@ class Menu extends Component {
   }
 
   _renderMenuItem(menuItemContent, index) {
-    const { activeTitle } = this.props;
-    const isActive =
-      activeTitle &&
-      menuItemContent.title === activeTitle;
+    const isActive = menuItemContent.url === window.location.pathname;
 
     return (
       <li
@@ -72,8 +71,6 @@ class Menu extends Component {
 Menu.propTypes = {
   content: PropTypes.array.isRequired,
   className: PropTypes.string,
-  activeTitle: PropTypes.string,
-  activeSubtitle: PropTypes.string,
 };
 
 Menu.defaultProps = {
