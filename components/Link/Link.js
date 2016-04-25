@@ -51,9 +51,15 @@ Link.handleClick = function (event) {
 
   if (allowTransition) {
     const link = event.currentTarget;
-    Location.pushState(
-      this.props && this.props.state || null,
-      this.props && this.props.to || (link.pathname + link.search));
+    const state = this.props && this.props.state || null;
+    let nextLocation = this.props && this.props.to || (link.pathname + link.search);
+
+    if (nextLocation.startsWith('#')) {
+      let { pathname, search } = window.location;
+      nextLocation = pathname + search + nextLocation;
+    }
+
+    Location.pushState(state, nextLocation);
   }
 };
 
