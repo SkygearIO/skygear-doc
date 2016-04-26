@@ -32,7 +32,13 @@ function run() {
   History.listen(location => {
     route(location.pathname, async (component) => {
         ReactDOM.render(component, container, () => {
-          if (location.hash.length === 0) {
+          if (location.hash.length > 1) {
+            const hashName = location.hash.substr(1);
+            let elem = document.getElementsByName(hashName)[0];
+            if (elem) {
+              window.scrollBy(0, elem.getBoundingClientRect().top);
+            }
+          } else {
             window.scrollTo(0, 0);
           }
           // Track the page view event via Google Analytics
