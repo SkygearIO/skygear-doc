@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Skygear Server Configuration",
+    "url": "/server/guide"
+  },
+  {
+    "title": "Architecture",
+    "url": "/server/guide/architecture"
+  },
+  {
+    "title": "Data Type",
+    "url": "/server/guide/data-type"
+  },
+  {
+    "title": "Database Schema",
+    "url": "/server/guide/database-schema"
+  },
+  {
+    "title": "Quick development setup with AWS CloudFormation",
+    "url": "/server/guide/getting-started-cloudformation"
+  },
+  {
+    "title": "Deploy with Docker",
+    "url": "/server/guide/getting-started-docker"
+  },
+  {
+    "title": "Configuration"
+  }
+]

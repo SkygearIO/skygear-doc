@@ -1,0 +1,62 @@
+{
+  "factory": {
+    "name": "GuideFactory",
+    "path": "./components/GuideFactory"
+  },
+  "routes": {
+    "/plugin/guide": {
+      "name": "Plugin SDK",
+      "title": "Plugin Introduction",
+      "content_path": "./content/plugin/intro.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
+    "/plugin/guide/first-plugin": {
+      "name": "Plugin SDK",
+      "title": "Developing Your First Plugin",
+      "content_path": "./content/plugin/first-plugin.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
+    "/plugin/guide/guide-handler": {
+      "name": "Plugin SDK",
+      "title": "Handler Extension Point",
+      "content_path": "./content/plugin/guide-handler.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
+    "/plugin/guide/guide-lambda": {
+      "name": "Plugin SDK",
+      "title": "Lambda Function",
+      "content_path": "./content/plugin/guide-lambda.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
+    "/plugin/guide/guide-auth": {
+      "name": "Plugin SDK",
+      "title": "Authentication Provider",
+      "content_path": "./content/plugin/guide-auth.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
+    "/plugin/guide/guide-scheduled": {
+      "name": "Plugin SDK",
+      "title": "Scheduled Tasks",
+      "content_path": "./content/plugin/guide-scheduled.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
+    "/plugin/guide/skygear-api": {
+      "name": "Plugin SDK",
+      "title": "Calling Skygear API",
+      "content_path": "./content/plugin/skygear-api.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
+    "/plugin/guide/pubsub": {
+      "name": "Plugin SDK",
+      "title": "Using Pubsub",
+      "content_path": "./content/plugin/pubsub.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
+    "/plugin/guide/utils": {
+      "name": "Plugin SDK",
+      "title": "Utility functions",
+      "content_path": "./content/plugin/utils.md",
+      "menu_path": "./menus/plugin-guide.json"
+    }
+  }
+}

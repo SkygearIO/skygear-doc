@@ -1,0 +1,104 @@
+{
+  "factory": {
+    "name": "GuideFactory",
+    "path": "./components/GuideFactory"
+  },
+  "routes": {
+    "/ios/guide": {
+      "name": "iOS SDK",
+      "title": "How to install SkyKit SDK in Xcode",
+      "content_path": "./content/ios/getting-started.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/first-app": {
+      "name": "iOS SDK",
+      "title": "Simple app to get started (Create user / record / query)",
+      "content_path": "./content/ios/first-app.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/record": {
+      "name": "iOS SDK",
+      "title": "CRUD Records",
+      "content_path": "./content/ios/record.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/auto-increment": {
+      "name": "iOS SDK",
+      "title": "Create an Auto-Incrementing Field",
+      "content_path": "./content/ios/auto-increment.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/query": {
+      "name": "iOS SDK",
+      "title": "Queries",
+      "content_path": "./content/ios/query.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/reference": {
+      "name": "iOS SDK",
+      "title": "Records Relations (References)",
+      "content_path": "./content/ios/reference.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/user": {
+      "name": "iOS SDK",
+      "title": "Users (Authentication)",
+      "content_path": "./content/ios/user.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/relation": {
+      "name": "iOS SDK",
+      "title": "Friends & Followers",
+      "content_path": "./content/ios/relation.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/local-storage": {
+      "name": "iOS SDK",
+      "title": "Local Storage (RecordStorage, CachedQuery)",
+      "content_path": "./content/ios/local-storage.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/subscription": {
+      "name": "iOS SDK",
+      "title": "Subscription",
+      "content_path": "./content/ios/subscription.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/push": {
+      "name": "iOS SDK",
+      "title": "Push Notification",
+      "content_path": "./content/ios/push.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/pubsub": {
+      "name": "iOS SDK",
+      "title": "Pubsub",
+      "content_path": "./content/ios/pubsub.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/geolocation": {
+      "name": "iOS SDK",
+      "title": "Geo-location",
+      "content_path": "./content/ios/geolocation.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/asset": {
+      "name": "iOS SDK",
+      "title": "Assets (File Upload)",
+      "content_path": "./content/ios/asset.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/plugin": {
+      "name": "iOS SDK",
+      "title": "Plugins",
+      "content_path": "./content/ios/plugin.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/handling-errors": {
+      "name": "iOS SDK",
+      "title": "Handling Errors",
+      "content_path": "./content/ios/handling-errors.md",
+      "menu_path": "./menus/ios-guide.json"
+    }
+  }
+}

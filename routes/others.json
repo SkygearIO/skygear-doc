@@ -1,0 +1,13 @@
+{
+  "factory": {
+    "name": "GuideFactory",
+    "path": "./components/GuideFactory"
+  },
+  "routes": {
+    "/get-started": {
+      "name": "Skygear",
+      "title": "Getting Started",
+      "content_path": "./content/intro/getting-started.md"
+    }
+  }
+}
