@@ -5,7 +5,9 @@
  */
 
 import glob from 'glob';
+import fs from 'fs';
 import { join } from 'path';
+import { map, forEach } from 'lodash';
 
 export default function(source) {
   this.cacheable();
@@ -15,6 +17,79 @@ export default function(source) {
   if (target === 'node') {
     source = source.replace('import \'babel/polyfill\';', ''); // eslint-disable-line no-param-reassign
   }
+
+  const routeGenerator = new Promise((resolve, reject) => {
+    glob('**/*.json', { cwd: join(__dirname, '../../routes') }, (err, files) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(files);
+      }
+    });
+  })
+  .then((files) => {
+    if (files.length === 0) {
+      return Promise.resolve([]);
+    }
+
+    return Promise.all(
+      map(files, perFile => new Promise((resolve, reject) => {
+        const file = join(__dirname, '../../routes', perFile);
+        fs.readFile(file, 'utf8', (err, data) => {
+          if (err) {
+            reject(err);
+            return;
+          }
+
+          try {
+            resolve(JSON.parse(data));
+          } catch(e) {
+            reject(e);
+          }
+
+        });
+      }))
+    );
+  })
+  .then((routeInfo) => {
+    let factories = {};
+    let lines = [];
+    forEach(routeInfo, ({factory, routes}) => {
+      factories[factory.name] = factory.path;
+
+      forEach(routes, (perRouteData, perRouteName) => {
+        const contentParam = `content: require("${perRouteData['content_path']}"),`;
+        let menuParam = '';
+        if (perRouteData['menu_path']) {
+          menuParam = `menu: require("${perRouteData['menu_path']}"),`;
+        }
+
+        let line = '';
+        if (target === 'node') {
+          line += `'${perRouteName}': () => ${factory.name}({`;
+          line += `  name: "${perRouteData.name}",`;
+          line += `  title: "${perRouteData.title}",`;
+          line += `  ${contentParam}`;
+          line += `  ${menuParam}`;
+          line += `}),`;
+        } else {
+          line += `'${perRouteName}': () => Promise.resolve(`;
+          line += `  ${factory.name}({`;
+          line += `    name: "${perRouteData.name}",`;
+          line += `    title: "${perRouteData.title}",`;
+          line += `    ${contentParam}`;
+          line += `    ${menuParam}`;
+          line += `  })`;
+          line += `),`;
+        }
+
+        console.log(`[Route Generator] "${perRouteName}" --> ${perRouteData['content_path']}`);
+        lines.push(line);
+      });
+    });
+
+    return { factories, lines };
+  });
 
   // Static Routes Loader
   const staticRoutesLoader = new Promise((resolve, reject) => {
@@ -54,9 +129,20 @@ export default function(source) {
     });
   });
 
-  Promise.all([staticRoutesLoader])
-  .then(function ([staticRoutesLines]) {
-    callback(null, source.replace(' routes = {', ' routes = {\n' + staticRoutesLines.join('')));
+  Promise.all([routeGenerator, staticRoutesLoader])
+  .then(([generatedRoutes, staticRouteLines]) => {
+    forEach(generatedRoutes.factories, (perFactoryPath, perFactoryName) => {
+      source = `import ${perFactoryName} from '${perFactoryPath}';\n` + source;
+    });
+
+    source = source.replace(
+      ' routes = {',
+      ` routes = {
+        ${generatedRoutes.lines.join('')}
+        ${staticRouteLines.join('')}`
+    );
+
+    callback(null, source);
   }, function (err) {
     callback(err);
   });

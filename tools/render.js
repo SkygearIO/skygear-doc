@@ -26,7 +26,7 @@ async function renderRoute(route, component) {
   const html = '<!doctype html>\n' +
     ReactDOM.renderToStaticMarkup(<Html debug={DEBUG} {...data} />);
 
-  console.log(`[Renderer] "${route}" --> ${file}`);
+  console.log(`[Renderer] "${route}" --> ${path}`);
 
   await fs.mkdir(dirname(file));
   await fs.writeFile(file, html);
