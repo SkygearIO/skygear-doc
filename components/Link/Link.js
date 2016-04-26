@@ -6,7 +6,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import './Link.scss';
-import Location from '../../lib/Location';
+import { History } from '../../lib/Location';
 
 function isLeftClickEvent(event) {
   return event.button === 0;
@@ -59,7 +59,7 @@ Link.handleClick = function (event) {
       nextLocation = pathname + search + nextLocation;
     }
 
-    Location.pushState(state, nextLocation);
+    History.pushState(state, nextLocation);
   }
 };
 

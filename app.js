@@ -8,7 +8,7 @@ import 'babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
-import Location from './lib/Location';
+import { History } from './lib/Location';
 import Layout from './components/Layout';
 
 const routes = {}; // Auto-generated on build. See tools/lib/routes-loader.js
@@ -29,7 +29,7 @@ const route = async (path, callback) => {
 
 function run() {
   const container = document.getElementById('app');
-  Location.listen(location => {
+  History.listen(location => {
     route(location.pathname, async (component) => {
         ReactDOM.render(component, container, () => {
           if (location.hash.length === 0) {

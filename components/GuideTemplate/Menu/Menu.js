@@ -1,18 +1,15 @@
 import { map } from 'lodash';
-import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 import Link from '../../Link';
+import { WindowLocation } from '../../../lib/Location';
 
 import './Menu.scss';
 
 class Menu extends Component {
   _renderSubMenuItem(subMenuItemContent, index) {
-    let hash;
-    if (canUseDOM && window.location.hash) {
-      hash = window.location.hash;
-    }
+    let hash = WindowLocation.hash;
 
     const isActive = hash ?
       subMenuItemContent.url === hash :
@@ -46,13 +43,10 @@ class Menu extends Component {
   }
 
   _renderMenuItem(menuItemContent, index) {
-    let pathname;
-    if (canUseDOM && window.location.pathname) {
-      pathname = window.location.pathname;
+    let pathname = WindowLocation.pathname;
 
-      if (pathname.endsWith('/')) {
-        pathname = pathname.substr(0, pathname.lastIndexOf('/'));
-      }
+    if (pathname && pathname.endsWith('/')) {
+      pathname = pathname.substr(0, pathname.lastIndexOf('/'));
     }
 
     const isActive = menuItemContent.url === pathname;
