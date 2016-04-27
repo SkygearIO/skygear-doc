@@ -1,3 +1,4 @@
+<a name="getting-started"></a>
 ## Getting Started
 
 This guide will show you how to integrate Skygear into an existing iOS project.
@@ -5,6 +6,7 @@ This guide will show you how to integrate Skygear into an existing iOS project.
 It is assumed that you use [CocoaPods](https://cocoapods.org/) to manage your
 iOS application dependency.
 
+<a name="add-as-dependency"></a>
 ## Include Skygear as a dependency
 
 1. [Download the source](https://github.com/skygeario/skygear-SDK-JS/archive/master.zip)
@@ -22,6 +24,7 @@ iOS application dependency.
 3. `pod install`
 4. Done!
 
+<a name="configure-container"></a>
 ## Configure Skygear container
 
 Now, edit `AppDelegate.m` and include SKYKit:
@@ -40,6 +43,7 @@ SKYContainer *container = [SKYContainer defaultContainer];
 
 Note: Replace `localhost:3000` and `Skygear_API_KEY` with your server configuration.
 
+<a name="test-sdk"></a>
 ## Test the SDK
 
 Now let's test the SDK installation by signing up a new user.
