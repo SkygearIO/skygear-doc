@@ -66,21 +66,21 @@ export default function(source) {
 
         let line = '';
         if (target === 'node') {
-          line += `'${perRouteName}': () => ${factory.name}({`;
-          line += `  name: "${perRouteData.name}",`;
-          line += `  title: "${perRouteData.title}",`;
-          line += `  ${contentParam}`;
-          line += `  ${menuParam}`;
-          line += `}),`;
+          line = `'${perRouteName}': () => ${factory.name}({
+                     name: "${perRouteData.name}",
+                     title: "${perRouteData.title}",
+                     ${contentParam}
+                     ${menuParam}
+                   }),`;
         } else {
-          line += `'${perRouteName}': () => Promise.resolve(`;
-          line += `  ${factory.name}({`;
-          line += `    name: "${perRouteData.name}",`;
-          line += `    title: "${perRouteData.title}",`;
-          line += `    ${contentParam}`;
-          line += `    ${menuParam}`;
-          line += `  })`;
-          line += `),`;
+          line = `'${perRouteName}': () => Promise.resolve(
+                    ${factory.name}({
+                      name: "${perRouteData.name}",
+                      title: "${perRouteData.title}",
+                      ${contentParam}
+                      ${menuParam}
+                    })
+                  ),`;
         }
 
         console.log(`[Route Generator] "${perRouteName}" --> ${perRouteData['content_path']}`);
