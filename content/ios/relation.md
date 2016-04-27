@@ -1,10 +1,3 @@
-+++
-date = "2015-09-23T08:37:21+08:00"
-draft = true
-title = "Friends and Followers"
-
-+++
-
 1. Two default relations: friend and follower
 
 ## Adding relation between users

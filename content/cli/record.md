@@ -1,9 +1,3 @@
-+++
-date = "2016-01-26T20:15:00+08:00"
-draft = true
-title = "CLI usage"
-+++
-
 # Import
 
 ## Description

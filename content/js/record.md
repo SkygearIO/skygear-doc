@@ -1,10 +1,3 @@
-+++
-date = "2015-09-24T18:33:04+08:00"
-draft = false
-title = "Container, Databases and Records"
-
-+++
-
 # Saving a record
 
 You can save a public note to server as follow.

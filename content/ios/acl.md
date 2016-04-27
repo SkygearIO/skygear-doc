@@ -1,10 +1,3 @@
-+++
-date = "2015-09-23T08:38:03+08:00"
-draft = true
-title = "Access Controls"
-
-+++
-
 1. Only records in public database honour access control. Records in private
    databases are always private.
 2. Default public. Once set it becomes whitelist-based.

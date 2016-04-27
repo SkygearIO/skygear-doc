@@ -1,10 +1,3 @@
-+++
-date = "2016-02-16T11:10:04+08:00"
-draft = true
-title = "Next step with CloudFormation"
-
-+++
-
 # Manage your Skygear Server Quickstart instance
 
 ## Install Fabric

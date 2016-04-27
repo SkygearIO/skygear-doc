@@ -1,10 +1,3 @@
-+++
-date = "2015-10-16T13:48:45+08:00"
-draft = true
-title = "Querying Records"
-
-+++
-
 Skygear provides query of records with conditions. You can apply condition to
 Skygear queries, only getting the records you want.
 

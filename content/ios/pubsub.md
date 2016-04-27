@@ -1,10 +1,3 @@
-+++
-date = "2015-09-23T16:36:45+08:00"
-draft = true
-title = "Publish / Subscribe"
-
-+++
-
 ## Subscribing a channel
 
 ```obj-c

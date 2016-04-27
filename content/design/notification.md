@@ -1,10 +1,3 @@
-+++
-date = "2015-11-11T15:04:30+08:00"
-draft = true
-title = "Push Notification"
-
-+++
-
 This text summarizes the design decisions made on Skygear's Push Notification
 support.
 

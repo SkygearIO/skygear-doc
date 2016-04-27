@@ -1,10 +1,3 @@
-+++
-date = "2015-09-22T16:58:04+08:00"
-draft = true
-title = "What is skygear?"
-
-+++
-
 The cloud backend
 
 How to kick start the server

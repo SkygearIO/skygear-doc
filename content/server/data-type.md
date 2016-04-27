@@ -1,10 +1,3 @@
-+++
-date = "2015-11-27T12:42:54+08:00"
-draft = true
-title = "Data Type"
-
-+++
-
 Data values is transformed to JSON according to their type. Types undefined
 in JSON will be serialized as JSON object with non-standard syntax.
 

@@ -1,10 +1,3 @@
-+++
-date = "2015-09-25T12:31:04+08:00"
-draft = true
-title = "Lambda Function"
-
-+++
-
 Lambda function is the easiest to implement. In fact, you can decorate any python function with this decorator to instantly make it available to your app via Skygear.
 
 ```

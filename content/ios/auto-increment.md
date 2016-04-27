@@ -1,10 +1,3 @@
-+++
-date = "2015-12-07T18:41:38+08:00"
-draft = true
-title = "Create an Auto-Incrementing Field"
-
-+++
-
 # Create an Auto-Incrementing Field
 
 Skygear reserves the `id` field in the top level of all record as a primary key.

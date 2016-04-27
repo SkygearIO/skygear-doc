@@ -1,10 +1,3 @@
-+++
-date = "2015-09-21T18:11:59+08:00"
-draft = true
-title = "Container, Databases and Records"
-
-+++
-
 ## Saving a record
 
 Let's imagine we are writing a To-Do app with Skygear. When user creates

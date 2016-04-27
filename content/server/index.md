@@ -1,10 +1,3 @@
-+++
-date = "2015-09-23T17:20:54+08:00"
-draft = true
-title = "Setup from scratch"
-
-+++
-
 While we provide docker image for easy boostrap, you can clone the source and
 start the server on your own by following steps.
 

@@ -1,10 +1,3 @@
-+++
-date = "2015-10-30T19:29:34+08:00"
-draft = true
-title = "Scaling"
-
-+++
-
 {{< img src="/design/scaling.jpg" title="Scaling discussion"
     caption="Showing discussion sketch">}}
 

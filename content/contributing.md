@@ -1,10 +1,3 @@
-+++
-date = "2015-11-24T18:14:37+08:00"
-draft = true
-title = "How to contribute"
-
-+++
-
 # How to contribute?
 
 **TODO** Where to file issue? How to propose new features? Where to ask

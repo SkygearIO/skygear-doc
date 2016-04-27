@@ -1,10 +1,3 @@
-+++
-date = "2015-09-25T12:30:58+08:00"
-draft = true
-title = "Handler Extension Point"
-
-+++
-
 To define a function as a custom handler, decorate it with `skygear.handler`.
 
 ```

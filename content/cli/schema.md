@@ -1,10 +1,3 @@
-+++
-date = "2015-09-18T17:01:45+08:00"
-draft = true
-title = "Managing Record Schema"
-
-+++
-
 `schema` subcommands help to add, rename and delete record fields -- the kind
 of schema operations that cannot be achieved via regular record handlers.
 

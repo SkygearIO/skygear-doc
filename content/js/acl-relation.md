@@ -1,10 +1,3 @@
-+++
-date = "2015-09-29T18:39:50+08:00"
-draft = true
-title = "Access Control by relation"
-
-+++
-
 1. PrivateDB are turely private. Setting ACL will have no effect (and no exception)
 1. Record saved to PublicDB will default grant read access to public.
 1. Able to grant individual user read/write permission.

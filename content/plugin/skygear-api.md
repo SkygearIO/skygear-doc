@@ -1,10 +1,3 @@
-+++
-date = "2015-09-25T17:48:25+08:00"
-draft = true
-title = "Calling Skygear API"
-
-+++
-
 The Skygear API is also available to plugins. You can make use of the Skygear API
 to save records, send notification or perform any actions that are also
 available to the client SDK.

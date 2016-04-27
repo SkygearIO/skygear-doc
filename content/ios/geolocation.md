@@ -1,10 +1,3 @@
-+++
-date = "2015-09-23T17:27:05+08:00"
-draft = true
-title = "Geolocations"
-
-+++
-
 1. Supported by saving `CLLocation` in `SKYRecord`
 2. Only latitude and longitude of CLLocation is recorded
 

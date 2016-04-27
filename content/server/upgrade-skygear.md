@@ -1,10 +1,3 @@
-+++
-date = "2015-09-25T17:03:21+08:00"
-draft = true
-title = "Upgrade Skygear Server"
-
-+++
-
 Upgrading Skygear Server is simple if you use Docker. If you have Docker configured
 to run Skygear. You can fetch a new docker image by running:
 

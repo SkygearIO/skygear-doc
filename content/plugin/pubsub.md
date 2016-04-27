@@ -1,10 +1,3 @@
-+++
-date = "2015-09-25T21:36:30+08:00"
-draft = true
-title = "Using Pubsub"
-
-+++
-
 Pubsub allows you to publish messages into a channel and have that messages
 sent to all the clients subscribed to a channel. This allows you to make
 an app that listens to events as it happens so that user gets a fast

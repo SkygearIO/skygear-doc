@@ -1,10 +1,3 @@
-+++
-date = "2016-02-16T11:10:04+08:00"
-draft = true
-title = "Getting Started with CloudFormation"
-
-+++
-
 **NOTE**: This doc is for illustration purpose only. This illustrates how
 a user will be able to start using Skygear easily in AWS.
 

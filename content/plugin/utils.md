@@ -1,10 +1,3 @@
-+++
-date = "2015-10-29T17:58:57+08:00"
-draft = true
-title = "Utility functions"
-
-+++
-
 There are some utility functions available to plugin.
 
 ## reset_password

@@ -1,10 +1,3 @@
-+++
-date = "2015-09-24T12:17:40+08:00"
-draft = true
-title = "Handling Errors"
-
-+++
-
 Whenever you invoke an async operation in SKYKit, there is a `NSError` parameter
 available in the completion callback. For example, the completion callback of
 `saveRecord:completion:` is:

@@ -1,10 +1,3 @@
-+++
-date = "2015-09-23T19:42:05+08:00"
-draft = true
-title = "Plugins"
-
-+++
-
 ## Calling lambda functions
 
 We can call lambda functions defined by custom plugin like this:
