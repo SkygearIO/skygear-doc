@@ -6,6 +6,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import GoogleAnalytics from '../GoogleAnalytics';
+import PageLoading from '../PageLoading';
 import { title, description } from '../../config';
 
 class Html extends Component {
@@ -22,11 +23,12 @@ class Html extends Component {
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet" />
-        <script src="/app.js"></script>
       </head>
       <body>
+        <PageLoading id="page-loader" />
         <div id="app" dangerouslySetInnerHTML={{__html: this.props.body}} />
         <GoogleAnalytics />
+        <script src="/app.js"></script>
       </body>
       </html>
     );

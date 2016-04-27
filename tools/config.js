@@ -57,6 +57,7 @@ const config = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
       '__DEV__': DEBUG,
@@ -79,8 +80,7 @@ const config = {
       }, {
         test: /\.(eot|ttf|wav|mp3)$/,
         loader: 'file-loader',
-      },
-      {
+      }, {
         test: /\.md$/,
         loaders: ['html-loader', 'markdown-loader'],
       },
@@ -175,9 +175,6 @@ const pagesConfig = merge({}, config, {
     __dirname: false,
   },
   externals: /^[a-z][a-z\.\-\/0-9]*$/i,
-  plugins: config.plugins.concat([
-    new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
-  ]),
   module: {
     loaders: [
       JS_LOADER,

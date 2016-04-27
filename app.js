@@ -29,9 +29,11 @@ const route = async (path, callback) => {
 
 function run() {
   const container = document.getElementById('app');
+  const pageLoader = document.getElementById('page-loader');
   History.listen(location => {
     route(location.pathname, async (component) => {
         ReactDOM.render(component, container, () => {
+          pageLoader.style.display = 'none';
           if (location.hash.length > 1) {
             const hashName = location.hash.substr(1);
             let elem = document.getElementsByName(hashName)[0];
