@@ -18,15 +18,23 @@ npm run build
 [Not yet setup]
 
 
+## Update content
+- All contents are defined in markdown files in **content** folder
+- To link a specific content to a route, update / create a new JSON files in **routes** folder
+- To update side menu, update JSON files in **menus** folder
+
+
 ## Folder Structure
 ```
 .
 ├── /build/            # The folder for compiled output
 ├── /content/          # The folder for site content in markdown format
-├── /node_modules/     # 3rd-party libraries and utilities
 ├── /components/       # React components
 ├── /lib/              # Libraries and utilities
+├── /menus/            # The folder for menu definition in JSON format
+├── /node_modules/     # 3rd-party libraries and utilities
 ├── /pages/            # React.js-based web pages
+├── /routes/           # The folder for mapping content to routes
 ├── /static/           # Static files such as favicon.ico etc.
 ├── /test/             # Unit and integration tests
 ├── /tools/            # Build automation scripts and utilities

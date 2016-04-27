@@ -1,0 +1,16 @@
+[
+  {
+    "title": "CLI introduction",
+    "url": "/cli/guide"
+  },
+  {
+    "title": "Usage"
+  },
+  {
+    "title": "Managing Record Schema",
+    "url": "/cli/guide/schema"
+  },
+  {
+    "title": "Development / Production database setup"
+  }
+]

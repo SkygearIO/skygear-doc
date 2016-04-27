@@ -1,10 +1,3 @@
-+++
-date = "2015-09-18T16:59:33+08:00"
-draft = true
-title = "Getting Start by Docker"
-
-+++
-
 **DEPRECATION NOTICE**: Please see our [Getting Started]({{< relref "intro/getting-started.md" >}}) guide instead. The information contained here is no longer relevant.
 
 **NOT IMPLEMENTED**: In a future version of this guide, we should focus on how

@@ -1,10 +1,3 @@
-+++
-date = "2015-09-25T16:05:13+08:00"
-draft = true
-title = "Database Schema"
-
-+++
-
 This section describes the database schema used by Skygear.
 
 Tables in the database can be classified into Records Table and Reserved Table.

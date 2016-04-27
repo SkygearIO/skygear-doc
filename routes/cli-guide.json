@@ -1,0 +1,20 @@
+{
+  "factory": {
+    "name": "GuideFactory",
+    "path": "./components/GuideFactory"
+  },
+  "routes": {
+    "/cli/guide": {
+      "name": "Command Line Tools",
+      "title": "CLI introduction",
+      "content_path": "./content/cli/intro.md",
+      "menu_path": "./menus/cli-guide.json"
+    },
+    "/cli/guide/schema": {
+      "name": "Command Line Tools",
+      "title": "Managing Record Schema",
+      "content_path": "./content/cli/schema.md",
+      "menu_path": "./menus/cli-guide.json"
+    }
+  }
+}

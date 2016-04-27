@@ -1,10 +1,3 @@
-+++
-date = "2015-09-25T18:57:01+08:00"
-draft = true
-title = "Simple Application"
-
-+++
-
 ## Creating users
 
 ```js

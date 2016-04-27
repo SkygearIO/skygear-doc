@@ -1,10 +1,3 @@
-+++
-date = "2015-09-30T18:59:54+08:00"
-draft = true
-title = "How Role based ACL work in taylors"
-
-+++
-
 For security specification, please refer to the
 [security doc](https://github.com/oursky/taylors/blob/master/security.md)
 at taylor.

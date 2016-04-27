@@ -1,10 +1,3 @@
-+++
-date = "2015-10-15T16:51:15+08:00"
-draft = true
-title = "Access Control by role"
-
-+++
-
 Role-based access control is suitable for applications that limit access to
 records based on the role of the user sending the request.
 

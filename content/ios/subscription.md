@@ -1,10 +1,3 @@
-+++
-date = "2015-09-21T19:38:14+08:00"
-draft = true
-title = "Subscriptions"
-
-+++
-
 ## Getting started
 
 Creating a subscription requires your application to register the current device

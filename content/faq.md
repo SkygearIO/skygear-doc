@@ -1,10 +1,3 @@
-+++
-date = "2015-12-18T14:36:42+08:00"
-draft = true
-title = "FAQ"
-
-+++
-
 ## How to dump postgres of skygear server using docker
 
 ```shell

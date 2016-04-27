@@ -1,10 +1,3 @@
-+++
-date = "2015-09-23T09:57:05+08:00"
-draft = true
-title = "Local Storages"
-
-+++
-
 ## Cached Query
 
 ```obj-c

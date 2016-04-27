@@ -1,10 +1,3 @@
-+++
-date = "2015-10-20T17:44:23+08:00"
-draft = true
-title = "ACL Store"
-
-+++
-
 ACL is formatted in JSON and stored in `_access` field of records
 
 ## Example on relation base

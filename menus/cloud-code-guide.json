@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Write your first line of cloud code"
+  },
+  {
+    "title": "Database Extension Point"
+  },
+  {
+    "title": "HTTP Handler"
+  },
+  {
+    "title": "Lambda Function",
+    "url": "/cloud-code/guide/lambda"
+  },
+  {
+    "title": "Scheduled Tasks",
+    "url": "/cloud-code/guide/scheduled"
+  },
+  {
+    "title": "Calling Skygear API",
+    "url": "/cloud-code/guide/skygear-api"
+  },
+  {
+    "title": "Using Pubsub",
+    "url": "/cloud-code/guide/pubsub"
+  },
+  {
+    "title": "Utility functions",
+    "url": "/cloud-code/guide/utils"
+  },
+  {
+    "title": "Install plugin"
+  }
+]

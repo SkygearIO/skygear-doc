@@ -1,10 +1,3 @@
-+++
-date = "2015-10-23T16:37:10+08:00"
-draft = true
-title = "geolocation"
-
-+++
-
 ## Saving a location on record
 
 ```js

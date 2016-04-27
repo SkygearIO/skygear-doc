@@ -1,10 +1,3 @@
-+++
-date = "2015-09-25T12:30:11+08:00"
-draft = true
-title = "Database Extension Point"
-
-+++
-
 Py-skygear provides the following decorators to implement Database Extension Point:
 
 * `before_save` — executes decorated function before a record save operation occurs

@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Plugin Introduction",
+    "url": "/plugin/guide"
+  },
+  {
+    "title": "Developing Your First Plugin",
+    "url": "/plugin/guide/first-plugin"
+  },
+  {
+    "title": "Database Extension Point"
+  },
+  {
+    "title": "Handler Extension Point",
+    "url": "/plugin/guide/guide-handler"
+  },
+  {
+    "title": "HTTP Handler"
+  },
+  {
+    "title": "Lambda Function",
+    "url": "/plugin/guide/guide-lambda"
+  },
+  {
+    "title": "Authentication Provider",
+    "url": "/plugin/guide/guide-auth"
+  },
+  {
+    "title": "Scheduled Tasks",
+    "url": "/plugin/guide/guide-scheduled"
+  },
+  {
+    "title": "Calling Skygear API",
+    "url": "/plugin/guide/skygear-api"
+  },
+  {
+    "title": "Using Pubsub",
+    "url": "/plugin/guide/pubsub"
+  },
+  {
+    "title": "Utility functions",
+    "url": "/plugin/guide/utils"
+  }
+]

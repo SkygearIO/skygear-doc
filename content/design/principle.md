@@ -1,10 +1,3 @@
-+++
-date = "2015-10-07T15:53:01+08:00"
-draft = true
-title = "principle"
-
-+++
-
 ## To be discussed
 
 - Plugin vs Core

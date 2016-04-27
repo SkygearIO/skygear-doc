@@ -1,10 +1,3 @@
-+++
-date = "2015-10-16T17:13:24+08:00"
-draft = true
-title = "Assets"
-
-+++
-
 ## Uploading an asset by base64 data
 
 ```js

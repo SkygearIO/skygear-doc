@@ -1,10 +1,3 @@
-+++
-date = "2015-10-02T20:45:10+08:00"
-draft = true
-title = "plugin base"
-
-+++
-
 It is possible to control access to records by making Skygear plugin. You
 can implement custom logic in access control that cannot be easily implemented
 by using other approaches.

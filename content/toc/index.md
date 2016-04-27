@@ -1,10 +1,3 @@
-+++
-date = "2015-09-23T12:34:15+08:00"
-draft = true
-title = "Table of Content"
-
-+++
-
 Collection of article help you unleash the power of Skygear.
 
 

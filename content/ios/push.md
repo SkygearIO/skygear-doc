@@ -1,10 +1,3 @@
-+++
-date = "2015-09-23T11:39:05+08:00"
-draft = true
-title = "Push Notifications"
-
-+++
-
 1. Send push to user / device
 
 ## Sending push notification to users

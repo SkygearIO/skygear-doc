@@ -1,10 +1,3 @@
-+++
-date = "2015-11-12T11:58:09+08:00"
-draft = true
-title = "Query records by relations"
-
-+++
-
 This document describe how to query recrod based on user-creator relation.
 
 ## Predicat format

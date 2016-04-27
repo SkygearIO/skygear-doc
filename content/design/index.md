@@ -1,10 +1,3 @@
-+++
-date = "2015-10-02T17:45:48+08:00"
-draft = true
-title = "Index of design document"
-
-+++
-
 # Push Notification
 
 [Design docs]({{< relref "design/notification.md" >}})

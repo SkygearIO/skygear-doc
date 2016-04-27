@@ -1,10 +1,3 @@
-+++
-date = "2015-09-25T18:25:39+08:00"
-draft = true
-title = "Users (Authentication)"
-
-+++
-
 Consider the following HTML:
 
 ```html

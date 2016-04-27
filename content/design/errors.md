@@ -1,10 +1,3 @@
-+++
-date = "2015-10-16T13:48:45+08:00"
-draft = true
-title = "Errors"
-
-+++
-
 *tldr*: Scroll down to bottom for platform differences and the list.
 
 There is a call for better handling across various skygear components. This document is focused on how an occurred error from the backend should be reported to the client app, among other things.

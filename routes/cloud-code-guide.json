@@ -1,0 +1,44 @@
+{
+  "factory": {
+    "name": "GuideFactory",
+    "path": "./components/GuideFactory"
+  },
+  "routes": {
+    "/cloud-code/guide": {
+      "name": "Cloud Code",
+      "title": "Developing Your First Plugin",
+      "content_path": "./content/plugin/first-plugin.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    },
+    "/cloud-code/guide/lambda": {
+      "name": "Cloud Code",
+      "title": "Lambda Function",
+      "content_path": "./content/plugin/guide-lambda.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    },
+    "/cloud-code/guide/scheduled": {
+      "name": "Cloud Code",
+      "title": "Scheduled Tasks",
+      "content_path": "./content/plugin/guide-scheduled.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    },
+    "/cloud-code/guide/skygear-api": {
+      "name": "Cloud Code",
+      "title": "Calling Skygear API",
+      "content_path": "./content/plugin/skygear-api.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    },
+    "/cloud-code/guide/pubsub": {
+      "name": "Cloud Code",
+      "title": "Using Pubsub",
+      "content_path": "./content/plugin/pubsub.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    },
+    "/cloud-code/guide/utils": {
+      "name": "Cloud Code",
+      "title": "Utility functions",
+      "content_path": "./content/plugin/utils.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    }
+  }
+}

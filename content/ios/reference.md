@@ -1,10 +1,3 @@
-+++
-date = "2015-09-23T07:46:29+08:00"
-draft = true
-title = "Record Relations"
-
-+++
-
 Skygear supports many-to-one (aka. parent-child) relation between records via _reference_.
 `SKYReference` is a pointer to a record in database. Let's say we are going to
 reference _Record A_ in _Record B_, we first construct a reference of Record A

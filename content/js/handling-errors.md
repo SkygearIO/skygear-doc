@@ -1,10 +1,3 @@
-+++
-date = "2015-09-25T17:48:38+08:00"
-draft = true
-title = "Handling Errors"
-
-+++
-
 All asynchronous methods in `skygear` return [Promise](https://www.promisejs.org/).
 
 ## Basic flow

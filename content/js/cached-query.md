@@ -1,10 +1,3 @@
-+++
-date = "2015-12-09T12:19:07+08:00"
-draft = true
-title = "Cached Query"
-
-+++
-
 Skygear provides a simple cached query mechanism for application that wants to
 display the data last seen before it gets new data from Skygear Server. To make use
 of this, you just need

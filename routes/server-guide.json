@@ -1,0 +1,46 @@
+{
+  "factory": {
+    "name": "GuideFactory",
+    "path": "./components/GuideFactory"
+  },
+  "routes": {
+    "/server/guide": {
+      "name": "Skygear Server",
+      "title": "Skygear Server Configuration",
+      "content_path": "./content/server/configuring.md",
+      "menu_path": "./menus/server-guide.json"
+    },
+    "/server/guide/architecture": {
+      "name": "Skygear Server",
+      "title": "Architecture",
+      "content_path": "./content/intro/architecture.md",
+      "menu_path": "./menus/server-guide.json"
+    },
+    "/server/guide/data-type": {
+      "name": "Skygear Server",
+      "title": "Data Type",
+      "content_path": "./content/server/data-type.md",
+      "menu_path": "./menus/server-guide.json"
+    },
+    "/server/guide/database-schema": {
+      "name": "Skygear Server",
+      "title": "Database Schema",
+      "content_path": "./content/server/database-schema.md",
+      "menu_path": "./menus/server-guide.json"
+    },
+    "/server/guide/getting-started-cloudformation": {
+      "name": "Skygear Server",
+      "title": "Quick development setup with AWS CloudFormation",
+      "content_path": "./content/intro/getting-started-cloudformation.md",
+      "menu_path": "./menus/server-guide.json"
+    },
+    "/server/guide/getting-started-docker": {
+      "name": "Skygear Server",
+      "title": "Deploy with Docker",
+      "content_path": "./content/intro/getting-started-docker.md",
+      "menu_path": "./menus/server-guide.json"
+    }
+  }
+}
+
+

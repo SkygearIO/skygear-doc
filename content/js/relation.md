@@ -1,10 +1,3 @@
-+++
-date = "2015-11-10T16:07:01+08:00"
-draft = true
-title = "User to user relation, Friends and Followers"
-
-+++
-
 # Friends and Followers
 
 Skygear provide two default relations: friend and follower.

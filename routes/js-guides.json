@@ -1,0 +1,93 @@
+{
+  "factory": {
+    "name": "GuideFactory",
+    "path": "./components/GuideFactory"
+  },
+  "routes": {
+    "/js/guide": {
+      "name": "JS SDK",
+      "title": "How to install Skygear JS SDK in your website",
+      "content_path": "./content/js/index.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/simple-app": {
+      "name": "JS SDK",
+      "title": "Simple app to get started (Create user / record / query)",
+      "content_path": "./content/js/simple-app.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/record": {
+      "name": "JS SDK",
+      "title": "CRUD Records",
+      "content_path": "./content/js/record.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/auto-increment": {
+      "name": "JS SDK",
+      "title": "Create an Auto-Incrementing Field",
+      "content_path": "./content/js/auto-increment.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/query": {
+      "name": "JS SDK",
+      "title": "Querying Records",
+      "content_path": "./content/js/query.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/reference": {
+      "name": "JS SDK",
+      "title": "Records Relations (References)",
+      "content_path": "./content/js/reference.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/users": {
+      "name": "JS SDK",
+      "title": "Users (Authentication)",
+      "content_path": "./content/js/users.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/relation": {
+      "name": "JS SDK",
+      "title": "User relations (Friends & Followers)",
+      "content_path": "./content/js/relation.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/cached-query": {
+      "name": "JS SDK",
+      "title": "Cached Query",
+      "content_path": "./content/js/cached-query.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/subscription": {
+      "name": "JS SDK",
+      "title": "Subscription",
+      "content_path": "./content/js/subscription.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/pubsub": {
+      "name": "JS SDK",
+      "title": "Pubsub",
+      "content_path": "./content/js/pubsub.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/geolocation": {
+      "name": "JS SDK",
+      "title": "Geo-location",
+      "content_path": "./content/js/geolocation.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/asset": {
+      "name": "JS SDK",
+      "title": "Assets (File Upload)",
+      "content_path": "./content/js/asset.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/handling-errors": {
+      "name": "JS SDK",
+      "title": "Handling Errors",
+      "content_path": "./content/js/handling-errors.md",
+      "menu_path": "./menus/js-guide.json"
+    }
+  }
+}
+

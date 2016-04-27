@@ -1,10 +1,3 @@
-+++
-date = "2015-12-21T10:38:57+08:00"
-draft = true
-title = "Release cycle"
-
-+++
-
 # Release cycle
 
 Every WED.

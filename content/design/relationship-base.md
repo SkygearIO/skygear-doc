@@ -1,10 +1,3 @@
-+++
-date = "2015-10-02T21:56:24+08:00"
-draft = true
-title = "relationship base"
-
-+++
-
 ## GOD
 
 GOD is a special user in the db that owns all the records. Record permission is managed by user making special relation with this user.

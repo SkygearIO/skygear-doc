@@ -1,10 +1,3 @@
-+++
-date = "2015-10-07T10:57:58+08:00"
-draft = true
-title = "AskQ's Access Controls"
-
-+++
-
 Everything's public:
 
 * Question

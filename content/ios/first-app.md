@@ -1,10 +1,3 @@
-+++
-date = "2015-09-21T18:07:11+08:00"
-draft = true
-title = "first app"
-
-+++
-
 Flow:
 
 1. Create a master detail view project

@@ -1,10 +1,3 @@
-+++
-date = "2015-10-05T17:00:54+08:00"
-draft = true
-title = "Record Relation"
-
-+++
-
 # What Skygear provide
 
 Skygear support parent-child relation between records via _reference_.

@@ -1,10 +1,3 @@
-+++
-date = "2015-09-30T12:57:07+08:00"
-draft = true
-title = "Pubsub"
-
-+++
-
 ## Subscribing to an event
 
 ```js
