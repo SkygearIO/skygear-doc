@@ -68,7 +68,7 @@ class Menu extends Component {
   }
 
   render() {
-    return <ul className={classNames('Guide-Menu', this.props.className)}>{
+    return <ul className={classNames('Guide-Menu', ...this.props.classNames)}>{
       map(this.props.content, this._renderMenuItem.bind(this))
     }</ul>;
   }
@@ -76,11 +76,11 @@ class Menu extends Component {
 
 Menu.propTypes = {
   content: PropTypes.array.isRequired,
-  className: PropTypes.string,
+  classNames: PropTypes.array,
 };
 
 Menu.defaultProps = {
-  className: '',
+  classNames: [],
 };
 
 export default Menu;
