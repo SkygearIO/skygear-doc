@@ -8,6 +8,8 @@ import path from 'path';
 import webpack from 'webpack';
 import { merge } from 'lodash';
 
+import MarkdownRenderer from './lib/markdown-renderer';
+
 const DEBUG = !process.argv.includes('release');
 const VERBOSE = process.argv.includes('verbose');
 const WATCH = global.watch;
@@ -97,6 +99,9 @@ const config = {
       }),
     ];
   },
+  markdownLoader: {
+    renderer: MarkdownRenderer,
+  }
 };
 
 // Configuration for the client-side bundle
