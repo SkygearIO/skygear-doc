@@ -10,6 +10,9 @@ node_js:
 script:
   - npm run build release
 
+before_deploy:
+  - ./scripts/before-deploy.sh
+
 deploy:
   - provider: s3
     access_key_id:
@@ -24,7 +27,23 @@ deploy:
     on:
       repo: SkygearIO/skygear-doc
       branch: master
+  - provider: s3
+    access_key_id:
+      secure: 2EMv+j00/flkz/vwavmKIb6AllkJ5/HydupxTjdn7LutimmVXCJLvoJzrneJXVzvj75RYg3phyfgeigP4s7rGNNjNr/RuYkqwGsfJLVlXeS2+uBP3YluPLDDpG7cOCBmwelixDSanuMh6XGIwYk71ZKqk+Hh3pUkpCsjj0GgSmHu0rYdlLu0PGyp8vlvpboRPOy2nwHvHPaOr/3mqtUh+JHuvSI+HJvUY5/eQT3+o/Ay6ndLP0HZd5tXWqFr5MxKiNPm0aRJg+6mxhpY95OaKMoZkAu3dqxRXPAC830MbCXXUYX5OFdz7REWtQzvavOkSnI5rbcsL51midaxWfjKh5UKgGiPPTsaCNNUD8URPDNGqfDZtyFmu6UzFeTGKJLrTqkapZihmBPv4S2CZ71NPxU+rfAb+ZDJiZPndeLFJEx0t8ihRM4zCbgtNMbvzso9sG1L1BXqlVfNGQVQSG10r/A6IN4W9m2cGHcbsYJrTTQ5eSCwSDdS84EZc7cTjoW9nPi+Di05GEXvP7ASWU0AEBVw5aGL+e78olmh4/GMWPoGshl/d0SQPWHV7ulFh+dOa/cFhRTJNfeALQricdoKHa1OsxfP2jNg6sCkt27jMBKMNf6kZq8PhGNrmu757BhldCI4pQhSSEzDGMjMpU00Y/KtJtZ1TwBFepScZgZzOeM=
+    secret_access_key:
+      secure: rvYlXs2qfULxPfbksMMi3pwxFSLl0b8+72k+Zi7imtb1izLLyHZ8HPCAYe1+jKAL0JG5w8E7+dxepAwS3OYO7UAbTLrHDvlf/P5Zj/pseYaeaqNZzErbRHWZQUlGHASomyrahlswQgCFw1vuqRi3xLBN6gXh9gNMWA3iMuf5PQ8+Y+GWHpyLLzf49KIh+lIp1LBDmtxPmSA3T7Xrrx24/oNqjJ1h3htP+4QeIk04uOdhmMFAQlGYSW9N1XTvPPRpRXq+/7ZViyXr359HwgQS+yn1DIBOyMBcn6efdUZKMDZfK+poGzB28KjoueVjQ5H+eJ4gHbekMZo7xnzQVdcROEIZJQ1Y3hTkfRGB5vPQUrbCPUHS/leVP/LaCLXcjMcHaIDQ3XCw5Nmwy+oemyItyrqXsF6DWkmoQiaW33zqWjaK7ar6Iqye79iLxytmFEPfboGoX77YSkELxcmkGEFNProy01CxpifX6IJqSBC4hImbo7NbOE1M398+Yv9wrE3AXglgfY34XlNCqnSDu0EefCjgOqZ2lbnQrB97UuCS3Ur/aE8E+PnaGtUxiOrGawMK3dWL/SKNi1o9P+NUVm1sEgg+FRwOgeKM/5PWSmCYuybPd7cKxNFXsJsrkLAQkurJKbpftuxH6u601CZlXP1NNYmE9/Z+GZo5qC9wXRIfbjc=
+    bucket: docs.skygear.io
+    skip_cleanup: true
+    acl: public_read
+    local_dir: build
+    on:
+      repo: SkygearIO/skygear-doc
+      branch: $PRODUCTION_BRANCH
 
 notifications:
   slack:
     secure: "EbiEQSZwMzmPVYJLyzUn8UsPM5nfhJuUlTVbuPDRRoNRUkUirKczRO6yZOZFoIiKf7pCcZSEMdAlryUiT0Ept2dK2sowFqjq5PPBmFksVzJcM4vxKakJgBETc9E/YVMKNfrRNSCeEw446iDCnaDxceDtfXxniPXRzybkHOSPtgMw1ipFpuWE6mdSdEjQhO5o/ArXL7REXMzJ3M6hQMsGYiEKgx09pJqVcWuufwPAbrdjMqbziiVjFY+fexf62q7ZxLTDmAMJjnaOaqlie6+8685SIJkCO7M1wUA2lh2ETQpKJlUkt6tvmXiVYE//OaO0SLjXj5YseE8ErX41P2M6ecFiueiNyjeuAjDWBcAEwVQqShUJLbcqE2SnuFxvSmTrXXZwAoxN123rEYf46Tcsnh2ezbcJeE8of53p2xi6IU8Mj23pP/nqdrPkbFapK2VoFOM7PXFimyCTiWQpUSVauNLdlMSMSjEwusT0lgw97EMIDezbmS19ZZYFhw42W0vGVkdqZIVe1ZDrS1cjvvxckKK5wfUh3XMYGS4X4vqYtUoMVZdXdqwdn15mgnypcaxPP/fhHGwOwxOn+3aLzZMpC40rjfbXjcBgb1xOpB6gya6Olexq+i4Gv9B5Op35RYwBWOPso4qR4v6xx9Y3n/E0MHQw28r46Ql0DBClUtdQkHw="
+
+env:
+  global:
+    - PRODUCTION_BRANCH="production"
