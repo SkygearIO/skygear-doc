@@ -32,6 +32,7 @@
     "postcss-import": "^7.0.0",
     "postcss-loader": "^0.6.0",
     "precss": "^1.2.3",
+    "prismjs": "^1.4.1",
     "raw-loader": "^0.5.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",

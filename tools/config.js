@@ -8,6 +8,8 @@ import path from 'path';
 import webpack from 'webpack';
 import { merge } from 'lodash';
 
+import MarkdownRenderer from './lib/markdown-renderer';
+
 const DEBUG = !process.argv.includes('release');
 const VERBOSE = process.argv.includes('verbose');
 const WATCH = global.watch;
@@ -68,19 +70,24 @@ const config = {
       {
         test: /[\\\/]app\.js$/,
         loader: path.join(__dirname, './lib/routes-loader.js'),
-      }, {
+      },
+      {
         test: /\.json$/,
         loader: 'json-loader',
-      }, {
+      },
+      {
         test: /\.txt$/,
         loader: 'raw-loader',
-      }, {
+      },
+      {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
         loader: 'url-loader?limit=10000',
-      }, {
+      },
+      {
         test: /\.(eot|ttf|wav|mp3)$/,
         loader: 'file-loader',
-      }, {
+      },
+      {
         test: /\.md$/,
         loaders: ['html-loader', 'markdown-loader'],
       },
@@ -97,6 +104,9 @@ const config = {
       }),
     ];
   },
+  markdownLoader: {
+    renderer: MarkdownRenderer,
+  }
 };
 
 // Configuration for the client-side bundle
@@ -151,6 +161,10 @@ const appConfig = merge({}, config, {
       }) : JS_LOADER,
       ...config.module.loaders,
       {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader', 'postcss-loader'],
       },
@@ -179,6 +193,10 @@ const pagesConfig = merge({}, config, {
     loaders: [
       JS_LOADER,
       ...config.module.loaders,
+      {
+        test: /\.css$/,
+        loaders: ['css-loader'],
+      },
       {
         test: /\.scss$/,
         loaders: ['css-loader', 'postcss-loader'],
