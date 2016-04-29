@@ -3,13 +3,13 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 import Link from '../../Link';
-import { WindowLocation } from '../../../lib/Location';
+import { Window } from '../../../lib/BrowserProxy';
 
 import './Menu.scss';
 
 class Menu extends Component {
   _renderSubMenuItem(subMenuItemContent, index) {
-    let hash = WindowLocation.hash;
+    let hash = Window.location.hash;
 
     const isActive = hash ?
       subMenuItemContent.url === hash :
@@ -43,7 +43,7 @@ class Menu extends Component {
   }
 
   _renderMenuItem(menuItemContent, index) {
-    let pathname = WindowLocation.pathname;
+    let pathname = Window.location.pathname;
 
     if (pathname && pathname.endsWith('/')) {
       pathname = pathname.substr(0, pathname.lastIndexOf('/'));

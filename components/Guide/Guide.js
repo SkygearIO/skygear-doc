@@ -5,7 +5,7 @@ import Markdown from '../../components/Markdown';
 import Menu from './Menu';
 
 import './Guide.scss';
-import { Window } from '../../lib/Location';
+import { Window } from '../../lib/BrowserProxy';
 
 class Guide extends Component {
   constructor(props) {
@@ -55,30 +55,18 @@ class Guide extends Component {
   }
 
   handleScroll() {
-    const scrollTop = Window.scrollY;
+    const scrollTop = Window.scrollY || 0;
     this.setState({
       sticky: scrollTop > 230
     });
   }
 
   componentDidMount() {
-    if (Window) {
-      if (Window.addEventListener) {
-        Window.addEventListener('scroll', this.handleScroll);
-      } else {
-        Window.attachEvent('onscroll', this.handleScroll);
-      }
-    }
+    Window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-    if (Window) {
-      if (Window.removeEventListener) {
-        Window.removeEventListener('scroll', this.handleScroll);
-      } else {
-        Window.detachEvent('onscroll', this.handleScroll);
-      }
-    }
+    Window.removeEventListener('scroll', this.handleScroll);
   }
 
   render() {

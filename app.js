@@ -7,8 +7,7 @@
 import 'babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
-import { History } from './lib/Location';
+import { History, Window, Document } from './lib/BrowserProxy';
 import Layout from './components/Layout';
 
 const routes = {}; // Auto-generated on build. See tools/lib/routes-loader.js
@@ -28,36 +27,28 @@ const route = async (path, callback) => {
 };
 
 function run() {
-  const container = document.getElementById('app');
-  const pageLoader = document.getElementById('page-loader');
+  const container = Document.getElementById('app');
+  const pageLoader = Document.getElementById('page-loader');
   History.listen(location => {
     route(location.pathname, async (component) => {
         ReactDOM.render(component, container, () => {
           pageLoader.style.display = 'none';
           if (location.hash.length > 1) {
             const hashName = location.hash.substr(1);
-            let elem = document.getElementsByName(hashName)[0];
+            let elem = Document.getElementsByName(hashName)[0];
             if (elem) {
-              window.scrollBy(0, elem.getBoundingClientRect().top);
+              Window.scrollBy(0, elem.getBoundingClientRect().top);
             }
           } else {
-            window.scrollTo(0, 0);
+            Window.scrollTo(0, 0);
           }
           // Track the page view event via Google Analytics
-          window.ga('send', 'pageview');
+          Window.ga('send', 'pageview');
         });
     });
   });
 }
 
-if (canUseDOM) {
-// Run the application when both DOM is ready
-// and page content is loaded
-  if (window.addEventListener) {
-    window.addEventListener('DOMContentLoaded', run);
-  } else {
-    window.attachEvent('onload', run);
-  }
-}
+Window.addEventListener('DOMContentLoaded', run);
 
 export default { route, routes };
