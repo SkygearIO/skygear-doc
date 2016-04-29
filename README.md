@@ -15,7 +15,7 @@ npm run build
 
 
 ## Deployment
-[Not yet setup]
+Push to `production` branch to deploy to [http://docs.skygear.io](http://docs.skygear.io)
 
 
 ## Update content
