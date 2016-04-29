@@ -1,10 +1,25 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
+
 import Markdown from '../../components/Markdown';
 import Menu from './Menu';
 
 import './Guide.scss';
+import { Window } from '../../lib/BrowserProxy';
 
 class Guide extends Component {
+  constructor(props) {
+    super(props);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.state = this.initialState;
+  }
+
+  get initialState() {
+    return {
+      sticky: false,
+    };
+  }
+
   get titleComponent() {
     const { title } = this.props;
 
@@ -25,24 +40,43 @@ class Guide extends Component {
       return undefined;
     }
 
+    let classes = [ 'menu' ];
+    if (this.state.sticky) {
+      classes.push('sticky');
+    }
+
     return (
       <Menu
-        className="menu"
+        classNames={classes}
         content={menu || []}
         activeTitle={activeMenu}
       />
     );
   }
 
+  handleScroll() {
+    const scrollTop = Window.scrollY || 0;
+    this.setState({
+      sticky: scrollTop > 230
+    });
+  }
+
+  componentDidMount() {
+    Window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    Window.removeEventListener('scroll', this.handleScroll);
+  }
+
   render() {
     const {
       content,
       sectionName,
-      className,
     } = this.props;
 
     return (
-      <div className={'Guide-Template ' + className}>
+      <div className='Guide-Template'>
         <h1>{sectionName}</h1>
         <hr />
         <div className="container">
@@ -63,12 +97,7 @@ Guide.propTypes = {
   menu: PropTypes.array,
 
   title: PropTypes.string,
-  className: PropTypes.string,
   activeMenu: PropTypes.string,
-};
-
-Guide.defaultProps = {
-  className: '',
 };
 
 export default Guide;

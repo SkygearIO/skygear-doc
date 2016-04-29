@@ -3,13 +3,13 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 import Link from '../../Link';
-import { WindowLocation } from '../../../lib/Location';
+import { Window } from '../../../lib/BrowserProxy';
 
 import './Menu.scss';
 
 class Menu extends Component {
   _renderSubMenuItem(subMenuItemContent, index) {
-    let hash = WindowLocation.hash;
+    let hash = Window.location.hash;
 
     const isActive = hash ?
       subMenuItemContent.url === hash :
@@ -43,7 +43,7 @@ class Menu extends Component {
   }
 
   _renderMenuItem(menuItemContent, index) {
-    let pathname = WindowLocation.pathname;
+    let pathname = Window.location.pathname;
 
     if (pathname && pathname.endsWith('/')) {
       pathname = pathname.substr(0, pathname.lastIndexOf('/'));
@@ -68,7 +68,7 @@ class Menu extends Component {
   }
 
   render() {
-    return <ul className={classNames('Guide-Menu', this.props.className)}>{
+    return <ul className={classNames('Guide-Menu', ...this.props.classNames)}>{
       map(this.props.content, this._renderMenuItem.bind(this))
     }</ul>;
   }
@@ -76,11 +76,11 @@ class Menu extends Component {
 
 Menu.propTypes = {
   content: PropTypes.array.isRequired,
-  className: PropTypes.string,
+  classNames: PropTypes.array,
 };
 
 Menu.defaultProps = {
-  className: '',
+  classNames: [],
 };
 
 export default Menu;

@@ -9,6 +9,18 @@
       flex: 0 0 18.75rem;
       width: 18.75rem;
       margin-right: 1.25rem;
+
+      &.sticky {
+        position: fixed;
+        top: 1rem;
+        bottom: 0rem;
+        padding-bottom: 16.25rem;
+        overflow-y: scroll;
+
+        & + .content {
+          margin-left: 20rem;
+        }
+      }
     }
 
     .content {
@@ -26,6 +38,10 @@
     .menu {
       display: none;
       flex-base: 0;
+
+      &.sticky + .content {
+        margin-left: 0;
+      }
     }
   }
 }
