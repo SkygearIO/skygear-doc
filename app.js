@@ -7,7 +7,10 @@
 import 'babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { History, Window, Document } from './lib/BrowserProxy';
+import scrollToSmoothly from './lib/scrollToSmoothly';
+
 import Layout from './components/Layout';
 
 const routes = {}; // Auto-generated on build. See tools/lib/routes-loader.js
@@ -37,10 +40,14 @@ function run() {
             const hashName = location.hash.substr(1);
             let elem = Document.getElementsByName(hashName)[0];
             if (elem) {
-              Window.scrollBy(0, elem.getBoundingClientRect().top);
+              Window.scrollToSmoothly(
+                0,
+                elem.getBoundingClientRect().top + Window.pageYOffset,
+                150
+              );
             }
           } else {
-            Window.scrollTo(0, 0);
+            Window.scrollToSmoothly(0, 0, 150);
           }
           // Track the page view event via Google Analytics
           Window.ga('send', 'pageview');
@@ -49,6 +56,7 @@ function run() {
   });
 }
 
+Window.scrollToSmoothly = scrollToSmoothly.bind(Window);
 Window.addEventListener('DOMContentLoaded', run);
 
 export default { route, routes };
