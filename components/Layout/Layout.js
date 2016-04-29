@@ -5,9 +5,12 @@
  */
 
 import React, { Component, PropTypes } from 'react';
-import './Layout.scss';
+
 import Header from '../Header';
 import Footer from '../Footer';
+
+import './Layout.scss';
+import '../../styles/prism-atom-dark.css';
 
 class Layout extends Component {
   render() {

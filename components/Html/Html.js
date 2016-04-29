@@ -23,7 +23,6 @@ class Html extends Component {
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet" />
-        <link href="/prism-atom-dark.css" rel="stylesheet" />
       </head>
       <body>
         <PageLoading id="page-loader" />
