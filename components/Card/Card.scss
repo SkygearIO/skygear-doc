@@ -40,11 +40,21 @@
 
     li {
       flex: 1;
+      position: relative;
       border-top: 1px solid $theme-light-gray;
       border-left: 1px solid $theme-light-gray;
-      padding: .625rem;
-      text-align: center;
-      font-size: .75rem;
+      height: 2.1875rem;
+
+      a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-size: .75rem;
+        text-align: center;
+        line-height: 2.1875rem;
+      }
 
       &:first-child {
         border-left-width: 0;
