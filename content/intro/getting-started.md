@@ -37,9 +37,9 @@ $ cd myapp
 Download the development config file and save it in the directory you have
 just created.
 
-{{< highlight bash >}}
-$ curl -O {{< ref "index.md" >}}intro/development.ini
-{{< /highlight >}}
+``` bash
+$ curl -O http://docs.skygear.io/development.ini
+```
 
 You should modify the app `name` and `api-key` with your app name
 and a generated random string. This guide assumes you have set the API Key
