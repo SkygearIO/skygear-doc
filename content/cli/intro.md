@@ -7,9 +7,9 @@ and some common administration works.
 To install `skycli`:
 
 ```bash
-$ mkdir -P $GOPATH/src/github.com/SkygearIO
+$ mkdir -p $GOPATH/src/github.com/SkygearIO
 $ cd $GOPATH/src/github.com/SkygearIO
-$ git clone http://github.com/SkygearIO/skycli
+$ git clone https://github.com/SkygearIO/skycli
 $ go get -u github.com/SkygearIO/skycli
 ```
 
