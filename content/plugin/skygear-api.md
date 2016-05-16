@@ -17,6 +17,7 @@ For example, to send a push notification to some users:
 ```
 from skygear.action import push_users
 container = SkygearContainer()
+container.api_key = os.getenv('SKYGEAR_APIKEY')
 push_users(
   container, [
     '9deef430-fbca-4d4b-b039-bd0a707c6c81',
