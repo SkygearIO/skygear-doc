@@ -13,7 +13,7 @@
     "/cli/usage": {
       "name": "Command Line Tools",
       "title": "CLI Usages",
-      "content_path": "./content/cli/usage.md",
+      "content_path": "./content/cli/record.md",
       "menu_path": "./menus/cli-guide.json"
     },
     "/cli/guide/schema": {
