@@ -19,8 +19,8 @@ After the dependencies are installed, you can install Skygear Server into your s
 by following these commands:
 
 ``` bash
-$ go get github.com/skygeario/skygear-server
-$ go install github.com/skygeario/skygear-server
+$ go get github.com/SkygearIO/skygear-server
+$ go install github.com/SkygearIO/skygear-server
 $ pip3 install skygear
 ```
 
