@@ -4,7 +4,8 @@
     "url": "/cli/guide"
   },
   {
-    "title": "Usage"
+    "title": "Usage",
+    "url": "/cli/usage"
   },
   {
     "title": "Managing Record Schema",

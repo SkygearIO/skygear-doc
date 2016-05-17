@@ -10,6 +10,12 @@
       "content_path": "./content/cli/intro.md",
       "menu_path": "./menus/cli-guide.json"
     },
+    "/cli/usage": {
+      "name": "Command Line Tools",
+      "title": "CLI Usages",
+      "content_path": "./content/cli/usage.md",
+      "menu_path": "./menus/cli-guide.json"
+    },
     "/cli/guide/schema": {
       "name": "Command Line Tools",
       "title": "Managing Record Schema",

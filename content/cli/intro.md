@@ -45,4 +45,5 @@ shell.
 You now have a basic understanding of working with records with `skycli`,
 great work!
 
-To learn more about the skycli commands, check out the [usage]({{< relref "usage.md">}}).
+To learn more about the skycli commands, check out the
+[usage](https://github.com/SkygearIO/skycli/tree/master/docs/usage).
