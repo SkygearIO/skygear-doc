@@ -16,6 +16,12 @@
       "content_path": "./content/plugin/first-plugin.md",
       "menu_path": "./menus/plugin-guide.json"
     },
+    "/plugin/guide/guide-database": {
+      "name": "Plugin SDK",
+      "title": "Database Extension Point",
+      "content_path": "./content/plugin/guide-database.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
     "/plugin/guide/guide-handler": {
       "name": "Plugin SDK",
       "title": "Handler Extension Point",

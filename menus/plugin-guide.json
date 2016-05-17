@@ -8,7 +8,8 @@
     "url": "/plugin/guide/first-plugin"
   },
   {
-    "title": "Database Extension Point"
+    "title": "Database Extension Point",
+    "url": "/plugin/guide/guide-database"
   },
   {
     "title": "Handler Extension Point",
