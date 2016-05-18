@@ -10,7 +10,7 @@ export default [
       },
       {
         name: 'API Reference',
-        url: '/ios/reference'
+        url: 'http://cocoadocs.org/docsets/SKYKit'
       }
     ]
   },

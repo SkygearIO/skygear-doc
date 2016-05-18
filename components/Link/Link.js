@@ -54,6 +54,10 @@ Link.handleClick = function (event) {
     const state = this.props && this.props.state || null;
     let nextLocation = this.props && this.props.to || (link.pathname + link.search);
 
+    if (nextLocation.startsWith('http')) {
+        window.location = nextLocation;
+        return;
+    }
     if (nextLocation.startsWith('#')) {
       let { pathname, search } = window.location;
       nextLocation = pathname + search + nextLocation;
