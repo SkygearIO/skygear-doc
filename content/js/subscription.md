@@ -2,7 +2,7 @@
 
 ```js
 let Note = Record.extend('note');
-let query = skygear.Query(Note);
+let query = new skygear.Query(Note);
 query.equalTo('_created_by', currentUserID);
 
 subscription = skygear.Subscription('my notes');

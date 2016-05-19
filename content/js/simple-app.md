@@ -35,7 +35,7 @@ skygear.privateDB().fetch('note', 'id').then((record) => {
 ## Querying records
 
 ```js
-let query = Query('note');
+let query = new Query('note');
 skygear.privateDB().query(query).then((notes) => {
   console.log('received %d notes', notes.length);
   // do something with your notes

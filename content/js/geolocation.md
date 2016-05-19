@@ -15,7 +15,7 @@ Get all photos taken within 400 meters of some location.
 ```javascript
 let reference = skygear.Geolocation(22.283, 114.15);
 
-let photoQuery = Query(Photo);
+let photoQuery = new Query(Photo);
 photoQuery.distanceLessThan('location', reference, 400);
 skygear.publicDB.query(photoQuery).then((photos) => {
   console.log('Found number of photos: ' + photos.length);

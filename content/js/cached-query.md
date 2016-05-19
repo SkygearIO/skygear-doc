@@ -6,7 +6,7 @@ to return an cached result before it gets the latest result from the
 Skygear server.
 
 ``` javascript
-let query = Query(Note);
+let query = new Query(Note);
 query.equalTo('title', 'First note');
 function successCallback(notes, cached = false) => {
     if (cached) {

@@ -4,7 +4,7 @@ Skygear queries, only getting the records you want.
 To start with a simple query with `equalTo`
 
 ``` javascript
-let query = Query(Note);
+let query = new Query(Note);
 query.equalTo('title', 'First note');
 skygear.privateDB.query(query).then((notes) => {
   console.log('Received note with title === First note', notes[0].title);
@@ -17,7 +17,7 @@ skygear.privateDB.query(query).then((notes) => {
 You can put multiple conditions in same query object
 
 ``` javascript
-let query = Query(Note);
+let query = new Query(Note);
 query.lessThan('order', 10);
 query.equalTo('category', 'diary');
 skygear.privateDB.query(query).then((notes) => {
@@ -31,7 +31,7 @@ Instead of querying on `order` attribute with less than. We can obtain the
 same result by applying `limit` and `order` to the `query`
 
 ``` javascript
-let query = Query(Note);
+let query = new Query(Note);
 query.addAscending('order');
 query.equalTo('category', 'diary');
 query.limit = 10;
@@ -46,9 +46,9 @@ By default, the condition added to the query are combined with `AND`. To
 construct an `OR` query, we need to specify it with the following syntax.
 
 ``` javascript
-let likeQuery = Query(Note);
+let likeQuery = new Query(Note);
 likeQuery.greaterThan('like', 50);
-let shareQuery = Query(Note);
+let shareQuery = new Query(Note);
 shareQuery.greaterThan('share', 10);
 let query = Query.or(likeQuery, shareQuery);
 query.equalTo('category', 'diary');
@@ -64,10 +64,10 @@ skygear.publicDB.query(query).then((notes) => {
 You can configure complex conditions as the following:
 
 ``` javascript
-let clickQuery = Query(Note);
+let clickQuery = new Query(Note);
 clickQuery.greaterThan('like', 50);
 clickQuery.greaterThan('click', 100);
-let shareQuery = Query(Note);
+let shareQuery = new Query(Note);
 shareQuery.greaterThan('share', 10);
 let query = Query.or(clickQuery, shareQuery);
 query.equalTo('category', 'diary');
@@ -86,7 +86,7 @@ matching the query together with the query result. The count is not affected
 by the limit set on the query.
 
 ``` javascript
-let query = Query(Note);
+let query = new Query(Note);
 query.lessThan('order', 10);
 query.equalTo('category', 'diary');
 query.overallCount = true;
@@ -107,7 +107,7 @@ The `contains` function can be used to query a key for value that matches one of
 item in a specified array.
 
 ```javascript
-let query = Query(Note);
+let query = new Query(Note);
 query.contains('category', ['interesting', 'funny']);
 ```
 
@@ -115,7 +115,7 @@ If a key is of JSON type, the `containsValue` function can also be used to query
 a key if an array contains a specified value.
 
 ```javascript
-let query = Query(Note);
+let query = new Query(Note);
 query.containsValue('category', 'interesting');
 ```
 
@@ -127,7 +127,7 @@ of a specified string. The percent character (`%`) can be used in place
  for a single character.
 
 ```javascript
-let query = Query(Note);
+let query = new Query(Note);
 query.like('category', 'science%');
 ```
 
@@ -146,7 +146,7 @@ For example, to query
 for records owned by a user that the current user is following:
 
 ```javascript
-let query = Query(Note)
+let query = new Query(Note)
 query.havingRelation("_owner", skygear.relation.Following)
 ```
 

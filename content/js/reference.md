@@ -49,7 +49,7 @@ skygear.publicDB.save(note);
 After you give a relation, you can
 
 ``` javascript
-const q = skygear.Query(Note);
+const q = new skygear.Query(Note);
 q.transientInclude('details', 'my_details');
 skygear.publicDB.query(q).then((records) => {
   records.map((record) => {
