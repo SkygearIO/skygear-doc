@@ -142,6 +142,11 @@ sentry-level = warn
 
 ## List of configuration settings
 
+If you setup local dev, you can either specific it in *.ini or by environment
+variable.
+If you use portal -> you can config via setting the environment variable in
+http://portal.skygear.io/app/settings
+
 ### `app` section
 * `name` (env `APP_NAME`) - string, alphanumeric or underscore, name of the
   application
@@ -154,3 +159,20 @@ sentry-level = warn
 ### `token-store` section
 * `prefix` (env `TOKEN_STORE_PREFIX`) - string, prefix to access token for
   storing in redis.
+
+### `apns` section
+* enable - string, YES or NO
+   env `APNS_ENABLE` - string 1 or 0
+* env (env `APNS_ENV`) - string, sandbox or production
+* cery-path - string, absolute path to the cert. In PEM format.
+   env `APNS_CERTIFICATE` - full string of the PEM file.
+* key-path - string, absolute path to the private key. In PEM format.
+   env `APNS_PRIVATE_KEY` - full string of the PEM file.
+
+
+For how to convert cert/key to PEM, see:
+http://docs.moengage.com/docs/ios-push-notifications#making-a-pem-file
+
+## `gcm` section
+* enable - string , YES or NO
+* api-key - string, api-key you obtain from Google.
