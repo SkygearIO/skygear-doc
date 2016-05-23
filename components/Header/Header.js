@@ -8,9 +8,9 @@ export default class extends Component {
   render() {
     return (
       <div className="Header">
-        <a className="Logo" href="https://skygear.io">
+        <Link className="Logo" to="/">
           <img src={logoUrl} />
-        </a>
+        </Link>
 
         <ul className="Menu" role="menu">
           <li className="Menu-item">
