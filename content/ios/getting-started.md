@@ -1,66 +1,96 @@
 <a name="getting-started"></a>
 ## Getting Started
 
+Skygear aims to provide a complete and open-source backend solution for your mobile applications.
+
+By creating an App for each of your mobile applications on Skygear, each client App can be connected to the Skygear Server with an API key.
+
 This guide will show you how to integrate Skygear into an existing iOS project.
 
-It is assumed that you use [CocoaPods](https://cocoapods.org/) to manage your
-iOS application dependency.
+## Sign up for Skygear
 
+Sign up an account at [Skygear Portal](http://portal-staging.skygear.io/).
+
+You will need the server endpoint and API Key to set up your app.
+
+
+<a name="install-ios-sdk"></a>
+## Install iOS SDK
 <a name="add-as-dependency"></a>
-## Include Skygear as a dependency
+### Include Skygear SDK as CocoaPods dependency
 
-1. [Download the source](https://github.com/skygeario/skygear-SDK-JS/archive/master.zip)
-   of Skygear's iOS SDK (_SKYKit_) and unzip it to your project folder.
+The installation requies [CocoaPods](https://cocoapods.org/).
 
-   * If you use _git_ for source control, it is recommended to submodule SKYKit
-     instead:
+To install the Skygear iOS SDK as your iOS application dependency:
 
-     	git submodule add git@github.com:skygeario/skygear-SDK-JS.git
+1. Open and edit the `Podfile` file, add the following in the last line:
 
-2. Edit your `Podfile` to include the this line:
+   	pod "SKYKit"
 
-   	pod "SKYKit", :path => './SKYKit'
+2. Run `pod install` in your terminal
+3. It's done! You now have installed Skygear SDK in your app.
 
-3. `pod install`
-4. Done!
+<a name="set-up-ios-app"></a>
+## Set up your iOS app
+
+Now, you are going to setup the server endpoint and API key for your app.
 
 <a name="configure-container"></a>
-## Configure Skygear container
+### Configure the Skygear Container
+The `SKYContainer` (Skygear Container) object is the primary interface for interacting with the Skygear service. The object is initialized with the sever endpoint and an API key.
 
-Now, edit `AppDelegate.m` and include SKYKit:
+In `AppDelegate.m`, include `SKYKit`:
 
 ```obj-c
 import <SKYKit/SKYKit.h>
 ```
 
-Then add the followings in the `application:didFinishLaunchingWithOptions:` method:
+Then add these lines in the `application:didFinishLaunchingWithOptions:` method:
 
 ```obj-c
 SKYContainer *container = [SKYContainer defaultContainer];
-[container configAddress:@"localhost:3000"];
-[container configAddress:@"Skygear_API_KEY"];
+[container configAddress:@"your-endpoint.skygeario.com"]; //Your server endpoint
+[container configureWithAPIKey:@"SKYGEAR_API_KEY"]; //Your Skygear API Key
 ```
 
-Note: Replace `localhost:3000` and `Skygear_API_KEY` with your server configuration.
+Replace `your-endpoint.skygeario.com` with your Server Endpoint and `SKYGEAR_API_KEY` with your API Key.
 
 <a name="test-sdk"></a>
 ## Test the SDK
 
-Now let's test the SDK installation by signing up a new user.
+First, make sure you have included our SDK libraries from your .h file:
 
 ```obj-c
-[[SKYContainer defaultContainer] signupUserWithUsername:@"john.doe@example.com" password:@"supersecurepasswd" completionHandler:^(SKYUserRecordID *user, NSError *error) {
+import <SKYKit/SKYKit.h>
+```
+
+Now, let's test the SDK installation by creating a new user sign up.You can copy the following code into your app, for example in the `viewDidLoad` method:
+
+```obj-c
+SKYContainer *container = [SKYContainer defaultContainer];
+[container signupUserWithUsername:@"john.doe@example.com" 
+                         password:@"supersecurepasswd"
+                completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"Error occurried while signing up: %@", error);
         return;
     }
 
-    NSLog(@"Congratulation! %@ signed up successfully!", user.username);
+    NSLog(@"Congratulations! %@ signed up successfully!", user.username);
+    // Do other work here
 }];
 ```
 
-Now run your app, you should see the following in the app console:
+Run your app, you should see the following in the app console:
 
 ```
-2015-09-21 17:48:00.626 noteapp[77092:1147374] Congratulation! john.doe@example.com signed up successfully!
+2015-09-21 17:48:00.626 noteapp[77092:1147374] Congratulations! john.doe@example.com signed up successfully!
 ```
+
+
+## What's Next
+Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
+
+Interested in doing more with your Skygear backend server? 
+
+The Plugin interface is designed to empower developers to automate, extend, and integrate functionality provided by the Skygear Server with other services and applications. For more information, check out the Plugin docs.
