@@ -1,23 +1,23 @@
 [
     {
-        "title": "How to install SkyKit SDK in Xcode",
+        "title": "Getting Started",
         "url": "/ios/guide",
         "sub": [
             {
-                "title": "Getting Started",
-                "url": "#getting-started"
-            },
-            {
-                "title": "Include Skygear as a dependency",
+                "title": "Install iOS SDK",
                 "url": "#add-as-dependency"
             },
             {
-                "title": "Configure Skygear container",
+                "title": "Set up your iOS app",
                 "url": "#configure-container"
             },
             {
                 "title": "Test the SDK",
                 "url": "#test-sdk"
+            },
+            {
+                "title": "What's Next",
+                "url": "#whats-next"
             }
         ]
     },
