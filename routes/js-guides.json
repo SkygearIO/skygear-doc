@@ -87,6 +87,12 @@
       "title": "Handling Errors",
       "content_path": "./content/js/handling-errors.md",
       "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/access-control": {
+      "name": "JS SDK",
+      "title": "Access Control",
+      "content_path": "./content/js/access-control.md",
+      "menu_path": "./menus/js-guide.json"
     }
   }
 }
