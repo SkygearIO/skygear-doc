@@ -10,7 +10,6 @@ import Void from 'void';
 
 const invalidatingPaths = [
   '/app.js',
-  '/app.node.js',
   '/index.html'
 ];
 
