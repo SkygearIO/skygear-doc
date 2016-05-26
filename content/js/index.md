@@ -1,3 +1,4 @@
+<a name="install-js-sdk"></a>
 # Install the JS SDK
 
 There are several ways to install Skygear SDK to you app. You can either:
@@ -25,7 +26,8 @@ cd ..
 npm install skygear/
 ```
 
-## Include the SDK in your project
+<a name="include-js-sdk"></a>
+## Include the JS SDK in your project
 
 ### Include in your npm project
 
