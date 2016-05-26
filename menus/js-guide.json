@@ -30,30 +30,65 @@
       ]
   },
   {
-    "title": "Querying Records",
-    "url": "/js/guide/query"
+    "title": "Queries",
+    "url": "/js/guide/query",
+    "sub": [
+      {
+        "title": "Basic Queries",
+        "url": "#basic-queries"
+      },
+      {
+        "title": "Complex Queries",
+        "url": "#complex-queries"
+      },
+      {
+        "title": "Cached Query",
+        "url": "/js/guide/cached-query"
+      }
+    ]
   },
   {
-    "title": "Users (Authentication)",
-    "url": "/js/guide/users"
+    "title": "Users",
+    "url": "/js/guide/users",
+    "sub": [
+      {
+        "title": "Authentication",
+        "url": "#authentication"
+      },
+      {
+        "title": "currentUser",
+        "url": "#currentUser"
+      }
+    ]
   },
   {
-    "title": "Access Control by Record Type"
+    "title": "Social",
+    "url": "/js/guide/relation",
+    "sub": [
+      {
+        "title": "User relations (Friends & Followers)",
+        "url": "#friends-and-followers"
+      }
+    ]
   },
   {
-    "title": "Access Control by Role"
-  },
-  {
-    "title": "User relations (Friends & Followers)",
-    "url": "/js/guide/relation"
-  },
-  {
-    "title": "Cached Query",
-    "url": "/js/guide/cached-query"
+    "title": "Push Notification"
   },
   {
     "title": "Pubsub",
     "url": "/js/guide/pubsub"
+  },
+  {
+    "title": "Access Control",
+    "url": "/js/guide/access-control",
+    "sub": [
+      {
+        "title": "Access Control by Record Type"
+      },
+      {
+        "title": "Access Control by Role"
+      }
+    ]
   },
   {
     "title": "Geo-location",
@@ -64,16 +99,13 @@
     "url": "/js/guide/asset"
   },
   {
+    "title": "ReactJS integration"
+  },
+  {
     "title": "Plugins"
   },
   {
     "title": "Handling Errors",
     "url": "/js/guide/handling-errors"
-  },
-  {
-    "title": "ReactJS integration"
-  },
-  {
-    "title": "Push Notification"
   }
 ]
