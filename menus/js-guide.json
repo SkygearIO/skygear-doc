@@ -1,27 +1,37 @@
 [
   {
-    "title": "How to install Skygear JS SDK in your website",
+    "title": "Getting Started",
     "url": "/js/guide"
   },
   {
-    "title": "Simple app to get started (Create user / record / query)",
+    "title": "First Example App",
     "url": "/js/guide/simple-app"
   },
   {
-    "title": "CRUD Records",
-    "url": "/js/guide/record"
-  },
-  {
-    "title": "Create an Auto-Incrementing Field",
-    "url": "/js/guide/auto-increment"
+    "title": "Records",
+    "url": "/js/guide/record",
+      "sub": [
+        {
+          "title": "Basic CURD",
+          "url": "#basic-curd"
+        },
+        {
+          "title": "Create an Auto-Incrementing Field",
+          "url": "/js/guide/auto-increment"
+        },
+        {
+          "title": "Records Relations (References)",
+          "url": "/js/guide/reference"
+        },
+        {
+          "title": "Subscription",
+          "url": "/js/guide/subscription"
+        }
+      ]
   },
   {
     "title": "Querying Records",
     "url": "/js/guide/query"
-  },
-  {
-    "title": "Records Relations (References)",
-    "url": "/js/guide/reference"
   },
   {
     "title": "Users (Authentication)",
@@ -40,10 +50,6 @@
   {
     "title": "Cached Query",
     "url": "/js/guide/cached-query"
-  },
-  {
-    "title": "Subscription",
-    "url": "/js/guide/subscription"
   },
   {
     "title": "Pubsub",
