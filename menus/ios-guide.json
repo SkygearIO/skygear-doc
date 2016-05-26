@@ -80,14 +80,18 @@
         ]
     },
     {
-        "title": "Access Control by Record Type"
-    },
-    {
-        "title": "Access Control by Role"
-    },
-    {
-        "title": "Friends & Followers",
-        "url": "/ios/guide/relation"
+        "title": "Access Control",
+        "url": "/ios/guide/access-control",
+        "sub": [
+            {
+                "title": "ACL by Record Type",
+                "url": "#acl-by-type"
+            },
+            {
+                "title": "ACL Control by Role",
+                "url": "#acl-by-role"
+            }
+        ]
     },
     {
         "title": "Push Notification",
@@ -96,6 +100,16 @@
     {
         "title": "Pubsub",
         "url": "/ios/guide/pubsub"
+    },
+    {
+        "title": "Social",
+        "url": "/ios/guide/relation",
+        "sub": [
+            {
+                "title": "Friends & Followers",
+                "url": "#friends-and-followers"
+            }
+        ]
     },
     {
         "title": "Geo-location",
