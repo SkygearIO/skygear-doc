@@ -22,28 +22,62 @@
         ]
     },
     {
-        "title": "Simple app to get started (Create user / record / query)",
+        "title": "First Example App",
         "url": "/ios/guide/first-app"
     },
     {
-        "title": "CRUD Records",
-        "url": "/ios/guide/record"
-    },
-    {
-        "title": "Create an Auto-Incrementing Field",
-        "url": "/ios/guide/auto-increment"
+        "title": "Records",
+        "url": "/ios/guide/record",
+        "sub": [
+            {
+                "title": "Basic CRUD",
+                "url": "#basic-curd"
+            },
+            {
+                "title": "Create Auto-Incrementing Fields",
+                "url": "/ios/guide/auto-increment"
+            },
+            {
+                "title": "Local Storage (RecordStorage, CachedQuery)",
+                "url": "/ios/guide/local-storage"
+            },
+            {
+                "title": "Records Relations (References)",
+                "url": "/ios/guide/reference"
+            },
+            {
+                "title": "Subscription",
+                "url": "/ios/guide/subscription"
+            }
+        ]
     },
     {
         "title": "Queries",
-        "url": "/ios/guide/query"
+        "url": "/ios/guide/query",
+        "sub": [
+            {
+                "title": "Basic Queries",
+                "url": "#basic-queries"
+            },
+            {
+                "title": "Complex Queries",
+                "url": "#complex-queries"
+            }
+        ]
     },
     {
-        "title": "Records Relations (References)",
-        "url": "/ios/guide/reference"
-    },
-    {
-        "title": "Users (Authentication)",
-        "url": "/ios/guide/user"
+        "title": "Users",
+        "url": "/ios/guide/user",
+        "sub": [
+            {
+                "title": "Authentication",
+                "url": "#authentication"
+            },
+            {
+                "title": "currentUser",
+                "url": "#currentuser"
+            }
+        ]
     },
     {
         "title": "Access Control by Record Type"
@@ -54,14 +88,6 @@
     {
         "title": "Friends & Followers",
         "url": "/ios/guide/relation"
-    },
-    {
-        "title": "Local Storage (RecordStorage, CachedQuery)",
-        "url": "/ios/guide/local-storage"
-    },
-    {
-        "title": "Subscription",
-        "url": "/ios/guide/subscription"
     },
     {
         "title": "Push Notification",
