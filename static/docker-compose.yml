@@ -19,32 +19,27 @@ db:
 # This container provides persistent storage for the `app` container. To
 # remove this storage, run `docker-compose rm app_data`.
 app_data:
-  image: oursky/skygear:latest
+  image: quay.io/skygeario/skygear-server:latest
   command: /bin/true
 
 # The Skygear container
 app:
-  image: oursky/skygear:latest
+  image: quay.io/skygeario/skygear-server:latest
   ports:
   - "3000:3000" # Skygear API Endpoint (HTTP)
   - "5555:5555" # Skygear Plugin Endpoint (ZMQ)
   volumes_from:
-  # Uncomment the following line to override the default configuration file.
-  # Put the configuration file in the same directory with this file and call it
-  # `development.ini`.
-  # The default configuration file can be obtained from
-  # https://github.com/oursky/skygear/blob/master/development.ini.
-  #- ./development.ini:/go/src/app/development.ini
   - app_data
   links:
   - db
-  command: skygear development.ini
+  command: skygear-server
   environment:
     # `db` in the following string should match the name of the database
     # container above.
     DATABASE_URL: postgresql://postgres:@db/postgres?sslmode=disable
-    DB_IMPL_NAME: pq
+    APP_NAME: myapp
     API_KEY: changeme
+    MASTER_KEY: changeme
     # GOMAXPROCS - The maximum number of Go threads for execution.
     # When unspecified, the default is the number of CPU available, which
     # is the recommended setting.
