@@ -57,3 +57,11 @@ Place these lines before the body closing tag `</body>`. The SDK will be loaded 
 <script src="//cdn.skygear.io/polyfill.min.js"></script>
 <script src="//cdn.skygear.io/skygear.js"></script>
 ```
+
+<a name="whats-next"></a>
+## What's Next
+Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
+
+Interested in doing more with your Skygear backend server?
+
+The Plugin interface is designed to empower developers to automate, extend, and integrate functionality provided by the Skygear Server with other services and applications. For more information, check out the Plugin docs.
