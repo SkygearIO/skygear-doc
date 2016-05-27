@@ -1,5 +1,5 @@
 <a name="install-js-sdk"></a>
-# Install the JS SDK
+## Install Skygear JS SDK
 
 There are several ways to install Skygear SDK to you app. You can either:
 
@@ -7,7 +7,7 @@ There are several ways to install Skygear SDK to you app. You can either:
 * Install the latest development version
 
 ### Use the latest stable release on npm
-You can install the Skygear JS SDK via [npm](https://www.npmjs.com/package/skygear). The SDK  package is available on the npm website.
+You can install Skygear JS SDK via [npm](https://www.npmjs.com/package/skygear). The SDK  package is available on the npm website.
 
 
 ``` bash
@@ -27,18 +27,19 @@ npm install skygear/
 ```
 
 <a name="include-js-sdk"></a>
-## Include the JS SDK in your project
+## Include Skygear JS SDK in your project
 
 ### Include in your npm project
 
-The skygear JS SDK is assumed to be run in ES6 runtime. If you wish to run it in an older runtime, you need to require the polyfill before importing Skygear SDK.
+The skygear JS SDK is assumed to be run in ES6 runtime. If you wish to run it in an older runtime, you need to require the [polyfill plugin](https://babeljs.io/docs/usage/polyfill/) before importing the Skygear SDK.
 
 ``` js
 import 'babel-polyfill';
 import skygear from 'skygear';
 ```
 
-### Include in react-native
+### Include in React Native projects
+You can also include Skygear JS SDK in your React Native project.
 
 ``` js
 require('babel-polyfill');
@@ -50,7 +51,7 @@ var skygear = require('skygear');
 ```
 
 ### Include in your website *(NOT YET IMPLEMENTED)*
-Place these lines before the body closing tag `</body>`
+Place these lines before the body closing tag `</body>`. The SDK will be loaded from the skygear.io CDN.
 
 ``` html
 <script src="//cdn.skygear.io/polyfill.min.js"></script>

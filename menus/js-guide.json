@@ -1,7 +1,17 @@
 [
   {
     "title": "Getting Started",
-    "url": "/js/guide"
+    "url": "/js/guide",
+      "sub": [
+        {
+          "title": "Install Skygear JS SDK",
+          "url": "#install-js-sdk"
+        },
+        {
+          "title": "Include Skygear JS SDK in your project",
+          "url": "#include-js-sdk"
+        }
+      ]
   },
   {
     "title": "First Example App",
