@@ -99,6 +99,12 @@
       "title": "Handling Errors",
       "content_path": "./content/ios/handling-errors.md",
       "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/access-control": {
+      "name": "iOS SDK",
+      "title": "Access Control",
+      "content_path": "./content/ios/access-control.md",
+      "menu_path": "./menus/ios-guide.json"
     }
   }
 }
