@@ -8,6 +8,22 @@ import { Window } from '../../../lib/BrowserProxy';
 import './Menu.scss';
 
 class Menu extends Component {
+  constructor(props) {
+    super(props);
+    this._renderMenuItem = this._renderMenuItem.bind(this);
+    this._renderSubMenuItem = this._renderSubMenuItem.bind(this);
+  }
+
+  isActive(url) {
+    let pathname = Window.location.pathname;
+
+    if (pathname && pathname.endsWith('/')) {
+      pathname = pathname.substr(0, pathname.lastIndexOf('/'));
+    }
+
+    return url === pathname;
+  }
+
   _renderSubMenuItem(subMenuItemContent, index) {
     let hash = Window.location.hash;
 
@@ -34,7 +50,7 @@ class Menu extends Component {
     if (isActive && menuItemContent.sub && menuItemContent.sub.length > 0) {
       return (
         <ul className="sub-menu">{
-          map(menuItemContent.sub, this._renderSubMenuItem.bind(this))
+          map(menuItemContent.sub, this._renderSubMenuItem)
         }</ul>
       );
     } else {
@@ -43,14 +59,7 @@ class Menu extends Component {
   }
 
   _renderMenuItem(menuItemContent, index) {
-    let pathname = Window.location.pathname;
-
-    if (pathname && pathname.endsWith('/')) {
-      pathname = pathname.substr(0, pathname.lastIndexOf('/'));
-    }
-
-    const isActive = menuItemContent.url === pathname;
-
+    const isActive = this.isActive(menuItemContent.url);
     return (
       <li
         className={classNames({
@@ -69,7 +78,7 @@ class Menu extends Component {
 
   render() {
     return <ul className={classNames('Guide-Menu', ...this.props.classNames)}>{
-      map(this.props.content, this._renderMenuItem.bind(this))
+      map(this.props.content, this._renderMenuItem)
     }</ul>;
   }
 }
