@@ -1,10 +1,22 @@
-## Using latest stable release on npm
+<a name="install-js-sdk"></a>
+## Install Skygear JS SDK
+
+There are several ways to install Skygear SDK to you app. You can either:
+
+* Use the latest stable release on npm
+* Install the latest development version
+
+### Use the latest stable release on npm
+You can install Skygear JS SDK via [npm](https://www.npmjs.com/package/skygear). The SDK  package is available on the npm website.
+
 
 ``` bash
 npm install skygear --save
 ```
 
-## Install the latest development version
+### Install the latest development version
+
+You can add the development branch GitHub Repository as a submodule in your project.
 
 ``` bash
 git submodule git@github.com:skygeario/skygear-server.git
@@ -14,17 +26,20 @@ cd ..
 npm install skygear/
 ```
 
-## Include in your npm project
+<a name="include-js-sdk"></a>
+## Include Skygear JS SDK in your project
 
-Since skygear-SDk-JS is develop by assuming ES6 runtime. If you want to run it
-on older runtime, you need to require the polyfill before import skygear
+### Include in your npm project
+
+The skygear JS SDK is assumed to be run in ES6 runtime. If you wish to run it in an older runtime, you need to require the [polyfill plugin](https://babeljs.io/docs/usage/polyfill/) before importing the Skygear SDK.
 
 ``` js
 import 'babel-polyfill';
 import skygear from 'skygear';
 ```
 
-## Include in react-native
+### Include in React Native projects
+You can also include Skygear JS SDK in your React Native project.
 
 ``` js
 require('babel-polyfill');
@@ -35,9 +50,18 @@ var React = require('react-native');
 var skygear = require('skygear');
 ```
 
-## Include in your website __NOT IMPLEMENTED__
+### Include in your website *(NOT YET IMPLEMENTED)*
+Place these lines before the body closing tag `</body>`. The SDK will be loaded from the skygear.io CDN.
 
 ``` html
 <script src="//cdn.skygear.io/polyfill.min.js"></script>
 <script src="//cdn.skygear.io/skygear.js"></script>
 ```
+
+<a name="whats-next"></a>
+## What's Next
+Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
+
+Interested in doing more with your Skygear backend server?
+
+The Plugin interface is designed to empower developers to automate, extend, and integrate functionality provided by the Skygear Server with other services and applications. For more information, check out the Plugin docs.

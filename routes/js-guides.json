@@ -6,7 +6,7 @@
   "routes": {
     "/js/guide": {
       "name": "JS SDK",
-      "title": "How to install Skygear JS SDK in your website",
+      "title": "Getting Started",
       "content_path": "./content/js/index.md",
       "menu_path": "./menus/js-guide.json"
     },
