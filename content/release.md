@@ -1,5 +1,3 @@
-# Release cycle
-
 Every WED.
 
 - Upload `py-skygear` to pypi as `skygear`
@@ -7,7 +5,7 @@ Every WED.
 - Upload `skygear-SDK-iOS` to cocoapods as `SKYKit`
 - Upload `skygear-SDK-JS` to npm as `skygear`
 
-# Version number
+## Version number
 
 Version number conforms to `x.y.z` format. For each release cycle, `y`
 is incremented by 1. The same `x.y` corresponds to the tag of skygear and it
@@ -15,9 +13,9 @@ will stay the same for all above modules during the release cycle.
 For hot fix within a release cycle, increment `z`
 by 1 and `z` is reset to 0 on the next release cycle.
 
-# How to relase?
+## How to relase?
 
-## Preparation
+### Preparation
 
 ```shell
 $ export GITHUB_TOKEN=abcdef1234 # Need Repos scope for update release notes
@@ -32,59 +30,59 @@ $ brew install gpg2
 `skygeario/skygear-server`. Make sure you are on `master` branch and the
 branch is the same as the `origin/master`.
 
-## skygear-server
+### skygear-server
 
 ```shell
-# Draft new release changelog
+## Draft new release changelog
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
 $ github-release release -u skygeario -r skygear-server --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
-# Update changelog
+## Update changelog
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
 $ sed -i "" "s/version = \".*\"/version = \"v$SKYGEAR_VERSION\"/" skyversion/version.go
 $ git add CHANGELOG.md skyversion/version.go
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 
-# Tag and push commit
+## Tag and push commit
 $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
 
-# Wait for Travis deployment...
+## Wait for Travis deployment...
 
-# Push to latest branch
+## Push to latest branch
 git push origin master:latest
 
-# Click `Publish release` in github release page
+## Click `Publish release` in github release page
 ```
 
-## py-skygear
+### py-skygear
 
 ```shell
-# Draft new release changelog
+## Draft new release changelog
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
 $ github-release release -u skygeario -r py-skygear --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
-# Update changelog and version number
+## Update changelog and version number
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
 $ sed -i "" "s/version='.*'/version='$SKYGEAR_VERSION'/" setup.py
 $ git add CHANGELOG.md setup.py
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 
-# Release to pypi
+## Release to pypi
 $ python3 setup.py sdist upload
 
-# Tag and push commit
+## Tag and push commit
 $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
 
-# Click `Publish release` in github release page
+## Click `Publish release` in github release page
 ```
 
-## skygear-SDK-iOS
+### skygear-SDK-iOS
 
 **IMPORTANT**: Note that Cocoapods does not allow tag prefixed with `v`.
 Therefore the tag name is different from other projects.
@@ -93,74 +91,74 @@ Therefore the tag name is different from other projects.
 it will accept a new release.
 
 ```shell
-# Draft new release changelog
+## Draft new release changelog
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
 $ github-release release -u skygeario -r skygear-SDK-iOS --draft --tag $SKYGEAR_VERSION --name "$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
-# Update changelog and version number
+## Update changelog and version number
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
 $ sed -i "" "s/\(s\.version[^=]*=[^\"]*\"\)[^\"]*/\1$SKYGEAR_VERSION/" SKYKit.podspec
 $ git add CHANGELOG.md SKYKit.podspec
 $ git commit -m "Update CHANGELOG for $SKYGEAR_VERSION"
 
-# Tag and push commit
+## Tag and push commit
 $ git tag -a $SKYGEAR_VERSION -s -u $KEY_ID -m "Release $SKYGEAR_VERSION"
 $ git push --follow-tags origin $SKYGEAR_VERSION
 
-# Push commit to Cocoapods
+## Push commit to Cocoapods
 $ pod trunk push SKYKit.podspec
 
-# Click `Publish release` in github release page
+## Click `Publish release` in github release page
 ```
 
-## skygear-SDK-JS
+### skygear-SDK-JS
 
 ```shell
-# Draft new release changelog
+## Draft new release changelog
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
 $ github-release release -u skygeario -r skygear-SDK-JS --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
-# Update changelog and version number
+## Update changelog and version number
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
 $ sed -i "" "s/\"version\": \".*\"/\"version\": \"$SKYGEAR_VERSION\"/" package.json
 $ git add CHANGELOG.md package.json
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 
-# Release to npm
+## Release to npm
 $ npm publish
 
-# Tag and push commit
+## Tag and push commit
 $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
 
-# Click `Publish release` in github release page
+## Click `Publish release` in github release page
 ```
 
-## skycli
+### skycli
 
 ```shell
-# Draft new release changelog
+## Draft new release changelog
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
 $ github-release release -u skygeario -r skycli --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
 
-# Update changelog
+## Update changelog
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
 $ git add CHANGELOG.md
 $ git commit -m "Update CHANGELOG for v$SKYGEAR_VERSION"
 
-# Tag and push commit
+## Tag and push commit
 $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
 
-# Click `Publish release` in github release page
+## Click `Publish release` in github release page
 ```
 
-# Other notes
+## Other notes
 
 To show tag info:
 

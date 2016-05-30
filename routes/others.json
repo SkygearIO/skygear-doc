@@ -8,6 +8,11 @@
       "name": "Skygear",
       "title": "Getting Started",
       "content_path": "./content/intro/getting-started.md"
+    },
+    "/release-cycle": {
+      "name": "Skygear",
+      "title": "Release Cycle",
+      "content_path": "./content/release.md"
     }
   }
 }
