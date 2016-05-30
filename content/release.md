@@ -105,6 +105,7 @@ $ git commit -m "Update CHANGELOG for $SKYGEAR_VERSION"
 ## Tag and push commit
 $ git tag -a $SKYGEAR_VERSION -s -u $KEY_ID -m "Release $SKYGEAR_VERSION"
 $ git push --follow-tags origin $SKYGEAR_VERSION
+$ git push origin
 
 ## Push commit to Cocoapods
 $ pod trunk push SKYKit.podspec
