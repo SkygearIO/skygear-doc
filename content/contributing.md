@@ -33,7 +33,7 @@ app:
   dockerfile: Dockerfile-development
   volumes:
   - .:/go/src/app
-  command: sh -c "go build && ./app development.ini"
+  command: sh -c "go build && ./skygear-server"
 ```
 
 To start the Skygear Server daemon,

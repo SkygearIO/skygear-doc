@@ -34,21 +34,14 @@ $ mkdir myapp
 $ cd myapp
 ```
 
-Download the development config file and save it in the directory you have
-just created.
-
-``` bash
-$ curl -O http://docs.skygear.io/development.ini
-```
-
-You should modify the app `name` and `api-key` with your app name
-and a generated random string. This guide assumes you have set the API Key
-to `changeme`. However, you should generate your own API Key.
+You should provide `API_KEY` and `MASTER_KEY` for minimal configuration. This
+guide assumes you have set the API Key to `changeme`. However, you should
+generate your own API Key.
 
 Run Skygear Server using following command:
 
 ```
-$ skygear-server development.ini
+$ API_KEY=changeme MASTER_KEY=secret skygear-server
 ```
 
 To test that Skygear Server is running, run:
@@ -57,6 +50,9 @@ To test that Skygear Server is running, run:
 $ curl http://127.0.0.1:3000/
 {"result":{"status":"OK"}}
 ```
+
+For more configuration, please visit
+[Skygear Server Configuration](/server/guide)
 
 ## Connect with cURL
 
@@ -122,12 +118,12 @@ $ py-skygear plugin.py --subprocess init
 {"op": ["chima:hello"], "provider": [], "hook": [], "timer": [], "handler": {}}
 ```
 
-Add plugin configuration to development.ini
+Add plugin configuration to environment variabls 
 
 ```
-[plugin "first-plugin"]
-transport = exec
-args = plugin.py
+export PLUGINS=first_plugin
+export FIRST_PLUGIN_TRANSPORT=exec
+export FIRST_PLUGIN_ARGS=plugin.py
 ```
 
 Restart skygear, verify the Skygear Server load plugin by following cURL

@@ -34,13 +34,16 @@ go generate ./...
 go build
 ```
 
-Modify the development.ini
+Modify the environment variable for configuration. For detail see
+[Skygear Server Configuration](/server/guide)
 
 ``` bash
-skygear-server development.ini
+skygear-server
 ```
 
 You should see following output
 ```
-INFO[0000] Listening on 127.0.0.1:3000...
+INFO[0000] Starting Skygear Server(v0.xx.0)...
+.....
+INFO[0000] Listening on :3000... 
 ```

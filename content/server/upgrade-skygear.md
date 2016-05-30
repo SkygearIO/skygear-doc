@@ -26,5 +26,5 @@ When Skygear Server runs, it will first check if the version of the database is
 up-to-date. Skygear Server will automatically upgrade the schema to the
 latest version when Skygear Server starts in development mode.
 
-To put Skygear Server in development, either set `dev-mode = true` in
-`development.ini` or set `DEV_MODE=YES` in environment variable.
+To put Skygear Server in development,  set `DEV_MODE=YES` in environment
+variable.
