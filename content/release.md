@@ -171,7 +171,6 @@ $ git show v0.5.0
 To delete tags:
 
 ```
-$ git tag -d 0.5.0
-$ git push origin :refs/tags/0.5.0
-$ git push skygeario :refs/tags/0.5.0
+$ git tag -d v$SKYGEAR_VERSION
+$ git push origin :refs/tags/v$SKYGEAR_VERSION
 ```
