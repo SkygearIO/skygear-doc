@@ -1,5 +1,4 @@
-While we provide docker image for easy boostrap, you can clone the source and
-start the server on your own by following steps.
+While we provide docker image for easy boostrap, you can clone the source and start the server on your own by following steps.
 
 ### Prerequisite
 
@@ -21,7 +20,7 @@ psql -c 'CREATE EXTENSION postgis;' -U postgres -d myapp
 
 ### Install go
 
-Follow instruction at https://golang.org/doc/install
+Follow the instructions at https://golang.org/doc/install
 
 ### Get the soruce code
 

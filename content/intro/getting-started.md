@@ -1,13 +1,14 @@
-This guide will guide you through setting up Skygear Server for app developers.
+This guide will guide you through setting up the Skygear Server for app developers.
+
 At the end of the guide, you will have a working installation for Skygear
-in your computer that is suitable for app development.
+on your computer. It will be suitable for app development.
 
 ### How to setup Skygear Server for development in Mac
 
-First, install homebrew. http://brew.sh
+First, install [homebrew](http://brew.sh)
 
 Skygear Server require `golang`, `python3` and `PostgreSQL` to run, you may install
-them by using homebrew as follows:
+them via homebrew as the following:
 
 ``` bash
 $ brew install go
@@ -15,8 +16,8 @@ $ brew install python3
 $ brew install postgresql
 ```
 
-After the dependencies are installed, you can install Skygear Server into your system
-by following these commands:
+After installing the dependencies, you can install Skygear Server into your system
+by these commands:
 
 ``` bash
 $ go get github.com/SkygearIO/skygear-server
@@ -26,8 +27,7 @@ $ pip3 install skygear
 
 ## Start working with skygear
 
-Create a directory called `myapp`. You can also call it by
-any name.
+Create a directory called `myapp`. (You can give it a custom name as well.)
 
 ```
 $ mkdir myapp
@@ -35,7 +35,9 @@ $ cd myapp
 ```
 
 You should provide `API_KEY` and `MASTER_KEY` for minimal configuration. This
-guide assumes you have set the API Key to `changeme`. However, you should
+guide assumes you have set the API Key to `changeme`. 
+
+However, you should
 generate your own API Key.
 
 Run Skygear Server using following command:

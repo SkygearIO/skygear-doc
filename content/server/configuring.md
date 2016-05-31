@@ -1,6 +1,6 @@
-This section covers how to configure skygear. While configuration is not
-required to get Skygear up and running, you should configure it for production
-deployment.
+This section covers how to configure the Skygear Server. 
+
+Configuration is not mandatory to get Skygear up and running, you should configure it for production deployment.
 
 ## How to configure Skygear?
 
@@ -20,13 +20,13 @@ app:
     DATABASE_URL: postgresql://postgres:@db/postgres?sslmode=disable
 ```
 
-If you run skygear with Docker but not using Compose:
+If you wish to run Skygear with Docker without using Compose:
 
 ```
 $ docker run -e ENV_NAME=ENV_VALUE skygeario/skygear-server
 ```
 
-If you run Skygear without Docker, Skygear support the .env for easy
+If you run Skygear without Docker, Skygear supports the `.env` for easy
 development. Checkout the example config:
 https://github.com/SkygearIO/skygear-server/blob/master/.env.example
 
@@ -43,7 +43,7 @@ $ skygear-server
 
 ##### S3 Asset Store
 
-Skygear support s3 as storage backend.
+Skygear supports s3 as the default storage backend.
 Fill out the AWS access key, secret key, region and bucket by the following
 environment variable.
 
