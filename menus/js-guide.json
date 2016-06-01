@@ -100,7 +100,8 @@
         "title": "Access Control by Record Type"
       },
       {
-        "title": "Access Control by Role"
+        "title": "Access Control by Role",
+        "url": "/js/guide/access-control/role"
       }
     ]
   },

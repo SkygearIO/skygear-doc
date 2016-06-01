@@ -93,7 +93,12 @@
       "title": "Access Control",
       "content_path": "./content/js/access-control.md",
       "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/access-control/role": {
+      "name": "JS SDK",
+      "title": "Access Control By Role",
+      "content_path": "./content/js/acl-role.md",
+      "menu_path": "./menus/js-guide.json"
     }
   }
 }
-
