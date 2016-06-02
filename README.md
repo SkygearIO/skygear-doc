@@ -22,7 +22,9 @@ Push to `production` branch to deploy to [http://docs.skygear.io](http://docs.sk
 - All contents are defined in markdown files in **content** folder
   - The markdown format follows [Github's recommandation](https://guides.github.com/features/mastering-markdown/)
   - The code block would have syntax highlight if declared the language used.
-  - Currently supported languages: `bash`, `css`, `go`, `html`, `ini`, `javascript`, `js`, `objc`, `python`
+  - Currently supported languages:
+    `bash`, `css`, `go`, `gradle`, `groovy`, `html`,
+    `ini`, `java`, `javascript`, `js`, `objc`, `python`
 - To link a specific content to a route, update / create a new JSON files in **routes** folder
 - To update side menu, update JSON files in **menus** folder
 

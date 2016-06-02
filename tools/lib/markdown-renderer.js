@@ -4,7 +4,9 @@ require('prismjs');
 require('prismjs/components/prism-bash');
 require('prismjs/components/prism-c');
 require('prismjs/components/prism-go');
+require('prismjs/components/prism-groovy');
 require('prismjs/components/prism-ini');
+require('prismjs/components/prism-java');
 require('prismjs/components/prism-objectivec');
 require('prismjs/components/prism-python');
 
@@ -12,8 +14,11 @@ const Syntaxes = {
   'bash': Prism.languages.bash,
   'css': Prism.languages.css,
   'go': Prism.languages.go,
+  'gradle': Prism.languages.groovy,
+  'groovy': Prism.languages.groovy,
   'html': Prism.languages.html,
   'ini': Prism.languages.ini,
+  'java': Prism.languages.java,
   'javascript': Prism.languages.javascript,
   'js': Prism.languages.javascript,
   'objc': Prism.languages.objectivec,

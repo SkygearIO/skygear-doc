@@ -1,0 +1,14 @@
+{
+  "factory": {
+    "name": "GuideFactory",
+    "path": "./components/GuideFactory"
+  },
+  "routes": {
+    "/android/guide": {
+      "name": "Android SDK",
+      "title": "Get started",
+      "content_path": "./content/android/getting-started.md",
+      "menu_path": "./menus/android-guide.json"
+    }
+  }
+}

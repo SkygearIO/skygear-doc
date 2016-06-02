@@ -15,6 +15,21 @@ export default [
     ]
   },
   {
+    title: 'Android SDK',
+    description: 'Android Client',
+    icon: require('../asserts/icn-skygear-core.png'),
+    buttons: [
+      {
+        name: 'Guide',
+        url: '/android/guide'
+      },
+      {
+        name: 'API Reference',
+        url: '/android/reference'
+      }
+    ]
+  },
+  {
     title: 'JS SDK',
     description: 'Javascript Client',
     icon: require('../asserts/icn-js-sdk.png'),
