@@ -1,6 +1,20 @@
 [
     {
         "title": "Getting Started",
-        "url": "/android/guide"
+        "url": "/android/guide",
+        "sub": [
+            {
+                "title": "Sign up for Skygear",
+                "url": "#signup"
+            },
+            {
+                "title": "Install Android SDK",
+                "url": "#install"
+            },
+            {
+                "title": "What's Next",
+                "url": "#whats-next"
+            }
+        ]
     }
 ]
