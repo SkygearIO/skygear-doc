@@ -12,6 +12,10 @@
                 "url": "#install"
             },
             {
+                "title": "Set up Skygear",
+                "url": "#setup"
+            },
+            {
                 "title": "What's Next",
                 "url": "#whats-next"
             }
