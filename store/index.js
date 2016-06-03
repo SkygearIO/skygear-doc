@@ -17,7 +17,7 @@ export default [
   {
     title: 'Android SDK',
     description: 'Android Client',
-    icon: require('../asserts/icn-skygear-core.png'),
+    icon: require('../asserts/icn-android.png'),
     buttons: [
       {
         name: 'Guide',
