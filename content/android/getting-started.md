@@ -95,7 +95,6 @@ public class MyApplication extends Application {
         Configuration config = new Configuration.Builder()
                 .endPoint("http://your-endpoint.skygeario.com/")
                 .apiKey("your-api-key")
-                .context(this)
                 .build();
 
         Container.defaultContainer(this).configure(config);
