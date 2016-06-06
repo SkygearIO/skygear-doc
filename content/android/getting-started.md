@@ -98,7 +98,7 @@ public class MyApplication extends Application {
                 .context(this)
                 .build();
 
-        Container.defaultContainer().configure(config);
+        Container.defaultContainer(this).configure(config);
 
         // your code...
     }
