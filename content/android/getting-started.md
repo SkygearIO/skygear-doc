@@ -18,20 +18,20 @@ You will need the server endpoint and API Key to set up your app.
 1. Make sure jcenter repository is included in `build.gradle` of your project
 
   ```gradle
-allprojects {
-    repositories {
-        jcenter()
-    }
-}
+  allprojects {
+      repositories {
+          jcenter()
+      }
+  }
   ```
 
 2. Add skygear as dependency in `build.gradle` of your application
 
   ```gradle
-dependencies {
-    // other dependencies
-    compile 'io.skygear:skygear:+'
-}
+  dependencies {
+      // other dependencies
+      compile 'io.skygear:skygear:+'
+  }
   ```
 
 <a name="setup"></a>
@@ -44,41 +44,41 @@ If you does not have a custom application class, you can set up skygear as follo
 1. Create custom class extends `SkygearApplication`
 
   ```java
-import io.skygear.skygear.SkygearApplication;
+  import io.skygear.skygear.SkygearApplication;
 
-public class MyApplication extends SkygearApplication {
-  // ...
-}
+  public class MyApplication extends SkygearApplication {
+      // ...
+  }
   ```
 
 2. Update `AndroidManifest.xml`, add `android:name` attribute to `application` tag
 
   ```html
-<application
-    android:name=".MyApplication"
-    android:allowBackup="true"
-    android:icon="@mipmap/ic_launcher"
-    android:label="@string/app_name"
-    android:supportsRtl="true"
-    android:theme="@style/AppTheme">
-    <!-- different activities ... -->
-</application>
+  <application
+      android:name=".MyApplication"
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+      <!-- different activities ... -->
+  </application>
   ```
 
 3. Implement required methods in custom application class
 
   ```java
-public class MyApplication extends SkygearApplication {
-    @Override
-    public String getSkygearEndpoint() {
-        return "http://your-endpoint.skygeario.com/";
-    }
+  public class MyApplication extends SkygearApplication {
+      @Override
+      public String getSkygearEndpoint() {
+          return "http://your-endpoint.skygeario.com/";
+      }
 
-    @Override
-    public String getApiKey() {
-        return "your-api-key";
-    }
-}
+      @Override
+      public String getApiKey() {
+          return "your-api-key";
+      }
+  }
   ```
 
 
@@ -87,21 +87,21 @@ public class MyApplication extends SkygearApplication {
 If you have your custom application class, you can set up skygear when your application starts.
 
   ```java
-public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
+  public class MyApplication extends Application {
+      @Override
+      public void onCreate() {
+          super.onCreate();
 
-        Configuration config = new Configuration.Builder()
-                .endPoint("http://your-endpoint.skygeario.com/")
-                .apiKey("your-api-key")
-                .build();
+          Configuration config = new Configuration.Builder()
+                  .endPoint("http://your-endpoint.skygeario.com/")
+                  .apiKey("your-api-key")
+                  .build();
 
-        Container.defaultContainer(this).configure(config);
+          Container.defaultContainer(this).configure(config);
 
-        // your code...
-    }
-}
+          // your code...
+      }
+  }
   ```
 
 <a name="whats-next"></a>
