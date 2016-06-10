@@ -20,5 +20,23 @@
                 "url": "#whats-next"
             }
         ]
+    },
+    {
+        "title": "User Authentication",
+        "url": "/android/guide/user-auth",
+        "sub": [
+            {
+                "title": "Sign up",
+                "url": "#signup"
+            },
+            {
+                "title": "Login",
+                "url": "#login"
+            },
+            {
+                "title": "Get current users",
+                "url": "#current-user"
+            }
+        ]
     }
 ]

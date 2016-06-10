@@ -51,19 +51,27 @@ If you does not have a custom application class, you can set up skygear as follo
   }
   ```
 
-2. Update `AndroidManifest.xml`, add `android:name` attribute to `application` tag
+2. Update `AndroidManifest.xml`
 
-  ```html
-  <application
-      android:name=".MyApplication"
-      android:allowBackup="true"
-      android:icon="@mipmap/ic_launcher"
-      android:label="@string/app_name"
-      android:supportsRtl="true"
-      android:theme="@style/AppTheme">
-      <!-- different activities ... -->
-  </application>
-  ```
+  - add `android:name` attribute to `application` tag
+
+    ```html
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!-- different activities ... -->
+    </application>
+    ```
+
+  - add `android.permission.INTERNET` permission
+
+    ```html
+    <uses-permission android:name="android.permission.INTERNET" />
+    ```
 
 3. Implement required methods in custom application class
 
@@ -103,6 +111,13 @@ If you have your custom application class, you can set up skygear when your appl
       }
   }
   ```
+
+Also, you need to make sure your application has grant
+`android.permission.INTERNET` permission in `AndroidManifest.xml`.
+
+```html
+<uses-permission android:name="android.permission.INTERNET" />
+```
 
 <a name="whats-next"></a>
 ## What's Next
