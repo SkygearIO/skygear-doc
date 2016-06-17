@@ -34,8 +34,34 @@
                 "url": "#login"
             },
             {
-                "title": "Get current users",
+                "title": "Get current user",
                 "url": "#current-user"
+            }
+        ]
+    },
+    {
+        "title": "Records",
+        "url": "/android/guide/records",
+        "sub": [
+            {
+                "title": "Record Database",
+                "url": "#database"
+            },
+            {
+                "title": "Create records",
+                "url": "#create"
+            },
+            {
+                "title": "Save records",
+                "url": "#save"
+            },
+            {
+                "title": "Query records",
+                "url": "#query"
+            },
+            {
+                "title": "Delete records",
+                "url": "#delete"
             }
         ]
     }

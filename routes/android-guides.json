@@ -15,6 +15,12 @@
       "title": "User Authentication",
       "content_path": "./content/android/user-auth.md",
       "menu_path": "./menus/android-guide.json"
+    },
+    "/android/guide/records": {
+      "name": "Android SDK",
+      "title": "Records",
+      "content_path": "./content/android/records.md",
+      "menu_path": "./menus/android-guide.json"
     }
   }
 }
