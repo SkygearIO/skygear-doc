@@ -1,7 +1,8 @@
-This section covers how to configure the Skygear Server. 
+This section covers how to configure the Skygear Server.
 
 Configuration is not mandatory to get Skygear up and running, you should configure it for production deployment.
 
+<a name="configure"></a>
 ## How to configure Skygear?
 
 The Skygear is configured by environment variable.
@@ -31,7 +32,7 @@ development. Checkout the example config:
 https://github.com/SkygearIO/skygear-server/blob/master/.env.example
 
 For more information about how `.env` files works, please read
-https://github.com/joho/godotenv 
+https://github.com/joho/godotenv
 
 ```
 $ export API_KEY=changeme
@@ -59,6 +60,7 @@ $ export ASSET_STORE_BUCKET=thebucketname
 If the S3 is public readable, you can set `ASSET_STORE_PUBLIC` to `YES` such
 that access signature can be omitted.
 
+<a name="name-and-key"></a>
 ## App Name and API Key
 
 It is strongly recommended that you change the App Name and API Key.
@@ -82,6 +84,7 @@ app:
     API_KEY: thisissupersecret
 ```
 
+<a name="logging"></a>
 ## Logging
 
 Logging let you keep track of what is happening in Skygear. Information
@@ -103,12 +106,13 @@ $ export SENTRY_DSN=http://abcd:efgh@sentry.example.com/sentry/project1
 $ export SENTRY_LEVEL=warn
 ```
 
+<a name="others"></a>
 ## List of configuration settings
 
 To set up the configuration settings in the local development environment, it
 is recommended to put the setting in `.env` file.
 
-If you are using the Skygear portal, you can set the environment variable on the 
+If you are using the Skygear portal, you can set the environment variable on the
 <a href="http://portal-staging.skygear.io/app/settings">settings page</a>.
 
 ### Application related
@@ -155,4 +159,3 @@ to learn how to convert cert/key to PEM.
 ### GCM(Google Cloud Messaging) related
 * `GCM_ENABLE` - string , `YES` or `NO`
 * `GCM_APIKEY` - string, the api-key you obtained from Google
-

@@ -1,7 +1,25 @@
 [
   {
     "title": "Skygear Server Configuration",
-    "url": "/server/guide"
+    "url": "/server/guide",
+    "sub": [
+      {
+        "title": "How to configure Skygear",
+        "url": "#configure"
+      },
+      {
+        "title": "App Name and API Key",
+        "url": "#name-and-key"
+      },
+      {
+        "title": "Logging",
+        "url": "#logging"
+      },
+      {
+        "title": "Other configuration settings",
+        "url": "#others"
+      }
+    ]
   },
   {
     "title": "Architecture",
