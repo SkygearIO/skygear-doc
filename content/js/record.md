@@ -33,6 +33,7 @@ may set different access control entity to the record.
 - The database objects can be accessed with `skygear.publicDB` and
 `skygear.privateDB`.
 
+<a name="record-record"></a>
 # Record
 
 - `Record` must have a type.
@@ -92,7 +93,7 @@ skygear.publicDB.save([helloNote, foobarNote])
 
 You can construct a Query object by providing a Record Type.
 You can config the query by mutating its state.
-Read the section about Query to learn more.
+Read the section about [Query](/js/guide/query) to learn more.
 
 ``` javascript
 var query = new skygear.Query(Blog);
@@ -110,7 +111,7 @@ skygear.publicDB.query(query).then((records) => {
 # (Update) Modify a record
 
 Every `Record` object has a unique identifier that can be referenced
-as `record.id`. See the above section about `Record` for more information.
+as `record.id`. See the [above](#record-record) section about `Record` for more information.
 
 ``` javascript
 skygear.publicDB.save(new Note({
@@ -131,7 +132,7 @@ side.
 # (Delete) Delete a record
 
 Again, every `Record` object has a unique identifier that can be referenced
-as `record.id`. See the above section about `Record` for more information.
+as `record.id`. See the [above](#record-record) section about `Record` for more information.
 
 ``` javascript
 skygear.publicDB.delete({
