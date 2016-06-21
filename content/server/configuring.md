@@ -134,7 +134,8 @@ If you are using the Skygear portal, you can set the environment variable on the
 ### Asset store related
 * `ASSET_STORE` - The backing store of asset, surrently support `s3`. And `fs`
   for local development
-* `ASSET_STORE_PUBLIC` - Specific the asset is public or follow ACL
+* `ASSET_STORE_PUBLIC` - Specific the asset is public or follow ACL, `YES` or
+  `NO`
 * `ASSET_STORE_PATH` - Where is the asset saved if using `fs` backing store.
 * `ASSET_STORE_URL_PREFIX` - The URL prefix Skygear will generate for `fs`
   store.
