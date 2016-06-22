@@ -50,6 +50,6 @@ Push to `production` branch to deploy to [http://docs.skygear.io](http://docs.sk
 ```
 
 ## Style Guide for JS Docs
-- Four spaces per indent
+- Two spaces per indent
 - Use `console.error(error)` instead of `console.log(err)`
-- Add `;` at the end of every statement
+- Use <brackets> for parts that require user to fill in

@@ -13,12 +13,12 @@ import skygear from 'skygear';
 // or in the browser with ECMAScript 5 just use window.skygear
 
 skygear.config({
-    'endPoint': 'https://<your-app-name>.staging.skygeario.com',
-    'apiKey': '<your-api-key>'
+  'endPoint': 'https://<your-app-name>.staging.skygeario.com',
+  'apiKey': '<your-api-key>'
 }).then((container) => {
-    console.log(container);
+  console.log(container);
 }, (error) => {
-    console.error(error);
+  console.error(error);
 });
 ```
 
@@ -52,17 +52,17 @@ let note = new Note({ "content": "Hello World" });
 // { id: "...", recordType: "note", access: [Object object] }
 ```
 
-# (Create) Save a record
+## Create a record
 
-You can save a public note to server as follow.
+You can save a public record to server as the following.
 
 ``` javascript
 skygear.publicDB.save(new Note({
-    'content': 'Hello World!'
+  'content': 'Hello World!'
 })).then((record) => {
-    console.log(record);
+  console.log(record);
 }, (error) => {
-    console.error(error);
+  console.error(error);
 });
 ```
 
@@ -70,26 +70,27 @@ You can also save multiple records at one time.
 
 ``` javascript
 let helloNote = new Note({
-    content: 'Hello world'
+  content: 'Hello world'
 });
 
 let foobarNote = new Note({
-    content: 'Foo bar'
+  content: 'Foo bar'
 });
 
 skygear.publicDB.save([helloNote, foobarNote])
 .then((result) => {
-    let {
-        savedRecords: [savedHelloNote, savedFoobarNote],
-        errors:       [helloError, foobarError]
-    } = result;
-    // errors here indicate saving error
+  let {
+    savedRecords: [savedHelloNote, savedFoobarNote],
+    errors:     [helloError, foobarError]
+  } = result;
+  // errors here indicate saving error
 }, (error) => {
-    // error here indicates request error
+  // error here indicates request error
 });
 ```
 
-# (Read) Fetch existing records
+
+## Read a record
 
 You can construct a Query object by providing a Record Type.
 You can config the query by mutating its state.
@@ -102,25 +103,31 @@ query.addDescending('popular');
 query.limit = 10;
 
 skygear.publicDB.query(query).then((records) => {
-    console.log(records)
+  console.log(records)
 }, (error) => {
-    console.error(error);
+  console.error(error);
 })
 ```
 
-# (Update) Modify a record
+
+## Update a record
 
 Every `Record` object has a unique identifier that can be referenced
 as `record.id`. See the [above](#record-record) section about `Record` for more information.
 
 ``` javascript
-skygear.publicDB.save(new Note({
-    'id': '<your-note-id>',
-    'content': 'Hello New World!'
-})).then((record) => {
-    console.log(record);
+let query = new skygear.Query(Note);
+query.equalTo('id', '<your-note-id>');
+
+skygear.publicDB.query(query)
+.then((records) => {
+  let note = records[0];
+  note['content'] = 'Hello New World';
+  return skygear.publicDB.save(note);
+}).then((record) => {
+  console.log(record);
 }, (error) => {
-    console.error(error);
+  console.error(error);
 });
 ```
 
@@ -129,18 +136,19 @@ be updated on the saved record object in place. The local transient fields of
 the records are merged with any remote transient fields applied on the server
 side.
 
-# (Delete) Delete a record
+
+## Delete a record
 
 Again, every `Record` object has a unique identifier that can be referenced
 as `record.id`. See the [above](#record-record) section about `Record` for more information.
 
 ``` javascript
 skygear.publicDB.delete({
-    'id': '<your-note-id>'
+  'id': '<your-note-id>'
 }).then((record) => {
-    console.log(record);
+  console.log(record);
 }, (error) => {
-    console.error(error);
+  console.error(error);
 });
 ```
 
@@ -153,17 +161,17 @@ query.lessThan('rating', 3);
 let foundNotes = [];
 skygear.publicDB.query(query)
 .then((notes) => {
-    console.log(`Found ${notes.length} notes, going to delete them.`);
-    foundNotes = notes;
-    return skygear.publicDB.delete(notes); // return a Promise object
+  console.log(`Found ${notes.length} notes, going to delete them.`);
+  foundNotes = notes;
+  return skygear.publicDB.delete(notes); // return a Promise object
 })
 .then((errors) => {
-    errors.forEach((perError, idx) => {
-        if (perError) {
-            console.error('Fail to delete', foundNotes[idx]);
-        }
-    });
+  errors.forEach((perError, idx) => {
+    if (perError) {
+      console.error('Fail to delete', foundNotes[idx]);
+    }
+  });
 }, (reqError) => {
-    console.error('Request error', reqError);
+  console.error('Request error', reqError);
 });
 ```
