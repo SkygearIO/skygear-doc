@@ -1,9 +1,13 @@
 ## Creating a subscription
 
-```js
-let Note = Record.extend('note');
+The following code creates a subscription of all the `Note` created by
+`skygear.currentUser`. Notice that creating a subscription does not involve
+the use of the `new` keyword.
+
+```javascript
+let Note = skygear.Record.extend('note');
 let query = new skygear.Query(Note);
-query.equalTo('_created_by', currentUserID);
+query.equalTo('_created_by', skygear.currentUser.id);
 
 subscription = skygear.Subscription('my notes');
 subscription.query = query;
@@ -12,63 +16,60 @@ skygear.publicDB.saveSubscription(subscription);
 
 ## Fetching subscription
 
-```js
+```javascript
 skygear.publicDB.fetchSubscription('my notes').then((subscription) => {
   // examine the subscription here
 }, (error) => {
-  console.log('error fetching "my notes": %o', error);
+  console.error('error fetching "my notes": %o', error);
 });
 ```
 
 ## Fetching all subscriptions
 
-```js
-skygear.publicDB.fetchAllSubscriptions.then((subscriptions) => {
-  subscriptions.forEach(sub => {
+```javascript
+skygear.publicDB.fetchAllSubscriptions().then((subscriptions) => {
+  subscriptions.forEach((subscription) => {
     // do something with the subscription here
   });
 }, (error) => {
-  console.log('error fetching all subscriptions: %o', error);
+  console.error('error fetching all subscriptions: %o', error);
 });
 ```
 
 ## Deleting a subscription
 
-```js
+```javascript
 skygear.publicDB.deleteSubscription('my notes').then((subscription) => {
   console.log('success deleting "my notes"')
 }, (error) => {
-  console.log('error deleting "my notes": %o', error)
+  console.error('error deleting "my notes": %o', error)
 });
 ```
 
 ## Listening to subscription notification
 
-```js
-skygear.addNotificationListener((notification) => {
+Once user subscribes, we can listen to subscription notifications.
+
+```javascript
+let listener = skygear.addNotificationListener((notification) => {
   if (notification.subscriptionID === 'my notes') {
+    let id = notification.recordID;
     switch (notification.reason) {
       case skygear.NOTIFICATION_REASON_DELETED:
-        deleteNote(notification.recordID);
+        // some note is deleted
         break;
       case skygear.NOTIFICATION_REASON_CREATED:
+        // a new note is created
+        break;
       case skygear.NOTIFICATION_REASON_UPDATED:
-        let id = notification.recordID;
+        // some note is updated with changes
         let changes = notification.recordChanges;
-        updateNote(id, changes);
+        // do something with the changes
         break;
     }
   }
 });
-```
 
-# Removing a notification listener
-
-```js
-let listener = skygear.addNotificationListener((notification) => {
-  // ...
-});
-
-// later in the program
+// later in the program when done listening
 listener.off();
 ```

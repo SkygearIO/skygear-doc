@@ -1,29 +1,31 @@
-# What Skygear provide
+## What Skygear provide
 
-Skygear support parent-child relation between records via _reference_.
-`skygear.Reference` is a pointer class, which will translate to foreignkey in
+Skygear supports parent-child relation between records via _reference_.
+`skygear.Reference` is a pointer class, which will translate to foreign key in
 skygear server database for efficient query.
 
-You can reference a record to a user.
+You can even reference a user from a record. To learn more about user object or
+how to retrieve user objects, you can read the [Users](/js/guide/users) section.
+Notice that we are not using the `new` keyword creating reference.
 
 ``` javascript
-const note = new Note({
+let note = new Note({
   heading: 'Working Draft',
-  content: 'People involed please fill in'
+  content: 'People involved please fill in'
 });
-const involed = skygear.Reference(rick); // rick is a user.
-note.involed = involed;
+let involved = skygear.Reference(rick); // rick is a user object
+note.involved = involved;
 skygear.publicDB.save(note);
 ```
 
 You can build up reference between records.
 
 ``` javascript
-const note1 = new Note({
+let note1 = new Note({
   heading: 'Specification',
   content: 'This is first section'
 });
-const note2 = new Note({
+let note2 = new Note({
   heading: 'Specification page 2',
   content: 'This is second section'
 });
@@ -34,27 +36,26 @@ skygear.publicDB.save([note1, note2]);
 You can also reference to an array of record.
 
 ``` javascript
-const note = new Note({
+let note = new Note({
   'content': 'This is intro, please see the document list for detail.'
 });
-const details = [note1, note2, note3].map((note) => {
+note.details = [note1, note2, note3].map((note) => {
   return skygear.Reference(note);
-})
-note.details = details;
+});
 skygear.publicDB.save(note);
 ```
 
-# Eager Loading
+## Eager Loading
 
-After you give a relation, you can
+After you specify a relation, you can perform eager loading using transient:
 
 ``` javascript
-const q = new skygear.Query(Note);
-q.transientInclude('details', 'my_details');
+let q = new skygear.Query(Note);
+q.transientInclude('details', '<your-transient-name>');
 skygear.publicDB.query(q).then((records) => {
   records.map((record) => {
     console.log(record.details); // Array of skygear.Reference
-    console.log(record.transient['my_details']); // Array of skygear.Record
+    console.log(record.transient['<your-transient-name>']); // Array of skygear.Record
   });
 }, (error) => {
   console.log(error);
@@ -64,6 +65,6 @@ skygear.publicDB.query(q).then((records) => {
 It is possible to eager load records from multiple keys, but doing so will
 impair performance.
 
-# Reference Action
+## Deleting Referenced Record
 
-Provide delete cascade.
+Yet to be implemented. For now, deleting a referenced record is not allowed.
