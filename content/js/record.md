@@ -96,7 +96,7 @@ You can config the query by mutating its state.
 Read the section about [Query](/js/guide/query) to learn more.
 
 ``` javascript
-var query = new skygear.Query(Blog);
+let query = new skygear.Query(Blog);
 query.greaterThan('popular', 10);
 query.addDescending('popular');
 query.limit = 10;
