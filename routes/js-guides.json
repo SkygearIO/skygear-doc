@@ -24,7 +24,7 @@
     },
     "/js/guide/query": {
       "name": "JS SDK",
-      "title": "Querying Records",
+      "title": "Queries",
       "content_path": "./content/js/query.md",
       "menu_path": "./menus/js-guide.json"
     },
@@ -38,12 +38,6 @@
       "name": "JS SDK",
       "title": "User relations (Friends & Followers)",
       "content_path": "./content/js/relation.md",
-      "menu_path": "./menus/js-guide.json"
-    },
-    "/js/guide/cached-query": {
-      "name": "JS SDK",
-      "title": "Cached Query",
-      "content_path": "./content/js/cached-query.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/pubsub": {
