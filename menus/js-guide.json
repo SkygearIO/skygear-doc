@@ -31,15 +31,15 @@
         },
         {
           "title": "Create an Auto-Incrementing Field",
-          "url": "/js/guide/auto-increment"
+          "url": "#auto-increment"
         },
         {
           "title": "Records Relations (References)",
-          "url": "/js/guide/reference"
+          "url": "#reference"
         },
         {
           "title": "Subscription",
-          "url": "/js/guide/subscription"
+          "url": "#subscription"
         }
       ]
   },
