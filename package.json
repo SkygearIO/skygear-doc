@@ -1,4 +1,4 @@
-{
+
   "devDependencies": {
     "autoprefixer": "^6.0.3",
     "babel": "^5.8.23",
@@ -36,9 +36,9 @@
     "raw-loader": "^0.5.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
-    "react-transform-catch-errors": "^1.0.0",
-    "react-transform-hmr": "^1.0.1",
-    "redbox-react": "~1.1.1",
+    "react-transform-catch-errors": "1.0.0",
+    "react-transform-hmr": "1.0.1",
+    "redbox-react": "1.1.1",
     "style-loader": "^0.12.4",
     "through2": "^2.0.0",
     "url-loader": "^0.5.6",
