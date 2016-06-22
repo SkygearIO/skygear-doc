@@ -1,5 +1,5 @@
 <a name="basic-crud"></a>
-# Container
+## Container
 
 Container is the uppermost layer of skygear. In practice,
 `import skygear from 'skygear'` will give you a container instance at variable
@@ -22,7 +22,7 @@ skygear.config({
 });
 ```
 
-# Database
+## Database
 
 You will be provided with a private and a public database.
 
@@ -34,7 +34,7 @@ may set different access control entity to the record.
 `skygear.privateDB`.
 
 <a name="record-record"></a>
-# Record
+## Record
 
 - `Record` must have a type.
 - `Record` is a key-value-pair data object that is stored at _database_.
@@ -48,7 +48,7 @@ tables in SQL.
 const Note = skygear.Record.extend('note');
 const Blog = skygear.Record.extend('blog');
 
-let note = new Note({ "content": "Hello World" });
+let note = new Note({ 'content': 'Hello World' });
 // { id: "...", recordType: "note", access: [Object object] }
 ```
 
@@ -89,7 +89,6 @@ skygear.publicDB.save([helloNote, foobarNote])
 });
 ```
 
-
 ## Read a record
 
 You can construct a Query object by providing a Record Type.
@@ -108,7 +107,6 @@ skygear.publicDB.query(query).then((records) => {
   console.error(error);
 })
 ```
-
 
 ## Update a record
 

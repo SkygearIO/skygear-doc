@@ -18,7 +18,7 @@
     },
     "/js/guide/record": {
       "name": "JS SDK",
-      "title": "CRUD Records",
+      "title": "Basic CRUD",
       "content_path": "./content/js/record.md",
       "menu_path": "./menus/js-guide.json"
     },
