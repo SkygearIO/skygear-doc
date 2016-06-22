@@ -30,7 +30,7 @@
     },
     "/js/guide/users": {
       "name": "JS SDK",
-      "title": "Users (Authentication)",
+      "title": "Users",
       "content_path": "./content/js/users.md",
       "menu_path": "./menus/js-guide.json"
     },

@@ -74,8 +74,8 @@
         "url": "#authentication"
       },
       {
-        "title": "currentUser",
-        "url": "#currentUser"
+        "title": "Current User",
+        "url": "#current-user"
       }
     ]
   },
