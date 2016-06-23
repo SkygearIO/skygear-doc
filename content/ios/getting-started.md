@@ -49,7 +49,7 @@ Then add these lines in the `application:didFinishLaunchingWithOptions:` method:
 
 ```obj-c
 SKYContainer *container = [SKYContainer defaultContainer];
-[container configAddress:@"your-endpoint.skygeario.com"]; //Your server endpoint
+[container configAddress:@"https://your-endpoint.skygeario.com/"]; //Your server endpoint
 [container configureWithAPIKey:@"SKYGEAR_API_KEY"]; //Your Skygear API Key
 ```
 
