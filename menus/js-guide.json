@@ -26,8 +26,8 @@
     "url": "/js/guide/record",
       "sub": [
         {
-          "title": "Basic CURD",
-          "url": "#basic-curd"
+          "title": "Basic CRUD",
+          "url": "#basic-crud"
         },
         {
           "title": "Create an Auto-Incrementing Field",

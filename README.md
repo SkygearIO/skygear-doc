@@ -48,3 +48,8 @@ Push to `production` branch to deploy to [http://docs.skygear.io](http://docs.sk
 │── package.json       # Dev dependencies and NPM scripts
 └── README.md          # Project overview
 ```
+
+## Style Guide for JS Docs
+- Two spaces per indent
+- Use `console.error(error)` instead of `console.log(err)`
+- Use <brackets> for parts that require user to fill in

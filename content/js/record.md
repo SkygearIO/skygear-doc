@@ -1,69 +1,68 @@
-# Saving a record
-
-You can save a public note to server as follow.
-
-``` javascript
-skygear.publicDB.save(new Note({
-    'content': 'Hello World!'
-})).then((record) => {
-    console.log(record);
-}, (error) => {
-    console.log(error);
-});
-```
-
-To understand the code above, you need you know what is _container_, _database_
-and _record_.
-
+<a name="basic-crud"></a>
 # Container
 
 Container is the uppermost layer of skygear. In practice,
 `import skygear from 'skygear'` will give you a container instance at variable
-skygear. In most case you will only need one instance of containter.
+skygear. In most case you will only need one instance of container.
 
 The first things you need to interact with container is setting `endPoint` and
-`accessToken`.
+`apiKey`.
 
 ``` javascript
-JSSkygear.endPoint = 'http://mydeployment.dev/api/';
-JSSkygear.configApiKey('mysecrect');
+import skygear from 'skygear';
+// or in the browser with ECMAScript 5 just use window.skygear
+
+skygear.config({
+  'endPoint': 'https://<your-app-name>.staging.skygeario.com',
+  'apiKey': '<your-api-key>'
+}).then((container) => {
+  console.log(container);
+}, (error) => {
+  console.error(error);
+});
 ```
 
 # Database
 
-You will provide with private and public database.
+You will be provided with a private and a public database.
 
-- Everything in private database is truely private, regardless of what access
+- Everything in the private database is truly private, regardless of what access
 control entity you set to the record.
-- Record saved at public database is defualt public. To control the access, you
-may set difference access control entity to the record.
+- Record saved at public database is by default public. To control the access, you
+may set different access control entity to the record.
+- The database objects can be accessed with `skygear.publicDB` and
+`skygear.privateDB`.
 
+<a name="record-record"></a>
 # Record
 
-- `Record` must have type.
-- `Record` is a key-value data object that store at _database_.
+- `Record` must have a type.
+- `Record` is a key-value-pair data object that is stored at _database_.
 - `Record` will belong to the currently logged in user.
+- `Record` object has unique `id` (a string combination of record type and uuid).
 
-
-# Defining a record type
-
-You will design different record type to model your app. Just like define table
-in SQL.
+You can design different `Record` type to model your app. Just like defining
+tables in SQL.
 
 ``` javascript
 const Note = skygear.Record.extend('note');
 const Blog = skygear.Record.extend('blog');
+
+let note = new Note({ "content": "Hello World" });
+// { id: "...", recordType: "note", access: [Object object] }
 ```
 
-# Modify a record
+## Create a record
+
+You can save a public record to server as the following.
 
 ``` javascript
 skygear.publicDB.save(new Note({
-    'content': 'Hello World!'
+  'content': 'Hello World!'
 })).then((record) => {
-    console.log(record);
+  console.log(record);
 }, (error) => {
-    console.log(error);
+  console.error(error);
 });
 ```
 
@@ -82,36 +81,20 @@ skygear.publicDB.save([helloNote, foobarNote])
 .then((result) => {
   let {
     savedRecords: [savedHelloNote, savedFoobarNote],
-    errors:       [helloError, foobarError]
+    errors:     [helloError, foobarError]
   } = result;
-
-  if (helloError) {
-    console.error('Fail to save hello note');
-  } else {
-    console.log('updated hello note: ', savedHelloNote);
-  }
-
-  if (foobarError) {
-    console.error('Fail to save foo bar note');
-  } else {
-    console.log('updated foo bar note: ', savedFoobarNote);
-  }
+  // errors here indicate saving error
 }, (error) => {
-  if (error) {
-    console.error('Request error', error);
-  }
+  // error here indicates request error
 });
 ```
 
-After saving a record, any attributes modified from the server side will
-be updated on the saved record object in place. The local transient fields of
-the records are merged with any remote transient fields applied on the server
-side.
 
-# Fetching an existing records
+## Read a record
 
 You can construct a Query object by providing a Record Type.
 You can config the query by mutating its state.
+Read the section about [Query](/js/guide/query) to learn more.
 
 ``` javascript
 var query = new skygear.Query(Blog);
@@ -122,25 +105,56 @@ query.limit = 10;
 skygear.publicDB.query(query).then((records) => {
   console.log(records)
 }, (error) => {
-  console.log(error);
+  console.error(error);
 })
 ```
 
-# Deleting a record
+
+## Update a record
+
+Every `Record` object has a unique identifier that can be referenced
+as `record.id`. See the [above](#record-record) section about `Record` for more information.
 
 ``` javascript
-skygear.publicDB.delete(record)
-.then(() => {
+let query = new skygear.Query(Note);
+query.equalTo('id', '<your-note-id>');
+
+skygear.publicDB.query(query)
+.then((records) => {
+  let note = records[0];
+  note['content'] = 'Hello New World';
+  return skygear.publicDB.save(note);
+}).then((record) => {
   console.log(record);
 }, (error) => {
-  console.log(error);
+  console.error(error);
+});
+```
+
+After saving a record, any attributes modified from the server side will
+be updated on the saved record object in place. The local transient fields of
+the records are merged with any remote transient fields applied on the server
+side.
+
+
+## Delete a record
+
+Again, every `Record` object has a unique identifier that can be referenced
+as `record.id`. See the [above](#record-record) section about `Record` for more information.
+
+``` javascript
+skygear.publicDB.delete({
+  'id': '<your-note-id>'
+}).then((record) => {
+  console.log(record);
+}, (error) => {
+  console.error(error);
 });
 ```
 
 You can also delete multiple records at one time.
 
 ``` javascript
-let Note = skygear.Record.extend('note');
 let query = new skygear.Query(Note);
 query.lessThan('rating', 3);
 
@@ -148,9 +162,8 @@ let foundNotes = [];
 skygear.publicDB.query(query)
 .then((notes) => {
   console.log(`Found ${notes.length} notes, going to delete them.`);
-
   foundNotes = notes;
-  return skygear.publicDB.delete(notes)
+  return skygear.publicDB.delete(notes); // return a Promise object
 })
 .then((errors) => {
   errors.forEach((perError, idx) => {
