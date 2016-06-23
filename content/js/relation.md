@@ -1,57 +1,67 @@
-# Friends and Followers
+<br/><br/>
+<a name="friends-and-followers"></a>
+# User relations (Friends & Followers)
 
-Skygear provide two default relations: friend and follower.
+Skygear provide three default relations: friend, following and follower.
 
-## Current user follow a user (ben)
+## Add relations
 
-The save user relation operation is operation on currently logged in user.
+If the current user wants to follow another user called Ben:
 
 ``` javascript
-const toFollow = skygear.relation.Following([ben]); // skygear.currentUser follow;
+const toFollow = new skygear.relation.Following([ben]);
+// ben is a user object
 skygear.relation.add(toFollow).then((ok) => {
   console.log(ok);
 }, (error) => {
-  console.warn(error);
+  console.error(error);
 });
 ```
 
-## Querying relations
-
-You may query the follower of another user.
-
-### Get friends list
+How do we get the user object? We can either search by email or simply
+construct a new user object with the correct user id. Read the section
+about [Users](/js/guide/users#current-user) to learn more about search by email.
 
 ``` javascript
-skygear.relation.queryFriend(skygear.currentUser).then((users) => {
-  console.log(users);
-}, (error) => {
-  console.warn(error);
+const ben = new skygear.User({
+  user_id: "<ben's-user-id>"
 });
 ```
 
-### Get followers list
+If the current user wants to add friend with Ben:
 
-Get ben's follower list.
+``` javascript
+const beFriend = new skygear.relation.Friend([ben]);
+skygear.relation.add(beFriend).then(...);
+```
+
+## Query relations
+
+You may query the relations of the current user or other users.
+
+To get Ben's follower list:
 
 ``` javascript
 skygear.relation.queryFollower(ben).then((users) => {
   console.log(users);
 }, (error) => {
-  console.warn(error);
+  console.error(error);
 });
 ```
 
-Get follower 
+To get current user's friend list:
 
 ``` javascript
-skygear.relation.queryFollowing(skygear.currentUser).then((users) => {
-  console.log(users);
-}, () => {
-  console.warn(error);
-});
+skygear.relation.queryFriend(skygear.currentUser).then(...);
 ```
 
-### Complex user query by relation
+To get current user's following list:
+
+``` javascript
+skygear.relation.queryFollowing(skygear.currentUser).then(...);
+```
+
+To get the 101-200th friends of the current user:
 
 ``` javascript
 skygear.relation.queryFriend(skygear.currentUser, {
@@ -59,19 +69,30 @@ skygear.relation.queryFriend(skygear.currentUser, {
 }).then((users) => {
   console.log(users);
 }, (error) => {
-  console.log(error);
+  console.error(error);
 });
+```
 
-const query = new skygear.relation.Query(skygear.relation.Follower);
+Alternatively you can use the query syntax.
+Learn more in the [Queries](/js/guide/query) section.
+
+``` javascript
+const query = new skygear.relation.Query(skygear.relation.Friend);
 query.user = skygear.currentUser;
-query.limit = 10;
-query.page = 3;
+query.limit = 100;
+query.page = 2;
 skygear.relation.query(query).then((users) => {
   console.log(users.overallCount); // The total count match the relation.
   console.log(users);
 }, (error) => {
-  console.log(error);
+  console.error(error);
 });
+```
+
+To test whether Ben is a friend of the current user:
+
+``` javascript
+???
 ```
 
 ## Removing relations
@@ -81,12 +102,12 @@ const unFollow = new skygear.relation.Follower([ben]);
 skygear.relation.remove(unFollow).then((result) => {
   console.log(result.success); // Return an array of user, here is [ben]
 }, (error) => {
-  console.warn(error);
+  console.error(error);
 });
 ```
 
 
-# Custom relation **[Future release]**
+## Custom relation (**Coming Soon**)
 
 We are supporting non-mutual relation and mutual relation.
 
@@ -95,14 +116,12 @@ follow a user without his explicit consensus.
 
 `friend` is mutual relation without direction.
 
-## Add custom relation between users
-
 ``` javascript
 const FansOf = skygear.relation.extend('fans', skygear.relation.Outward);
 const becomeFans = new FansOf([coldPlay]);
 skygear.relation.save(becomeFans).then((result) => {
   console.log(result.success);
 }, (error) => {
-  console.warn(error);
+  console.error(error);
 });
 ```

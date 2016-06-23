@@ -136,4 +136,8 @@ skygear.discover('chpapa').then((ben) => {
 
 ## User relations
 
-See [Friends and Followers](/js/guide/relation).
+See [Social](/js/guide/relation) section for more.
+
+## User access control
+
+See [Access Control](/js/guide/access-control/role) section for more.
