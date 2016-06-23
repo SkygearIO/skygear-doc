@@ -115,7 +115,7 @@ handler.cancel(); // The callback is cancelable
 Skygear provide a user discovery method by email
 
 ``` javascript
-skygear.User.getUsersByEmail('ben@skygear.com').then((users) => {
+skygear.getUsersByEmail('ben@skygear.com').then((users) => {
   console.log(users);
 }, (error) => {
   console.error(error);
@@ -125,7 +125,7 @@ skygear.User.getUsersByEmail('ben@skygear.com').then((users) => {
 User discovery by username is **not yet implemented**.
 
 ``` javascript
-skygear.User.discover('chpapa').then((ben) => {
+skygear.discover('chpapa').then((ben) => {
   console.log(ben);
 }, (error) => {
   console.log('Failed', error);
