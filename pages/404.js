@@ -11,8 +11,8 @@ export default class extends Component {
   render() {
     return (
       <div>
-        <h1>Not Found</h1>
-        <p>The page you're looking for was not found.</p>
+        <h1>Coming Soon</h1>
+        <p>Thanks for using Skygear. Please check back later for new updates.</p>
       </div>
     );
   }
