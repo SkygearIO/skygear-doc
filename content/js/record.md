@@ -81,7 +81,7 @@ skygear.publicDB.save([helloNote, foobarNote])
 .then((result) => {
   let {
     savedRecords: [savedHelloNote, savedFoobarNote],
-    errors:     [helloError, foobarError]
+    errors: [helloError, foobarError]
   } = result;
   // errors here indicate saving error
 }, (error) => {
