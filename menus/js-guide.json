@@ -56,6 +56,10 @@
         "url": "#complex-queries"
       },
       {
+        "title": "Operators",
+        "url": "#query-operators"
+      },
+      {
         "title": "Cached Query",
         "url": "/js/guide/cached-query"
       }
@@ -94,14 +98,15 @@
   },
   {
     "title": "Access Control",
-    "url": "/js/guide/access-control",
+    "url": "/js/guide/access-control/role",
     "sub": [
-      {
-        "title": "Access Control by Record Type"
-      },
       {
         "title": "Access Control by Role",
         "url": "/js/guide/access-control/role"
+      },
+      {
+        "title": "Access Control by Record Type",
+        "url": "/coming-soon"
       }
     ]
   },
@@ -114,10 +119,12 @@
     "url": "/js/guide/asset"
   },
   {
-    "title": "ReactJS integration"
+    "title": "ReactJS integration",
+    "url": "/coming-soon"
   },
   {
-    "title": "Plugins"
+    "title": "Plugins",
+    "url": "/coming-soon"
   },
   {
     "title": "Handling Errors",

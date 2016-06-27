@@ -1,6 +1,9 @@
 Skygear provides query of records with conditions. You can apply condition to
 Skygear queries, only getting the records you want.
 
+<a name="basic-queries"></a>
+## Basic queries
+
 To start with a simple query with `equalTo`
 
 ``` javascript
@@ -61,6 +64,10 @@ skygear.publicDB.query(query).then((notes) => {
 });
 ```
 
+
+<a name="complex-queries"></a>
+## Complex queries
+
 You can configure complex conditions as the following:
 
 ``` javascript
@@ -98,6 +105,8 @@ skygear.privateDB.query(query).then((notes, count) => {
 ```
 
 If you want to get the count without fetching any records, set `limit = 0`.
+
+<a name="query-operators"></a>
 
 ## Operators
 
