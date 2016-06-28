@@ -1,12 +1,3 @@
-There are couples of things we have done here:
-
-1. First we created a `todo` _record_ and assigned some attributes to it. Your app automatically creates this Class when you first use it.
-2. We fetched the _container_ of our app, and took a reference to the private
-   database of the current user. So when you save a _record_, you're saving the record to the private database of the current user.
-3. When you have successfully saved a _record_, 
-4. We actually saved the `todo` record and registered a block to be executed
-   after the action is done.
-
 We have mentioned _record_, _container_ and _database_. Let's look at them
 one by one.
 
@@ -66,6 +57,14 @@ SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
     NSLog(@"saved todo with recordID = %@", record.recordID);
 }];
 ```
+
+There are couples of things we have done here:
+
+1. First we created a `todo` _record_ and assigned some attributes to it. you can use the `[]` subscripting operator as shown above, or the `setObject:forKey:` method. Your app automatically creates this Class when you first use it.
+2. We fetched the _container_ of our app, and took a reference to the private
+   database of the current user. So when you save a _record_, you're saving the record to the private database of the current user.
+3. We actually saved the `todo` record and registered a block to be executed
+   after the action is done. When you have successfully saved a _record_, there are several fields automatically filled in for you, such as `SKYRecordID`, `recordName`,`creationDate` and `modificationDate`. A `SKYRecord` will be returned and you can make use of the block to add additional logic which will run after the save completes.
 
 ## Modifying a record
 
