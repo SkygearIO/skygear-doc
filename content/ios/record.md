@@ -4,7 +4,7 @@ one by one.
 ### SKYRecord
 
 `SKYRecord` is a key-value data object which can be stored in a _database_. Each
-record has a _type_, which describes what kind of data this record holds.
+record has a `recordType`, which describes the _type_ of data this record holds.
 
 A record can store whatever values that's JSON-serializable, it include
 strings, numbers, booleans, dates, plus several custom type that Skygear
@@ -31,8 +31,10 @@ Container provides [User Authentication]({{< relref "user.md" >}}),
 responsibility of database is to store [records]({{< relref "#SKYRecord" >}}),
 the data storage unit in Skygear.
 
-Every container has one _pubic database_, which stores data accessible to
-every users. Every user also has its own _private database_, which stores data
+Every container has one _public database_, which stores data accessible to
+every users.
+
+Every user also has its own _private database_, which stores data
 only accessible to that user alone.
 
 ## Saving a record
@@ -105,7 +107,7 @@ todo[@"done"] = @YES;
 
 Note that the data in the returned record in the completion block may be
 different from the originally saved record. This is because additional
-fields maybe applied on the server side when the record is saved. You may
+fields maybe applied on the server side when the record is saved (e.g. the updated `modificationDate`). You may
 want to inspect the returned record for any changes applied on the server side.
 
 ## Fetching an existing record
@@ -127,6 +129,12 @@ SKYRecordID *recordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"36906
     NSLog(@"Fetched a note (title = %@, order = %@, done = %@)", title, order, done);
 }];
 ```
+
+To get the values out of the SKYRecord, you can use the `[]` subscripting operator as shown above, or the `objectForKey:` method.
+(TODO: add the `objectForKey:` example code here)
+
+Some of the values are provided as properties:
+(TODO: add the example code here to show that some properties like `creationDate`, `modificationDate`, `recordID`, `recordType` etc.)
 
 ## Deleting a record
 
