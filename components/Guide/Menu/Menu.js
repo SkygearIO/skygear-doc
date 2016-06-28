@@ -1,4 +1,4 @@
-import { map } from 'lodash';
+import { map, forEach, cloneDeep } from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
@@ -14,28 +14,12 @@ class Menu extends Component {
     this._renderSubMenuItem = this._renderSubMenuItem.bind(this);
   }
 
-  isActive(url) {
-    let pathname = Window.location.pathname;
-
-    if (pathname && pathname.endsWith('/')) {
-      pathname = pathname.substr(0, pathname.lastIndexOf('/'));
-    }
-
-    return url === pathname;
-  }
-
   _renderSubMenuItem(subMenuItemContent, index) {
-    let hash = Window.location.hash;
-
-    const isActive = hash ?
-      subMenuItemContent.url === hash :
-      index === 0;
-
     return (
       <li
         className={classNames({
           'sub-menu-item': true,
-          active: isActive,
+          active: subMenuItemContent.isActive,
         })}
         key={'sub-menu-item-' + index}
       >
@@ -59,7 +43,7 @@ class Menu extends Component {
   }
 
   _renderMenuItem(menuItemContent, index) {
-    const isActive = this.isActive(menuItemContent.url);
+    const { isActive } = menuItemContent;
     return (
       <li
         className={classNames({
@@ -76,9 +60,52 @@ class Menu extends Component {
     );
   }
 
+  getUrlSensitiveContent() {
+    let pathname = Window.location.pathname;
+    if (pathname && pathname.endsWith('/')) {
+      pathname = pathname.substr(0, pathname.lastIndexOf('/'));
+    }
+
+    const windowUrl = pathname + Window.location.hash;
+
+    return map(this.props.content, function (perContent) {
+      let isActive = false;
+
+      const sub = map(perContent.sub || [], function (perSubContent) {
+        let perSubContentActive = false;
+        let url = perSubContent.url || '#';
+
+        if (url.indexOf('#') === 0) {
+          url = perContent.url + url;
+        }
+
+        if (windowUrl === url) {
+          isActive = true;
+          perSubContentActive = true;
+        }
+
+        return {
+          ...perSubContent,
+          isActive: perSubContentActive,
+          url
+        }
+      });
+
+      if (!isActive) {
+        isActive = (windowUrl === perContent.url);
+      }
+
+      return {
+        ...perContent,
+        isActive,
+        sub
+      };
+    });
+  }
+
   render() {
     return <ul className={classNames('Guide-Menu', ...this.props.classNames)}>{
-      map(this.props.content, this._renderMenuItem)
+      map(this.getUrlSensitiveContent(), this._renderMenuItem)
     }</ul>;
   }
 }

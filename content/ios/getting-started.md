@@ -87,7 +87,7 @@ Run your app, you should see the following in the app console:
 2015-09-21 17:48:00.626 noteapp[77092:1147374] Congratulations! john.doe@example.com signed up successfully!
 ```
 
-
+<a name="whats-next"></a>
 ## What's Next
 Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
 
