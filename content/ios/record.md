@@ -1,9 +1,10 @@
 There are couples of things we have done here:
 
-1. First we created a `todo` _record_ and assigned some attributes to it.
+1. First we created a `todo` _record_ and assigned some attributes to it. Your app automatically creates this Class when you first use it.
 2. We fetched the _container_ of our app, and took a reference to the private
-   database of the current user.
-3. We actually saved the `todo` record and registered a block to be executed
+   database of the current user. So when you save a _record_, you're saving the record to the private database of the current user.
+3. When you have successfully saved a _record_, 
+4. We actually saved the `todo` record and registered a block to be executed
    after the action is done.
 
 We have mentioned _record_, _container_ and _database_. Let's look at them
