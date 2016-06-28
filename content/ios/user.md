@@ -80,7 +80,7 @@ if (container.currentUserRecordID) {
 ## Logging out
 
 ```obj-c
-[container logoutUserWithcompletionHandler:nil];
+[container logoutWithCompletionHandler:nil];
 ```
 
 ## Changing user password
