@@ -1,9 +1,9 @@
-**NOTE**: This doc is for illustration purpose only. This illustrates how
+**NOTE**: This document is for illustration purpose only. It shows how
 a user will be able to start using Skygear easily in AWS.
 
 # Start using Skygear in AWS
 
-**NOTE**: The set up time of a EC2 instance is under 3 minutes.
+**NOTE**: The setup time of an EC2 instance is under 3 minutes.
 
 Click the button below to get started:
 

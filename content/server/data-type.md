@@ -1,5 +1,5 @@
-Data values is transformed to JSON according to their type. Types undefined
-in JSON will be serialized as JSON object with non-standard syntax.
+Data values are transformed to JSON according to their types. Types undefined
+in JSON will be serialized as a JSON object with non-standard syntaxes.
 
 |type|json type|example|
 |---|---|---|
@@ -16,35 +16,35 @@ in JSON will be serialized as JSON object with non-standard syntax.
 ## Non-standard Types
 
 Non-standard types are specified as a JSON object with a special `$type` key
-which signify that the object should be treated as a value of non-standard
-type. More keys in the JSON object specifies the actual value.
+which signify that the object should be treated as a value of a non-standard
+type. Example of keys in the JSON object that specifies the actual values are:
 
-*   `ref`: Value is a reference to another record.
-    *   `$id`: Record ID of the record being referenced.
-    *   `$class`: Class (Record Type) of the record being referenced.
+*   `ref`: value is a reference to another record
+    *   `$id`: record ID of the record being referenced
+    *   `$class`: class (Record Type) of the record being referenced
 
-*   `geo`: Value is a geographical coordinate.
-    *   `$lat`: Latitude
-    *   `$lng`: Longitude
+*   `geo`: value is a geographical coordinate
+    *   `$lat`: latitude
+    *   `$lng`: longitude
 
-*   `date`: Value is a date/time.
-    *   `$date`: Date in ISO 8601 format.
+*   `date`: value is a date/time.
+    *   `$date`: date in ISO 8601 format
 
-*   `asset`: Value is a reference to a asset.
-    *   `$name`: The unique name of the asset.
-    *   `$url`: The URL to the asset. It is only available when the record is
-        fetched.
+*   `asset`: value is a reference to a asset
+    *   `$name`: the unique name of the asset
+    *   `$url`: the URL to the asset. It is only available when the record is
+        fetched
 
-## Sequeuen Types
+## Sequence Types
 
-* `seq`: Create a unique number field that has a strictly increasing
+* `seq`: create a unique number field that has a strictly increasing
   integer default value. If a value `i` is assigned to a sequence field
   currently at `j`, the next default value of this field will be
   greater than `max(i, j)`.
 
-Sequeuen type contain only schematic definition without any user data. It is
+Sequence types contain only schematic definition without any user data. It is
 used to utilize the JIT schema migration of Skygear Server to create
-or modify record field. To create a sequence field:
+or modify record fields. To create a sequence field:
 
 ```bash
 curl -X POST -H "Content-Type: application/json" \
