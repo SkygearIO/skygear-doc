@@ -23,12 +23,32 @@ The installation requies [CocoaPods](https://cocoapods.org/).
 
 To install the Skygear iOS SDK as your iOS application dependency:
 
+#### For Objective-C Projects
+
 1. Open and edit the `Podfile` file, add the following in the last line:
 
-   	pod "SKYKit"
+```
+pod "SKYKit"
+```
 
 2. Run `pod install` in your terminal
 3. It's done! You now have installed Skygear SDK in your app.
+
+#### For Swift Projects
+
+1. Open and edit the `Podfile` file. Your `Podfile` file should look like this:
+
+```
+use_frameworks!
+platform :ios, '8.0'
+pod 'SKYKit'
+```
+
+Cocoapods 0.36 and above introduces the `use_frameworks!` instruction, so the Objective-C bridging header is no longer needed.
+
+2. Run `pod install` in your terminal
+3. You would see that an Xcode Workspace file is created. Open the file and go to the project
+4. It's done! You have installed Skygear SDK in your app. Just import the SDK in each swift file to call the SDK.
 
 <a name="set-up-ios-app"></a>
 ## Set up your iOS app
