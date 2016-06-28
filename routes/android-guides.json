@@ -21,6 +21,12 @@
       "title": "Records",
       "content_path": "./content/android/records.md",
       "menu_path": "./menus/android-guide.json"
+    },
+    "/android/guide/query": {
+      "name": "Android SDK",
+      "title": "Query",
+      "content_path": "./content/android/query.md",
+      "menu_path": "./menus/android-guide.json"
     }
   }
 }
