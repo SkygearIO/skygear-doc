@@ -1,26 +1,3 @@
-## Saving a record
-
-Let's imagine we are writing a To-Do app with Skygear. When user creates
-an to-do item, we want to save that item on server. We probably will save that
-to-do item like this:
-
-```obj-c
-SKYRecord *todo = [SKYRecord recordWithRecordType:@"todo"];
-todo[@"title"] = @"Write documents for Skygear";
-todo[@"order"] = @1;
-todo[@"done"] = @NO;
-
-SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
-[privateDB saveRecord:todo completion:^(SKYRecord *record, NSError *error) {
-    if (error) {
-        NSLog(@"error saving todo: %@", error);
-        return;
-    }
-
-    NSLog(@"saved todo with recordID = %@", record.recordID);
-}];
-```
-
 There are couples of things we have done here:
 
 1. First we created a `todo` _record_ and assigned some attributes to it.
@@ -65,6 +42,29 @@ the data storage unit in Skygear.
 Every container has one _pubic database_, which stores data accessible to
 every users. Every user also has its own _private database_, which stores data
 only accessible to that user alone.
+
+## Saving a record
+
+Let's imagine we are writing a To-Do app with Skygear. When user creates
+an to-do item, we want to save that item on server. We probably will save that
+to-do item like this:
+
+```obj-c
+SKYRecord *todo = [SKYRecord recordWithRecordType:@"todo"];
+todo[@"title"] = @"Write documents for Skygear";
+todo[@"order"] = @1;
+todo[@"done"] = @NO;
+
+SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
+[privateDB saveRecord:todo completion:^(SKYRecord *record, NSError *error) {
+    if (error) {
+        NSLog(@"error saving todo: %@", error);
+        return;
+    }
+
+    NSLog(@"saved todo with recordID = %@", record.recordID);
+}];
+```
 
 ## Modifying a record
 
