@@ -11,7 +11,9 @@ This guide will show you how to integrate Skygear into an existing iOS project.
 
 Sign up an account at [Skygear Portal](http://portal.skygear.io/).
 
-You will need the server endpoint and API Key to set up your app.
+You will need the _Server Endpoint_ and _API Key_ to set up your app.
+
+Go to the Info tab on the sidebar, and you will see your _Server Endpoint_ in the "Server Details" section and your _API Key_ in its section.
 
 
 <a name="install-ios-sdk"></a>
