@@ -9,21 +9,8 @@ Container is the uppermost layer of skygear. In practice,
 skygear. In most case you will only need one instance of container.
 
 The first things you need to interact with container is setting `endPoint` and
-`apiKey`.
-
-``` javascript
-import skygear from 'skygear';
-// or in the browser with ECMAScript 5 just use window.skygear
-
-skygear.config({
-  'endPoint': 'https://<your-app-name>.staging.skygeario.com/', // trailing slash is required
-  'apiKey': '<your-api-key>'
-}).then((container) => {
-  console.log(container);
-}, (error) => {
-  console.error(error);
-});
-```
+`apiKey`. If you don't know what that is, please read the [Getting Started](/js/guide)
+part first.
 
 ## Database
 

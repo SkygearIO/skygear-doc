@@ -1,20 +1,22 @@
+<br/><br/>
 <a name="install-js-sdk"></a>
-## Install Skygear JS SDK
+# Install Skygear JS SDK
 
-There are several ways to install Skygear SDK to you app. You can either:
+There are several ways to install Skygear JS SDK to you app. You can either:
 
-* Use the latest stable release on npm
-* Install the latest development version
+- Install the stable release on npm
+- Install the latest development version
 
-### Use the latest stable release on npm
-You can install Skygear JS SDK via [npm](https://www.npmjs.com/package/skygear). The SDK  package is available on the npm website.
+## Install the stable release on npm
 
+You can install Skygear JS SDK via [npm](https://www.npmjs.com/package/skygear).
+The SDK package is available on the npm website.
 
 ``` bash
 npm install skygear --save
 ```
 
-### Install the latest development version
+## Install the latest development version
 
 You can add the development branch GitHub Repository as a submodule in your project.
 
@@ -26,40 +28,94 @@ cd ..
 npm install skygear/
 ```
 
+
+
+
+
+
+
+
+
+
+<br/><br/>
 <a name="include-js-sdk"></a>
-## Include Skygear JS SDK in your project
+# Include Skygear JS SDK in your project
 
-### Include in your npm project
+## Include in your npm project
 
-The skygear JS SDK is assumed to be run in ES6 runtime. If you wish to run it in an older runtime, you need to require the [polyfill plugin](https://babeljs.io/docs/usage/polyfill/) before importing the Skygear SDK.
+The Skygear JS SDK is assumed to be run in ES6 runtime. If you wish to run it in
+an older runtime, you need to require the [polyfill plugin](https://babeljs.io/docs/usage/polyfill/)
+before importing the Skygear SDK.
 
-``` js
+``` javascript
 import 'babel-polyfill';
 import skygear from 'skygear';
 ```
 
-### Include in React Native projects
-You can also include Skygear JS SDK in your React Native project.
+## Include in your website
 
-``` js
-require('babel-polyfill');
-var React = require('react-native');
+Build the Skygear module first (make sure all the tests pass,
+if not please check your node version or report an issue):
 
-/* ... */
-
-var skygear = require('skygear');
+``` bash
+cd skygear
+npm test
+cd ..
 ```
 
-### Include in your website *(NOT YET IMPLEMENTED)*
-Place these lines before the body closing tag `</body>`. The SDK will be loaded from the skygear.io CDN.
+Then you can just include the javascript file `skygear/dist/bundle.js` to your
+html file like this:
 
 ``` html
-<script src="//cdn.skygear.io/polyfill.min.js"></script>
-<script src="//cdn.skygear.io/skygear.js"></script>
+<script src="/skygear/dist/bundle.js"></script>
 ```
 
+
+
+
+
+
+
+
+
+
+<br/><br/>
+<a name="intro-portal"></a>
+# Introduce the portal
+
+To start using the Skygear JS SDK, you need to register your account and
+application at the Skygear [portal](https://portal-staging.skygear.io) website.
+After you registered, go to the **INFO** tab and copy your `Server EndPoint` and
+`API Key`, and right after where you include Skygear JS SDK configure the
+skygear container:
+
+``` javascript
+import skygear from 'skygear';
+// or in the browser with ECMAScript 5 just use window.skygear or skygear
+
+skygear.config({
+  'endPoint': 'https://<your-app-name>.staging.skygeario.com/', // trailing slash is required
+  'apiKey': '<your-api-key>'
+}).then((container) => {
+  console.log(container);
+}, (error) => {
+  console.error(error);
+});
+```
+
+
+
+
+
+
+
+
+
+
+<br/><br/>
 <a name="whats-next"></a>
-## What's Next
+# What's Next
+
 Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
 
 Interested in doing more with your Skygear backend server?
