@@ -31,9 +31,14 @@ criteria needed so we put the predicate to `nil`. Then we assigned a
 `NSSortDescription` to ask Skygear Server to sort the `todo` records by `order` field
 ascendingly.
 
-`SKYQuery` utilizes `NSPredicate` to apply filtering on query results. For
-an overview of features support, please refer to the
-[Query Guide]({{< relref "query.md" >}}).
+You can also sort the `todo` records by their `modificationDate`.
+
+```obj-c
+NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"_updated_at" ascending:NO];
+query.sortDescriptors = @[sortDescriptor];
+```
+
+`SKYQuery` utilizes `NSPredicate` to apply filtering on query results. You can use other parameters to sort your quries.
 
 ## Querying with NSPredicate
 
