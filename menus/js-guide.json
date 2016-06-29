@@ -31,15 +31,15 @@
         },
         {
           "title": "Create an Auto-Incrementing Field",
-          "url": "/js/guide/auto-increment"
+          "url": "#auto-increment"
         },
         {
           "title": "Records Relations (References)",
-          "url": "/js/guide/reference"
+          "url": "#reference"
         },
         {
           "title": "Subscription",
-          "url": "/js/guide/subscription"
+          "url": "#subscription"
         }
       ]
   },
@@ -61,7 +61,7 @@
       },
       {
         "title": "Cached Query",
-        "url": "/js/guide/cached-query"
+        "url": "#cached-query"
       }
     ]
   },
@@ -74,8 +74,8 @@
         "url": "#authentication"
       },
       {
-        "title": "currentUser",
-        "url": "#currentUser"
+        "title": "Current User",
+        "url": "#current-user"
       }
     ]
   },

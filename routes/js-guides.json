@@ -18,31 +18,19 @@
     },
     "/js/guide/record": {
       "name": "JS SDK",
-      "title": "CRUD Records",
+      "title": "Records",
       "content_path": "./content/js/record.md",
-      "menu_path": "./menus/js-guide.json"
-    },
-    "/js/guide/auto-increment": {
-      "name": "JS SDK",
-      "title": "Create an Auto-Incrementing Field",
-      "content_path": "./content/js/auto-increment.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/query": {
       "name": "JS SDK",
-      "title": "Querying Records",
+      "title": "Queries",
       "content_path": "./content/js/query.md",
-      "menu_path": "./menus/js-guide.json"
-    },
-    "/js/guide/reference": {
-      "name": "JS SDK",
-      "title": "Records Relations (References)",
-      "content_path": "./content/js/reference.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/users": {
       "name": "JS SDK",
-      "title": "Users (Authentication)",
+      "title": "Users",
       "content_path": "./content/js/users.md",
       "menu_path": "./menus/js-guide.json"
     },
@@ -50,18 +38,6 @@
       "name": "JS SDK",
       "title": "User relations (Friends & Followers)",
       "content_path": "./content/js/relation.md",
-      "menu_path": "./menus/js-guide.json"
-    },
-    "/js/guide/cached-query": {
-      "name": "JS SDK",
-      "title": "Cached Query",
-      "content_path": "./content/js/cached-query.md",
-      "menu_path": "./menus/js-guide.json"
-    },
-    "/js/guide/subscription": {
-      "name": "JS SDK",
-      "title": "Subscription",
-      "content_path": "./content/js/subscription.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/pubsub": {

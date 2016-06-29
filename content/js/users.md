@@ -1,157 +1,139 @@
-Consider the following HTML:
+<br/><br/>
+<a name="authentication"></a>
+# Authentication
 
-```html
-<form>
-  <p>
-    <label>Username</label>
-    <input id="username" type="text">
-  </p>
-  <p>
-    <label>Password</label>
-    <input id="password" type="password">
-  </p>
-</form>
-```
+## Sign up
 
-# Signing up
+If you are not familiar with Promises, please read more [here](https://www.promisejs.org/).
 
-```js
-var username = document.getElementById("username").value;
-var password = document.getElementById("password").value;
-skygear.signupWithUsername(username, password).then((user) => {
+``` javascript
+// We can signup using username or email. Both function will return a promise.
+let req = skygear.signupWithUsername(username, password);
+// Or by email.
+req = skygear.signupWithEmail(email, password);
+
+req.then((user) => {
   console.log('user id', user.ID);
+  // only after the user successfully signup or login
+  // skygear.accessToken can be available
   console.log('access token', skygear.accessToken);
 }, (error) => {
-  console.log('error signing up', error);
+  // maybe username or email already exists
+  // or the email format is incorrect
+  console.error(error);
 });
 ```
 
-# Logging in
+## Log in
 
-```js
-var username = document.getElementById("username").value;
-var password = document.getElementById("password").value;
-skygear.loginWithUsername(username, password).then((user) => {
-  console.log('user id', user.ID);
-  console.log('access token', skygear.accessToken);
+Logging in is as straight-forward as signing up.
+
+``` javascript
+// If you signup with username, you can login by calling `loginWithUsername`.
+let req = skygear.loginWithUsername(username, password);
+// Or call `loginWithEmail` if you signup with email.
+req = skygear.loginWithEmail(username, password);
+
+req.then((user) => {
+  console.log(user);
 }, (error) => {
-  console.log('error logging in', error);
-});
+  console.error(error);    
+})
 ```
 
-# Logging out
+## Log out
 
-```js
+``` javascript
 skygear.logout().then(() => {
   console.log('logout successfully');
 }, (error) => {
-  console.log('error logging out', error);
+  console.error(error);
 });
 ```
 
-# Changing password
+## Change password
 
 ``` javascript
 skygear.changePassword(oldPassword, newPassword).then((user) => {
   console.log('User now have new password', user);
 }, (error) => {
-  console.log('You need too login before changing password!', user);
-  console.log('Old password not match?', error);
+  // maybe user has not logged in or old password not match
+  console.error(error);
 });
 ```
 
-# Using email as login name
-
-At Skygear, we allow you use email as the user identifier. When you specified
-you are using email as identifier, Skygear will ensure the email are in proper
-format. And you may enable the recover password by email function.
-
-You will signup and login the user as follow.
+## Log out all other session (not yet implemented)
 
 ``` javascript
-skygear.signupWithEmail(email, password).then((user) => {
-  console.log('skygear get the current user object', skygear.currentUser)
-  console.log('user id', user.ID);
-  console.log('access token', skygear.accessToken);
-}, (error) => {
-  console.log('May be incorrect email format?');
-  console.log('error signing up', error);
-});
-```
-
-## Login by email
-
-``` javascript
-skygear.loginWithEmail(email, password).then((user) => {
-  console.log('user id', user.ID);
-  console.log('access token', skygear.accessToken);
-}, (error) => {
-  console.log('error logging up:', error);
-});
-```
-
-__Good to have__ **[Not implemented]**
-
-Allow use to logout all other session.
-
-``` javascript
-skygear.changePassword(oldPassword, newPassword, invalidateTokens=true).then(
-  (user) => {
-    console.log('skygear will got new accessToken automatically', user);
-  },
-  (error) => {
-    console.log('Failed', error);
-  }
-);
-```
-
-# User
-
-Skygear provide currentUser object after login.
-
-``` javascript
-const actor = skygear.currentUser;
-
-```
-
-## Receiving currentUser changed callback
-
-When access token is expired, Skygear Server will return `401 Unauthorized`. SDK will
-clear the presisted access token and current user info. To handle the forced
-logout gracefully at your application, you should register a call back by
-`onUserChanged` and do appropriate application logic to alert the user.
-
-``` javascript
-const handler = skygear.onUserChanged(function (user) {
-  if (user === null) {
-    console.log('The user is logged out');
-  } else {
-    console.log('The user id logged in or changed');
-  }
-});
-handler.cancel(); // The callback is cancelable
-```
-
-
-Skygear provide a user discovery method by username or email
-
-``` javascript
-const ben = skygear.User.getUsersByEmail('ben@skygear.com').then(([users]) => {
-  console.log(users);
+skygear.changePassword(oldPassword, newPassword, invalidateTokens=true)
+.then((user) => {
+  console.log('skygear will got new accessToken automatically', user);
 }, (error) => {
   console.log('Failed', error);
 });
 ```
 
-**[Not implemented]**
+
+
+
+
+
+
+
+
+
+<br/><br/>
+<a name="current-user"></a>
+# Current User
+
+Skygear provide currentUser object after login.
+
 ``` javascript
-const ben = skygear.User.discover('chpapa').then((ben) => {
+// if not logged in, it will be null
+let user = skygear.currentUser;
+```
+
+## Hook currentUser change
+
+When access token is expired, Skygear Server will return `401 Unauthorized`. SDK will
+clear the persisted access token and current user info. To handle the forced
+logout gracefully at your application, you should register a call back by
+`onUserChanged` and do appropriate application logic to alert the user.
+
+``` javascript
+let handler = skygear.onUserChanged(function (user) {
+  if (user === null) {
+    console.log('The user is logged out');
+  } else {
+    console.log('The user is logged in or changed');
+  }
+});
+
+handler.cancel(); // The callback is cancelable
+```
+
+## Other user lookup
+
+Skygear provide a user discovery method by email
+
+``` javascript
+skygear.getUsersByEmail(['ben@skygear.com']).then((users) => {
+  console.log(users);
+}, (error) => {
+  console.error(error);
+});
+```
+
+User discovery by username is **not yet implemented**.
+
+``` javascript
+skygear.discover('chpapa').then((ben) => {
   console.log(ben);
 }, (error) => {
   console.log('Failed', error);
 });
 ```
 
-## User Relations
+## User relations
 
-See [Friends and Followers]({{< relref "relation.md" >}}).
+See [Friends and Followers](/js/guide/relation).
