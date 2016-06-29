@@ -12,7 +12,7 @@ let req = skygear.signupWithUsername(username, password);
 req = skygear.signupWithEmail(email, password);
 
 req.then((user) => {
-  console.log('user id', user.ID);
+  console.log('user id', user.id);
   // only after the user successfully signup or login
   // skygear.accessToken can be available
   console.log('access token', skygear.accessToken);
@@ -38,6 +38,18 @@ req.then((user) => {
 }, (error) => {
   console.error(error);    
 })
+```
+
+## Log in with Provider
+
+Right now to allow social login such as Facebook, plugin code must be written
+to enable it on the backend. Read more [here](/plugin/guide/guide-auth).
+After the code is written, we can then have social login:
+
+``` javascript
+skygear.loginWithProvider(provider, authData).then(...);
+// provider is just the name of the provider (e.g. 'com.facebook')
+// authData is the access token you obtained from the social media's API website
 ```
 
 ## Log out
