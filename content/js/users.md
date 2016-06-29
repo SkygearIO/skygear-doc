@@ -69,7 +69,7 @@ skygear.changePassword(oldPassword, newPassword, invalidateTokens=true)
 .then((user) => {
   console.log('skygear will got new accessToken automatically', user);
 }, (error) => {
-  console.log('Failed', error);
+  console.error(error);
 });
 ```
 
@@ -130,10 +130,14 @@ User discovery by username is **not yet implemented**.
 skygear.discover('chpapa').then((ben) => {
   console.log(ben);
 }, (error) => {
-  console.log('Failed', error);
+  console.error(error);
 });
 ```
 
 ## User relations
 
-See [Friends and Followers](/js/guide/relation).
+See [Social](/js/guide/relation) section for more.
+
+## User access control
+
+See [Access Control](/js/guide/access-control/role) section for more.

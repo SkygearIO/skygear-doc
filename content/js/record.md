@@ -16,7 +16,7 @@ import skygear from 'skygear';
 // or in the browser with ECMAScript 5 just use window.skygear
 
 skygear.config({
-  'endPoint': 'https://<your-app-name>.staging.skygeario.com',
+  'endPoint': 'https://<your-app-name>.staging.skygeario.com/', // trailing slash is required
   'apiKey': '<your-api-key>'
 }).then((container) => {
   console.log(container);
@@ -30,9 +30,11 @@ skygear.config({
 You will be provided with a private and a public database.
 
 - Everything in the private database is truly private, regardless of what access
-control entity you set to the record.
-- Record saved at public database is by default public. To control the access, you
-may set different access control entity to the record.
+control entity you set to the record. In other words, each user has his own
+private database, and only himself have access to it.
+- Record saved at public database is by default public. Even without
+logging in, records in the public database can be queried (but not updated).
+To control the access, you may set different access control entity to the record.
 - The database objects can be accessed with `skygear.publicDB` and
 `skygear.privateDB`.
 
@@ -42,7 +44,8 @@ may set different access control entity to the record.
 - `Record` must have a type.
 - `Record` is a key-value-pair data object that is stored at _database_.
 - `Record` will belong to the currently logged in user.
-- `Record` object has unique `id` (a string combination of record type and uuid).
+- `Record` object has unique `id` (a string combination of record type and
+    uuid used in the database as `_id`).
 
 You can design different `Record` type to model your app. Just like defining
 tables in SQL.
@@ -52,7 +55,7 @@ const Note = skygear.Record.extend('note');
 const Blog = skygear.Record.extend('blog');
 
 let note = new Note({ 'content': 'Hello World' });
-// { id: "...", recordType: "note", access: [Object object] }
+// { _id: "123456...", id: "note/123456...", recordType: "note", access: [Object object] }
 ```
 
 ## Create a record
@@ -113,12 +116,12 @@ skygear.publicDB.query(query).then((records) => {
 
 ## Update a record
 
-Every `Record` object has a unique identifier that can be referenced
-as `record.id`. See the [above](#record) section about `Record` for more information.
+See the [above](#record) section about `id` and `_id` if you are confused.
 
 ``` javascript
 let query = new skygear.Query(Note);
-query.equalTo('id', '<your-note-id>');
+query.equalTo('_id', '<your-note-_id>');
+// NOTE: This is the _id, not id, so no 'note/' in the front
 
 skygear.publicDB.query(query)
 .then((records) => {
@@ -140,10 +143,10 @@ side.
 
 ## Delete a record
 
-Again, every `Record` object has a unique identifier that can be referenced
-as `record.id`. See the [above](#record) section about `Record` for more information.
+See the [above](#record) section about `id` and `_id` if you are confused.
 
 ``` javascript
+// NOTE: This is the id, not _id, so there is 'note/' in the front
 skygear.publicDB.delete({
   'id': '<your-note-id>'
 }).then((record) => {
