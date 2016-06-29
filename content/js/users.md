@@ -61,6 +61,19 @@ skygear.changePassword(oldPassword, newPassword).then((user) => {
 });
 ```
 
+## Change email
+
+``` javascript
+skygear.saveUser({
+  id: '<your-user-id>', // such as skygear.currentUser.id
+  email: '<your-new-email-address>'
+}).then((user) => {
+  console.log('Email updated to:', user.email);
+}, (error) => {
+  console.error(error);
+});
+```
+
 ## Log out all other session (not yet implemented)
 
 ``` javascript
@@ -84,10 +97,11 @@ let user = skygear.currentUser;
 
 ## Hook currentUser change
 
-When access token is expired, Skygear Server will return `401 Unauthorized`. SDK will
+When access token is expired, Skygear server will return `401 Unauthorized`. SDK will
 clear the persisted access token and current user info. To handle the forced
 logout gracefully at your application, you should register a call back by
-`onUserChanged` and do appropriate application logic to alert the user.
+`onUserChanged` and do appropriate application logic to alert the user. The
+handler is also invoked every time login or logout functions are called.
 
 ``` javascript
 let handler = skygear.onUserChanged(function (user) {
@@ -106,6 +120,7 @@ handler.cancel(); // The callback is cancelable
 Skygear provide a user discovery method by email
 
 ``` javascript
+// it takes an array of email and callback with an array of users
 skygear.getUsersByEmail(['ben@skygear.com']).then((users) => {
   console.log(users);
 }, (error) => {
