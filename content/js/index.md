@@ -81,17 +81,15 @@ html file like this:
 
 <br/><br/>
 <a name="intro-portal"></a>
-# Before you begin
+# Basics of Skygear JS SDK
 
-There are a few steps to complete and a few concepts to introduce.
-
-## Portal
+## Developer Portal
 
 To start using the Skygear JS SDK, you need to register your account and
-application at the Skygear [portal](https://portal-staging.skygear.io) website.
-After you registered, go to the **INFO** tab and copy your `Server EndPoint` and
-`API Key`, and right after where you include Skygear JS SDK configure the
-skygear container:
+application at the Skygear [Developer Portal](https://portal-staging.skygear.io)
+website. After you registered, go to the **INFO** tab and copy your
+`Server EndPoint` and `API Key`, and right after where you include Skygear JS
+SDK configure the skygear container:
 
 ``` javascript
 import skygear from 'skygear';
@@ -112,10 +110,6 @@ skygear.config({
 Container is the uppermost layer of skygear. In practice,
 `import skygear from 'skygear'` will give you a container instance at variable
 skygear. In most case you will only need one instance of container.
-
-The first things you need to interact with container is setting `endPoint` and
-`apiKey`. If you don't know what that is, please read the [Getting Started](/js/guide)
-part first.
 
 ## Database
 
