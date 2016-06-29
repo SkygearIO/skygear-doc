@@ -89,12 +89,6 @@ skygear.relation.query(query).then((users) => {
 });
 ```
 
-To test whether Ben is a friend of the current user:
-
-``` javascript
-???
-```
-
 ## Removing relations
 
 ``` javascript
