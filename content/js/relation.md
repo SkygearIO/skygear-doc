@@ -49,13 +49,13 @@ skygear.relation.queryFollower(ben).then((users) => {
 });
 ```
 
-To get current user's friend list:
+To get the current user's friend list:
 
 ``` javascript
 skygear.relation.queryFriend(skygear.currentUser).then(...);
 ```
 
-To get current user's following list:
+To get the current user's following list:
 
 ``` javascript
 skygear.relation.queryFollowing(skygear.currentUser).then(...);
