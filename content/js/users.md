@@ -7,12 +7,12 @@
 If you are not familiar with Promises, please read more [here](https://www.promisejs.org/).
 
 ``` javascript
-skygear._signup(username, email, password);
-skygear.signupWithUsername(username, password);
-skygear.signupWithEmail(email, password);
-// the above three functions all return a promise
+// We can signup using username or email. Both function will return a promise.
+let req = skygear.signupWithUsername(username, password);
+// Or by email.
+req = skygear.signupWithEmail(email, password);
 
-<promise>.then((user) => {
+req.then((user) => {
   console.log('user id', user.ID);
   // only after the user successfully signup or login
   // skygear.accessToken can be available
@@ -29,10 +29,12 @@ skygear.signupWithEmail(email, password);
 Logging in is as straight-forward as signing up.
 
 ``` javascript
-skygear.loginWithUsername(username, password);
-skygear.loginWithEmail(username, password);
+// If you signup with username, you can login by calling `loginWithUsername`.
+let req = skygear.loginWithUsername(username, password);
+// Or call `loginWithEmail` if you signup with email.
+req = skygear.loginWithEmail(username, password);
 
-<promise>.then((user) => {
+req.then((user) => {
   console.log(user);
 }, (error) => {
   console.error(error);    
