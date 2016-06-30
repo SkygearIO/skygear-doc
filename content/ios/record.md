@@ -1,29 +1,8 @@
-We have mentioned _record_, _container_ and _database_. Let's look at them
-one by one.
-
-### SKYRecord
-
-`SKYRecord` is a key-value data object which can be stored in a _database_. Each
-record has a `recordType`, which describes the _type_ of data this record holds.
-
-A record can store whatever values that's JSON-serializable, it include
-strings, numbers, booleans, dates, plus several custom type that Skygear
-supports (TODO: add references to other pages).
+Before we get to CRUD (creating, reading, updating and deleting) _records_, we need to talk about _container_, _database_ and _record_ first. Let's look at them one by one.
 
 ### SKYContainer
 
-`SKYContainer` is the uppermost layer of `SKYKit`. It represents the root of all
-resources accessible by an application and one application should have exactly
-one container. In `SKYKit`, such container is accessed via the singleton
-`defaultContainer`:
-
-```obj-c
-SKYContainer *container = [SKYContainer defaultContainer];
-```
-
-Container provides [User Authentication]({{< relref "user.md" >}}),
-[Asset Storage]({{< relref "asset.md" >}}) and access to
-[public and private databases]({{< relref "#SKYDatabase" >}}).
+To read about `SKYContainer`, please go to [Getting Started]({{< relref "getting-started.md" >}}) section.
 
 ### SKYDatabase
 
