@@ -1,4 +1,4 @@
-- Skygear provides query of records with conditions. You can apply condition to
+Skygear provides query of records with conditions. You can apply condition to
 Skygear queries, only getting the records you want.
 
 <a name="basic"></a>
@@ -35,8 +35,13 @@ publicDB.query(noteQuery, new RecordQueryResponseHandler() {
 <a name="complex"></a>
 ## Complex Query
 
-Besides the basic query, Skygear also supports `Or` operation with multiple
-`Query` objects.
+Besides the basic query, Skygear also supports some query operations in order
+to construct a complex query.
+
+### Or operation
+
+`Or` operation can be applied to multiple `Query` objects. The usage is as
+following:
 
 ```java
 Query query1 = new Query("Note").caseInsensitiveLike("title", "%important%");
@@ -47,6 +52,25 @@ Query compoundQuery = Query.or(query1, query2, query3)
 compoundQuery.addAscending("rating");
 
 // perform query using `compoundQuery` object...
+```
+
+### Negate operation
+
+`negate` operation can be applied to a `Query` object to negate the whole query
+predicate.
+
+```java
+// (rating > 1) AND (rating < 3)
+Query betweenOneAndThree = new Query("Note")
+        .greaterThan("rating", 1)
+        .lessThan("rating", 3);
+
+// NOT ((rating > 1) AND (rating < 3))
+Query notBetweenOneAndThree = new Query("Note")
+        .greaterThan("rating", 1)
+        .lessThan("rating", 3)
+        .negate();
+
 ```
 
 <a name="operators"></a>
