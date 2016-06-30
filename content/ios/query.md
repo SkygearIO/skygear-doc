@@ -28,19 +28,11 @@ query.sortDescriptors = @[sortDescriptor];
 
 We constructed a `SKYQuery` to search for `todo` records. There are no additional
 criteria needed so we put the predicate to `nil`. Then we assigned a
-`NSSortDescription` to ask Skygear Server to sort the `todo` records by `order` field
-ascendingly.
-
-You can also sort the `todo` records by their `modificationDate`.
-
-```obj-c
-NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"_updated_at" ascending:NO];
-query.sortDescriptors = @[sortDescriptor];
-```
-
-`SKYQuery` utilizes `NSPredicate` to apply filtering on query results. You can use other parameters to sort your quries.
+`NSSortDescription` to ask Skygear Server to sort the `todo` records by `order` field ascendingly.
 
 ## Querying with NSPredicate
+
+To use `SKYQuery` with ease, we recommend using the methods provided to add constraints. However, you can also use `NSPredicate` to add constraints if you wish. The following features are supported:
 
 ### Basic Comparisons
 
@@ -106,13 +98,43 @@ SKYDatabase *privateDB = database;
 }];
 ```
 
-## Limiting and Offset
+## Complex Queries
 
-## Cached Queries
+### Sorting the records
+We can sort records returned like this:
 
-## Record Count
+```obj-c
+NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"_updated_at" ascending:NO];     // sorted by modificationDate
+query.sortDescriptors = @[sortDescriptor];     // apply the NSSortDescriptor to the query
+```
+
+`SKYQuery` utilizes `NSPredicate` to apply filtering on query results. You can use other parameters to sort your quries.
+
+### Limiting and Offset
+
+We can limit the numbers of records returned like this:
+
+```obj-c
+query.limit = 10;     // only show the top 10 records
+```
+
+We can also set an offset number to the query like this:
+
+```obj-c
+query.offset = 5;     // ignore the first 5 records
+```
+
+Now the first 5 records in the result list will be ignored. Your query result will start with the 6th record.
+
+### Record Count
 
 To get the number of all records matching a query, set the property
 `overallCount` property of `SKYQuery` to `YES`. The record count can be
 retrieved from `overallCount` property of `SKYQueryOperation` when
 `perRecordCompletionBlock` is first called.
+
+### Cached Queries
+
+Skygear provides a simple cached query mechanism for application that wants to display the data last seen before it gets new data from Skygear Server. To make use of this, you just need to provide an extra callback function to the `query` function, and Skygear will try to return an cached result before it gets the latest result from the Skygear server.
+
+(TODO: Add code example)
