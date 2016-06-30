@@ -1,42 +1,5 @@
-<br/><br/>
 <a name="basic-crud"></a>
 # Basic CRUD
-
-## Container
-
-Container is the uppermost layer of skygear. In practice,
-`import skygear from 'skygear'` will give you a container instance at variable
-skygear. In most case you will only need one instance of container.
-
-The first things you need to interact with container is setting `endPoint` and
-`apiKey`.
-
-``` javascript
-import skygear from 'skygear';
-// or in the browser with ECMAScript 5 just use window.skygear
-
-skygear.config({
-  'endPoint': 'https://<your-app-name>.staging.skygeario.com/', // trailing slash is required
-  'apiKey': '<your-api-key>'
-}).then((container) => {
-  console.log(container);
-}, (error) => {
-  console.error(error);
-});
-```
-
-## Database
-
-You will be provided with a private and a public database.
-
-- Everything in the private database is truly private, regardless of what access
-control entity you set to the record. In other words, each user has his own
-private database, and only himself have access to it.
-- Record saved at public database is by default public. Even without
-logging in, records in the public database can be queried (but not updated).
-To control the access, you may set different access control entity to the record.
-- The database objects can be accessed with `skygear.publicDB` and
-`skygear.privateDB`.
 
 <a name="record"></a>
 ## Record
@@ -180,21 +143,6 @@ skygear.publicDB.query(query)
 });
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="auto-increment"></a>
 # Create an Auto-Incrementing Field
 
@@ -240,21 +188,6 @@ skygear.publicDB.save(note).then((note) => {
 });
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="reference"></a>
 # Records Relations (References)
 
@@ -329,21 +262,6 @@ impair performance.
 
 Yet to be implemented. For now, deleting a referenced record is not allowed.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="subscription"></a>
 # Subscription
 

@@ -1,4 +1,3 @@
-<br/><br/>
 <a name="basic-queries"></a>
 # Basic Queries
 
@@ -41,19 +40,9 @@ query.greaterThan('size', 50);             // >
 query.greaterThanOrEqualTo('size', 50);    // >=
 ```
 
-There are more complicated functions/conditions and querying logics available, 
+There are more complicated functions/conditions and querying logics available,
 introduced below; there are also [Geolocation Queries](/js/guide/geolocation).
 
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="complex-queries"></a>
 # Complex Queries
 
@@ -152,17 +141,6 @@ query.havingRelation("_owner", skygear.relation.Following)
 
 See [User Relations (JS SDK)](/js/guide/relation) for more relations.
 
-
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="cached-query"></a>
 # Cached Query
 

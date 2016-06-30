@@ -12,6 +12,10 @@
           "url": "#include-js-sdk"
         },
         {
+          "title": "Basics of Skygear JS SDK",
+          "url": "#intro-portal"
+        },
+        {
           "title": "What's Next",
           "url": "#whats-next"
         }
