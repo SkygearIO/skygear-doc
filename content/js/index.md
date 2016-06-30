@@ -21,7 +21,7 @@ npm install skygear --save
 You can add the development branch GitHub Repository as a submodule in your project.
 
 ``` bash
-git submodule git@github.com:skygeario/skygear-server.git
+git submodule add https://github.com/SkygearIO/skygear-SDK-JS.git skygear
 cd skygear
 npm install
 cd ..
