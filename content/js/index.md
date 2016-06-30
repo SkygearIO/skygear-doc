@@ -41,6 +41,8 @@ import 'babel-polyfill';
 import skygear from 'skygear';
 ```
 
+Please refer to [ReactJS integration](/js/guide/reactjs) for more info.
+
 ## Include in your website
 
 Include these two JS files before your own JS files, and then skygear will be
