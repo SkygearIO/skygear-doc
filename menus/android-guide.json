@@ -64,5 +64,23 @@
                 "url": "#delete"
             }
         ]
+    },
+    {
+        "title": "Queries",
+        "url": "/android/guide/query",
+        "sub": [
+            {
+                "title": "Basic Query",
+                "url": "#basic"
+            },
+            {
+                "title": "Complex Query",
+                "url": "#complex"
+            },
+            {
+                "title": "Supported operators",
+                "url": "#operators"
+            }
+        ]
     }
 ]

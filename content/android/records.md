@@ -117,7 +117,40 @@ database.save(records, handler);
 <a name="query"></a>
 ## Query records
 
-Coming soon.
+You can use `Query` object to find records with conditions:
+
+```java
+Query query = new Query("Note")
+        .greaterThan("readCount", 3)
+        .caseInsensitiveLike("title", "%hello%");
+```
+
+The following code snippet shows how to perform record query with `Query` object:
+
+```java
+RecordQueryResponseHandler handler = new RecordQueryResponseHandler() {
+    @Override
+    public void onQuerySuccess(Record[] records) {
+        Log.i(
+            "Skygear Record Query",
+            String.format("Successfully got %d records", records.length)
+        );
+    }
+
+    @Override
+    public void onQueryError(String reason) {
+        Log.i(
+            "Skygear Record Query",
+            "Fail to delete: " + reason
+        );
+    }
+}
+
+database.query(query, handler);
+
+```
+
+For more information, please check out the [Query Section](/android/guide/query)
 
 <a name="delete"></a>
 ## Delete records
