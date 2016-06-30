@@ -1,4 +1,3 @@
-<br/><br/>
 <a name="basic-crud"></a>
 # Basic CRUD
 
@@ -144,21 +143,6 @@ skygear.publicDB.query(query)
 });
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="auto-increment"></a>
 # Create an Auto-Incrementing Field
 
@@ -204,21 +188,6 @@ skygear.publicDB.save(note).then((note) => {
 });
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="reference"></a>
 # Records Relations (References)
 
@@ -293,21 +262,6 @@ impair performance.
 
 Yet to be implemented. For now, deleting a referenced record is not allowed.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="subscription"></a>
 # Subscription
 

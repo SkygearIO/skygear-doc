@@ -1,4 +1,3 @@
-<br/><br/>
 <a name="install-js-sdk"></a>
 # Install Skygear JS SDK
 
@@ -28,16 +27,6 @@ cd ..
 npm install skygear/
 ```
 
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="include-js-sdk"></a>
 # Include Skygear JS SDK in your project
 
@@ -70,16 +59,6 @@ html file like this:
 <script src="/skygear/dist/bundle.js"></script>
 ```
 
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="intro-portal"></a>
 # Basics of Skygear JS SDK
 
@@ -124,16 +103,6 @@ To control the access, you may set different access control entity to the record
 - The database objects can be accessed with `skygear.publicDB` and
 `skygear.privateDB`.
 
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="whats-next"></a>
 # What's Next
 

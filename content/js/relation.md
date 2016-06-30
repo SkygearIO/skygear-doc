@@ -1,4 +1,3 @@
-<br/><br/>
 <a name="friends-and-followers"></a>
 # User relations (Friends & Followers)
 

@@ -1,4 +1,3 @@
-<br/><br/>
 <a name="authentication"></a>
 # Authentication
 
@@ -73,16 +72,6 @@ skygear.changePassword(oldPassword, newPassword, invalidateTokens=true)
 });
 ```
 
-
-
-
-
-
-
-
-
-
-<br/><br/>
 <a name="current-user"></a>
 # Current User
 
