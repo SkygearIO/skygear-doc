@@ -41,22 +41,14 @@ import 'babel-polyfill';
 import skygear from 'skygear';
 ```
 
-## Include in your website
+## Include in your website (**Coming Soon**)
 
-Build the Skygear module first (make sure all the tests pass,
-if not please check your node version or report an issue):
-
-``` bash
-cd skygear
-npm test
-cd ..
-```
-
-Then you can just include the javascript file `skygear/dist/bundle.js` to your
-html file like this:
+Include these two JS files before your own JS files, and then skygear will be
+available globally (`window.skygear` or just `skygear`).
 
 ``` html
-<script src="/skygear/dist/bundle.js"></script>
+<script src="//cdn.skygear.io/polyfill.min.js"></script>
+<script src="//cdn.skygear.io/skygear.js"></script>
 ```
 
 <a name="intro-portal"></a>
