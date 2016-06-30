@@ -1,5 +1,45 @@
 ## Basic Queries
 
+We have shown how to fetch individual records by ids, but in real-world
+application there are usually needs to show a list of items according to
+some criteria. It is supported by queries in Skygear.
+
+Let's see how to fetch a list of to-do items to be displayed in our
+hypothetical To-Do app:
+
+```obj-c
+SKYQuery *query = [SKYQuery queryWithRecordType:@"todo" predicate:nil];
+
+NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+query.sortDescriptors = @[sortDescriptor];
+
+[privateDB performQuery:query completionHandler:^(NSArray *results, NSError *error) {
+    if (error) {
+        NSLog(@"error querying todos: %@", error);
+        return;
+    }
+
+    NSLog(@"Received %@ todos.", @(results.count));
+    for (SKYRecord *todo in results) {
+        NSLog(@"Got a todo: %@", todo[@"title"]);
+    }
+}];
+```
+
+We constructed a `SKYQuery` to search for `todo` records. There are no additional
+criteria needed so we put the predicate to `nil`. Then we assigned a
+`NSSortDescription` to ask Skygear Server to sort the `todo` records by `order` field
+ascendingly.
+
+You can also sort the `todo` records by their `modificationDate`.
+
+```obj-c
+NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"_updated_at" ascending:NO];
+query.sortDescriptors = @[sortDescriptor];
+```
+
+`SKYQuery` utilizes `NSPredicate` to apply filtering on query results. You can use other parameters to sort your quries.
+
 ## Querying with NSPredicate
 
 ### Basic Comparisons

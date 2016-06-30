@@ -4,15 +4,15 @@
         "url": "/ios/guide",
         "sub": [
             {
-                "title": "Install iOS SDK",
+                "title": "Installing iOS SDK",
                 "url": "#add-as-dependency"
             },
             {
-                "title": "Set up your iOS app",
+                "title": "Setting up your iOS app",
                 "url": "#configure-container"
             },
             {
-                "title": "Test the SDK",
+                "title": "Testing the SDK",
                 "url": "#test-sdk"
             },
             {
