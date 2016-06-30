@@ -6,7 +6,7 @@
   "routes": {
     "/ios/guide": {
       "name": "iOS SDK",
-      "title": "How to install SkyKit SDK in Xcode",
+      "title": "Getting Started",
       "content_path": "./content/ios/getting-started.md",
       "menu_path": "./menus/ios-guide.json"
     },
