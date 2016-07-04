@@ -82,5 +82,23 @@
                 "url": "#operators"
             }
         ]
+    },
+    {
+        "title": "Pubsub",
+        "url": "/android/guide/pubsub",
+        "sub": [
+            {
+                "title": "Publish",
+                "url": "#publish"
+            },
+            {
+                "title": "Subscribe",
+                "url": "#subscribe"
+            },
+            {
+                "title": "Unsubscribe",
+                "url": "#unsubscribe"
+            }
+        ]
     }
 ]

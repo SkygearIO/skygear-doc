@@ -27,6 +27,12 @@
       "title": "Query",
       "content_path": "./content/android/query.md",
       "menu_path": "./menus/android-guide.json"
+    },
+    "/android/guide/pubsub": {
+      "name": "Android SDK",
+      "title": "Pubsub",
+      "content_path": "./content/android/pubsub.md",
+      "menu_path": "./menus/android-guide.json"
     }
   }
 }
