@@ -41,14 +41,14 @@ import 'babel-polyfill';
 import skygear from 'skygear';
 ```
 
-## Include in your website (**Coming Soon**)
+## Include in your website
 
 Include these two JS files before your own JS files, and then skygear will be
 available globally (`window.skygear` or just `skygear`).
 
 ``` html
-<script src="//cdn.skygear.io/polyfill.min.js"></script>
-<script src="//cdn.skygear.io/skygear.js"></script>
+<script src="//code.skygear.io/js/polyfill/latest/polyfill.min.js"></script>
+<script src="//code.skygear.io/js/skygear/latest/skygear.min.js"></script>
 ```
 
 <a name="intro-portal"></a>
