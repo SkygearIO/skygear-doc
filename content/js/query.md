@@ -1,5 +1,5 @@
 <a name="basic-queries"></a>
-# Basic Queries
+## Basic Queries
 
 Skygear provides query of records with conditions. Here is a straight-forward
 example of getting the note that has the `title` as `First note`. If you don't
@@ -44,9 +44,9 @@ There are more complicated functions/conditions and querying logics available,
 introduced below; there are also [Geolocation Queries](/js/guide/geolocation).
 
 <a name="complex-queries"></a>
-# Complex Queries
+## Complex Queries
 
-## Sorting the records
+### Sorting the records
 
 We can also limit the number of records returned, and we can even sort
 the records based on certain field in ascending or descending order.
@@ -57,7 +57,7 @@ query.addDescending('price'); // sorted by price decreasing order
 query.limit = 10;             // only show the top 10 records
 ```
 
-## More querying logic
+### More querying logic
 
 By default, the condition added to the query are combined with `AND`. To
 construct an `OR` query, we need to specify it with the following syntax.
@@ -76,7 +76,7 @@ skygear.publicDB.query(query).then((notes) => {
 });
 ```
 
-## Counting the records
+### Counting the records
 
 To get the number of records matching a query, set the `overallCount`
 of the Query to `true`. In this case, you will get the count of all records
@@ -96,7 +96,7 @@ skygear.privateDB.query(query).then((notes, count) => {
 The count is not affected by the limit set on the query. So, if you only want
 to get the count without fetching any records, simple set `query.limit = 0`.
 
-## Contains condition
+### Contains condition
 
 The `contains` function can be used to query a key for value that matches one of the
 item in a specified array.
@@ -112,7 +112,7 @@ a key that has an array as its value containing the specified value.
 query.containsValue('category', 'interesting');
 ```
 
-## Like condition
+### Like condition
 
 The `like` function can be used to query a key for complete or partial matches
 of a specified string. The percent character (`%`) can be used in place
@@ -126,7 +126,7 @@ query.like('category', 'science%');
 The above query will match notes with category `science` or `science-fiction`.
 Use `caseInsensitiveLike` for case insensitive match.
 
-## Having relation condition
+### Having relation condition
 
 The `havingRelation` can be used to query for records having a relation with
 the current user. For this kind of query, the record has an relation with
@@ -142,7 +142,7 @@ query.havingRelation("_owner", skygear.relation.Following)
 See [User Relations (JS SDK)](/js/guide/relation) for more relations.
 
 <a name="cached-query"></a>
-# Cached Query
+## Cached Query
 
 Skygear provides a simple cached query mechanism for application that wants to
 display the data last seen before it gets new data from Skygear Server. To make
@@ -165,7 +165,7 @@ skygear.publicDB.query(query, successCallback)
 });
 ```
 
-## Note:
+### Note:
 
 - It is not guaranteed that the callback is called before a request takes
   place, especially if a cached result of the query is not available.

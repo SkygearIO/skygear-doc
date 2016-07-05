@@ -1,12 +1,12 @@
 <a name="install-js-sdk"></a>
-# Install Skygear JS SDK
+## Install Skygear JS SDK
 
 There are several ways to install Skygear JS SDK to you app. You can either:
 
 - Install the stable release on npm
 - Install the latest development version
 
-## Install the stable release on npm
+### Install the stable release on npm
 
 You can install Skygear JS SDK via [npm](https://www.npmjs.com/package/skygear).
 The SDK package is available on the npm website.
@@ -15,7 +15,7 @@ The SDK package is available on the npm website.
 npm install skygear --save
 ```
 
-## Install the latest development version
+### Install the latest development version
 
 You can add the development branch GitHub Repository as a submodule in your project.
 
@@ -28,9 +28,9 @@ npm install skygear/
 ```
 
 <a name="include-js-sdk"></a>
-# Include Skygear JS SDK in your project
+## Include Skygear JS SDK in your project
 
-## Include in your npm project
+### Include in your npm project
 
 The Skygear JS SDK is assumed to be run in ES6 runtime. If you wish to run it in
 an older runtime, you need to require the [polyfill plugin](https://babeljs.io/docs/usage/polyfill/)
@@ -54,9 +54,9 @@ available globally (`window.skygear` or just `skygear`).
 ```
 
 <a name="intro-portal"></a>
-# Basics of Skygear JS SDK
+## Basics of Skygear JS SDK
 
-## Developer Portal
+### Developer Portal
 
 To start using the Skygear JS SDK, you need to register your account and
 application at the Skygear [Developer Portal](https://portal-staging.skygear.io)
@@ -78,13 +78,13 @@ skygear.config({
 });
 ```
 
-## Container
+### Container
 
 Container is the uppermost layer of skygear. In practice,
 `import skygear from 'skygear'` will give you a container instance at variable
 skygear. In most case you will only need one instance of container.
 
-## Database
+### Database
 
 You will be provided with a private and a public database.
 
@@ -98,7 +98,7 @@ To control the access, you may set different access control entity to the record
 `skygear.privateDB`.
 
 <a name="whats-next"></a>
-# What's Next
+## What's Next
 
 Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
 

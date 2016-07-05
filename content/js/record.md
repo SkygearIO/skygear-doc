@@ -1,8 +1,8 @@
 <a name="basic-crud"></a>
-# Basic CRUD
+## Basic CRUD
 
 <a name="record"></a>
-## Record
+### Record
 
 - `Record` must have a type.
 - `Record` is a key-value-pair data object that is stored at _database_.
@@ -21,7 +21,7 @@ let note = new Note({ 'content': 'Hello World' });
 // { _id: "123456...", id: "note/123456...", recordType: "note", access: [Object object] }
 ```
 
-## Create a record
+### Create a record
 
 You can save a public record to server as the following.
 
@@ -58,7 +58,7 @@ skygear.publicDB.save([helloNote, foobarNote])
 });
 ```
 
-## Read a record
+### Read a record
 
 You can construct a Query object by providing a Record Type.
 You can config the query by mutating its state.
@@ -77,7 +77,7 @@ skygear.publicDB.query(query).then((records) => {
 })
 ```
 
-## Update a record
+### Update a record
 
 See the [above](#record) section about `id` and `_id` if you are confused.
 
@@ -104,7 +104,7 @@ the records are merged with any remote transient fields applied on the server
 side.
 
 
-## Delete a record
+### Delete a record
 
 See the [above](#record) section about `id` and `_id` if you are confused.
 
@@ -144,9 +144,9 @@ skygear.publicDB.query(query)
 ```
 
 <a name="auto-increment"></a>
-# Create an Auto-Incrementing Field
+## Create an Auto-Incrementing Field
 
-## Make use of sequence object
+### Make use of sequence object
 
 Skygear reserves the `id` field in the top level of all record as a primary key.
 If you want an auto-incrementing id for display purpose, Skygear provide
@@ -172,7 +172,7 @@ skygear.publicDB.save(note).then((note) => {
 - Our JIT schema at development will migrate the DB schema to sequence. All
   `noteID` at `Note` will be a sequence type once migrated.
 
-## Override sequence manually
+### Override sequence manually
 
 ``` javascript
 let note = new Note({
@@ -189,9 +189,9 @@ skygear.publicDB.save(note).then((note) => {
 ```
 
 <a name="reference"></a>
-# Records Relations (References)
+## Records Relations (References)
 
-## What Skygear provide
+### What Skygear provide
 
 Skygear supports parent-child relation between records via _reference_.
 `skygear.Reference` is a pointer class, which will translate to foreign key in
@@ -238,7 +238,7 @@ note.details = [note1, note2, note3].map((note) => {
 skygear.publicDB.save(note);
 ```
 
-## Eager Loading
+### Eager Loading
 
 After you specify a relation, you can perform eager loading using transient:
 
@@ -258,14 +258,14 @@ skygear.publicDB.query(q).then((records) => {
 It is possible to eager load records from multiple keys, but doing so will
 impair performance.
 
-## Deleting Referenced Record
+### Deleting Referenced Record
 
 Yet to be implemented. For now, deleting a referenced record is not allowed.
 
 <a name="subscription"></a>
-# Subscription
+## Subscription
 
-## Creating a subscription
+### Creating a subscription
 
 The following code creates a subscription of all the `Note` created by
 `skygear.currentUser`. Notice that creating a subscription does not involve
@@ -281,7 +281,7 @@ subscription.query = query;
 skygear.publicDB.saveSubscription(subscription);
 ```
 
-## Fetching subscription
+### Fetching subscription
 
 ```javascript
 skygear.publicDB.fetchSubscription('my notes').then((subscription) => {
@@ -291,7 +291,7 @@ skygear.publicDB.fetchSubscription('my notes').then((subscription) => {
 });
 ```
 
-## Fetching all subscriptions
+### Fetching all subscriptions
 
 ```javascript
 skygear.publicDB.fetchAllSubscriptions().then((subscriptions) => {
@@ -303,7 +303,7 @@ skygear.publicDB.fetchAllSubscriptions().then((subscriptions) => {
 });
 ```
 
-## Deleting a subscription
+### Deleting a subscription
 
 ```javascript
 skygear.publicDB.deleteSubscription('my notes').then((subscription) => {
@@ -313,7 +313,7 @@ skygear.publicDB.deleteSubscription('my notes').then((subscription) => {
 });
 ```
 
-## Listening to subscription notification
+### Listening to subscription notification
 
 Once user subscribes, we can listen to subscription notifications.
 
