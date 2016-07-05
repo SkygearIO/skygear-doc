@@ -1,6 +1,10 @@
 TODO: Only logged in user can do write operation on databases
 
+# Authentication
+
 ## Signing up
+
+The first thing you want a user to do is to sign up. The following code illustrates the sign up process:
 
 ```obj-c
 [container signupWithUsername:@"john.doe"
@@ -16,10 +20,13 @@ completionHandler:^(SKYUserRecordID *user, NSError *error) {
 }];
 ```
 
-TODO: It checks for uniqueness username
-TODO: Remind developer to use email as username when necessary
+This call will create a new user in your app. Before completing the process, it automatically checks if the username is unique. New users should always be created with this method.
 
-## Logging in
+When a new user is successfully created, a `SKYUser` is returned.
+
+If the signup is not successful, you should read the error object returned. Usually it is just that the username or the email has been taken. You should communicate this to your users and ask them to try a different username. They may also be other kinds of errors that you should take note of.
+
+You can use `signupWithEmail:password:` to sign up users with emails as well:
 
 ```obj-c
 [container loginWithUsername:@"john.doe"
@@ -35,9 +42,12 @@ completionHandler:^(SKYUserRecordID *user, NSError *error) {
 }];
 ```
 
-## Signup and login with email
+TODO: It checks for uniqueness username
+TODO: Remind developer to use email as username when necessary
 
-We allow signup and login by email too.
+## Logging in
+
+You can use `loginWithUsername:password:` to let users log in to their accounts by:
 
 ```obj-c
 [container signupWithEmail:@"john.doe@example.com"
@@ -52,6 +62,8 @@ We allow signup and login by email too.
     // do something else
 }];
 ```
+
+You can also use `loginWithEmail:password:` to log in users with emails:
 
 ```obj-c
 [container loginWithEmail:@"john.doe@example.com"
@@ -79,11 +91,15 @@ if (container.currentUserRecordID) {
 
 ## Logging out
 
+Of course, you also would want to allow users to log out of their accounts by using `logoutWithCompletionHandler:`.
+
 ```obj-c
 [container logoutWithCompletionHandler:nil];
 ```
 
-## Changing user password
+## Changing password
+
+Sometimes users would want to change their passwords to secure their accounts. The following code illustrates the process.
 
 ```obj-c
 [container changePassword:@"oldPassword"
