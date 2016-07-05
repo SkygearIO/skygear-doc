@@ -136,3 +136,8 @@ operation.container = [SKYContainer defaultContainer];
 ## User Relations
 
 See [Friends and Followers]({{< relref "relation.md" >}}).
+
+# Social Login
+## Logging in with provider
+
+Right now to allow social plugin such as Facebook, plugin code must be written to enable it on the backend. Read more about in the [Plugin]({{< relref "plugin.md" >}}) section.
