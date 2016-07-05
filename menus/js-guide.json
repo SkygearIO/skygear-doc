@@ -80,6 +80,10 @@
       {
         "title": "Current User",
         "url": "#current-user"
+      },
+      {
+        "title": "User Profile",
+        "url": "#user-profile"
       }
     ]
   },

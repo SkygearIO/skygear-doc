@@ -152,6 +152,27 @@ skygear.discover('chpapa').then((ben) => {
 });
 ```
 
+<a name="user-profile"></a>
+## User Profile
+
+Whenever a new user signs up, a user profile is automatically created for
+you to track user information other than their username, email or password.
+You can access the user profile the same way as accessing a record.
+
+``` javascript
+const User = skygear.Record.extend("user");
+
+// get the current user's profile
+var query = new skygear.Query(User);
+query.equalTo("_created_by", skygear.currentUser.id);
+skygear.publicDB.query(query).then((records) => {
+  var profile = records[0];
+  console.log(profile);
+}, (error) => {
+  console.error(error);
+});
+```
+
 ### User relations
 
 See [Social](/js/guide/relation) section for more.
