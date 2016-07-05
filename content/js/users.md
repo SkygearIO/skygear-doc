@@ -12,7 +12,7 @@ let req = skygear.signupWithUsername(username, password);
 req = skygear.signupWithEmail(email, password);
 
 req.then((user) => {
-  console.log('user id', user.ID);
+  console.log('user id', user.id);
   // only after the user successfully signup or login
   // skygear.accessToken can be available
   console.log('access token', skygear.accessToken);
@@ -40,6 +40,18 @@ req.then((user) => {
 })
 ```
 
+## Log in with Provider
+
+Right now to allow social login such as Facebook, plugin code must be written
+to enable it on the backend. Read more [here](/plugin/guide/guide-auth).
+After the code is written, we can then have social login:
+
+``` javascript
+skygear.loginWithProvider(provider, authData).then(...);
+// provider is just the name of the provider (e.g. 'com.facebook')
+// authData is the access token you obtained from the social media's API website
+```
+
 ## Log out
 
 ``` javascript
@@ -57,6 +69,19 @@ skygear.changePassword(oldPassword, newPassword).then((user) => {
   console.log('User now have new password', user);
 }, (error) => {
   // maybe user has not logged in or old password not match
+  console.error(error);
+});
+```
+
+## Change email
+
+``` javascript
+skygear.saveUser({
+  id: '<your-user-id>', // such as skygear.currentUser.id
+  email: '<your-new-email-address>'
+}).then((user) => {
+  console.log('Email updated to:', user.email);
+}, (error) => {
   console.error(error);
 });
 ```
@@ -84,10 +109,11 @@ let user = skygear.currentUser;
 
 ## Hook currentUser change
 
-When access token is expired, Skygear Server will return `401 Unauthorized`. SDK will
-clear the persisted access token and current user info. To handle the forced
-logout gracefully at your application, you should register a call back by
-`onUserChanged` and do appropriate application logic to alert the user.
+When a user's access token is expired, the SDK will return `401 Unauthorized`,
+and clear the persisted access token and current user info. To handle the forced
+logout gracefully at your application, you should register a callback by
+`onUserChanged` and do appropriate application logic to alert the user. The
+handler is also invoked every time a user logs in or logs out.
 
 ``` javascript
 let handler = skygear.onUserChanged(function (user) {
@@ -106,6 +132,7 @@ handler.cancel(); // The callback is cancelable
 Skygear provide a user discovery method by email
 
 ``` javascript
+// it takes an array of email and callback with an array of users
 skygear.getUsersByEmail(['ben@skygear.com']).then((users) => {
   console.log(users);
 }, (error) => {
