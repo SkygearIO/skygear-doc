@@ -1,6 +1,23 @@
 <a name="basic-crud"></a>
 ## Basic CRUD
 
+### Container
+
+Please read about container [here](/js/guide#container) before you proceed.
+
+### Database
+
+You will be provided with a private and a public database.
+
+- Everything in the private database is truly private, regardless of what access
+control entity you set to the record. In other words, each user has his own
+private database, and only himself have access to it.
+- Record saved at public database is by default public. Even without
+logging in, records in the public database can be queried (but not updated).
+To control the access, you may set different access control entity to the record.
+- The database objects can be accessed with `skygear.publicDB` and
+`skygear.privateDB`.
+
 <a name="record"></a>
 ### Record
 

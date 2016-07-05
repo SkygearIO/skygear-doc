@@ -1,3 +1,16 @@
+Skygear aims to provide a complete and open-source backend solution for your web applications.
+
+By creating an app for each of your web applications on Skygear, each client app can be connected to the Skygear Server with an API key.
+
+This guide will show you how to integrate Skygear into an existing web app project.
+
+## Signing up for Skygear
+
+To start using the Skygear JS SDK, you need to register your account and
+application at the Skygear [Developer Portal](https://portal-staging.skygear.io)
+website. After you registered, go to the **INFO** tab and copy down your
+`Server EndPoint` and `API Key`.
+
 <a name="install-js-sdk"></a>
 ## Install Skygear JS SDK
 
@@ -56,13 +69,14 @@ available globally (`window.skygear` or just `skygear`).
 <a name="intro-portal"></a>
 ## Basics of Skygear JS SDK
 
-### Developer Portal
+<a name="container"></a>
+### Container
 
-To start using the Skygear JS SDK, you need to register your account and
-application at the Skygear [Developer Portal](https://portal-staging.skygear.io)
-website. After you registered, go to the **INFO** tab and copy your
-`Server EndPoint` and `API Key`, and right after where you include Skygear JS
-SDK configure the skygear container:
+Container is the uppermost layer of skygear. In practice,
+`import skygear from 'skygear'` will give you a container instance at variable
+skygear. In most cases you will only need one instance of container. Remember
+to configure your container with the `Server EndPoint` and `API Key` you get
+on Skygear Developer Portal.
 
 ``` javascript
 import skygear from 'skygear';
@@ -77,25 +91,6 @@ skygear.config({
   console.error(error);
 });
 ```
-
-### Container
-
-Container is the uppermost layer of skygear. In practice,
-`import skygear from 'skygear'` will give you a container instance at variable
-skygear. In most case you will only need one instance of container.
-
-### Database
-
-You will be provided with a private and a public database.
-
-- Everything in the private database is truly private, regardless of what access
-control entity you set to the record. In other words, each user has his own
-private database, and only himself have access to it.
-- Record saved at public database is by default public. Even without
-logging in, records in the public database can be queried (but not updated).
-To control the access, you may set different access control entity to the record.
-- The database objects can be accessed with `skygear.publicDB` and
-`skygear.privateDB`.
 
 <a name="whats-next"></a>
 ## What's Next
