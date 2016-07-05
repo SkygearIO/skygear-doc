@@ -9,7 +9,7 @@ The first thing you want a user to do is to sign up. The following code illustra
 ```obj-c
 [container signupWithUsername:@"john.doe"
                      password:@"verysecurepasswd"
-completionHandler:^(SKYUserRecordID *user, NSError *error) {
+completionHandler:^(SKYUser *user, NSError *error) {
     if (error) {
         NSLog(@"error signing up user: %@", error);
         return;
@@ -29,15 +29,15 @@ If the signup is not successful, you should read the error object returned. Usua
 You can use `signupWithEmail:password:` to sign up users with emails as well:
 
 ```obj-c
-[container loginWithUsername:@"john.doe"
-                    password:@"verysecurepasswd"
-completionHandler:^(SKYUserRecordID *user, NSError *error) {
+[container signupWithEmail:@"john.doe@example.com"
+                  password:@"verysecurepasswd"
+         completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
-        NSLog(@"error loggin user in: %@", error);
+        NSLog(@"error signing up user: %@", error);
         return;
     }
 
-    NSLog(@"login successful");
+    NSLog(@"sign up successful");
     // do something else
 }];
 ```
@@ -50,15 +50,15 @@ TODO: Remind developer to use email as username when necessary
 You can use `loginWithUsername:password:` to let users log in to their accounts by:
 
 ```obj-c
-[container signupWithEmail:@"john.doe@example.com"
-                  password:@"verysecurepasswd"
-         completionHandler:^(SKYUserRecordID *user, NSError *error) {
+[container loginWithUsername:@"john.doe"
+                    password:@"verysecurepasswd"
+completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
-        NSLog(@"error signing up user: %@", error);
+        NSLog(@"error loggin user in: %@", error);
         return;
     }
 
-    NSLog(@"sign up successful");
+    NSLog(@"login successful");
     // do something else
 }];
 ```
@@ -79,16 +79,6 @@ You can also use `loginWithEmail:password:` to log in users with emails:
 }];
 ```
 
-## Getting current user id
-
-```obj-c
-if (container.currentUserRecordID) {
-    // user is logged in, proceed
-} else {
-    // ask user to sign up / login
-}
-```
-
 ## Logging out
 
 Of course, you also would want to allow users to log out of their accounts by using `logoutWithCompletionHandler:`.
@@ -106,16 +96,31 @@ Sometimes users would want to change their passwords to secure their accounts. T
                  password:@"newPassword"
         completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
-        NSLog(@"Can't change password: %@", error);
+        NSLog(@"can't change password: %@", error);
         // Can be old password not matched?
         return;
     }
 
-    NSLog(@"Password change successfully");
+    NSLog(@"password change successfully");
 }]
 ```
 
-## Disocver users by emails
+# Current User
+## Getting current user id
+
+You can get the `currentUserRecordID` by:
+
+```obj-c
+if (container.currentUserRecordID) {
+    // user is logged in, proceed
+} else {
+    // ask user to sign up / login
+}
+```
+
+## Looking up users by email
+
+The following code shows how you can query other users with their emails:
 
 ```obj-c
 SKYQueryUsersOperation *operation = [SKYQueryUsersOperation discoverUsersOperationByEmails:@[@"john.doe@example.com", @"jane.doe@example.com"]];
