@@ -141,3 +141,25 @@ See [Friends and Followers]({{< relref "relation.md" >}}).
 ## Logging in with provider
 
 Right now to allow social plugin such as Facebook, plugin code must be written to enable it on the backend. Read more about in the [Plugin]({{< relref "plugin.md" >}}) section.
+
+# User Profile
+
+Whenever a new user signs up, a user profile is automatically created for
+you to track user information other than their _username_, _email_ or _password_.
+You can access the user profile the same way as accessing a record:
+
+```obj-c
+SKYDatabase *publicDB = [[SKYContainer defaultContainer] publicCloudDatabase];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"_created_by ==[c] %@", [container currentUserRecordID]];
+    SKYQuery *query = [SKYQuery queryWithRecordType:@"user" predicate:predicate];
+    
+    [publicDB performQuery:query completionHandler:^(NSArray *results, NSError *error) {
+        if (error) {
+            NSLog(@"error quering user profile: %@", error);
+            return;
+        }
+        
+        NSLog(@"query successful");
+        // do something else
+    }];
+```
