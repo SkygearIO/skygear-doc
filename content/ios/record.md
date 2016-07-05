@@ -21,12 +21,12 @@ only accessible to that user alone.
 - `SKYRecord` must have a type.
 - `SKYRecord` is a key-value data object that can be stored at _database_.
 - `SKYRecord` will belong to the currently logged in user.
-- `SKYRecord` object has unique `id` (a string combination of record type and uuid used in the database as `_id`).
+- `SKYRecord` object has a unique `id` (a string combination of record type and uuid is used).
 - Each `SKYRecord` has a `recordType`, which describes the _type_ of data this record holds.
 
-	A record can store whatever values that's JSON-serializable, it include
-strings, numbers, booleans, dates, plus several custom type that Skygear
-supports (TODO: add references to other pages).
+	A record can store whatever values that are JSON-serializable. Possible values include
+strings, numbers, booleans, dates, and several other custom types that Skygear
+supports. (TODO: add references to other pages).
 
 ## Creating a record
 
@@ -95,8 +95,7 @@ After you have successfully saved the `SKYRecord`, the server will return an upd
 2015-09-22 16:16:37.893 todoapp[89631:1349388] saved todo with recordID = <SKYRecordID: 0x7ff93ac37940; recordType = todo, recordName = 369067DC-BDBC-49D5-A6A2-D83061D83BFC>
 ```
 
-As you can see, the returned `SKYRecord` now has a `recordID`. The `recordID` property on your saved todo is an id which uniquely identifies
-the record in a database.
+As you can see, the returned `SKYRecord` now has a `recordID`. The `recordID` property on your saved todo is an id which uniquely identifies the record in a database.
 
 With the `recordID` you can modify the record later on. Say if
 you have to mark this todo as done:
