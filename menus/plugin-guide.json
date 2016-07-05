@@ -36,6 +36,10 @@
     "url": "/plugin/guide/skygear-api"
   },
   {
+    "title": "Static Assets",
+    "url": "/plugin/guide/guide-static-assets"
+  },
+  {
     "title": "Using Pubsub",
     "url": "/plugin/guide/pubsub"
   },
