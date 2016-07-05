@@ -25,7 +25,7 @@ export default [
   //     },
   //     {
   //       name: 'API Reference',
-  //       url: '/android/reference'
+  //       url: 'https://docs.skygear.io/android/reference/'
   //     }
   //   ]
   // },
