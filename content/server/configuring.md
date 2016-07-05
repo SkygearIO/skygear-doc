@@ -127,6 +127,8 @@ If you are using Skygear portal, you can set the environment variables on the
 * `TOKEN_STORE_PATH` - where the token will store when using `fs`. Or the
   URL when using `redis`, e.g. `redis://localhost:6379`
 * `TOKEN_STORE_PREFIX` - string, prefix to the access token for using redis.
+* `TOKEN_STORE_EXPIRY` - integer, number of seconds the created access token
+  will expire. Default is to never expire.
 
 ### Asset store related
 * `ASSET_STORE` - the backing store of assets, currently supporting `fs` and `s3`.
