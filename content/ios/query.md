@@ -137,6 +137,6 @@ retrieved from `overallCount` property of `SKYQueryOperation` when
 
 ### Cached Queries
 
-Skygear provides a simple cached query mechanism for application that wants to display the data last seen before it gets new data from Skygear Server. To make use of this, you just need to provide an extra callback function to the `query` function, and Skygear will try to return an cached result before it gets the latest result from the Skygear server.
+Skygear provides a simple cached query mechanism for application that wants to display data when the device is offline, or when the app has just started and hasn't had enough time to complete query requests to Skygear service yet. To make use of this, you just need to provide an extra callback function to the `query` function, and the SDK will try to return the cached result before it gets the latest result from the Skygear server.
 
 (TODO: Add code example)
