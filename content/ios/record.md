@@ -114,7 +114,7 @@ fields maybe applied on the server side when the record is saved (e.g. the updat
 
 ## Fetching an existing record
 
-With the record ID we could also fetch the record from a database:
+With the `recordID` we could also fetch the record from a database:
 
 ```obj-c
 SKYRecordID *recordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
@@ -140,7 +140,7 @@ Some of the values are provided as properties:
 
 ## Deleting a record
 
-Deleting a record requires its id too:
+Deleting a record requires its `recordID` too:
 
 ```obj-c
 SKYRecordID *recordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
