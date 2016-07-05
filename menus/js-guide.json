@@ -38,6 +38,10 @@
           "url": "#auto-increment"
         },
         {
+          "title": "Reserved Columns",
+          "url": "#reserved"
+        },
+        {
           "title": "Records Relations (References)",
           "url": "#reference"
         },

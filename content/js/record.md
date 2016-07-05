@@ -35,7 +35,13 @@ const Note = skygear.Record.extend('note');
 const Blog = skygear.Record.extend('blog');
 
 let note = new Note({ 'content': 'Hello World' });
-// { _id: "123456...", id: "note/123456...", recordType: "note", access: [Object object] }
+// note will be something like this:
+{
+  "_id": "123456...",
+  "id" : "note/123456...",
+  "recordType": "note",
+  // more fields
+}
 ```
 
 ### Create a record
@@ -204,6 +210,30 @@ skygear.publicDB.save(note).then((note) => {
   console.log(error); // Fails if 43 already taken by other note
 });
 ```
+
+<a name="reserved"></a>
+## Reserved Columns
+
+There are quite a few reserved columns for storing records into the database.
+The column names are written as **snake_case** while the JS object attributes
+are mapped with **camelCase**. Please notice this one-to-one mapping. When you want
+to query on reserved columns, make sure to use **snake_case**; when you get records
+back as a JS object, make sure to access attributes with **camelCase**. When
+creating and saving records, please avoid using attribute that is the same
+as any one of the camelCase attribute names listed below.
+
+Column Name | Object Attribute | Description
+--- | --- | ---
+\_created\_at | createdAt | date object of when record is created
+\_updated\_at | updatedAt | date object of when record is updated last time
+\_created\_by | createdBy | string of user id of record creator
+\_updated\_by | updatedBy | string of user id of last record updater
+\_owner\_id | ownerID | string of user id of owner
+**N/A** | **id** | string of record type and record id
+\_id | **_id** | string of record id
+
+Please read the [above](#record) section for more about `_id`. Check the server
+[database schema](/server/guide/database-schema) page for more about column names.
 
 <a name="reference"></a>
 ## Records Relations (References)
