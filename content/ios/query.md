@@ -124,7 +124,9 @@ We can also set an offset number to the query by:
 query.offset = 5;     // ignore the first 5 records
 ```
 
-Now the first 5 records in the result list will be ignored. Your query result will start with the 6th record.
+Setting an `offset` number means skipping that many rolls before beginning to return rows. If the `offset` number is 0, then no rows will be skipped. If you use both `limit` and `offset`, then `offset` numbers of rows will be skipped before starting to limit the number of rows returned.
+
+Now the first 5 records in the result list are skipped. The query result starts with the 6th record. It works just like SQL offset.
 
 ### Record Count
 
