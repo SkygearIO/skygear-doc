@@ -109,11 +109,11 @@ let user = skygear.currentUser;
 
 ## Hook currentUser change
 
-When access token is expired, Skygear server will return `401 Unauthorized`. SDK will
-clear the persisted access token and current user info. To handle the forced
-logout gracefully at your application, you should register a call back by
+When a user's access token is expired, the SDK will return `401 Unauthorized`,
+and clear the persisted access token and current user info. To handle the forced
+logout gracefully at your application, you should register a callback by
 `onUserChanged` and do appropriate application logic to alert the user. The
-handler is also invoked every time login or logout functions are called.
+handler is also invoked every time a user logs in or logs out.
 
 ``` javascript
 let handler = skygear.onUserChanged(function (user) {
