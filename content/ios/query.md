@@ -101,7 +101,7 @@ SKYDatabase *privateDB = database;
 ## Complex Queries
 
 ### Sorting the records
-We can sort records returned like this:
+We can sort records returned by:
 
 ```obj-c
 NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"_updated_at" ascending:NO];     // sorted by modificationDate
@@ -112,13 +112,13 @@ query.sortDescriptors = @[sortDescriptor];     // apply the NSSortDescriptor to 
 
 ### Limiting and Offset
 
-We can limit the numbers of records returned like this:
+We can limit the numbers of records returned by:
 
 ```obj-c
 query.limit = 10;     // only show the top 10 records
 ```
 
-We can also set an offset number to the query like this:
+We can also set an offset number to the query by:
 
 ```obj-c
 query.offset = 5;     // ignore the first 5 records
