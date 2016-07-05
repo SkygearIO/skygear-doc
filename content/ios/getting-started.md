@@ -1,5 +1,5 @@
 <a name="getting-started"></a>
-## Getting Started
+## Introduction
 
 Skygear aims to provide a complete and open-source backend solution for your mobile applications.
 
@@ -108,6 +108,23 @@ Run your app, you should see the following in the app console:
 ```
 2015-09-21 17:48:00.626 noteapp[77092:1147374] Congratulations! john.doe@example.com signed up successfully!
 ```
+
+## Basics of Skygear iOS SDK
+### SKYContainer
+
+`SKYContainer` is the uppermost layer of `SKYKit`. It represents the root of all
+resources accessible by an application and one application should have exactly
+one container. In `SKYKit`, such container is accessed via the singleton
+`defaultContainer`:
+
+```obj-c
+SKYContainer *container = [SKYContainer defaultContainer];
+```
+
+Container provides [User Authentication]({{< relref "user.md" >}}),
+[Asset Storage]({{< relref "asset.md" >}}) and access to
+[public and private databases]({{< relref "#SKYDatabase" >}}).
+
 
 <a name="whats-next"></a>
 ## What's Next

@@ -28,19 +28,11 @@ query.sortDescriptors = @[sortDescriptor];
 
 We constructed a `SKYQuery` to search for `todo` records. There are no additional
 criteria needed so we put the predicate to `nil`. Then we assigned a
-`NSSortDescription` to ask Skygear Server to sort the `todo` records by `order` field
-ascendingly.
-
-You can also sort the `todo` records by their `modificationDate`.
-
-```obj-c
-NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"_updated_at" ascending:NO];
-query.sortDescriptors = @[sortDescriptor];
-```
-
-`SKYQuery` utilizes `NSPredicate` to apply filtering on query results. You can use other parameters to sort your quries.
+`NSSortDescription` to ask Skygear Server to sort the `todo` records by `order` field ascendingly.
 
 ## Querying with NSPredicate
+
+To use `SKYQuery` with ease, we recommend using the methods provided to add constraints. However, you can also use `NSPredicate` to add constraints if you wish. The following features are supported:
 
 ### Basic Comparisons
 
@@ -106,13 +98,45 @@ SKYDatabase *privateDB = database;
 }];
 ```
 
-## Limiting and Offset
+## Complex Queries
 
-## Cached Queries
+### Sorting the records
+We can sort records returned by:
 
-## Record Count
+```obj-c
+NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"_updated_at" ascending:NO];     // sorted by modificationDate
+query.sortDescriptors = @[sortDescriptor];     // apply the NSSortDescriptor to the query
+```
+
+`SKYQuery` utilizes `NSPredicate` to apply filtering on query results. You can use other parameters to sort your quries.
+
+### Limiting and Offset
+
+We can limit the numbers of records returned by:
+
+```obj-c
+query.limit = 10;     // only show the top 10 records
+```
+
+We can also set an offset number to the query by:
+
+```obj-c
+query.offset = 5;     // ignore the first 5 records
+```
+
+Setting an `offset` number means skipping that many rolls before beginning to return rows. If the `offset` number is 0, then no rows will be skipped. If you use both `limit` and `offset`, then `offset` numbers of rows will be skipped before starting to limit the number of rows returned.
+
+Now the first 5 records in the result list are skipped. The query result starts with the 6th record. It works just like SQL offset.
+
+### Record Count
 
 To get the number of all records matching a query, set the property
 `overallCount` property of `SKYQuery` to `YES`. The record count can be
 retrieved from `overallCount` property of `SKYQueryOperation` when
 `perRecordCompletionBlock` is first called.
+
+### Cached Queries
+
+Skygear provides a simple cached query mechanism for application that wants to display data when the device is offline, or when the app has just started and hasn't had enough time to complete query requests to Skygear service yet. To make use of this, you just need to provide an extra callback function to the `query` function, and the SDK will try to return the cached result before it gets the latest result from the Skygear server.
+
+(TODO: Add code example)
