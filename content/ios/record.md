@@ -95,7 +95,7 @@ After you have successfully saved the `SKYRecord`, the server will return an upd
 2015-09-22 16:16:37.893 todoapp[89631:1349388] saved todo with recordID = <SKYRecordID: 0x7ff93ac37940; recordType = todo, recordName = 369067DC-BDBC-49D5-A6A2-D83061D83BFC>
 ```
 
-As you can see, the returned `SKYRecord` now has a `recordID`. The `recordID` property on your saved todo is an id which uniquely identifies the record in a database.
+As you can see, the returned `SKYRecord` now has a `recordID`. The `recordID` property on your saved todo `SKYRecord` is a unique `recordID` which identifies the record in a database.
 
 With the `recordID` you can modify the record later on. Say if
 you have to mark this todo as done:
