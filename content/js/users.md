@@ -97,6 +97,8 @@ skygear.changePassword(oldPassword, newPassword, invalidateTokens=true)
 });
 ```
 
+### Forget password (not yet implemented)
+
 <a name="current-user"></a>
 ## Current User
 
