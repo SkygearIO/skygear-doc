@@ -2,15 +2,30 @@
 ## Basic Queries
 
 Skygear provides query of records with conditions. Here is a straight-forward
-example of getting the note that has the `title` as `First note`. If you don't
-know what `Note` is or the difference between privateDB and publicDB, please
-read [Records](/js/guide/record) section first.
+example of getting the note that has the `title` as `First note` inside the
+private database. If you don't know what `Note` is or the difference between
+privateDB and publicDB, please read [Records](/js/guide/record) section first.
 
 ``` javascript
 let query = new skygear.Query(Note);
 query.equalTo('title', 'First note');
 skygear.privateDB.query(query).then((notes) => {
   // notes is an array of Note records that has its "title" equals "First note"
+}, (error) => {
+  console.error(error);
+});
+```
+
+Say if you want to query all the notes owned by the current user, then you
+need to make a query matching a reserved column. If you wish to learn the list
+of reserved columns, please read the [Records](/js/guide/record#reserved) section.
+
+``` javascript
+let query = new skygear.Query(Note);
+query.equalTo('_owner', skygear.currentUser.id);
+// '_owner' is an alias for '_owner_id'
+skygear.publicDB.query(query).then((notes) => {
+  // an array of Note records owned by the current user
 }, (error) => {
   console.error(error);
 });
@@ -29,36 +44,6 @@ skygear.privateDB.query(query).then((notes) => {
 });
 ```
 
-Here is a list of functions/conditions you can apply on a query:
-
-``` javascript
-query.equalTo('title', 'First note');      // ===
-query.notEqualTo('category', 'dangerous'); // !==
-query.lessThan('age', 10);                 // <
-query.lessThanOrEqualTo('age', 10);        // <=
-query.greaterThan('size', 50);             // >
-query.greaterThanOrEqualTo('size', 50);    // >=
-```
-
-There are more complicated functions/conditions and querying logics available,
-introduced below; there are also [Geolocation Queries](/js/guide/geolocation).
-
-<a name="complex-queries"></a>
-## Complex Queries
-
-### Sorting the records
-
-We can also limit the number of records returned, and we can even sort
-the records based on certain field in ascending or descending order.
-
-``` javascript
-query.addAscending('age');    // sorted by age increasing order
-query.addDescending('price'); // sorted by price decreasing order
-query.limit = 10;             // only show the top 10 records
-```
-
-### More querying logic
-
 By default, the condition added to the query are combined with `AND`. To
 construct an `OR` query, we need to specify it with the following syntax.
 
@@ -76,40 +61,36 @@ skygear.publicDB.query(query).then((notes) => {
 });
 ```
 
-### Counting the records
+<a name="conditions"></a>
+## Conditions
 
-To get the number of records matching a query, set the `overallCount`
-of the Query to `true`. In this case, you will get the count of all records
-matching the query together with the query result.
+Here is a list of simple conditions you can apply on a query:
 
 ``` javascript
-let query = new Query(Note);
-query.lessThan('order', 10);
-query.overallCount = true;
-skygear.privateDB.query(query).then((notes, count) => {
-  console.log('%d records matching query.', count);
-}, (error) => {
-  console.log('error: ', error);
-});
+query.equalTo('title', 'First note');      // ===
+query.notEqualTo('category', 'dangerous'); // !==
+query.lessThan('age', 10);                 // <
+query.lessThanOrEqualTo('age', 10);        // <=
+query.greaterThan('size', 50);             // >
+query.greaterThanOrEqualTo('size', 50);    // >=
 ```
-
-The count is not affected by the limit set on the query. So, if you only want
-to get the count without fetching any records, simple set `query.limit = 0`.
 
 ### Contains condition
 
-The `contains` function can be used to query a key for value that matches one of the
-item in a specified array.
+The `contains` condition can be used to query a key for value that matches one
+of the items in a specified array.
 
 ```javascript
 query.contains('category', ['interesting', 'funny']);
+query.notContains(...);
 ```
 
-If the value is an array, the `containsValue` function can be used to query for
+If the value is an array, the `containsValue` condition can be used to query for
 a key that has an array as its value containing the specified value.
 
 ```javascript
 query.containsValue('category', 'interesting');
+query.notContainsValue(...);
 ```
 
 ### Like condition
@@ -136,10 +117,83 @@ the relation with the current user.
 For example, to query for records owned by a user that the current user is following:
 
 ```javascript
-query.havingRelation("_owner", skygear.relation.Following)
+query.havingRelation("_owner", skygear.relation.Following);
+query.notHavingRelation(...);
 ```
 
-See [User Relations (JS SDK)](/js/guide/relation) for more relations.
+See [Social](/js/guide/relation) section for more relations.
+
+### Geolocation condition
+
+Please visit [Geo-location](/js/guide/geolocation) section for more.
+
+<a name="pagination-ordering"></a>
+## Pagination and Ordering
+
+### Ordering of records
+
+We can sort the records based on certain field in ascending or descending order.
+
+``` javascript
+query.addAscending('age');    // sorted by age increasing order
+query.addDescending('price'); // sorted by price decreasing order
+```
+
+### Pagination of records
+
+We can limit the number of records returned, skip certain number of records,
+and access certain part of records via pagination.
+
+``` javascript
+query.limit = 10; // return 10 records only
+query.offset = 15; // skip the first 10 records
+/* The above query will return the 16th to 25th records */
+
+query.page = 3; // skip the first two pages of records
+// number of records per page equals limit
+// if limit is unset, default limit is 50
+/* The above query will return the 101th to 150th records */
+```
+
+### Counting the records
+
+To get the number of records matching a query, set the `overallCount`
+of the Query to `true`.
+
+``` javascript
+query.overallCount = true;
+skygear.privateDB.query(query).then((notes, count) => {
+  console.log('%d records matching query.', count);
+}, (error) => {
+  console.error(error);
+});
+```
+
+The count is not affected by the limit set on the query. So, if you only want
+to get the count without fetching any records, simply set `query.limit = 0`.
+
+<a name="relational-query"></a>
+## Relational Queries
+
+### Eager Loading
+
+If you have a record that references another record, you can perform eager
+loading using the transient syntax. It is possible to eager load records from
+multiple keys, but doing so will impair performance. If you don't know about
+reference, please read [Records](/js/guide/record#reference) section first.
+
+``` javascript
+let query = new skygear.Query(Note);
+query.transientInclude('nextPage', '<your-transient-name>');
+skygear.publicDB.query(query).then((records) => {
+  records.map((record) => {
+    console.log(record.nextPage); // skygear.Reference
+    console.log(record.$transient['<your-transient-name>']); // Note record
+  });
+}, (error) => {
+  console.log(error);
+});
+```
 
 <a name="cached-query"></a>
 ## Cached Query
@@ -153,7 +207,7 @@ latest result from the Skygear server.
 ``` javascript
 let query = new skygear.Query(Note);
 query.equalTo('title', 'First note');
-function successCallback(notes, cached = false) => {
+function successCallback(notes, cached = false) {
   if (cached) {
     console.log('The result is a cached one');
   }
@@ -161,7 +215,7 @@ function successCallback(notes, cached = false) => {
 }
 skygear.publicDB.query(query, successCallback)
 .then(successCallback, (error) => {
-  console.log('error: ', error);
+  console.error(error);
 });
 ```
 

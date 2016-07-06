@@ -34,6 +34,10 @@
           "url": "#basic-crud"
         },
         {
+          "title": "Data Types",
+          "url": "#data-types"
+        },
+        {
           "title": "Create an Auto-Incrementing Field",
           "url": "#auto-increment"
         },
@@ -60,12 +64,16 @@
         "url": "#basic-queries"
       },
       {
-        "title": "Complex Queries",
-        "url": "#complex-queries"
+        "title": "Conditions",
+        "url": "#conditions"
       },
       {
-        "title": "Operators",
-        "url": "#query-operators"
+        "title": "Pagination and Ordering",
+        "url": "#pagination-ordering"
+      },
+      {
+        "title": "Relational Queries",
+        "url": "#relational-query"
       },
       {
         "title": "Cached Query",

@@ -58,7 +58,7 @@ skygear.publicDB.save(new Note({
 });
 ```
 
-You can also save multiple records at one time.
+You can also batch save multiple records at one time.
 
 ``` javascript
 let helloNote = new Note({
@@ -166,6 +166,11 @@ skygear.publicDB.query(query)
 });
 ```
 
+<a name="data-types"></a>
+## Data Types
+
+Please refer to Skygear [Server](/server/guide/data-type) documentation.
+
 <a name="auto-increment"></a>
 ## Create an Auto-Incrementing Field
 
@@ -270,40 +275,15 @@ let note2 = new Note({
   content: 'This is second section'
 });
 note1.nextPage = skygear.Reference(note2);
+skygear.publicDB.save([note2, note1]);
+// success, ordering in the batch save array really matters
 skygear.publicDB.save([note1, note2]);
+// fail, due to foreign key missing, but note2 will be saved
 ```
 
-You can also reference to an array of record.
-
-``` javascript
-let note = new Note({
-  'content': 'This is intro, please see the document list for detail.'
-});
-note.details = [note1, note2, note3].map((note) => {
-  return skygear.Reference(note);
-});
-skygear.publicDB.save(note);
-```
-
-### Eager Loading
-
-After you specify a relation, you can perform eager loading using transient:
-
-``` javascript
-let q = new skygear.Query(Note);
-q.transientInclude('details', '<your-transient-name>');
-skygear.publicDB.query(q).then((records) => {
-  records.map((record) => {
-    console.log(record.details); // Array of skygear.Reference
-    console.log(record.transient['<your-transient-name>']); // Array of skygear.Record
-  });
-}, (error) => {
-  console.log(error);
-});
-```
-
-It is possible to eager load records from multiple keys, but doing so will
-impair performance.
+Using `skygear.Reference` is like using a foreign key in the database, it will
+be quite useful when doing transientInclude. If you want to learn more,
+read the [Queries](/js/guide/query#relational-query) section.
 
 ### Deleting Referenced Record
 
