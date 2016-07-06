@@ -7,7 +7,7 @@ This guide will show you how to integrate Skygear into an existing web app proje
 ## Signing up for Skygear
 
 To start using the Skygear JS SDK, you need to register your account and
-application at the Skygear [Developer Portal](https://portal-staging.skygear.io)
+application at the Skygear [Developer Portal](https://portal.skygear.io)
 website. After you registered, go to the **INFO** tab and copy down your
 `Server EndPoint` and `API Key`.
 
