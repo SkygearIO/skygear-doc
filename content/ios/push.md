@@ -20,7 +20,7 @@ operation.sendCompletionHandler = ^(NSArray *userIDs, NSError *error) {
     NSLog(@"Sent %@ notification to 2 users", @(userIDs.count));
 };
 
-[[[NSOperationQueue alloc] init] addOperation:operation];
+[[SKYContainer defaultContainer] addOperation:operation];
 ```
 
 ## Sending push notification to devices
@@ -49,7 +49,7 @@ operation.sendCompletionHandler = ^(NSArray *deviceIDs, NSError *error) {
     NSLog(@"Sent %@ notification to %@ devices", @(deviceIDs.count));
 };
 
-[[[NSOperationQueue alloc] init] addOperation:operation];
+[[SKYContainer defaultContainer] addOperation:operation];
 ```
 
 ### TODO: Problems with the interface

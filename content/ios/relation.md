@@ -5,7 +5,7 @@
 ```obj-c
 SKYAddRelationsOperation *operation = [SKYAddRelationsOperation operationWithType:@"friend" usersToRelated:@[rick, ben]];
 operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
+[[SKYContainer defaultContainer] addOperation:operation];
 ```
 
 ## Removing relations
@@ -13,7 +13,7 @@ operation.container = [SKYContainer defaultContainer];
 ```obj-c
 SKYRemoveRelationsOperation *operation = [SKYRemoveRelationsOperation operationWithType:@"follower" usersToRemove:@[faseng, chima]];
 operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
+[[SKYContainer defaultContainer] addOperation:operation];
 ```
 
 ## Querying users by relations
@@ -23,7 +23,7 @@ Get all friends:
 ```obj-c
 SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation friendRelation]];
 operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
+[[SKYContainer defaultContainer] addOperation:operation];
 ```
 
 Get all followers:
@@ -36,7 +36,7 @@ operation.queryUserCompletionBlock = ^(NSArray *users, NSError *operationError) 
     NSLog(@"Operation will have overallCount after execution, %d", weakOperation.overallCount);
 };
 
-[[[NSOperationQueue alloc] init] addOperation:operation];
+[[SKYContainer defaultContainer] addOperation:operation];
 ```
 
 `SKYQueryUsersOperation-relationDirection` is only effective on `followRelation`.
@@ -52,7 +52,7 @@ Get all following users:
 ```obj-c
 SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation followRelation] direction:SKYRelationDirectionActive];
 operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
+[[SKYContainer defaultContainer] addOperation:operation];
 ```
 
 Get all mutual followers: **[Not implemented]**
@@ -60,5 +60,5 @@ Get all mutual followers: **[Not implemented]**
 ```obj-c
 SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation followRelation] direction:SKYRelationDirectionMutual];
 operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
+[[SKYContainer defaultContainer] addOperation:operation];
 ```

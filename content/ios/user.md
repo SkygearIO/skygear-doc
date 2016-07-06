@@ -109,7 +109,7 @@ operation.queryUserCompletionBlock = ^(NSArray /* SKYUser */ *users, NSError *op
     }
 };
 operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
+[[SKYContainer defaultContainer] addOperation:operation];
 ```
 
 ## User Relations
