@@ -1,41 +1,46 @@
+Pubsub will only work after the user has logged in. You can check the connection
+by accessing `skygear.pubsub.connected`. Here, all the examples are using event
+`ping`.
+
 ## Subscribing to an event
 
-```js
+``` javascript
 skygear.on('ping', (data) => {
-  let from_ = data.from;
-  console.log('received a ping from %s', from_);
+  console.log(data);
 });
 ```
 
 ## Unsubscribing an event
 
-### Unsubscribing from all handler
+### Unsubscribing all handlers for an event
 
-```js
+``` javascript
 skygear.off('ping');
 ```
 
-### Unsubscribing a specific handler
+### Unsubscribing a specific handler for an event
 
-```js
-const handler = (data) => {
-  console.log('received a ping');
-};
-let subscriber = skygear.on('ping', handler);
+``` javascript
+const handler = (data) => console.log(data);
+skygear.on('ping', handler); // also returns handler
 
 // later
-subscriber.off('ping', handler);
+skygear.off('ping', handler);
 ```
 
-## More control on pubsub package
+## Check if an event has handler
 
-Developer will need to interact directly with `pubsub` package for more advanced
-usages.
+``` javascript
+skygear.pubsub.hasHandlers('ping');
+```
 
 ## Publishing an event
 
-```js
-skygear.pubsub.publish('ping', {'from': 'Specialized Ping Force'});
+You can send a JavaScript object as data, and all the skygear users (including
+yourself) will receive this data if they subscribed to event `ping`.
+
+``` javascript
+skygear.pubsub.publish('ping', data);
 ```
 
 ## Listening to Connection state
@@ -43,18 +48,17 @@ skygear.pubsub.publish('ping', {'from': 'Specialized Ping Force'});
 For application that needs to know the status of pubsub connection, we
 provide `onOpen` and `onClose` callback for that.
 
-
-```js
+``` javascript
 function welcome() {
   console.log('Chat are ready!');
 }
 
-function alert() {
-  console.log('Chat is temporarily unavaliable');
+function warning() {
+  console.log('Chat is temporarily unavailable');
 }
 
 const welcomeHandle = skygear.pubsub.onOpen(welcome);
-const alertHandle = skygear.pubsub.onClose(alert);
+const alertHandle = skygear.pubsub.onClose(warning);
 
 // You may cancel the registered callback by calling cancel
 welcomeHandle.cancel();
