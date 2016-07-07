@@ -180,7 +180,7 @@ skygear.privateDB.query(query).then((notes, count) => {
 The count is not affected by the limit set on the query. So, if you only want
 to get the count without fetching any records, simply set `query.limit = 0`.
 
-<a name="relational-query"></a>
+<a name="relational-queries"></a>
 ## Relational Queries
 
 ### Eager Loading

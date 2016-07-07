@@ -276,14 +276,19 @@ let note2 = new Note({
 });
 note1.nextPage = skygear.Reference(note2);
 skygear.publicDB.save([note2, note1]);
-// success, ordering in the batch save array really matters
+// success, ordering in the batch save array matters
 skygear.publicDB.save([note1, note2]);
 // fail, due to foreign key missing, but note2 will be saved
 ```
 
-Using `skygear.Reference` is like using a foreign key in the database, it will
-be quite useful when doing transientInclude. If you want to learn more,
-read the [Queries](/js/guide/query#relational-query) section.
+Batch saved records are in fact saved one by one at a time based on the ordering
+of the provided array. Also, in this example, because note1 references note2,
+you must save note2 first and then save note1; otherwise, you will receive an
+error saying you have violated foreign key constraint in the database.
+
+Using `skygear.Reference` will be quite useful together with transientInclude.
+Read the [Queries](/js/guide/query#relational-queries) section to learn more about
+transient and eager loading.
 
 ### Deleting Referenced Record
 
