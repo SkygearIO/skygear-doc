@@ -35,13 +35,6 @@ const Note = skygear.Record.extend('note');
 const Blog = skygear.Record.extend('blog');
 
 let note = new Note({ 'content': 'Hello World' });
-// note will be something like this:
-{
-  "_id": "123456...",
-  "id" : "note/123456...",
-  "recordType": "note",
-  // more fields
-}
 ```
 
 ### Create a record
