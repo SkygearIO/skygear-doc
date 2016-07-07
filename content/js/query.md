@@ -89,11 +89,12 @@ query.notContains('genre', ['romance', 'horror']);
 If the value is an array, the `containsValue` condition can be used to query for
 a key that has an array as its value containing the specified value. Suppose
 further that each movie has multiple tags as an array, for example
-_Independence Day: Resurgence_ may have tags extraterrestrial and war.
+_Independence Day: Resurgence_ may have tags "extraterrestrial" and "war".
 
 ``` javascript
-query.containsValue('tags', 'hollywood');
-query.notContainsValue('tags', 'war');
+query.containsValue('tags', 'war');
+query.notContainsValue('tags', 'hollywood');
+// both matches our example movie
 ```
 
 ### Like condition
