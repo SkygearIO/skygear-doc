@@ -61,7 +61,7 @@ module.exports = {
     'localStorage': 'undefined', // we don't need this package
     'config': JSON.stringify({
       'skygear': {
-        'endPoint': 'https://<your-app-name>.staging.skygeario.com/',
+        'endPoint': 'https://<your-app-name>.skygeario.com/',
         'apiKey': '<your-api-key>'
       }
     }) // it's better to save configuration for your skygear container here

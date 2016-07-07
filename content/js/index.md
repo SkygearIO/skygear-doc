@@ -83,7 +83,7 @@ import skygear from 'skygear';
 // or in the browser with ECMAScript 5 just use window.skygear or skygear
 
 skygear.config({
-  'endPoint': 'https://<your-app-name>.staging.skygeario.com/', // trailing slash is required
+  'endPoint': 'https://<your-app-name>.skygeario.com/', // trailing slash is required
   'apiKey': '<your-api-key>'
 }).then((container) => {
   console.log(container);
