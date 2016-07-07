@@ -2,10 +2,14 @@
 ## User relations (Friends & Followers)
 
 Skygear provide three default relations: friend, following and follower.
+- `follower` and `following` are one non-mutual relation with direction. You can
+follow a user without his explicit consensus.
+- `friend` is mutual relation without direction. If you add friend with Ben and
+Ben add friend with you, then you two will have `friend` relationship.
 
 ### Add relations
 
-If the current user wants to follow another user called Ben:
+If the current user wants to follow Ben:
 
 ``` javascript
 const toFollow = new skygear.relation.Following([ben]);
@@ -17,7 +21,7 @@ skygear.relation.add(toFollow).then((ok) => {
 });
 ```
 
-How do we get the user object? We can either search by email or simply
+How can you get the user object? You can either search by email or simply
 construct a new user object with the correct user id. Read the section
 about [Users](/js/guide/users#current-user) to learn more about search by email.
 
@@ -81,8 +85,7 @@ query.user = skygear.currentUser;
 query.limit = 100;
 query.page = 2;
 skygear.relation.query(query).then((users) => {
-  console.log(users.overallCount); // The total count match the relation.
-  console.log(users);
+  console.log(users.overallCount); // The total count match the relation
 }, (error) => {
   console.error(error);
 });
@@ -101,13 +104,6 @@ skygear.relation.remove(unFollow).then((result) => {
 
 
 ### Custom relation (**Coming Soon**)
-
-We are supporting non-mutual relation and mutual relation.
-
-`follower` and `following` are one non-mutual relation with direction. You can
-follow a user without his explicit consensus.
-
-`friend` is mutual relation without direction.
 
 ``` javascript
 const FansOf = skygear.relation.extend('fans', skygear.relation.Outward);
