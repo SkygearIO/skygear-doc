@@ -1,3 +1,9 @@
+For file upload to work properly, please set `ASSET_STORE_URL_PREFIX` environment
+variable to have value `https://<your-app-name>.skygeario.com/files` (which is
+just your Server EndPoint plus `files` at the end) on you Skygear
+[Portal](https://portal.skygear.io) Settings page. For more environment variable
+configurations, please visit [Server](/server/guide#others) page.
+
 Consider the following HTML:
 
 ``` html
