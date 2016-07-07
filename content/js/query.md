@@ -67,30 +67,33 @@ skygear.publicDB.query(query).then((notes) => {
 Here is a list of simple conditions you can apply on a query:
 
 ``` javascript
-query.equalTo('title', 'First note');      // ===
-query.notEqualTo('category', 'dangerous'); // !==
-query.lessThan('age', 10);                 // <
-query.lessThanOrEqualTo('age', 10);        // <=
-query.greaterThan('size', 50);             // >
-query.greaterThanOrEqualTo('size', 50);    // >=
+query.equalTo('title', 'First note');
+query.notEqualTo('category', 'dangerous');
+query.lessThan('age', 10);
+query.lessThanOrEqualTo('age', 10);
+query.greaterThan('size', 50);
+query.greaterThanOrEqualTo('size', 50);
 ```
 
 ### Contains condition
 
 The `contains` condition can be used to query a key for value that matches one
-of the items in a specified array.
+of the items in a specified array. Suppose here we are querying for movies,
+and each movie has exactly one genre.
 
-```javascript
-query.contains('category', ['interesting', 'funny']);
-query.notContains(...);
+``` javascript
+query.contains('genre', ['science-fiction', 'adventure']);
+query.notContains('genre', ['romance', 'horror']);
 ```
 
 If the value is an array, the `containsValue` condition can be used to query for
-a key that has an array as its value containing the specified value.
+a key that has an array as its value containing the specified value. Suppose
+further that each movie has multiple tags as an array, for example
+_Independence Day: Resurgence_ may have tags extraterrestrial and war.
 
-```javascript
-query.containsValue('category', 'interesting');
-query.notContainsValue(...);
+``` javascript
+query.containsValue('tags', 'hollywood');
+query.notContainsValue('tags', 'war');
 ```
 
 ### Like condition
@@ -100,8 +103,8 @@ of a specified string. The percent character (`%`) can be used in place
 for any number of characters while the underscore (`_`) can be used in place
 for a single character.
 
-```javascript
-query.like('category', 'science%');
+``` javascript
+query.like('category', 'science%'); // science, science-fiction, etc.
 ```
 
 The above query will match notes with category `science` or `science-fiction`.
@@ -114,11 +117,12 @@ the current user. For this kind of query, the record has an relation with
 the current user if the record has an attribute that contains a user having
 the relation with the current user.
 
-For example, to query for records owned by a user that the current user is following:
+For example, to query for records owned by a user that the current user is following,
+or to discard all records created by friends:
 
-```javascript
-query.havingRelation("_owner", skygear.relation.Following);
-query.notHavingRelation(...);
+``` javascript
+query.havingRelation('_owner', skygear.relation.Following);
+query.notHavingRelation('_created_by', skygear.relation.Friend);
 ```
 
 See [Social](/js/guide/relation) section for more relations.
@@ -139,19 +143,23 @@ query.addAscending('age');    // sorted by age increasing order
 query.addDescending('price'); // sorted by price decreasing order
 ```
 
+The above query will first sort from small age to large age, and records
+with the same age will be then sorted from high price to low price.
+
 ### Pagination of records
 
 We can limit the number of records returned, skip certain number of records,
-and access certain part of records via pagination.
+and access certain part of records via pagination. Note that the default limit
+for each query is 50.
 
 ``` javascript
+query.offset = 15; // skip the first 15 records
+/* The above query will return the 16th to 65th records */
+
 query.limit = 10; // return 10 records only
-query.offset = 15; // skip the first 10 records
-/* The above query will return the 16th to 25th records */
+/* The above query will return the 1st to 10th records */
 
 query.page = 3; // skip the first two pages of records
-// number of records per page equals limit
-// if limit is unset, default limit is 50
 /* The above query will return the 101th to 150th records */
 ```
 
@@ -183,12 +191,22 @@ multiple keys, but doing so will impair performance. If you don't know about
 reference, please read [Records](/js/guide/record#reference) section first.
 
 ``` javascript
-let query = new skygear.Query(Note);
-query.transientInclude('nextPage', '<your-transient-name>');
+// Suppose we have Delivery and Address
+const Delivery = skygear.Record.extend('delivery');
+const Address = skygear.Record.extend('address');
+
+// Suppose delivery has set destination reference to address
+var address = new Address({ ... });
+var delivery = new Delivery({ destination: skygear.Reference(address) });
+skygear.publicDB.save([address, delivery]).then(...);
+
+// Now when we are retrieving delivery, we want to include address as well
+var query = new skygear.Query(Delivery);
+query.transientInclude('destination', 'delivery-address');
 skygear.publicDB.query(query).then((records) => {
   records.map((record) => {
-    console.log(record.nextPage); // skygear.Reference
-    console.log(record.$transient['<your-transient-name>']); // Note record
+    console.log(record.destination); // skygear.Reference
+    console.log(record.$transient['delivery-address']); // Address record
   });
 }, (error) => {
   console.log(error);
