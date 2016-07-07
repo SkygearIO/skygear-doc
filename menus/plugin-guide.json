@@ -16,10 +16,6 @@
     "url": "/plugin/guide/guide-handler"
   },
   {
-    "title": "HTTP Handler",
-    "url": "/coming-soon"
-  },
-  {
     "title": "Lambda Function",
     "url": "/plugin/guide/guide-lambda"
   },
