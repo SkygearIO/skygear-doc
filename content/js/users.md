@@ -157,14 +157,18 @@ skygear.discover('chpapa').then((ben) => {
 
 Whenever a new user signs up, a user profile is automatically created for
 you to track user information other than their username, email or password.
-You can access the user profile the same way as accessing a record.
+Username, email and password are stored inside the reserved `_user` database,
+but user profile is stored in the public `user` database. They share the same
+column `_id` with exactly same value. You can access the
+user profile the same way as accessing a record, and everything stored in
+user profile is public and thus visible to any user.
 
 ``` javascript
 const User = skygear.Record.extend("user");
 
 // get the current user's profile
 var query = new skygear.Query(User);
-query.equalTo("_created_by", skygear.currentUser.id);
+query.equalTo("_id", skygear.currentUser.id);
 skygear.publicDB.query(query).then((records) => {
   var profile = records[0];
   console.log(profile);
