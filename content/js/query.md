@@ -136,7 +136,8 @@ Please visit [Geo-location](/js/guide/geolocation) section for more.
 
 ### Ordering of records
 
-We can sort the records based on certain field in ascending or descending order.
+You can sort the records based on certain field in ascending or descending order.
+You can also sort on multiple fields as well.
 
 ``` javascript
 query.addAscending('age');    // sorted by age increasing order
@@ -148,7 +149,7 @@ with the same age will be then sorted from high price to low price.
 
 ### Pagination of records
 
-We can limit the number of records returned, skip certain number of records,
+You can limit the number of records returned, skip certain number of records,
 and access certain part of records via pagination. Note that the default limit
 for each query is 50.
 
