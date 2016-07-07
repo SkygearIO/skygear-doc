@@ -1,55 +1,25 @@
-## Uploading an asset by base64 data
-
-```js
-// node.js
-fs.readFile('my-awesome-picture.jpg', (err, data) => {
-  if (err) {
-    throw err;
-  }
-
-  let profilePic = new skygear.Asset({data: data});
-  // Profile = skygear.Record.extend('profile');
-  let profile = new Profile({
-    name: 'Handsome Guy',
-    picture: profilePic
-  });
-  skygear.publicDB.save(profile).then((p) => {
-    // fetched record field will have a `url` attribute available
-    console.log('Download my handsome selfie here => %s', p.picture.url);
-  });
-})
-```
-
-## Creating an asset from `input` element
-
 Consider the following HTML:
 
-```html
-<form id="profile-form">
-  <label>Name: <input type="text" name="profile-form-name" id="profile-form-name"></label><br>
-  <label>Profile Pic: <input type="file" name="profile-form-pic" id="profile-form-pic" accept="image/*"></label><br>
-  <input type="submit" value="Submit">
-</form>
+``` html
+<input type="file" id="picture" accept="image/*">
 ```
 
-Javascript:
+Once the user have selected the image to upload, maybe he wants to save it
+into one of his notes:
 
-```js
-$('#profile-form').on('submit', () => {
-  let name = $('#profile-form-name').val();
-  let pic = $('#profile-form-pic').attr('files')[0];
+``` javascript
+const Note = skygear.Record.extend('note');
 
-  let profile = new skygear.Profile({
-    name: name,
-    picture: new skygear.Asset({file: pic}})
-  });
-
-  // proceed to saving
+var picture = new skygear.Asset({
+  name: 'picture',
+  file: document.getElementById('picture').files[0]
 });
-```
-
-## Creating an asset from URL
-
-```js
-let profilePic = new skygear.Asset({url: 'file:///home/steven/.selfie/0001.jpg'});
+var note = new Note({ attachment: picture });
+skygear.publicDB.save(note) // automatically upload the picture
+.then((note) => {
+  console.log(note.attachment.url); // where you can load the image
+  console.log(picture.url); // the asset object is updated for you as well
+}, (error) => {
+  console.error(error)
+})
 ```
