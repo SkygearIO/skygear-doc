@@ -74,7 +74,7 @@ available globally (`window.skygear` or just `skygear`).
 
 Container is the uppermost layer of skygear. In practice,
 `import skygear from 'skygear'` will give you a container instance at variable
-skygear. In most cases you will only need one instance of container. Remember
+`skygear`. In most cases you will only need one instance of container. Remember
 to configure your container with the `Server EndPoint` and `API Key` you get
 on Skygear Developer Portal.
 
