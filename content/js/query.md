@@ -146,15 +146,16 @@ query.addDescending('price'); // sorted by price decreasing order
 ```
 
 The above query will first sort from small age to large age, and records
-with the same age will be then sorted from high price to low price.
+with the same age will be then sorted from high price to low price. Just like
+this SQL statement: `ORDER BY age, price DESC`.
 
 ### Pagination of records
 
 You can limit the number of records returned, skip certain number of records,
-and access certain part of records via pagination. Note that the default limit
-for each query is 50.
+and access certain part of records via pagination.
 
 ``` javascript
+// default query.limit is 50
 query.offset = 15; // skip the first 15 records
 /* The above query will return the 16th to 65th records */
 
@@ -205,6 +206,9 @@ skygear.publicDB.save([address, delivery]).then(...);
 // Now when we are retrieving delivery, we want to include address as well
 var query = new skygear.Query(Delivery);
 query.transientInclude('destination', 'delivery-address');
+// the first argument is the column name of Delivery record which is a Reference
+// the second argument is the key that will be included in $transient
+// the second argument is optional, by default it is the column name
 skygear.publicDB.query(query).then((records) => {
   records.map((record) => {
     console.log(record.destination); // skygear.Reference
