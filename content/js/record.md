@@ -22,10 +22,17 @@ To control the access, you may set different access control entity to the record
 ### Record
 
 - `Record` must have a type.
-- `Record` is a key-value-pair data object that is stored at _database_.
-- `Record` will belong to the currently logged in user.
+- `Record` object is like a dictionary with keys and values; keys will be
+mapped to database column names, and values will be stored appropriately
+based on the data type. Please refer to [Server](/server/guide/data-type) page
+for all supported data types. Several special types include
+[Sequence](#auto-increment), [Reference](#reference),
+[Asset](/js/guide/asset) and [Geolocation](/js/guide/geolocation).
+- `Record` will be owned by the currently logged in user.
 - `Record` object has unique `id` (a string combination of record type and
     uuid used in the database as `_id`).
+- `Record` object have reserved keys that cannot be used, such as `id` and
+`_id`. Please refer to this [table](#reserved) for more.
 
 You can design different `Record` type to model your app. Just like defining
 tables in SQL.
@@ -158,11 +165,6 @@ skygear.publicDB.query(query)
   console.error('Request error', reqError);
 });
 ```
-
-<a name="data-types"></a>
-## Data Types
-
-Please refer to Skygear [Server](/server/guide/data-type) documentation.
 
 <a name="auto-increment"></a>
 ## Create an Auto-Incrementing Field

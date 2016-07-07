@@ -61,6 +61,8 @@ skygear.publicDB.query(query).then((notes) => {
 });
 ```
 
+You can use `Query.not(query)` to get a condition negated version of `query`.
+
 <a name="conditions"></a>
 ## Conditions
 
@@ -105,11 +107,11 @@ for any number of characters while the underscore (`_`) can be used in place
 for a single character.
 
 ``` javascript
-query.like('category', 'science%'); // science, science-fiction, etc.
+query.like('genre', 'science%'); // included: science, science-fiction, etc.
+query.notLike('title', 'Big%');  // excluded: Big Bang Theory, Big Hero 6, etc.
+query.caseInsensitiveLike(...);
+query.caseInsensitiveNotLike(...);
 ```
-
-The above query will match notes with category `science` or `science-fiction`.
-Use `caseInsensitiveLike` for case insensitive match.
 
 ### Having relation condition
 
