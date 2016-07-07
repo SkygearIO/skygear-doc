@@ -231,11 +231,11 @@ Column Name | Object Attribute | Description
 --- | --- | ---
 \_created\_at | createdAt | date object of when record is created
 \_updated\_at | updatedAt | date object of when record is updated last time
-\_created\_by | createdBy | string of user id of record creator
-\_updated\_by | updatedBy | string of user id of last record updater
-\_owner\_id | ownerID | string of user id of owner
-**N/A** | **id** | string of record type and record id
-\_id | **_id** | string of record id
+\_created\_by | createdBy | user id of record creator
+\_updated\_by | updatedBy | user id of last record updater
+\_owner\_id | ownerID | user id of owner
+**N/A** | **id** | record type and record id
+\_id | **_id** | record id
 
 Please read the [above](#record) section for more about `_id`. Check the server
 [database schema](/server/guide/database-schema) page for more about column names.
