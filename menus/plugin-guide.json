@@ -8,6 +8,10 @@
     "url": "/plugin/guide/first-plugin"
   },
   {
+    "title": "Architecture",
+    "url": "/plugin/guide/architecture"
+  },
+  {
     "title": "Database Extension Point",
     "url": "/plugin/guide/guide-database"
   },

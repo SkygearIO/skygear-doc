@@ -16,6 +16,12 @@
       "content_path": "./content/plugin/first-plugin.md",
       "menu_path": "./menus/plugin-guide.json"
     },
+    "/plugin/guide/architecture": {
+      "name": "Plugin SDK",
+      "title": "Architecture",
+      "content_path": "./content/plugin/architecture.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
     "/plugin/guide/guide-database": {
       "name": "Plugin SDK",
       "title": "Database Extension Point",
