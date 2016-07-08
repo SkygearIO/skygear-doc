@@ -152,18 +152,31 @@ this SQL statement: `ORDER BY age, price DESC`.
 ### Pagination of records
 
 You can limit the number of records returned, skip certain number of records,
-and access certain part of records via pagination.
+and access certain part of records via pagination. For the following example,
+assume we have more than 150 Note records.
 
 ``` javascript
-// default query.limit is 50
-query.offset = 15; // skip the first 15 records
-/* The above query will return the 16th to 65th records */
-
-query.limit = 10; // return 10 records only
-/* The above query will return the 1st to 10th records */
-
+var query = new skygear.Query(Note);
+query.limit = 20; // 20 records per query/page
+// default query.limit is 50 if not specified
 query.page = 3; // skip the first two pages of records
-/* The above query will return the 101th to 150th records */
+skygear.publicDB.query(query).then(...);
+/* The above query will return the 41th to 60th records */
+
+// you can also achieve the same thing with offset
+var query = new skygear.Query(Note);
+query.limit = 20;
+query.offset = 40; // skip the first 40 records
+skygear.publicDB.query(query).then(...);
+/* The above query will show the 41th to 60th records */
+
+// however, if offset and page are both set, page will be ignored
+var query = new skygear.Query(Note);
+query.limit = 25;
+query.offset = 10;
+query.page = 2;
+skygear.publicDB.query(query).then(...);
+/* The above query will show the 11th to 35th records */
 ```
 
 ### Counting the records
@@ -205,14 +218,23 @@ skygear.publicDB.save([address, delivery]).then(...);
 
 // Now when we are retrieving delivery, we want to include address as well
 var query = new skygear.Query(Delivery);
-query.transientInclude('destination', 'delivery-address');
-// the first argument is the column name of Delivery record which is a Reference
-// the second argument is the key that will be included in $transient
-// the second argument is optional, by default it is the column name
+query.transientInclude('destination');
+// 'destination' is the column name where Reference to Address record is stored
 skygear.publicDB.query(query).then((records) => {
   records.map((record) => {
     console.log(record.destination); // skygear.Reference
-    console.log(record.$transient['delivery-address']); // Address record
+    console.log(record.$transient.destination); // Address record
+  });
+}, (error) => {
+  console.error(error);
+});
+
+var query = new skygear.Query(Delivery);
+query.transientInclude('destination', 'deliveryAddress');
+// you can also provide an optional alias in the second argument
+skygear.publicDB.query(query).then((records) => {
+  records.map((record) => {
+    console.log(record.$transient.deliveryAddress); // Address record
   });
 }, (error) => {
   console.log(error);
