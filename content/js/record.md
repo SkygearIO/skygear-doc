@@ -307,7 +307,7 @@ section to learn more about eager loading.
 Yet to be implemented. For now, deleting a referenced record is not allowed.
 
 <a name="subscription"></a>
-## Subscription
+## Subscription (**Coming Soon**)
 
 ### Creating a subscription
 
