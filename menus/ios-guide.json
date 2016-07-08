@@ -31,23 +31,27 @@
         "sub": [
             {
                 "title": "Basic CRUD",
-                "url": "#basic-curd"
+                "url": "#basic-crud"
             },
             {
                 "title": "Create Auto-Incrementing Fields",
-                "url": "/ios/guide/auto-increment"
+                "url": "#auto-increment"
+            },
+            {
+                "title": "Reserved Columns",
+                "url": "#reserved-columns"
             },
             {
                 "title": "Local Storage (RecordStorage, CachedQuery)",
-                "url": "/ios/guide/local-storage"
+                "url": "#local-storage"
             },
             {
                 "title": "Records Relations (References)",
-                "url": "/ios/guide/reference"
+                "url": "#reference"
             },
             {
                 "title": "Subscription",
-                "url": "/ios/guide/subscription"
+                "url": "#subscription"
             }
         ]
     },
