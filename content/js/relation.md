@@ -1,9 +1,9 @@
 <a name="friends-and-followers"></a>
-# User relations (Friends & Followers)
+## User relations (Friends & Followers)
 
 Skygear provide three default relations: friend, following and follower.
 
-## Add relations
+### Add relations
 
 If the current user wants to follow another user called Ben:
 
@@ -34,7 +34,7 @@ const beFriend = new skygear.relation.Friend([ben]);
 skygear.relation.add(beFriend).then(...);
 ```
 
-## Query relations
+### Query relations
 
 You may query the relations of the current user or other users.
 
@@ -88,7 +88,7 @@ skygear.relation.query(query).then((users) => {
 });
 ```
 
-## Removing relations
+### Removing relations
 
 ``` javascript
 const unFollow = new skygear.relation.Follower([ben]);
@@ -100,7 +100,7 @@ skygear.relation.remove(unFollow).then((result) => {
 ```
 
 
-## Custom relation (**Coming Soon**)
+### Custom relation (**Coming Soon**)
 
 We are supporting non-mutual relation and mutual relation.
 

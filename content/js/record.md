@@ -1,8 +1,25 @@
 <a name="basic-crud"></a>
-# Basic CRUD
+## Basic CRUD
+
+### Container
+
+Please read about container [here](/js/guide#container) before you proceed.
+
+### Database
+
+You will be provided with a private and a public database.
+
+- Everything in the private database is truly private, regardless of what access
+control entity you set to the record. In other words, each user has his own
+private database, and only himself have access to it.
+- Record saved at public database is by default public. Even without
+logging in, records in the public database can be queried (but not updated).
+To control the access, you may set different access control entity to the record.
+- The database objects can be accessed with `skygear.publicDB` and
+`skygear.privateDB`.
 
 <a name="record"></a>
-## Record
+### Record
 
 - `Record` must have a type.
 - `Record` is a key-value-pair data object that is stored at _database_.
@@ -18,10 +35,9 @@ const Note = skygear.Record.extend('note');
 const Blog = skygear.Record.extend('blog');
 
 let note = new Note({ 'content': 'Hello World' });
-// { _id: "123456...", id: "note/123456...", recordType: "note", access: [Object object] }
 ```
 
-## Create a record
+### Create a record
 
 You can save a public record to server as the following.
 
@@ -35,7 +51,7 @@ skygear.publicDB.save(new Note({
 });
 ```
 
-You can also save multiple records at one time.
+You can also batch save multiple records at one time.
 
 ``` javascript
 let helloNote = new Note({
@@ -58,7 +74,7 @@ skygear.publicDB.save([helloNote, foobarNote])
 });
 ```
 
-## Read a record
+### Read a record
 
 You can construct a Query object by providing a Record Type.
 You can config the query by mutating its state.
@@ -77,7 +93,7 @@ skygear.publicDB.query(query).then((records) => {
 })
 ```
 
-## Update a record
+### Update a record
 
 See the [above](#record) section about `id` and `_id` if you are confused.
 
@@ -104,7 +120,7 @@ the records are merged with any remote transient fields applied on the server
 side.
 
 
-## Delete a record
+### Delete a record
 
 See the [above](#record) section about `id` and `_id` if you are confused.
 
@@ -143,10 +159,15 @@ skygear.publicDB.query(query)
 });
 ```
 
-<a name="auto-increment"></a>
-# Create an Auto-Incrementing Field
+<a name="data-types"></a>
+## Data Types
 
-## Make use of sequence object
+Please refer to Skygear [Server](/server/guide/data-type) documentation.
+
+<a name="auto-increment"></a>
+## Create an Auto-Incrementing Field
+
+### Make use of sequence object
 
 Skygear reserves the `id` field in the top level of all record as a primary key.
 If you want an auto-incrementing id for display purpose, Skygear provide
@@ -172,7 +193,7 @@ skygear.publicDB.save(note).then((note) => {
 - Our JIT schema at development will migrate the DB schema to sequence. All
   `noteID` at `Note` will be a sequence type once migrated.
 
-## Override sequence manually
+### Override sequence manually
 
 ``` javascript
 let note = new Note({
@@ -188,10 +209,57 @@ skygear.publicDB.save(note).then((note) => {
 });
 ```
 
-<a name="reference"></a>
-# Records Relations (References)
+<a name="reserved"></a>
+## Reserved Columns
 
-## What Skygear provide
+There are quite a few reserved columns for storing records into the database.
+The column names are written as **snake_case** while the JS object attributes
+are mapped with **camelCase**. Please notice this one-to-one mapping. When you want
+to query on reserved columns, make sure to use **snake_case**; when you get records
+back as a JS object, make sure to access attributes with **camelCase**. When
+creating and saving records, please avoid using attribute that is the same
+as any one of the camelCase attribute names listed below.
+
+Column Name | Object Attribute | Description
+--- | --- | ---
+\_created\_at | createdAt | date object of when record is created
+\_updated\_at | updatedAt | date object of when record is updated last time
+\_created\_by | createdBy | user id of record creator
+\_updated\_by | updatedBy | user id of last record updater
+\_owner\_id | ownerID | user id of owner
+**N/A** | **id** | record type and record id
+\_id | **_id** | record id
+
+One quick example:
+``` javascript
+skygear.publicDB.query(new skygear.Query(Note))
+  .then((records) => console.log(records[0]));
+```
+```
+RecordCls {
+  $transient: (...)
+  _id: "3b9f8f98-f993-4e1d-81c3-a451e483306b"
+  _recordType: "note"
+  _transient: Object
+  access: (...)
+  attributeKeys: (...)
+  createdAt: Thu Jul 07 2016 12:12:42 GMT+0800 (CST)
+  createdBy: "118e0217-ffda-49b4-8564-c6c9573259bb"
+  id: "note/3b9f8f98-f993-4e1d-81c3-a451e483306b"
+  ownerID: "118e0217-ffda-49b4-8564-c6c9573259bb"
+  recordType: (...)
+  updatedAt: Thu Jul 07 2016 12:42:17 GMT+0800 (CST)
+  updatedBy: "118e0217-ffda-49b4-8564-c6c9573259bb"
+}
+```
+
+Please read the [above](#record) section for more about `_id`. Check the server
+[database schema](/server/guide/database-schema) page for more column names.
+
+<a name="reference"></a>
+## Records Relations (References)
+
+### What Skygear provide
 
 Skygear supports parent-child relation between records via _reference_.
 `skygear.Reference` is a pointer class, which will translate to foreign key in
@@ -223,49 +291,25 @@ let note2 = new Note({
   content: 'This is second section'
 });
 note1.nextPage = skygear.Reference(note2);
-skygear.publicDB.save([note1, note2]);
+// if you want to use batch save to save two records that have
+// reference from one to another, you need to pay attention to
+// the ordering of the records in the array
+skygear.publicDB.save([note2, note1]); // success
+skygear.publicDB.save([note1, note2]); // fail, but note2 will still be saved
 ```
 
-You can also reference to an array of record.
+If you wish to retrieve note1 and note2 at the same time in one query,
+you might use `transientInclude`. Read the [Queries](/js/guide/query#relational-queries)
+section to learn more about eager loading.
 
-``` javascript
-let note = new Note({
-  'content': 'This is intro, please see the document list for detail.'
-});
-note.details = [note1, note2, note3].map((note) => {
-  return skygear.Reference(note);
-});
-skygear.publicDB.save(note);
-```
-
-## Eager Loading
-
-After you specify a relation, you can perform eager loading using transient:
-
-``` javascript
-let q = new skygear.Query(Note);
-q.transientInclude('details', '<your-transient-name>');
-skygear.publicDB.query(q).then((records) => {
-  records.map((record) => {
-    console.log(record.details); // Array of skygear.Reference
-    console.log(record.transient['<your-transient-name>']); // Array of skygear.Record
-  });
-}, (error) => {
-  console.log(error);
-});
-```
-
-It is possible to eager load records from multiple keys, but doing so will
-impair performance.
-
-## Deleting Referenced Record
+### Deleting Referenced Record
 
 Yet to be implemented. For now, deleting a referenced record is not allowed.
 
 <a name="subscription"></a>
-# Subscription
+## Subscription
 
-## Creating a subscription
+### Creating a subscription
 
 The following code creates a subscription of all the `Note` created by
 `skygear.currentUser`. Notice that creating a subscription does not involve
@@ -281,7 +325,7 @@ subscription.query = query;
 skygear.publicDB.saveSubscription(subscription);
 ```
 
-## Fetching subscription
+### Fetching subscription
 
 ```javascript
 skygear.publicDB.fetchSubscription('my notes').then((subscription) => {
@@ -291,7 +335,7 @@ skygear.publicDB.fetchSubscription('my notes').then((subscription) => {
 });
 ```
 
-## Fetching all subscriptions
+### Fetching all subscriptions
 
 ```javascript
 skygear.publicDB.fetchAllSubscriptions().then((subscriptions) => {
@@ -303,7 +347,7 @@ skygear.publicDB.fetchAllSubscriptions().then((subscriptions) => {
 });
 ```
 
-## Deleting a subscription
+### Deleting a subscription
 
 ```javascript
 skygear.publicDB.deleteSubscription('my notes').then((subscription) => {
@@ -313,7 +357,7 @@ skygear.publicDB.deleteSubscription('my notes').then((subscription) => {
 });
 ```
 
-## Listening to subscription notification
+### Listening to subscription notification
 
 Once user subscribes, we can listen to subscription notifications.
 

@@ -1,7 +1,7 @@
 <a name="authentication"></a>
-# Authentication
+## Authentication
 
-## Sign up
+### Sign up
 
 If you are not familiar with Promises, please read more [here](https://www.promisejs.org/).
 
@@ -23,7 +23,7 @@ req.then((user) => {
 });
 ```
 
-## Log in
+### Log in
 
 Logging in is as straight-forward as signing up.
 
@@ -40,7 +40,7 @@ req.then((user) => {
 })
 ```
 
-## Log in with Provider
+### Log in with Provider
 
 Right now to allow social login such as Facebook, plugin code must be written
 to enable it on the backend. Read more [here](/plugin/guide/guide-auth).
@@ -52,7 +52,7 @@ skygear.loginWithProvider(provider, authData).then(...);
 // authData is the access token you obtained from the social media's API website
 ```
 
-## Log out
+### Log out
 
 ``` javascript
 skygear.logout().then(() => {
@@ -62,7 +62,7 @@ skygear.logout().then(() => {
 });
 ```
 
-## Change password
+### Change password
 
 ``` javascript
 skygear.changePassword(oldPassword, newPassword).then((user) => {
@@ -73,7 +73,7 @@ skygear.changePassword(oldPassword, newPassword).then((user) => {
 });
 ```
 
-## Change email
+### Change email
 
 ``` javascript
 skygear.saveUser({
@@ -86,7 +86,7 @@ skygear.saveUser({
 });
 ```
 
-## Log out all other session (not yet implemented)
+### Log out all other session (not yet implemented)
 
 ``` javascript
 skygear.changePassword(oldPassword, newPassword, invalidateTokens=true)
@@ -97,8 +97,10 @@ skygear.changePassword(oldPassword, newPassword, invalidateTokens=true)
 });
 ```
 
+### Forget password (not yet implemented)
+
 <a name="current-user"></a>
-# Current User
+## Current User
 
 Skygear provide currentUser object after login.
 
@@ -107,7 +109,7 @@ Skygear provide currentUser object after login.
 let user = skygear.currentUser;
 ```
 
-## Hook currentUser change
+### Hook currentUser change
 
 When a user's access token is expired, the SDK will return `401 Unauthorized`,
 and clear the persisted access token and current user info. To handle the forced
@@ -127,7 +129,7 @@ let handler = skygear.onUserChanged(function (user) {
 handler.cancel(); // The callback is cancelable
 ```
 
-## Other user lookup
+### Other user lookup
 
 Skygear provide a user discovery method by email
 
@@ -150,10 +152,35 @@ skygear.discover('chpapa').then((ben) => {
 });
 ```
 
-## User relations
+<a name="user-profile"></a>
+## User Profile
+
+Whenever a new user signs up, a user profile is automatically created for
+you to track user information other than their username, email or password.
+Username, email and password are stored inside the reserved `_user` database,
+but user profile is stored in the public `user` database. They share the same
+column `_id` with exactly same value. You can access the
+user profile the same way as accessing a record, and everything stored in
+user profile is public and thus visible to any user.
+
+``` javascript
+const User = skygear.Record.extend("user");
+
+// get the current user's profile
+var query = new skygear.Query(User);
+query.equalTo("_id", skygear.currentUser.id);
+skygear.publicDB.query(query).then((records) => {
+  var profile = records[0];
+  console.log(profile);
+}, (error) => {
+  console.error(error);
+});
+```
+
+### User relations
 
 See [Social](/js/guide/relation) section for more.
 
-## User access control
+### User access control
 
 See [Access Control](/js/guide/access-control/role) section for more.

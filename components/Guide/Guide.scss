@@ -1,5 +1,14 @@
 @import '../variables.scss';
 
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+tbody > tr:nth-child(odd) {
+  background-color: #f2f2f2
+}
+
 .Guide-Template {
   .container {
     margin: 3rem 0 0 0;

@@ -34,8 +34,16 @@
           "url": "#basic-crud"
         },
         {
+          "title": "Data Types",
+          "url": "#data-types"
+        },
+        {
           "title": "Create an Auto-Incrementing Field",
           "url": "#auto-increment"
+        },
+        {
+          "title": "Reserved Columns",
+          "url": "#reserved"
         },
         {
           "title": "Records Relations (References)",
@@ -56,12 +64,16 @@
         "url": "#basic-queries"
       },
       {
-        "title": "Complex Queries",
-        "url": "#complex-queries"
+        "title": "Conditions",
+        "url": "#conditions"
       },
       {
-        "title": "Operators",
-        "url": "#query-operators"
+        "title": "Pagination and Ordering",
+        "url": "#pagination-ordering"
+      },
+      {
+        "title": "Relational Queries",
+        "url": "#relational-queries"
       },
       {
         "title": "Cached Query",
@@ -80,6 +92,10 @@
       {
         "title": "Current User",
         "url": "#current-user"
+      },
+      {
+        "title": "User Profile",
+        "url": "#user-profile"
       }
     ]
   },
