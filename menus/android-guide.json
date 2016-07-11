@@ -84,6 +84,24 @@
         ]
     },
     {
+        "title": "Access Control",
+        "url": "/android/guide/acl",
+        "sub": [
+            {
+                "title": "Public ACL",
+                "url": "/android/guide/acl/public"
+            },
+            {
+                "title": "User-based ACL",
+                "url": "/android/guide/acl/user-based"
+            },
+            {
+                "title": "Role-based ACL",
+                "url": "/android/guide/acl/role-based"
+            }
+        ]
+    },
+    {
         "title": "Pubsub",
         "url": "/android/guide/pubsub",
         "sub": [
