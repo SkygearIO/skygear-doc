@@ -3,12 +3,12 @@ All asynchronous methods in `skygear` return [Promise](https://www.promisejs.org
 ## Basic flow
 
 ``` javascript
-import error from 'skygear/lib/error';
+import skygearError from 'skygear/lib/error';
 
 skygear.signupWithUsername('johndoe', 'verysecurepassword').then(() => {
   // user logged in successfully
 }, (error) => {
-  if (error.code === error.Duplicated) {
+  if (error.code === skygearError.Duplicated) {
     // alert the user that username 'johndoe' already exists
   }
   console.error(error);
