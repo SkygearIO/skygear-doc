@@ -1,22 +1,28 @@
 <a name="basic-crud"></a>
 ## Basic CRUD
 
+Before we get to CRUD (creating, reading, updating and deleting) _records_, we need to talk about _container_, _database_ and _record_ first. Let's look at them one by one.
+
 ### Container
 
 Please read about container [here](/js/guide#container) before you proceed.
 
 ### Database
 
+Database is the central hub of data storage in Skygear. The main responsibility of database is to store records, the data storage unit in Skygear.
+
 You will be provided with a private and a public database.
 
 - Everything in the private database is truly private, regardless of what access
 control entity you set to the record. In other words, each user has his own
 private database, and only himself have access to it.
-- Record saved at public database is by default public. Even without
-logging in, records in the public database can be queried (but not updated).
-To control the access, you may set different access control entity to the record.
+- Record saved at public database is by default public. Only the owner of the record can modify the record. Even without logging in, records in the public database can be queried (but not updated).
+To control the access, you may set different access control entity to the record. However, only logged in user can do write operation on databases
 - The database objects can be accessed with `skygear.publicDB` and
 `skygear.privateDB`.
+
+Head to [Access Control](/js/guide/access-control/role) to read more about it.
+
 
 <a name="record"></a>
 ### Record

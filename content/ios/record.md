@@ -7,15 +7,19 @@ To read about `SKYContainer`, please go to [Getting Started]({{< relref "getting
 
 ### SKYDatabase
 
-`SKYDatabase` is the central hub of data storage in `SKYKit`. The main
-responsibility of database is to store [records]({{< relref "#SKYRecord" >}}),
-the data storage unit in Skygear.
+`SKYDatabase` is the central hub of data storage in `SKYKit`. The main responsibility of database is to store `SKYRecord`s, the data storage unit in Skygear.
 
-Every container has one _public database_, which stores data accessible to
-every users.
+You will be provided with a private and a public database.
 
-Every user also has its own _private database_, which stores data
-only accessible to that user alone.
+- Everything in the private database is truly private, regardless of what access
+control entity you set to the record. In other words, each user has his own
+private database, and only himself have access to it.
+- Record saved at public database is by default public. Only the owner of the record can modify the record. Even without logging in, records in the public database can be queried (but not updated).
+To control the access, you may set different access control entity to the record. However, only logged in user can do write operation on databases
+- The database objects can be accessed with `[[SKYContainer defaultContainer] publicCloudDatabase]` and
+`[[SKYContainer defaultContainer] privateCloudDatabase]`.
+
+Head to [Access Control](/ios/guide/access-control) to read more about it.
 
 ### SKYRecord
 
@@ -181,7 +185,9 @@ SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
 }];
 ```
 
-- You can omit the `noteID` on update, the value will remain unchange.
+- You can omit the `noteID` on update, the value will remain unchanged.
+- All the other `Note` in the database will now automatically have their
+  `noteID` as well.
 - You can migrate any integer to auto-incrementing sequence.
 - Our JIT schema at development will migrate the DB schema to sequence. All
   `noteID` at `Note` will be a sequence type once migrated.
