@@ -131,7 +131,7 @@ handler.cancel(); // The callback is cancelable
 
 ### Other user lookup
 
-Skygear provide a user discovery method by email
+Skygear provide a user discovery method by email. Everyone has access to this method without even having to be logged in.
 
 ``` javascript
 // it takes an array of email and callback with an array of users

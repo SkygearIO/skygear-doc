@@ -120,7 +120,7 @@ if (container.currentUserRecordID) {
 
 ## Looking up users by email
 
-Skygear provides a user discovery method by email:
+Skygear provide a user discovery method by email. Everyone has access to this method without even having to be logged in.
 
 ```obj-c
 SKYQueryUsersOperation *operation = [SKYQueryUsersOperation discoverUsersOperationByEmails:@[@"john.doe@example.com", @"jane.doe@example.com"]];
