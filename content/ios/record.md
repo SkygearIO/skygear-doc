@@ -158,6 +158,8 @@ You can also delete multiple records at once.
 <a name="auto-increment"></a>
 # Auto-Incrementing Sequence Fields
 
+##Make use of sequence object
+
 Skygear reserves the `id` field in the top level of all record as a primary key.
 `id` must be unique and default to be Version 4 UUID. If you want to
 auto-incrementing id for display purpose, Skygear provide a sequence for this 
