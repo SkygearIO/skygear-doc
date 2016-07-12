@@ -3,9 +3,9 @@
 
 Skygear provide three default relations: friend, following and follower.
 - `follower` and `following` are one non-mutual relation with direction. You can
-follow a user without his explicit consensus.
-- `friend` is mutual relation without direction. If you add friend with Ben and
-Ben add friend with you, then you two will have `friend` relationship.
+follow a user without his explicit approval.
+- `friend` is mutual relation without direction. If you add Ben as your friend
+and Ben add you as his friend, then you two will have `friend` relationship.
 
 ### Add relations
 
