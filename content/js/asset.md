@@ -22,9 +22,8 @@ const picture = new skygear.Asset({
 });
 const note = new Note({ attachment: picture });
 skygear.publicDB.save(note) // automatically upload the picture
-.then((note) => {
-  console.log(note.attachment.url); // where you can load the image
-  console.log(picture.url); // the asset object is updated for you as well
+.then((record) => {
+  console.log(record.attachment.url); // where you can load the image
   // if configured properly, the url should look like the following
   // <ASSET_STORE_URL_PREFIX>/<asset-id>-<your-asset-name>
 }, (error) => {
