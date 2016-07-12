@@ -20,12 +20,6 @@ completionHandler:^(SKYUser *user, NSError *error) {
 }];
 ```
 
-This call will create a new user in your app. Before completing the process, it automatically checks if the username is unique. New users should always be created with this method.
-
-When a new user is successfully created, a `SKYUser` is returned.
-
-If the signup is not successful, you should read the error object returned. Usually it is just that the username or the email has been taken. You should communicate this to your users and ask them to try a different username. They may also be other kinds of errors that you should take note of.
-
 You can use `signupWithEmail:password:` to sign up users with emails as well:
 
 ```obj-c
@@ -42,8 +36,13 @@ You can use `signupWithEmail:password:` to sign up users with emails as well:
 }];
 ```
 
-TODO: It checks for uniqueness username
-TODO: Remind developer to use email as username when necessary
+These two methods will create a new user in your app. Before completing the process, it automatically checks if the username is unique. New users should always be created with either one of the methods.
+
+When a new user is successfully created, a `SKYUser` is returned.
+
+If the signup is not successful, you should read the error object returned. Usually it is just that the username or the email has been taken. You should communicate this to your users and ask them to try a different username. They may also be other kinds of errors that you should take note of.
+
+TODO: Remind developer to use email as username when necessary (I don't understand this)
 
 ## Logging in
 
@@ -89,7 +88,7 @@ Of course, you also would want to allow users to log out of their accounts by us
 
 ## Changing password
 
-Sometimes users would want to change their passwords to secure their accounts. The following code illustrates the process.
+To change the password of the current user:
 
 ```obj-c
 [container changePassword:@"oldPassword"
@@ -113,6 +112,7 @@ You can get the `currentUserRecordID` by:
 ```obj-c
 if (container.currentUserRecordID) {
     // user is logged in, proceed
+    NSString *userID = [container currentUserRecordID];
 } else {
     // ask user to sign up / login
 }
@@ -120,7 +120,7 @@ if (container.currentUserRecordID) {
 
 ## Looking up users by email
 
-The following code shows how you can query other users with their emails:
+Skygear provides a user discovery method by email:
 
 ```obj-c
 SKYQueryUsersOperation *operation = [SKYQueryUsersOperation discoverUsersOperationByEmails:@[@"john.doe@example.com", @"jane.doe@example.com"]];
@@ -133,6 +133,8 @@ operation.container = [SKYContainer defaultContainer];
 [[SKYContainer defaultContainer] addOperation:operation];
 ```
 
+TODO: Better mention if there is any access restriction, i.e. any user can search for any other emails?
+
 ## User Relations
 
 See [Friends and Followers]({{< relref "relation.md" >}}).
@@ -140,17 +142,18 @@ See [Friends and Followers]({{< relref "relation.md" >}}).
 # Social Login
 ## Logging in with provider
 
-Right now to allow social plugin such as Facebook, plugin code must be written to enable it on the backend. Read more about in the [Plugin]({{< relref "plugin.md" >}}) section.
+Right now to allow social plugin such as Facebook. Plugin code must be written to enable it on the backend. Read more about in the [Plugin]({{< relref "plugin.md" >}}) section.
 
 # User Profile
 
 Whenever a new user signs up, a user profile is automatically created for
-you to track user information other than their _username_, _email_ or _password_.
-You can access the user profile the same way as accessing a record:
+you to track user information other than their _username_, _email_ or _password_. _Username_, _email_ and _password_ are stored inside the reserved `_user` database, but user profile is stored in the public `user` database. They share the same column `_id` with exactly same value. You can access the
+user profile the same way as accessing a record, and everything stored in
+user profile is public and thus visible to any user.
 
 ```obj-c
 SKYDatabase *publicDB = [[SKYContainer defaultContainer] publicCloudDatabase];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"_created_by ==[c] %@", [container currentUserRecordID]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"_id ==[c] %@", [container currentUserRecordID]];
     SKYQuery *query = [SKYQuery queryWithRecordType:@"user" predicate:predicate];
     
     [publicDB performQuery:query completionHandler:^(NSArray *results, NSError *error) {
