@@ -2,22 +2,33 @@
 ## User relations (Friends & Followers)
 
 Skygear provide three default relations: friend, following and follower.
+- `follower` and `following` are one non-mutual relation with direction. You can
+follow a user without his explicit approval.
+- `friend` is mutual relation without direction. If you add Ben as your friend
+and Ben add you as his friend, then you two will have `friend` relationship.
 
 ### Add relations
 
-If the current user wants to follow another user called Ben:
+If the current user wants to follow Ben:
 
 ``` javascript
 const toFollow = new skygear.relation.Following([ben]);
 // ben is a user object
-skygear.relation.add(toFollow).then((ok) => {
-  console.log(ok);
+skygear.relation.add(toFollow).then((result) => {
+  console.log(result);
 }, (error) => {
   console.error(error);
 });
 ```
 
-How do we get the user object? We can either search by email or simply
+The `result` variable you get in the callback function is a `RelationResult`
+instance that have the following keys/attributes:
+- `result.success` is an array of user objects with whom relations are added
+- `result.fail` is an array of user objects with whom relations fail to be added
+- `result.partialError` is a boolean that equals true when some relations are
+  added while others fail to be added
+
+How can you get the user object? You can either search by email or simply
 construct a new user object with the correct user id. Read the section
 about [Users](/js/guide/users#current-user) to learn more about search by email.
 
@@ -72,17 +83,18 @@ skygear.relation.queryFriend(skygear.currentUser, {
 });
 ```
 
-Alternatively you can use the query syntax.
+Alternatively you can use the query syntax if you want more conditions.
 Learn more in the [Queries](/js/guide/query) section.
 
 ``` javascript
 const query = new skygear.relation.Query(skygear.relation.Friend);
 query.user = skygear.currentUser;
-query.limit = 100;
+query.limit = 10;
 query.page = 2;
+query.greaterThan('age', 20);
 skygear.relation.query(query).then((users) => {
-  console.log(users.overallCount); // The total count match the relation.
-  console.log(users);
+  console.log(users.overallCount);
+  // The total count matching the relation regardless of page or limit
 }, (error) => {
   console.error(error);
 });
@@ -101,13 +113,6 @@ skygear.relation.remove(unFollow).then((result) => {
 
 
 ### Custom relation (**Coming Soon**)
-
-We are supporting non-mutual relation and mutual relation.
-
-`follower` and `following` are one non-mutual relation with direction. You can
-follow a user without his explicit consensus.
-
-`friend` is mutual relation without direction.
 
 ``` javascript
 const FansOf = skygear.relation.extend('fans', skygear.relation.Outward);
