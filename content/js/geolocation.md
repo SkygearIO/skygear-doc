@@ -1,4 +1,4 @@
-## Save a location on record
+## Saving a location on record
 
 ``` javascript
 const Photo = skygear.Record.extend('photo');
@@ -8,7 +8,7 @@ let photo = new Photo({
 });
 ```
 
-## Query records by distance
+## Querying records by distance
 
 Get all photos taken within 400 meters of some location.
 
@@ -28,7 +28,7 @@ skygear.publicDB.query(photoQuery).then((photos) => {
 Geolocation query has `distanceGreaterThan` function as well.
 
 
-## Sort records by distance
+## Sorting records by distance
 
 You can sort the result of the query by distance from a reference location:
 
@@ -37,7 +37,7 @@ photoQuery.addAscendingByDistance('location', reference);
 photoQuery.addDescendingByDistance('location', reference);
 ```
 
-## Retrieve record that contains distance to a reference point
+## Querying distance from record geolocation column to given reference point
 
 You can utilize transient fields. Please read more about transient and eager
 loading in the [Queries](/js/guide/query#relational-query) section.
