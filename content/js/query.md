@@ -9,7 +9,7 @@ privateDB and publicDB, please read [Records](/js/guide/record) section first.
 ``` javascript
 let query = new skygear.Query(Note);
 query.equalTo('title', 'First note');
-skygear.privateDB.query(query).then((notes) => {
+skygear.publicDB.query(query).then((notes) => {
   // notes is an array of Note records that has its "title" equals "First note"
 }, (error) => {
   console.error(error);
@@ -37,7 +37,7 @@ Of course, you can put multiple conditions in same query object:
 let query = new skygear.Query(Note);
 query.lessThan('order', 10);
 query.equalTo('category', 'diary');
-skygear.privateDB.query(query).then((notes) => {
+skygear.publicDB.query(query).then((notes) => {
   console.log('Received note with order less then 10 and is a diary');
 }, (error) => {
   console.error(error);
@@ -186,7 +186,7 @@ of the Query to `true`.
 
 ``` javascript
 query.overallCount = true;
-skygear.privateDB.query(query).then((notes, count) => {
+skygear.publicDB.query(query).then((notes, count) => {
   console.log('%d records matching query.', count);
 }, (error) => {
   console.error(error);
