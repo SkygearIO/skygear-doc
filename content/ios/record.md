@@ -1,4 +1,4 @@
-<a name="#basic-crud"></a>
+<a name="basic-crud"></a>
 Before we get to CRUD (creating, reading, updating and deleting) _records_, we need to talk about _container_, _database_ and _record_ first. Let's look at them one by one.
 
 ### SKYContainer
@@ -71,8 +71,6 @@ You can also save multiple `SKYRecord`s at once.
 
 You can construct a `SKYQuery` object by providing a `recordType`. You can configure the `SKYQuery` by mutating its state. Read the [Query]({{< relref "query.md" >}}) section to learn more.
 
-(TODO: Add code example)
-
 ## Updating a record
 
 Now let's return to our to-do item example. This is how you save a `SKYRecord`:
@@ -104,8 +102,6 @@ As you can see, the returned `SKYRecord` now has a `recordID`. The `recordID` pr
 
 With the `recordID` you can modify the record later on. Say if
 you have to mark this todo as done:
-
-(TODO: I think we should use the `SKYRecordID` instead of the `recordName`? It seems a bit confusing to me.)
 
 ```obj-c
 SKYRecord *todo = [SKYRecord recordWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
@@ -162,7 +158,7 @@ You can also delete multiple records at once.
 <a name="auto-increment"></a>
 # Auto-Incrementing Sequence Fields
 
-##Make use of sequence object
+## Make use of sequence object
 
 Skygear reserves the `id` field in the top level of all record as a primary key.
 `id` must be unique and default to be Version 4 UUID. If you want to
