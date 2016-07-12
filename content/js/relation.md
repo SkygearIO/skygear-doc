@@ -14,11 +14,23 @@ If the current user wants to follow Ben:
 ``` javascript
 const toFollow = new skygear.relation.Following([ben]);
 // ben is a user object
-skygear.relation.add(toFollow).then((ok) => {
-  console.log(ok);
+skygear.relation.add(toFollow).then((result) => {
+  console.log(result);
 }, (error) => {
   console.error(error);
 });
+```
+
+The `result` variable you get in the callback function is a `RelationResult`
+instance that looks like the following:
+
+``` javascript
+{
+  count: 0, // here we are not retrieving the relations, so it's zero
+  success: Array[1], // array of user objects with whom relations are added
+  fail: Array[0], // array of user objects with whom relations fail to be added
+  partialError: false // indicate if some relations are added while others fail
+}
 ```
 
 How can you get the user object? You can either search by email or simply
@@ -76,16 +88,18 @@ skygear.relation.queryFriend(skygear.currentUser, {
 });
 ```
 
-Alternatively you can use the query syntax.
+Alternatively you can use the query syntax if you want more conditions.
 Learn more in the [Queries](/js/guide/query) section.
 
 ``` javascript
 const query = new skygear.relation.Query(skygear.relation.Friend);
 query.user = skygear.currentUser;
-query.limit = 100;
+query.limit = 10;
 query.page = 2;
+query.greaterThan('age', 20);
 skygear.relation.query(query).then((users) => {
-  console.log(users.overallCount); // The total count match the relation
+  console.log(users.overallCount);
+  // The total count matching the relation regardless of page or limit
 }, (error) => {
   console.error(error);
 });
