@@ -109,8 +109,8 @@ for a single character.
 ``` javascript
 query.like('genre', 'science%'); // included: science, science-fiction, etc.
 query.notLike('title', 'Big%');  // excluded: Big Bang Theory, Big Hero 6, etc.
-query.caseInsensitiveLike(...);
-query.caseInsensitiveNotLike(...);
+query.caseInsensitiveLike('month', '%a%');    // included: January, April, etc.
+query.caseInsensitiveNotLike('actor', '%k%'); // excluded: Katy, Jack, etc.
 ```
 
 ### Having relation condition
@@ -221,7 +221,7 @@ skygear.publicDB.save([address, delivery]).then(...);
 // Now when we are retrieving delivery, we want to include address as well
 var query = new skygear.Query(Delivery);
 query.transientInclude('destination');
-// 'destination' is the column name where Reference to Address record is stored
+// 'destination' is the key where Reference to Address record is stored
 skygear.publicDB.query(query).then((records) => {
   records.map((record) => {
     console.log(record.destination); // skygear.Reference

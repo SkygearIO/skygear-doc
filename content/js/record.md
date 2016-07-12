@@ -22,17 +22,17 @@ To control the access, you may set different access control entity to the record
 ### Record
 
 - `Record` must have a type.
-- `Record` object is like a dictionary with keys and values; keys will be
+- Each `Record` object is like a dictionary with keys and values; keys will be
 mapped to database column names, and values will be stored appropriately
 based on the data type. Please refer to [Server](/server/guide/data-type) page
 for all supported data types. Several special types include
 [Sequence](#auto-increment), [Reference](#reference),
 [Asset](/js/guide/asset) and [Geolocation](/js/guide/geolocation).
 - `Record` will be owned by the currently logged in user.
-- `Record` object has unique `id` (a string combination of record type and
-    uuid used in the database as `_id`).
-- `Record` object have reserved keys that cannot be used, such as `id` and
-`_id`. Please refer to this [table](#reserved) for more.
+- Each `Record` object has its unique `id` (a string combination of record type
+  and uuid used in the database as `_id`).
+- `Record` has reserved keys that cannot be used, such as `id` and
+`_id`. Please refer to this [table](#reserved) about reserved columns and keys.
 
 You can design different `Record` type to model your app. Just like defining
 tables in SQL.

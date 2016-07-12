@@ -4,7 +4,7 @@
 const Photo = skygear.Record.extend('photo');
 let photo = new Photo({
   'subject': 'Hong Kong',
-  'location': new skygear.Geolocation(22.39649, 114.1952103)
+  'location': new skygear.Geolocation(22.39649, 114.1952103),
 });
 ```
 
@@ -30,20 +30,23 @@ Geolocation query has `distanceGreaterThan` function as well.
 
 ## Sort records by distance
 
-You can sort the result of the query by distance to reference location:
+You can sort the result of the query by distance from a reference location:
 
 ``` javascript
 photoQuery.addAscendingByDistance('location', reference);
 photoQuery.addDescendingByDistance('location', reference);
 ```
 
-## Retrieve record distance to reference point
+## Retrieve record that contains distance to a reference point
 
-You can utilize transient fields. If you don't know about transient, please read more
-in the [Queries](/js/guide/query#relational-query) section.
+You can utilize transient fields. Please read more about transient and eager
+loading in the [Queries](/js/guide/query#relational-query) section.
 
 ``` javascript
 photoQuery.transientIncludeDistance('location', 'distance', reference);
+// 'location' is the key where Geolocation object is stored
+// 'distance' is the key where calculated distance will be stored in $transient
+// reference is the Geolocation object based on which distance is calculated
 skygear.publicDB.query(photoQuery).then((photos) => {
   photos.forEach((photo) => {
     console.log(photo.$transient['distance']);
