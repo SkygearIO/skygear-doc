@@ -36,8 +36,9 @@ skygear.pubsub.hasHandlers('ping');
 
 ## Publishing an event
 
-You can send a JavaScript object as data, and all the skygear users (including
-yourself) will receive this data if they subscribed to event `ping`.
+You can send a JavaScript object or native types (e.g. number, string, etc.) as
+data, and all the skygear users (including yourself) will receive this data
+with the correct type if they subscribed to event `ping`.
 
 ``` javascript
 skygear.pubsub.publish('ping', data);
