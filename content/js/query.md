@@ -61,6 +61,8 @@ skygear.publicDB.query(query).then((notes) => {
 });
 ```
 
+You can use `Query.not(query)` to get a condition negated version of `query`.
+
 <a name="conditions"></a>
 ## Conditions
 
@@ -105,11 +107,11 @@ for any number of characters while the underscore (`_`) can be used in place
 for a single character.
 
 ``` javascript
-query.like('category', 'science%'); // science, science-fiction, etc.
+query.like('genre', 'science%'); // included: science, science-fiction, etc.
+query.notLike('title', 'Big%');  // excluded: Big Bang Theory, Big Hero 6, etc.
+query.caseInsensitiveLike('month', '%a%');    // included: January, April, etc.
+query.caseInsensitiveNotLike('actor', '%k%'); // excluded: Katy, Jack, etc.
 ```
-
-The above query will match notes with category `science` or `science-fiction`.
-Use `caseInsensitiveLike` for case insensitive match.
 
 ### Having relation condition
 
@@ -219,7 +221,7 @@ skygear.publicDB.save([address, delivery]).then(...);
 // Now when we are retrieving delivery, we want to include address as well
 var query = new skygear.Query(Delivery);
 query.transientInclude('destination');
-// 'destination' is the column name where Reference to Address record is stored
+// 'destination' is the key where Reference to Address record is stored
 skygear.publicDB.query(query).then((records) => {
   records.map((record) => {
     console.log(record.destination); // skygear.Reference

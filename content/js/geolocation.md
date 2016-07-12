@@ -1,68 +1,57 @@
 ## Saving a location on record
 
-```js
+``` javascript
+const Photo = skygear.Record.extend('photo');
 let photo = new Photo({
-    'subject': 'Hong Kong',
-    'geo': skygear.Geolocation(22.283, 114.15),
+  'subject': 'Hong Kong',
+  'location': new skygear.Geolocation(22.39649, 114.1952103),
 });
 ```
-
 
 ## Querying records by distance
 
 Get all photos taken within 400 meters of some location.
 
-```javascript
-let reference = skygear.Geolocation(22.283, 114.15);
+``` javascript
+let reference = new skygear.Geolocation(22.283, 114.15);
 
-let photoQuery = new Query(Photo);
+let photoQuery = new skygear.Query(Photo);
 photoQuery.distanceLessThan('location', reference, 400);
+
 skygear.publicDB.query(photoQuery).then((photos) => {
-  console.log('Found number of photos: ' + photos.length);
+  console.log(photos);
 }, (error) => {
-  console.log('error: ', error);
+  console.error(error);
 });
 ```
 
-You can also use `distanceGreaterThan` to query photos outside 400 meters of
-a location.
+Geolocation query has `distanceGreaterThan` function as well.
 
 
 ## Sorting records by distance
 
-You can sort the result of the query by location. To query by ascending
-distance (nearest points returned first):
+You can sort the result of the query by distance from a reference location:
 
-```js
+``` javascript
 photoQuery.addAscendingByDistance('location', reference);
-```
-
-To query by descending distance:
-
-```js
 photoQuery.addDescendingByDistance('location', reference);
 ```
 
-**DISCUSSION**: The Skygear Server API supports sorting by an expression, but the
-only supported expression is to sort by location. To make things simpler,
-the above convenient functions are preferred.
+## Querying distance from record geolocation column to given reference point
 
-## Retrieving record location field distances relative to a point
+You can utilize transient fields. Please read more about transient and eager
+loading in the [Queries](/js/guide/query#relational-query) section.
 
-Utilize transient fields.
-
-```js
-photoQuery.transientIncludeDistance("location", "my_distance", reference);
-```
-
-Then we can access the distance through the transient field `my_distance`:
-
-```js
+``` javascript
+photoQuery.transientIncludeDistance('location', 'distance', reference);
+// 'location' is the key where Geolocation object is stored
+// 'distance' is the key where calculated distance will be stored in $transient
+// reference is the Geolocation object based on which distance is calculated
 skygear.publicDB.query(photoQuery).then((photos) => {
-  for (photo in photos) {
-    console.log("distance: " + photo.transient['my_distance']);
-  }
+  photos.forEach((photo) => {
+    console.log(photo.$transient['distance']);
+  });
 }, (error) => {
-  console.log('error: ', error);
+  console.error(error);
 });
 ```
