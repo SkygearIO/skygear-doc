@@ -1,5 +1,3 @@
-TODO: Only logged in user can do write operation on databases
-
 # Authentication
 
 ## Signing up
@@ -41,8 +39,6 @@ These two methods will create a new user in your app. Before completing the proc
 When a new user is successfully created, a `SKYUser` is returned.
 
 If the signup is not successful, you should read the error object returned. Usually it is just that the username or the email has been taken. You should communicate this to your users and ask them to try a different username. They may also be other kinds of errors that you should take note of.
-
-TODO: Remind developer to use email as username when necessary (I don't understand this)
 
 ## Logging in
 
@@ -132,8 +128,6 @@ operation.queryUserCompletionBlock = ^(NSArray /* SKYUser */ *users, NSError *op
 operation.container = [SKYContainer defaultContainer];
 [[SKYContainer defaultContainer] addOperation:operation];
 ```
-
-TODO: Better mention if there is any access restriction, i.e. any user can search for any other emails?
 
 ## User Relations
 
