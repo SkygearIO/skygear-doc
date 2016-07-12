@@ -22,16 +22,11 @@ skygear.relation.add(toFollow).then((result) => {
 ```
 
 The `result` variable you get in the callback function is a `RelationResult`
-instance that looks like the following:
-
-``` javascript
-{
-  count: 0, // here we are not retrieving the relations, so it's zero
-  success: Array[1], // array of user objects with whom relations are added
-  fail: Array[0], // array of user objects with whom relations fail to be added
-  partialError: false // indicate if some relations are added while others fail
-}
-```
+instance that have the following keys/attributes:
+- `result.success` is an array of user objects with whom relations are added
+- `result.fail` is an array of user objects with whom relations fail to be added
+- `result.partialError` is a boolean that equals true when some relations are
+  added while others fail to be added
 
 How can you get the user object? You can either search by email or simply
 construct a new user object with the correct user id. Read the section
