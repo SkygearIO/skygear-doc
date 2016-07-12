@@ -170,8 +170,9 @@ Please refer to Skygear [Server](/server/guide/data-type) documentation.
 ### Make use of sequence object
 
 Skygear reserves the `id` field in the top level of all record as a primary key.
-If you want an auto-incrementing id for display purpose, Skygear provide
-`Sequence` for this purpose.
+`id` must be unique and default to be Version 4 UUID. If you want to
+auto-incrementing id for display purpose, Skygear provide a sequence for this 
+purpose. The sequence is guaranteed unique.
 
 ``` javascript
 let note = new Note({
