@@ -66,7 +66,7 @@ module.exports = {
       }
     }) // it's better to save configuration for your skygear container here
   },
-  module: {}
+  module: {},
 };
 ```
 
@@ -94,7 +94,7 @@ function getDefaultModules() {
       },
       /* ... */
     ],
-    noParse: [ /localforage\/dist\/localforage.js/ ]
+    noParse: [ /localforage\/dist\/localforage.js/ ],
   };
 }
 /* ... */

@@ -84,7 +84,7 @@ import skygear from 'skygear';
 
 skygear.config({
   'endPoint': 'https://<your-app-name>.skygeario.com/', // trailing slash is required
-  'apiKey': '<your-api-key>'
+  'apiKey': '<your-api-key>',
 }).then((container) => {
   console.log(container);
 }, (error) => {

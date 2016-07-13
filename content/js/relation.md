@@ -34,7 +34,7 @@ about [Users](/js/guide/users#current-user) to learn more about search by email.
 
 ``` javascript
 const ben = new skygear.User({
-  user_id: "<ben's-user-id>"
+  user_id: "<ben's-user-id>",
 });
 ```
 
@@ -75,7 +75,7 @@ To get the 101-200th friends of the current user:
 
 ``` javascript
 skygear.relation.queryFriend(skygear.currentUser, {
-  page: 2, limit: 100
+  page: 2, limit: 100,
 }).then((users) => {
   console.log(users);
 }, (error) => {
