@@ -2,25 +2,40 @@ All asynchronous methods in `skygear` return [Promise](https://www.promisejs.org
 
 ## Basic flow
 
-```js
-skygear.signup('johndoe', 'john.doe@example.com', 'verysecurepassword').then(() => {
+``` javascript
+import skygearError from 'skygear/lib/error';
+
+skygear.signupWithUsername('johndoe', 'verysecurepassword').then(() => {
   // user logged in successfully
 }, (error) => {
-  if (error.code == skygear.Error.DUPLICATED) {
-    console.log('username has been taken');
-  } else {
-    console.log('unexpected error', error.code)
+  if (error.code === skygearError.Duplicated) {
+    // alert the user that username 'johndoe' already exists
   }
+  console.error(error);
 });
 
 ```
 
-## Ignoring errors
+## Error code
 
-```js
-// omit the error callback
-skygear.signup('johndoe', 'john.doe@example.com', 'verysecurepassword').then(() => {
-  // user logged in successfully
-});
-
-```
+Error Name | Code Number
+--- | ---
+NotAuthenticated | 101
+PermissionDenied | 102
+AccessKeyNotAccepted | 103
+AccessTokenNotAccepted | 104
+InvalidCredentials | 105
+InvalidSignature | 106
+BadRequest | 107
+InvalidArgument | 108
+Duplicated | 109
+ResourceNotFound | 109
+NotSupported | 110
+NotImplemented | 111
+ConstraintViolated | 112
+IncompatibleSchema | 113
+AtomicOperationFailure | 114
+PartialOperationFailure | 115
+UndefinedOperation | 116
+PluginUnavailable | 117
+PluginTimeout | 118
