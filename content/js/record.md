@@ -44,7 +44,7 @@ const Blog = skygear.Record.extend('blog');
 let note = new Note({ 'content': 'Hello World' });
 ```
 
-### Create a record
+### Creating a record
 
 You can save a public record to server as the following.
 
@@ -81,7 +81,7 @@ skygear.publicDB.save([helloNote, foobarNote])
 });
 ```
 
-### Read a record
+### Reading a record
 
 You can construct a Query object by providing a Record Type.
 You can config the query by mutating its state.
@@ -100,7 +100,7 @@ skygear.publicDB.query(query).then((records) => {
 })
 ```
 
-### Update a record
+### Updating a record
 
 See the [above](#record) section about `id` and `_id` if you are confused.
 
@@ -127,7 +127,7 @@ the records are merged with any remote transient fields applied on the server
 side.
 
 
-### Delete a record
+### Deleting a record
 
 See the [above](#record) section about `id` and `_id` if you are confused.
 
