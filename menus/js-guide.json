@@ -78,16 +78,20 @@
     ]
   },
   {
-    "title": "Users",
+    "title": "Authentication",
     "url": "/js/guide/users",
     "sub": [
       {
-        "title": "Authentication",
-        "url": "#authentication"
+        "title": "Manage User",
+        "url": "#manager-user"
       },
       {
         "title": "Current User",
         "url": "#current-user"
+      },
+      {
+        "title": "Social Login (Facebook, Twitter, etc)",
+        "url": "#social-login"
       },
       {
         "title": "User Profile",
