@@ -100,12 +100,24 @@
     ]
   },
   {
-    "title": "Social",
+    "title": "Social Relations",
     "url": "/js/guide/relation",
     "sub": [
       {
-        "title": "User relations (Friends & Followers)",
+        "title": "User Relations (Friends & Followers)",
         "url": "#friends-and-followers"
+      },
+      {
+        "title": "Adding Relations",
+        "url": "#adding-relations"
+      },
+      {
+        "title": "Querying Relations",
+        "url": "#querying-relations"
+      },
+      {
+        "title": "Removing Relations",
+        "url": "#removing-relations"
       }
     ]
   },

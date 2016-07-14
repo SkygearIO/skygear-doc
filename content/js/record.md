@@ -1,7 +1,8 @@
 <a name="overview"></a>
 ## Overview
 
-Please make sure you know about [container](/js/guide#container) before you proceed.
+Please make sure you know about and have already configured your skygear
+[container](/js/guide#container) before you proceed.
 
 <a name="record"></a>
 ### The Record Class
