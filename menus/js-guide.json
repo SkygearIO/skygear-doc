@@ -118,16 +118,24 @@
     "url": "/js/guide/access-control",
     "sub": [
       {
-        "title": "Access Control by User",
+        "title": "Access Type",
+        "url": "#acl-type"
+      },
+      {
+        "title": "Default ACL Settings",
+        "url": "#acl-default"
+      },
+      {
+        "title": "ACL by User",
         "url": "#acl-user"
       },
       {
-        "title": "Access Control by Role",
+        "title": "ACL by User Role",
         "url": "#acl-role"
       },
       {
-        "title": "Access Control by Record Type",
-        "url": "#acl-type"
+        "title": "ACL by Record Type",
+        "url": "#acl-record"
       }
     ]
   },

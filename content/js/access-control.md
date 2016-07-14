@@ -1,9 +1,7 @@
-<a name='acl-user'></a>
-## Access Control by User
+<a name='acl-type'></a>
+## Access Type
 
-### Access type
-
-There are two types of access: read and write.
+There are two types of access for each record: read and write.
 - Read access allows querying and fetching records, which includes getting
   all the fields of records as well as the access control settings.
 - Write access allows saving and deleting records, which includes adding,
@@ -12,7 +10,8 @@ There are two types of access: read and write.
 
 However, even with write access, ownership of records cannot be changed.
 
-### Default access control setting
+<a name='acl-default'></a>
+## Default ACL Settings
 
 By default, read access is granted to the public and write access is granted
 only to owner of the record. You can change this behavior as well:
@@ -29,7 +28,9 @@ skygear.defaultACL.hasPublicReadAccess(); // default true
 skygear.defaultACL.hasPublicWriteAccess(); // default false
 ```
 
-### User-based access control per record
+
+<a name='acl-user'></a>
+## ACL by User
 
 Suppose you have three user objects: `enemy`, `visitor` and `friend`.
 
@@ -47,7 +48,7 @@ note.hasWriteAccessForUser(friend); // true
 ```
 
 <a name='acl-role'></a>
-## Access Control by Role
+## ACL by User Role
 
 ### Defining roles
 
@@ -101,14 +102,12 @@ plan.setReadOnlyForRole(Employee);
 plan.setReadWriteAccessForRole(Manager);
 skygear.publicDB.save(plan).then(...);
 
-plan.hasReadAccess(Visitor); // false
 plan.hasReadAccessForRole(Employee); // true
-plan.hasWriteAccess(Manager); // true
-plan.hasWriteAccessForRole(Employee); // false
+plan.hasWriteAccessForRole(Manager); // true
 ```
 
-<a name='acl-type'></a>
-## Access Control by Record Type
+<a name='acl-record'></a>
+## ACL by Record Type
 
 ### Record creation access control
 
