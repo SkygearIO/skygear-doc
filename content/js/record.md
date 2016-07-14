@@ -1,31 +1,10 @@
-<a name="basic-crud"></a>
-## Basic CRUD
+<a name="overview"></a>
+## Overview
 
-Before we get to CRUD (creating, reading, updating and deleting) _records_, we need to talk about _container_, _database_ and _record_ first. Let's look at them one by one.
-
-### Container
-
-Please read about container [here](/js/guide#container) before you proceed.
-
-### Database
-
-Database is the central hub of data storage in Skygear. The main responsibility of database is to store records, the data storage unit in Skygear.
-
-You will be provided with a private and a public database.
-
-- Everything in the private database is truly private, regardless of what access
-control entity you set to the record. In other words, each user has his own
-private database, and only himself have access to it.
-- Record saved at public database is by default public. Only the owner of the record can modify the record. Even without logging in, records in the public database can be queried (but not updated).
-To control the access, you may set different access control entity to the record. However, only logged in user can do write operation on databases
-- The database objects can be accessed with `skygear.publicDB` and
-`skygear.privateDB`.
-
-Head to [Access Control](/js/guide/access-control/role) to read more about it.
-
+Please make sure you know about [container](/js/guide#container) before you proceed.
 
 <a name="record"></a>
-### Record
+### The Record Class
 
 - `Record` must have a type.
 - Each `Record` object is like a dictionary with keys and values; keys will be
@@ -49,6 +28,22 @@ const Blog = skygear.Record.extend('blog');
 
 let note = new Note({ 'content': 'Hello World' });
 ```
+
+### Record Database
+
+You will be provided with a private and a public database.
+
+- Everything in the private database is truly private, regardless of what access
+control entity you set to the record. In other words, each user has his own
+private database, and only himself has access to it.
+- Record saved at public database is by default public. Even without
+logging in, records in the public database can be queried (but not updated).
+To control the access, you may set different access control entity to the record.
+- The database objects can be accessed with `skygear.publicDB` and
+`skygear.privateDB`.
+
+<a name="basic-crud"></a>
+## Basic CRUD
 
 ### Creating a record
 
@@ -172,103 +167,8 @@ skygear.publicDB.query(query)
 });
 ```
 
-<a name="auto-increment"></a>
-## Create an Auto-Incrementing Field
-
-### Make use of sequence object
-
-Skygear reserves the `id` field in the top level of all record as a primary key.
-`id` must be unique and default to be Version 4 UUID. If you want to
-auto-incrementing id for display purpose, Skygear provide a sequence for this 
-purpose. The sequence is guaranteed unique.
-
-``` javascript
-let note = new Note({
-  content: 'Hello World'
-});
-note.noteID = new skygear.Sequence();
-
-skygear.publicDB.save(note).then((note) => {
-  console.log(note.noteID); // Actual value from server populated, say 42.
-}, (error) => {
-  console.log(error);
-});
-```
-
-- You can omit the `noteID` on update, the value will remain unchanged.
-- All the other `Note` in the database will now automatically have their
-  `noteID` as well.
-- You can migrate any integer to auto-incrementing sequence.
-- Our JIT schema at development will migrate the DB schema to sequence. All
-  `noteID` at `Note` will be a sequence type once migrated.
-
-### Override sequence manually
-
-``` javascript
-let note = new Note({
-  content: 'Hello World'
-});
-note.noteID = 43;
-
-skygear.publicDB.save(note).then((note) => {
-  console.log(note.noteID); // 43 if save successfully
-  // the next noteID will be 44 if 43 is now the largest noteID
-}, (error) => {
-  console.log(error); // Fails if 43 already taken by other note
-});
-```
-
-<a name="reserved"></a>
-## Reserved Columns
-
-There are quite a few reserved columns for storing records into the database.
-The column names are written as **snake_case** while the JS object attributes
-are mapped with **camelCase**. Please notice this one-to-one mapping. When you want
-to query on reserved columns, make sure to use **snake_case**; when you get records
-back as a JS object, make sure to access attributes with **camelCase**. When
-creating and saving records, please avoid using attribute that is the same
-as any one of the camelCase attribute names listed below.
-
-Column Name | Object Attribute | Description
---- | --- | ---
-\_created\_at | createdAt | date object of when record is created
-\_updated\_at | updatedAt | date object of when record is updated last time
-\_created\_by | createdBy | user id of record creator
-\_updated\_by | updatedBy | user id of last record updater
-\_owner\_id | ownerID | user id of owner
-**N/A** | **id** | record type and record id
-\_id | **_id** | record id
-
-One quick example:
-
-``` javascript
-skygear.publicDB.query(new skygear.Query(Note))
-  .then((records) => console.log(records[0]));
-```
-
-```
-RecordCls {
-  $transient: (...)
-  _id: "3b9f8f98-f993-4e1d-81c3-a451e483306b"
-  _recordType: "note"
-  _transient: Object
-  access: (...)
-  attributeKeys: (...)
-  createdAt: Thu Jul 07 2016 12:12:42 GMT+0800 (CST)
-  createdBy: "118e0217-ffda-49b4-8564-c6c9573259bb"
-  id: "note/3b9f8f98-f993-4e1d-81c3-a451e483306b"
-  ownerID: "118e0217-ffda-49b4-8564-c6c9573259bb"
-  recordType: (...)
-  updatedAt: Thu Jul 07 2016 12:42:17 GMT+0800 (CST)
-  updatedBy: "118e0217-ffda-49b4-8564-c6c9573259bb"
-}
-```
-
-Please read the [above](#record) section for more about `_id`. Check the server
-[database schema](/server/guide/database-schema) page for more column names.
-
 <a name="reference"></a>
-## Records Relations (References)
+## Records Relations
 
 ### What Skygear provide
 
@@ -317,81 +217,114 @@ section to learn more about eager loading.
 
 Yet to be implemented. For now, deleting a referenced record is not allowed.
 
-<a name="subscription"></a>
-## Subscription (**Coming Soon**)
+<a name="data-type"></a>
+## Data Type
 
-### Creating a subscription
+Skygear supports almost all of the builtin JavaScript types, such as:
+- String
+- Number
+- Boolean
+- Array
+- Object
+- Date
 
-The following code creates a subscription of all the `Note` created by
-`skygear.currentUser`. Notice that creating a subscription does not involve
-the use of the `new` keyword.
+There are also four other types provided by Skygear JS SDK:
+- Reference (described above)
+- Sequence (described below)
+- Geolocation (described in [Geo-location](/js/guide/geolocation) section)
+- Asset (described in [Assets (File Upload)](/js/guide/asset) section)
 
-```javascript
-let Note = skygear.Record.extend('note');
-let query = new skygear.Query(Note);
-query.equalTo('_created_by', skygear.currentUser.id);
+Please refer to the [server](/server/guide/data-type) documentation for
+more detail in supported data types.
 
-subscription = skygear.Subscription('my notes');
-subscription.query = query;
-skygear.publicDB.saveSubscription(subscription);
-```
+### Auto-Incrementing Sequence Fields
 
-### Fetching subscription
+Skygear reserves the `id` field in the top level of all record as a primary key.
+`id` must be unique and default to be Version 4 UUID. If you want to
+auto-incrementing id for display purpose, Skygear provide a sequence for this 
+purpose. The sequence is guaranteed unique.
 
-```javascript
-skygear.publicDB.fetchSubscription('my notes').then((subscription) => {
-  // examine the subscription here
+``` javascript
+let note = new Note({
+  content: 'Hello World'
+});
+note.noteID = new skygear.Sequence();
+
+skygear.publicDB.save(note).then((note) => {
+  console.log(note.noteID); // Actual value from server populated, say 42.
 }, (error) => {
-  console.error('error fetching "my notes": %o', error);
+  console.log(error);
 });
 ```
 
-### Fetching all subscriptions
+- You can omit the `noteID` on update, the value will remain unchanged.
+- All the other `Note` in the database will now automatically have their
+  `noteID` as well.
+- You can migrate any integer to auto-incrementing sequence.
+- Our JIT schema at development will migrate the DB schema to sequence. All
+  `noteID` at `Note` will be a sequence type once migrated.
 
-```javascript
-skygear.publicDB.fetchAllSubscriptions().then((subscriptions) => {
-  subscriptions.forEach((subscription) => {
-    // do something with the subscription here
-  });
+If you wish to override sequence manually, you can do that as well:
+
+``` javascript
+let note = new Note({
+  content: 'Hello World'
+});
+note.noteID = 43;
+
+skygear.publicDB.save(note).then((note) => {
+  console.log(note.noteID); // 43 if save successfully
+  // the next noteID will be 44 if 43 is now the largest noteID
 }, (error) => {
-  console.error('error fetching all subscriptions: %o', error);
+  console.log(error); // Fails if 43 already taken by other note
 });
 ```
 
-### Deleting a subscription
+<a name="reserved"></a>
+### Reserved Columns
 
-```javascript
-skygear.publicDB.deleteSubscription('my notes').then((subscription) => {
-  console.log('success deleting "my notes"')
-}, (error) => {
-  console.error('error deleting "my notes": %o', error)
-});
+There are quite a few reserved columns for storing records into the database.
+The column names are written as **snake_case** while the JS object attributes
+are mapped with **camelCase**. Please notice this one-to-one mapping. When you want
+to query on reserved columns, make sure to use **snake_case**; when you get records
+back as a JS object, make sure to access attributes with **camelCase**. When
+creating and saving records, please avoid using attribute that is the same
+as any one of the camelCase attribute names listed below.
+
+Column Name | Object Attribute | Description
+--- | --- | ---
+\_created\_at | createdAt | date object of when record is created
+\_updated\_at | updatedAt | date object of when record is updated last time
+\_created\_by | createdBy | user id of record creator
+\_updated\_by | updatedBy | user id of last record updater
+\_owner\_id | ownerID | user id of owner
+**N/A** | **id** | record type and record id
+\_id | **_id** | record id
+
+One quick example:
+
+``` javascript
+skygear.publicDB.query(new skygear.Query(Note))
+  .then((records) => console.log(records[0]));
 ```
 
-### Listening to subscription notification
-
-Once user subscribes, we can listen to subscription notifications.
-
-```javascript
-let listener = skygear.addNotificationListener((notification) => {
-  if (notification.subscriptionID === 'my notes') {
-    let id = notification.recordID;
-    switch (notification.reason) {
-      case skygear.NOTIFICATION_REASON_DELETED:
-        // some note is deleted
-        break;
-      case skygear.NOTIFICATION_REASON_CREATED:
-        // a new note is created
-        break;
-      case skygear.NOTIFICATION_REASON_UPDATED:
-        // some note is updated with changes
-        let changes = notification.recordChanges;
-        // do something with the changes
-        break;
-    }
-  }
-});
-
-// later in the program when done listening
-listener.off();
 ```
+RecordCls {
+  $transient: (...)
+  _id: "3b9f8f98-f993-4e1d-81c3-a451e483306b"
+  _recordType: "note"
+  _transient: Object
+  access: (...)
+  attributeKeys: (...)
+  createdAt: Thu Jul 07 2016 12:12:42 GMT+0800 (CST)
+  createdBy: "118e0217-ffda-49b4-8564-c6c9573259bb"
+  id: "note/3b9f8f98-f993-4e1d-81c3-a451e483306b"
+  ownerID: "118e0217-ffda-49b4-8564-c6c9573259bb"
+  recordType: (...)
+  updatedAt: Thu Jul 07 2016 12:42:17 GMT+0800 (CST)
+  updatedBy: "118e0217-ffda-49b4-8564-c6c9573259bb"
+}
+```
+
+Please read the [above](#record) section for more about `_id`. Check the server
+[database schema](/server/guide/database-schema) page for more column names.

@@ -30,24 +30,20 @@
     "url": "/js/guide/record",
       "sub": [
         {
+          "title": "Overview",
+          "url": "#overview"
+        },
+        {
           "title": "Basic CRUD",
           "url": "#basic-crud"
         },
         {
-          "title": "Create an Auto-Incrementing Field",
-          "url": "#auto-increment"
-        },
-        {
-          "title": "Reserved Columns",
-          "url": "#reserved"
-        },
-        {
-          "title": "Records Relations (References)",
+          "title": "Records Relations",
           "url": "#reference"
         },
         {
-          "title": "Subscription",
-          "url": "#subscription"
+          "title": "Data Type",
+          "url": "#data-type"
         }
       ]
   },
@@ -74,6 +70,10 @@
       {
         "title": "Cached Query",
         "url": "#cached-query"
+      },
+      {
+        "title": "Subscribe to Query Change",
+        "url": "#subscription"
       }
     ]
   },

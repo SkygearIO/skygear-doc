@@ -267,8 +267,6 @@ skygear.publicDB.query(query, successCallback)
 });
 ```
 
-### Note:
-
 - It is not guaranteed that the callback is called before a request takes
   place, especially if a cached result of the query is not available.
   In other words, if the result is not in the cache, the callback is only
@@ -278,3 +276,82 @@ skygear.publicDB.query(query, successCallback)
 - You may use one callback to handle both cached callback and server
   callback as above. But you are free to use two callbacks if it works
   better in your use cases.
+
+<a name="subscription"></a>
+## Subscribe to Query Change (**Coming Soon**)
+
+### Creating a subscription
+
+The following code creates a subscription of all the `Note` created by
+`skygear.currentUser`. Notice that creating a subscription does not involve
+the use of the `new` keyword.
+
+```javascript
+let Note = skygear.Record.extend('note');
+let query = new skygear.Query(Note);
+query.equalTo('_created_by', skygear.currentUser.id);
+
+subscription = skygear.Subscription('my notes');
+subscription.query = query;
+skygear.publicDB.saveSubscription(subscription);
+```
+
+### Fetching subscription
+
+```javascript
+skygear.publicDB.fetchSubscription('my notes').then((subscription) => {
+  // examine the subscription here
+}, (error) => {
+  console.error('error fetching "my notes": %o', error);
+});
+```
+
+### Fetching all subscriptions
+
+```javascript
+skygear.publicDB.fetchAllSubscriptions().then((subscriptions) => {
+  subscriptions.forEach((subscription) => {
+    // do something with the subscription here
+  });
+}, (error) => {
+  console.error('error fetching all subscriptions: %o', error);
+});
+```
+
+### Deleting a subscription
+
+```javascript
+skygear.publicDB.deleteSubscription('my notes').then((subscription) => {
+  console.log('success deleting "my notes"')
+}, (error) => {
+  console.error('error deleting "my notes": %o', error)
+});
+```
+
+### Listening to subscription notification
+
+Once user subscribes, we can listen to subscription notifications.
+
+```javascript
+let listener = skygear.addNotificationListener((notification) => {
+  if (notification.subscriptionID === 'my notes') {
+    let id = notification.recordID;
+    switch (notification.reason) {
+      case skygear.NOTIFICATION_REASON_DELETED:
+        // some note is deleted
+        break;
+      case skygear.NOTIFICATION_REASON_CREATED:
+        // a new note is created
+        break;
+      case skygear.NOTIFICATION_REASON_UPDATED:
+        // some note is updated with changes
+        let changes = notification.recordChanges;
+        // do something with the changes
+        break;
+    }
+  }
+});
+
+// later in the program when done listening
+listener.off();
+```
