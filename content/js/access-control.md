@@ -117,26 +117,3 @@ Record creation access is separate from write access for individual records:
 skygear.setRecordCreateAccess(Note, [ Employee, Manager ]);
 skygear.setRecordCreateAccess(Plan, [ Manager ]);
 ```
-
-### Type-based access control (**Coming soon**)
-
-If you want all records of certain type to have the same access control
-settings, you can set the defaultACL property for that type and the type will
-no longer inherit `skygear.defaultACL`.
-
-``` javascript
-var acl = new skygear.ACL();
-acl.setPublicNoAccess();
-acl.setNoAccessForRole(Visitor);
-acl.setReadOnlyForRole(Manager);
-acl.setReadWriteAccessForRole(Employee);
-
-const Report = skygear.Record.extend('report');
-Report.beforeSave((report) => {
-  report.setAccess(acl);
-});
-
-var report = new Report();
-skygear.publicDB.save(report).then(...);
-```
-
