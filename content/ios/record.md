@@ -16,8 +16,7 @@ control entity you set to the record. In other words, each user has his own
 private database, and only himself have access to it.
 - Record saved at public database is by default public. Only the owner of the record can modify the record. Even without logging in, records in the public database can be queried (but not updated).
 To control the access, you may set different access control entity to the record. However, only logged in user can do write operation on databases
-- The database objects can be accessed with `[[SKYContainer defaultContainer] publicCloudDatabase]` and
-`[[SKYContainer defaultContainer] privateCloudDatabase]`.
+- The database objects can be accessed with `[[SKYContainer defaultContainer] publicCloudDatabase]` and `[[SKYContainer defaultContainer] privateCloudDatabase]`.
 
 Head to [Access Control](/ios/guide/access-control) to read more about it.
 
@@ -29,9 +28,9 @@ Head to [Access Control](/ios/guide/access-control) to read more about it.
 - `SKYRecord` object has a unique `id` (a string combination of record type and uuid is used).
 - Each `SKYRecord` has a `recordType`, which describes the _type_ of data this record holds.
 
-	A record can store whatever values that are JSON-serializable. Possible values include
+A record can store whatever values that are JSON-serializable. Possible values include
 strings, numbers, booleans, dates, and several other custom types that Skygear
-supports. (TODO: add references to other pages).
+supports.
 
 ## Creating a record
 
