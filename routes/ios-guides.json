@@ -22,46 +22,16 @@
       "content_path": "./content/ios/record.md",
       "menu_path": "./menus/ios-guide.json"
     },
-    "/ios/guide/auto-increment": {
-      "name": "iOS SDK",
-      "title": "Create an Auto-Incrementing Field",
-      "content_path": "./content/ios/auto-increment.md",
-      "menu_path": "./menus/ios-guide.json"
-    },
     "/ios/guide/query": {
       "name": "iOS SDK",
       "title": "Queries",
       "content_path": "./content/ios/query.md",
       "menu_path": "./menus/ios-guide.json"
     },
-    "/ios/guide/reference": {
-      "name": "iOS SDK",
-      "title": "Records Relations (References)",
-      "content_path": "./content/ios/reference.md",
-      "menu_path": "./menus/ios-guide.json"
-    },
     "/ios/guide/user": {
       "name": "iOS SDK",
       "title": "Users (Authentication)",
       "content_path": "./content/ios/user.md",
-      "menu_path": "./menus/ios-guide.json"
-    },
-    "/ios/guide/relation": {
-      "name": "iOS SDK",
-      "title": "Friends & Followers",
-      "content_path": "./content/ios/relation.md",
-      "menu_path": "./menus/ios-guide.json"
-    },
-    "/ios/guide/local-storage": {
-      "name": "iOS SDK",
-      "title": "Local Storage (RecordStorage, CachedQuery)",
-      "content_path": "./content/ios/local-storage.md",
-      "menu_path": "./menus/ios-guide.json"
-    },
-    "/ios/guide/subscription": {
-      "name": "iOS SDK",
-      "title": "Subscription",
-      "content_path": "./content/ios/subscription.md",
       "menu_path": "./menus/ios-guide.json"
     },
     "/ios/guide/push": {
