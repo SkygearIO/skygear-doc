@@ -10,6 +10,26 @@ tbody > tr:nth-child(odd) {
 }
 
 .Guide-Template {
+  width: inherit;
+
+  .section-name {
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0.75rem 0;
+    border-bottom: 2px solid $theme-light-gray;
+
+    &.sticky-section-name {
+      position: fixed;
+      width: inherit;
+      padding: 0.5rem 0;
+      font-size: 1.5rem;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+  }
+
   .container {
     margin: 3rem 0 0 0;
     display: flex;
@@ -19,15 +39,15 @@ tbody > tr:nth-child(odd) {
       width: 18.75rem;
       margin-right: 1.25rem;
 
-      &.sticky {
+      &.sticky-menu {
         position: fixed;
-        top: 1rem;
-        bottom: 0rem;
+        top: 3rem;
+        bottom: 0;
         padding-bottom: 16.25rem;
         overflow-y: scroll;
 
         & + .content {
-          margin-left: 20rem;
+          margin-left: calc(18.75rem + 1.25rem);
         }
       }
     }
@@ -45,11 +65,11 @@ tbody > tr:nth-child(odd) {
 @media (max-width: $screen-md-min) {
   .Guide-Template .container {
     .menu {
-      display: none;
-      flex-base: 0;
+      flex-basis: 12.75rem;
+      width: 12.75rem;
 
-      &.sticky + .content {
-        margin-left: 0;
+      &.sticky-menu + .content {
+        margin-left: calc(12.75rem + 1.25rem);
       }
     }
   }
@@ -57,14 +77,26 @@ tbody > tr:nth-child(odd) {
 
 @media (max-width: $screen-sm-min) {
   .Guide-Template {
-    h1 {
-      margin-left: 1rem;
-      margin-right: 1rem;
+    .section-name {
+      text-align: center;
+
+      &.sticky-section-name {
+        width: 100%;
+      }
     }
 
     .container {
       margin-top: 1rem;
       padding: .625rem;
+
+      .menu {
+        display: none;
+        flex-basis: 0;
+
+        &.sticky-menu + .content {
+          margin-left: 0;
+        }
+      }
     }
   }
 }

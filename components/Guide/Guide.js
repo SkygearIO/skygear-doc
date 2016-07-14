@@ -30,6 +30,15 @@ class Guide extends Component {
     return undefined;
   }
 
+  get sectionNameComponent() {
+    let classes = [ 'section-name' ];
+    if (this.state.sticky) {
+      classes.push('sticky-section-name');
+    }
+
+    return <h1 className={classes.join(' ')}>{this.props.sectionName}</h1>;
+  }
+
   get menuComponent() {
     const {
       menu,
@@ -42,7 +51,7 @@ class Guide extends Component {
 
     let classes = [ 'menu' ];
     if (this.state.sticky) {
-      classes.push('sticky');
+      classes.push('sticky-menu');
     }
 
     return (
@@ -57,7 +66,7 @@ class Guide extends Component {
   handleScroll() {
     const scrollTop = Window.scrollY || 0;
     this.setState({
-      sticky: scrollTop > 230
+      sticky: scrollTop > 85
     });
   }
 
@@ -72,13 +81,11 @@ class Guide extends Component {
   render() {
     const {
       content,
-      sectionName,
     } = this.props;
 
     return (
       <div className='Guide-Template'>
-        <h1>{sectionName}</h1>
-        <hr />
+        {this.sectionNameComponent}
         <div className="container">
           {this.menuComponent}
           <div className="content">

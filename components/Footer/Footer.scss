@@ -21,10 +21,13 @@
     }
 
     .info {
-      img {
+      .Logo {
         display: block;
         height: 2.5rem;
-        width: auto;
+        width: 100%;
+        background-image: url("/skygear-logo-sm-white.png");
+        background-size: contain;
+        background-repeat: no-repeat;
       }
 
       div {
@@ -70,8 +73,8 @@
 
     .info {
       @mixin horizontal-center-block;
-      img {
-        @mixin horizontal-center-block;
+      .Logo {
+        background-position: center;
       }
     }
 
