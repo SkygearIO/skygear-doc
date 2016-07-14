@@ -78,7 +78,7 @@ skygear.changePassword(oldPassword, newPassword).then((user) => {
 ``` javascript
 skygear.saveUser({
   id: '<your-user-id>', // such as skygear.currentUser.id
-  email: '<your-new-email-address>'
+  email: '<your-new-email-address>',
 }).then((user) => {
   console.log('Email updated to:', user.email);
 }, (error) => {

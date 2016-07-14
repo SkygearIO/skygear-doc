@@ -7,7 +7,7 @@ follow a user without his explicit approval.
 - `friend` is mutual relation without direction. If you add Ben as your friend
 and Ben add you as his friend, then you two will have `friend` relationship.
 
-### Add relations
+### Adding relations
 
 If the current user wants to follow Ben:
 
@@ -34,7 +34,7 @@ about [Users](/js/guide/users#current-user) to learn more about search by email.
 
 ``` javascript
 const ben = new skygear.User({
-  user_id: "<ben's-user-id>"
+  user_id: "<ben's-user-id>",
 });
 ```
 
@@ -45,7 +45,7 @@ const beFriend = new skygear.relation.Friend([ben]);
 skygear.relation.add(beFriend).then(...);
 ```
 
-### Query relations
+### Querying relations
 
 You may query the relations of the current user or other users.
 
@@ -75,7 +75,7 @@ To get the 101-200th friends of the current user:
 
 ``` javascript
 skygear.relation.queryFriend(skygear.currentUser, {
-  page: 2, limit: 100
+  page: 2, limit: 100,
 }).then((users) => {
   console.log(users);
 }, (error) => {

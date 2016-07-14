@@ -18,7 +18,7 @@ const Note = skygear.Record.extend('note');
 
 const picture = new skygear.Asset({
   name: '<your-asset-name>',
-  file: document.getElementById('picture').files[0]
+  file: document.getElementById('picture').files[0],
 });
 const note = new Note({ attachment: picture });
 skygear.publicDB.save(note) // automatically upload the picture
