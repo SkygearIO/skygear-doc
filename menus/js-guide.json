@@ -100,36 +100,6 @@
     ]
   },
   {
-    "title": "Social Relations",
-    "url": "/js/guide/relation",
-    "sub": [
-      {
-        "title": "User Relations (Friends & Followers)",
-        "url": "#friends-and-followers"
-      },
-      {
-        "title": "Adding Relations",
-        "url": "#adding-relations"
-      },
-      {
-        "title": "Querying Relations",
-        "url": "#querying-relations"
-      },
-      {
-        "title": "Removing Relations",
-        "url": "#removing-relations"
-      }
-    ]
-  },
-  {
-    "title": "Push Notification",
-    "url": "/coming-soon"
-  },
-  {
-    "title": "Pubsub",
-    "url": "/js/guide/pubsub"
-  },
-  {
     "title": "Access Control",
     "url": "/js/guide/access-control",
     "sub": [
@@ -156,6 +126,36 @@
     ]
   },
   {
+    "title": "Push Notifications",
+    "url": "/coming-soon"
+  },
+  {
+    "title": "Pubsub",
+    "url": "/js/guide/pubsub"
+  },
+  {
+    "title": "Social Relations",
+    "url": "/js/guide/relation",
+    "sub": [
+      {
+        "title": "User Relations (Friends & Followers)",
+        "url": "#friends-and-followers"
+      },
+      {
+        "title": "Adding Relations",
+        "url": "#adding-relations"
+      },
+      {
+        "title": "Querying Relations",
+        "url": "#querying-relations"
+      },
+      {
+        "title": "Removing Relations",
+        "url": "#removing-relations"
+      }
+    ]
+  },
+  {
     "title": "Geo-location",
     "url": "/js/guide/geolocation"
   },
@@ -164,15 +164,21 @@
     "url": "/js/guide/asset"
   },
   {
-    "title": "ReactJS integration",
-    "url": "/js/guide/reactjs"
-  },
-  {
-    "title": "Plugins",
+    "title": "Calling Cloud Functions",
     "url": "/coming-soon"
   },
   {
     "title": "Handling Errors",
-    "url": "/js/guide/handling-errors"
+    "url": "/js/guide/handling-errors",
+      "sub": [
+        {
+          "title": "Using Skygear Error Codes",
+          "url": "#error-code"
+        }
+      ]
+  },
+  {
+    "title": "Tips",
+    "url": "/coming-soon"
   }
 ]

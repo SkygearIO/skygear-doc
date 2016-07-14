@@ -1,7 +1,5 @@
 All asynchronous methods in `skygear` return [Promise](https://www.promisejs.org/).
 
-## Basic flow
-
 ``` javascript
 import skygearError from 'skygear/lib/error';
 
@@ -16,7 +14,8 @@ skygear.signupWithUsername('johndoe', 'verysecurepassword').then(() => {
 
 ```
 
-## Error code
+<a name="error-code"></a>
+## Using Skygear Error Codes
 
 Error Name | Code Number
 --- | ---
