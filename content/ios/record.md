@@ -303,70 +303,56 @@ for (SKYRecord *note in records) {
 <a name="reference"></a>
 # Record Relations
 
-1. Two default relations: friend and follower
-
-## Adding relation between users
-
-```obj-c
-SKYAddRelationsOperation *operation = [SKYAddRelationsOperation operationWithType:@"friend" usersToRelated:@[rick, ben]];
-operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
-```
-
-## Removing relations
+Skygear supports many-to-one (aka. parent-child) relation between records via _reference_.
+`SKYReference` is a pointer to a record in database. Let's say we are going to
+reference _Record A_ in _Record B_, we first construct a reference of Record A
+using its id.
 
 ```obj-c
-SKYRemoveRelationsOperation *operation = [SKYRemoveRelationsOperation operationWithType:@"follower" usersToRemove:@[faseng, chima]];
-operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
+// aID is a placeholder of Record A's id
+SKYReference *aRef = [SKYReference referenceWithRecordID:aID];
 ```
 
-## Querying users by relations
-
-Get all friends:
+Then assign this reference as a regular field of Record B:
 
 ```obj-c
-SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation friendRelation]];
-operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
+// bRecord is a placeholder of Record B's object
+bRecord[@"parent"] = aRef;
 ```
 
-Get all followers:
+It will establish a reference from _Record B_ to _Record A_.
+
+## Eager Loading
+
+Skygear support eager loading of referenced records when you are querying the
+referencing records. It's done by supplying a key path expression to
+`[SKYQuery -transientIncludes]`:
 
 ```obj-c
-SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation followRelation] direction:SKYRelationDirectionPassive];
-operation.container = [SKYContainer defaultContainer];
-__weak SKYQueryUsersOperation *weakOperation = operation;
-operation.queryUserCompletionBlock = ^(NSArray *users, NSError *operationError) {
-    NSLog(@"Operation will have overallCount after execution, %d", weakOperation.overallCount);
-};
+SKYQuery *query = [SKYQuery queryWithRecordType:@"child" predicate:nil];
+NSExpression *keyPath = [NSExpression expressionForKeyPath:@"parent"];
+query.transientIncludes = @{@"parentRecord": keyPath};
 
-[[[NSOperationQueue alloc] init] addOperation:operation];
+[privateDB performQuery:query completionHandler:^(NSArray *results, NSError *error) {
+    if (error) {
+        NSLog(@"error fetching child: %@", error);
+        return;
+    }
+
+    NSLog(@"received %@ children", @(results.count));
+    for (SKYRecord *child in results) {
+        SKYRecord *parent = child.transient[@"parentRecord"];
+        NSLog(@"%@'s parent is %@", child.recordID, parent.recordID);
+    }
+}];
 ```
 
-`SKYQueryUsersOperation-relationDirection` is only effective on `followRelation`.
+It is possible to eager load records from multiple keys, but doing so will
+impair performance.
 
-### Relation directions
+## Reference Actions **[not implemented]**
 
-TODO: talks about directional and undirectional relation, and how friend and
-follower are examples of them
-TODO: Discuss the values of SKYRelationDirection
-
-Get all following users:
-
-```obj-c
-SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation followRelation] direction:SKYRelationDirectionActive];
-operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
-```
-
-Get all mutual followers: **[Not implemented]**
-
-```obj-c
-SKYQueryUsersOperation *operation = [SKYQueryUsersOperation queryUsersOperationByRelation:[SKYRelation followRelation] direction:SKYRelationDirectionMutual];
-operation.container = [SKYContainer defaultContainer];
-[[[NSOperationQueue alloc] init] addOperation:operation];
-```
+`ON DELETE CASCADE` TBC.
 
 <a name="subscription"></a>
 # Subscription
