@@ -4,16 +4,16 @@
     "url": "/js/guide",
       "sub": [
         {
-          "title": "Install Skygear JS SDK",
-          "url": "#install-js-sdk"
+          "title": "Signing up for Skygear Hosting",
+          "url": "#sign-up-hosting"
         },
         {
-          "title": "Include Skygear JS SDK in your project",
+          "title": "Include the SDK in your project",
           "url": "#include-js-sdk"
         },
         {
-          "title": "Basics of Skygear JS SDK",
-          "url": "#intro-portal"
+          "title": "Set up your JS app",
+          "url": "#set-up-app"
         },
         {
           "title": "What's Next",
