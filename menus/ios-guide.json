@@ -60,8 +60,24 @@
                 "url": "#basic-queries"
             },
             {
-                "title": "Complex Queries",
-                "url": "#complex-queries"
+                "title": "Conditions",
+                "url": "#conditions"
+            },
+            {
+                "title": "Pagination and Ordering",
+                "url": "#pagination-ordering"
+            },
+            {
+                "title": "Relational Queries",
+                "url": "#relational-queries"
+            },
+            {
+                "title": "Cached Queries",
+                "url": "#cached-queries"
+            },
+            {
+                "title": "Subscribe to Query Change",
+                "url": ""
             }
         ]
     },
