@@ -5,8 +5,9 @@ There are two types of access for each record: read and write.
 - Read access allows querying and fetching records, which includes getting
   all the fields of records as well as the access control settings.
 - Write access allows saving and deleting records, which includes adding,
-  updating and removing all fields of records as well as access control
-  settings for the record.
+  updating and removing all fields (**EXCEPT**
+  [reserved columns](/js/guide/record#reserved)) of records
+  as well as access control settings for the record.
 
 However, even with write access, ownership of records cannot be changed.
 
@@ -28,23 +29,26 @@ skygear.defaultACL.hasPublicReadAccess(); // default true
 skygear.defaultACL.hasPublicWriteAccess(); // default false
 ```
 
+After changing the default acl setting, all records created in the future
+will automatically have this acl setting; however, acl setting for existing
+records created before this update will remain unchanged.
 
 <a name='acl-user'></a>
 ## ACL by User
 
-Suppose you have three user objects: `enemy`, `visitor` and `friend`.
+Suppose you have three user objects: `Tak`, `Benson` and `Rick`.
 
 ``` javascript
 const Note = skygear.Record.extend('note');
 var note = new Note({ content: 'demo user acl' });
 
-note.setNoAccessForUser(enemy);
-note.setReadOnlyForUser(visitor);
-note.setReadWriteAccessForUser(friend);
+note.setNoAccessForUser(Tak);
+note.setReadOnlyForUser(Benson);
+note.setReadWriteAccessForUser(Rick);
 skygear.publicDB.save(note).then(...);
 
-note.hasReadAccessForUser(enemy); // false
-note.hasWriteAccessForUser(friend); // true
+note.hasReadAccessForUser(Tak); // false
+note.hasWriteAccessForUser(Benson); // false
 ```
 
 <a name='acl-role'></a>
