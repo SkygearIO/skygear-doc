@@ -108,12 +108,24 @@
         "url": "/ios/guide/access-control",
         "sub": [
             {
-                "title": "ACL by Record Type",
-                "url": "#acl-by-type"
+                "title": "Access Type",
+                "url": "#access-type"
             },
             {
-                "title": "ACL Control by Role",
-                "url": "#acl-by-role"
+                "title": "Default ACL Settings",
+                "url": "#default-acl"
+            },
+            {
+                "title": "ACL By User",
+                "url": "#acl-user"
+            },
+            {
+                "title": "ACL By User Role",
+                "url": "#acl-role"
+            },
+            {
+                "title": "ACL by Record Type",
+                "url": "#acl-type"
             }
         ]
     },
