@@ -2,24 +2,24 @@
   {
     "title": "Getting Started",
     "url": "/js/guide",
-      "sub": [
-        {
-          "title": "Install Skygear JS SDK",
-          "url": "#install-js-sdk"
-        },
-        {
-          "title": "Include Skygear JS SDK in your project",
-          "url": "#include-js-sdk"
-        },
-        {
-          "title": "Basics of Skygear JS SDK",
-          "url": "#intro-portal"
-        },
-        {
-          "title": "What's Next",
-          "url": "#whats-next"
-        }
-      ]
+    "sub": [
+      {
+        "title": "Signing up for Skygear Hosting",
+        "url": "#sign-up-hosting"
+      },
+      {
+        "title": "Include the SDK in your project",
+        "url": "#include-js-sdk"
+      },
+      {
+        "title": "Set up your JS app",
+        "url": "#set-up-app"
+      },
+      {
+        "title": "What's Next",
+        "url": "#whats-next"
+      }
+    ]
   },
   {
     "title": "First Example App",
@@ -28,28 +28,24 @@
   {
     "title": "Records",
     "url": "/js/guide/record",
-      "sub": [
-        {
-          "title": "Basic CRUD",
-          "url": "#basic-crud"
-        },
-        {
-          "title": "Create an Auto-Incrementing Field",
-          "url": "#auto-increment"
-        },
-        {
-          "title": "Reserved Columns",
-          "url": "#reserved"
-        },
-        {
-          "title": "Records Relations (References)",
-          "url": "#reference"
-        },
-        {
-          "title": "Subscription",
-          "url": "#subscription"
-        }
-      ]
+    "sub": [
+      {
+        "title": "Overview",
+        "url": "#overview"
+      },
+      {
+        "title": "Basic CRUD",
+        "url": "#basic-crud"
+      },
+      {
+        "title": "Records Relations",
+        "url": "#reference"
+      },
+      {
+        "title": "Data Type",
+        "url": "#data-type"
+      }
+    ]
   },
   {
     "title": "Queries",
@@ -74,44 +70,34 @@
       {
         "title": "Cached Query",
         "url": "#cached-query"
+      },
+      {
+        "title": "Subscribe to Query Change",
+        "url": "#subscription"
       }
     ]
   },
   {
-    "title": "Users",
+    "title": "Authentication",
     "url": "/js/guide/users",
     "sub": [
       {
-        "title": "Authentication",
-        "url": "#authentication"
+        "title": "Manage User",
+        "url": "#manager-user"
       },
       {
         "title": "Current User",
         "url": "#current-user"
       },
       {
+        "title": "Social Login (Facebook, Twitter, etc)",
+        "url": "#social-login"
+      },
+      {
         "title": "User Profile",
         "url": "#user-profile"
       }
     ]
-  },
-  {
-    "title": "Social",
-    "url": "/js/guide/relation",
-    "sub": [
-      {
-        "title": "User relations (Friends & Followers)",
-        "url": "#friends-and-followers"
-      }
-    ]
-  },
-  {
-    "title": "Push Notification",
-    "url": "/coming-soon"
-  },
-  {
-    "title": "Pubsub",
-    "url": "/js/guide/pubsub"
   },
   {
     "title": "Access Control",
@@ -140,6 +126,36 @@
     ]
   },
   {
+    "title": "Push Notifications",
+    "url": "/coming-soon"
+  },
+  {
+    "title": "Pubsub",
+    "url": "/js/guide/pubsub"
+  },
+  {
+    "title": "Social Relations",
+    "url": "/js/guide/relation",
+    "sub": [
+      {
+        "title": "User Relations (Friends & Followers)",
+        "url": "#friends-and-followers"
+      },
+      {
+        "title": "Adding Relations",
+        "url": "#adding-relations"
+      },
+      {
+        "title": "Querying Relations",
+        "url": "#querying-relations"
+      },
+      {
+        "title": "Removing Relations",
+        "url": "#removing-relations"
+      }
+    ]
+  },
+  {
     "title": "Geo-location",
     "url": "/js/guide/geolocation"
   },
@@ -148,15 +164,31 @@
     "url": "/js/guide/asset"
   },
   {
-    "title": "ReactJS integration",
-    "url": "/js/guide/reactjs"
-  },
-  {
-    "title": "Plugins",
+    "title": "Calling Cloud Functions",
     "url": "/coming-soon"
   },
   {
     "title": "Handling Errors",
-    "url": "/js/guide/handling-errors"
+    "url": "/js/guide/handling-errors",
+    "sub": [
+      {
+        "title": "Using Skygear Error Codes",
+        "url": "#error-code"
+      }
+    ]
+  },
+  {
+    "title": "Tips",
+    "url": "/coming-soon",
+    "sub": [
+      {
+        "title": "Debugging",
+        "url": "/coming-soon"
+      },
+      {
+        "title": "Best Practice",
+        "url": "/coming-soon"
+      }
+    ]
   }
 ]

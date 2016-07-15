@@ -1,5 +1,5 @@
-<a name="authentication"></a>
-## Authentication
+<a name="manage-user"></a>
+## Manage User
 
 ### Sign up
 
@@ -38,18 +38,6 @@ req.then((user) => {
 }, (error) => {
   console.error(error);    
 })
-```
-
-### Log in with Provider
-
-Right now to allow social login such as Facebook, plugin code must be written
-to enable it on the backend. Read more [here](/plugin/guide/guide-auth).
-After the code is written, we can then have social login:
-
-``` javascript
-skygear.loginWithProvider(provider, authData).then(...);
-// provider is just the name of the provider (e.g. 'com.facebook')
-// authData is the access token you obtained from the social media's API website
 ```
 
 ### Log out
@@ -150,6 +138,19 @@ skygear.discover('chpapa').then((ben) => {
 }, (error) => {
   console.error(error);
 });
+```
+
+<a name="social-login"></a>
+## Social Login (Facebook, Twitter, etc)
+
+Right now to allow social login such as Facebook, plugin code must be written
+to enable it on the backend. Read more [here](/plugin/guide/guide-auth).
+After the code is written, we can then have social login:
+
+``` javascript
+skygear.loginWithProvider(provider, authData).then(...);
+// provider is just the name of the provider (e.g. 'com.facebook')
+// authData is the access token you obtained from the social media's API website
 ```
 
 <a name="user-profile"></a>

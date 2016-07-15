@@ -7,7 +7,8 @@ follow a user without his explicit approval.
 - `friend` is mutual relation without direction. If you add Ben as your friend
 and Ben add you as his friend, then you two will have `friend` relationship.
 
-### Adding relations
+<a name="adding-relations"></a>
+## Adding Relations
 
 If the current user wants to follow Ben:
 
@@ -45,7 +46,8 @@ const beFriend = new skygear.relation.Friend([ben]);
 skygear.relation.add(beFriend).then(...);
 ```
 
-### Querying relations
+<a name="querying-relations"></a>
+## Querying Relations
 
 You may query the relations of the current user or other users.
 
@@ -100,25 +102,13 @@ skygear.relation.query(query).then((users) => {
 });
 ```
 
-### Removing relations
+<a name="removing-relations"></a>
+### Removing Relations
 
 ``` javascript
 const unFollow = new skygear.relation.Follower([ben]);
 skygear.relation.remove(unFollow).then((result) => {
   console.log(result.success); // Return an array of user, here is [ben]
-}, (error) => {
-  console.error(error);
-});
-```
-
-
-### Custom relation (**Coming Soon**)
-
-``` javascript
-const FansOf = skygear.relation.extend('fans', skygear.relation.Outward);
-const becomeFans = new FansOf([coldPlay]);
-skygear.relation.save(becomeFans).then((result) => {
-  console.log(result.success);
 }, (error) => {
   console.error(error);
 });
