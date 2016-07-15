@@ -30,28 +30,24 @@
         "url": "/ios/guide/record",
         "sub": [
             {
+                "title": "Overview",
+                "url": "#overview"
+            },
+            {
                 "title": "Basic CRUD",
                 "url": "#basic-crud"
             },
             {
-                "title": "Create Auto-Incrementing Fields",
-                "url": "#auto-increment"
-            },
-            {
-                "title": "Reserved Columns",
-                "url": "#reserved-columns"
-            },
-            {
-                "title": "Local Storage (RecordStorage, CachedQuery)",
-                "url": "#local-storage"
-            },
-            {
-                "title": "Records Relations (References)",
+                "title": "Records Relations",
                 "url": "#reference"
             },
             {
-                "title": "Subscription",
-                "url": "#subscription"
+                "title": "Data Type",
+                "url": "#data-type"
+            },
+            {
+                "title": "Local Storage (Offline)",
+                "url": "#local-storage"
             }
         ]
     },

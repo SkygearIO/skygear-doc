@@ -1,11 +1,22 @@
-<a name="basic-crud"></a>
-Before we get to CRUD (creating, reading, updating and deleting) _records_, we need to talk about _container_, _database_ and _record_ first. Let's look at them one by one.
+<a name="overview"></a>
+## Overview
 
-### SKYContainer
+Please make sure you know about and have already configured your
+[SKYContainer]({{< relref "getting-started.md" >}}) before you proceed.
 
-To read about `SKYContainer`, please go to [Getting Started]({{< relref "getting-started.md" >}}) section.
+### The Record Class
 
-### SKYDatabase
+- `SKYRecord` must have a type.
+- `SKYRecord` is a key-value data object that can be stored at _database_.
+- `SKYRecord` will belong to the currently logged in user.
+- `SKYRecord` object has a unique `id` (a string combination of record type and uuid is used).
+- Each `SKYRecord` has a `recordType`, which describes the _type_ of data this record holds.
+
+A record can store whatever values that are JSON-serializable. Possible values include
+strings, numbers, booleans, dates, and several other custom types that Skygear
+supports.
+
+### Record Database
 
 `SKYDatabase` is the central hub of data storage in `SKYKit`. The main responsibility of database is to store `SKYRecord`s, the data storage unit in Skygear.
 
@@ -20,19 +31,10 @@ To control the access, you may set different access control entity to the record
 
 Head to [Access Control](/ios/guide/access-control) to read more about it.
 
-### SKYRecord
+<a name="basic-crud"></a>
+## Basic CRUD
 
-- `SKYRecord` must have a type.
-- `SKYRecord` is a key-value data object that can be stored at _database_.
-- `SKYRecord` will belong to the currently logged in user.
-- `SKYRecord` object has a unique `id` (a string combination of record type and uuid is used).
-- Each `SKYRecord` has a `recordType`, which describes the _type_ of data this record holds.
-
-A record can store whatever values that are JSON-serializable. Possible values include
-strings, numbers, booleans, dates, and several other custom types that Skygear
-supports.
-
-## Creating a record
+### Creating a record
 
 Let's imagine we are writing a To-Do app with Skygear. When user creates
 an to-do item, we want to save that item on server. We probably will save that
@@ -66,11 +68,35 @@ There are couples of things we have done here:
 You can also save multiple `SKYRecord`s at once.
 (TODO: Add code example)
 
-## Reading a record
+### Reading a record
+
+With the `recordID` we could also fetch the record from a database:
+
+```obj-c
+SKYRecordID *recordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
+[privateDB fetchRecordWithID:recordID completionHandler:^(SKYRecord *record, NSError *error) {
+    if (error) {
+        NSLog(@"error fetching todo: %@", error);
+        return;
+    }
+
+    NSString *title = record[@"title"];
+    NSNumber *order = record[@"order"];
+    NSNumber *done = record[@"done"];
+
+    NSLog(@"Fetched a note (title = %@, order = %@, done = %@)", title, order, done);
+}];
+```
+
+To get the values out of the SKYRecord, you can use the `[]` subscripting operator as shown above, or the `objectForKey:` method.
+(TODO: add the `objectForKey:` example code here)
+
+Some of the values are provided as properties:
+(TODO: add the example code here to show that some properties like `creationDate`, `modificationDate`, `recordID`, `recordType` etc.)
 
 You can construct a `SKYQuery` object by providing a `recordType`. You can configure the `SKYQuery` by mutating its state. Read the [Query]({{< relref "query.md" >}}) section to learn more.
 
-## Updating a record
+### Updating a record
 
 Now let's return to our to-do item example. This is how you save a `SKYRecord`:
 
@@ -112,33 +138,7 @@ Note that the data in the returned record in the completion block may be
 different from the originally saved record. This is because additional
 fields maybe applied on the server side when the record is saved (e.g. the updated `modificationDate`). You may want to inspect the returned record for any changes applied on the server side.
 
-## Fetching an existing record
-
-With the `recordID` we could also fetch the record from a database:
-
-```obj-c
-SKYRecordID *recordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
-[privateDB fetchRecordWithID:recordID completionHandler:^(SKYRecord *record, NSError *error) {
-    if (error) {
-        NSLog(@"error fetching todo: %@", error);
-        return;
-    }
-
-    NSString *title = record[@"title"];
-    NSNumber *order = record[@"order"];
-    NSNumber *done = record[@"done"];
-
-    NSLog(@"Fetched a note (title = %@, order = %@, done = %@)", title, order, done);
-}];
-```
-
-To get the values out of the SKYRecord, you can use the `[]` subscripting operator as shown above, or the `objectForKey:` method.
-(TODO: add the `objectForKey:` example code here)
-
-Some of the values are provided as properties:
-(TODO: add the example code here to show that some properties like `creationDate`, `modificationDate`, `recordID`, `recordType` etc.)
-
-## Deleting a record
+### Deleting a record
 
 Deleting a record requires its `recordID` too:
 
@@ -154,10 +154,73 @@ method.
 You can also delete multiple records at once.
 (TODO: Add code example)
 
-<a name="auto-increment"></a>
-# Auto-Incrementing Sequence Fields
+<a name="reference"></a>
+## Record Relations
 
-## Make use of sequence object
+### What Skygear provide
+
+Skygear supports many-to-one (aka. parent-child) relation between records via _reference_.
+`SKYReference` is a pointer to a record in database. Let's say we are going to
+reference _Record A_ in _Record B_, we first construct a reference of Record A
+using its id.
+
+```obj-c
+// aID is a placeholder of Record A's id
+SKYReference *aRef = [SKYReference referenceWithRecordID:aID];
+```
+
+Then assign this reference as a regular field of Record B:
+
+```obj-c
+// bRecord is a placeholder of Record B's object
+bRecord[@"parent"] = aRef;
+```
+
+It will establish a reference from _Record B_ to _Record A_.
+
+<!--- TODO: move to Queries section
+## Eager Loading
+
+Skygear support eager loading of referenced records when you are querying the
+referencing records. It's done by supplying a key path expression to
+`[SKYQuery -transientIncludes]`:
+
+```obj-c
+SKYQuery *query = [SKYQuery queryWithRecordType:@"child" predicate:nil];
+NSExpression *keyPath = [NSExpression expressionForKeyPath:@"parent"];
+query.transientIncludes = @{@"parentRecord": keyPath};
+
+[privateDB performQuery:query completionHandler:^(NSArray *results, NSError *error) {
+    if (error) {
+        NSLog(@"error fetching child: %@", error);
+        return;
+    }
+
+    NSLog(@"received %@ children", @(results.count));
+    for (SKYRecord *child in results) {
+        SKYRecord *parent = child.transient[@"parentRecord"];
+        NSLog(@"%@'s parent is %@", child.recordID, parent.recordID);
+    }
+}];
+```
+
+It is possible to eager load records from multiple keys, but doing so will
+impair performance.
+
+## Reference Actions **[not implemented]**
+
+`ON DELETE CASCADE` TBC.
+-->
+
+<a name="data-type"></a>
+## Data Type
+
+<!--- TODO: link to server here -->
+
+<a name="auto-increment"></a>
+## Auto-Incrementing Sequence Fields
+
+### Make use of sequence object
 
 Skygear reserves the `id` field in the top level of all record as a primary key.
 `id` must be unique and default to be Version 4 UUID. If you want to
@@ -187,7 +250,7 @@ SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
 - Our JIT schema at development will migrate the DB schema to sequence. All
   `noteID` at `Note` will be a sequence type once migrated.
 
-## Override sequence manually
+### Override sequence manually
 
 ```obj-c
 SKYRecord *todo = [SKYRecord recordWithRecordType:@"todo"];
@@ -206,11 +269,16 @@ SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
 ```
 
 <a name="reserved-columns"></a>
-# Reserved Columns
+### Reserved Columns
+
+<!--- TODO: add something here -->
 
 <a name="local-storage"></a>
-# Local Storage (Offline)
+## Local Storage (Offline)
 
+<!--- TODO: add something here -->
+
+<!--- TODO: move to Queries section
 ## Cached Query
 
 ```obj-c
@@ -224,7 +292,9 @@ SKYQuery *query = [SKYQuery queryWithRecordType:@"todo" predicate:nil];
     }
 }];
 ```
+-->
 
+<!--- TODO: what is this?
 ## Record storage
 
 ### Setup
@@ -298,61 +368,9 @@ for (SKYRecord *note in records) {
                                                   [self.tableView reloadData];
                                               }];
 ``` 
+-->
 
-<a name="reference"></a>
-# Record Relations
-
-Skygear supports many-to-one (aka. parent-child) relation between records via _reference_.
-`SKYReference` is a pointer to a record in database. Let's say we are going to
-reference _Record A_ in _Record B_, we first construct a reference of Record A
-using its id.
-
-```obj-c
-// aID is a placeholder of Record A's id
-SKYReference *aRef = [SKYReference referenceWithRecordID:aID];
-```
-
-Then assign this reference as a regular field of Record B:
-
-```obj-c
-// bRecord is a placeholder of Record B's object
-bRecord[@"parent"] = aRef;
-```
-
-It will establish a reference from _Record B_ to _Record A_.
-
-## Eager Loading
-
-Skygear support eager loading of referenced records when you are querying the
-referencing records. It's done by supplying a key path expression to
-`[SKYQuery -transientIncludes]`:
-
-```obj-c
-SKYQuery *query = [SKYQuery queryWithRecordType:@"child" predicate:nil];
-NSExpression *keyPath = [NSExpression expressionForKeyPath:@"parent"];
-query.transientIncludes = @{@"parentRecord": keyPath};
-
-[privateDB performQuery:query completionHandler:^(NSArray *results, NSError *error) {
-    if (error) {
-        NSLog(@"error fetching child: %@", error);
-        return;
-    }
-
-    NSLog(@"received %@ children", @(results.count));
-    for (SKYRecord *child in results) {
-        SKYRecord *parent = child.transient[@"parentRecord"];
-        NSLog(@"%@'s parent is %@", child.recordID, parent.recordID);
-    }
-}];
-```
-
-It is possible to eager load records from multiple keys, but doing so will
-impair performance.
-
-## Reference Actions **[not implemented]**
-
-`ON DELETE CASCADE` TBC.
-
+<!--- TODO: move to Queries section
 <a name="subscription"></a>
 # Subscription
 
@@ -473,3 +491,4 @@ Set `AppDelegate` as container's delegate
     // ...
 }
 ```
+-->
