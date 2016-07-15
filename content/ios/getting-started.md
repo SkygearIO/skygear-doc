@@ -77,38 +77,6 @@ SKYContainer *container = [SKYContainer defaultContainer];
 
 Replace `your-endpoint.skygeario.com` with your Server Endpoint and `SKYGEAR_API_KEY` with your API Key.
 
-<a name="test-sdk"></a>
-## Testing the SDK
-
-First, make sure you have included our SDK libraries from your .h file:
-
-```obj-c
-import <SKYKit/SKYKit.h>
-```
-
-Now, let's test the SDK installation by creating a new user sign up.You can copy the following code into your app, for example in the `viewDidLoad` method:
-
-```obj-c
-SKYContainer *container = [SKYContainer defaultContainer];
-[container signupUserWithUsername:@"john.doe@example.com" 
-                         password:@"supersecurepasswd"
-                completionHandler:^(SKYUserRecordID *user, NSError *error) {
-    if (error) {
-        NSLog(@"Error occurried while signing up: %@", error);
-        return;
-    }
-
-    NSLog(@"Congratulations! %@ signed up successfully!", user.username);
-    // Do other work here
-}];
-```
-
-Run your app, you should see the following in the app console:
-
-```
-2015-09-21 17:48:00.626 noteapp[77092:1147374] Congratulations! john.doe@example.com signed up successfully!
-```
-
 ### SKYContainer
 
 `SKYContainer` is the uppermost layer of `SKYKit`. It represents the root of all
