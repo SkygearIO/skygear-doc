@@ -115,15 +115,27 @@
   },
   {
     "title": "Access Control",
-    "url": "/js/guide/access-control/role",
+    "url": "/js/guide/access-control",
     "sub": [
       {
-        "title": "Access Control by Role",
-        "url": "/js/guide/access-control/role"
+        "title": "Access Type",
+        "url": "#acl-type"
       },
       {
-        "title": "Access Control by Record Type",
-        "url": "/coming-soon"
+        "title": "Default ACL Settings",
+        "url": "#acl-default"
+      },
+      {
+        "title": "ACL by User",
+        "url": "#acl-user"
+      },
+      {
+        "title": "ACL by User Role",
+        "url": "#acl-role"
+      },
+      {
+        "title": "ACL by Record Type",
+        "url": "#acl-record"
       }
     ]
   },
