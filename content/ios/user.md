@@ -1,6 +1,7 @@
-# Authentication
+<a name="manage-user"></a>
+## Manage User
 
-## Signing up
+### Signing up
 
 The first thing you want a user to do is to sign up. The following code illustrates the sign up process:
 
@@ -40,7 +41,7 @@ When a new user is successfully created, a `SKYUser` is returned.
 
 If the signup is not successful, you should read the error object returned. Usually it is just that the username or the email has been taken. You should communicate this to your users and ask them to try a different username. They may also be other kinds of errors that you should take note of.
 
-## Logging in
+### Logging in
 
 You can use `loginWithUsername:password:` to let users log in to their accounts by:
 
@@ -74,7 +75,7 @@ You can also use `loginWithEmail:password:` to log in users with emails:
 }];
 ```
 
-## Logging out
+### Logging out
 
 Of course, you also would want to allow users to log out of their accounts by using `logoutWithCompletionHandler:`.
 
@@ -82,7 +83,7 @@ Of course, you also would want to allow users to log out of their accounts by us
 [container logoutWithCompletionHandler:nil];
 ```
 
-## Changing password
+### Changing password
 
 To change the password of the current user:
 
@@ -100,8 +101,10 @@ To change the password of the current user:
 }]
 ```
 
-# Current User
-## Getting current user id
+<a name="current-user"></a>
+## Current User
+
+### Getting current user id
 
 You can get the `currentUserRecordID` by:
 
@@ -114,7 +117,7 @@ if (container.currentUserRecordID) {
 }
 ```
 
-## Looking up users by email
+### Looking up users by email
 
 Skygear provide a user discovery method by email. Everyone has access to this method without even having to be logged in.
 
@@ -129,16 +132,17 @@ operation.container = [SKYContainer defaultContainer];
 [[SKYContainer defaultContainer] addOperation:operation];
 ```
 
-## User Relations
+### User Relations
 
 See [Friends and Followers]({{< relref "relation.md" >}}).
 
-# Social Login
-## Logging in with provider
+<a name="social-login"></a>
+## Social Login (Facebook, Twitter, etc)
 
 Right now to allow social plugin such as Facebook. Plugin code must be written to enable it on the backend. Read more about in the [Plugin]({{< relref "plugin.md" >}}) section.
 
-# User Profile
+<a name="user-profile"></a>
+## User Profile
 
 Whenever a new user signs up, a user profile is automatically created for
 you to track user information other than their _username_, _email_ or _password_. _Username_, _email_ and _password_ are stored inside the reserved `_user` database, but user profile is stored in the public `user` database. They share the same column `_id` with exactly same value. You can access the

@@ -30,7 +30,7 @@
     },
     "/ios/guide/user": {
       "name": "iOS SDK",
-      "title": "Users (Authentication)",
+      "title": "Authentication",
       "content_path": "./content/ios/user.md",
       "menu_path": "./menus/ios-guide.json"
     },

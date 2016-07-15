@@ -82,16 +82,24 @@
         ]
     },
     {
-        "title": "Users",
+        "title": "Authentication",
         "url": "/ios/guide/user",
         "sub": [
             {
-                "title": "Authentication",
-                "url": "#authentication"
+                "title": "Manage User",
+                "url": "#manage-user"
             },
             {
-                "title": "currentUser",
-                "url": "#currentuser"
+                "title": "Current User",
+                "url": "#current-user"
+            },
+            {
+                "title": "Social Login (Facebook, Twitter, etc)",
+                "url": "#social-login"
+            },
+            {
+                "title": "User Profile",
+                "url": "#user-profile"
             }
         ]
     },
