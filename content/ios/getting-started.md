@@ -1,14 +1,16 @@
 <a name="getting-started"></a>
 ## Introduction
 
-Skygear aims to provide a complete and open-source backend solution for your mobile applications.
+Skygear aims to provide a complete and open-source backend solution for
+your mobile applications.
 
-By creating an App for each of your mobile applications on Skygear, each client App can be connected to the Skygear Server with an API key.
+By creating an App for each of your mobile applications on Skygear, each
+client App can be connected to the Skygear Server with an API key.
 
 This guide will show you how to integrate Skygear into an existing iOS project.
 
 <a name="sign-up-hosting"></a>
-## Signing up for Skygear
+## Signing up for Skygear Hosting
 
 Sign up an account at [Skygear Portal](http://portal.skygear.io/).
 
@@ -18,14 +20,13 @@ Go to the Info tab on the sidebar, and you will see your _Server Endpoint_ in th
 
 
 <a name="include-ios-sdk"></a>
-## Installing iOS SDK
-### Include Skygear SDK as CocoaPods dependency
+## Include the SDK in your project
 
 The installation requies [CocoaPods](https://cocoapods.org/).
 
 To install the Skygear iOS SDK as your iOS application dependency:
 
-#### For Objective-C Projects
+### For Objective-C Projects
 
 1. Open and edit the `Podfile` file, add the following in the last line:
 
@@ -36,7 +37,7 @@ pod "SKYKit"
 2. Run `pod install` in your terminal.
 3. It's done! You now have installed Skygear SDK in your app.
 
-#### For Swift Projects
+### For Swift Projects
 
 1. Open and edit the `Podfile` file. Your `Podfile` file should look like this:
 
@@ -55,10 +56,21 @@ Cocoapods 0.36 and above introduces the `use_frameworks!` instruction, so the Ob
 <a name="set-up-ios-app"></a>
 ## Setting up your iOS app
 
+`SKYContainer` is the uppermost layer of `SKYKit`. It represents the root of all
+resources accessible by an application and one application should have exactly
+one container. In `SKYKit`, such container is accessed via the singleton
+`defaultContainer`:
+
+```obj-c
+SKYContainer *container = [SKYContainer defaultContainer];
+```
+
+Container provides [User Authentication]({{< relref "user.md" >}}),
+[Asset Storage]({{< relref "asset.md" >}}) and access to
+[public and private databases]({{< relref "#SKYDatabase" >}}).
+
 Now, you are going to setup the server endpoint and API key for your app.
 
-<a name="set-up-app"></a>
-### Setting up your iOS app
 The `SKYContainer` (Skygear Container) object is the primary interface for interacting with the Skygear service. The object is initialized with the sever endpoint and an API key.
 
 In `AppDelegate.m`, include `SKYKit`:
@@ -76,22 +88,6 @@ SKYContainer *container = [SKYContainer defaultContainer];
 ```
 
 Replace `your-endpoint.skygeario.com` with your Server Endpoint and `SKYGEAR_API_KEY` with your API Key.
-
-### SKYContainer
-
-`SKYContainer` is the uppermost layer of `SKYKit`. It represents the root of all
-resources accessible by an application and one application should have exactly
-one container. In `SKYKit`, such container is accessed via the singleton
-`defaultContainer`:
-
-```obj-c
-SKYContainer *container = [SKYContainer defaultContainer];
-```
-
-Container provides [User Authentication]({{< relref "user.md" >}}),
-[Asset Storage]({{< relref "asset.md" >}}) and access to
-[public and private databases]({{< relref "#SKYDatabase" >}}).
-
 
 <a name="whats-next"></a>
 ## What's Next
