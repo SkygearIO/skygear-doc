@@ -42,9 +42,6 @@ cd ..
 npm install skygear/
 ```
 
-<a name="set-up-app"></a>
-## Set up your JS App
-
 ### Include in your npm project
 
 The Skygear JS SDK is assumed to be run in ES6 runtime. If you wish to run it in
@@ -67,6 +64,9 @@ available globally (`window.skygear` or just `skygear`).
 <script src="//code.skygear.io/js/polyfill/latest/polyfill.min.js"></script>
 <script src="//code.skygear.io/js/skygear/latest/skygear.min.js"></script>
 ```
+
+<a name="set-up-app"></a>
+## Set up your JS App
 
 <a name="container"></a>
 ### Set up Container

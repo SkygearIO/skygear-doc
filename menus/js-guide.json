@@ -2,24 +2,24 @@
   {
     "title": "Getting Started",
     "url": "/js/guide",
-      "sub": [
-        {
-          "title": "Signing up for Skygear Hosting",
-          "url": "#sign-up-hosting"
-        },
-        {
-          "title": "Include the SDK in your project",
-          "url": "#include-js-sdk"
-        },
-        {
-          "title": "Set up your JS app",
-          "url": "#set-up-app"
-        },
-        {
-          "title": "What's Next",
-          "url": "#whats-next"
-        }
-      ]
+    "sub": [
+      {
+        "title": "Signing up for Skygear Hosting",
+        "url": "#sign-up-hosting"
+      },
+      {
+        "title": "Include the SDK in your project",
+        "url": "#include-js-sdk"
+      },
+      {
+        "title": "Set up your JS app",
+        "url": "#set-up-app"
+      },
+      {
+        "title": "What's Next",
+        "url": "#whats-next"
+      }
+    ]
   },
   {
     "title": "First Example App",
@@ -28,24 +28,24 @@
   {
     "title": "Records",
     "url": "/js/guide/record",
-      "sub": [
-        {
-          "title": "Overview",
-          "url": "#overview"
-        },
-        {
-          "title": "Basic CRUD",
-          "url": "#basic-crud"
-        },
-        {
-          "title": "Records Relations",
-          "url": "#reference"
-        },
-        {
-          "title": "Data Type",
-          "url": "#data-type"
-        }
-      ]
+    "sub": [
+      {
+        "title": "Overview",
+        "url": "#overview"
+      },
+      {
+        "title": "Basic CRUD",
+        "url": "#basic-crud"
+      },
+      {
+        "title": "Records Relations",
+        "url": "#reference"
+      },
+      {
+        "title": "Data Type",
+        "url": "#data-type"
+      }
+    ]
   },
   {
     "title": "Queries",
@@ -170,15 +170,25 @@
   {
     "title": "Handling Errors",
     "url": "/js/guide/handling-errors",
-      "sub": [
-        {
-          "title": "Using Skygear Error Codes",
-          "url": "#error-code"
-        }
-      ]
+    "sub": [
+      {
+        "title": "Using Skygear Error Codes",
+        "url": "#error-code"
+      }
+    ]
   },
   {
     "title": "Tips",
-    "url": "/coming-soon"
+    "url": "/coming-soon",
+    "sub": [
+      {
+        "title": "Debugging",
+        "url": "/coming-soon"
+      },
+      {
+        "title": "Best Practice",
+        "url": "/coming-soon"
+      }
+    ]
   }
 ]
