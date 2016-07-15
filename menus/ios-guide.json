@@ -169,7 +169,7 @@
     },
     {
         "title": "Calling Cloud Functions",
-        "url": "/ios/guide/plugin"
+        "url": "/ios/guide/cloud-functions"
     },
     {
         "title": "Handling Errors",

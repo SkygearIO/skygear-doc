@@ -58,10 +58,10 @@
       "content_path": "./content/ios/asset.md",
       "menu_path": "./menus/ios-guide.json"
     },
-    "/ios/guide/plugin": {
+    "/ios/guide/cloud-functions": {
       "name": "iOS SDK",
       "title": "Calling Cloud Functions",
-      "content_path": "./content/ios/plugin.md",
+      "content_path": "./content/ios/cloud-functions.md",
       "menu_path": "./menus/ios-guide.json"
     },
     "/ios/guide/handling-errors": {
