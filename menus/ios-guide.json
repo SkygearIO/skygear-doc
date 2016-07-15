@@ -4,12 +4,16 @@
         "url": "/ios/guide",
         "sub": [
             {
-                "title": "Installing iOS SDK",
-                "url": "#add-as-dependency"
+                "title": "Signing up for Skygear Hosting",
+                "url": "#sign-up-hosting"
+            },
+            {
+                "title": "Include the SDK in your project",
+                "url": "#include-ios-sdk"
             },
             {
                 "title": "Setting up your iOS app",
-                "url": "#configure-container"
+                "url": "#set-up-app"
             },
             {
                 "title": "Testing the SDK",
