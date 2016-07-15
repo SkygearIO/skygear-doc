@@ -42,7 +42,7 @@ function run() {
             if (elem) {
               Window.scrollToSmoothly(
                 0,
-                elem.getBoundingClientRect().top + Window.pageYOffset,
+                elem.getBoundingClientRect().top + Window.pageYOffset - 90,
                 150
               );
             }
