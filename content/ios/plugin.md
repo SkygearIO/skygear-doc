@@ -1,4 +1,4 @@
-## Calling lambda functions
+### Calling lambda functions
 
 We can call lambda functions defined by custom plugin like this:
 
@@ -16,7 +16,7 @@ We can call lambda functions defined by custom plugin like this:
 Please refer to indivdual plugin documentation for expected arguments and
 response content.
 
-## Calling handler
+### Calling handler
 
 If you defined a custom handler in a plugin, your app can make use of the
 handler by creating a subclass of `SKYOperation`.

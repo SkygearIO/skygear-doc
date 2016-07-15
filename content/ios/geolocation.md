@@ -1,7 +1,7 @@
 1. Supported by saving `CLLocation` in `SKYRecord`
 2. Only latitude and longitude of CLLocation is recorded
 
-## Saving a location on record
+### Saving a location on record
 
 ```obj-c
 #import <CoreLocation/CoreLocation.h>
@@ -14,7 +14,7 @@ See
 [Location and Maps Programming Guide](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html)
 for help on getting current location.
 
-## Querying records by distance
+### Querying records by distance
 
 Get all photos taken within 400 meters of some location.
 
@@ -36,7 +36,7 @@ SKYQuery *query = [SKYQuery queryWithRecordType:@"photo" predicate:predicate];
 `distanceToLocation:fromLocation:` is a Skygear function which returns distance
 between a location field in a record and a specific location.
 
-## Sorting records by distance
+### Sorting records by distance
 
 Cont. from the example above.
 
@@ -46,7 +46,7 @@ query.sortDescriptors = @[[SKYLocationSortDescriptor locationSortDescriptorWithK
                                                                         ascending:YES]];
 ```
 
-## Retrieving record location field distances relative to a point
+### Retrieving record location field distances relative to a point
 
 Utilize transient fields.
 

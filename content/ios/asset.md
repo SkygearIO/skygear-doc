@@ -1,4 +1,4 @@
-## Uploading and associating an asset to a record
+### Uploading and associating an asset to a record
 
 ```obj-c
 - (void)imagePickerController:(UIImagePickerController *)picker
@@ -26,7 +26,7 @@ with the same asset name.
 
 TODO: Show that `asset.name` is rewritten after the asset being uploaded.
 
-## Accessing asset
+### Accessing asset
 
 `SKYAsset.url` will be populated with an expiry URL after fetching /
 querying the record from server.

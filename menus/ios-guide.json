@@ -144,11 +144,31 @@
         "url": "/ios/guide/asset"
     },
     {
-        "title": "Plugins",
+        "title": "Calling Cloud Functions",
         "url": "/ios/guide/plugin"
     },
     {
         "title": "Handling Errors",
-        "url": "/ios/guide/handling-errors"
+        "url": "/ios/guide/handling-errors",
+        "sub": [
+            {
+                "title": "Using Skygear Error Codes",
+                "url": "#error-code"
+            }
+        ]
+    },
+    {
+        "title": "Tips",
+        "url": "/coming-soon",
+        "sub": [
+            {
+                "title": "Debugging",
+                "url": "/coming-soon"
+            },
+            {
+                "title": "Best Practice",
+                "url": "/coming-soon"
+            }
+        ]
     }
 ]
