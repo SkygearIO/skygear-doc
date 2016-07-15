@@ -183,15 +183,15 @@
     },
     {
         "title": "Tips",
-        "url": "/coming-soon",
+        "url": "/ios/guide/tips",
         "sub": [
             {
                 "title": "Debugging",
-                "url": "/coming-soon"
+                "url": "#debugging"
             },
             {
                 "title": "Best Practice",
-                "url": "/coming-soon"
+                "url": "#best-practice"
             }
         ]
     }

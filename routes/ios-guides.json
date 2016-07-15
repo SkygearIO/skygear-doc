@@ -81,6 +81,12 @@
       "title": "Social Relations",
       "content_path": "./content/ios/relation.md",
       "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/tips": {
+      "name": "iOS SDK",
+      "title": "Tips",
+      "content_path": "./content/ios/tips.md",
+      "menu_path": "./menus/ios-guide.json"
     }
   }
 }
