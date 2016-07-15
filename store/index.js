@@ -14,21 +14,21 @@ export default [
       }
     ]
   },
-  // {
-  //   title: 'Android SDK',
-  //   description: 'Android Client',
-  //   icon: require('../asserts/icn-android.png'),
-  //   buttons: [
-  //     {
-  //       name: 'Guide',
-  //       url: '/android/guide'
-  //     },
-  //     {
-  //       name: 'API Reference',
-  //       url: 'https://docs.skygear.io/android/reference/'
-  //     }
-  //   ]
-  // },
+  {
+    title: 'Android SDK',
+    description: 'Android Client',
+    icon: require('../asserts/icn-android.png'),
+    buttons: [
+      {
+        name: 'Guide',
+        url: '/android/guide'
+      },
+      {
+        name: 'API Reference',
+        url: 'https://docs.skygear.io/android/reference/'
+      }
+    ]
+  },
   {
     title: 'JS SDK',
     description: 'Javascript Client',
