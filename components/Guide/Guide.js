@@ -7,10 +7,14 @@ import Menu from './Menu';
 import './Guide.scss';
 import { Window } from '../../lib/BrowserProxy';
 
+const HamburgerMenuIcon = require('../../asserts/icn-hamburger.png');
+
 class Guide extends Component {
   constructor(props) {
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
+    this.toggleHamburgerMenu = this.toggleHamburgerMenu.bind(this);
+    this.dismissHamburgerMenu = this.dismissHamburgerMenu.bind(this);
     this.state = this.initialState;
   }
 
@@ -30,13 +34,18 @@ class Guide extends Component {
     return undefined;
   }
 
-  get sectionNameComponent() {
-    let classes = [ 'section-name' ];
+  get sectionTitleomponent() {
+    let classes = [ 'section-title' ];
     if (this.state.sticky) {
-      classes.push('sticky-section-name');
+      classes.push('sticky-section-title');
     }
 
-    return <h1 className={classes.join(' ')}>{this.props.sectionName}</h1>;
+    return (
+      <div className={classes.join(' ')}>
+        <img src={HamburgerMenuIcon} onClick={this.toggleHamburgerMenu}/>
+        <h1>{this.props.sectionName}</h1>
+      </div>
+    );
   }
 
   get menuComponent() {
@@ -53,6 +62,9 @@ class Guide extends Component {
     if (this.state.sticky) {
       classes.push('sticky-menu');
     }
+    if (this.state.hamburgerMenuShwon) {
+      classes.push('active');
+    }
 
     return (
       <Menu
@@ -63,11 +75,30 @@ class Guide extends Component {
     );
   }
 
+  toggleHamburgerMenu(event) {
+    event.preventDefault();
+    this.setState({
+      hamburgerMenuShwon: !this.state.hamburgerMenuShwon
+    });
+  }
+
+  dismissHamburgerMenu(event) {
+    if (this.state.hamburgerMenuShwon) {
+      this.setState({
+        hamburgerMenuShwon: false
+      });
+    }
+  }
+
   handleScroll() {
     const scrollTop = Window.scrollY || 0;
-    this.setState({
-      sticky: scrollTop > 85
-    });
+    const shouldSticky = scrollTop > 85;
+
+    if (shouldSticky !== this.state.sticky) {
+      this.setState({
+        sticky: scrollTop > 85
+      });
+    }
   }
 
   componentDidMount() {
@@ -84,8 +115,8 @@ class Guide extends Component {
     } = this.props;
 
     return (
-      <div className='Guide-Template'>
-        {this.sectionNameComponent}
+      <div className='Guide-Template' onClick={this.dismissHamburgerMenu}>
+        {this.sectionTitleomponent}
         <div className="container">
           {this.menuComponent}
           <div className="content">

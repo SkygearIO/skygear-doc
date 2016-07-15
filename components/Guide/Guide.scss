@@ -10,23 +10,51 @@ tbody > tr:nth-child(odd) {
 }
 
 .Guide-Template {
+  position: relative;
   width: inherit;
+  height: 100%;
 
-  .section-name {
+  .section-title {
+    position: relative;
+    height: 2.8125rem;
     background-color: #ffffff;
-    margin: 0;
     padding: 0.75rem 0;
     border-bottom: 2px solid $theme-light-gray;
+    z-index: 3;
 
-    &.sticky-section-name {
+    img {
+      display: none;
+      height: 2rem;
+      width: auto;
+      margin: 0;
+      padding: 0.25rem 1rem;
+      box-sizing: border-box;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    h1 {
+      display: inline-block;
+      margin: 0;
+      vertical-align: middle;
+    }
+
+    &.sticky-section-title {
       position: fixed;
       width: inherit;
+      height: 1.5rem;
       padding: 0.5rem 0;
-      font-size: 1.5rem;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 2;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      img {
+        height: 1.5rem;
+      }
     }
   }
 
@@ -37,12 +65,15 @@ tbody > tr:nth-child(odd) {
     .menu {
       flex: 0 0 18.75rem;
       width: 18.75rem;
+      margin: 0;
       margin-right: 1.25rem;
+      z-index: 2;
 
       &.sticky-menu {
         position: fixed;
-        top: 3rem;
+        top: 0;
         bottom: 0;
+        padding-top: 3rem;
         padding-bottom: 16.25rem;
         overflow-y: scroll;
 
@@ -77,10 +108,23 @@ tbody > tr:nth-child(odd) {
 
 @media (max-width: $screen-sm-min) {
   .Guide-Template {
-    .section-name {
-      text-align: center;
+    .section-title {
+      img {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
 
-      &.sticky-section-name {
+      h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &.sticky-section-title {
         width: 100%;
       }
     }
@@ -90,10 +134,23 @@ tbody > tr:nth-child(odd) {
       padding: .625rem;
 
       .menu {
-        display: none;
-        flex-basis: 0;
+        position: absolute;
+        top: 2.5rem;
+        bottom: 0;
+        left: -14rem;
+        padding-top: 3rem;
+        padding-bottom: 16.25rem;
+        padding-left: 0.625rem;
+        overflow-y: scroll;
+        transition: left 0.5s;
+        background-color: $theme-lighter-gray;
+        box-shadow: 0 0 10px $theme-gray;
 
-        &.sticky-menu + .content {
+        &.active {
+          left: 0;
+        }
+
+        & + .content, &.sticky-menu + .content {
           margin-left: 0;
         }
       }
