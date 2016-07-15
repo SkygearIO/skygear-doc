@@ -138,12 +138,24 @@
         "url": "/ios/guide/pubsub"
     },
     {
-        "title": "Social",
+        "title": "Social Relations",
         "url": "/ios/guide/relation",
         "sub": [
             {
-                "title": "Friends & Followers",
+                "title": "User Relations (Friends & Followers)",
                 "url": "#friends-and-followers"
+            },
+            {
+                "title": "Adding Relations",
+                "url": "#adding-relations"
+            },
+            {
+                "title": "Querying Relations",
+                "url": "#querying-relations"
+            },
+            {
+                "title": "Removing Relations",
+                "url": "#removing-relations"
             }
         ]
     },

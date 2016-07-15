@@ -75,6 +75,12 @@
       "title": "Access Control",
       "content_path": "./content/ios/access-control.md",
       "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/relation": {
+      "name": "iOS SDK",
+      "title": "Social Relations",
+      "content_path": "./content/ios/relation.md",
+      "menu_path": "./menus/ios-guide.json"
     }
   }
 }
