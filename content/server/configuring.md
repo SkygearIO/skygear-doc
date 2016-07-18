@@ -121,14 +121,19 @@ If you are using Skygear portal, you can set the environment variables on the
 * `CORS_HOST` - string, hostname for cross origin access control
 
 ### Token store related
-* `TOKEN_STORE` - the backing store for user token, supporting `fs` and
-  `redis`. `fs` is intended for local development.
-  Please use `redis` for production deployment.
+* `TOKEN_STORE` - the backing store for user token, supporting `fs`,
+  `redis` and `jwt`. `fs` is intended for local development.
+  Please use `redis` or `jwt` for production deployment.
+  * `fs` - uses the file system to store access tokens
+  * `redis` - uses Redis database to store access tokens
+  * `jwt` - encodes user info in the access token passed to the client
 * `TOKEN_STORE_PATH` - where the token will store when using `fs`. Or the
   URL when using `redis`, e.g. `redis://localhost:6379`
 * `TOKEN_STORE_PREFIX` - string, prefix to the access token for using redis.
 * `TOKEN_STORE_EXPIRY` - integer, number of seconds the created access token
   will expire. Default is to never expire.
+* `TOKEN_STORE_SECRET` - string, for `jwt`, the secret used to validates
+  the access token.
 
 ### Asset store related
 * `ASSET_STORE` - the backing store of assets, currently supporting `fs` and `s3`.
