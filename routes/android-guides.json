@@ -57,6 +57,12 @@
       "title": "Role-based Access Control",
       "content_path": "./content/android/acl-role.md",
       "menu_path": "./menus/android-guide.json"
+    },
+    "/android/guide/plugin": {
+      "name": "Android SDK",
+      "title": "Plugin",
+      "content_path": "./content/android/plugin.md",
+      "menu_path": "./menus/android-guide.json"
     }
   }
 }

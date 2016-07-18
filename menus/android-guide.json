@@ -118,5 +118,15 @@
                 "url": "#unsubscribe"
             }
         ]
+    },
+    {
+        "title": "Plugin",
+        "url": "/android/guide/plugin",
+        "sub": [
+            {
+                "title": "Lambda Function",
+                "url": "#lambda"
+            }
+        ]
     }
 ]
