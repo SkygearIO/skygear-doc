@@ -3,6 +3,7 @@
 .Header {
   width: 100%;
   display: flex;
+  box-sizing: border-box;
   flex-direction: row;
   padding: 2rem 0 3.5rem 0;
   justify-content: space-between;
@@ -10,12 +11,10 @@
   .Logo {
     display: inline-block;
     height: 2.25rem;
-    width: auto;
-
-    img {
-      height: 100%;
-      width: auto;
-    }
+    width: 10rem;
+    background-image: url("/skygear-logo-sm.png");
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   .Menu {
@@ -45,10 +44,12 @@
 
 @media (max-width: $screen-sm-min) {
   .Header {
-    padding: 1rem 0 1rem 0;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
+    padding: 0.5rem 1rem;
+
+    .Logo {
+      width: 2.25rem;
+      background-image: url("/skygear-logo-mini.png");
+    }
 
     .Menu {
       justify-content: center;

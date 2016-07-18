@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import './Header.scss';
 import Link from '../Link';
 
-const logoUrl = require('../../asserts/skygear-logo-sm.png');
-
 export default class extends Component {
   render() {
     return (
       <div className="Header">
-        <Link className="Logo" to="/">
-          <img src={logoUrl} />
-        </Link>
+        <Link className="Logo" to="/" />
 
         <ul className="Menu" role="menu">
           <li className="Menu-item">
