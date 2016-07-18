@@ -35,6 +35,15 @@ pubsub.subscribe("chatroom-001", new Pubsub.Handler() {
 
 ```
 
+By default, the handler you provide will be dispatched to main thread. If you
+want your handler to run in the background, you can update the pubsub settings:
+
+```java
+Pubsub pubsub = Container.defaultContainer(this).getPubsub();
+pubsub.setHandlerExecutionInBackground(true);
+
+```
+
 <a name="unsubscribe"></a>
 ## Unsubscribe
 
