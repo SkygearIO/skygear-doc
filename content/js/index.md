@@ -94,8 +94,9 @@ skygear.config({
 <a name="whats-next"></a>
 ## What's Next
 
-Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
+Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear:
 
-Interested in doing more with your Skygear backend server?
-
-The Plugin interface is designed to empower developers to automate, extend, and integrate functionality provided by the Skygear Server with other services and applications. For more information, check out the Plugin docs.
+- Learn how to [Authenticate Users](/js/guide/users)
+- Learn how to [Save Records](/js/guide/record)
+- Learn how to [Make Queries](/js/guide/query)
+- [See example app](/js/guide/simple-app)
