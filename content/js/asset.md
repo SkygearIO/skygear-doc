@@ -1,17 +1,14 @@
-For file upload to work properly, please set `ASSET_STORE_URL_PREFIX` environment
-variable to have value `https://<your-app-name>.skygeario.com/files` (which is
-simply your Server EndPoint plus `files` at the end) on
-[Skygear Portal Settings page](https://portal.skygear.io/app/info). For more environment variable
-configurations, please visit [Server](/server/guide#others) page.
+You can make use of `Asset` to store file references such as images and videos on the database. An asset can only be saved with a record but not as a standalone upload. Skygear automatically uploads the files to a server that you specify, like Amazon S3.
 
-Consider the following HTML:
+For example, you want to allow users to upload an image as an `attachment` to his `note`.
+
+First you need to make a file upload form:
 
 ``` html
 <input type="file" id="picture" accept="image/*">
 ```
 
-Once the user have selected the image to upload, maybe he wants to save it
-into one of his notes:
+Once the user has selected the image to upload, you can save it by:
 
 ``` javascript
 const Note = skygear.Record.extend('note');
@@ -30,3 +27,6 @@ skygear.publicDB.save(note) // automatically upload the picture
   console.error(error)
 })
 ```
+
+1. Call the `Asset` method to create an `Asset` object and it is stored in an asset column of the `note` object.
+2. When you save the `note` object, the image is automatically uploaded to the server.
