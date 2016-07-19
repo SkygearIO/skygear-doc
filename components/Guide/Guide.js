@@ -42,8 +42,8 @@ class Guide extends Component {
 
     return (
       <div className={classes.join(' ')}>
-        <img src={HamburgerMenuIcon} onClick={this.toggleHamburgerMenu}/>
         <h1>{this.props.sectionName}</h1>
+        <img src={HamburgerMenuIcon} onClick={this.toggleHamburgerMenu}/>
       </div>
     );
   }

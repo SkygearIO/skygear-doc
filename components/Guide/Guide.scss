@@ -16,33 +16,24 @@ tbody > tr:nth-child(odd) {
 
   .section-title {
     position: relative;
-    height: 2.8125rem;
     background-color: #ffffff;
     padding: 0.75rem 0;
     border-bottom: 2px solid $theme-light-gray;
     z-index: 3;
 
-    img {
-      display: none;
-      height: 2rem;
-      width: auto;
-      margin: 0;
-      padding: 0.25rem 1rem;
-      box-sizing: border-box;
-      vertical-align: middle;
-      cursor: pointer;
-    }
-
     h1 {
       display: inline-block;
+      width: 100%;
       margin: 0;
-      vertical-align: middle;
+    }
+
+    img {
+      display: none;
     }
 
     &.sticky-section-title {
       position: fixed;
       width: inherit;
-      height: 1.5rem;
       padding: 0.5rem 0;
       top: 0;
       left: 50%;
@@ -50,10 +41,6 @@ tbody > tr:nth-child(odd) {
 
       h1 {
         font-size: 1.5rem;
-      }
-
-      img {
-        height: 1.5rem;
       }
     }
   }
@@ -73,7 +60,7 @@ tbody > tr:nth-child(odd) {
         position: fixed;
         top: 0;
         bottom: 0;
-        padding-top: 3rem;
+        padding-top: 3.5rem;
         padding-bottom: 16.25rem;
         overflow-y: scroll;
 
@@ -87,6 +74,7 @@ tbody > tr:nth-child(odd) {
       overflow: hidden;
 
       h1 {
+        margin-top: 0;
         color: $theme-primary-color;
       }
     }
@@ -109,23 +97,39 @@ tbody > tr:nth-child(odd) {
 @media (max-width: $screen-sm-min) {
   .Guide-Template {
     .section-title {
+      text-align: center;
+
+      h1 {
+        width: 75%;
+        font-size: 2rem;
+        text-align: center;
+      }
+
       img {
         display: inline-block;
         position: absolute;
         top: 50%;
         left: 0;
+        height: 2rem;
+        width: auto;
+        margin: 0;
+        padding: 0.25rem 1rem;
         transform: translateY(-50%);
-      }
-
-      h1 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        vertical-align: middle;
+        cursor: pointer;
       }
 
       &.sticky-section-title {
         width: 100%;
+
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        img {
+          height: 1.5rem;
+        }
       }
     }
 
