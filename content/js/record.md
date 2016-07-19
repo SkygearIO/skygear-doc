@@ -10,15 +10,13 @@ Please make sure you know about and have already configured your skygear
 - `Record` must have a type.
 - Each `Record` object is like a dictionary with keys and values; keys will be
 mapped to database column names, and values will be stored appropriately
-based on the data type. Please refer to [Server](/server/guide/data-type) page
-for all supported data types. Several special types include
-[Sequence](#auto-increment), [Reference](#reference),
-[Asset](/js/guide/asset) and [Geolocation](/js/guide/geolocation).
+based on the data type. Please refer to [Data Type](#data-type)
+section within this guide for more information.
 - `Record` will be owned by the currently logged in user.
-- Each `Record` object has its unique `id` (a string combination of record type
+- Each `Record` object has its unique `id` (combination of record type
   and uuid used in the database as `_id`).
-- `Record` has reserved keys that cannot be used, such as `id` and
-`_id`. Please refer to this [table](#reserved) about reserved columns and keys.
+- `Record` has reserved keys that cannot be used, such as `id` and `_id`.
+Please refer to [Reserved Columns](#reserved) section for more.
 
 You can design different `Record` type to model your app. Just like defining
 tables in SQL.
@@ -39,7 +37,7 @@ control entity you set to the record. In other words, each user has his own
 private database, and only himself has access to it.
 - Record saved at public database is by default public. Even without
 logging in, records in the public database can be queried (but not updated).
-To control the access, you may set different access control entity to the record.
+To control the access, you may set different access control to the record.
 - The database objects can be accessed with `skygear.publicDB` and
 `skygear.privateDB`.
 
