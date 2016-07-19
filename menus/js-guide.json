@@ -138,11 +138,11 @@
     "url": "/js/guide/pubsub"
   },
   {
-    "title": "Social Relations",
+    "title": "Social Relations (Friends & Followers)",
     "url": "/js/guide/relation",
     "sub": [
       {
-        "title": "User Relations (Friends & Followers)",
+        "title": "Introduction",
         "url": "#friends-and-followers"
       },
       {

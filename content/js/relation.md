@@ -1,5 +1,5 @@
 <a name="friends-and-followers"></a>
-## User relations (Friends & Followers)
+## Introduction
 
 Skygear provide three default relations: friend, following and follower.
 - `follower` and `following` are one non-mutual relation with direction. You can

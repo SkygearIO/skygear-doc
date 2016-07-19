@@ -36,7 +36,7 @@
     },
     "/js/guide/relation": {
       "name": "JS SDK",
-      "title": "Social",
+      "title": "Social Relations (Friends & Followers)",
       "content_path": "./content/js/relation.md",
       "menu_path": "./menus/js-guide.json"
     },
