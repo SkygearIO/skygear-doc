@@ -102,12 +102,9 @@ skygear.publicDB.query(query).then((records) => {
 
 ### Updating a record
 
-See the [above](#record) section about `id` and `_id` if you are confused.
-
 ``` javascript
 let query = new skygear.Query(Note);
 query.equalTo('_id', '<your-note-_id>');
-// NOTE: This is the _id, not id, so no 'note/' in the front
 
 skygear.publicDB.query(query)
 .then((records) => {
@@ -115,26 +112,32 @@ skygear.publicDB.query(query)
   note['content'] = 'Hello New World';
   return skygear.publicDB.save(note);
 }).then((record) => {
-  console.log(record);
+  console.log('update success');
 }, (error) => {
   console.error(error);
 });
 ```
 
-After saving a record, any attributes modified from the server side will
-be updated on the saved record object in place. The local transient fields of
-the records are merged with any remote transient fields applied on the server
-side.
+- After saving a record, any attributes modified from the server side will
+be updated on the saved record object in place.
+- The local transient fields of the records are merged with any remote
+transient fields applied on the server side.
+- There is a shorter way for updating records, but only use it when you
+know what you are doing. (Unspecified field or column will not be changed,
+so in the case below only content field will be changed)
 
+``` javascript
+skygear.publicDB.save(new Note({
+  _id: 'note/<your-note-_id>',
+  content: 'Hello New World'
+}));
+```
 
 ### Deleting a record
 
-See the [above](#record) section about `id` and `_id` if you are confused.
-
 ``` javascript
-// NOTE: This is the id, not _id, so there is 'note/' in the front
 skygear.publicDB.delete({
-  'id': '<your-note-id>'
+  id: 'note/<your-note-_id>'
 }).then((record) => {
   console.log(record);
 }, (error) => {
@@ -177,15 +180,16 @@ skygear server database for efficient query.
 
 You can even reference a user from a record. To learn more about user object or
 how to retrieve user objects, you can read the [Users](/js/guide/users) section.
-Notice that we are not using the `new` keyword creating reference.
+Notice that we are not using the `new` keyword creating reference. Assume you
+have the user record object `rick`.
 
 ``` javascript
 let note = new Note({
   heading: 'Working Draft',
   content: 'People involved please fill in',
 });
-let involved = skygear.Reference(rick); // rick is a user object
-note.involved = involved;
+let author = new skygear.Reference(rick);
+note.author = author;
 skygear.publicDB.save(note);
 ```
 
@@ -200,15 +204,15 @@ let note2 = new Note({
   heading: 'Specification page 2',
   content: 'This is second section',
 });
-note1.nextPage = skygear.Reference(note2);
-// if you want to use batch save to save two records that have
-// reference from one to another, you need to pay attention to
-// the ordering of the records in the array
-skygear.publicDB.save([note2, note1]); // success
-skygear.publicDB.save([note1, note2]); // fail, but note2 will still be saved
+note1.nextPage = new skygear.Reference(note2);
+skygear.publicDB.save([note2, note1]);
 ```
 
-If you wish to retrieve note1 and note2 at the same time in one query,
+- Ordering of objects in batch save array matters if there are reference
+relationship between records. In the above case, if you perform batch save on
+`[note1, note2]`, there will be an error saving `note1`, but `note2` will
+still be saved!
+- If you wish to retrieve note1 and note2 at the same time in one query,
 you might use `transientInclude`. Read the [Queries](/js/guide/query#relational-queries)
 section to learn more about eager loading.
 
@@ -241,7 +245,8 @@ more detail in supported data types.
 Skygear reserves the `id` field in the top level of all record as a primary key.
 `id` must be unique and default to be Version 4 UUID. If you want to
 auto-incrementing id for display purpose, Skygear provide a sequence for this 
-purpose. The sequence is guaranteed unique.
+purpose. The sequence is guaranteed unique. Once a record with sequence id is
+saved, all the other records will automatically have sequence ids as well.
 
 ``` javascript
 let note = new Note({
@@ -250,7 +255,7 @@ let note = new Note({
 note.noteID = new skygear.Sequence();
 
 skygear.publicDB.save(note).then((note) => {
-  console.log(note.noteID); // Actual value from server populated, say 42.
+  console.log(note.noteID);
 }, (error) => {
   console.log(error);
 });
@@ -263,7 +268,10 @@ skygear.publicDB.save(note).then((note) => {
 - Our JIT schema at development will migrate the DB schema to sequence. All
   `noteID` at `Note` will be a sequence type once migrated.
 
-If you wish to override sequence manually, you can do that as well:
+If you wish to override sequence manually, you can do that as well. If the
+provided id is taken by another record, there will be an error; otherwise,
+the record will be saved and the maximum id plus one will be used for the
+next record.
 
 ``` javascript
 let note = new Note({
@@ -272,10 +280,9 @@ let note = new Note({
 note.noteID = 43;
 
 skygear.publicDB.save(note).then((note) => {
-  console.log(note.noteID); // 43 if save successfully
-  // the next noteID will be 44 if 43 is now the largest noteID
+  console.log(note.noteID);
 }, (error) => {
-  console.log(error); // Fails if 43 already taken by other note
+  console.log(error);
 });
 ```
 
@@ -307,23 +314,18 @@ skygear.publicDB.query(new skygear.Query(Note))
   .then((records) => console.log(records[0]));
 ```
 
-```
-RecordCls {
-  $transient: (...)
-  _id: "3b9f8f98-f993-4e1d-81c3-a451e483306b"
-  _recordType: "note"
-  _transient: Object
-  access: (...)
-  attributeKeys: (...)
-  createdAt: Thu Jul 07 2016 12:12:42 GMT+0800 (CST)
+``` javascript
+/* Type: RecordCls */ {
+  createdAt: new Date("Thu Jul 07 2016 12:12:42 GMT+0800 (CST)")
+  updatedAt: new Date("Thu Jul 07 2016 12:42:17 GMT+0800 (CST)")
   createdBy: "118e0217-ffda-49b4-8564-c6c9573259bb"
-  id: "note/3b9f8f98-f993-4e1d-81c3-a451e483306b"
-  ownerID: "118e0217-ffda-49b4-8564-c6c9573259bb"
-  recordType: (...)
-  updatedAt: Thu Jul 07 2016 12:42:17 GMT+0800 (CST)
   updatedBy: "118e0217-ffda-49b4-8564-c6c9573259bb"
+  ownerID: "118e0217-ffda-49b4-8564-c6c9573259bb"
+  id: "note/3b9f8f98-f993-4e1d-81c3-a451e483306b"
+  _id: "3b9f8f98-f993-4e1d-81c3-a451e483306b"
+  recordType: "note"
 }
 ```
 
-Please read the [above](#record) section for more about `_id`. Check the server
-[database schema](/server/guide/database-schema) page for more column names.
+Check the server [database schema](/server/guide/database-schema) page
+for more column names.
