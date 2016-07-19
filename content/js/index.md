@@ -12,6 +12,7 @@ application at the Skygear [Developer Portal](https://portal.skygear.io)
 website. After you registered, go to the **INFO** tab and copy down your
 `Server EndPoint` and `API Key`.
 
+![Example Image](/content/common/portal.png)
 
 <a name="include-js-sdk"></a>
 ## Include the SDK in your project
