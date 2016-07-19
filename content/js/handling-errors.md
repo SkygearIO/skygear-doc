@@ -6,13 +6,17 @@ import skygearError from 'skygear/lib/error';
 skygear.signupWithUsername('johndoe', 'verysecurepassword').then(() => {
   // user logged in successfully
 }, (error) => {
-  if (error.code === skygearError.Duplicated) {
+  if (error.error.code === skygearError.Duplicated) {
     // alert the user that username 'johndoe' already exists
   }
   console.error(error);
 });
-
 ```
+
+With the above code, if user tries to sign up with an existing username,
+error will be displayed in the console like the following image:
+
+[![Screenshot: duplicate user error example](/assets/js/error-example.png)](/assets/js/error-example.png)
 
 <a name="error-code"></a>
 ## Using Skygear Error Codes
