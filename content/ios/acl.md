@@ -15,17 +15,3 @@ SKYRecord *post = [SKYRecord recordWithRecordType:@"post"];
 ```
 
 TODO: remember to save the record to make the access control effective
-
-## Access controls by role
-
-[Access Control by role]({{< relref "ios/acl-role.md" >}})
-
-## Access controls by User
-
-Example: Share docs to colleages
-
-```objective-c
-// supervisor is a placeholder of user id
-SKYRecord *document = [SKYRecord recordWithRecordType:@"doc"];
-[document setReadWriteAccessForUser:supervisor];
-```

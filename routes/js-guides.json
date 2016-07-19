@@ -81,6 +81,12 @@
       "title": "ReactJS integration",
       "content_path": "./content/js/reactjs.md",
       "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/tips": {
+      "name": "JS SDK",
+      "title": "Tips",
+      "content_path": "./content/js/tips.md",
+      "menu_path": "./menus/js-guide.json"
     }
   }
 }

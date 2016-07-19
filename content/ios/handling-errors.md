@@ -9,7 +9,7 @@ void(^)(SKYRecord *record, NSError *error)
 All errors passed from SKYKit will have `SKYOperationErrorDomain` as error
 domain.
 
-## Guideline for error handling
+### Guideline for error handling
 
 The `NSError` returned from SKYKit contains a `localizedDescription`
 property which contains a general description of the error occurred.
@@ -34,7 +34,7 @@ The `userInfo` property contains detailed information about the error:
   request.
 * Other information about the error is also available in this dictionary.
 
-## Example
+### Example
 
 Here is an example for getting error information after an operation fails:
 
@@ -55,3 +55,6 @@ Here is an example for getting error information after an operation fails:
     NSLog(@"got a record = %@", record);
 }];
 ```
+
+<a name="error-code"></a>
+## Using Skygear Error Codes

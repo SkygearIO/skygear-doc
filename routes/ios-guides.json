@@ -12,13 +12,13 @@
     },
     "/ios/guide/first-app": {
       "name": "iOS SDK",
-      "title": "Simple app to get started (Create user / record / query)",
+      "title": "First Example App",
       "content_path": "./content/ios/first-app.md",
       "menu_path": "./menus/ios-guide.json"
     },
     "/ios/guide/record": {
       "name": "iOS SDK",
-      "title": "CRUD Records",
+      "title": "Records",
       "content_path": "./content/ios/record.md",
       "menu_path": "./menus/ios-guide.json"
     },
@@ -30,7 +30,7 @@
     },
     "/ios/guide/user": {
       "name": "iOS SDK",
-      "title": "Users (Authentication)",
+      "title": "Authentication",
       "content_path": "./content/ios/user.md",
       "menu_path": "./menus/ios-guide.json"
     },
@@ -58,10 +58,10 @@
       "content_path": "./content/ios/asset.md",
       "menu_path": "./menus/ios-guide.json"
     },
-    "/ios/guide/plugin": {
+    "/ios/guide/cloud-functions": {
       "name": "iOS SDK",
-      "title": "Plugins",
-      "content_path": "./content/ios/plugin.md",
+      "title": "Calling Cloud Functions",
+      "content_path": "./content/ios/cloud-functions.md",
       "menu_path": "./menus/ios-guide.json"
     },
     "/ios/guide/handling-errors": {
@@ -74,6 +74,18 @@
       "name": "iOS SDK",
       "title": "Access Control",
       "content_path": "./content/ios/access-control.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/relation": {
+      "name": "iOS SDK",
+      "title": "Social Relations",
+      "content_path": "./content/ios/relation.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
+    "/ios/guide/tips": {
+      "name": "iOS SDK",
+      "title": "Tips",
+      "content_path": "./content/ios/tips.md",
       "menu_path": "./menus/ios-guide.json"
     }
   }

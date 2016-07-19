@@ -4,16 +4,16 @@
         "url": "/ios/guide",
         "sub": [
             {
-                "title": "Installing iOS SDK",
-                "url": "#add-as-dependency"
+                "title": "Signing up for Skygear Hosting",
+                "url": "#sign-up-hosting"
+            },
+            {
+                "title": "Include the SDK in your project",
+                "url": "#include-ios-sdk"
             },
             {
                 "title": "Setting up your iOS app",
-                "url": "#configure-container"
-            },
-            {
-                "title": "Testing the SDK",
-                "url": "#test-sdk"
+                "url": "#set-up-ios-app"
             },
             {
                 "title": "What's Next",
@@ -30,28 +30,24 @@
         "url": "/ios/guide/record",
         "sub": [
             {
+                "title": "Overview",
+                "url": "#overview"
+            },
+            {
                 "title": "Basic CRUD",
                 "url": "#basic-crud"
             },
             {
-                "title": "Create Auto-Incrementing Fields",
-                "url": "#auto-increment"
-            },
-            {
-                "title": "Reserved Columns",
-                "url": "#reserved-columns"
-            },
-            {
-                "title": "Local Storage (RecordStorage, CachedQuery)",
-                "url": "#local-storage"
-            },
-            {
-                "title": "Records Relations (References)",
+                "title": "Records Relations",
                 "url": "#reference"
             },
             {
-                "title": "Subscription",
-                "url": "#subscription"
+                "title": "Data Type",
+                "url": "#data-type"
+            },
+            {
+                "title": "Local Storage (Offline)",
+                "url": "#local-storage"
             }
         ]
     },
@@ -64,22 +60,46 @@
                 "url": "#basic-queries"
             },
             {
-                "title": "Complex Queries",
-                "url": "#complex-queries"
+                "title": "Conditions",
+                "url": "#conditions"
+            },
+            {
+                "title": "Pagination and Ordering",
+                "url": "#pagination-ordering"
+            },
+            {
+                "title": "Relational Queries",
+                "url": "#relational-queries"
+            },
+            {
+                "title": "Cached Queries",
+                "url": "#cached-queries"
+            },
+            {
+                "title": "Subscribe to Query Change",
+                "url": "#subscription"
             }
         ]
     },
     {
-        "title": "Users",
+        "title": "Authentication",
         "url": "/ios/guide/user",
         "sub": [
             {
-                "title": "Authentication",
-                "url": "#authentication"
+                "title": "Manage User",
+                "url": "#manage-user"
             },
             {
-                "title": "currentUser",
-                "url": "#currentuser"
+                "title": "Current User",
+                "url": "#current-user"
+            },
+            {
+                "title": "Social Login (Facebook, Twitter, etc)",
+                "url": "#social-login"
+            },
+            {
+                "title": "User Profile",
+                "url": "#user-profile"
             }
         ]
     },
@@ -88,12 +108,24 @@
         "url": "/ios/guide/access-control",
         "sub": [
             {
-                "title": "ACL by Record Type",
-                "url": "#acl-by-type"
+                "title": "Access Type",
+                "url": "#access-type"
             },
             {
-                "title": "ACL Control by Role",
-                "url": "#acl-by-role"
+                "title": "Default ACL Settings",
+                "url": "#default-acl"
+            },
+            {
+                "title": "ACL By User",
+                "url": "#acl-user"
+            },
+            {
+                "title": "ACL By User Role",
+                "url": "#acl-role"
+            },
+            {
+                "title": "ACL by Record Type",
+                "url": "#acl-type"
             }
         ]
     },
@@ -106,12 +138,24 @@
         "url": "/ios/guide/pubsub"
     },
     {
-        "title": "Social",
+        "title": "Social Relations",
         "url": "/ios/guide/relation",
         "sub": [
             {
-                "title": "Friends & Followers",
+                "title": "User Relations (Friends & Followers)",
                 "url": "#friends-and-followers"
+            },
+            {
+                "title": "Adding Relations",
+                "url": "#adding-relations"
+            },
+            {
+                "title": "Querying Relations",
+                "url": "#querying-relations"
+            },
+            {
+                "title": "Removing Relations",
+                "url": "#removing-relations"
             }
         ]
     },
@@ -124,11 +168,31 @@
         "url": "/ios/guide/asset"
     },
     {
-        "title": "Plugins",
-        "url": "/ios/guide/plugin"
+        "title": "Calling Cloud Functions",
+        "url": "/ios/guide/cloud-functions"
     },
     {
         "title": "Handling Errors",
-        "url": "/ios/guide/handling-errors"
+        "url": "/ios/guide/handling-errors",
+        "sub": [
+            {
+                "title": "Using Skygear Error Codes",
+                "url": "#error-code"
+            }
+        ]
+    },
+    {
+        "title": "Tips",
+        "url": "/ios/guide/tips",
+        "sub": [
+            {
+                "title": "Debugging",
+                "url": "#debugging"
+            },
+            {
+                "title": "Best Practice",
+                "url": "#best-practice"
+            }
+        ]
     }
 ]

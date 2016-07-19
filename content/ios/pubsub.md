@@ -1,4 +1,4 @@
-## Subscribing a channel
+### Subscribing a channel
 
 ```obj-c
 SKYContainer *container = [SKYContainer defaultContainer];
@@ -8,19 +8,19 @@ SKYContainer *container = [SKYContainer defaultContainer];
 }];
 ```
 
-## Publishing to a channel
+### Publishing to a channel
 
 ```obj-c
 [container.pubsubClient publishMessage:@{@"name": @"world"} toChannel:@"hello"];
 ```
 
-## Unsubscribing a channel
+### Unsubscribing a channel
 
 ```obj-c
 [container.pubsubClient unsubscribe:@"hello"];
 ```
 
-## Example: PING-PONG
+### Example: PING-PONG
 
 ```obj-c
 SKYContainer *container = [SKYContainer defaultContainer];
