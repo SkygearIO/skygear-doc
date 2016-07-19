@@ -9,7 +9,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { History, Window, Document } from './lib/BrowserProxy';
-import scrollToSmoothly from './lib/scrollToSmoothly';
+import { scrollToElementSmoothly, scrollToSmoothly } from './lib/scrollSmoothly';
 
 import Layout from './components/Layout';
 
@@ -38,16 +38,16 @@ function run() {
           pageLoader.style.display = 'none';
           if (location.hash.length > 1) {
             const hashName = location.hash.substr(1);
-            let elem = Document.getElementsByName(hashName)[0];
-            if (elem) {
-              Window.scrollToSmoothly(
-                0,
-                elem.getBoundingClientRect().top + Window.pageYOffset - 90,
-                150
-              );
-            }
+            const targetElem = Document.getElementsByName(hashName)[0];
+            const headerElem
+              = Document.getElementsByClassName('section-title')[0];
+            const headerElemHeight =
+              headerElem ? headerElem.getBoundingClientRect().height : 66;
+
+            scrollToElementSmoothly.call(Window, targetElem, headerElemHeight);
+
           } else {
-            Window.scrollToSmoothly(0, 0, 150);
+            scrollToSmoothly.call(Window, 0, 0);
           }
           // Track the page view event via Google Analytics
           Window.ga('send', 'pageview');
