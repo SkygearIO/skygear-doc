@@ -3,6 +3,13 @@
 
 ### How does it work
 
+Notice that even without logging in, user can still interact with the SDK,
+such as querying data in `skygear.publicDB`. However, this behavior can be
+changed by setting different access control for public. For more information,
+please refer to [access control](/js/guide/access-control#acl-default) page.
+Skygear uses `accessToken` with localstorage to track user authentication.
+Typical flow is shown below:
+
 1. Web page load/refresh
 2. SDK checks if user information exists in localstorage
   - yes: SDK checks if `accessToken` has expired
@@ -10,42 +17,43 @@
     + no: user remains logged in (skip 3)
   - no: user has to log in or sign up
 3. User logs in or signs up (trigger `onUserChanged`)
-4. SDK updates user information in localstorage
+4. SDK updates user information in container and localstorage
+  - `skygear.currentUser` is now available
+  - `skygear.accessToken` is now available
 5. User logs out or `accessToken` expires (trigger `onUserChanged`)
-6. SDK clears user information in localstorage
+6. SDK clears user information in container and localstorage
 
 ### Sign up
 
+To deal with duplicate username or email error, please refer to
+[handling errors](/js/guide/handling-errors#error-code) page.
+
 ``` javascript
-// We can signup using username or email. Both function will return a promise.
-let req = skygear.signupWithUsername(username, password);
-// Or by email.
-req = skygear.signupWithEmail(email, password);
+let req;
+req = skygear.signupWithUsername(username, password);
+req = skygear.signupWithEmail(email, password); // or by email
 
 req.then((user) => {
-  console.log('user id', user.id);
-  // only after the user successfully signup or login
-  // skygear.accessToken can be available
-  console.log('access token', skygear.accessToken);
+  console.log(skygear.currentUser);
+  console.log(skygear.accessToken);
 }, (error) => {
-  // maybe username or email already exists
-  // or the email format is incorrect
   console.error(error);
 });
 ```
 
 ### Log in
 
-Logging in is as straight-forward as signing up.
+To deal with nonexisting username or wrong password error, please refer to
+[handling errors](/js/guide/handling-errors#error-code) page.
 
 ``` javascript
-// If you signup with username, you can login by calling `loginWithUsername`.
-let req = skygear.loginWithUsername(username, password);
-// Or call `loginWithEmail` if you signup with email.
-req = skygear.loginWithEmail(username, password);
+let req;
+req = skygear.loginWithUsername(username, password);
+req = skygear.loginWithEmail(email, password); // or by email
 
 req.then((user) => {
-  console.log(user);
+  console.log(skygear.currentUser);
+  console.log(skygear.accessToken);
 }, (error) => {
   console.error(error);    
 })
@@ -63,20 +71,24 @@ skygear.logout().then(() => {
 
 ### Change password
 
+It's for current logged in user only.
+
 ``` javascript
 skygear.changePassword(oldPassword, newPassword).then((user) => {
   console.log('User now have new password', user);
 }, (error) => {
-  // maybe user has not logged in or old password not match
   console.error(error);
 });
 ```
 
 ### Change email
 
+By providing user id, current user can change his email.
+Only users with admin privileges can modify other users' email.
+
 ``` javascript
 skygear.saveUser({
-  id: '<your-user-id>', // such as skygear.currentUser.id
+  id: '<your-user-id>', // usually skygear.currentUser.id
   email: '<your-new-email-address>',
 }).then((user) => {
   console.log('Email updated to:', user.email);
@@ -101,11 +113,8 @@ skygear.changePassword(oldPassword, newPassword, invalidateTokens=true)
 <a name="current-user"></a>
 ## Current User
 
-Skygear provide currentUser object after login.
-
 ``` javascript
-// if not logged in, it will be null
-let user = skygear.currentUser;
+let user = skygear.currentUser; // if not logged in, user will be null
 ```
 
 ### Hook currentUser change
@@ -118,10 +127,10 @@ handler is also invoked every time a user logs in or logs out.
 
 ``` javascript
 let handler = skygear.onUserChanged(function (user) {
-  if (user === null) {
-    console.log('The user is logged out');
+  if (user) {
+    console.log('user logged in or signed up');
   } else {
-    console.log('The user is logged in or changed');
+    console.log('user logged out or accessToken expired');
   }
 });
 
@@ -130,11 +139,11 @@ handler.cancel(); // The callback is cancelable
 
 ### Other user lookup
 
-Skygear provide a user discovery method by email. Everyone has access to this method without even having to be logged in.
+Skygear provide a user discovery method by email. Everyone has access to this
+method without even having to be logged in.
 
 ``` javascript
-// it takes an array of email and callback with an array of users
-skygear.getUsersByEmail(['ben@skygear.com']).then((users) => {
+skygear.getUsersByEmail(['ben@skygear.com', 'tak@oursky.com']).then((users) => {
   console.log(users);
 }, (error) => {
   console.error(error);
@@ -159,10 +168,12 @@ to enable it on the backend. Read more [here](/plugin/guide/guide-auth).
 After the code is written, we can then have social login:
 
 ``` javascript
-skygear.loginWithProvider(provider, authData).then(...);
-// provider is just the name of the provider (e.g. 'com.facebook')
-// authData is the access token you obtained from the social media's API website
+skygear.loginWithProvider(provider, authData);
 ```
+
+- provider: name of provider, such as `com.facebook` or `com.google`
+- authData: an object that will be passed as a dictionary to the backend python
+plugin code
 
 <a name="user-profile"></a>
 ## User Profile
