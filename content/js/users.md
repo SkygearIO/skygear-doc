@@ -1,9 +1,20 @@
 <a name="manage-user"></a>
 ## Manage User
 
-### Sign up
+### How does it work
 
-If you are not familiar with Promises, please read more [here](https://www.promisejs.org/).
+1. Web page load/refresh
+2. SDK checks if user information exists in localstorage
+  - yes: SDK checks if `accessToken` has expired
+    + yes: user has to log in again
+    + no: user remains logged in (skip 3)
+  - no: user has to log in or sign up
+3. User logs in or signs up (trigger `onUserChanged`)
+4. SDK updates user information in localstorage
+5. User logs out or `accessToken` expires (trigger `onUserChanged`)
+6. SDK clears user information in localstorage
+
+### Sign up
 
 ``` javascript
 // We can signup using username or email. Both function will return a promise.
