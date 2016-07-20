@@ -3,10 +3,11 @@
 
 Skygear provides query of records with conditions. Here is a straight-forward
 example of getting the note that has the `title` as `First note` inside the
-private database. If you don't know what `Note` is or the difference between
+public database. If you don't know the difference between
 privateDB and publicDB, please read [Records](/js/guide/record) section first.
 
 ``` javascript
+const Note = skygear.Record.extend('note');
 let query = new skygear.Query(Note);
 query.equalTo('title', 'First note');
 skygear.publicDB.query(query).then((notes) => {
@@ -16,32 +17,14 @@ skygear.publicDB.query(query).then((notes) => {
 });
 ```
 
-Say if you want to query all the notes owned by the current user, then you
-need to make a query matching a reserved column. If you wish to learn the list
-of reserved columns, please read the [Records](/js/guide/record#reserved) section.
-
-``` javascript
-let query = new skygear.Query(Note);
-query.equalTo('_owner', skygear.currentUser.id);
-// '_owner' is an alias for '_owner_id'
-skygear.publicDB.query(query).then((notes) => {
-  // an array of Note records owned by the current user
-}, (error) => {
-  console.error(error);
-});
-```
-
-Of course, you can put multiple conditions in same query object:
+You can make queries on [reserved columns](/js/guide/record#reserved) as well,
+and of course you can put multiple conditions in the same query object:
 
 ``` javascript
 let query = new skygear.Query(Note);
 query.lessThan('order', 10);
 query.equalTo('category', 'diary');
-skygear.publicDB.query(query).then((notes) => {
-  console.log('Received note with order less then 10 and is a diary');
-}, (error) => {
-  console.error(error);
-});
+skygear.publicDB.query(query);
 ```
 
 By default, the condition added to the query are combined with `AND`. To
@@ -54,11 +37,8 @@ let shareQuery = new skygear.Query(Note);
 shareQuery.greaterThan('share', 10);
 let query = skygear.Query.or(likeQuery, shareQuery);
 query.equalTo('category', 'diary');
-skygear.publicDB.query(query).then((notes) => {
-  console.log('Received notes with (like > 50 || share > 10) && category == diary');
-}, (error) => {
-  console.error(error);
-});
+skygear.publicDB.query(query);
+// (like > 50 || share > 10) && category == 'diary'
 ```
 
 You can use `Query.not(query)` to get a condition negated version of `query`.

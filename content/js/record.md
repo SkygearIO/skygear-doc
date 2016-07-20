@@ -322,4 +322,13 @@ skygear.publicDB.query(new skygear.Query(Note))
 }
 ```
 
+Query on reserved columns example:
+
+``` javascript
+let query = new skygear.Query(Note);
+query.equalTo('_owner', skygear.currentUser.id);
+// '_owner' is an alias for '_owner_id'
+skygear.publicDB.query(query);
+```
+
 Check the server [database schema](/server/guide/database-schema) page for more.
