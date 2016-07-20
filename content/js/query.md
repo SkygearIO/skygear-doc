@@ -46,6 +46,7 @@ You can use `Query.not(query)` to get a condition negated version of `query`.
 <a name="conditions"></a>
 ## Conditions
 
+Conditions are like `WHERE` clause in SQL query and `filter` in NoSQL query.
 Here is a list of simple conditions you can apply on a query:
 
 ``` javascript
@@ -95,20 +96,17 @@ query.caseInsensitiveNotLike('actor', '%k%'); // excluded: Katy, Jack, etc.
 
 ### Having relation condition
 
-The `havingRelation` can be used to query for records having a relation with
-the current user. For this kind of query, the record has an relation with
-the current user if the record has an attribute that contains a user having
-the relation with the current user.
-
-For example, to query for records owned by a user that the current user is following,
-or to discard all records created by friends:
+The `havingRelation` condition can be used to query records whose owner or
+creator has relationship with the current user. For example, you can use it
+to query new posts made by users whom you are following.
 
 ``` javascript
 query.havingRelation('_owner', skygear.relation.Following);
-query.notHavingRelation('_created_by', skygear.relation.Friend);
+query.notHavingRelation('_owner', skygear.relation.Friend);
+// records owned by following users but not friend users
 ```
 
-See [Social](/js/guide/relation) section for more relations.
+See [Social](/js/guide/relation) section for more about relations.
 
 ### Geolocation condition
 
