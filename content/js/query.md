@@ -177,41 +177,43 @@ to get the count without fetching any records, simply set `query.limit = 0`.
 
 ### Eager Loading
 
-If you have a record that references another record, you can perform eager
-loading using the transient syntax. It is possible to eager load records from
-multiple keys, but doing so will impair performance. If you don't know about
-reference, please read [Records](/js/guide/record#reference) section first.
+If you have a record that with [reference](/js/guide/record#reference) to
+another record, you can perform eager loading using the transient syntax.
+(Note: it is possible to eager load records from multiple keys, but doing so
+will impair performance)
+
+Given the following setting (notice that Delivery has reference to Address
+on key `destination`):
 
 ``` javascript
-// Suppose we have Delivery and Address
 const Delivery = skygear.Record.extend('delivery');
 const Address = skygear.Record.extend('address');
 
-// Suppose delivery has set destination reference to address
-var address = new Address({ ... });
-var delivery = new Delivery({ destination: skygear.Reference(address) });
-skygear.publicDB.save([address, delivery]).then(...);
+var address = new Address({ /* some setting */ });
+var delivery = new Delivery({ destination: new skygear.Reference(address) });
+skygear.publicDB.save([address, delivery]);
+```
 
-// Now when we are retrieving delivery, we want to include address as well
+Now if you want to query delivery together with the address:
+
+``` javascript
 var query = new skygear.Query(Delivery);
 query.transientInclude('destination');
-// 'destination' is the key where Reference to Address record is stored
 skygear.publicDB.query(query).then((records) => {
-  records.map((record) => {
-    console.log(record.destination); // skygear.Reference
-    console.log(record.$transient.destination); // Address record
-  });
+  console.log(records[0].destination);            // Reference
+  console.log(records[0].$transient.destination); // Address
 }, (error) => {
   console.error(error);
 });
+```
 
+You can also set an alias for transient-included field.
+
+``` javascript
 var query = new skygear.Query(Delivery);
 query.transientInclude('destination', 'deliveryAddress');
-// you can also provide an optional alias in the second argument
 skygear.publicDB.query(query).then((records) => {
-  records.map((record) => {
-    console.log(record.$transient.deliveryAddress); // Address record
-  });
+  console.log(records[0].$transient.deliveryAddress); // Address
 }, (error) => {
   console.log(error);
 });
