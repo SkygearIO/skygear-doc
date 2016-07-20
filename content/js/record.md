@@ -311,14 +311,14 @@ skygear.publicDB.query(new skygear.Query(Note))
 
 ``` javascript
 /* Type: RecordCls */ {
-  createdAt: new Date("Thu Jul 07 2016 12:12:42 GMT+0800 (CST)")
-  updatedAt: new Date("Thu Jul 07 2016 12:42:17 GMT+0800 (CST)")
-  createdBy: "118e0217-ffda-49b4-8564-c6c9573259bb"
-  updatedBy: "118e0217-ffda-49b4-8564-c6c9573259bb"
-  ownerID: "118e0217-ffda-49b4-8564-c6c9573259bb"
-  id: "note/3b9f8f98-f993-4e1d-81c3-a451e483306b"
-  _id: "3b9f8f98-f993-4e1d-81c3-a451e483306b"
-  recordType: "note"
+  createdAt: new Date("Thu Jul 07 2016 12:12:42 GMT+0800 (CST)"),
+  updatedAt: new Date("Thu Jul 07 2016 12:42:17 GMT+0800 (CST)"),
+  createdBy: "118e0217-ffda-49b4-8564-c6c9573259bb",
+  updatedBy: "118e0217-ffda-49b4-8564-c6c9573259bb",
+  ownerID: "118e0217-ffda-49b4-8564-c6c9573259bb",
+  id: "note/3b9f8f98-f993-4e1d-81c3-a451e483306b",
+  _id: "3b9f8f98-f993-4e1d-81c3-a451e483306b",
+  recordType: "note",
 }
 ```
 
