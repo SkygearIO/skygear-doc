@@ -29,7 +29,7 @@ website. After you registered, go to the **INFO** tab and copy down your
 #### For npm project
 
 Skygear JS SDK can be directly used in Node.js environment. Simply install
-[npm](https://www.npmjs.com/package/skygear) and require it in your project.
+[npm](https://www.npmjs.com) and require it in your project.
 
 ``` bash
 npm install skygear --save
@@ -72,8 +72,9 @@ Please refer to this [Scaffolding](/coming-soon) project on Github.
 <a name="set-up-app"></a>
 ## Set up your JS App
 
-Remember to configure your skygear container with the `Server EndPoint` and
-`API Key` you get on Skygear Developer Portal **BEFORE** you make API calls.
+Remember to configure your skygear container (variable `skygear` is the default
+container instance) with the `Server EndPoint` and `API Key` you get on Skygear
+Developer Portal **BEFORE** you make API calls.
 
 ``` javascript
 skygear.config({
@@ -85,9 +86,6 @@ skygear.config({
   console.error(error);
 });
 ```
-
-Container is the uppermost layer of skygear. In most cases you will only need
-one instance of container.
 
 <a name="whats-next"></a>
 ## What's Next
