@@ -269,8 +269,8 @@ skygear.publicDB.save(note).then((note) => {
   `noteID` at `Note` will be a sequence type once migrated.
 
 If you wish to override sequence manually, you can do that as well. If the
-provided id is taken by another record, there will be an error; otherwise,
-the record will be saved and the maximum id plus one will be used for the
+provided `noteID` is taken by another record, there will be an error; otherwise,
+the record will be saved and the maximum `noteID` plus one will be used for the
 next record.
 
 ``` javascript
@@ -278,12 +278,7 @@ let note = new Note({
   content: 'Hello World'
 });
 note.noteID = 43;
-
-skygear.publicDB.save(note).then((note) => {
-  console.log(note.noteID);
-}, (error) => {
-  console.log(error);
-});
+skygear.publicDB.save(note);
 ```
 
 <a name="reserved"></a>
@@ -327,5 +322,4 @@ skygear.publicDB.query(new skygear.Query(Note))
 }
 ```
 
-Check the server [database schema](/server/guide/database-schema) page
-for more column names.
+Check the server [database schema](/server/guide/database-schema) page for more.
