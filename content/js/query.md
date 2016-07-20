@@ -131,32 +131,28 @@ this SQL statement: `ORDER BY age, price DESC`.
 
 ### Pagination of records
 
-You can limit the number of records returned, skip certain number of records,
-and access certain part of records via pagination. For the following example,
-assume we have more than 150 Note records.
+There are 3 settings that affect query pagination:
+- limit: number of records per query/page (default value 50)
+- page: which page of records to return (skip `page - 1` pages of records)
+- offset: number of records to skip
+
+You shall not set both page and offset, otherwise page will be ignored.
 
 ``` javascript
-var query = new skygear.Query(Note);
-query.limit = 20; // 20 records per query/page
-// default query.limit is 50 if not specified
-query.page = 3; // skip the first two pages of records
-skygear.publicDB.query(query).then(...);
-/* The above query will return the 41th to 60th records */
+query.page = 3;
+/* 101st to 150th records */
+```
 
-// you can also achieve the same thing with offset
-var query = new skygear.Query(Note);
+``` javascript
 query.limit = 20;
-query.offset = 40; // skip the first 40 records
-skygear.publicDB.query(query).then(...);
-/* The above query will show the 41th to 60th records */
+query.offset = 140;
+/* 141st to 160th records */
+```
 
-// however, if offset and page are both set, page will be ignored
-var query = new skygear.Query(Note);
-query.limit = 25;
-query.offset = 10;
-query.page = 2;
-skygear.publicDB.query(query).then(...);
-/* The above query will show the 11th to 35th records */
+``` javascript
+query.limit = 15;
+query.page = 8;
+/* 106th to 120th records */
 ```
 
 ### Counting the records
