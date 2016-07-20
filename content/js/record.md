@@ -2,7 +2,7 @@
 ## Overview
 
 Please make sure you know about and have already configured your skygear
-[container](/js/guide#container) before you proceed.
+[container](/js/guide#set-up-app) before you proceed.
 
 <a name="record"></a>
 ### The Record Class

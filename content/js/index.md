@@ -16,71 +16,67 @@ website. After you registered, go to the **INFO** tab and copy down your
 <a name="include-js-sdk"></a>
 ## Include the SDK in your project
 
-There are several ways to install Skygear JS SDK to you app. You can either:
+### For existing projects
 
-- Install the stable release on npm
-- Install the latest development version
+#### For HTML5 project
 
-### Install the stable release on npm
+``` html
+<script src="//code.skygear.io/js/polyfill/latest/polyfill.min.js"></script>
+<script src="//code.skygear.io/js/skygear/latest/skygear.min.js"></script>
+<script> console.log(skygear); // it's here! </script>
+```
 
-You can install Skygear JS SDK via [npm](https://www.npmjs.com/package/skygear).
-The SDK package is available on the npm website.
+#### For npm project
+
+Skygear JS SDK can be directly used in Node.js environment. Simply install
+[npm](https://www.npmjs.com) and require it in your project.
 
 ``` bash
 npm install skygear --save
 ```
 
-### Install the latest development version
-
-You can add the development branch GitHub Repository as a submodule in your project.
-
-``` bash
-git submodule add https://github.com/SkygearIO/skygear-SDK-JS.git skygear
-cd skygear
-npm install
-cd ..
-npm install skygear/
+``` javascript
+// server.js
+var skygear = require('skygear');
 ```
 
-### Include in your npm project
-
-The Skygear JS SDK is assumed to be run in ES6 runtime. If you wish to run it in
-an older runtime, you need to require the [polyfill plugin](https://babeljs.io/docs/usage/polyfill/)
-before importing the Skygear SDK.
+Or it certainly works in ES6 syntax using [Babel](https://babeljs.io/).
 
 ``` javascript
-import 'babel-polyfill';
+// server.js
 import skygear from 'skygear';
 ```
 
-Please refer to [ReactJS integration](/js/guide/reactjs) for more info.
+However, if you are using Node.js v0.12 or before, please make sure that
+you require [Babel Polyfill](https://babeljs.io/docs/usage/polyfill/).
 
-### Include in your website
-
-Include these two JS files before your own JS files, and then skygear will be
-available globally (`window.skygear` or just `skygear`).
-
-``` html
-<script src="//code.skygear.io/js/polyfill/latest/polyfill.min.js"></script>
-<script src="//code.skygear.io/js/skygear/latest/skygear.min.js"></script>
+``` javascript
+// server.js
+require('babel-polyfill');
+var skygear = require('skygear');
 ```
+
+#### For webpack project
+
+If you wish to use [webpack](https://webpack.github.io/) to bundle up your
+front end JavaScript code, please read [this guide](/js/guide/reactjs) about
+Skygear JS SDK integration with React.js using Babel and Webpack. You are also
+welcomed to use bundler of your choice, but bear in mind that there might be
+conditional require issues and make sure
+[Babel Polyfill](https://babeljs.io/docs/usage/polyfill/) is included.
+
+### For new projects
+
+Please refer to this [Scaffolding](/coming-soon) project on Github.
 
 <a name="set-up-app"></a>
 ## Set up your JS App
 
-<a name="container"></a>
-### Set up Container
-
-Container is the uppermost layer of skygear. In practice,
-`import skygear from 'skygear'` will give you a container instance at variable
-`skygear`. In most cases you will only need one instance of container. Remember
-to configure your container with the `Server EndPoint` and `API Key` you get
-on Skygear Developer Portal **BEFORE** you make API calls.
+Remember to configure your skygear container (variable `skygear` is the default
+container instance) with the `Server EndPoint` and `API Key` you get on Skygear
+Developer Portal **BEFORE** you make API calls.
 
 ``` javascript
-import skygear from 'skygear';
-// or in the browser with ECMAScript 5 just use window.skygear or skygear
-
 skygear.config({
   'endPoint': 'https://<your-app-name>.skygeario.com/', // trailing slash is required
   'apiKey': '<your-api-key>',

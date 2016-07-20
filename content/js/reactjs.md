@@ -79,6 +79,7 @@ We can install the loaders via `npm install --save json-loader exports-loader`,
 and modify **cfg/default.js** to achieve these goals.
 
 ``` javascript
+// cfg/default.js
 /* ... */
 function getDefaultModules() {
   return {
@@ -104,9 +105,10 @@ We are now ready to include skygear into our project! Just modify
 **src/index.js** to include Skygear JS SDK and configure the container properly.
 
 ``` javascript
+// src/index.js
+import 'babel-polyfill';
 /* ... */
 import App from '.components/Main';
-
 import skygear from 'skygear';
 import config from 'config'; // the config we set in cfg/base.js
 
