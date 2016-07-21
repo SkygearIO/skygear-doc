@@ -25,7 +25,7 @@ tables in SQL.
 const Note = skygear.Record.extend('note');
 const Blog = skygear.Record.extend('blog');
 
-let note = new Note({ 'content': 'Hello World' });
+const note = new Note({ 'content': 'Hello World' });
 ```
 
 ### Record Database
@@ -61,17 +61,17 @@ skygear.publicDB.save(new Note({
 You can also batch save multiple records at one time.
 
 ``` javascript
-let helloNote = new Note({
+const helloNote = new Note({
   content: 'Hello world'
 });
 
-let foobarNote = new Note({
+const foobarNote = new Note({
   content: 'Foo bar'
 });
 
 skygear.publicDB.save([helloNote, foobarNote])
 .then((result) => {
-  let {
+  const {
     savedRecords: [savedHelloNote, savedFoobarNote],
     errors: [helloError, foobarError],
   } = result;
@@ -88,7 +88,7 @@ You can config the query by mutating its state.
 Read the section about [Query](/js/guide/query) to learn more.
 
 ``` javascript
-let query = new skygear.Query(Blog);
+const query = new skygear.Query(Blog);
 query.greaterThan('popular', 10);
 query.addDescending('popular');
 query.limit = 10;
@@ -103,12 +103,12 @@ skygear.publicDB.query(query).then((records) => {
 ### Updating a record
 
 ``` javascript
-let query = new skygear.Query(Note);
+const query = new skygear.Query(Note);
 query.equalTo('_id', '<your-note-_id>');
 
 skygear.publicDB.query(query)
 .then((records) => {
-  let note = records[0];
+  const note = records[0];
   note['content'] = 'Hello New World';
   return skygear.publicDB.save(note);
 }).then((record) => {
@@ -148,10 +148,10 @@ skygear.publicDB.delete({
 You can also delete multiple records at one time.
 
 ``` javascript
-let query = new skygear.Query(Note);
+const query = new skygear.Query(Note);
 query.lessThan('rating', 3);
 
-let foundNotes = [];
+const foundNotes = [];
 skygear.publicDB.query(query)
 .then((notes) => {
   console.log(`Found ${notes.length} notes, going to delete them.`);
@@ -184,11 +184,11 @@ Notice that we are not using the `new` keyword creating reference. Assume you
 have the user record object `rick`.
 
 ``` javascript
-let note = new Note({
+const note = new Note({
   heading: 'Working Draft',
   content: 'People involved please fill in',
 });
-let author = new skygear.Reference(rick);
+const author = new skygear.Reference(rick);
 note.author = author;
 skygear.publicDB.save(note);
 ```
@@ -196,11 +196,11 @@ skygear.publicDB.save(note);
 You can build up reference between records.
 
 ``` javascript
-let note1 = new Note({
+const note1 = new Note({
   heading: 'Specification',
   content: 'This is first section',
 });
-let note2 = new Note({
+const note2 = new Note({
   heading: 'Specification page 2',
   content: 'This is second section',
 });
@@ -249,7 +249,7 @@ purpose. The sequence is guaranteed unique. Once a record with sequence id is
 saved, all the other records will automatically have sequence ids as well.
 
 ``` javascript
-let note = new Note({
+const note = new Note({
   content: 'Hello World'
 });
 note.noteID = new skygear.Sequence();
@@ -274,7 +274,7 @@ the record will be saved and the maximum `noteID` plus one will be used for the
 next record.
 
 ``` javascript
-let note = new Note({
+const note = new Note({
   content: 'Hello World'
 });
 note.noteID = 43;
