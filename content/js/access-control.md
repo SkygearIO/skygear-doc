@@ -18,7 +18,7 @@ By default, read access is granted to the public and write access is granted
 only to owner of the record. You can change this behavior as well:
 
 ``` javascript
-var acl = new skygear.ACL();
+const acl = new skygear.ACL();
 // choose one setting among the three
 acl.setPublicNoAccess();
 acl.setPublicReadOnly(); // default
@@ -40,7 +40,7 @@ Suppose you have three user objects: `Tak`, `Benson` and `Rick`.
 
 ``` javascript
 const Note = skygear.Record.extend('note');
-var note = new Note({ content: 'demo user acl' });
+const note = new Note({ content: 'demo user acl' });
 
 note.setNoAccessForUser(Tak);
 note.setReadOnlyForUser(Benson);
@@ -80,7 +80,7 @@ For admin user to change roles of other users:
 ``` javascript
 // skygear.currentUser should be an admin user
 skygear.getUsersByEmail(['johndoe@example.com']).then((records) => {
-  let john = records[0];
+  const john = records[0];
   john.addRole(Manager);
   john.removeRole(Visitor);
   return skygear.saveUser(john);
@@ -99,7 +99,7 @@ Suppose you have three roles: `Manager`, `Employee` and `Visitor`.
 
 ``` javascript
 const Plan = skygear.Record.extend('plan');
-var plan = new Plan({ title: 'future goals for company' });
+const plan = new Plan({ title: 'future goals for company' });
 
 plan.setNoAccessForRole(Visitor);
 plan.setReadOnlyForRole(Employee);
