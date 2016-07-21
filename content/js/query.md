@@ -8,7 +8,7 @@ privateDB and publicDB, please read [Records](/js/guide/record) section first.
 
 ``` javascript
 const Note = skygear.Record.extend('note');
-let query = new skygear.Query(Note);
+const query = new skygear.Query(Note);
 query.equalTo('title', 'First note');
 skygear.publicDB.query(query).then((notes) => {
   // notes is an array of Note records that has its "title" equals "First note"
@@ -21,7 +21,7 @@ You can make queries on [reserved columns](/js/guide/record#reserved) as well,
 and of course you can put multiple conditions in the same query object:
 
 ``` javascript
-let query = new skygear.Query(Note);
+const query = new skygear.Query(Note);
 query.lessThan('order', 10);
 query.equalTo('category', 'diary');
 skygear.publicDB.query(query);
@@ -31,17 +31,17 @@ By default, the condition added to the query are combined with `AND`. To
 construct an `OR` query, we need to specify it with the following syntax.
 
 ``` javascript
-let likeQuery = new skygear.Query(Note);
+const likeQuery = new skygear.Query(Note);
 likeQuery.greaterThan('like', 50);
-let shareQuery = new skygear.Query(Note);
+const shareQuery = new skygear.Query(Note);
 shareQuery.greaterThan('share', 10);
-let query = skygear.Query.or(likeQuery, shareQuery);
+const query = skygear.Query.or(likeQuery, shareQuery);
 query.equalTo('category', 'diary');
 skygear.publicDB.query(query);
-// (like > 50 || share > 10) && category == 'diary'
+// SQL equivalent: (like > 50 OR share > 10) AND category = 'diary'
 ```
 
-You can use `Query.not(query)` to get a condition negated version of `query`.
+You can use `skygear.Query.not(query)` to get a condition negated version of `query`.
 
 <a name="conditions"></a>
 ## Conditions
@@ -89,7 +89,7 @@ for a single character.
 
 ``` javascript
 query.like('genre', 'science%'); // included: science, science-fiction, etc.
-query.notLike('title', 'Big%');  // excluded: Big Bang Theory, Big Hero 6, etc.
+query.notLike('state', 'C_');    // excluded: CA, CO, CT, etc.
 query.caseInsensitiveLike('month', '%a%');    // included: January, April, etc.
 query.caseInsensitiveNotLike('actor', '%k%'); // excluded: Katy, Jack, etc.
 ```
@@ -132,11 +132,11 @@ this SQL statement: `ORDER BY age, price DESC`.
 ### Pagination of records
 
 There are 3 settings that affect query pagination:
-- limit: number of records per query/page (default value 50)
-- page: which page of records to return (skip `page - 1` pages of records)
-- offset: number of records to skip
+- `limit`: number of records per query/page (default value 50)
+- `page`: which page of records to return (skip `page - 1` pages of records)
+- `offset`: number of records to skip
 
-You shall not set both page and offset, otherwise page will be ignored.
+You shall not set both `page` and `offset`, otherwise `page` will be ignored.
 
 ``` javascript
 query.page = 3;
@@ -189,19 +189,19 @@ on key `destination`):
 const Delivery = skygear.Record.extend('delivery');
 const Address = skygear.Record.extend('address');
 
-var address = new Address({ /* some setting */ });
-var delivery = new Delivery({ destination: new skygear.Reference(address) });
+const address = new Address({ /* some key-value pairs */ });
+const delivery = new Delivery({ destination: new skygear.Reference(address) });
 skygear.publicDB.save([address, delivery]);
 ```
 
 Now if you want to query delivery together with the address:
 
 ``` javascript
-var query = new skygear.Query(Delivery);
+const query = new skygear.Query(Delivery);
 query.transientInclude('destination');
 skygear.publicDB.query(query).then((records) => {
-  console.log(records[0].destination);            // Reference
-  console.log(records[0].$transient.destination); // Address
+  console.log(records[0].destination);            // skygear.Reference object
+  console.log(records[0].$transient.destination); // Address record object
 }, (error) => {
   console.error(error);
 });
@@ -210,10 +210,10 @@ skygear.publicDB.query(query).then((records) => {
 You can also set an alias for transient-included field.
 
 ``` javascript
-var query = new skygear.Query(Delivery);
+const query = new skygear.Query(Delivery);
 query.transientInclude('destination', 'deliveryAddress');
 skygear.publicDB.query(query).then((records) => {
-  console.log(records[0].$transient.deliveryAddress); // Address
+  console.log(records[0].$transient.deliveryAddress); // Address record object
 }, (error) => {
   console.log(error);
 });
@@ -229,7 +229,7 @@ function, and Skygear will try to return an cached result before it gets the
 latest result from the Skygear server.
 
 ``` javascript
-let query = new skygear.Query(Note);
+const query = new skygear.Query(Note);
 query.equalTo('title', 'First note');
 function successCallback(notes, cached = false) {
   if (cached) {
@@ -263,8 +263,8 @@ The following code creates a subscription of all the `Note` created by
 the use of the `new` keyword.
 
 ```javascript
-let Note = skygear.Record.extend('note');
-let query = new skygear.Query(Note);
+const Note = skygear.Record.extend('note');
+const query = new skygear.Query(Note);
 query.equalTo('_created_by', skygear.currentUser.id);
 
 subscription = skygear.Subscription('my notes');
@@ -309,7 +309,7 @@ skygear.publicDB.deleteSubscription('my notes').then((subscription) => {
 Once user subscribes, we can listen to subscription notifications.
 
 ```javascript
-let listener = skygear.addNotificationListener((notification) => {
+const listener = skygear.addNotificationListener((notification) => {
   if (notification.subscriptionID === 'my notes') {
     let id = notification.recordID;
     switch (notification.reason) {
@@ -321,7 +321,7 @@ let listener = skygear.addNotificationListener((notification) => {
         break;
       case skygear.NOTIFICATION_REASON_UPDATED:
         // some note is updated with changes
-        let changes = notification.recordChanges;
+        const changes = notification.recordChanges;
         // do something with the changes
         break;
     }
