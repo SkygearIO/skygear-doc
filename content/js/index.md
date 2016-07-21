@@ -60,11 +60,32 @@ var skygear = require('skygear');
 #### For webpack project
 
 If you wish to use [webpack](https://webpack.github.io/) to bundle up your
-front end JavaScript code, please read [this guide](/js/guide/reactjs) about
-Skygear JS SDK integration with React.js using Babel and Webpack. You are also
-welcomed to use bundler of your choice, but bear in mind that there might be
-conditional require issues and make sure
-[Babel Polyfill](https://babeljs.io/docs/usage/polyfill/) is included.
+front end JavaScript code together with Skygear JS SDK, simply modify your
+`webpack.config.js` file to include the following lines:
+
+``` javascript
+// webpack.config.js
+module.exports = {
+  /* your own configurations */
+  externals: {
+    'react-native': 'undefined',
+    'websocket': 'undefined'
+  }
+}
+```
+
+Then you can `require('skygear')` in your front end code. The reason that we
+need these lines are:
+- Skygear JS SDK works in React Native projects, but we don't want
+  webpack to include React Native files
+- Skygear JS SDK works in Node.js environment, but we don't want
+  webpack to include Node.js Websocket
+
+There is a [guide](/js/guide/reactjs) for setting up an example project
+that uses React.js and Skygear JS SDK together with Babel and Webpack. You are
+also welcomed to use bundler of your choice, but bear in mind that you need
+to "exclude" React Native and Node.js Websocket. Also, Skygear JS SDK needs
+[Babel Polyfill](https://babeljs.io/docs/usage/polyfill/).
 
 ### For new projects
 

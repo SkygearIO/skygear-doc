@@ -1,128 +1,129 @@
-We will introduce one way to include skygear into your project under **npm**
-environment. You are more than welcome to explore your own ways of using
-Skygear JS SDK.
+This guide will introduce an example web project that:
+- Uses [React](https://facebook.github.io/react/) and Skygear
+- Writes code in [ES2015](https://babeljs.io/docs/learn-es2015/) and
+  [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html) syntax
+- Bundles JavaScript file with [Webpack](https://webpack.github.io/)
 
-## Generate the example project
+## Dependencies
 
-We will use [Yoeman](http://yeoman.io) to generate a new project that is
-almost configured for **React.js** usage, and then we will modify it to integrate
-Skygear JS SDK properly. Here is the [page](https://github.com/newtriks/generator-react-webpack)
-introducing the generator.
-
-``` bash
-npm install -g yo # installs yoeman globally
-npm install -g generator-react-webpack
-```
-
-After Yoeman and the generator are installed, just create a new folder as your
-project folder and generate the code with generator.
-
-``` bash
-mkdir example-project && cd example-project
-yo react-webpack
-```
-
-You will be prompted to enter several configurations for your generated project,
-it doesn't really matter what you choose. Make sure all the dependencies are
-installed properly. You can take a glance at the project folder.
-
-## Include Skygear JS SDK
-
-Simply run `npm install --save skygear`. Next, we need to take a few steps to
-setup configurations for [Webpack](https://webpack.github.io/). Currently,
-webpack is trying to take everything from the src folder, bundle them up all,
-and write into a single JS file called `app.js`.
-- LESS, SASS and other css files are compiled and included
-- Other assets such as images are automatically copied over
-- Babel is used to enable ES2015 features in all JS files
-- Babel is configured to compile JSX syntax into plain JS
-- Dependencies of `require` or `import` are resolved with webpack
-
-However, webpack is not so intelligent when dealing with native node.js
-modules or conditional dependencies such as the following one:
+Use `npm` to initialize your project and then edit your `package.json`.
+Here, dependencies and devDependencies are updated, and two scripts
+are created for building your project and starting a static server.
 
 ``` javascript
-if (typeof window === 'undefined') {
-  require('react-native');
+// package.json
+{
+  /* existing information */
+  "dependencies": {
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "skygear": "^0.14.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "webpack": "^1.13.1",
+    "http-server": "^1.14.1"
+  },
+  "scripts": {
+    /* existing scripts */
+    "dist": "mkdir -p dist && cp src/index.html dist/ && webpack",
+    "server": "http-server dist -o",
+  }
 }
 ```
 
-In order to avoid these issues, we need to do some modifications to the
-configuration files. First, let's modify **cfg/base.js**.
+Remember to run `npm install` to resolve the dependencies.
 
-``` javascript
-// cfg/base.js
-/* ... */
-module.exports = {
-  /* ... */
-  resolve: { /* ... */ },
-  externals: {
-    'react-native': 'undefined', // avoid loading react-native
-    'localStorage': 'undefined', // we don't need this package
-    'config': JSON.stringify({
-      'skygear': {
-        'endPoint': 'https://<your-app-name>.skygeario.com/',
-        'apiKey': '<your-api-key>'
-      }
-    }) // it's better to save configuration for your skygear container here
-  },
-  module: {},
-};
+## File Structure
+
+``` bash
+package.json         # npm project information
+webpack.config.js    # webpack build configuration
+node_modules/        # npm modules
+src/                 # source folder
+    index.html
+    index.js
+dist/                # build folder
 ```
 
-Next, [localforage](https://github.com/mozilla/localForage) module requires
-`exports-loader` to be loaded properly with webpack, and
-[websocket](https://www.npmjs.com/package/websocket) module requires
-`json-loader`. Another thing is that, localforage is a prepackaged module, so
-we don't want webpack to parse and analyze its dependencies any more.
-We can install the loaders via `npm install --save json-loader exports-loader`,
-and modify **cfg/default.js** to achieve these goals.
+## Webpack Configuration
+
+Edit `webpack.config.js` as the following:
 
 ``` javascript
-// cfg/default.js
-/* ... */
-function getDefaultModules() {
-  return {
-    /* ... */
+// webpack.config.js
+var path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
+  externals: {
+    'react-native': 'undefined',
+    'websocket': 'undefined'
+  },
+  module: {
     loaders: [
       {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /localforage/,
-        loader: 'exports?localforage'
-      },
-      /* ... */
-    ],
-    noParse: [ /localforage\/dist\/localforage.js/ ],
-  };
+        test: /.js?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015', 'react']
+        }
+      }
+    ]
+  }
 }
-/* ... */
 ```
 
-We are now ready to include skygear into our project! Just modify
-**src/index.js** to include Skygear JS SDK and configure the container properly.
+Here is the `src/index.html` file:
+
+``` html
+<!-- src/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React + Skygear</title>
+</head>
+<body>
+  <div id="app">Now Loading...</div>
+  <script src="bundle.js"></script>
+</body>
+</html>
+```
+
+And the `src/index.js` file:
 
 ``` javascript
 // src/index.js
 import 'babel-polyfill';
-/* ... */
-import App from '.components/Main';
 import skygear from 'skygear';
-import config from 'config'; // the config we set in cfg/base.js
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-skygear.config(config.skygear)
-  .then((container) => {
-    alert('Yay! We have skygear installed!');
-  }, (error) => {
-    alert(error);
-  });
+export default class App extends React.Component {
+  render() {
+    return (<div>Hello React and Skygear</div>);
+  }
+}
 
-ReactDOM.render(<App />, document.getElementById('app'));
+skygear.config({
+  'endPoint': 'https://<your-app-name>.skygeario.com/',
+  'apiKey': '<your-api-key>',
+}).then(() => {
+  ReactDOM.render(<App />, document.getElementById('app'));
+}, (error) => {
+  console.error(error);
+});
 ```
 
-Now if we do `npm start`, the browser should automatically be fired, and
-we should see the alert message saying `Yay! We have skygear installed!`.
-
-## React Native usage (**Coming Soon**)
+Now, running the command `npm run dist` will build your project and then
+`npm run server` will start a static server that hosts your project. You
+should be able to see "Hello React and Skygear" in your browser.
