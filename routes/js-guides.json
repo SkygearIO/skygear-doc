@@ -76,12 +76,6 @@
       "content_path": "./content/js/access-control.md",
       "menu_path": "./menus/js-guide.json"
     },
-    "/js/guide/reactjs": {
-      "name": "JS SDK",
-      "title": "ReactJS integration",
-      "content_path": "./content/js/reactjs.md",
-      "menu_path": "./menus/js-guide.json"
-    },
     "/js/guide/tips": {
       "name": "JS SDK",
       "title": "Tips",

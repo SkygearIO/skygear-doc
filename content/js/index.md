@@ -37,14 +37,12 @@ npm install skygear --save
 ```
 
 ``` javascript
-// server.js
 var skygear = require('skygear');
 ```
 
 Or it certainly works in ES6 syntax using [Babel](https://babeljs.io/).
 
 ``` javascript
-// server.js
 import skygear from 'skygear';
 ```
 
@@ -52,7 +50,6 @@ However, if you are using Node.js v0.12 or before, please make sure that
 you require [Babel Polyfill](https://babeljs.io/docs/usage/polyfill/).
 
 ``` javascript
-// server.js
 require('babel-polyfill');
 var skygear = require('skygear');
 ```
@@ -61,30 +58,22 @@ var skygear = require('skygear');
 
 If you wish to use [webpack](https://webpack.github.io/) to bundle up your
 front end JavaScript code together with Skygear JS SDK, simply modify your
-`webpack.config.js` file to include the following lines:
+webpack configuration file (by default `webpack.config.js`) to include the
+following:
 
 ``` javascript
-// webpack.config.js
 module.exports = {
   /* your own configurations */
   externals: {
-    'react-native': 'undefined',
-    'websocket': 'undefined'
+    'react-native': 'undefined',  // don't include react-native
+    'websocket': 'undefined'      // don't include node.js websocket
   }
 }
 ```
 
-Then you can `require('skygear')` in your front end code. The reason that we
-need these lines are:
-- Skygear JS SDK works in React Native projects, but we don't want
-  webpack to include React Native files
-- Skygear JS SDK works in Node.js environment, but we don't want
-  webpack to include Node.js Websocket
-
-There is a [guide](/js/guide/reactjs) for setting up an example project
-that uses React.js and Skygear JS SDK together with Babel and Webpack. You are
-also welcomed to use bundler of your choice, but bear in mind that you need
-to "exclude" React Native and Node.js Websocket. Also, Skygear JS SDK needs
+Then you can `require('skygear')` in your front end code. You are also welcomed
+to use bundler of your choice, but bear in mind that you need to "exclude"
+React Native and Node.js Websocket. Also, Skygear JS SDK needs
 [Babel Polyfill](https://babeljs.io/docs/usage/polyfill/).
 
 ### For new projects
