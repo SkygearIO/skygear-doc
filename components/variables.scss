@@ -7,7 +7,6 @@
 /*
  * Scaffolding
  * -------------------------------------------------------------------------- */
-
 $theme-primary-color: #007BD4;
 $theme-lighter-gray: #F7F7F7;
 $theme-light-gray: #D8D8D8;
@@ -22,9 +21,6 @@ $link-color: $theme-primary-color;
 $inline-code-color: #000000;
 $inline-code-bg: #EFEFEF;
 
-$code-block-color: #FFFFFF;
-$code-block-bg: #000000;
-
 $footer-bg: #000000;
 $footer-text-color: #717171;
 $footer-link-color: #CCCCCC;
@@ -33,9 +29,9 @@ $footer-link-color: #CCCCCC;
  * Typography
  * -------------------------------------------------------------------------- */
 
-$font-family-base: 'Source Sans Pro', 'Helvetica', sans-serif;
-$content-font: 'Helvetica Neue', 'Helvetica', sans-serif;
-$content-code-font: 'Courier', monospace;
+$font-family-base: 'Lato';
+$content-font: 'Lato';
+$content-code-font: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
 $rubik-font: 'Rubik', sans-serif;
 
 /*

@@ -10,7 +10,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 
 import './Layout.scss';
-import '../../styles/prism-atom-dark.css';
+import '../../styles/prism-ghcolors.css';
 
 class Layout extends Component {
   render() {
