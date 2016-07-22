@@ -190,10 +190,11 @@ plugin code
 Whenever a new user signs up, a user profile is automatically created for
 you to track user information other than their username, email or password.
 Username, email and password are stored inside the reserved `_user` database,
-but user profile is stored in the public `user` database. They share the same
-column `_id` with exactly same value. You can access the
-user profile the same way as accessing a record, and everything stored in
-user profile is public and thus visible to any user.
+but user profile is stored in the public `user` database.
+
+The reserved `_user` database should not be manipulated by anyone and it is for Skygear's internal use only. They share the same column `_id` with the exact same value, which is the `user id`.
+
+You can access the user profile the same way as accessing a record, and everything stored in user profile is public and thus visible to any user. If you want to store private user information, you should create a user profile and store it in a _private database_. Head to [Server Guide](/coming-soon) to read more about it.
 
 ``` javascript
 const User = skygear.Record.extend("user");
