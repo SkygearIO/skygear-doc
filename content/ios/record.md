@@ -2,15 +2,20 @@
 ## Overview
 
 Please make sure you know about and have already configured your
-[SKYContainer]({{< relref "getting-started.md" >}}) before you proceed.
+[SKYContainer](/ios/guide) before you proceed.
 
 ### The Record Class
 
+`SKYRecord` is the data storage unit in Skygear.
+
 - `SKYRecord` must have a type.
-- `SKYRecord` is a key-value data object that can be stored at _database_.
-- `SKYRecord` will belong to the currently logged in user.
+- Each `SKYRecord ` object is like a dictionary with keys and values; keys will be mapped to database column names, and values will be stored appropriately
+based on the data type. Please refer to [Data Type](#data-type)
+section within this guide for more information.
+- `SKYRecord` will be owned by the currently logged in user.
 - `SKYRecord` object has a unique `id` (a string combination of record type and uuid is used).
 - Each `SKYRecord` has a `recordType`, which describes the _type_ of data this record holds.
+- `SKYRecord` has reserved keys that cannot be used, such as `ownerUserRecordID ` and `recordType `. Please refer to [Reserved Columns](#reserved-columns) section for more.
 
 A record can store whatever values that are JSON-serializable. Possible values include
 strings, numbers, booleans, dates, and several other custom types that Skygear
@@ -18,7 +23,7 @@ supports.
 
 ### Record Database
 
-`SKYDatabase` is the central hub of data storage in `SKYKit`. The main responsibility of database is to store `SKYRecord`s, the data storage unit in Skygear.
+`SKYDatabase` is the central hub of data storage in `SKYKit`. The main responsibility of database is to store `SKYRecord`s.
 
 You will be provided with a private and a public database.
 
@@ -64,9 +69,34 @@ There are couples of things we have done here:
    database of the current user. So when you save a _record_, you're saving the record to the private database of the current user.
 3. We actually saved the `todo` record and registered a block to be executed
    after the action is done. When you have successfully saved a _record_, there are several fields automatically filled in for you, such as `SKYRecordID`, `recordName`,`creationDate` and `modificationDate`. A `SKYRecord` will be returned and you can make use of the block to add additional logic which will run after the save completes.
-   
-You can also save multiple `SKYRecord`s at once.
-<!--- TODO: Add code example -->
+
+You can also save multiple `SKYRecord`s at once:
+
+```obj-c
+SKYRecord *noteOne = [SKYRecord recordWithRecordType:@"note"];
+SKYRecord *noteTwo = [SKYRecord recordWithRecordType:@"note"];
+    
+NSArray *notesToSave = [[NSArray alloc] initWithObjects: noteOne, noteTwo, nil];
+    
+SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
+[privateDB saveRecords:(notesToSave) completionHandler:^(NSArray *savedRecords, NSError *operationError) {
+    if (operationError) {
+        // Error completing the operation
+        NSLog(@"error completing operation");
+        return;
+    }
+        
+    NSLog(@"saved all the todo records");
+} perRecordErrorHandler:^(SKYRecord *record, NSError *error) {
+    if (error) {
+        // Error saving an individual record
+        NSLog(@"error saving todo: %@", error);
+        return;
+    }
+        
+    NSLog(@"saved todo with recordID = %@", record.recordID);
+}];
+```
 
 ### Reading a record
 
@@ -88,14 +118,15 @@ SKYRecordID *recordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"36906
 }];
 ```
 
-To get the values out of the SKYRecord, you can use the `[]` subscripting operator as shown above, or the `objectForKey:` method.
-<!--- TODO: add the `objectForKey:` example code here -->
+To get the values out of the SKYRecord, you can use the `[]` subscripting operator as shown above, or the `objectForKey:` method:
 
-Some of the values are provided as properties:
-<!--- TODO: add the example code here to show that some properties like
-`creationDate`, `modificationDate`, `recordID`, `recordType` etc. -->
+```obj-c
+NSString *title = [record objectForKey: @"title"];
+NSNumber *order = [record objectForKey: @"order"];
+NSNumber *done = [record objectForKey: @"done"];
+```
 
-You can construct a `SKYQuery` object by providing a `recordType`. You can configure the `SKYQuery` by mutating its state. Read the [Query]({{< relref "query.md" >}}) section to learn more.
+You can construct a `SKYQuery` object by providing a `recordType`. You can configure the `SKYQuery` by mutating its state. Read the [Query](/ios/guide/query) section to learn more.
 
 ### Updating a record
 
@@ -152,8 +183,32 @@ If you are to delete records in batch, you could also use the
 `SKYDatabase-deleteRecordsWithIDs:completionHandler:perRecordErrorHandler:`
 method.
 
-You can also delete multiple records at once.
-<!--- TODO: Add code example -->
+You can also delete multiple records at once:
+
+```obj-c
+SKYRecordID *noteOneRecordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"369067DC-BDBC-49D5-A6A2-D83061D83BFC"];
+SKYRecordID *noteTwoRecordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"348275VF-SKGF-69DK-10FH-D83061D83BFC"];
+    
+NSArray *notesToDeleteRecordID = [[NSArray alloc] initWithObjects: noteOneRecordID, noteTwoRecordID, nil];
+    
+[privateDB deleteRecordsWithIDs: (notesToDeleteRecordID) completionHandler:^(NSArray *deletedRecordIDs, NSError *error) {
+    if (error) {
+        // Error completing the operation
+        NSLog(@"error completing operation");
+        return;
+    }
+    
+    NSLog(@"deleted all the todo records");
+} perRecordErrorHandler:^(SKYRecordID *recordID, NSError *error) {
+    if (error) {
+        // Error deleting an individual record
+        NSLog(@"error deleting todo: %@", error);
+        return;
+    }
+    
+    NSLog(@"deleting todo with recordID = %@", record.recordID);
+}];
+```
 
 <a name="reference"></a>
 ## Record Relations
@@ -182,11 +237,28 @@ It will establish a reference from _Record B_ to _Record A_.
 <a name="data-type"></a>
 ## Data Type
 
-<!--- TODO: link to server here -->
+Skygear supports a lot of different data types, such as:
+
+- String
+- Number
+- Boolean
+- Array
+- Object
+- Date
+
+There are also four other types provided by Skygear SDK:
+
+- [Reference](#reference)
+- [Sequence](#sequence)
+- [Geo-location](/ios/guide/geolocation)
+- [Assets (File Upload)](/ios/guide/asset)
+
+Please refer to the [server](/server/guide/data-type) documentation for
+more detail in supported data types.
 
 <a name="auto-increment"></a>
 ## Auto-Incrementing Sequence Fields
-
+<a name="sequence"></a>
 ### Make use of sequence object
 
 Skygear reserves the `id` field in the top level of all record as a primary key.
@@ -238,14 +310,39 @@ SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
 <a name="reserved-columns"></a>
 ### Reserved Columns
 
-<!--- TODO: add something here -->
+For each record type stored in the database, a table with the same name as the record type is created. For example, if your record type is called `note`, there is a table called `note` in the database. Each row in the table corresponds to one record.
+
+For each record table there exists two types of columns, those that are reserved by Skyear and those that are user-defined. Reserved columns contain metadata of a record, such as record ID, record owner and creation time. Names of reserved columns are prefixed with underscore (`_`).
+
+It is possible to manipulate data in record tables directly. However, one should exercise cautions when modifying data directly in record tables.
+
+Each record table contains the following reserved columns:
+
+| Column Name  | Object Attribute         | Description                                     |
+|--------------|--------------------------|-------------------------------------------------|
+| \_created_at | creationDate             | `NSDate` object of when record was created      |
+| \_updated_at | modificationDate         | `NSDate` object of when record was updated      |
+| \_created_by | creatorUserRecordID      | `NSString` object of user id of record creator  |
+| \_updated_by | lastModifiedUserRecordID | `NSString` object of user id of record updater  |
+| \_owner      | ownerUserRecordID        | `NSString` object of user id of owner           |
+| _id          | recordID                 | `SKYRecordID` object of record id               |
+
+You can retrieve the values from the object by accessing its properties:
+
+```obj-c
+NSDate *creationDate = [noteObject creationDate];
+NSString *creatorID = [noteObject creatorUserRecordID];
+SKYRecordID *recordID = [record recordID];
+NSString *recordType = [record recordType];
+```
+Please head to [Database Schema](/server/guide/database-schema) to read more about Reserved Columns, Record Tables and Reserved Tables.
 
 <a name="local-storage"></a>
 ## Local Storage (Offline)
 
 ### Setup
 
-Record storage relies on [subscription]({{< relref "subscription.md" >}})
+Record storage relies on [Query](/ios/guide/query)
 
 ```obj-c
 - (void)container:(SKYContainer *)container didReceiveNotification:(SKYNotification *)notification
