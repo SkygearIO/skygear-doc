@@ -17,6 +17,10 @@
     "url": "/cloud-code/guide/scheduled"
   },
   {
+    "title": "Error handling",
+    "url": "/cloud-code/guide/error-handling"
+  },
+  {
     "title": "Calling Skygear API",
     "url": "/cloud-code/guide/skygear-api"
   },

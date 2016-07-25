@@ -39,6 +39,12 @@
       "title": "Utility functions",
       "content_path": "./content/plugin/utils.md",
       "menu_path": "./menus/cloud-code-guide.json"
+    },
+    "/cloud-code/guide/error-handling": {
+      "name": "Cloud Code",
+      "title": "Error handling",
+      "content_path": "./content/plugin/error-handling.md",
+      "menu_path": "./menus/cloud-code-guide.json"
     }
   }
 }
