@@ -2,8 +2,9 @@ Every WED.
 
 - Upload `py-skygear` to pypi as `skygear`
 - Docker Hub automatically build `skygeario/py-skygear` triggered by git push
-- Upload `skygear-SDK-iOS` to cocoapods as `SKYKit`
-- Upload `skygear-SDK-JS` to npm as `skygear`
+- Upload `skygear-SDK-iOS` to [cocoapods](https://cocoapods.org/pods/SKYKit) as `SKYKit`
+- Upload `skygear-SDK-JS` to [npm](https://www.npmjs.com/package/skygear) as `skygear`
+- Upload `skygear-SDK-Android` to [jcenter](https://bintray.com/skygeario/maven/skygear-android)
 
 ## Version number
 
@@ -137,6 +138,27 @@ $ npm run deploy-latest
 ## Tag and push commit
 $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
+$ git push origin
+
+## Click `Publish release` in github release page
+```
+
+### skygear-SDK-Android
+
+```shell
+## Draft new release notes
+$ git log --first-parent `git describe --abbrev=0`.. > new-release
+$ edit new-release
+$ github-release release -u skygeario -r skygear-SDK-Android --draft --tag $SKYGEAR_VERSION --name "$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
+
+## Update changelog
+$ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
+$ git add CHANGELOG.md
+$ git commit -m "Update CHANGELOG for $SKYGEAR_VERSION"
+
+## Tag and push commit
+$ git tag -a $SKYGEAR_VERSION -s -u $KEY_ID -m "Release $SKYGEAR_VERSION"
+$ git push --follow-tags origin $SKYGEAR_VERSION
 $ git push origin
 
 ## Click `Publish release` in github release page
