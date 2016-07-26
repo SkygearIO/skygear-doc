@@ -78,7 +78,10 @@ React Native and Node.js Websocket. Also, Skygear JS SDK needs
 
 ### For new projects
 
-Please refer to this [Scaffolding](/coming-soon) project on Github.
+[Yeoman](http://yeoman.io/) is recommended for setting up your new skygear
+project (with Babel, React.js and Webpack integrated). Please visit the github
+repo [generator-skygear](https://github.com/SkygearIO/generator-skygear) for
+instructions.
 
 <a name="set-up-app"></a>
 ## Set up your JS App
