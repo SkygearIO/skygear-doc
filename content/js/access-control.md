@@ -15,7 +15,8 @@ However, even with write access, ownership of records cannot be changed.
 ## Default ACL Settings
 
 By default, read access is granted to the public and write access is granted
-only to owner of the record. You can change this behavior as well:
+only to owner of the record. Here public refers to all other users and
+unauthenticated (not logged in) users. You can change this behavior as well:
 
 ``` javascript
 const acl = new skygear.ACL();
