@@ -2,7 +2,7 @@
 
 ``` javascript
 const Photo = skygear.Record.extend('photo');
-let photo = new Photo({
+const photo = new Photo({
   'subject': 'Hong Kong',
   'location': new skygear.Geolocation(22.39649, 114.1952103),
 });
@@ -13,9 +13,9 @@ let photo = new Photo({
 Get all photos taken within 400 meters of some location.
 
 ``` javascript
-let reference = new skygear.Geolocation(22.283, 114.15);
+const reference = new skygear.Geolocation(22.283, 114.15);
 
-let photoQuery = new skygear.Query(Photo);
+const photoQuery = new skygear.Query(Photo);
 photoQuery.distanceLessThan('location', reference, 400);
 
 skygear.publicDB.query(photoQuery).then((photos) => {

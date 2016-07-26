@@ -37,7 +37,7 @@ npm install skygear --save
 ```
 
 ``` javascript
-var skygear = require('skygear');
+const skygear = require('skygear');
 ```
 
 Or it certainly works in ES6 syntax using [Babel](https://babeljs.io/).
