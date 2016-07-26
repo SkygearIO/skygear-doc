@@ -37,7 +37,7 @@ branch is the same as the `origin/master`.
 ## Draft new release changelog
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
-$ github-release release -u skygeario -r skygear-server --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
+$ github-release release -u skygeario -r skygear-server --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --description "`cat new-release`"
 
 ## Update changelog
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
@@ -64,7 +64,7 @@ git push origin master:latest
 ## Draft new release changelog
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
-$ github-release release -u skygeario -r py-skygear --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
+$ github-release release -u skygeario -r py-skygear --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --description "`cat new-release`"
 
 ## Update changelog and version number
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
@@ -95,7 +95,7 @@ it will accept a new release.
 ## Draft new release changelog
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
-$ github-release release -u skygeario -r skygear-SDK-iOS --draft --tag $SKYGEAR_VERSION --name "$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
+$ github-release release -u skygeario -r skygear-SDK-iOS --draft --tag $SKYGEAR_VERSION --name "$SKYGEAR_VERSION" --description "`cat new-release`"
 
 ## Update changelog and version number
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
@@ -120,7 +120,7 @@ $ pod trunk push SKYKit.podspec
 ## Draft new release changelog
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
-$ github-release release -u skygeario -r skygear-SDK-JS --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
+$ github-release release -u skygeario -r skygear-SDK-JS --draft --tag v$SKYGEAR_VERSION --name "v$SKYGEAR_VERSION" --description "`cat new-release`"
 
 ## Update changelog and version number
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
