@@ -1,8 +1,8 @@
 Skygear provides query of records with conditions. You can apply condition to
 Skygear queries, only getting the records you want.
 
-<a name="basic"></a>
-## Basic Query
+<a name="basic-queries"></a>
+## Basic Queries
 
 To perform a query, first you need to construct a `Query` object:
 
@@ -31,12 +31,6 @@ publicDB.query(noteQuery, new RecordQueryResponseHandler() {
     }
 });
 ```
-
-<a name="complex"></a>
-## Complex Query
-
-Besides the basic query, Skygear also supports some query operations in order
-to construct a complex query.
 
 ### Or operation
 
@@ -73,8 +67,8 @@ Query notBetweenOneAndThree = new Query("Note")
 
 ```
 
-<a name="operators"></a>
-## Supported operators
+<a name="conditions"></a>
+## Conditions
 
 Besides the operations shown above, the following list out all operations supported.
 
@@ -95,3 +89,15 @@ Besides the operations shown above, the following list out all operations suppor
 - negate
 - addDescending
 - addAscending
+
+<a name="pagination-ordering"></a>
+## Pagination and Ordering
+
+<a name="relational-queries"></a>
+## Relational Queries
+
+<a name="cached-query"></a>
+## Cached Query
+
+<a name="subscription"></a>
+## Subscribing to Query Change

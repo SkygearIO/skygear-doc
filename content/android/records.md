@@ -1,7 +1,13 @@
-THis guide introduces how to create, update and delete records in Skygear.
+<a name="overview"></a>
+## Overview
 
-<a name="database"></a>
-## Record Database
+Please make sure you know about and have already configured your skygear
+[container](/android/guide#setting-up) before you proceed.
+
+<a name="record"></a>
+### The Record Class
+
+### Record Database
 
 Before any record operations, you need to understand the record databases in
 Skygear. You will provide with private and public database:
@@ -24,8 +30,10 @@ Database publicDatabase = skygear.getPublicDatabase();
 Database privateDatabase = skygear.getPrivateDatabase();
 ```
 
-<a name="create"></a>
-## Create records
+<a name="basic-crud"></a>
+## Basic CRUD
+
+### Create a record
 
 Records in Skygear are specified via __type__ and __id__. You must provide a record
 type when you create a record while the record id will be generated when you
@@ -49,24 +57,6 @@ aNote.set("lastReadAt", new Date());
 String title = (String) aNote.get("title");
 int title = (int) aNote.get("readCount");
 ```
-
-After saving the records, some meta attributes are available on the records:
-
-```java
-// the time when the record created
-Date createdAt = aNote.getCreatedAt();
-
-// the time when the record last updated
-Date updatedAt = aNote.getUpdatedAt();
-
-// the creator ID, the updater ID and the record owner ID
-String creatorId = aNote.getCreatorId();
-String updaterId = aNote.getUpdaterId();
-String ownerId = aNote.getOwnerId();
-```
-
-<a name="save"></a>
-## Save records
 
 You can save a record to either __public__ or __private__ database:
 
@@ -114,8 +104,7 @@ Record[] records = new Record[]{ note1, note2, note3 };
 database.save(records, handler);
 ```
 
-<a name="query"></a>
-## Query records
+### Reading a record
 
 You can use `Query` object to find records with conditions:
 
@@ -152,8 +141,24 @@ database.query(query, handler);
 
 For more information, please check out the [Query Section](/android/guide/query)
 
-<a name="delete"></a>
-## Delete records
+### Updating a record
+
+After saving the records, some meta attributes are available on the records:
+
+```java
+// the time when the record created
+Date createdAt = aNote.getCreatedAt();
+
+// the time when the record last updated
+Date updatedAt = aNote.getUpdatedAt();
+
+// the creator ID, the updater ID and the record owner ID
+String creatorId = aNote.getCreatorId();
+String updaterId = aNote.getUpdaterId();
+String ownerId = aNote.getOwnerId();
+```
+
+### Deleting a record
 
 You can delete a record on either __public__ or __private__ database:
 
@@ -197,3 +202,15 @@ Of cause, you can delete multiple records at one time:
 Record[] records = new Record[]{ note1, note2, note3 };
 database.delete(records, handler);
 ```
+
+<a name="reference"></a>
+## Records Relations
+
+<a name="data-type"></a>
+## Data Type
+
+<a name="reserved"></a>
+### Reserved Columns
+
+<a name="local-storage"></a>
+## Local Storage (Offline)

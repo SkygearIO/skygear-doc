@@ -4,16 +4,16 @@ By creating an App for each of your mobile applications on Skygear, each client 
 
 This guide will show you how to integrate Skygear into an existing iOS project.
 
-<a name="signup"></a>
-## Sign up for Skygear
+<a name="signing-up"></a>
+## Signing up for Skygear Hosting
 
 Sign up an account at [Skygear Portal](http://portal.skygear.io/).
 
 You will need the server endpoint and API Key to set up your app.
 
 
-<a name="install"></a>
-## Install Android SDK
+<a name="including"></a>
+## Including the SDK in your project
 
 1. Make sure jcenter repository is included in `build.gradle` of your project
 
@@ -34,10 +34,10 @@ You will need the server endpoint and API Key to set up your app.
   }
   ```
 
-<a name="setup"></a>
-## Set up Skygear
+<a name="setting-up"></a>
+## Setting up Skygear
 
-### Option 1: Use `SkygearApplication` as Custom Application
+### Option 1: Using `SkygearApplication` as Custom Application
 
 If you does not have a custom application class, you can set up skygear as following:
 
@@ -90,7 +90,7 @@ If you does not have a custom application class, you can set up skygear as follo
   ```
 
 
-### Option 2: Set up Skygear when your application starts
+### Option 2: Setting up Skygear when your application starts
 
 If you have your custom application class, you can set up skygear when your application starts.
 
@@ -119,7 +119,7 @@ Also, you need to make sure your application has grant
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-<a name="whats-next"></a>
+<a name="what's-next"></a>
 ## What's Next
 Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
 

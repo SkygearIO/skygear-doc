@@ -4,65 +4,51 @@
         "url": "/android/guide",
         "sub": [
             {
-                "title": "Sign up for Skygear",
-                "url": "#signup"
+                "title": "Signing up for Skygear Hosting",
+                "url": "#signing-up"
             },
             {
-                "title": "Install Android SDK",
-                "url": "#install"
+                "title": "Including the SDK in your project",
+                "url": "#including"
             },
             {
-                "title": "Set up Skygear",
-                "url": "#setup"
+                "title": "Setting up your JS app",
+                "url": "#setting-up"
             },
             {
                 "title": "What's Next",
-                "url": "#whats-next"
+                "url": "#what's-next"
             }
         ]
     },
     {
-        "title": "User Authentication",
-        "url": "/android/guide/user-auth",
-        "sub": [
-            {
-                "title": "Sign up",
-                "url": "#signup"
-            },
-            {
-                "title": "Login",
-                "url": "#login"
-            },
-            {
-                "title": "Get current user",
-                "url": "#current-user"
-            }
-        ]
+      "title": "First Example App",
+      "url": "/coming-soon"
     },
     {
         "title": "Records",
         "url": "/android/guide/records",
         "sub": [
-            {
-                "title": "Record Database",
-                "url": "#database"
-            },
-            {
-                "title": "Create records",
-                "url": "#create"
-            },
-            {
-                "title": "Save records",
-                "url": "#save"
-            },
-            {
-                "title": "Query records",
-                "url": "#query"
-            },
-            {
-                "title": "Delete records",
-                "url": "#delete"
-            }
+	        {
+	          "title": "Overview",
+	          "url": "#overview"
+	        },
+	        {
+	          "title": "Basic CRUD",
+	          "url": "#basic-crud"
+	        },
+	        {
+	          "title": "Records Relations",
+	          "url": "#reference"
+	        },
+	        {
+	          "title": "Data Type",
+	          "url": "#data-type"
+	        },
+	        {
+	          "title": "Local Storage (Offline)",
+	          "url": "#local-storage"
+	        }
         ]
     },
     {
@@ -70,36 +56,86 @@
         "url": "/android/guide/query",
         "sub": [
             {
-                "title": "Basic Query",
-                "url": "#basic"
+                "title": "Basic Queries",
+                "url": "#basic-queries"
             },
             {
-                "title": "Complex Query",
-                "url": "#complex"
+                "title": "Conditions",
+                "url": "#conditions"
             },
-            {
-                "title": "Supported operators",
-                "url": "#operators"
-            }
+	        {
+	          "title": "Pagination and Ordering",
+	          "url": "#pagination-ordering"
+	        },
+	        {
+	          "title": "Relational Queries",
+	          "url": "#relational-queries"
+	        },
+	        {
+	          "title": "Cached Query",
+	          "url": "#cached-query"
+	        },
+	        {
+	          "title": "Subscribing to Query Change",
+	          "url": "#subscription"
+	        }
+        ]
+    },
+    {
+        "title": "Authentication",
+        "url": "/android/guide/user-auth",
+        "sub": [
+	        {
+	          "title": "Managing User",
+	          "url": "#managing-user"
+	        },
+	        {
+	          "title": "Current User",
+	          "url": "#current-user"
+	        },
+	        {
+	          "title": "Social Login (Facebook, Twitter, etc)",
+	          "url": "#social-login"
+	        },
+	        {
+	          "title": "User Profile",
+	          "url": "#user-profile"
+	        }
         ]
     },
     {
         "title": "Access Control",
         "url": "/android/guide/acl",
         "sub": [
+	        {
+	          "title": "Access Type",
+	          "url": "#acl-type"
+	        },
+	        {
+	          "title": "Default ACL Settings",
+	          "url": "#acl-default"
+	        },
             {
                 "title": "Public ACL",
-                "url": "/android/guide/acl/public"
+                "url": "#acl-public"
             },
             {
-                "title": "User-based ACL",
-                "url": "/android/guide/acl/user-based"
+                "title": "ACL by User",
+                "url": "#acl-user"
             },
             {
-                "title": "Role-based ACL",
-                "url": "/android/guide/acl/role-based"
-            }
+                "title": "ACL by User Role",
+                "url": "#acl-role"
+            },
+	        {
+	          "title": "ACL by Record Type",
+	          "url": "#acl-record"
+	        }
         ]
+    },
+    {
+      "title": "Push Notifications",
+      "url": "/coming-soon"
     },
     {
         "title": "Pubsub",
@@ -120,13 +156,67 @@
         ]
     },
     {
-        "title": "Plugin",
-        "url": "/android/guide/plugin",
+      "title": "Social Relations (Friends & Followers)",
+      "url": "/coming-soon",
+      "sub": [
+        {
+          "title": "Introduction",
+          "url": "#friends-and-followers"
+        },
+        {
+          "title": "Adding Relations",
+          "url": "#adding-relations"
+        },
+        {
+          "title": "Querying Relations",
+          "url": "#querying-relations"
+        },
+        {
+          "title": "Removing Relations",
+          "url": "#removing-relations"
+        }
+      ]
+    },
+    {
+      "title": "Geo-location",
+      "url": "/coming-soon"
+    },
+    {
+      "title": "Assets (File Upload)",
+      "url": "/coming-soon"
+    },
+    {
+        "title": "Cloud Functions",
+        "url": "/android/guide/cloud-functions",
         "sub": [
             {
                 "title": "Lambda Function",
                 "url": "#lambda"
             }
         ]
+    },
+    {
+      "title": "Handling Errors",
+      "url": "/coming-soon",
+      "sub": [
+        {
+          "title": "Using Skygear Error Codes",
+          "url": "#error-code"
+        }
+      ]
+    },
+    {
+      "title": "Tips",
+      "url": "/coming-soon",
+      "sub": [
+        {
+          "title": "Debugging",
+          "url": "#debugging"
+        },
+        {
+          "title": "Best Practice",
+          "url": "#best-practice"
+        }
+      ]
     }
 ]

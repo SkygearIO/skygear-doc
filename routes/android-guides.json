@@ -40,28 +40,10 @@
       "content_path": "./content/android/acl.md",
       "menu_path": "./menus/android-guide.json"
     },
-    "/android/guide/acl/public": {
+    "/android/guide/cloud-functions": {
       "name": "Android SDK",
-      "title": "Public Access Control",
-      "content_path": "./content/android/acl-public.md",
-      "menu_path": "./menus/android-guide.json"
-    },
-    "/android/guide/acl/user-based": {
-      "name": "Android SDK",
-      "title": "User-based Access Control",
-      "content_path": "./content/android/acl-user.md",
-      "menu_path": "./menus/android-guide.json"
-    },
-    "/android/guide/acl/role-based": {
-      "name": "Android SDK",
-      "title": "Role-based Access Control",
-      "content_path": "./content/android/acl-role.md",
-      "menu_path": "./menus/android-guide.json"
-    },
-    "/android/guide/plugin": {
-      "name": "Android SDK",
-      "title": "Plugin",
-      "content_path": "./content/android/plugin.md",
+      "title": "Cloud Functions",
+      "content_path": "./content/android/cloud-functions.md",
       "menu_path": "./menus/android-guide.json"
     }
   }
