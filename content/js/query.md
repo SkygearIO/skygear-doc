@@ -47,15 +47,17 @@ You can use `skygear.Query.not(query)` to get a condition negated version of `qu
 ## Conditions
 
 Conditions are like `WHERE` clause in SQL query and `filter` in NoSQL query.
-Here is a list of simple conditions you can apply on a query:
+You can certainly chain conditions together. Here is a list of simple
+conditions you can apply on a query:
 
 ``` javascript
-query.equalTo('title', 'First note');
-query.notEqualTo('category', 'dangerous');
-query.lessThan('age', 10);
-query.lessThanOrEqualTo('age', 10);
-query.greaterThan('size', 50);
-query.greaterThanOrEqualTo('size', 50);
+const query = new skygear.Query(Note)
+  .equalTo('title', 'First note')
+  .notEqualTo('category', 'dangerous')
+  .lessThan('age', 10)
+  .lessThanOrEqualTo('age', 10)
+  .greaterThan('size', 50)
+  .greaterThanOrEqualTo('size', 50);
 ```
 
 ### Contains condition
