@@ -23,7 +23,7 @@ class Html extends Component {
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet" />
-        <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+        <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
       </head>
       <body>
         <PageLoading id="page-loader" />
