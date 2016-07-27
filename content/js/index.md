@@ -76,6 +76,12 @@ to use bundler of your choice, but bear in mind that you need to "exclude"
 React Native and Node.js Websocket. Also, Skygear JS SDK needs
 [Babel Polyfill](https://babeljs.io/docs/usage/polyfill/).
 
+#### For React Native project
+
+The SDK works with [React Native](https://facebook.github.io/react-native/)
+well. Simply do `npm install --save skygear` and then you can
+`import skygear from 'skygear'` in your `index.ios.js` and `index.android.js`.
+
 ### For new projects
 
 [Yeoman](http://yeoman.io/) is recommended for setting up your new skygear
