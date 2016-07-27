@@ -181,10 +181,7 @@ to get the count without fetching any records, simply set `query.limit = 0`.
 
 If you have a record that with [reference](/js/guide/record#reference) to
 another record, you can perform eager loading using the transient syntax.
-(Note: it is possible to eager load records from multiple keys, but doing so
-will impair performance)
-
-Given the following setting (notice that Delivery has reference to Address
+Here we have an example (notice that Delivery has reference to Address
 on key `destination`):
 
 ``` javascript
@@ -220,6 +217,13 @@ skygear.publicDB.query(query).then((records) => {
   console.log(error);
 });
 ```
+
+- It is possible to eager load records from multiple keys, but doing so
+will impair performance
+- If you have a record in the public database referencing a record in the
+private database (or the other way around), `transientInclude` would fail
+and give you `null` at the transient key. If you really need to do so, you
+have to make another query.
 
 <a name="cached-query"></a>
 ## Cached Query

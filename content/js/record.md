@@ -218,7 +218,8 @@ section to learn more about eager loading.
 
 ### Deleting Referenced Record
 
-Yet to be implemented. For now, deleting a referenced record is not allowed.
+Yet to be implemented. For now, you have to delete the referencing record
+first and then the referenced record.
 
 <a name="data-type"></a>
 ## Data Type
