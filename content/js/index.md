@@ -163,7 +163,7 @@ To launch your first application, simply do `npm start`.
 
 Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear:
 
-- Learn how to [Authenticate Users](/js/guide/users)
-- Learn how to [Save Records](/js/guide/record)
-- Learn how to [Make Queries](/js/guide/query)
-- [See example app](/js/guide/simple-app)
+- Learn to make [Authentication](/js/guide/users)
+- Learn to CRUD [Records](/js/guide/record)
+- Learn to make [Queries](/js/guide/query)
+- Take a [Quick Glance](/js/guide/quick-glance) at SDK

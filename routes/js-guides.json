@@ -10,10 +10,10 @@
       "content_path": "./content/js/index.md",
       "menu_path": "./menus/js-guide.json"
     },
-    "/js/guide/simple-app": {
+    "/js/guide/quick-glance": {
       "name": "JS SDK",
-      "title": "Simple app to get started (Create user / record / query)",
-      "content_path": "./content/js/simple-app.md",
+      "title": "Quick Glance",
+      "content_path": "./content/js/quick-glance.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/record": {
