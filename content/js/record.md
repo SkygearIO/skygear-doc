@@ -58,27 +58,27 @@ skygear.publicDB.save(new Note({
 });
 ```
 
+#### Batch save
+
 You can also batch save multiple records at one time.
 
 ``` javascript
-const helloNote = new Note({
-  content: 'Hello world'
-});
-
-const foobarNote = new Note({
-  content: 'Foo bar'
-});
-
-skygear.publicDB.save([helloNote, foobarNote])
+skygear.publicDb.save([goodNote1, goodNote2, badNote3, goodNote4, badNote5])
 .then((result) => {
-  const {
-    savedRecords: [savedHelloNote, savedFoobarNote],
-    errors: [helloError, foobarError],
-  } = result;
-  // errors here indicate saving error
-}, (error) => {
-  // error here indicates request error
-});
+  console.log(result.savedRecords);
+  // [goodNote1, goodNote2, undefined, goodNote4, undefined]
+  console.log(result.errors);
+  // [undefined, undefined, error3, undefined, error5]
+}, (error) => { /* request error */ })
+```
+
+By default, "good" records are still saved while "bad" records are not.
+Use the `atomic` option if you don't want partial saves, so either all or none
+of the records will be saved.
+
+``` javascript
+skygear.publicDB.save([goodNote, badNote], { atomic: true });
+// neither of the notes are saved
 ```
 
 ### Reading a record
