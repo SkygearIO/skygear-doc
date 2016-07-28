@@ -8,12 +8,12 @@
         "url": "#sign-up-hosting"
       },
       {
-        "title": "Include the SDK in your project",
+        "title": "Include SDK in existing project",
         "url": "#include-js-sdk"
       },
       {
-        "title": "Set up your JS app",
-        "url": "#set-up-app"
+        "title": "New project with configured SDK",
+        "url": "#new-projects"
       },
       {
         "title": "What's Next",
