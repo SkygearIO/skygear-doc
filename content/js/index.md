@@ -15,9 +15,9 @@ website. After you registered, go to the **INFO** tab and copy down your
 [![Screenshot: where to look for Server EndPoint and API Key](/assets/common/portal-endpoint-apikey.png)](/assets/common/portal-endpoint-apikey.png)
 
 <a name="include-js-sdk"></a>
-## Include SDK in existing project
+## Including SDK in existing project
 
-### Step 1: install SDK
+### Step 1: Installing SDK
 
 #### Scenario 1: HTML5 project
 
@@ -80,7 +80,7 @@ well. Simply do `npm install --save skygear` and then you can
 `import skygear from 'skygear'` in your `index.ios.js` and `index.android.js`.
 
 <a name="set-up-app"></a>
-### Step 2: configure container
+### Step 2: Configuring container
 
 In all usage scenario after you have installed the SDK, you must configure your
 skygear container (`skygear`) with the `Server EndPoint` and `API Key` you get
@@ -98,13 +98,13 @@ skygear.config({
 ```
 
 <a name="new-projects"></a>
-## Create a new project with configured SDK
+## Creating a new project with configured SDK
 
 Following the steps below will help you set up a new scaffolding project with
 Skygear JS SDK. React.js, Babel 6 and Webpack are also automatically
 included and configured.
 
-### Step 1: install Node.js
+### Step 1: Installing Node.js
 
 We recommend setting up the build system using [Node.js](https://nodejs.org).
 To install `node` and package manager `npm`, simply do:
@@ -123,7 +123,7 @@ If you are using a different operating system, please see this
 If bash shell is not available on your machine (such as Windows),
 we recommend using [GitBash](https://git-scm.com/downloads).
 
-### Step 2: install and run yeoman generator
+### Step 2: Installing and running yeoman generator
 
 After Node.js is installed, we suggest using [Yeoman](http://yeoman.io/) to
 dynamically generate your project. Make use you have your Skygear
@@ -142,7 +142,7 @@ cd new-skygear-project
 yo skygear
 ```
 
-### Step 3: answer the questions for generator
+### Step 3: Answering the questions for generator
 
 You will then be prompted a few questions, please make sure that you
 answer these questions correctly:
