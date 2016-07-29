@@ -8,16 +8,16 @@
                 "url": "#signing-up"
             },
             {
-                "title": "Including the SDK in your project",
+                "title": "Including SDK in existing project",
                 "url": "#including"
             },
             {
-                "title": "Setting up your JS app",
-                "url": "#setting-up"
+                "title": "Creating a new project with configured SDK",
+                "url": "#create-new"
             },
             {
                 "title": "What's Next",
-                "url": "#what's-next"
+                "url": "#whats-next"
             }
         ]
     },
