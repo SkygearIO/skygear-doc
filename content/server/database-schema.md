@@ -44,6 +44,27 @@ The above record will be saved in a record table called `note` with the followin
 * content (string): "Hello World"
 * noteOrder (integer): 1
 
+## Schema Migration
+
+When saving records, Skygear Server compares if the saving record has a schema
+different from the record schema in the database. If the schemas are different,
+Skygear Server will attempt to update the database schema automatically.
+
+Record schema migration may fail if the new schema and the old schema are not
+compatible. This will occur if the old field has a different data type than the new
+field. In general, you should not change the data type of a field because
+this breaks backward compatibility of your app.
+
+Record schema migration can occur in the following scenarios:
+
+* Skygear Server is in development mode.
+* The request is authenticated with a master key.
+
+In other words, if your server is in production mode, you can specify the master
+key in your client request to update the record schema when saving records. If
+you use a client SDK to accomplish this, make sure you don't leave the master
+key in your published app.
+
 ## Reserved Tables
 
 Reserved tables stores data that is not a record. For example, user data and device data are not stored in a record table but a reserved table. The schemas of the reserved tables are fixed in each Skygear version, but you may need to migrate the schema of these tables when upgrading from an old version of Skygear Server to a new version. Do not manually change the schema of the reserved tables.
