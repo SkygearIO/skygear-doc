@@ -12,6 +12,10 @@
         "url": "#name-and-key"
       },
       {
+        "title": "Admin User",
+        "url": "#admin-user"
+      },
+      {
         "title": "Logging",
         "url": "#logging"
       },

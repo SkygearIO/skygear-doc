@@ -82,6 +82,16 @@ app:
     API_KEY: thisissupersecret
 ```
 
+<a name="admin-user"></a>
+## Admin User
+
+After launching Skygear Server, an administrative role (`Admin`) and an
+admin user is created. The default username is `admin` and the default
+password is `secret`.
+
+Please remember to change the password of the admin user before your
+application is push to production.
+
 <a name="logging"></a>
 ## Logging
 
