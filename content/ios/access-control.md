@@ -26,7 +26,7 @@ record, the above settings will be ignored for that record.
 <a name="acl-user"></a>
 ## ACL by User
 
-Example: Share docs to colleages
+Example: Share docs to colleagues
 
 ```objective-c
 // supervisor is a placeholder of user id
@@ -52,7 +52,7 @@ others can post comments to the articles.
 ### Defining Roles
 
 During the bootstrapping phrase of your app, you should define the roles that
-your app is going to need. Once the app is freezed into production mode, you
+your app is going to need. Once the app is frozen into production mode, you
 cannot grant access to roles you have not defined.
 
 In the case of a simple blogging application, an application might need
@@ -70,7 +70,7 @@ SKYRole *author = [SKYRole roleWithName:@"author"];
 SKYRole *visitor = [SKYRole roleWithName:@"visitor"];
 ```
 
-At this pont, the `webmaster` role is an ordinary role without special powers
+At this point, the `webmaster` role is an ordinary role without special powers
 from the view of Skygear. To actually give the role the power to assign
 roles to other users, you have to designate those as admin roles.
 
@@ -102,7 +102,7 @@ automatically gain the `visitor` role.
                                          }];
 ```
 
-Remember that the above definitions are freezed at the time the application
+Remember that the above definitions are frozen at the time the application
 is switched to production mode.
 
 
@@ -162,8 +162,8 @@ applied to other records.
 
 Note that the owner of a record always have access to a record.
 
-Alternatively, you can modify access control at the time when SKYContainer
-post the SKYContainerWillSaveRecordNotification. By doing this, you put the
+Alternatively, you can modify access control at the time when `SKYContainer`
+post the `SKYContainerWillSaveRecordNotification`. By doing this, you put the
 access control logic in one place, and that access control settings are applied
 consistently.
 
@@ -219,4 +219,4 @@ SKYContainer *container = [SKYContainer defaultContainer];
                                    }];
 ```
 
-Note that creation access is freezed in production mode.
+Note that creation access is frozen in production mode.

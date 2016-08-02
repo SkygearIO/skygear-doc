@@ -1,5 +1,5 @@
 1. Supported by saving `CLLocation` in `SKYRecord`
-2. Only latitude and longitude of CLLocation is recorded
+2. Only latitude and longitude of `CLLocation` is recorded
 
 ### Saving a location on record
 

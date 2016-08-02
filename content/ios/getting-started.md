@@ -22,7 +22,7 @@ Go to the Info tab on the sidebar, and you will see your _Server Endpoint_ in th
 <a name="include-ios-sdk"></a>
 ## Include the SDK in your project
 
-The installation requies [CocoaPods](https://cocoapods.org/).
+The installation requires [CocoaPods](https://cocoapods.org/).
 
 To install the Skygear iOS SDK as your iOS application dependency:
 
@@ -47,7 +47,7 @@ platform :ios, '8.0'
 pod 'SKYKit'
 ```
 
-Cocoapods 0.36 and above introduces the `use_frameworks!` instruction, so the Objective-C bridging header is no longer needed.
+CocoaPods 0.36 and above introduces the `use_frameworks!` instruction, so the Objective-C bridging header is no longer needed.
 
 2. Run `pod install` in your terminal.
 3. You would see that an Xcode Workspace file is created. Open the file and go to the project.
@@ -91,7 +91,7 @@ Replace `your-endpoint.skygeario.com` with your Server Endpoint and `SKYGEAR_API
 
 <a name="whats-next"></a>
 ## What's Next
-Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
+Now you've learned how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
 
 Interested in doing more with your Skygear backend server? 
 

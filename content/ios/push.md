@@ -54,7 +54,7 @@ operation.sendCompletionHandler = ^(NSArray *deviceIDs, NSError *error) {
 
 ### TODO: Problems with the interface
 
-1. There are no expored interfaces for SDK to fetch device ids. Sending to device
+1. There are no exported interfaces for SDK to fetch device ids. Sending to device
    is basically unusable.
 2. Cannot really think of a valid use case to send notification from one device
    to another device. Sending to devices is more of a plugin thing: e.g. send
