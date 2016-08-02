@@ -12,9 +12,9 @@ Please make sure you know about and have already configured your skygear
 Before any record operations, you need to understand the record databases in
 Skygear. You will provide with private and public database:
 
-- Everything in private database is truely private, regardless of what access
+- Everything in private database is truly private, regardless of what access
 control entity you set to the record.
-- Record saved at public database is defualt public. To control the access, you
+- Record saved at public database is default public. To control the access, you
 may set difference access control entity to the record.
 
 In the SDK, you can get the public or private database using:

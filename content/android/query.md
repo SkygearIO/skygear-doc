@@ -72,23 +72,23 @@ Query notBetweenOneAndThree = new Query("Note")
 
 Besides the operations shown above, the following list out all operations supported.
 
-- like
-- notLike
-- caseInsensitiveLike
-- caseInsensitiveNotLike
-- equalTo
-- notEqualTo
-- greaterThan
-- greaterThanOrEqualTo
-- lessThan
-- lessThanOrEqualTo
-- contains
-- notContains
-- containsValue
-- notContainsValue
-- negate
-- addDescending
-- addAscending
+- `like`
+- `notLike`
+- `caseInsensitiveLike`
+- `caseInsensitiveNotLike`
+- `equalTo`
+- `notEqualTo`
+- `greaterThan`
+- `greaterThanOrEqualTo`
+- `lessThan`
+- `lessThanOrEqualTo`
+- `contains`
+- `notContains`
+- `containsValue`
+- `notContainsValue`
+- `negate`
+- `addDescending`
+- `addAscending`
 
 <a name="pagination-ordering"></a>
 ## Pagination and Ordering
