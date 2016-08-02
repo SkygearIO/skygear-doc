@@ -33,7 +33,7 @@ Use `skycli record import --help` to view a list of available options.
 Each JSON file/stdin follows the [concatenated JSON format](https://en.wikipedia.org/wiki/JSON_Streaming#Concatenated_JSON), where each record is represented by one JSON object.
 
 ### Example
-records.json:
+`records.json`:
 ```javascript
 { "_id": "student/44ea2a9c-ee15-447a-a758-430210be7fa4", "name": "Alice", "age": 10}
 { "_id": "city/f8cf1947-68ec-4fb0-9216-dc32ef92ddeb", "name": "Hong Kong", "image": "@file:images/hongkong.jpg" }
@@ -58,7 +58,7 @@ reference     @ref:<referenced_id>
 string        @str:<literal>
 ```
 
-See [Protocal-DataType](https://github.com/oursky/skygear/wiki/Protocol-DataType) for more complex value supported by Skygear.
+See [Protocol Data Type](https://github.com/oursky/skygear/wiki/Protocol-DataType) for more complex value supported by Skygear.
 
 ## Handling assets
 
@@ -265,7 +265,7 @@ someassetid-hongkong.jpg
 
 # Edit
 ## Description
-`skycli record edit` fetches a record from Skygear, ask user to edit it, and reupload the record.
+`skycli record edit` fetches a record from Skygear, ask user to edit it, and re-upload the record.
 
 The record will be fetched, then an editor program will be opened including the record. After the editor is closed, the modified record will be uploaded.
 

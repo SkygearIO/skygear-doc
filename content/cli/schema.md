@@ -1,15 +1,15 @@
-`schema` subcommands help to add, rename and delete record fields -- the kind
+`schema` sub-commands help to add, rename and delete record fields -- the kind
 of schema operations that cannot be achieved via regular record handlers.
 
-`schema` subcommands are provided as a convenient tool for simple schema
+`schema` sub-commands are provided as a convenient tool for simple schema
 operations and do not intended to be a full-featured database migration tool.
 If you need more sophisticated amendments on the database, remember you have
-full access to the underlying postgres db, you should feel free to write db
+full access to the underlying PostgreSQL db, you should feel free to write db
 script or use whatever tools like `psql` to fulfill your needs. Refer to
 database structure guide for more information on our internal table
 definitions.
 
-Managing record schema requires Skygear Server to be placed in dev mode
+Managing record schema requires Skygear Server to be placed in development mode
 or using a master key.
 
 # Fetch schema

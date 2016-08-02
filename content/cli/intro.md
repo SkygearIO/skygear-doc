@@ -1,5 +1,5 @@
 Skygear provides a default command-line interface `skycli` to interact with
-Skygear's handlers and postgres backend to facilitate application development
+Skygear's handlers and PostgreSQL backend to facilitate application development
 and some common administration works.
 
 ## Getting started
@@ -27,7 +27,7 @@ $ skycli record get note/id _id
 Error: record not found
 ```
 
-API key can also be overrided on a per command basis by supplying the
+API key can also be overridden on a per command basis by supplying the
 `api_key` flag:
 
 ```bash
@@ -35,9 +35,9 @@ $ skycli --api_key ANOTHER_API_KEY record get note/id _id
 Error: record not found
 ```
 
-**DEV NOTE**: Global options like _API key_, _access token_ and _endpoint
+**IMPORTANT NOTE**: Global options like _API key_, _access token_ and _endpoint
 address_ should be persisted on a project-by-project basis (e.g. on
-`./.skycli/config`) s.t. cli user doesn't have to configure it on every new
+`./.skycli/config`) so that CLI user doesn't have to configure it on every new
 shell.
 
 ## What now?
