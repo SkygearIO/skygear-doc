@@ -1,7 +1,7 @@
 Skygear community provide a wide range of ready-to-use plugin, you can easily
 load the plugin by using git submodule.
 
-First, find some plugin you want to use on skygeario repos:
+First, find some plugin you want to use on skygeario repositories:
 
 https://github.com/SkygearIO/
 

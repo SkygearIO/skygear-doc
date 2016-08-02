@@ -3,8 +3,8 @@ message broker among all plugins. When processing an extension point, Skygear Se
 with each plugin.
 
 Plugin is an out-of-process program running alongside Skygear. One advantage of
-utilising an out-of-process and a message architecture, you can develop plugin
-in your favourite language. Currently, you can create a plugin using the Python
+utilizing an out-of-process and a message architecture, you can develop plugin
+in your favorite language. Currently, you can create a plugin using the Python
 SDK.
 
 This also makes plugin to be scalable because you can run plugin on remote

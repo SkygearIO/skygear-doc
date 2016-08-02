@@ -16,7 +16,7 @@ You can return one of the followings in a custom handler function:
 
 * `str`, user will get the string in response body
 
-* `dict`, `list` or `int`, `py-skygear` will try to serialize the dict into json
+* `dict`, `list` or `int`, `py-skygear` will try to serialize the dict into JSON
   object. User will get a JSON object in response body with `Content-Type` set to
   `application/json`
 

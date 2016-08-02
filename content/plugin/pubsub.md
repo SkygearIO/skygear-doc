@@ -17,7 +17,7 @@ To build pubsub into Skygear, you have to import `SkygearContainer`.
 from skygear.container import SkygearContainer
 ```
 
-When you have an instance of SkygearContainer, you can create a pubsub socket
+When you have an instance of `SkygearContainer`, you can create a pubsub socket
 so that you can send messages over the pubsub channel.
 
 ```python
