@@ -20,7 +20,7 @@ Push to `production` branch to deploy to [http://docs.skygear.io](http://docs.sk
 
 ## Update content
 - All contents are defined in markdown files in **content** folder
-  - The markdown format follows [Github's recommandation](https://guides.github.com/features/mastering-markdown/)
+  - The markdown format follows [GitHub's recommendation](https://guides.github.com/features/mastering-markdown/)
   - The code block would have syntax highlight if declared the language used.
   - Currently supported languages:
     `bash`, `css`, `go`, `gradle`, `groovy`, `html`,
