@@ -7,25 +7,25 @@ Notice that even without logging in, user can still interact with the SDK,
 such as querying data in public database (`skygear.publicDB`). However, this
 behavior can be changed by setting different access control for public. For
 more information, please refer to [access control](/js/guide/access-control#acl-default)
-page. Skygear uses access token (`skygear.accessToken`) with localstorage to
+page. Skygear uses access token (`skygear.accessToken`) with local storage to
 track user authentication. Typical flow is shown below:
 
 1. Web page load/refresh
-2. SDK checks if user information exists in localstorage
+2. SDK checks if user information exists in local storage
   - yes: SDK checks if access token has expired
     + yes: user has to log in again
     + no: user remains logged in (skip 3)
   - no: user has to log in or sign up
 3. User logs in or signs up (trigger [onUserChanged](#current-user))
-4. SDK updates user information in container and localstorage
+4. SDK updates user information in container and local storage
   - `skygear.currentUser` is available
   - `skygear.accessToken` is available
 5. User logs out or access token expires (trigger [onUserChanged](#current-user))
-6. SDK clears user information in container and localstorage
+6. SDK clears user information in container and local storage
 
 ### User object
 
-In the callback function for login, signup or onUserChanged and the variable
+In the callback function for login, signup or `onUserChanged` and the variable
 at `skygear.currentUser`, user object is like the following:
 
 ``` javascript
@@ -53,7 +53,7 @@ Email signup is available as well: `skygear.signupWithEmail(email, password)`
 
 ### Log in
 
-To deal with nonexisting username or wrong password error, please refer to
+To deal with non-existing username or wrong password error, please refer to
 [handling errors](/js/guide/handling-errors) page.
 
 ``` javascript
@@ -180,8 +180,8 @@ After the code is written, we can then have social login:
 skygear.loginWithProvider(provider, authData);
 ```
 
-- provider: name of provider, such as `com.facebook` or `com.google`
-- authData: an object that will be passed as a dictionary to the backend python
+- `provider`: name of provider, such as `com.facebook` or `com.google`
+- `authData`: an object that will be passed as a dictionary to the backend python
 plugin code
 
 <a name="user-profile"></a>

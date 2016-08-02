@@ -4,7 +4,8 @@
 Skygear provides query of records with conditions. Here is a straight-forward
 example of getting the note that has the `title` as `First note` inside the
 public database. If you don't know the difference between
-privateDB and publicDB, please read [Records](/js/guide/record) section first.
+private database and public database, please read [Records](/js/guide/record)
+section first.
 
 ``` javascript
 const Note = skygear.Record.extend('note');

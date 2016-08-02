@@ -30,8 +30,8 @@ skygear.defaultACL.hasPublicReadAccess(); // default true
 skygear.defaultACL.hasPublicWriteAccess(); // default false
 ```
 
-After changing the default acl setting, all records created in the future
-will automatically have this acl setting; however, acl setting for existing
+After changing the default ACL setting, all records created in the future
+will automatically have this ACL setting; however, ACL setting for existing
 records created before this update will remain unchanged.
 
 <a name='acl-user'></a>
