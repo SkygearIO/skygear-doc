@@ -120,7 +120,7 @@ $ py-skygear plugin.py --subprocess init
 {"op": ["chima:hello"], "provider": [], "hook": [], "timer": [], "handler": {}}
 ```
 
-Add plugin configuration to environment variabls 
+Add plugin configuration to environment variables
 
 ```
 export PLUGINS=first_plugin
@@ -141,5 +141,5 @@ curl -XPOST http://127.0.0.1:3000/chima/hello -d '{"api_key": "secret","action":
 
 ## What's next?
 
-- [Interact with server using cli]({{< relref "cli/intro.md" >}})
+- [Interact with server using CLI]({{< relref "cli/intro.md" >}})
 - [Create your plugin]({{< relref "plugin/intro.md" >}})

@@ -51,7 +51,7 @@ $ mkdir skygear
 $ cd skygear
 ```
 
-Download the docker-compose.yml file and save it in the directory you have just created.
+Download the `docker-compose.yml` file and save it in the directory you have just created.
 
 ``` bash
 $ curl -O http://docs.skygear.io/docker-compose.yml
@@ -173,5 +173,5 @@ skygear.publicDB.save(note).then(function (record) {
 
 ### What's next?
 
-- [Interact with server using cli]({{< relref "cli/intro.md" >}})
+- [Interact with server using CLI]({{< relref "cli/intro.md" >}})
 - [Create your plugin]({{< relref "plugin/intro.md" >}})
