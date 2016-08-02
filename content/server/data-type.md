@@ -1,7 +1,7 @@
 Data values are transformed to JSON according to their types. Types undefined
 in JSON will be serialized as a JSON object with non-standard syntaxes.
 
-|type|json type|example|
+|type|JSON type|example|
 |---|---|---|
 |string|string|`"data"`|
 |number|number|`42`|
