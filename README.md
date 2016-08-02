@@ -28,6 +28,13 @@ Push to `production` branch to deploy to [http://docs.skygear.io](http://docs.sk
 - To link a specific content to a route, update / create a new JSON files in **routes** folder
 - To update side menu, update JSON files in **menus** folder
 
+## Spell checker
+
+- `npm install -g markdown-spellcheck`
+- `mdspell -r --en-us -n '**/*.md' '!**/node_modules/**/*.md'`
+- American English spelling is used.
+- Exceptions are in the `.spelling` file.
+
 
 ## Folder Structure
 ```
