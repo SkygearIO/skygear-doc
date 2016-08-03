@@ -64,7 +64,7 @@ SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
 
 There are couples of things we have done here:
 
-1. First we created a `todo` _record_ and assigned some attributes to it. you can use the `[]` subscripting operator as shown above, or the `setObject:forKey:` method. Your app automatically creates this Class when you first use it.
+1. First we created a `todo` _record_ and assigned some attributes to it. you can use the `[]` subscript operator as shown above, or the `setObject:forKey:` method. Your app automatically creates this Class when you first use it.
 2. We fetched the _container_ of our app, and took a reference to the private
    database of the current user. So when you save a _record_, you're saving the record to the private database of the current user.
 3. We actually saved the `todo` record and registered a block to be executed
@@ -118,7 +118,7 @@ SKYRecordID *recordID = [SKYRecordID recordIDWithRecordType:@"todo" name:@"36906
 }];
 ```
 
-To get the values out of the SKYRecord, you can use the `[]` subscripting operator as shown above, or the `objectForKey:` method:
+To get the values out of the `SKYRecord`, you can use the `[]` subscript operator as shown above, or the `objectForKey:` method:
 
 ```obj-c
 NSString *title = [record objectForKey: @"title"];
@@ -312,20 +312,20 @@ SKYDatabase *privateDB = [[SKYContainer defaultContainer] privateCloudDatabase];
 
 For each record type stored in the database, a table with the same name as the record type is created. For example, if your record type is called `note`, there is a table called `note` in the database. Each row in the table corresponds to one record.
 
-For each record table there exists two types of columns, those that are reserved by Skyear and those that are user-defined. Reserved columns contain metadata of a record, such as record ID, record owner and creation time. Names of reserved columns are prefixed with underscore (`_`).
+For each record table there exists two types of columns, those that are reserved by Skygear and those that are user-defined. Reserved columns contain metadata of a record, such as record ID, record owner and creation time. Names of reserved columns are prefixed with underscore (`_`).
 
 It is possible to manipulate data in record tables directly. However, one should exercise cautions when modifying data directly in record tables.
 
 Each record table contains the following reserved columns:
 
-| Column Name  | Object Attribute         | Description                                     |
-|--------------|--------------------------|-------------------------------------------------|
-| \_created_at | creationDate             | `NSDate` object of when record was created      |
-| \_updated_at | modificationDate         | `NSDate` object of when record was updated      |
-| \_created_by | creatorUserRecordID      | `NSString` object of user id of record creator  |
-| \_updated_by | lastModifiedUserRecordID | `NSString` object of user id of record updater  |
-| \_owner      | ownerUserRecordID        | `NSString` object of user id of owner           |
-| _id          | recordID                 | `SKYRecordID` object of record id               |
+| Column Name   | Object Attribute           | Description                                     |
+|---------------|----------------------------|-------------------------------------------------|
+| `_created_at` | `creationDate`             | `NSDate` object of when record was created      |
+| `_updated_at` | `modificationDate`         | `NSDate` object of when record was updated      |
+| `_created_by` | `creatorUserRecordID`      | `NSString` object of user id of record creator  |
+| `_updated_by` | `lastModifiedUserRecordID` | `NSString` object of user id of record updater  |
+| `_owner`      | `ownerUserRecordID`        | `NSString` object of user id of owner           |
+| `_id`         | `recordID`                 | `SKYRecordID` object of record id               |
 
 You can retrieve the values from the object by accessing its properties:
 

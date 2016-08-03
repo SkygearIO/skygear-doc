@@ -51,9 +51,9 @@ require('babel-polyfill');
 var skygear = require('skygear');
 ```
 
-#### Scenario 3: For Webpack project
+#### Scenario 3: For webpack project
 
-If you wish to use [Webpack](https://webpack.github.io/) to bundle up your
+If you wish to use [webpack](https://webpack.github.io/) to bundle up your
 front end JavaScript code together with Skygear JS SDK, simply modify your
 webpack configuration file (by default `webpack.config.js`) to include the
 following:
@@ -161,7 +161,7 @@ To launch your first application, simply do `npm start`.
 <a name="whats-next"></a>
 ## What's Next
 
-Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear:
+Now you've learned how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear:
 
 - Learn to make [Authentication](/js/guide/users)
 - Learn to CRUD [Records](/js/guide/record)

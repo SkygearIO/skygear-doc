@@ -21,6 +21,6 @@ To create an Authentication Provider, you have to declare a class that implement
 
 The decorator `@skygear.provides("auth", "com.facebook")` decorates the class and register it to Skygear. The first argument denotes that this is an Authentication Provider, and the provider has the name `com.facebook`. The provider name can be arbitrary, but it should adopt the reverse DNS name of your company as a convention.
 
-Your app needs to obtain an access token by calling Facebook SDK from the client side. If you use relevant Skygear framework, the Facebook authentication flow will be handled for you automatically. In this example, the Authentication Provider will validates access token with Facebook and return teh user’s Facebook ID to Skygear.
+Your app needs to obtain an access token by calling Facebook SDK from the client side. If you use relevant Skygear framework, the Facebook authentication flow will be handled for you automatically. In this example, the Authentication Provider will validates access token with Facebook and return the user’s Facebook ID to Skygear.
 
 Plugin can also return additional authentication data to Skygear. Doing this allows you to store additional data to User object.

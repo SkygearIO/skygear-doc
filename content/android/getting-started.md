@@ -121,7 +121,7 @@ Also, you need to make sure your application has grant
 
 <a name="what's-next"></a>
 ## What's Next
-Now you've learnt how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
+Now you've learned how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear.
 
 Interested in doing more with your Skygear backend server?
 

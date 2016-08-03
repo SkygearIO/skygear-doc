@@ -54,7 +54,7 @@ def update_note(record, original_record, db):
 
 ## Using database outside Database Extension Point
 
-py-skygear provide a database connection context func for developer to use db
+py-skygear provide a database connection context function for developer to use db
 connection at `handler`, `lambda` and `schedule`.
 
 ``` python

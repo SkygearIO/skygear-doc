@@ -1,6 +1,6 @@
 Introduction & Glossary to Skygear Architecture
 
-{{< img src="/intro/blocks.jpg" title="Connection between component blocks"
+{{<img src="/intro/blocks.jpg" title="Connection between component blocks"
     caption="Showing the data flow between components">}}
 
 
@@ -53,13 +53,13 @@ You can hook any pieces of code before/after a record is saved or deleted.
 - You can add business logic.
 - You can send tracking data to other systems.
 - You can sync data to other data stores.
-- You can cacasde update or delete other records.
+- You can cascade update or delete other records.
 
 #### Auth
 
 Besides ordinary username and password authentication, you can write an
 authentication plugin to provide alternative authentication methods. We are
-providing facebook, github and twitter authentication plugins for your
+providing Facebook, GitHub and Twitter authentication plugins for your
 convenience.
 
 #### Custom Handler

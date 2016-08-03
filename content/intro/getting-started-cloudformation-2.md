@@ -79,7 +79,7 @@ Set up a git remote for deploying your plugin to your instance:
 git remote add deploy git@<ip>:catapi
 ```
 
-Push your git repo:
+Push your git repository:
 
 ```shell
 git push deploy master

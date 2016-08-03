@@ -2,7 +2,7 @@
 
 **NOT IMPLEMENTED**: In a future version of this guide, we should focus on how
 people can contribute to Skygear Server by checking out the source. There will be two
-sections for those who want to develop using the barebone way or those who want
+sections for those who want to develop using the bare-bones way or those who want
 to develop using the Docker way.
 
 This guide will show you how to run Skygear Server on docker for development and verify that it is working.
@@ -25,11 +25,11 @@ $ docker-compose --version
 docker-compose version: 1.4.0
 ```
 
-If similiar message is seen, then you are good to go.
+If similar message is seen, then you are good to go.
 
 ## Running Skygear Server
 
-Skygear Server has an official [Docker Hub repository](https://hub.docker.com/r/skygeario/skygear-server/). It saves you the effort to build docker images yourself. For development, we have a pre-configured `docker-compose` file to start with.
+Skygear Server has an official [Docker Hub repository](https://hub.docker.com/r/skygeario/skygear-server/). It saves you the effort to build docker images yourself. For development, we have an example of configured `docker-compose` file to start with.
 
 Now to clone and set up Skygear Server from scratch:
 
@@ -53,7 +53,7 @@ Attaching to skygear_db_1, skygear_skygear_1
 
 If it is the first time that you run `docker-compose up` on this directory, there will be lots of logging describing what is going on. Stay calm and wait for the log to stabilize.
 
-Now let's try a simple cURL to see whether the skygear server is up and running. On Mac OS X, you will have to determine the docker machine's ip first:
+Now let's try a simple cURL to see whether the skygear server is up and running. On Mac OS X, you will have to determine the docker machine's IP address first:
 
 ```bash
 $ docker-machine ip default
@@ -83,4 +83,4 @@ Great!
 Explore Skygear's SDKs to start developing :D
 
 * [Objective C SDK](https://github.com/skygeario/skygear-SDK-iOS)
-* [Javascript SDK](https://github.com/skygeario/skygear-server)
+* [JavaScript SDK](https://github.com/skygeario/skygear-server)

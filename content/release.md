@@ -1,8 +1,8 @@
 Every WED.
 
-- Upload `py-skygear` to pypi as `skygear`
+- Upload `py-skygear` to PyPI as `skygear`
 - Docker Hub automatically build `skygeario/py-skygear` triggered by git push
-- Upload `skygear-SDK-iOS` to [cocoapods](https://cocoapods.org/pods/SKYKit) as `SKYKit`
+- Upload `skygear-SDK-iOS` to [CocoaPods](https://cocoapods.org/pods/SKYKit) as `SKYKit`
 - Upload `skygear-SDK-JS` to [npm](https://www.npmjs.com/package/skygear) as `skygear`
 - Upload `skygear-SDK-Android` to [jcenter](https://bintray.com/skygeario/maven/skygear-android)
 
@@ -14,7 +14,7 @@ will stay the same for all above modules during the release cycle.
 For hot fix within a release cycle, increment `z`
 by 1 and `z` is reset to 0 on the next release cycle.
 
-## How to relase?
+## How to release?
 
 ### Preparation
 
@@ -85,10 +85,10 @@ $ git push origin
 
 ### skygear-SDK-iOS
 
-**IMPORTANT**: Note that Cocoapods does not allow tag prefixed with `v`.
+**IMPORTANT**: Note that CocoaPods does not allow tag prefixed with `v`.
 Therefore the tag name is different from other projects.
 
-**IMPORTANT**: Cocoapods requires that that tag is pushed to repo before
+**IMPORTANT**: CocoaPods requires that that tag is pushed to repository before
 it will accept a new release.
 
 ```shell

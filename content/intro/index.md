@@ -32,19 +32,19 @@ skygear.publicDB.save(new Note({
 
 ### Plugin
 
-- Database hook: beforeSave, afterSave, beforeDelete, afterDelete
+- Database hook: `beforeSave`, `afterSave`, `beforeDelete`, `afterDelete`
 - Able to run random SQL if you know what you are doing
 
 ### Client SDKs
 
-- Easily presist data on client
-- Send and recive push notification
+- Easily persist data on client
+- Send and receive push notification
 - Store file
 - iOS/Android
-- javascript - node.js, browser, react-native
+- JavaScript - Node.js, browser, react-native
 
 
 ### What's next?
 
-[Interact with server using cli]({{< relref "cli/intro.md" >}})
+[Interact with server using CLI]({{< relref "cli/intro.md" >}})
 [Create your plugin]({{< relref "plugin/intro.md" >}})

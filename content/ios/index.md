@@ -1,4 +1,4 @@
-## Using cocoapods
+## Using CocoaPods
 
 ``` bash
 pod install SKYKit

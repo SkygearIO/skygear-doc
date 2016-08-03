@@ -13,7 +13,7 @@ We can call lambda functions defined by custom plugin like this:
 }];
 ```
 
-Please refer to indivdual plugin documentation for expected arguments and
+Please refer to individual plugin documentation for expected arguments and
 response content.
 
 ### Calling handler
@@ -95,7 +95,7 @@ When response is available from the server, your implementation of
 ### Facebook Authentication
 
 If you expect your user to log in to your app with a Facebook account, you
-should have the CocoaPod for SKYKit Facebook integration included. Once you did
+should have the CocoaPods for SKYKit Facebook integration included. Once you did
 that, you can call this method to have your user log in to Facebook.
 
 ``` Objective-C
@@ -132,7 +132,7 @@ access token:
 ### Custom Authentication Provider
 
 If you implement your own authentication provider, you should create
-an NSDictionary of authentication data and call `SKYLoginUserOperation`
+an `NSDictionary` of authentication data and call `SKYLoginUserOperation`
 `operationWithAuthenticationProvider:data:` method:
 
 ``` Objective-C

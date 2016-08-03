@@ -1,11 +1,11 @@
 Skygear provides pubsub services for building apps required real-time updates.
-A typical pubsub services can be devided into two parts: Publish and
+A typical pubsub services can be divided into two parts: Publish and
 Subscription.
 
 <a name="publish"></a>
 ## Publish
 
-The following code snippet shows how to publish a data object (in `JSON` foramt)
+The following code snippet shows how to publish a data object (in `JSON` format)
 to a specific channel:
 
 ```java

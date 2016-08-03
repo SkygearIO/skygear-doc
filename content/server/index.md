@@ -1,4 +1,4 @@
-While we provide docker image for easy boostrap, you can clone the source and start the server on your own by following steps.
+While we provide docker image for easy bootstrap, you can clone the source and start the server on your own by following steps.
 
 ### Prerequisite
 
@@ -22,7 +22,7 @@ psql -c 'CREATE EXTENSION postgis;' -U postgres -d myapp
 
 Follow the instructions at https://golang.org/doc/install
 
-### Get the soruce code
+### Get the source code
 
 ``` bash
 mkdir -p $GOPATH/src/github.com/oursky

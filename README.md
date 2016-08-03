@@ -20,13 +20,20 @@ Push to `production` branch to deploy to [http://docs.skygear.io](http://docs.sk
 
 ## Update content
 - All contents are defined in markdown files in **content** folder
-  - The markdown format follows [Github's recommandation](https://guides.github.com/features/mastering-markdown/)
+  - The markdown format follows [GitHub's recommendation](https://guides.github.com/features/mastering-markdown/)
   - The code block would have syntax highlight if declared the language used.
   - Currently supported languages:
     `bash`, `css`, `go`, `gradle`, `groovy`, `html`,
     `ini`, `java`, `javascript`, `js`, `objc`, `python`
 - To link a specific content to a route, update / create a new JSON files in **routes** folder
 - To update side menu, update JSON files in **menus** folder
+
+## Spell checker
+
+- `npm install -g markdown-spellcheck`
+- `mdspell -r --en-us -n '**/*.md' '!**/node_modules/**/*.md'`
+- American English spelling is used.
+- Exceptions are in the `.spelling` file.
 
 
 ## Folder Structure

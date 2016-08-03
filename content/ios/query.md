@@ -29,7 +29,7 @@ query.sortDescriptors = @[sortDescriptor];
 
 We constructed a `SKYQuery` to search for `todo` records. There are no additional
 criteria needed so we put the predicate to `nil`. Then we assigned a
-`NSSortDescription` to ask Skygear Server to sort the `todo` records by `order` field ascendingly.
+`NSSortDescription` to ask Skygear Server to sort the `todo` records by `order` field in ascending order.
 
 <a name="conditions"></a>
 ## Conditions
@@ -62,7 +62,7 @@ NSPredicate *inPredicate =
 
 The `SKYRelationPredicate` can be used to query for records having a relation with
 the current user. For this kind of query, the record have an relation with
-the current user if the record has an attribte that contains a user having
+the current user if the record has an attribute that contains a user having
 the relation with the current user.
 
 For example, to query for records owned by a user that the current user is following:
@@ -77,7 +77,7 @@ NSPredicate *p =
 
 ### References
 
-SKYKit's query supports filtering records by the reference field of records:
+`SKYKit` query supports filtering records by the reference field of records:
 
 ```obj-c
 SKYReference *resturantRef = [SKYReference referenceWithRecordID:[SKYRecordID recordIDWithRecordType:@"restaurant" name:@"my resturant"]];
@@ -109,7 +109,7 @@ NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"_up
 query.sortDescriptors = @[sortDescriptor];     // apply the NSSortDescriptor to the query
 ```
 
-`SKYQuery` utilizes `NSPredicate` to apply filtering on query results. You can use other parameters to sort your quries.
+`SKYQuery` utilizes `NSPredicate` to apply filtering on query results. You can use other parameters to sort your queries.
 
 ### Limiting and Offset
 

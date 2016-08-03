@@ -7,7 +7,7 @@ Names of reserved tables are always prefixed with underscore (`_`).
 
 For each record type stored in the database, a table with the same name as the record type is created. For example, if your record type is called `note`, there is a table called `note` in the database. Each row in the table corresponds to one record.
 
-For each record table there exists two types of columns, those that are reserved by Skyear and those that are user-defined. Reserved columns contain metadata of a record, such as record ID, record owner and creation time. Names of reserved columns are prefixed with underscore (`_`).
+For each record table there exists two types of columns, those that are reserved by Skygear and those that are user-defined. Reserved columns contain metadata of a record, such as record ID, record owner and creation time. Names of reserved columns are prefixed with underscore (`_`).
 
 It is possible to manipulate data in record tables directly. However, one should exercise cautions when modifying data directly in record tables.
 
@@ -37,12 +37,12 @@ For example, consider a `note` record with the following JSON representation:
 
 The above record will be saved in a record table called `note` with the following schema:
 
-* _id (string): "abcdef"
-* _database_id (string): null
-* _owner_id (string): "CURRENT_USER"
-* _access (json): null
-* content (string): "Hello World"
-* noteOrder (integer): 1
+* `_id` (string): `"abcdef"`
+* `_database_id` (string): `null`
+* `_owner_id` (string): `"{CURRENT_USER_ID}"`
+* `_access` (json): `null`
+* `content` (string): `"Hello World"`
+* `noteOrder` (integer): `1`
 
 ## Schema Migration
 

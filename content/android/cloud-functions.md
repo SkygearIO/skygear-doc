@@ -34,5 +34,5 @@ skygear.callLambdaFunction(functionName, argv, new LambdaResponseHandler() {
 });
 ```
 
-Currently, all Java primitive types , JSONArray and JSONObject are supported
+Currently, all Java primitive types , `JSONArray` and `JSONObject` are supported
 as arguments.

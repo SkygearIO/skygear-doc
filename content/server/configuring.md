@@ -62,7 +62,7 @@ so that the access signature can be omitted.
 ## App Name and API Key
 
 It is strongly recommended that you change the App Name and the API Key.
-The App Name should be a string consisting of alphanumeric and underscorem
+The App Name should be a string consisting of alphanumeric and underscore
 that can identify your app among other apps that might reside on the same
 system. The App Name also serves as a prefix to the database schema, which
 isolates data from the other apps.
@@ -171,7 +171,7 @@ If you are using Skygear portal, you can set the environment variables on the
   * `jwt` - encodes user info in the access token passed to the client
 * `TOKEN_STORE_PATH` - where the token will store when using `fs`. Or the
   URL when using `redis`, e.g. `redis://localhost:6379`
-* `TOKEN_STORE_PREFIX` - string, prefix to the access token for using redis.
+* `TOKEN_STORE_PREFIX` - string, prefix to the access token for using Redis.
 * `TOKEN_STORE_EXPIRY` - integer, number of seconds the created access token
   will expire. Default is to never expire.
 * `TOKEN_STORE_SECRET` - string, for `jwt`, the secret used to validates
@@ -180,7 +180,7 @@ If you are using Skygear portal, you can set the environment variables on the
 ### Asset store related
 * `ASSET_STORE` - the backing store of assets, currently supporting `fs` and `s3`.
   `fs` is intended for local development
-* `ASSET_STORE_PUBLIC` - specifiying the asset is public or follows ACL: `YES` or
+* `ASSET_STORE_PUBLIC` - specifying the asset is public or follows ACL: `YES` or
   `NO`
 * `ASSET_STORE_PATH` - where the asset is saved when using `fs` backing store.
 * `ASSET_STORE_URL_PREFIX` - the URL prefix Skygear will generate for `fs`
@@ -205,4 +205,4 @@ to learn how to convert a cert/key to PEM.
 
 ### GCM(Google Cloud Messaging) related
 * `GCM_ENABLE` - string , `YES` or `NO`
-* `GCM_APIKEY` - string, the api-key you obtained from Google
+* `GCM_APIKEY` - string, the API key you obtained from Google

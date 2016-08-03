@@ -10,7 +10,7 @@ Access Control in Skygear can be set as 3 levels:
 2. Read Only Access
 3. Read Write Access
 
-The access control in Skygear can be devided in following type:
+The access control in Skygear can be divided in following type:
 
 - [Public Access Control](/android/guide/acl/public)
 - [User-based Access Control](/android/guide/acl/user-based)
@@ -51,7 +51,7 @@ skygear.getPublicDatabase().save(aRecord, new RecordSaveResponseHandler(){
 
 ```
 
-Of cuase, you can check whether a record is publicly readable / writable as
+Of course, you can check whether a record is publicly readable / writable as
 following:
 
 ```java

@@ -212,7 +212,7 @@ skygear.publicDB.save([note2, note1]);
 relationship between records. In the above case, if you perform batch save on
 `[note1, note2]`, there will be an error saving `note1`, but `note2` will
 still be saved!
-- If you wish to retrieve note1 and note2 at the same time in one query,
+- If you wish to retrieve `note1` and `note2` at the same time in one query,
 you might use `transientInclude`. Read the [Queries](/js/guide/query#relational-queries)
 section to learn more about eager loading.
 
@@ -295,13 +295,13 @@ as any one of the camelCase attribute names listed below.
 
 Column Name | Object Attribute | Description
 --- | --- | ---
-\_created\_at | createdAt | date object of when record is created
-\_updated\_at | updatedAt | date object of when record is updated last time
-\_created\_by | createdBy | user id of record creator
-\_updated\_by | updatedBy | user id of last record updater
-\_owner\_id | ownerID | user id of owner
-**N/A** | **id** | record type and record id
-\_id | **_id** | record id
+`_created_at` | `createdAt` | date object of when record is created
+`_updated_at` | `updatedAt` | date object of when record is updated last time
+`_created_by` | `createdBy` | user id of record creator
+`_updated_by` | `updatedBy` | user id of last record updater
+`_owner_id` | `ownerID` | user id of owner
+**N/A** | `id` | record type and record id
+`_id` | `_id` | record id
 
 One quick example:
 

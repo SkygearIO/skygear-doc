@@ -1,4 +1,4 @@
-1. PrivateDB are turely private. Setting ACL will have no effect (and no exception)
+1. PrivateDB are truly private. Setting ACL will have no effect (and no exception)
 1. Record saved to PublicDB will default grant read access to public.
 1. Able to grant individual user read/write permission.
 1. Able to grant permission base on owner relations.
