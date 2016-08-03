@@ -82,6 +82,48 @@ app:
     API_KEY: thisissupersecret
 ```
 
+<a name="admin-user"></a>
+## Admin User
+
+After launching Skygear Server, an administrative role (`Admin`) and an
+admin user is created. The default username is `admin` and the default
+password is `secret`.
+
+Please remember to change the password of the admin user before your
+application is push to production. The following Bash Script helps you to
+change the password.
+
+```bash
+# Please update the following settings
+USER_NAME='admin'
+PASSWORD='secret'
+NEW_PASSWORD='new-password'
+SKYGEAR_API_KEY='changeme'
+SKYGEAR_ENDPOINT='https://your-endpoint.skygeario.com/'
+
+
+ACCESS_TOKEN=$(curl -sX POST \
+-d "{
+  \"action\": \"auth:login\",
+  \"api_key\": \"$SKYGEAR_API_KEY\",
+  \"username\": \"$USER_NAME\",
+  \"password\": \"$PASSWORD\"
+}" \
+$SKYGEAR_ENDPOINT |
+python -c 'import json,sys; print json.load(sys.stdin)["result"]["access_token"]'
+) && \
+curl -sX POST \
+-d "{
+  \"action\": \"auth:password\",
+  \"api_key\": \"$SKYGEAR_API_KEY\",
+  \"access_token\": \"$ACCESS_TOKEN\",
+  \"old_password\": \"$PASSWORD\",
+  \"password\": \"$NEW_PASSWORD\"
+}" \
+$SKYGEAR_ENDPOINT > /dev/null && \
+echo "Success"
+```
+
 <a name="logging"></a>
 ## Logging
 
