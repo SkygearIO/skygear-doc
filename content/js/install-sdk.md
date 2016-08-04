@@ -1,21 +1,5 @@
-Skygear aims to provide a complete and open-source backend solution for your web applications.
-
-By creating an app for each of your web applications on Skygear, each client app can be connected to the Skygear Server with an API key.
-
-This guide will show you how to integrate Skygear into an existing web app project.
-
-<a name="sign-up-hosting"></a>
-## Signing up for Skygear Hosting
-
-To start using the Skygear JS SDK, you need to register your account and
-application at the Skygear [Developer Portal](https://portal.skygear.io)
-website. After you registered, go to the **INFO** tab and copy down your
-`Server EndPoint` and `API Key`.
-
-[![Screenshot: where to look for Server EndPoint and API Key](/assets/common/portal-endpoint-apikey.png)](/assets/common/portal-endpoint-apikey.png)
-
-<a name="include-js-sdk"></a>
-## Including SDK in existing project
+<a name="sdk-existing"></a>
+## For existing project
 
 ### Step 1: Installing SDK
 
@@ -79,7 +63,6 @@ The SDK works with [React Native](https://facebook.github.io/react-native/)
 well. Simply do `npm install --save skygear` and then you can
 `import skygear from 'skygear'` in your `index.ios.js` and `index.android.js`.
 
-<a name="set-up-app"></a>
 ### Step 2: Configuring container
 
 In all usage scenario after you have installed the SDK, you must configure your
@@ -97,8 +80,8 @@ skygear.config({
 });
 ```
 
-<a name="new-projects"></a>
-## Creating a new project with configured SDK
+<a name="sdk-new"></a>
+## For new project
 
 Following the steps below will help you set up a new scaffolding project with
 Skygear JS SDK. React.js, Babel 6 and Webpack are also automatically
@@ -157,13 +140,3 @@ Congratulations, you have your first skygear web project set up!
 [React.js](https://facebook.github.io/react/), [Babel](https://babeljs.io/)
 and [Webpack](https://webpack.github.io/) are automatically included for you.
 To launch your first application, simply do `npm start`.
-
-<a name="whats-next"></a>
-## What's Next
-
-Now you've learned how to start developing with Skygear, check out the SDK docs to learn some of the concepts behind Skygear:
-
-- Learn to make [Authentication](/js/guide/users)
-- Learn to CRUD [Records](/js/guide/record)
-- Learn to make [Queries](/js/guide/query)
-- Take a [Quick Glance](/js/guide/quick-glance) at SDK

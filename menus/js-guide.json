@@ -4,20 +4,30 @@
     "url": "/js/guide",
     "sub": [
       {
-        "title": "Signing up for Skygear Hosting",
-        "url": "#sign-up-hosting"
+        "title": "Signing up at Portal",
+        "url": "#sign-up-portal"
       },
       {
-        "title": "Including SDK in existing project",
-        "url": "#include-js-sdk"
-      },
-      {
-        "title": "Creating a new project with configured SDK",
-        "url": "#new-projects"
+        "title": "About the SDK",
+        "url": "#about-js-sdk"
       },
       {
         "title": "What's Next",
         "url": "#whats-next"
+      }
+    ]
+  },
+  {
+    "title": "Installing SDK",
+    "url": "/js/guide/install-sdk",
+    "sub": [
+      {
+        "title": "For existing project",
+        "url": "#sdk-existing"
+      },
+      {
+        "title": "For new project",
+        "url": "#sdk-new"
       }
     ]
   },
