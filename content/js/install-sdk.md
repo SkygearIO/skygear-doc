@@ -125,18 +125,28 @@ cd new-skygear-project
 yo skygear
 ```
 
-### Step 3: Answering the questions for generator
+You will see questions for you that looks like the following. Please agree to
+all the overwrite requests and choose the style language you prefer.
 
-You will then be prompted a few questions, please make sure that you
-answer these questions correctly:
-- What is your skygear endpoint?
-- What is your skygear API key?
-- Please choose your application name?
-- Overwrite `<some-path>/<some-file>.js`? (confirm to overwrite)
+<pre>
+<code class="language-bash">? What is your skygear endpoint? (You can find it in portal) <span class="token keyword">https://&lt;your-app-name&gt;.skygeario.com/</span>
+? What is your skygear API key (You can find it in portal) <span class="token keyword">&lt;your-api-key&gt;</span>
+? Please choose your application name <span class="token keyword">&lt;your-app-name&gt;</span>
+? Which style language do you want to use? <span class="token keyword">&lt;your-choice&gt;</span>
+? Enable postcss? <span class="token keyword">&lt;your-choice&gt;</span>
+? Overwrite src/components/Main.js? <span class="token keyword">y</span>
+? Overwrite src/config/base.js? <span class="token keyword">y</span>
+? Overwrite src/index.js? <span class="token keyword">y</span>
+? Overwrite cfg/base.js? <span class="token keyword">y</span>
+</code>
+</pre>
 
 ### We're done, Woo-hoo!
 
 Congratulations, you have your first skygear web project set up!
 [React.js](https://facebook.github.io/react/), [Babel](https://babeljs.io/)
 and [Webpack](https://webpack.github.io/) are automatically included for you.
-To launch your first application, simply do `npm start`.
+To launch your first application, simply do `npm start` and you should see
+the following in your browser.
+
+[![Screenshot: js scaffolding app preview](/assets/js/js-app-preview.png)](/assets/js/js-app-preview.png)
