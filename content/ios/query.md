@@ -80,8 +80,29 @@ NSPredicate *p =
 `SKYKit` query supports filtering records by the reference field of records:
 
 ```obj-c
-SKYReference *resturantRef = [SKYReference referenceWithRecordID:[SKYRecordID recordIDWithRecordType:@"restaurant" name:@"my resturant"]];
-NSPredicate *predicate = [NSPredicate predicateWithFormat:@"resturant = %@", resturantRef];
+SKYReference *restaurantRef = [SKYReference referenceWithRecordID:[SKYRecordID recordIDWithRecordType:@"restaurant" name:@"my restaurant"]];
+NSPredicate *predicate = [NSPredicate predicateWithFormat:@"restaurant = %@", restaurantRef];
+SKYQuery *query = [SKYQuery queryWithRecordType:@"order" predicate:predicate];
+
+SKYDatabase *privateDB = database;
+
+[privateDB performQuery:query completionHandler:^(NSArray *orders, NSError *error) {
+    if (error) {
+        NSLog(@"error querying orders: %@", error);
+        return;
+    }
+
+    for (SKYRecord *order in orders) {
+        // work with the fetched order
+    }
+}];
+```
+
+You can query by fields on a referenced record. Following the above example, if
+we want to narrow orders placed in Italian restaurants only:
+
+```obj-c
+NSPredicate *predicate = [NSPredicate predicateWithFormat:@"restaurant.cuisine = %@", @"italian"];
 SKYQuery *query = [SKYQuery queryWithRecordType:@"order" predicate:predicate];
 
 SKYDatabase *privateDB = database;
