@@ -78,7 +78,7 @@ class Menu extends Component {
 
     const windowUrl = pathname + hash;
     return map(content, function (perContent) {
-      let isActive = false;
+      let isActive = perContent.url === pathname;
 
       const sub = map(perContent.sub || [], function (perSubContent) {
         let perSubContentActive = false;
