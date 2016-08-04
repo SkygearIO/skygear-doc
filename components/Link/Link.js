@@ -6,7 +6,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import './Link.scss';
-import { History } from '../../lib/BrowserProxy';
+import { Window, History } from '../../lib/BrowserProxy';
 
 function isLeftClickEvent(event) {
   return event.button === 0;
@@ -59,11 +59,11 @@ Link.handleClick = function (event) {
     let nextLocation = this.props && this.props.to || (link.pathname + link.search);
 
     if (nextLocation.startsWith('http')) {
-        window.location = nextLocation;
+        Window.location = nextLocation;
         return;
     }
     if (nextLocation.startsWith('#')) {
-      let { pathname, search } = window.location;
+      let { pathname, search } = Window.location;
       nextLocation = pathname + search + nextLocation;
     }
 

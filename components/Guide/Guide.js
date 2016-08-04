@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
+import _ from 'lodash';
 
 import Markdown from '../../components/Markdown';
 import Menu from './Menu';
@@ -13,6 +15,7 @@ class Guide extends Component {
   constructor(props) {
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
+    this.updateRouteHash = this.updateRouteHash.bind(this);
     this.toggleHamburgerMenu = this.toggleHamburgerMenu.bind(this);
     this.dismissHamburgerMenu = this.dismissHamburgerMenu.bind(this);
     this.state = this.initialState;
@@ -21,6 +24,8 @@ class Guide extends Component {
   get initialState() {
     return {
       sticky: false,
+      hamburgerMenuShwon: false,
+      menuScrollAnchor: null,
     };
   }
 
@@ -70,7 +75,7 @@ class Guide extends Component {
       <Menu
         classNames={classes}
         content={menu || []}
-        activeTitle={activeMenu}
+        preferredLocationHash={this.state.menuScrollAnchor}
       />
     );
   }
@@ -90,10 +95,53 @@ class Guide extends Component {
     }
   }
 
+  updateRouteHash() {
+    const thisElement = findDOMNode(this);
+    if (thisElement) {
+      const allAnchors = thisElement.querySelectorAll('a[name]');
+      if (allAnchors.length === 0) {
+        return;
+      }
+
+      /*
+       * The logic is as following:
+       * 1) Find all anchor tags like: <a name="..."></a>
+       * 2) Get all names and sorted by scrollTop value of the anchor tag
+       * 3) Get the name of the last past anchor tag;
+       *    Otherwise, get the first one.
+       */
+      const allAnchorData = _.map(
+        allAnchors,
+        (eachAnchor) => ({
+          name: eachAnchor.getAttribute('name'),
+          scrollTop: eachAnchor.getBoundingClientRect().top
+        })
+      );
+      const sortedAnchorData = _.sortBy(allAnchorData, 'scrollTop');
+      const pastAnchorData = _.filter(
+        sortedAnchorData,
+        ({ scrollTop }) => scrollTop < 100
+      );
+
+      let targetAnchorName = null;
+      const pastAnchorDataSize = pastAnchorData.length;
+      if (pastAnchorDataSize > 0) {
+        targetAnchorName = pastAnchorData[pastAnchorDataSize - 1].name;
+      } else {
+        targetAnchorName = sortedAnchorData[0].name;
+      }
+
+      this.setState({
+        menuScrollAnchor: '#' + targetAnchorName
+      });
+    }
+  }
+
   handleScroll() {
     const scrollTop = Window.scrollY || 0;
     const shouldSticky = scrollTop > 85;
 
+    this.updateRouteHash();
     if (shouldSticky !== this.state.sticky) {
       this.setState({
         sticky: scrollTop > 85
