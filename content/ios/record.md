@@ -10,8 +10,7 @@ Please make sure you know about and have already configured your
 
 - `SKYRecord` must have a type.
 - Each `SKYRecord ` object is like a dictionary with keys and values; keys will be mapped to database column names, and values will be stored appropriately
-based on the data type. Please refer to [Data Type](#data-type)
-section within this guide for more information.
+based on the data type. Please refer to [Data Type](#data-type) section within this guide for more information.
 - `SKYRecord` will be owned by the currently logged in user.
 - `SKYRecord` object has a unique `id` (a string combination of record type and uuid is used).
 - Each `SKYRecord` has a `recordType`, which describes the _type_ of data this record holds.

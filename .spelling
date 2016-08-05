@@ -56,6 +56,7 @@ plugin
 plugins
 PNS
 PNSs
+Podfile
 Polyfill
 PostgreSQL
 pubsub
@@ -73,6 +74,7 @@ stdout
 stylesheet
 stylesheets
 submodule
+TextEdit
 uuid
 VirtualBox
 webpack

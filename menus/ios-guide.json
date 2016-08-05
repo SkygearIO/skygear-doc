@@ -8,12 +8,16 @@
                 "url": "#sign-up-hosting"
             },
             {
-                "title": "Include the SDK in your project",
+                "title": "Including SDK in existing project",
                 "url": "#include-ios-sdk"
             },
             {
-                "title": "Setting up your iOS app",
-                "url": "#set-up-ios-app"
+                "title": "Create a new project with configured SDK",
+                "url": "#new-project"
+            },
+            {
+                "title": "SKYContainer",
+                "url": "#skycontainer"
             },
             {
                 "title": "What's Next",
