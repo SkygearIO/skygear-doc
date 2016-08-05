@@ -61,15 +61,24 @@ class Menu extends Component {
   }
 
   getUrlSensitiveContent() {
+    const {
+      content,
+      preferredLocationHash,
+    } = this.props;
+
     let pathname = Window.location.pathname;
     if (pathname && pathname.endsWith('/')) {
       pathname = pathname.substr(0, pathname.lastIndexOf('/'));
     }
 
-    const windowUrl = pathname + Window.location.hash;
+    let hash = Window.location.hash;
+    if (preferredLocationHash) {
+      hash = preferredLocationHash
+    }
 
-    return map(this.props.content, function (perContent) {
-      let isActive = false;
+    const windowUrl = pathname + hash;
+    return map(content, function (perContent) {
+      let isActive = perContent.url === pathname;
 
       const sub = map(perContent.sub || [], function (perSubContent) {
         let perSubContentActive = false;
