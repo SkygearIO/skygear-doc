@@ -7,7 +7,13 @@
     "/js/guide": {
       "name": "JS SDK",
       "title": "Getting Started",
-      "content_path": "./content/js/index.md",
+      "content_path": "./content/js/getting-started.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/install-sdk": {
+      "name": "JS SDK",
+      "title": "Installing SDK",
+      "content_path": "./content/js/install-sdk.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/quick-glance": {
