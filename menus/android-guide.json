@@ -4,20 +4,30 @@
         "url": "/android/guide",
         "sub": [
             {
-                "title": "Signing up for Skygear Hosting",
-                "url": "#signing-up"
+                "title": "Signing up at Portal",
+                "url": "#signing-up-at-portal"
             },
             {
-                "title": "Including SDK in existing project",
-                "url": "#including"
-            },
-            {
-                "title": "Creating a new project with configured SDK",
-                "url": "#create-new"
+                "title": "About the SDK",
+                "url": "#about-sdk"
             },
             {
                 "title": "What's Next",
                 "url": "#whats-next"
+            }
+        ]
+    },
+    {
+        "title": "Installing SDK",
+        "url": "/android/guide/install-sdk",
+        "sub": [
+            {
+                "title": "For existing project",
+                "url": "#android-existing"
+            },
+            {
+                "title": "For new project",
+                "url": "#android-new"
             }
         ]
     },

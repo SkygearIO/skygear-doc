@@ -10,6 +10,12 @@
       "content_path": "./content/android/getting-started.md",
       "menu_path": "./menus/android-guide.json"
     },
+    "/android/guide/install-sdk": {
+      "name": "Android SDK",
+      "title": "Installing SDK",
+      "content_path": "./content/android/install-sdk.md",
+      "menu_path": "./menus/android-guide.json"
+    },
     "/android/guide/user-auth": {
       "name": "Android SDK",
       "title": "User Authentication",

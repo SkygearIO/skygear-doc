@@ -135,6 +135,8 @@ v1.5
 https
 skygeario.com
 your-api-key
+dc0903fa85924776baa77df813901efc
+updateAppSettings
 postcss
 src
 cfg
@@ -142,4 +144,3 @@ Main.js
 base.js
 index.js
 base.js
->>>>>>> Add scaffolding app screenshot and yoeman log
