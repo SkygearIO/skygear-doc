@@ -10,6 +10,12 @@
       "content_path": "./content/ios/getting-started.md",
       "menu_path": "./menus/ios-guide.json"
     },
+    "/ios/guide/install-sdk": {
+      "name": "iOS SDK",
+      "title": "Installing SDK",
+      "content_path": "./content/ios/install-sdk.md",
+      "menu_path": "./menus/ios-guide.json"
+    },
     "/ios/guide/first-app": {
       "name": "iOS SDK",
       "title": "First Example App",

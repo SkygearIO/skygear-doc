@@ -4,24 +4,30 @@
         "url": "/ios/guide",
         "sub": [
             {
-                "title": "Signing up for Skygear Hosting",
-                "url": "#sign-up-hosting"
+                "title": "Signing up at Portal",
+                "url": "#sign-up-at-portal"
             },
             {
-                "title": "Including SDK in existing project",
-                "url": "#include-ios-sdk"
-            },
-            {
-                "title": "Create a new project with configured SDK",
-                "url": "#new-project"
-            },
-            {
-                "title": "SKYContainer",
-                "url": "#skycontainer"
+                "title": "About the SDK",
+                "url": "#about-ios-sdk"
             },
             {
                 "title": "What's Next",
                 "url": "#whats-next"
+            }
+        ]
+    },
+    {
+        "title": "Installing SDK",
+        "url": "/ios/guide/install-sdk",
+        "sub": [
+            {
+                "title": "For existing project",
+                "url": "#sdk-existing"
+            },
+            {
+                "title": "For new project",
+                "url": "#sdk-new"
             }
         ]
     },
