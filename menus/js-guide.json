@@ -92,24 +92,36 @@
     ]
   },
   {
-    "title": "Authentication",
+    "title": "User & Authentication",
     "url": "/js/guide/users",
     "sub": [
       {
-        "title": "Manage User",
+        "title": "Signup/Login/Logout",
         "url": "#manage-user"
       },
       {
-        "title": "Current User",
-        "url": "#current-user"
+        "title": "User Login Status",
+        "url": "#login-status"
       },
       {
-        "title": "Social Login (Facebook, Twitter, etc)",
+        "title": "Change email/password",
+        "url": "#change-email-password"
+      },
+      {
+        "title": "User Verification",
+        "url": "#user-verification"
+      },
+      {
+        "title": "Social Login",
         "url": "#social-login"
       },
       {
         "title": "User Profile",
         "url": "#user-profile"
+      },
+      {
+        "title": "Other User Lookup",
+        "url": "#other-user-lookup"
       }
     ]
   },

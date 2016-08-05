@@ -1,5 +1,5 @@
 <a name="manage-user"></a>
-## Manage User
+## Signup/Login/Logout
 
 ### How does it work
 
@@ -76,49 +76,10 @@ skygear.logout().then(() => {
 });
 ```
 
-### Change password
+<a name="login-status"></a>
+## User Login Status
 
-It's for current logged in user only.
-
-``` javascript
-skygear.changePassword(oldPassword, newPassword).then((user) => {
-  console.log('User now have new password', user);
-}, (error) => {
-  console.error(error);
-});
-```
-
-### Change email
-
-By providing user id, current user can change his email.
-Only users with admin privileges can modify other users' email.
-
-``` javascript
-skygear.saveUser({
-  id: '<your-user-id>', // usually skygear.currentUser.id
-  email: '<your-new-email-address>',
-}).then((user) => {
-  console.log('Email updated to:', user.email);
-}, (error) => {
-  console.error(error);
-});
-```
-
-### Log out all other session (not yet implemented)
-
-``` javascript
-skygear.changePassword(oldPassword, newPassword, invalidateTokens=true)
-.then((user) => {
-  console.log('skygear will got new accessToken automatically', user);
-}, (error) => {
-  console.error(error);
-});
-```
-
-### Forget password (not yet implemented)
-
-<a name="current-user"></a>
-## Current User
+### Current User
 
 After login or signup, user object will be available at `skygear.currentUser`:
 
@@ -126,7 +87,7 @@ After login or signup, user object will be available at `skygear.currentUser`:
 const user = skygear.currentUser; // if not logged in, user will be null
 ```
 
-### Hook currentUser change
+### Hook User Login Status Change
 
 When a user's access token is expired, the SDK will return `401 Unauthorized`,
 and clear the persisted access token and current user info. To handle the forced
@@ -146,28 +107,54 @@ const handler = skygear.onUserChanged(function (user) {
 handler.cancel(); // The callback is cancelable
 ```
 
-### Other user lookup
+<a name="change-email-password"></a>
+## Change email/password
 
-Skygear provide a user discovery method by email. Everyone has access to this
-method without even having to be logged in.
+### Change email
+
+By providing user id, current user can change his email.
+Only users with admin privileges can modify other users' email.
 
 ``` javascript
-skygear.getUsersByEmail(['ben@skygear.com', 'tak@oursky.com']).then((users) => {
-  console.log(users);
+skygear.saveUser({
+  id: '<your-user-id>', // usually skygear.currentUser.id
+  email: '<your-new-email-address>',
+}).then((user) => {
+  console.log('Email updated to:', user.email);
 }, (error) => {
   console.error(error);
 });
 ```
 
-User discovery by username is **not yet implemented**.
+### Change password
+
+It's for current logged in user only.
 
 ``` javascript
-skygear.discover('chpapa').then((ben) => {
-  console.log(ben);
+skygear.changePassword(oldPassword, newPassword).then((user) => {
+  console.log('User now have new password', user);
 }, (error) => {
   console.error(error);
 });
 ```
+
+### Log out all other session (not yet implemented)
+
+``` javascript
+skygear.changePassword(oldPassword, newPassword, invalidateTokens=true)
+.then((user) => {
+  console.log('skygear will got new accessToken automatically', user);
+}, (error) => {
+  console.error(error);
+});
+```
+
+### Forget password (not yet implemented)
+
+<a name="user-verification"></a>
+## User Verification
+
+Not yet implemented.
 
 <a name="social-login"></a>
 ## Social Login (Facebook, Twitter, etc)
@@ -210,10 +197,26 @@ skygear.publicDB.query(query).then((records) => {
 });
 ```
 
-### User relations
+<a name="other-user-lookup"></a>
+## Other User Lookup
 
-See [Social](/js/guide/relation) section for more.
+Skygear provide a user discovery method by email. Everyone has access to this
+method without even having to be logged in.
 
-### User access control
+``` javascript
+skygear.getUsersByEmail(['ben@skygear.com', 'tak@oursky.com']).then((users) => {
+  console.log(users);
+}, (error) => {
+  console.error(error);
+});
+```
 
-See [Access Control](/js/guide/access-control/role) section for more.
+User discovery by username is **not yet implemented**.
+
+``` javascript
+skygear.discover('chpapa').then((ben) => {
+  console.log(ben);
+}, (error) => {
+  console.error(error);
+});
+```

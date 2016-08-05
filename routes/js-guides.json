@@ -34,9 +34,9 @@
       "content_path": "./content/js/query.md",
       "menu_path": "./menus/js-guide.json"
     },
-    "/js/guide/users": {
+    "/js/guide/users": { 
       "name": "JS SDK",
-      "title": "Authentication",
+      "title": "User & Authentication",
       "content_path": "./content/js/users.md",
       "menu_path": "./menus/js-guide.json"
     },
