@@ -46,12 +46,12 @@ class IndexPage extends Component {
           <h2>Contributing</h2>
           <ul>
             <li>
-              <Link to="/contributing">
+              <Link to="/coming-soon">
                 <span>How to contribute</span>
               </Link>
             </li>
             <li>
-              <Link to="/faq">
+              <Link to="/coming-soon">
                 <span>FAQ</span>
               </Link>
             </li>
