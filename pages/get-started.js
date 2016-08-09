@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SkygearGetStarted from '../lib/skygear-getstarted';
 
-export default class extends Component {
+export default class extends React.Component {
   render() {
     return (<SkygearGetStarted />);
   }

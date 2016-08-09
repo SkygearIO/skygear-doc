@@ -108,6 +108,7 @@ backend
 bundler
 metadata
 natively
+pre-commit
 programmatically
 schemas
 serializable
@@ -119,6 +120,7 @@ whitelist
 writable
 
 # short forms
+dev
 e.g.
 i.e.
 TBC

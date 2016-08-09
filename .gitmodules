@@ -1,3 +1,3 @@
 [submodule "lib/skygear-getstarted"]
 	path = lib/skygear-getstarted
-	url = https://github.com/akiroz/skygear-getstarted.git
+	url = https://github.com/SkygearIO/skygear-getstarted.git

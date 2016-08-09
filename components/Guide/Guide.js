@@ -80,6 +80,15 @@ class Guide extends Component {
     );
   }
 
+  get contentComponent() {
+    const { content } = this.props;
+    if (React.isValidElement(content)) {
+      return content;
+    } else {
+      return (<Markdown content={content} />);
+    }
+  }
+
   toggleHamburgerMenu(event) {
     event.preventDefault();
     this.setState({
@@ -169,7 +178,7 @@ class Guide extends Component {
           {this.menuComponent}
           <div className="content">
             {this.titleComponent}
-            <Markdown content={content} />
+            {this.contentComponent}
           </div>
         </div>
       </div>
@@ -178,7 +187,10 @@ class Guide extends Component {
 }
 
 Guide.propTypes = {
-  content: PropTypes.string.isRequired,
+  content: React.PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.element.isRequired,
+  ]),
   sectionName: PropTypes.string.isRequired,
   menu: PropTypes.array,
 
