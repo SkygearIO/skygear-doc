@@ -165,8 +165,8 @@ of the Query to `true`.
 
 ``` javascript
 query.overallCount = true;
-skygear.publicDB.query(query).then((notes, count) => {
-  console.log('%d records matching query.', count);
+skygear.publicDB.query(query).then((notes) => {
+  console.log('%d records matching query.', notes.overallCount);
 }, (error) => {
   console.error(error);
 });
