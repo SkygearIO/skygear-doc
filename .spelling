@@ -14,12 +14,14 @@ AWS
 boolean
 booleans
 camelCase
+CDN
 CLI
 CloudFormation
 CocoaPods
 config
 CoreDB
 cron
+css
 czmq
 datetime
 dict
@@ -57,7 +59,7 @@ plugins
 PNS
 PNSs
 Podfile
-Polyfill
+polyfill
 PostgreSQL
 pubsub
 PyPI
@@ -65,6 +67,7 @@ quickstart
 React.js
 Redis
 S3
+scss
 SDK
 SDKs
 SQL
@@ -131,9 +134,10 @@ todo
 _case
 _password
 v0.12
+v0.x
 v1.5
 
-# html code block for display purpose
+# html code block
 https
 skygeario.com
 your-api-key
