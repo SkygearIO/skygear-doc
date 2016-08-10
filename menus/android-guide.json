@@ -21,14 +21,6 @@
         "title": "Installing SDK",
         "url": "/android/guide/install-sdk",
         "sub": [
-            {
-                "title": "For existing project",
-                "url": "#android-existing"
-            },
-            {
-                "title": "For new project",
-                "url": "#android-new"
-            }
         ]
     },
     {

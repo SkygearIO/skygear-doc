@@ -21,14 +21,6 @@
     "title": "Installing SDK",
     "url": "/js/guide/install-sdk",
     "sub": [
-      {
-        "title": "For existing project",
-        "url": "#sdk-existing"
-      },
-      {
-        "title": "For new project",
-        "url": "#sdk-new"
-      }
     ]
   },
   {
