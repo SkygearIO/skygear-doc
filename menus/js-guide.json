@@ -88,15 +88,19 @@
     "url": "/js/guide/users",
     "sub": [
       {
-        "title": "Signup/Login/Logout",
-        "url": "#manage-user"
+        "title": "User Login Flow",
+        "url": "#user-login-flow"
       },
       {
         "title": "User Login Status",
-        "url": "#login-status"
+        "url": "#user-login-status"
       },
       {
-        "title": "Change email/password",
+        "title": "Signup/Login/Logout",
+        "url": "#signup-login-logout"
+      },
+      {
+        "title": "Changing email/password",
         "url": "#change-email-password"
       },
       {
@@ -110,10 +114,6 @@
       {
         "title": "User Profile",
         "url": "#user-profile"
-      },
-      {
-        "title": "Other User Lookup",
-        "url": "#other-user-lookup"
       }
     ]
   },
