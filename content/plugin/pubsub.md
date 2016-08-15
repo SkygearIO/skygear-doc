@@ -11,24 +11,17 @@ whether and what messages to publish to channel.
 For example, you can make an app that automatically sends a pubsub message
 when a create a new `note` record containing special words.
 
-To build pubsub into Skygear, you have to import `SkygearContainer`.
+To build pubsub into Skygear, you have to import `publish` function from
+skygear.
 
 ```
-from skygear.container import SkygearContainer
-```
-
-When you have an instance of `SkygearContainer`, you can create a pubsub socket
-so that you can send messages over the pubsub channel.
-
-```python
-container = SkygearContainer()
-pubsub = container.pubsub()
+from skygear.pubsub import publish 
 ```
 
 To send a message to a channel, simply use the `publish` function.
 
 ```python
-pubsub.publish("notes_channel", {"message": "Hello World!"})
+publish("notes_channel", {"message": "Hello World!"})
 ```
 
 **[Not Implemented]**
