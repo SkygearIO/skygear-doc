@@ -28,6 +28,7 @@ dict
 DNS
 Dockerfile
 EC2
+ES5
 ES6
 filename
 GCM
