@@ -273,9 +273,14 @@ skygear.changePassword(currentPassword, newPassword).then((user) => {
 Note: Changing the password of the current user will not trigger the callback
 registered through `skygear.onUserChanged`.
 
-[Not yet implemented] By setting `invalidateTokens` to `true`,
-you can invalidate the existing access token
-and get a new one so all other existing sessions become invalid.
+#### Invalidating existing access tokens
+
+If you are using the JWT token store, all existing access tokens
+will be invalidated when a user changes his/her password.
+
+[Not yet implemented]
+If you are not using the JWT token store, you can invalidate existing tokens by
+setting `invalidateTokens` to `true`:
 
 ``` javascript
 skygear.changePassword(currentPassword, newPassword, invalidateTokens=true)
