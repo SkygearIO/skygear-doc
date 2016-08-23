@@ -82,6 +82,21 @@ If there is an authenticated user, it will give you a user object like this:
 }
 ```
 
+Please be reminded that the `currentUser` object only retrieved when user
+login / signup Skygear.
+
+To get the latest information (e.g. roles, emails, etc.) of the current user,
+you can ask "Who am I" to Skygear:
+
+``` javascript
+skygear.whoami().then((user) => {
+    console.log(`Oh. I am ${user.username}.`);
+}, (err) => {
+    // Error handling...
+})
+
+```
+
 ### Observing user changes
 
 The preferred way for your app to handle any logged-in user change is to
@@ -107,6 +122,7 @@ const handler = skygear.onUserChanged(function (user) {
 
 handler.cancel(); // The callback is cancelable
 ```
+
 
 <a name="signup-login-logout"></a>
 ## Signing up / Logging in / Logging out
@@ -225,7 +241,7 @@ skygear.logout().then(() => {
 
 ### Changing the email of a user
 
-To change a user's email, you can use the `skygear.saveUser` method by 
+To change a user's email, you can use the `skygear.saveUser` method by
 providing the user ID and the new email.
 Every user can change his/her own email while
 only users with the admin role can change the emails of other users.
@@ -314,7 +330,7 @@ auth provider, along with the relevant auth data (an object) necessary for
 the authentication, such as the access token obtained from Facebook.
 
 For example, if you have implemented a Facebook auth provider under the name
-`com.facebook` using 
+`com.facebook` using
 `@skygear.provides('auth', 'com.facebook')` in the cloud code,
 you can log a user in by:
 

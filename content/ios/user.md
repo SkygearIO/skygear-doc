@@ -8,7 +8,7 @@ The first thing you want a user to do is to sign up. The following code illustra
 ```obj-c
 [container signupWithUsername:@"john.doe"
                      password:@"verysecurepasswd"
-completionHandler:^(SKYUser *user, NSError *error) {
+            completionHandler:^(SKYUser *user, NSError *error) {
     if (error) {
         NSLog(@"error signing up user: %@", error);
         return;
@@ -48,7 +48,7 @@ You can use `loginWithUsername:password:` to let users log in to their accounts 
 ```obj-c
 [container loginWithUsername:@"john.doe"
                     password:@"verysecurepasswd"
-completionHandler:^(SKYUserRecordID *user, NSError *error) {
+           completionHandler:^(SKYUserRecordID *user, NSError *error) {
     if (error) {
         NSLog(@"error loggin user in: %@", error);
         return;
@@ -117,6 +117,19 @@ if (container.currentUserRecordID) {
 }
 ```
 
+You can get the latest information (e.g. roles, emails, etc.) of the current
+user by asking "Who am I" to Skygear:
+
+```obj-c
+[[SKYContainer defaultContainer] getWhoAmIWithCompletionHandler:^(SKYUser *user, NSError *error) {
+    if (error) {
+        // Error handling...
+    } else {
+        NSLog(@"Oh. I am %@.", user.username);
+    }
+}];
+```
+
 ### Looking up users by email
 
 Skygear provide a user discovery method by email. Everyone has access to this method without even having to be logged in.
@@ -151,16 +164,16 @@ user profile is public and thus visible to any user.
 
 ```obj-c
 SKYDatabase *publicDB = [[SKYContainer defaultContainer] publicCloudDatabase];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"_id ==[c] %@", [container currentUserRecordID]];
-    SKYQuery *query = [SKYQuery queryWithRecordType:@"user" predicate:predicate];
-    
-    [publicDB performQuery:query completionHandler:^(NSArray *results, NSError *error) {
-        if (error) {
-            NSLog(@"error quering user profile: %@", error);
-            return;
-        }
-        
-        NSLog(@"query successful");
-        // do something else
-    }];
+NSPredicate *predicate = [NSPredicate predicateWithFormat:@"_id ==[c] %@", [container currentUserRecordID]];
+SKYQuery *query = [SKYQuery queryWithRecordType:@"user" predicate:predicate];
+
+[publicDB performQuery:query completionHandler:^(NSArray *results, NSError *error) {
+    if (error) {
+        NSLog(@"error quering user profile: %@", error);
+        return;
+    }
+
+    NSLog(@"query successful");
+    // do something else
+}];
 ```

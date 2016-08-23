@@ -105,6 +105,26 @@ Log.i("Skygear User", "User ID: " + currentUser.userId);
 Log.i("Skygear User", "Username: " + currentUser.username);
 ```
 
+Please be reminded that the `currentUser` object only retrieved when user
+login / signup Skygear.
+
+To get the latest information (e.g. roles, emails, etc.) of the current user,
+you can ask "Who am I" to Skygear:
+
+```java
+skygear.whoami(new AuthResponseHandler() {
+    @Override
+    public void onAuthSuccess(User user) {
+        Log.i("Skygear User", "I am " + user.getUsername());
+    }
+
+    @Override
+    public void onAuthFail(String reason) {
+        // Error handling...
+    }
+});
+```
+
 <a name="social-login"></a>
 ## Social Login (Facebook, Twitter, etc)
 
