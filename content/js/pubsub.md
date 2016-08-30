@@ -50,7 +50,7 @@ Skygear will automatically re-connect on connection drop. Skygear will also
 re-subscribe all existing handler on connection restore. So in normal case,
 you don't need to re-subscribe all your handler on re-connect.
 
-We understand application may needs to know the status of pubsub connection, we
+We understand application may need to know the status of pubsub connection, we
 provide `onOpen` and `onClose` callback for that.
 
 
