@@ -2,6 +2,10 @@ Skygear provides pubsub services for building apps required real-time updates.
 A typical pubsub services can be divided into two parts: Publish and
 Subscription.
 
+Skygear will automatically re-connect on connection drop. Skygear will also
+re-subscribe all existing handler on connection restore. So in normal case,
+you don't need to re-subscribe all your handler on re-connect.
+
 <a name="publish"></a>
 ## Publish
 
