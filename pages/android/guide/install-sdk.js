@@ -7,7 +7,7 @@ export default function () {
   return (
     <Guide
       sectionName="Android SDK"
-      title="Installing SDK"
+      title="Quick Start"
       menu={menu}
       content={<SkygearGetstarted sdk="android" hideSDKTabs />}
     />
