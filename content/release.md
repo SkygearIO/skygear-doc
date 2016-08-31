@@ -80,6 +80,9 @@ $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
 
+## Push to latest branch
+git push origin master:latest
+
 ## Click `Publish release` in github release page
 ```
 
