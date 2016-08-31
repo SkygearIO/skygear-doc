@@ -19,6 +19,9 @@ SKYContainer *container = [SKYContainer defaultContainer];
 ```obj-c
 [container.pubsubClient unsubscribe:@"hello"];
 ```
+Skygear will automatically re-connect on connection drop. Skygear will also
+re-subscribe all existing handler on connection restore. So in normal case,
+you don't need to re-subscribe all your handler on re-connect.
 
 ### Example: PING-PONG
 
