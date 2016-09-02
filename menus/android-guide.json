@@ -1,6 +1,6 @@
 [
     {
-        "title": "Getting Started",
+        "title": "Introduction",
         "url": "/android/guide",
         "sub": [
             {
@@ -18,7 +18,7 @@
         ]
     },
     {
-        "title": "Installing SDK",
+        "title": "Quick Start",
         "url": "/android/guide/install-sdk",
         "sub": [
         ]

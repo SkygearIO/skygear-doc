@@ -7,7 +7,7 @@ export default function () {
   return (
     <Guide
       sectionName="iOS SDK"
-      title="Installing SDK"
+      title="Quick Start"
       menu={menu}
       content={<SkygearGetstarted sdk="ios" hideSDKTabs />}
     />

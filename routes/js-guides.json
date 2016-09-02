@@ -6,7 +6,7 @@
   "routes": {
     "/js/guide": {
       "name": "JS SDK",
-      "title": "Getting Started",
+      "title": "Introduction",
       "content_path": "./content/js/getting-started.md",
       "menu_path": "./menus/js-guide.json"
     },

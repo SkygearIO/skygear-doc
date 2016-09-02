@@ -1,6 +1,6 @@
 [
   {
-    "title": "Getting Started",
+    "title": "Introduction",
     "url": "/js/guide",
     "sub": [
       {
@@ -18,7 +18,7 @@
     ]
   },
   {
-    "title": "Installing SDK",
+    "title": "Quick Start",
     "url": "/js/guide/install-sdk",
     "sub": [
     ]

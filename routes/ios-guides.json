@@ -6,7 +6,7 @@
   "routes": {
     "/ios/guide": {
       "name": "iOS SDK",
-      "title": "Getting Started",
+      "title": "Introduction",
       "content_path": "./content/ios/getting-started.md",
       "menu_path": "./menus/ios-guide.json"
     },
