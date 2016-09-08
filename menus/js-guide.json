@@ -49,7 +49,7 @@
       },
       {
         "title": "Local Storage (Offline)",
-        "url": "/coming-soon"
+        "url": "/js/guide/local-storage"
       }
     ]
   },
@@ -145,7 +145,7 @@
   },
   {
     "title": "Push Notifications",
-    "url": "/coming-soon"
+    "url": "/js/guide/push"
   },
   {
     "title": "Pubsub",
@@ -183,7 +183,7 @@
   },
   {
     "title": "Calling Cloud Functions",
-    "url": "/coming-soon"
+    "url": "/js/guide/cloud-functions"
   },
   {
     "title": "Handling Errors",

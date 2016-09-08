@@ -39,8 +39,12 @@
       "title": "Deploy with Docker",
       "content_path": "./content/intro/getting-started-docker.md",
       "menu_path": "./menus/server-guide.json"
+    },
+    "/server/guide/config": {
+      "name": "Skygear Server",
+      "title": "Configuration",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/server-guide.json"
     }
   }
 }
-
-

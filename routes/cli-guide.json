@@ -21,6 +21,12 @@
       "title": "Managing Record Schema",
       "content_path": "./content/cli/schema.md",
       "menu_path": "./menus/cli-guide.json"
+    },
+    "/cli/guide/db-setup": {
+      "name": "Command Line Tools",
+      "title": "Development / Production database setup",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/cli-guide.json"
     }
   }
 }
