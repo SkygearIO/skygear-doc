@@ -140,6 +140,11 @@ While each of the sign-up functions is resolved with a user object,
 in most cases you need not deal with it because
 you can access the currently logged-in user using `skygear.currentUser`.
 
+If your app does not require the user to create an account before using your
+app, you can sign up the user anonymously. An user that is signed up
+anonymously does not have a username, email, nor a password. You can add a
+username, email and/or password to a user after signing up.
+
 #### Signing up using a username
 
 ``` javascript
@@ -173,6 +178,19 @@ skygear.signupWithEmail(email, password).then((user) => {
   } else {
     // other kinds of error
   }
+});
+```
+
+#### Signing up anonymously
+
+``` javascript
+import skygear from 'skygear';
+import skygearError from 'skygear/lib/error';
+
+skygear.signupAnonymously().then((user) => {
+  console.log(user); // user object
+}, (error) => {
+  console.error(error);
 });
 ```
 
@@ -237,18 +255,33 @@ skygear.logout().then(() => {
 ```
 
 <a name="change-email-password"></a>
-## Changing email/password
+## Changing username/email/password
 
-### Changing the email of a user
+### Changing the username and email of a user
 
-To change a user's email, you can use the `skygear.saveUser` method by
-providing the user ID and the new email.
-Every user can change his/her own email while
-only users with the admin role can change the emails of other users.
+To change a user's username and email, you can use
+the `skygear.saveUser` method by
+providing the user ID and the new username and/or the new email.
+Every user can change his/her own username/email while
+only users with the admin role can change the usernames/emails of other users.
 
-Note: Changing the email of the current user will trigger the callback
-registered through `skygear.onUserChanged`, even if the new email is
+Note: Changing the username/email of the current user will trigger the callback
+registered through `skygear.onUserChanged`, even if the new username/email is
 the same as the old one.
+
+To change the username of the current user:
+
+``` javascript
+skygear.saveUser({
+  id: skygear.currentUser.id,
+  username: 'new-username',
+}).then((user) => {
+  console.log(user); // updated user object
+  console.log('Username is changed to: ', user.username);
+}, (error) => {
+  console.error(error);
+});
+```
 
 To change the email of the current user:
 
@@ -263,6 +296,9 @@ skygear.saveUser({
   console.error(error);
 });
 ```
+
+To change the username and email at the same time, you can specify both
+`username` and `email` when calling `skygear.saveUser`.
 
 ### Changing the password of a user
 
