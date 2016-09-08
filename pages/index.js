@@ -35,7 +35,7 @@ class IndexPage extends Component {
         <div className="get-started-info">
           <h2>Just getting started?</h2>
           <Link className="primary" to="/get-started">
-            <span>Guide</span>
+            <span>Quick Start</span>
           </Link>
           <Link className="primary" to="/tutorial">
             <span>Tutorials</span>
