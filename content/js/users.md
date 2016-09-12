@@ -141,7 +141,7 @@ in most cases you need not deal with it because
 you can access the currently logged-in user using `skygear.currentUser`.
 
 If your app does not require the user to create an account before using your
-app, you can sign up the user anonymously. An user that is signed up
+app, you can sign up the user anonymously. A user that is signed up
 anonymously does not have a username, email, nor a password. You can add a
 username, email and/or password to a user after signing up.
 
