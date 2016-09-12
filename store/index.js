@@ -37,10 +37,6 @@ export default [
       {
         name: 'Guide',
         url: '/js/guide'
-      },
-      {
-        name: 'API Reference',
-        url: '/js/reference'
       }
     ]
   },
@@ -52,14 +48,6 @@ export default [
       {
         name: 'Guide',
         url: '/cloud-code/guide'
-      },
-      {
-        name: 'API Reference',
-        url: '/cloud-code/reference'
-      },
-      {
-        name: 'Plugins',
-        url: '/cloud-code/plugins'
       }
     ]
   },
@@ -71,10 +59,6 @@ export default [
       {
         name: 'Guide',
         url: '/plugin/guide'
-      },
-      {
-        name: 'API Reference',
-        url: '/plugin/reference'
       }
     ]
   },
@@ -86,10 +70,6 @@ export default [
       {
         name: 'Guide',
         url: '/cli/guide'
-      },
-      {
-        name: 'API Reference',
-        url: '/cli/reference'
       }
     ]
   },
@@ -101,10 +81,6 @@ export default [
       {
         name: 'Guide',
         url: '/server/guide'
-      },
-      {
-        name: 'API Reference',
-        url: '/server/reference'
       }
     ]
   }

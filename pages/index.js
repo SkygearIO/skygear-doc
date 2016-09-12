@@ -35,11 +35,15 @@ class IndexPage extends Component {
         <div className="get-started-info">
           <h2>Just getting started?</h2>
           <Link className="primary" to="/get-started">
-            <span>Guide</span>
+            <span>Quick Start</span>
           </Link>
-          <Link className="primary" to="/tutorial">
-            <span>Tutorials</span>
-          </Link>
+          <a
+            className="primary"
+            target="_blank"
+            href="https://oursky.quip.com/Gqf7ATtadrFv"
+          >
+            <span>Sample projects</span>
+          </a>
         </div>
         {this._sectionList()}
         <div className="contributing-info">

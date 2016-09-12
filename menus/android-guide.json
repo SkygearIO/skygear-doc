@@ -25,7 +25,7 @@
     },
     {
       "title": "First Example App",
-      "url": "/coming-soon"
+      "url": "/android/guide/first-app"
     },
     {
         "title": "Records",
@@ -137,7 +137,7 @@
     },
     {
       "title": "Push Notifications",
-      "url": "/coming-soon"
+      "url": "/android/guide/push"
     },
     {
         "title": "Pubsub",
@@ -159,7 +159,7 @@
     },
     {
       "title": "Social Relations (Friends & Followers)",
-      "url": "/coming-soon",
+      "url": "/android/guide/relation",
       "sub": [
         {
           "title": "Introduction",
@@ -181,11 +181,11 @@
     },
     {
       "title": "Geo-location",
-      "url": "/coming-soon"
+      "url": "/android/guide/geolocation"
     },
     {
       "title": "Assets (File Upload)",
-      "url": "/coming-soon"
+      "url": "/android/guide/asset"
     },
     {
         "title": "Cloud Functions",
@@ -199,7 +199,7 @@
     },
     {
       "title": "Handling Errors",
-      "url": "/coming-soon",
+      "url": "/android/guide/handling-errors",
       "sub": [
         {
           "title": "Using Skygear Error Codes",
@@ -209,7 +209,7 @@
     },
     {
       "title": "Tips",
-      "url": "/coming-soon",
+      "url": "/android/guide/tips",
       "sub": [
         {
           "title": "Debugging",

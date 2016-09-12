@@ -10,6 +10,12 @@
       "content_path": "./content/android/getting-started.md",
       "menu_path": "./menus/android-guide.json"
     },
+    "/android/guide/first-app": {
+      "name": "Android SDK",
+      "title": "First Example App",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/android-guide.json"
+    },
     "/android/guide/user-auth": {
       "name": "Android SDK",
       "title": "User Authentication",
@@ -40,10 +46,46 @@
       "content_path": "./content/android/acl.md",
       "menu_path": "./menus/android-guide.json"
     },
+    "/android/guide/push": {
+      "name": "Android SDK",
+      "title": "Push Notifications",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/android-guide.json"
+    },
+    "/android/guide/relation": {
+      "name": "Android SDK",
+      "title": "Social Relations (Friends & Followers)",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/android-guide.json"
+    },
+    "/android/guide/geolocation": {
+      "name": "Android SDK",
+      "title": "Geo-location",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/android-guide.json"
+    },
+    "/android/guide/asset": {
+      "name": "Android SDK",
+      "title": "Assets (File Upload)",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/android-guide.json"
+    },
+    "/android/guide/handling-errors": {
+      "name": "Android SDK",
+      "title": "Handling Errors",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/android-guide.json"
+    },
     "/android/guide/cloud-functions": {
       "name": "Android SDK",
       "title": "Cloud Functions",
       "content_path": "./content/android/cloud-functions.md",
+      "menu_path": "./menus/android-guide.json"
+    },
+    "/android/guide/tips": {
+      "name": "Android SDK",
+      "title": "Tips",
+      "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/android-guide.json"
     }
   }

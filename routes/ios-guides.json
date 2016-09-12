@@ -85,7 +85,7 @@
     "/ios/guide/tips": {
       "name": "iOS SDK",
       "title": "Tips",
-      "content_path": "./content/ios/tips.md",
+      "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/ios-guide.json"
     }
   }

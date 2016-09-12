@@ -22,13 +22,19 @@
       "content_path": "./content/js/record.md",
       "menu_path": "./menus/js-guide.json"
     },
+    "/js/guide/local-storage": {
+      "name": "JS SDK",
+      "title": "Local Storage (Offline)",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/js-guide.json"
+    },
     "/js/guide/query": {
       "name": "JS SDK",
       "title": "Queries",
       "content_path": "./content/js/query.md",
       "menu_path": "./menus/js-guide.json"
     },
-    "/js/guide/users": { 
+    "/js/guide/users": {
       "name": "JS SDK",
       "title": "User & Authentication",
       "content_path": "./content/js/users.md",
@@ -68,6 +74,18 @@
       "name": "JS SDK",
       "title": "Access Control",
       "content_path": "./content/js/access-control.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/push": {
+      "name": "JS SDK",
+      "title": "Push Notifications",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/cloud-functions": {
+      "name": "JS SDK",
+      "title": "Calling Cloud Functions",
+      "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/tips": {
