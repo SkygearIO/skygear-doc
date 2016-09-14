@@ -10,6 +10,24 @@
       "content_path": "./content/plugin/first-plugin.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
+    "/cloud-code/guide/first-line-of-code": {
+      "name": "Cloud Code",
+      "title": "Write your first line of cloud code",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    },
+    "/cloud-code/guide/database-extension": {
+      "name": "Cloud Code",
+      "title": "Database Extension Point",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    },
+    "/cloud-code/guide/http-handler": {
+      "name": "Cloud Code",
+      "title": "HTTP Handler",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    },
     "/cloud-code/guide/lambda": {
       "name": "Cloud Code",
       "title": "Lambda Function",
@@ -44,6 +62,12 @@
       "name": "Cloud Code",
       "title": "Error handling",
       "content_path": "./content/plugin/error-handling.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    },
+    "/cloud-code/guide/install-plugin": {
+      "name": "Cloud Code",
+      "title": "Install plugin",
+      "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/cloud-code-guide.json"
     }
   }

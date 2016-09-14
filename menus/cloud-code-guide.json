@@ -1,12 +1,15 @@
 [
   {
-    "title": "Write your first line of cloud code"
+    "title": "Write your first line of cloud code",
+    "url": "/cloud-code/guide/first-line-of-code"
   },
   {
-    "title": "Database Extension Point"
+    "title": "Database Extension Point",
+    "url": "/cloud-code/guide/database-extension"
   },
   {
-    "title": "HTTP Handler"
+    "title": "HTTP Handler",
+    "url": "/cloud-code/guide/http-handler"
   },
   {
     "title": "Lambda Function",
@@ -33,6 +36,7 @@
     "url": "/cloud-code/guide/utils"
   },
   {
-    "title": "Install plugin"
+    "title": "Install plugin",
+    "url": "/cloud-code/guide/install-plugin"
   }
 ]
