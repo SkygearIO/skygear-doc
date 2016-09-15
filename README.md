@@ -2,6 +2,7 @@
 
 ## Development
 ```
+git submodule update --init
 npm install
 npm start
 ```
@@ -9,6 +10,7 @@ npm start
 
 ## Build
 ```
+git submodule update --init
 npm install
 npm run build
 ```
@@ -18,15 +20,22 @@ npm run build
 Push to `production` branch to deploy to [http://docs.skygear.io](http://docs.skygear.io)
 
 
-## Update content
-- All contents are defined in markdown files in **content** folder
+## Updating content
+For pages that fit into a side menu + content structure are defined in separate files inside 3 directories:
+
+- `routes/` contains JSON files for mappings between the URL, side navigation menu and a content document
+- `menus/` contains JSON files for each page's side navigation menu
+- `content/` contains markdown files for each page's content
   - The markdown format follows [GitHub's recommendation](https://guides.github.com/features/mastering-markdown/)
   - The code block would have syntax highlight if declared the language used.
   - Currently supported languages:
     `bash`, `css`, `go`, `gradle`, `groovy`, `html`,
     `ini`, `java`, `javascript`, `js`, `objc`, `python`
-- To link a specific content to a route, update / create a new JSON files in **routes** folder
-- To update side menu, update JSON files in **menus** folder
+
+Other pages are inside the `pages/` directory where the structure mirrors the URL:
+- `/pages/js/guide/install-sdk.js` is a react component that maps to
+the URL `docs.skygear.io/js/guide/install-sdk`
+- pages such as `not-found` and `coming-soon` also resides in this directory.
 
 ## Spell checker
 
