@@ -10,28 +10,10 @@
       "content_path": "./content/js/getting-started.md",
       "menu_path": "./menus/js-guide.json"
     },
-    "/js/guide/quick-glance": {
+    "/js/guide/examples": {
       "name": "JS SDK",
-      "title": "Quick Glance",
-      "content_path": "./content/js/quick-glance.md",
-      "menu_path": "./menus/js-guide.json"
-    },
-    "/js/guide/record": {
-      "name": "JS SDK",
-      "title": "Records",
-      "content_path": "./content/js/record.md",
-      "menu_path": "./menus/js-guide.json"
-    },
-    "/js/guide/local-storage": {
-      "name": "JS SDK",
-      "title": "Local Storage (Offline)",
+      "title": "Examples",
       "content_path": "./content/coming-soon.md",
-      "menu_path": "./menus/js-guide.json"
-    },
-    "/js/guide/query": {
-      "name": "JS SDK",
-      "title": "Queries",
-      "content_path": "./content/js/query.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/users": {
@@ -40,16 +22,22 @@
       "content_path": "./content/js/users.md",
       "menu_path": "./menus/js-guide.json"
     },
-    "/js/guide/relation": {
+    "/js/guide/record": {
       "name": "JS SDK",
-      "title": "Social Relations (Friends & Followers)",
-      "content_path": "./content/js/relation.md",
+      "title": "Records",
+      "content_path": "./content/js/record.md",
       "menu_path": "./menus/js-guide.json"
     },
-    "/js/guide/pubsub": {
+    "/js/guide/query": {
       "name": "JS SDK",
-      "title": "Pubsub",
-      "content_path": "./content/js/pubsub.md",
+      "title": "Queries",
+      "content_path": "./content/js/query.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/access-control": {
+      "name": "JS SDK",
+      "title": "Access Control",
+      "content_path": "./content/js/access-control.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/geolocation": {
@@ -64,21 +52,27 @@
       "content_path": "./content/js/asset.md",
       "menu_path": "./menus/js-guide.json"
     },
-    "/js/guide/handling-errors": {
+    "/js/guide/pubsub": {
       "name": "JS SDK",
-      "title": "Handling Errors",
-      "content_path": "./content/js/handling-errors.md",
+      "title": "Pubsub",
+      "content_path": "./content/js/pubsub.md",
       "menu_path": "./menus/js-guide.json"
     },
-    "/js/guide/access-control": {
+    "/js/guide/relation": {
       "name": "JS SDK",
-      "title": "Access Control",
-      "content_path": "./content/js/access-control.md",
+      "title": "Social Relations (Friends & Followers)",
+      "content_path": "./content/js/relation.md",
       "menu_path": "./menus/js-guide.json"
     },
-    "/js/guide/push": {
+    "/js/guide/offline-data": {
       "name": "JS SDK",
-      "title": "Push Notifications",
+      "title": "Offline Data Cache",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/data-subscription": {
+      "name": "JS SDK",
+      "title": "Data Change Subscription",
       "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/js-guide.json"
     },
@@ -86,6 +80,12 @@
       "name": "JS SDK",
       "title": "Calling Cloud Functions",
       "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/js-guide.json"
+    },
+    "/js/guide/handling-errors": {
+      "name": "JS SDK",
+      "title": "Handling Errors",
+      "content_path": "./content/js/handling-errors.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/tips": {

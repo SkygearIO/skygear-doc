@@ -10,78 +10,16 @@
       {
         "title": "About the SDK",
         "url": "#about-js-sdk"
-      },
-      {
-        "title": "What's Next",
-        "url": "#whats-next"
       }
     ]
   },
   {
     "title": "Quick Start",
-    "url": "/js/guide/install-sdk",
-    "sub": [
-    ]
+    "url": "/js/guide/install-sdk"
   },
   {
-    "title": "Quick Glance",
-    "url": "/js/guide/quick-glance"
-  },
-  {
-    "title": "Records",
-    "url": "/js/guide/record",
-    "sub": [
-      {
-        "title": "Overview",
-        "url": "#overview"
-      },
-      {
-        "title": "Basic CRUD",
-        "url": "#basic-crud"
-      },
-      {
-        "title": "Records Relations",
-        "url": "#reference"
-      },
-      {
-        "title": "Data Type",
-        "url": "#data-type"
-      },
-      {
-        "title": "Local Storage (Offline)",
-        "url": "/js/guide/local-storage"
-      }
-    ]
-  },
-  {
-    "title": "Queries",
-    "url": "/js/guide/query",
-    "sub": [
-      {
-        "title": "Basic Queries",
-        "url": "#basic-queries"
-      },
-      {
-        "title": "Conditions",
-        "url": "#conditions"
-      },
-      {
-        "title": "Pagination and Ordering",
-        "url": "#pagination-ordering"
-      },
-      {
-        "title": "Relational Queries",
-        "url": "#relational-queries"
-      },
-      {
-        "title": "Cached Query",
-        "url": "#cached-query"
-      },
-      {
-        "title": "Subscribe to Query Change",
-        "url": "#subscription"
-      }
-    ]
+    "title": "Examples",
+    "url": "/js/guide/examples"
   },
   {
     "title": "User & Authentication",
@@ -96,7 +34,7 @@
         "url": "#user-login-status"
       },
       {
-        "title": "Signup/Login/Logout",
+        "title": "Sign up/Login/Logout",
         "url": "#signup-login-logout"
       },
       {
@@ -118,7 +56,71 @@
     ]
   },
   {
-    "title": "Access Control",
+    "title": "Records",
+    "url": "/js/guide/record",
+    "sub": [
+      {
+        "title": "Overview",
+        "url": "#overview"
+      },
+      {
+        "title": "Saving Records",
+        "url": "#save"
+      },
+      {
+        "title": "Retrieving Records",
+        "url": "#retrieve"
+      },
+      {
+        "title": "Updating Records",
+        "url": "#update"
+      },
+      {
+        "title": "Deleting Records",
+        "url": "#delete"
+      },
+      {
+        "title": "Reserved Fields",
+        "url": "#reserved"
+      },
+      {
+        "title": "Data Type",
+        "url": "#data-type"
+      },
+      {
+        "title": "Record Relations",
+        "url": "#reference"
+      },
+      {
+        "title": "Auto-Incrementing Sequences",
+        "url": "#sequence"
+      }
+    ]
+  },
+  {
+    "title": "Queries",
+    "url": "/js/guide/query",
+    "sub": [
+      {
+        "title": "Overview",
+        "url": "#overview"
+      },
+      {
+        "title": "Query Conditions",
+        "url": "#conditions"
+      },
+      {
+        "title": "Result Ordering & Pagination",
+        "url": "#pagination-ordering"
+      },
+      {
+        "title": "Retrieving Related Records",
+        "url": "#relations"
+      }
+    ]
+  },
+  {
+    "title": "Access Control (ACL)",
     "url": "/js/guide/access-control",
     "sub": [
       {
@@ -134,7 +136,7 @@
         "url": "#acl-user"
       },
       {
-        "title": "ACL by User Role",
+        "title": "ACL by Role",
         "url": "#acl-role"
       },
       {
@@ -144,20 +146,24 @@
     ]
   },
   {
-    "title": "Push Notifications",
-    "url": "/js/guide/push"
+    "title": "Geolocation",
+    "url": "/js/guide/geolocation"
   },
   {
-    "title": "Pubsub",
+    "title": "Assets (File Upload)",
+    "url": "/js/guide/asset"
+  },
+  {
+    "title": "Pubsub Channels",
     "url": "/js/guide/pubsub"
   },
   {
-    "title": "Social Relations (Friends & Followers)",
+    "title": "User Relations",
     "url": "/js/guide/relation",
     "sub": [
       {
-        "title": "Introduction",
-        "url": "#friends-and-followers"
+        "title": "Overview",
+        "url": "#overview"
       },
       {
         "title": "Adding Relations",
@@ -174,15 +180,15 @@
     ]
   },
   {
-    "title": "Geo-location",
-    "url": "/js/guide/geolocation"
+    "title": "Offline Data Cache",
+    "url": "/js/guide/offline-data"
   },
   {
-    "title": "Assets (File Upload)",
-    "url": "/js/guide/asset"
+    "title": "Data Change Subscription",
+    "url": "/js/guide/data-subscription"
   },
   {
-    "title": "Calling Cloud Functions",
+    "title": "Cloud Functions",
     "url": "/js/guide/cloud-functions"
   },
   {
@@ -190,7 +196,7 @@
     "url": "/js/guide/handling-errors",
     "sub": [
       {
-        "title": "Using Skygear Error Codes",
+        "title": "Skygear Error Codes",
         "url": "#error-code"
       }
     ]
