@@ -140,10 +140,20 @@ While each of the sign-up functions is resolved with a user object,
 in most cases you need not deal with it because
 you can access the currently logged-in user using `skygear.currentUser`.
 
-If your app does not require the user to create an account before using your
-app, you can sign up the user anonymously. A user that is signed up
-anonymously does not have a username, email, nor a password. You can add a
-username, email and/or password to a user after signing up.
+#### Anonymous user
+
+Without being authenticated, a user can read data from the public database but
+cannot perform most of the other operations, including saving data into the
+database.
+
+If you need an authenticated user but do not require a user to
+sign up explicitly with a username or email, you can create an anonymous user
+by calling `skygear.signupAnonymously`.
+
+Every anonymous user has a unique user ID, and behaves exactly the same as
+any user authenticated with a username or an email. The only difference is that
+an anonymous user has no username, email, nor password. Because of the absence
+of username and email, the account will be lost when the access token is lost.
 
 #### Signing up using a username
 
@@ -188,7 +198,7 @@ import skygear from 'skygear';
 import skygearError from 'skygear/lib/error';
 
 skygear.signupAnonymously().then((user) => {
-  console.log(user); // user object
+  console.log(user); // user object with undefined email and username
 }, (error) => {
   console.error(error);
 });
