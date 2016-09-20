@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * React Static Boilerplate
  * https://github.com/koistya/react-static-boilerplate
@@ -43,17 +44,16 @@ export default function(source) {
 
           try {
             resolve(JSON.parse(data));
-          } catch(e) {
-            reject(e);
+          } catch (err) {
+            reject(err);
           }
-
         });
       }))
     );
   })
   .then((routeInfo) => {
-    let factories = {};
-    let lines = [];
+    const factories = {};
+    const lines = [];
     forEach(routeInfo, ({factory, routes}) => {
       factories[factory.name] = factory.path;
 
@@ -143,7 +143,7 @@ export default function(source) {
     );
 
     callback(null, source);
-  }, function (err) {
+  }, function(err) {
     callback(err);
   });
 }

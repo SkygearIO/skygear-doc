@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * React Static Boilerplate
  * https://github.com/koistya/react-static-boilerplate

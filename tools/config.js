@@ -106,7 +106,7 @@ const config = {
   },
   markdownLoader: {
     renderer: MarkdownRenderer,
-  }
+  },
 };
 
 // Configuration for the client-side bundle
