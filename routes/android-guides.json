@@ -67,7 +67,7 @@
     "/android/guide/asset": {
       "name": "Android SDK",
       "title": "Assets (File Upload)",
-      "content_path": "./content/coming-soon.md",
+      "content_path": "./content/android/asset.md",
       "menu_path": "./menus/android-guide.json"
     },
     "/android/guide/handling-errors": {
