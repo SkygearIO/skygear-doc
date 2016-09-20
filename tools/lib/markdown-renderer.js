@@ -1,3 +1,4 @@
+/* global Prism */
 import marked from 'marked';
 
 require('prismjs');
@@ -39,8 +40,9 @@ function escape(html, encode) {
 }
 
 const renderer = new marked.Renderer();
-renderer.code = function(code, lang, escaped) {
+renderer.code = function(code, _lang, escaped) {
   let syntax;
+  let lang = _lang;
   if (lang) {
     lang = lang.toLowerCase();
     syntax = Syntaxes[lang];

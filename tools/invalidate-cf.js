@@ -1,7 +1,11 @@
 import Void from 'void';
 
-['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'DISTRIBUTION_ID']
-.forEach(function (perEnv) {
+const requiedEnv = [
+  'AWS_ACCESS_KEY_ID',
+  'AWS_SECRET_ACCESS_KEY',
+  'DISTRIBUTION_ID',
+];
+requiedEnv.forEach(function(perEnv) {
   if (!process.env[perEnv]) {
     console.error(`Error: \$${perEnv} is not set`);
     process.exit(1);
@@ -10,20 +14,20 @@ import Void from 'void';
 
 const invalidatingPaths = [
   '/app.js',
-  '/index.html'
+  '/index.html',
 ];
 
 const maxPaths =
   invalidatingPaths.length < 1000 ? invalidatingPaths.length : 1000;
 
-const v = new Void({
-  paths : invalidatingPaths,
-  maxPaths
+const vPaths = new Void({
+  paths: invalidatingPaths,
+  maxPaths,
 });
 
-setInterval(function () {
+setInterval(function() {
   let hasWaitingJob = false;
-  v.queue.forEach(function (perJob) {
+  vPaths.queue.forEach(function(perJob) {
     if (perJob.status === 'paused') {
       hasWaitingJob = true;
     }

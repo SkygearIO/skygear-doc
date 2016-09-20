@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * React Static Boilerplate
  * https://github.com/koistya/react-static-boilerplate
@@ -19,7 +20,7 @@ async function renderRoute(route, component) {
   if (!path.endsWith('/')) {
     path += '/';
   }
-  path += "index.html";
+  path += 'index.html';
 
   const file = join(__dirname, '../build', path);
   const data = { body: ReactDOM.renderToString(component) };
@@ -35,7 +36,7 @@ async function renderRoute(route, component) {
 export default task(async function render() {
   const { route, routes } = require('../build/app.node');
 
-  for(const perRoute in routes) {
+  for (const perRoute in routes) {
     await route(perRoute, renderRoute.bind(undefined, perRoute));
   }
 });
