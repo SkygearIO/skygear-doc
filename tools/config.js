@@ -33,6 +33,9 @@ const JS_LOADER = {
     path.resolve(__dirname, '../app.js'),
     path.resolve(__dirname, '../config.js'),
   ],
+  exclude: [
+    path.resolve(__dirname, '../lib/skygear-getstarted/node_modules'),
+  ],
   loader: 'babel-loader',
 };
 
