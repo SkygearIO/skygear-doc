@@ -7,4 +7,5 @@
 export default {
   title: 'Skygear Documentation',
   description: 'Documentation for Skygear server and SDKs',
+  googleAnalyticsId: 'UA-74838039-4'
 };
