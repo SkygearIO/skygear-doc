@@ -138,11 +138,10 @@ https://github.com/SkygearIO/py-skygear/tree/master/examples/catapi
 Add the following section to Skygear Server configuration to declare a new
 plugin.
 
-```ini
-[plugin "sample"]
-transport = zmq
-path = python
-args = tcp://0.0.0.0:5555/
+```
+PLUGINS=first_plugin
+FIRST_PLUGIN_TRANSPORT=http
+FIRST_PLUGIN_PATH=http://0.0.0.0:8000/
 ```
 
 When Skygear Server starts, it will wait for plugin registration information
@@ -150,8 +149,8 @@ before serving requests. We need to start our plugin so that the plugin can
 send registration information to Skygear.
 
 ```
-$ py-skygear sample.py
-Connecting to address tcp://127.0.0.1:5555
+$ py-skygear --http  sample.py
+ * Running on http://0.0.0.0:8000/ (Press CTRL+C to quit)
 ```
 
 You can now try out your new lambda function by calling it through Skygear API
