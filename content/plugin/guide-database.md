@@ -31,7 +31,7 @@ def update_word_count(record, original_record, db):
 
 In this example, Skygear Server will not save the record if `contains_banned_words(record["content"])` returns `True`.
 
-The `async=False` specified in `before_save` is important here. With `async=False`, skygear server waits for your plugin before proceeding to save the record. Without it, Skygear Server will not wait for the plugin, hence the plugin will not be able to make changes to the record. Likewise, you cannot reject an operation if `async=True`. `async=True` is the default.
+The `async=False` specified in `before_save` is important here. With `async=False`, skygear server waits for your plugin before proceeding to save the record. Without it, Skygear Server will not wait for the plugin, hence the plugin will not be able to make changes to the record. Likewise, you cannot reject an operation if `async=True`. `async=False` is the default.
 
 If the record is modified instead of newly created, a record object will be passed to the function in
 the `original_record` parameter. This is how you detect what data is changed in the record.
