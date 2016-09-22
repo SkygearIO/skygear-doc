@@ -1,7 +1,12 @@
 It is simple to create your first plugin.
 
-To create a plugin, you have to define functions in your Python program that takes arguments defined by each type of extension point. For Skygear Server to find your function, you have to decorate your
-functions using decorators provided by the `py-skygear` package. Doing so will also allows py-skygear to register your hooks to Skygear Server when the plugin program starts. When Skygear Server calls your plugin, `py-skygear` will take the plugin message and calls the appropriate function automatically.
+To create a plugin, you have to define functions in your Python program that
+takes arguments defined by each type of extension point. For Skygear Server to
+find your function, you have to decorate your functions using decorators
+provided by the `py-skygear` package. Doing so will also allows py-skygear to
+register your hooks to Skygear Server when the plugin program starts. When
+Skygear Server calls your plugin, `py-skygear` will take the plugin message
+and calls the appropriate function automatically.
 
 ## Install py-skygear
 
@@ -11,9 +16,11 @@ Install `py-skygear` by using `pip`.
 $ pip install py-skygear
 ```
 
-Alternatively, you can install py-skygear from source by cloning`py-skygear` from the official repository.
+Alternatively, you can install py-skygear from source by cloning`py-skygear`
+from the official repository.
 
-Depending on your operating system, you may need to install extra dependencies to install from source.
+Depending on your operating system, you may need to install extra dependencies
+to install from source.
 
 ```shell
 ## Ubuntu 14.04
@@ -32,11 +39,17 @@ $ python setup.py install
 
 ## Create main plugin file
 
-The first thing you have to do is create a main plugin file. This file is where you put all your plugin code. If your plugin consists of code that spread across multiple file, your must also import those files in your main plugin file.
+The first thing you have to do is create a main plugin file. This file is
+where you put all your plugin code. If your plugin consists of code that
+spread across multiple file, your must also import those files in your main
+plugin file.
 
-The name of the main file is arbitrary. You can name it however you want, but you have to specify the name of the main file when executing the plugin. We will call the main plugin file `sample.py`.
+The name of the main file is arbitrary. You can name it however you want, but
+you have to specify the name of the main file when executing the plugin. We
+will call the main plugin file `sample.py`.
 
-The first thing you have to include in your plugin code is to import the `skygear` module:
+The first thing you have to include in your plugin code is to import the
+`skygear` module:
 
 ```python
 import skygear
@@ -53,9 +66,13 @@ $ py-skygear sample.py --subprocess init
 {"provider": [], "timer": [], "op": [], "hook": [], "handler": {}}
 ```
 
-This command finds all hooks already defined in the plugin. The command has a `--subprocess` flag so that you can verify that the plugin works without running Skygear. This is standalone version allows you to call plugin hooks by command line.
+This command finds all hooks already defined in the plugin. The command has a
+`--subprocess` flag so that you can verify that the plugin works without
+running Skygear. This is standalone version allows you to call plugin hooks by
+command line.
 
-All types of hooks are now empty because we have not defined any! Let’s go ahead to implement the easiest extension point—lambda function:
+All types of hooks are now empty because we have not defined any! Let’s go
+ahead to implement the easiest extension point—lambda function:
 
 ```python
 import skygear
@@ -118,28 +135,32 @@ https://github.com/SkygearIO/py-skygear/tree/master/examples/catapi
 
 ## Add plugin to Skygear Server configuration
 
-Add the following section to Skygear Server configuration to declare a new plugin.
-
-```ini
-[plugin "sample"]
-transport = zmq
-path = python
-args = tcp://0.0.0.0:5555/
-```
-
-When Skygear Server starts, it will wait for plugin registration information before serving requests. We need to start our plugin so that the plugin can send registration information to Skygear.
+Add the following section to Skygear Server configuration to declare a new
+plugin.
 
 ```
-$ py-skygear sample.py
-Connecting to address tcp://127.0.0.1:5555
+PLUGINS=first_plugin
+FIRST_PLUGIN_TRANSPORT=http
+FIRST_PLUGIN_PATH=http://0.0.0.0:8000/
 ```
 
-You can now try out your new lambda function by calling it through Skygear API or calling it from your app.
+When Skygear Server starts, it will wait for plugin registration information
+before serving requests. We need to start our plugin so that the plugin can
+send registration information to Skygear.
+
+```
+$ py-skygear --http  sample.py
+ * Running on http://0.0.0.0:8000/ (Press CTRL+C to quit)
+```
+
+You can now try out your new lambda function by calling it through Skygear API
+or calling it from your app.
 
 ## Integrate with Docker
 
 To integrate the plugin with Docker, see the [catapi
-example](https://github.com/skygeario/py-skygear/tree/master/examples/catapi) in `py-skygear`
+example](https://github.com/skygeario/py-skygear/tree/master/examples/catapi)
+in `py-skygear`
 repository.
 
 The example contains everything you need to start a Skygear plugin in the
