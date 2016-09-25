@@ -161,6 +161,14 @@ If you are using Skygear portal, you can set the environment variables on the
 * `MASTER_KEY` - string, for potentially destructive operations and request
   options restricted to system administrators
 * `CORS_HOST` - string, hostname for cross origin access control
+* `SLAVE` - boolean, specify `true` to run skygear-server is in
+  slave mode.  If you have
+  multiple skygear-servers running behind a load balancer, you should
+  dedicate one skygear-server as leader and enable slave mode on all the
+  rest. When slave mode is enabled, features such as pubsub and cron jobs
+  are disabled on slaves so the slaves will not be in conflict with the
+  leader, meaning that only one instance of skygear-server will be
+  running these features.
 
 ### Token store related
 * `TOKEN_STORE` - the backing store for user token, supporting `fs`,
