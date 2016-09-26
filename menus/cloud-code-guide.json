@@ -40,23 +40,47 @@
     ]
   },
   {
-    "title": "Error handling",
-    "url": "/cloud-code/guide/error-handling"
+    "title": "Serving Static Assets",
+    "url": "/cloud-code/guide/serving-static-assets"
   },
   {
     "title": "Calling Skygear API",
-    "url": "/cloud-code/guide/skygear-api"
-  },
-  {
-    "title": "Using Pubsub",
-    "url": "/cloud-code/guide/pubsub"
+    "url": "/cloud-code/guide/skygear-api",
+    "sub": [
+      {
+        "title": "Skygear Container",
+        "url": "#skygear-container"
+      },
+      {
+        "title": "Database Queries",
+        "url": "#database-queries"
+      },
+      {
+        "title": "PubSub Events",
+        "url": "#pubsub-events"
+      }
+    ]
   },
   {
     "title": "Utility functions",
-    "url": "/cloud-code/guide/utils"
+    "url": "/cloud-code/guide/utils",
+    "sub": [
+      {
+        "title": "Reset Password",
+        "url": "#reset-password"
+      },
+      {
+        "title": "Authentication Provider",
+        "url": "#authentication-provider"
+      }
+    ]
   },
   {
-    "title": "Install plugin",
+    "title": "Installing plugin",
     "url": "/cloud-code/guide/install-plugin"
+  },
+  {
+    "title": "Error handling",
+    "url": "/cloud-code/guide/error-handling"
   }
 ]
