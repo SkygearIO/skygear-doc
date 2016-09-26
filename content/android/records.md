@@ -206,6 +206,29 @@ database.delete(records, handler);
 <a name="reference"></a>
 ## Records Relations
 
+Skygear supports parent-child relation between records via _reference_.
+`Reference` is a pointer class, which will translate to foreign key in
+skygear server database for efficient query.
+
+You can create a reference by passing an object to the `Reference` class
+constructor:
+
+```java
+Record aNote = new Record("Note", data);
+Reference reference = new Reference(aNote);
+```
+
+By setting the reference to the record, you will create a relation between
+two records:
+
+```java
+Record aComment = new Record("Comment", commentData);
+
+Record aPost = new Record("Post", postData);
+aPost.set("comment", new Reference(aComment));
+
+```
+
 <a name="data-type"></a>
 ## Data Type
 
