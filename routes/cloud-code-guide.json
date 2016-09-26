@@ -10,34 +10,10 @@
       "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
-    "/cloud-code/guide/first-line-of-code": {
+    "/cloud-code/guide/triggering-cloud-code": {
       "name": "Cloud Code",
-      "title": "Write your first line of cloud code",
+      "title": "Triggering Cloud Code",
       "content_path": "./content/coming-soon.md",
-      "menu_path": "./menus/cloud-code-guide.json"
-    },
-    "/cloud-code/guide/database-extension": {
-      "name": "Cloud Code",
-      "title": "Database Extension Point",
-      "content_path": "./content/coming-soon.md",
-      "menu_path": "./menus/cloud-code-guide.json"
-    },
-    "/cloud-code/guide/http-handler": {
-      "name": "Cloud Code",
-      "title": "HTTP Handler",
-      "content_path": "./content/coming-soon.md",
-      "menu_path": "./menus/cloud-code-guide.json"
-    },
-    "/cloud-code/guide/lambda": {
-      "name": "Cloud Code",
-      "title": "Lambda Function",
-      "content_path": "./content/plugin/guide-lambda.md",
-      "menu_path": "./menus/cloud-code-guide.json"
-    },
-    "/cloud-code/guide/scheduled": {
-      "name": "Cloud Code",
-      "title": "Scheduled Tasks",
-      "content_path": "./content/plugin/guide-scheduled.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
     "/cloud-code/guide/skygear-api": {

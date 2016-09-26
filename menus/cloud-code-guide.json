@@ -18,20 +18,26 @@
     ]
   },
   {
-    "title": "Database Extension Point",
-    "url": "/cloud-code/guide/database-extension"
-  },
-  {
-    "title": "HTTP Handler",
-    "url": "/cloud-code/guide/http-handler"
-  },
-  {
-    "title": "Lambda Function",
-    "url": "/cloud-code/guide/lambda"
-  },
-  {
-    "title": "Scheduled Tasks",
-    "url": "/cloud-code/guide/scheduled"
+    "title": "Triggering Cloud Code",
+    "url": "/cloud-code/guide/triggering-cloud-code",
+    "sub": [
+      {
+        "title": "Database Triggers",
+        "url": "#database-triggers"
+      },
+      {
+        "title": "Scheduled Tasks",
+        "url": "#scheduled-tasks"
+      },
+      {
+        "title": "Lambda Functions",
+        "url": "#lambda-functions"
+      },
+      {
+        "title": "HTTP Endpoint",
+        "url": "#http-endpoint"
+      }
+    ]
   },
   {
     "title": "Error handling",
