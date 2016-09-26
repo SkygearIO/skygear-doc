@@ -96,6 +96,29 @@ Besides the operations shown above, the following list out all operations suppor
 <a name="relational-queries"></a>
 ## Relational Queries
 
+### Eager Loading
+
+Skygear support eager loading of referenced records when you are querying the
+referencing records. It's done by specify the transient includes:
+
+```java
+Query qry = /* build the query as usual */
+qry.transientInclude("comment");
+
+// after getting the query records
+Map<String, Record> transientMap = record.getTransient();
+Record theComment = transientMap.get("comment");
+
+```
+
+You can specify the mapping key of the transient by:
+
+```java
+Query qry = /* build the query as usual */
+qry.transientInclude("comment", "note-comment");
+
+```
+
 <a name="cached-query"></a>
 ## Cached Query
 
