@@ -1,7 +1,21 @@
 [
   {
-    "title": "Write your first line of cloud code",
-    "url": "/cloud-code/guide/first-line-of-code"
+    "title": "Introduction",
+    "url": "/cloud-code/guide",
+    "sub": [
+      {
+        "title": "What is Cloud Code",
+        "url": "#what-is-cloud-code"
+      },
+      {
+        "title": "Deploying to Skygear Cloud",
+        "url": "#deploying-to-skygear-cloud"
+      },
+      {
+        "title": "Simple Example",
+        "url": "#simple-example"
+      }
+    ]
   },
   {
     "title": "Database Extension Point",

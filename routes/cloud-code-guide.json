@@ -6,8 +6,8 @@
   "routes": {
     "/cloud-code/guide": {
       "name": "Cloud Code",
-      "title": "Developing Your First Plugin",
-      "content_path": "./content/plugin/first-plugin.md",
+      "title": "Introduction",
+      "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
     "/cloud-code/guide/first-line-of-code": {
