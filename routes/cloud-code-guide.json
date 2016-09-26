@@ -6,38 +6,20 @@
   "routes": {
     "/cloud-code/guide": {
       "name": "Cloud Code",
-      "title": "Developing Your First Plugin",
-      "content_path": "./content/plugin/first-plugin.md",
-      "menu_path": "./menus/cloud-code-guide.json"
-    },
-    "/cloud-code/guide/first-line-of-code": {
-      "name": "Cloud Code",
-      "title": "Write your first line of cloud code",
+      "title": "Introduction",
       "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
-    "/cloud-code/guide/database-extension": {
+    "/cloud-code/guide/triggering-cloud-code": {
       "name": "Cloud Code",
-      "title": "Database Extension Point",
+      "title": "Triggering Cloud Code",
       "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
-    "/cloud-code/guide/http-handler": {
+    "/cloud-code/guide/serving-static-assets": {
       "name": "Cloud Code",
-      "title": "HTTP Handler",
+      "title": "Serving Static Assets",
       "content_path": "./content/coming-soon.md",
-      "menu_path": "./menus/cloud-code-guide.json"
-    },
-    "/cloud-code/guide/lambda": {
-      "name": "Cloud Code",
-      "title": "Lambda Function",
-      "content_path": "./content/plugin/guide-lambda.md",
-      "menu_path": "./menus/cloud-code-guide.json"
-    },
-    "/cloud-code/guide/scheduled": {
-      "name": "Cloud Code",
-      "title": "Scheduled Tasks",
-      "content_path": "./content/plugin/guide-scheduled.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
     "/cloud-code/guide/skygear-api": {
@@ -46,28 +28,22 @@
       "content_path": "./content/plugin/skygear-api.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
-    "/cloud-code/guide/pubsub": {
-      "name": "Cloud Code",
-      "title": "Using Pubsub",
-      "content_path": "./content/plugin/pubsub.md",
-      "menu_path": "./menus/cloud-code-guide.json"
-    },
     "/cloud-code/guide/utils": {
       "name": "Cloud Code",
       "title": "Utility functions",
       "content_path": "./content/plugin/utils.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
+    "/cloud-code/guide/install-plugin": {
+      "name": "Cloud Code",
+      "title": "Installing plugin",
+      "content_path": "./content/coming-soon.md",
+      "menu_path": "./menus/cloud-code-guide.json"
+    },
     "/cloud-code/guide/error-handling": {
       "name": "Cloud Code",
       "title": "Error handling",
       "content_path": "./content/plugin/error-handling.md",
-      "menu_path": "./menus/cloud-code-guide.json"
-    },
-    "/cloud-code/guide/install-plugin": {
-      "name": "Cloud Code",
-      "title": "Install plugin",
-      "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/cloud-code-guide.json"
     }
   }

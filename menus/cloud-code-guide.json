@@ -1,42 +1,86 @@
 [
   {
-    "title": "Write your first line of cloud code",
-    "url": "/cloud-code/guide/first-line-of-code"
+    "title": "Introduction",
+    "url": "/cloud-code/guide",
+    "sub": [
+      {
+        "title": "What is Cloud Code",
+        "url": "#what-is-cloud-code"
+      },
+      {
+        "title": "Deploying to Skygear Cloud",
+        "url": "#deploying-to-skygear-cloud"
+      },
+      {
+        "title": "Simple Example",
+        "url": "#simple-example"
+      }
+    ]
   },
   {
-    "title": "Database Extension Point",
-    "url": "/cloud-code/guide/database-extension"
+    "title": "Triggering Cloud Code",
+    "url": "/cloud-code/guide/triggering-cloud-code",
+    "sub": [
+      {
+        "title": "Database Triggers",
+        "url": "#database-triggers"
+      },
+      {
+        "title": "Scheduled Tasks",
+        "url": "#scheduled-tasks"
+      },
+      {
+        "title": "Lambda Functions",
+        "url": "#lambda-functions"
+      },
+      {
+        "title": "HTTP Endpoint",
+        "url": "#http-endpoint"
+      }
+    ]
   },
   {
-    "title": "HTTP Handler",
-    "url": "/cloud-code/guide/http-handler"
+    "title": "Serving Static Assets",
+    "url": "/cloud-code/guide/serving-static-assets"
   },
   {
-    "title": "Lambda Function",
-    "url": "/cloud-code/guide/lambda"
+    "title": "Calling Skygear API",
+    "url": "/cloud-code/guide/skygear-api",
+    "sub": [
+      {
+        "title": "Skygear Container",
+        "url": "#skygear-container"
+      },
+      {
+        "title": "Database Queries",
+        "url": "#database-queries"
+      },
+      {
+        "title": "PubSub Events",
+        "url": "#pubsub-events"
+      }
+    ]
   },
   {
-    "title": "Scheduled Tasks",
-    "url": "/cloud-code/guide/scheduled"
+    "title": "Utility functions",
+    "url": "/cloud-code/guide/utils",
+    "sub": [
+      {
+        "title": "Reset Password",
+        "url": "#reset-password"
+      },
+      {
+        "title": "Authentication Provider",
+        "url": "#authentication-provider"
+      }
+    ]
+  },
+  {
+    "title": "Installing plugin",
+    "url": "/cloud-code/guide/install-plugin"
   },
   {
     "title": "Error handling",
     "url": "/cloud-code/guide/error-handling"
-  },
-  {
-    "title": "Calling Skygear API",
-    "url": "/cloud-code/guide/skygear-api"
-  },
-  {
-    "title": "Using Pubsub",
-    "url": "/cloud-code/guide/pubsub"
-  },
-  {
-    "title": "Utility functions",
-    "url": "/cloud-code/guide/utils"
-  },
-  {
-    "title": "Install plugin",
-    "url": "/cloud-code/guide/install-plugin"
   }
 ]
