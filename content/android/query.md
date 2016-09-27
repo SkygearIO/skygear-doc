@@ -98,24 +98,30 @@ Besides the operations shown above, the following list out all operations suppor
 
 ### Eager Loading
 
-Skygear support eager loading of referenced records when you are querying the
-referencing records. It's done by specify the transient includes:
+Skygear supports eager loading of referenced records when you are querying the
+referencing records. It is done by specify the transient include on the query.
+The transient field will be available through the `getTransient` method.
 
 ```java
-Query qry = /* build the query as usual */
-qry.transientInclude("comment");
+/* Assume the `Order` table has a field named `shipping_address`,
+   which is a foreign key to a table named `address`
+*/
+Query orderQuery = new Query("Order"); /* build the query as usual */
+orderQuery.transientInclude("shipping_address");
 
-// after getting the query records
+// after getting a record of the query result
 Map<String, Record> transientMap = record.getTransient();
-Record theComment = transientMap.get("comment");
+Record shippingAddress = transientMap.get("shipping_address");
 
 ```
 
-You can specify the mapping key of the transient by:
+By default you access the transient attributes by using the field name.
+If you prefer another key, you can specify it by providing the second
+argument to `transientInclude`:
 
 ```java
-Query qry = /* build the query as usual */
-qry.transientInclude("comment", "note-comment");
+orderQuery.transientInclude("shipping_address", "shipping");
+Record shippingAddress = transientMap.get("shipping");
 
 ```
 
