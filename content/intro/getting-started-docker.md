@@ -54,7 +54,7 @@ $ cd skygear
 Download the `docker-compose.yml` file and save it in the directory you have just created.
 
 ``` bash
-$ curl -O http://docs.skygear.io/docker-compose.yml
+$ curl -O https://docs.skygear.io/docker-compose.yml
 ```
 
 Now is the time to fetch Skygear Server from Docker Hub.
