@@ -12,8 +12,16 @@
         "url": "#deploying-to-skygear-cloud"
       },
       {
-        "title": "Simple Example",
-        "url": "#simple-example"
+        "title": "How Cloud Code Works",
+        "url": "#how-cloud-code-works"
+      },
+      {
+        "title": "Creating Cloud Code from Scratch",
+        "url": "#creating-cloud-code-from-scratch"
+      },
+      {
+        "title": "Request Process Flowchart",
+        "url": "#request-process-flowchart"
       }
     ]
   },

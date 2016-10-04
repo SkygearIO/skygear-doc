@@ -39,6 +39,7 @@ homebrew
 hostname
 HTML5
 http
+HTTP2
 iOS
 IP
 JavaScript
@@ -121,6 +122,8 @@ metadata
 natively
 pre-commit
 programmatically
+publickey
+README
 schemas
 serializable
 signup
