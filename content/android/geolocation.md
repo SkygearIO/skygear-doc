@@ -9,7 +9,32 @@ Record aRecord = new Record("Note");
 aRecord.set("place", loc);
 
 skygear.getPublicDatabase().save(aRecord, new RecordSaveResponseHandler(){
-    /* Implementation of response handler */
+    @Override
+    public void onSaveSuccess(Record[] records) {
+        Record savedRecord = records[0];
+        Location place = savedRecord.get("place");
+        Log.i(
+            "Skygear Location Demo",
+            String.format(
+                "The place is at (%f, %f)",
+                place.getLatitude(),
+                place.getLongitude()
+            )
+        );
+    }
+
+    @Override
+    public void onPartiallySaveSuccess(
+        Map<String, Record> successRecords,
+        Map<String, String> reasons
+    ) {
+        /* Partial success handling */
+    }
+
+    @Override
+    public void onSaveFail(String reason) {
+        /* Error handling */
+    }
 });
 ```
 
