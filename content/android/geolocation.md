@@ -4,14 +4,17 @@ that Geo Location is identified by latitude and longitude.
 ### Saving a location in a record
 
 ```java
-Location location = new Location("gps");
-location.setLatitude(22.3360901);
-location.setLongitude(114.1476178);
+Container skygear = Container.defaultContainer(this);
+Database publicDB = skygear.getPublicDatabase();
 
-Record aRecord = new Record("Note");
-aRecord.set("place", location);
+Location office = new Location("gps");
+office.setLatitude(22.336265);
+office.setLongitude(114.147932);
 
-skygear.getPublicDatabase().save(aRecord, new RecordSaveResponseHandler(){
+Record aRecord = new Record("Meeting");
+aRecord.set("place", office);
+
+publicDB.save(aRecord, new RecordSaveResponseHandler(){
     @Override
     public void onSaveSuccess(Record[] records) {
         Record savedRecord = records[0];
@@ -31,12 +34,12 @@ skygear.getPublicDatabase().save(aRecord, new RecordSaveResponseHandler(){
         Map<String, Record> successRecords,
         Map<String, String> reasons
     ) {
-        /* Partial success handling */
+        // Partial success handling
     }
 
     @Override
     public void onSaveFail(String reason) {
-        /* Error handling */
+        // Error handling
     }
 });
 ```
@@ -48,20 +51,19 @@ distance from another location. Also, you can sort the query result by the
 distance from a provided location.
 
 ```java
-Location targetLocation = new Location("gps");
-targetLocation.setLatitude(22.3360901);
-targetLocation.setLongitude(114.1476178);
+Container skygear = Container.defaultContainer(this);
+Database publicDB = skygear.getPublicDatabase();
 
-Location targetLocation2 = new Location("gps");
-targetLocation2.setLatitude(22.3364811);
-targetLocation2.setLongitude(114.1475822);
+Location office = new Location("gps");
+office.setLatitude(22.336265);
+office.setLongitude(114.147932);
 
-Query noteQuery = new Query("Note")
-        .distanceLessThan("place", targetLocation, 500)
-        .addAscendingByDistance("place", targetLocation2);
+Query restaurantQuery = new Query("Restaurant")
+        .distanceLessThan("location", office, 100)
+        .addAscendingByDistance("location", office);
 
-skygear.getPublicDatabase().query(noteQuery, new RecordQueryResponseHandler() {
-    /* Implementation of response handler */
+publicDB.query(restaurantQuery, new RecordQueryResponseHandler() {
+    // Implementation of response handler
 });
 ```
 
@@ -71,27 +73,32 @@ Moreover, the distance of a record field from a specific location can be
 calculated during record query.
 
 ```java
-Location targetLocation = new Location("gps");
-targetLocation.setLatitude(22.3360901);
-targetLocation.setLongitude(114.1476178);
+Container skygear = Container.defaultContainer(this);
+Database publicDB = skygear.getPublicDatabase();
 
-Query noteQuery = new Query("Note")
-        .transientIncludeDistance("place", "distance", targetLocation);
+Location office = new Location("gps");
+office.setLatitude(22.336265);
+office.setLongitude(114.147932);
 
-skygear.getPublicDatabase().query(noteQuery, new RecordQueryResponseHandler() {
+// Bank.location is a geolocation field
+// the distance can be accessed via 'distanceFromOffice'
+Query bankQuery = new Query("Bank")
+        .transientIncludeDistance("location", "distanceFromOffice", office);
+
+publicDB.query(bankQuery, new RecordQueryResponseHandler() {
     @Override
     public void onQuerySuccess(Record[] records) {
         for (int idx = 0; idx < records.length; idx++) {
             Record perRecord = records[idx];
-            double perRecordDistance = (double) perRecord.getTransient().get("distance");
+            double distance = (double) perRecord.getTransient().get("distance");
 
-            Log.i("Skygear", "Distance: " + perRecordDistance);
+            Log.i("Skygear", "Distance: " + distance);
         }
     }
 
     @Override
     public void onQueryError(String reason) {
-        /* Error handling */
+        // Error handling
     }
 });
 ```
