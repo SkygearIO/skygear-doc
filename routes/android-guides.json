@@ -58,10 +58,10 @@
       "content_path": "./content/coming-soon.md",
       "menu_path": "./menus/android-guide.json"
     },
-    "/android/guide/geolocation": {
+    "/android/guide/location": {
       "name": "Android SDK",
-      "title": "Geo-location",
-      "content_path": "./content/android/geolocation.md",
+      "title": "Geographical location",
+      "content_path": "./content/android/location.md",
       "menu_path": "./menus/android-guide.json"
     },
     "/android/guide/asset": {

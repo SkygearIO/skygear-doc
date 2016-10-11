@@ -64,6 +64,7 @@ PNSs
 Podfile
 polyfill
 PostgreSQL
+PostGIS
 pubsub
 PyPI
 quickstart
@@ -136,6 +137,7 @@ todo
 # exceptions due to symbols
 _case
 _password
+100m
 v0.12
 v0.x
 v1.5

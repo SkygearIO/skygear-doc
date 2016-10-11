@@ -1,7 +1,16 @@
-Skygear supports saving Geo Location as a field in record. Please be reminded
-that Geo Location is identified by latitude and longitude.
+The location data type represents a point on Earth using
+its latitude and longitude. It is saved in the PostgreSQL database using
+the geographic object type provided by the
+[PostGIS](http://postgis.net/) extension.
 
 ### Saving a location in a record
+
+You can save a location into a record attribute by providing a
+[Location object](https://developer.android.com/reference/android/location/Location.html)
+as the second argument of the `set` method on a record.
+
+Correspondingly, the `get` method for a location data type on a record
+gives you a `Location` object so that you can obtain its latitude and longitude.
 
 ```java
 Container skygear = Container.defaultContainer(this);
@@ -44,11 +53,17 @@ publicDB.save(aRecord, new RecordSaveResponseHandler(){
 });
 ```
 
-### Querying records by distance
+### Query by distance from a specified location
 
-After saving records with location, you can query records within specific
-distance from another location. Also, you can sort the query result by the
-distance from a provided location.
+You can perform queries on the location data type using its distance from
+a specified location with `distanceLessThan` or `distanceGreaterThan`.
+Also, you can sort the query result by the distance with
+`addAscendingByDistance` or `addDescendingByDistance`.
+
+For example, if you have a database table `Restaurant` containing a
+list of restaurants with its location defined in the `location` column,
+you can obtain a list of restaurants within 100m from the office,
+sorted from the nearest to the farthest:
 
 ```java
 Container skygear = Container.defaultContainer(this);
@@ -67,10 +82,25 @@ publicDB.query(restaurantQuery, new RecordQueryResponseHandler() {
 });
 ```
 
-### Retrieving record location field distances relative to a point
+### Obtaining the distance from a specified location in a query
 
-Moreover, the distance of a record field from a specific location can be
-calculated during record query.
+The above example fetches the restaurants within 100m from the office
+but the actual distances to each restaurant are unknown.
+To have the distance calculated, you can use `transientIncludeDistance`
+on the query object.
+
+The method `transientIncludeDistance` takes three arguments:
+
+```
+transientIncludeDistance(key, mapToKey, loc)
+```
+
+- `key` (string): the attribute (field) name on the Record type to be queried.
+  The field should be of `location` type.
+- `mapToKey` (string): the key that will be used to access the computed
+  distance from `getTransient()`
+- `loc` (`Location` object): the location from which the distance will be
+  calculated
 
 ```java
 Container skygear = Container.defaultContainer(this);
@@ -80,7 +110,7 @@ Location office = new Location("gps");
 office.setLatitude(22.336265);
 office.setLongitude(114.147932);
 
-// Bank.location is a geolocation field
+// Bank.location is a location field
 // the distance can be accessed via 'distanceFromOffice'
 Query bankQuery = new Query("Bank")
         .transientIncludeDistance("location", "distanceFromOffice", office);
