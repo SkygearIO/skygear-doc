@@ -19,20 +19,20 @@ Non-standard types are specified as a JSON object with a special `$type` key
 which signify that the object should be treated as a value of a non-standard
 type. Example of keys in the JSON object that specifies the actual values are:
 
-*   `ref`: value is a reference to another record
-    *   `$id`: record ID (with record type) of the record being referenced
+`ref`: a reference to another record
+- `$id`: record ID (with record type) of the record being referenced
 
-*   `geo`: value is a geographical coordinate
-    *   `$lat`: latitude
-    *   `$lng`: longitude
+`geo`: a geographical location
+- `$lat`: latitude
+- `$lng`: longitude
 
-*   `date`: value is a date/time.
-    *   `$date`: date in ISO 8601 format
+`date`: a date/time.
+- `$date`: date in ISO 8601 format
 
-*   `asset`: value is a reference to a asset
-    *   `$name`: the unique name of the asset
-    *   `$url`: the URL to the asset. It is only available when the record is
-        fetched
+`asset`: a reference to an asset
+- `$name`: the unique name of the asset
+- `$url`: the URL to the asset. It is only available when the record is
+  fetched
 
 ## Sequence Types
 
