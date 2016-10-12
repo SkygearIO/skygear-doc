@@ -8,7 +8,7 @@ in JSON will be serialized as a JSON object with non-standard syntaxes.
 |boolean|boolean|`true`|
 |array|array|`[42, 43, 44]`|
 |dictionary|object|`{"state": "happy"}`|
-|reference|object|`{"$type": "ref", "$id": "RECORD_ID", "$class": "food"}`|
+|reference|object|`{"$type": "ref", "$id": "RECORD_ID"}`|
 |geolocation|object|`{"$type": "geo", "$lat": 40.689167, "$lng": -74.044444}`|
 |datetime|object|`{"$type": "date", "$date": "2015-02-02T01:43:19+00:00"}`|
 |asset|object|`{"$type": "asset", "$name": "asset-name", "$url": "..."}`|
@@ -20,8 +20,7 @@ which signify that the object should be treated as a value of a non-standard
 type. Example of keys in the JSON object that specifies the actual values are:
 
 *   `ref`: value is a reference to another record
-    *   `$id`: record ID of the record being referenced
-    *   `$class`: class (Record Type) of the record being referenced
+    *   `$id`: record ID (with record type) of the record being referenced
 
 *   `geo`: value is a geographical coordinate
     *   `$lat`: latitude
