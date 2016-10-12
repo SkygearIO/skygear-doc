@@ -27,7 +27,7 @@ $ brew install github-release
 $ brew install gpg2
 ```
 
-*IMPORTANT*: This guide assumes that your `origin` points to 
+*IMPORTANT*: This guide assumes that your `origin` points to
 `skygeario/skygear-server`. Make sure you are on `master` branch and the
 branch is the same as the `origin/master`.
 
@@ -152,7 +152,7 @@ $ git push origin
 ## Draft new release notes
 $ git log --first-parent `git describe --abbrev=0`.. > new-release
 $ edit new-release
-$ github-release release -u skygeario -r skygear-SDK-Android --draft --tag $SKYGEAR_VERSION --name "$SKYGEAR_VERSION" --pre-release --description "`cat new-release`"
+$ github-release release -u skygeario -r skygear-SDK-Android --draft --tag $SKYGEAR_VERSION --name "$SKYGEAR_VERSION" --description "`cat new-release`"
 
 ## Update changelog
 $ cat CHANGELOG.md >> new-release && mv new-release CHANGELOG.md
