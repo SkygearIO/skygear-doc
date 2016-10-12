@@ -180,8 +180,8 @@
       ]
     },
     {
-      "title": "Geo-location",
-      "url": "/android/guide/geolocation"
+      "title": "Geographical location",
+      "url": "/android/guide/location"
     },
     {
       "title": "Assets (File Upload)",
