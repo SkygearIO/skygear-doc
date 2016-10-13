@@ -22,19 +22,23 @@
     "url": "/cloud-code/guide/triggering-cloud-code",
     "sub": [
       {
-        "title": "Database Triggers",
-        "url": "#database-triggers"
+        "title": "Overview",
+        "url": "#overview"
       },
       {
-        "title": "Scheduled Tasks",
+        "title": "By Database Hooks",
+        "url": "#database-hooks"
+      },
+      {
+        "title": "By Scheduled Tasks (Cron)",
         "url": "#scheduled-tasks"
       },
       {
-        "title": "Lambda Functions",
+        "title": "From Client SDK",
         "url": "#lambda-functions"
       },
       {
-        "title": "HTTP Endpoint",
+        "title": "By Custom HTTP Endpoint",
         "url": "#http-endpoint"
       }
     ]

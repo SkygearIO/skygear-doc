@@ -13,7 +13,7 @@
     "/cloud-code/guide/triggering-cloud-code": {
       "name": "Cloud Code",
       "title": "Triggering Cloud Code",
-      "content_path": "./content/coming-soon.md",
+      "content_path": "./content/cloud-code/triggering-cloud-code.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
     "/cloud-code/guide/serving-static-assets": {
