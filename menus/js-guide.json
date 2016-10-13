@@ -19,7 +19,13 @@
   },
   {
     "title": "Examples",
-    "url": "/js/guide/examples"
+    "url": "/js/guide/examples",
+    "sub": [
+      {
+        "title": "Demo of SDK features",
+        "url": "#sdk-features-demo"
+      }
+    ]
   },
   {
     "title": "User & Authentication",

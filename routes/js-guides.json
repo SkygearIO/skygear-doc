@@ -13,7 +13,7 @@
     "/js/guide/examples": {
       "name": "JS SDK",
       "title": "Examples",
-      "content_path": "./content/coming-soon.md",
+      "content_path": "./content/js/examples.md",
       "menu_path": "./menus/js-guide.json"
     },
     "/js/guide/users": {
