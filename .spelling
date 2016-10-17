@@ -74,8 +74,10 @@ S3
 scss
 SDK
 SDKs
+SendGrid
 SQL
 SQLs
+SQLAlchemy
 stdin
 stdout
 stylesheet
@@ -84,8 +86,10 @@ submodule
 TextEdit
 uuid
 VirtualBox
+webhook
 webpack
 websocket
+werkzeug
 Xcode
 zeromq
 zmq
@@ -120,6 +124,7 @@ programmatically
 schemas
 serializable
 signup
+subclassing
 syntaxes
 utils
 versioning
@@ -130,13 +135,16 @@ writable
 dev
 e.g.
 i.e.
+SMS
 TBC
 TODO
 todo
 
 # exceptions due to symbols
 _case
+_delete
 _password
+_save
 100m
 v0.12
 v0.x
