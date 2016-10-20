@@ -1,37 +1,38 @@
-<a name="signing-up-at-portal"></a>
+<a name="sign-up-at-portal"></a>
 ## Signing up at Portal
 
-Before setting up the Skygear Android SDK, you need to have the Skygear server
-ready. You can sign up for one at the [Skygear Developer Portal](https://portal.skygear.io/signup).
-In the portal, You will also be able to monitor your Skygear server and acquire
-information, such as your server endpoint and API key.
+Before [installing the Skygear Android SDK](/android/guide/install-sdk),
+you need to have a Skygear server ready. If you haven't got one already,
+you can sign up for a managed hosting at the
+[Skygear Portal](https://portal.skygear.io/signup).
+The deployment of the server is handled automatically at the managed hosting
+so you can start installing and using the Android SDK right away.
 
-<a name="about-sdk"></a>
+<a name="about-android-sdk"></a>
 ## About the SDK
 
-The SDK fully abstracts the way you interact with server so that you no longer
-need to deal with complicated internet requests or socket connections. The SDK
-talks to your Skygear server directly. With simple API calls,
-you can easily achieve many things in your Android app:
-- Signing up and logging in users
-- Saving and retrieving data
-- Querying data with complex conditions
-- Setting access control for different users and roles
+The Android SDK allows you to integrate your Android app with Skygear
+quickly. The SDK communicates with the Skygear server,
+and allows you to perform a variety of tasks easily:
+
+- Authenticating users
+- Saving/Querying records to/from the database with various data types
+- Setting access control for different users and roles in accessing
+  database records
 - Managing follower/following/friend relationship between users
-- Sending and receiving instant message/data via Publish-Subscribe service
-- Working with geolocation data
+- Sending and receiving instant message via Publish-Subscribe (PubSub)
+- Sending push notifications
 - Uploading images and files
 
 The SDK is open-source on [GitHub](https://github.com/SkygearIO/skygear-SDK-Android).
-Let us know your issues or comments, and public contributions are welcomed.
+Please feel free to contribute and let us know your issues and comments.
 
 <a name="whats-next"></a>
 ## What's Next
 
-Now you know about the Skygear Android SDK, check out the docs
-to learn some of the concepts behind:
+Now that you have learned about the Skygear Android SDK, you can check out the other
+parts of the documentation as your next step:
 
-- Learn the ways of [Installing SDK](/android/guide/install-sdk)
-- Learn to make [Authentication](/android/guide/user-auth)
-- Learn to CRUD [Records](/android/guide/records)
-- Learn to make [Queries](/android/guide/query)
+- [Installing the SDK](/android/guide/install-sdk)
+- [Authenticating Users](/android/guide/user-auth)
+- [Creating and Managing database records](/android/guide/records)
