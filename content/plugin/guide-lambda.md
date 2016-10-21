@@ -1,6 +1,6 @@
 Lambda function is the easiest to implement. In fact, you can decorate any python function with this decorator to instantly make it available to your app via Skygear.
 
-```
+```python
 @skygear.op("hello:world")
 def say(name="world!"):
     return {"message": "Hello " + name}
@@ -42,7 +42,7 @@ from the `current_user_id` function.
 
 For example:
 
-```
+```python
 from skygear.utils.context import current_user_id
 
 @skygear.op("hello:world", user_required=True)

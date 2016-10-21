@@ -7,7 +7,7 @@ Py-skygear provides the following decorators to implement Database Extension Poi
 
 For example, to have Skygear Server calls your plugin when a `note` record is about to be saved, you defined a function like this and decorate it with `before_save`:
 
-```
+```python
 @skygear.before_save("note", async=False)
 def update_word_count(record, original_record, db):
     word_list = record["content"].split(" ")
@@ -21,7 +21,7 @@ In this example, the function update the `word_count` attribute with the number 
 
 To reject the saving operation, you can raise an exception in the function. Raising an exception signal to py-skygear and Skygear Server that the record should not be saved:
 
-```
+```python
 @skygear.before_save("note", async=False)
 def update_word_count(record, original_record, db):
     if contains_banned_words(record["content"]):

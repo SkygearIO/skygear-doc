@@ -4,7 +4,7 @@ When authenticated, Skygear creates new user account for new user or fetches an 
 
 Here is a simple example to implement Facebook login for your app.
 
-```
+```python
 import skygear
 import skygear.providers
 import facebook

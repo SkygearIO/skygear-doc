@@ -8,13 +8,13 @@ the Skygear API in your python program.
 The first thing you need to do is to import `SkygearContainer` from
 `skygear.container` module.
 
-```
+```python
 from skygear.container import SkygearContainer
 ```
 
 For example, to send a push notification to some users:
 
-```
+```python
 from skygear.action import push_users
 container = SkygearContainer()
 container.api_key = os.getenv('SKYGEAR_APIKEY')
