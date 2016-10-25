@@ -14,7 +14,7 @@ when a create a new `note` record containing special words.
 To build pubsub into Skygear, you have to import `publish` function from
 skygear.
 
-```
+```python
 from skygear.pubsub import publish 
 ```
 

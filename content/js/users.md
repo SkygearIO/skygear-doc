@@ -10,7 +10,9 @@ internally and handles the user login session using an
 
 The following diagram shows the login flow:
 
-<pre style="text-align: center;"><code>
+<div style="text-align: center;">
+
+```
     +-------------------------------------+    
     |        Initial page load and        |    
     |     Skygear container configured    |    
@@ -44,7 +46,9 @@ The following diagram shows the login flow:
   |                                         |  
   +-----------------------------------------+  
    5. logout success or access token expired   
-</code></pre>
+```
+
+</div>
 
 1. When the container is configured with the server endpoint and the API key, it
    will check for the existence of an authenticated user in the local storage.

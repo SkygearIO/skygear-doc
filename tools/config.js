@@ -8,7 +8,7 @@ import path from 'path';
 import webpack from 'webpack';
 import { merge } from 'lodash';
 
-import MarkdownRenderer from './lib/markdown-renderer';
+import markdownRendererConfig from './lib/markdown-renderer';
 
 const DEBUG = !process.argv.includes('release');
 const VERBOSE = process.argv.includes('verbose');
@@ -92,7 +92,7 @@ const config = {
       },
       {
         test: /\.md$/,
-        loaders: ['html-loader', 'markdown-loader'],
+        loaders: ['html-loader', 'remarkable-loader'],
       },
     ],
   },
@@ -107,9 +107,7 @@ const config = {
       }),
     ];
   },
-  markdownLoader: {
-    renderer: MarkdownRenderer,
-  },
+  remarkable: markdownRendererConfig,
 };
 
 // Configuration for the client-side bundle

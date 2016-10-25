@@ -1,5 +1,4 @@
 /* global Prism */
-import marked from 'marked';
 
 require('prismjs');
 require('prismjs/components/prism-bash');
@@ -10,6 +9,18 @@ require('prismjs/components/prism-ini');
 require('prismjs/components/prism-java');
 require('prismjs/components/prism-objectivec');
 require('prismjs/components/prism-python');
+
+function trimEmptyLineAtStartAndEnd(code) {
+  const isStartWithNewLine = code.substr(0, 1) === '\n';
+  const isEndWithNewLine = code.substr(-1) === '\n';
+  if (isStartWithNewLine && isEndWithNewLine) {
+    return code.slice(1, -1);
+  }
+  if (isStartWithNewLine) {
+    return code.substr(1);
+  }
+  return code.slice(0, -1);
+}
 
 const Syntaxes = {
   'bash': Prism.languages.bash,
@@ -30,32 +41,27 @@ const Syntaxes = {
   'shell': Prism.languages.bash,
 };
 
-function escape(html, encode) {
-  return html
-    .replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
+const remarkableConfig = {
+  html: true,
+  xhtmlOut: false,
+  breaks: false,
+  langPrefix: 'language-',
+  linkify: false,
+  typographer: false,
+  highlight: function(code, _lang) {
+    let syntax;
+    let lang = _lang;
+    if (lang) {
+      lang = lang.toLowerCase();
+      syntax = Syntaxes[lang];
+    }
 
-const renderer = new marked.Renderer();
-renderer.code = function(code, _lang, escaped) {
-  let syntax;
-  let lang = _lang;
-  if (lang) {
-    lang = lang.toLowerCase();
-    syntax = Syntaxes[lang];
-  }
-  if (!syntax) {
-    return '<pre><code>'
-      + (escaped ? code : escape(code, true))
-      + '\n</code></pre>';
-  }
-
-  return `<pre><code class="language-${escape(lang, true)}">`
-    + Prism.highlight(code, syntax)
-    + `</code></pre>`;
+    const trimmedCode = trimEmptyLineAtStartAndEnd(code);
+    if (!syntax) {
+      return trimmedCode;
+    }
+    return Prism.highlight(trimmedCode, syntax);
+  },
 };
 
-export default renderer;
+export default remarkableConfig;

@@ -1,6 +1,6 @@
 To define a function as a custom handler, decorate it with `skygear.handler`.
 
-```
+```python
 @skygear.handler("chima:echo")
 def meow(request):
     return request.get_data(as_text=True)
@@ -29,7 +29,7 @@ By default, handler accepts all the supported HTTP method, i.e. 'GET', 'POST'
 and 'PUT'. If you want your custom handler to accept specific action only,
 do the followings:
 
-```
+```python
 @skygear.handler("chima:where", method=['GET'])
 def chima_location(request):
     return request.values.get('size', 'too large')
@@ -40,7 +40,7 @@ The query string is parsed and store at `request.values`.
 You can have another function that accepts a different method by decorating
 your function with a different `method` value:
 
-```
+```python
 @skygear.handler("chima:where", method=['PUT'])
 def chima_move(request):
     return "you can move me, but I will return to corner"
@@ -48,7 +48,7 @@ def chima_move(request):
 
 ## Required user
 
-```
+```python
 @skygear.handler("chima:food", user_required=True)
 def cats(request):
     food_name = request.get('food_name')
@@ -69,7 +69,7 @@ def cats(request):
 
 **NOT IMPLEMENTED**
 
-```
+```python
 @skygear.handler("chima:age", role_required="admin")
 def age(request):
     return 2
