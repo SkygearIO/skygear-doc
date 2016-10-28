@@ -108,7 +108,8 @@ skygear.relation.query(query).then((users) => {
 ``` javascript
 const unFollow = new skygear.relation.Follower([ben]);
 skygear.relation.remove(unFollow).then((result) => {
-  console.log(result.success); // Return an array of user, here is [ben]
+  console.log(result.success);
+  // an array with one element: user ID of ben
 }, (error) => {
   console.error(error);
 });
