@@ -19,7 +19,7 @@
     "/cloud-code/guide/serving-static-assets": {
       "name": "Cloud Code",
       "title": "Serving Static Assets",
-      "content_path": "./content/coming-soon.md",
+      "content_path": "./content/cloud-code/static-assets.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
     "/cloud-code/guide/utils": {
