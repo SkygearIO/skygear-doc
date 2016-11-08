@@ -235,6 +235,25 @@ After you have registered device, you can then create a subscription.
 
 In the register device callback, you should then add the subscriptions.
 
+```obj-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[SKYContainer defaultContainer] registerDeviceCompletionHandler:^(NSString *deviceID, NSError *error) {
+        if (error) {
+            NSLog(@"Failed to register device: %@", error);
+            return;
+        }
+    
+        // You should put subscription creation logic in the following method
+        [self addSubscriptions];
+    }];
+
+    // This will prompt the user for permission to send remote notification
+    [application registerForRemoteNotifications];
+
+    // Other application initialization logic here
+}
+```
+
 
 ```obj-c
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken

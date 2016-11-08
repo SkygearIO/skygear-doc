@@ -17,8 +17,7 @@ notification, you can also do so when the application launches.
             return;
         }
     
-        // You should put subscription creation logic in the following method
-        [self addSubscriptions];
+        // Anything you want to do in the callback can be added here
     }];
 
     // This will prompt the user for permission to send remote notification
@@ -42,7 +41,7 @@ with a device token.
             return;
         }
 
-        // Anything you want to do in the callback can be added here.
+        // Anything you want to do in the callback can be added here
     }];
 }
 ```
