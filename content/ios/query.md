@@ -229,60 +229,9 @@ when you call the `-saveSubscription:completionHandler:` on the database.
 
 ### Registering device
 
-It is suggested that you register a device with remote server on every launch.
-Since the container remembers the device ID when the device is registered
-on the remote server, it will reuse an existing device ID whenever you try
-to register the current device.
+Please refer to [Registering device](/ios/guide/push) section to register the device first.
 
-You should also request a remote notification token at some point in the
-program. If it is appropriate to ask the user for permission for remote
-notification, you can also do so when the application launches.
-
-```obj-c
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[SKYContainer defaultContainer] registerDeviceCompletionHandler:^(NSString *deviceID, NSError *error) {
-        if (error) {
-            NSLog(@"Failed to register device: %@", error);
-            return;
-        }
-    
-        // You should put subscription creation logic in the following method
-        [self addSubscriptions];
-    }];
-
-    // This will prompt the user for permission to send remote notification
-    [application registerForRemoteNotifications];
-
-    // Other application initialization logic here
-}
-```
-
-When a device token is registered with Apple Push Notification Service, you
-should register the device once again by updating the registration
-with a device token.
-
-```obj-c
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
-    NSLog(@"Registered for Push notifications with token: %@", deviceToken);
-    [[SKYContainer defaultContainer] registerRemoteNotificationDeviceToken:deviceToken completionHandler:^(NSString *deviceID, NSError *error) {
-        if (error) {
-            NSLog(@"Failed to register device token: %@", error);
-            return;
-        }
-
-        // You should put subscription creation logic in the following method
-        [self addSubscriptions];
-    }];
-}
-```
-
-When the device is registered on the remote server, a device ID will be
-available to the client application. If you register the current device
-using the above convenient methods, the device ID is returned from
-`registeredDeviceID` property on the container.
-
-After you have registered device, you can create a subscription.
+After you have registered device, you can then create a subscription.
 
 ### Adding subscription
 
