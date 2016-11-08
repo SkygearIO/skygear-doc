@@ -7,7 +7,7 @@
     "/cloud-code/guide": {
       "name": "Cloud Code",
       "title": "Introduction",
-      "content_path": "./content/coming-soon.md",
+      "content_path": "./content/cloud-code/introduction.md",
       "menu_path": "./menus/cloud-code-guide.json"
     },
     "/cloud-code/guide/triggering-cloud-code": {
