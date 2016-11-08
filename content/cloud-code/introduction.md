@@ -1,20 +1,26 @@
 <a name="what-is-cloud-code"></a>
 ## What is Cloud Code?
 
-Cloud codes are functions that run on the Skygear server but not inside the SDK.
+Cloud codes are custom functions that run on the Skygear server.
 They are useful when:
 
-- you need custom logic,
-- you need codes that are not exposed in the front end, or
-- you need to have functionality beyond basic database operations.
+- you need to build functionalities that are not basic database operations
+  provided in the SDK
+- you do not want to expose your codes in the front end client
 
-Under the hood, the cloud codes communicate with the Skygear server through
-[ZeroMQ](http://zeromq.org) or [HTTP2](https://http2.github.io/)
-using a micro-services architecture.
+Under the hood, cloud codes communicate with the Skygear server
+using a micro-services architecture through [ZeroMQ](http://zeromq.org)
+or [HTTP2](https://http2.github.io/).
 
-Cloud codes are written in [Python 3](https://docs.python.org/3/).
-Below is a simple cloud code example that checks for a missing cat name.
-It raises an exception, not saving the cat, when the name is empty.
+Currently Skygear supports [Python 3](https://docs.python.org/3/) for
+cloud codes. JavaScript is on the roadmap.
+
+Below is a simple cloud code example.
+It is extracted from an app that stores information about our cats.
+(Yes we got 4 cats in the office!)
+The cloud code below checks if the field "name" is filled before
+saving the record to the database.
+If not, it will raise an exception and will not save the record.
 
 ```python
 # Reject empty 'name' before saving a cat to the database
@@ -26,71 +32,88 @@ def validate_cat_name(record, original_record, db):
 ```
 
 <a name="deploying-to-skygear-cloud"></a>
-## Deploying to Skygear Cloud
+## Cloud code deployment
 
-To have your cloud code running on your Skygear server, you need to deploy your
-cloud code as a git repository to the Skygear Cloud. After you push your git
-repository to the cloud, it will automatically deploy the code.
 
-### Get your code ready
+To have your cloud codes running on your Skygear server,
+you need to deploy the cloud codes as a git repository to the Skygear cloud
+server. After pushing your git
+repository to the cloud, the codes will be deployed automatically.
 
-First of all, you need some sample code to try out the deployment. You can
-download it from [this GitHub repository](https://github.com/skygear-demo/cloud-code-quick-start),
-or simply run in the command line:
+These are the steps to deploy (push) cloud codes to the Skygear cloud:
+
+1. get your code ready
+2. configure your SSH public key in Skygear Portal
+3. setup the git remote repository of Skygear Cloud
+4. deploy the cloud codes
+
+### 1. Get your code ready
+
+You can write your own codes or use our sample codes to try out the deployment.
+
+Download the sample codes [here](https://github.com/skygear-demo/cloud-code-quick-start) or simply run this in your command line:
 
 ```
 git clone https://github.com/skygear-demo/cloud-code-quick-start.git
 ```
 
-This sample repository contains 3 files:
+The sample repository contains 3 files:
 
 - `__init__.py` - to make this a package directory and import the cloud code
-- `cloud_code.py` - the cloud codes are written here
-- `README.md` - a README file
+- `cloud_code.py` - where the cloud codes are
+- `README.md` - the README file
 
-### Deployment
 
-Before you can deploy (push) the cloud codes to the Skygear cloud, you need to:
-1. configure your SSH public key in Skygear Portal, and
-2. setup the git remote repository of Skygear Cloud
-
-#### Adding your SSH key to Skygear Portal
+### 2. Configure your SSH key in Skygear Portal
 
 You need to upload your SSH public key (`~/.ssh/id_rsa.pub`) to the
 Skygear Portal through
 [Manage Your Account](https://portal.skygear.io/user/settings).
 
-If you have not already generated an SSH key, you can follow
-[this guide](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
-to generate one.
+Once you have set up the SSH key, you do not have to do it again for
+other Skygear app projects in the same Skygear account.
 
-If you have not uploaded your public key or you have uploaded an invalid key,
-you will get the error message "Permission denied (publickey)" when you
-try to push your git repository to Skygear Cloud.
+If you have not generated an SSH key yet, you can follow
+[this guide](ssh-key-guide) to generate one.
 
-#### Adding the Skygear Cloud Git URL as a git remote repository
+<div class="caution">
 
-Inside your repository in the command line, run the following command to add
-a new remote called `skygear-portal`:
+**Caution:** If you have not uploaded your SSH public key or
+you have uploaded an invalid one,
+you will get the error message "Permission denied (publickey)"
+when you try to push your git repository to Skygear Cloud.
 
-You can obtain your Cloud Code Git URL from the
-[Skygear Portal INFO tab](https://portal.skygear.io/app/info).
+</div>
+
+
+
+### 3. Set up the git remote repository of Skygear Cloud
+
+In the command line, go to the sample code repository and run the following command to add a new git remote called `skygear-portal`:
 
 ```bash
 git remote add skygear-portal ssh://<your-cloud-code-git-url>
 # you can verify the remote repo list by `git remote -v`
 ```
 
-#### Deploying the cloud code
+You can obtain your Cloud Code Git URL from the [Skygear Portal INFO tab](https://portal.skygear.io/app/info).
 
-Deploying to the Skygear Cloud can be done by pushing to the remote repository:
+
+### 4. Deploy the cloud codes
+
+Deploying your cloud codes to the Skygear Cloud can be done by
+pushing them to the remote repository:
 
 ```bash
 git push skygear-portal master
 ```
 
-The cloud code will be deployed automatically when you push to the remote
-repository. A sample console output of a successful deployment is shown below.
+The cloud code will then be deployed automatically.
+It takes a few second to have your codes up and running on the server
+after pushing them to the cloud.
+
+
+A sample console output of a successful deployment is shown below.
 
 ```
 MacBook-Pro:cloud-code bensonby$ git push skygear-portal master
@@ -143,16 +166,18 @@ To ssh://git@git.skygeario.com/todo.git
  + 66c7c40...512709b master -> master
 ```
 
-#### Verifying the deployment
 
-There are 4 cloud functions written in the example code.
-You can test one of them - the HTTP handler by issuing a cURL command.
-You should see `Meow! Thanks!` as the response.
+Now it is time to verify the deployment.
+
+You can test one of the 4 functions written in the sample codes,
+the HTTP handler, by issuing a cURL command:
 
 ```bash
 $ curl https://<your-skygear-endpoint>.skygeario.com/cat/feed
 Meow! Thanks!
 ```
+Do you see `Meow! Thanks!`? If yes it means the deployment is successful.
+You are now good to go. :grinning:
 
 <a name="how-cloud-code-works"></a>
 ## How Cloud Code Works
@@ -318,3 +343,5 @@ automatically installed for you.
 The following flowchart summarizes the process for the cloud codes.
 
 [![Cloud Code Request Process Flowchart](/assets/cloud-code/request-flow.svg)](/assets/cloud-code/request-flow.svg)
+
+[ssh-key-guide]: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
