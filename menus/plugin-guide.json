@@ -32,6 +32,20 @@
     "url": "/plugin/guide/guide-scheduled"
   },
   {
+    "title": "Events",
+    "url": "/plugin/guide/guide-events",
+    "sub": [
+      {
+        "title": "Lifecycle related events",
+        "url": "#lifecycle-related"
+      },
+      {
+        "title": "Non lifecycle related events",
+        "url": "#non-lifecycle-related"
+      }
+    ]
+  },
+  {
     "title": "Calling Skygear API",
     "url": "/plugin/guide/skygear-api"
   },

@@ -52,6 +52,12 @@
       "content_path": "./content/plugin/guide-scheduled.md",
       "menu_path": "./menus/plugin-guide.json"
     },
+    "/plugin/guide/guide-events": {
+      "name": "Plugin SDK",
+      "title": "Events",
+      "content_path": "./content/plugin/guide-events.md",
+      "menu_path": "./menus/plugin-guide.json"
+    },
     "/plugin/guide/guide-static-assets": {
       "name": "Plugin SDK",
       "title": "Static Assets",
