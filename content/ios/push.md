@@ -42,8 +42,7 @@ with a device token.
             return;
         }
 
-        // You should put subscription creation logic in the following method
-        [self addSubscriptions];
+        // Anything you want to do in the callback can be added here.
     }];
 }
 ```

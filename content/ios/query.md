@@ -233,6 +233,25 @@ Please refer to [Registering device](/ios/guide/push) section to register the de
 
 After you have registered device, you can then create a subscription.
 
+In the register device callback, you should then add the subscriptions.
+
+
+```obj-c
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSLog(@"Registered for Push notifications with token: %@", deviceToken);
+    [[SKYContainer defaultContainer] registerRemoteNotificationDeviceToken:deviceToken completionHandler:^(NSString *deviceID, NSError *error) {
+        if (error) {
+            NSLog(@"Failed to register device token: %@", error);
+            return;
+        }
+
+        // You should put subscription creation logic in the following method
+        [self addSubscriptions];
+    }];
+}
+```
+
 ### Adding subscription
 
 ```obj-c
