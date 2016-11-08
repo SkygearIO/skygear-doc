@@ -52,8 +52,6 @@ available to the client application. If you register the current device
 using the above convenient methods, the device ID is returned from
 `registeredDeviceID` property on the container.
 
-After you have registered device, you can create a subscription.
-
 ## Send push notification from cloud code
 
 Please refer to [Calling Skygear API](/plugin/guide/skygear-api) section for the example on how to send the push notification.
