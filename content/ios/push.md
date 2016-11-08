@@ -1,5 +1,3 @@
-1. Send push to user / device
-
 ## Registering device
 
 It is suggested that you register a device with remote server on every launch.
