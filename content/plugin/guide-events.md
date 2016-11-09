@@ -48,7 +48,7 @@ from skygear.options import options as skygear_options
 WORKER_USERNAME = # get your worker username
 WORKER_PASSWORD = # get your worker password
 
-@skygear.event("before-plugins-ready")
+@skygear.event("after-plugins-ready")
 def insert_seed_data():
     container = SkygearContainer()
 
