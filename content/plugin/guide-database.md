@@ -2,8 +2,8 @@ Py-skygear provides the following decorators to implement Database Extension Poi
 
 * `before_save` — executes decorated function before a record save operation occurs
 * `before_delete` — executes decorated function before a record delete operation occurs
-* `after_save` — executes decorated function before a record save operation occurs
-* `after_delete` — executes decorated function before a record save operation occurs
+* `after_save` — executes decorated function after a record save operation occurs
+* `after_delete` — executes decorated function after a record delete operation occurs
 
 For example, to have Skygear Server calls your plugin when a `note` record is about to be saved, you defined a function like this and decorate it with `before_save`:
 
