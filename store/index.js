@@ -48,6 +48,10 @@ export default [
       {
         name: 'Guide',
         url: '/cloud-code/guide'
+      },
+      {
+        name: 'JS API Reference (beta)',
+        url: 'https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/'
       }
     ]
   },
