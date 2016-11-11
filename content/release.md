@@ -112,7 +112,7 @@ $ git push --follow-tags origin $SKYGEAR_VERSION
 $ git push origin
 
 ## Push commit to Cocoapods
-$ pod trunk push SKYKit.podspec
+$ pod trunk push SKYKit.podspec --allow-warnings
 
 ## Click `Publish release` in github release page
 ```
