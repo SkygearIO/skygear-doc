@@ -52,8 +52,8 @@ $ git push origin
 
 ## Wait for Travis deployment...
 
-## Push to latest branch
-git push origin master:latest
+## Push to latest branch to trigger Docker build
+$ git push origin master:latest
 
 ## Click `Publish release` in github release page
 ```
@@ -80,8 +80,8 @@ $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
 
-## Push to latest branch
-git push origin master:latest
+## Push to latest branch to trigger Docker build
+$ git push origin master:latest
 
 ## Click `Publish release` in github release page
 ```
@@ -112,7 +112,7 @@ $ git push --follow-tags origin $SKYGEAR_VERSION
 $ git push origin
 
 ## Push commit to Cocoapods
-$ pod trunk push SKYKit.podspec
+$ pod trunk push SKYKit.podspec --allow-warnings
 
 ## Click `Publish release` in github release page
 ```
@@ -142,6 +142,9 @@ $ npm run deploy-latest
 $ git tag -a v$SKYGEAR_VERSION -s -u $KEY_ID -m "Release v$SKYGEAR_VERSION"
 $ git push --follow-tags origin v$SKYGEAR_VERSION
 $ git push origin
+
+## Push to latest branch to trigger Docker build
+$ git push origin master:latest
 
 ## Click `Publish release` in github release page
 ```
