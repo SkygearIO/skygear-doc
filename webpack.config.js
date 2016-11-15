@@ -99,17 +99,10 @@ const config = {
         loader: `babel-loader?${JSON.stringify(babelConfig)}`,
       },
       {
-        test: /\.css/,
+        test: [/\.scss/, /\.css/],
         loaders: [
           'style-loader',
-          `css-loader?${JSON.stringify({
-            sourceMap: isDebug,
-            // CSS Modules https://github.com/css-modules/css-modules
-            modules: true,
-            localIdentName: isDebug ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
-            // CSS Nano http://cssnano.co/options/
-            minimize: !isDebug,
-          })}`,
+          'css-loader',
           'postcss-loader',
         ],
       },
@@ -154,6 +147,9 @@ const config = {
       require('postcss-import')({ addDependencyTo: bundler }),
       // W3C variables, e.g. :root { --color: red; } div { background: var(--color); }
       // https://github.com/postcss/postcss-custom-properties
+      //
+      require('precss')(),
+
       require('postcss-custom-properties')(),
       // W3C CSS Custom Media Queries, e.g. @custom-media --small-viewport (max-width: 30em);
       // https://github.com/postcss/postcss-custom-media
