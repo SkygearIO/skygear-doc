@@ -35,6 +35,10 @@ class Link extends React.Component {
       return;
     }
 
+    if (this.props.to.startsWith('http')) {
+      return;
+    }
+
     event.preventDefault();
 
     if (this.props.to) {
