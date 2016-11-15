@@ -1,0 +1,73 @@
+@import '../../components/variables.scss';
+
+.Index{
+  .get-started-info {
+    margin: 2rem auto;
+    text-align: center;
+
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      @mixin primary-btn;
+      display: inline-block;
+      box-sizing: border-box;
+      margin: 0 .625rem;
+      font-size: .875rem;
+      min-width: 6.875rem;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .section-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 .5rem;
+
+    .section-item {
+      width: 18.75rem;
+      height: 10rem;
+      margin: .75rem .5rem;
+    }
+  }
+
+  .contributing-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 1rem;
+    padding: 1rem;
+    background-color: $theme-lighter-gray;
+
+    li {
+      display: inline-block;
+      margin: 0 1rem;
+      font-size: .875rem;
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .Index {
+    h1 {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .contributing-info {
+      flex-direction: column;
+      justify-content: flex-start;
+      text-align: center;
+
+      h2, ul {
+        @mixin horizontal-center-block;
+      }
+    }
+  }
+}

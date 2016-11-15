@@ -46,6 +46,7 @@
     "front-matter": "^2.1.0",
     "highlight.js": "^9.5.0",
     "json-loader": "^0.5.4",
+    "lodash": "^4.17.0",
     "markdown-it": "^7.0.0",
     "mocha": "^2.5.3",
     "path-to-regexp": "^1.5.3",
@@ -87,7 +88,10 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "rules": {
+      "no-underscore-dangle": "off"
+    }
   },
   "stylelint": {
     "extends": "stylelint-config-standard",

@@ -1,0 +1,81 @@
+/**
+ * React Static Boilerplate
+ * https://github.com/koistya/react-static-boilerplate
+ * Copyright (c) Konstantin Tarkus (@koistya) | MIT license
+ */
+
+@import '../variables.scss';
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: $body-bg;
+  color: $text-color;
+  font-family: $font-family-base;
+  font-size: 16px;
+}
+
+h1, h2, h3{
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2.25rem;
+  margin: .75rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: .5rem 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: .25rem 0;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+hr {
+  border-width: 1px 0 0 0;
+  border-color: $theme-light-gray;
+}
+
+.Layout {
+  margin: 0 auto;
+  padding-bottom: 300px;
+  width: calc($screen-lg-min - 30px);
+  min-height: 100%;
+}
+
+@media (max-width: $screen-lg-min) {
+  .Layout {
+    width: calc($screen-md-min - 22px);
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  .Layout {
+    width: calc($screen-sm-min - 18px);
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  .Layout {
+    width: auto;
+  }
+}

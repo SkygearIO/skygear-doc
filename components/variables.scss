@@ -1,0 +1,63 @@
+/**
+ * React Static Boilerplate
+ * https://github.com/koistya/react-static-boilerplate
+ * Copyright (c) Konstantin Tarkus (@koistya) | MIT license
+ */
+
+/*
+ * Scaffolding
+ * -------------------------------------------------------------------------- */
+$theme-primary-color: #007BD4;
+$theme-lighter-gray: #F7F7F7;
+$theme-light-gray: #D8D8D8;
+$theme-medium-gray: #ABABAB;
+$theme-gray: #9B9B9B;
+
+$body-bg: #FFFFFF;
+$text-color: #000000;
+$content-color: #4A4A4A;
+$link-color: $theme-primary-color;
+
+$inline-code-color: #000000;
+$inline-code-bg: #EFEFEF;
+
+$footer-bg: #000000;
+$footer-text-color: #717171;
+$footer-link-color: #CCCCCC;
+
+/*
+ * Typography
+ * -------------------------------------------------------------------------- */
+
+$font-family-base: 'Lato';
+$content-font: 'Lato';
+$content-code-font: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+$rubik-font: 'Rubik', sans-serif;
+
+/*
+ * Media queries breakpoints
+ * -------------------------------------------------------------------------- */
+
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+/*
+ * Some commonly use mixins
+ * -------------------------------------------------------------------------- */
+@define-mixin horizontal-center-block $display: block {
+  display: $display;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@define-mixin primary-btn{
+  padding: .625rem 1rem;
+  background-color: $theme-primary-color;
+  border-radius: 1.25rem;
+  color: $body-bg;
+
+  a {
+    color: $body-bg;
+  }
+}

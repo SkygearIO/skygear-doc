@@ -1,45 +1,61 @@
-/**
- * React Static Boilerplate
- * https://github.com/kriasoft/react-static-boilerplate
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
+import { map } from 'lodash';
+import React, { Component } from 'react';
 
-import React, { PropTypes } from 'react';
 import Layout from '../../components/Layout';
-import s from './styles.css';
-import { title, html } from './index.md';
+import Link from '../../components/Link/Link';
+import Card from '../../components/Card/Card';
 
-class HomePage extends React.Component {
+import menuConfig from './config';
 
-  static propTypes = {
-    articles: PropTypes.array.isRequired,
-  };
+import './index.scss';
 
-  componentDidMount() {
-    document.title = title;
+class IndexPage extends Component {
+  _sectionList() {
+    const sectionList = map(menuConfig, (perMenu, idx) => (
+      <Card
+        className="section-item"
+        key={`section-item-${idx}`}
+        title={perMenu.title}
+        description={perMenu.description}
+        icon={perMenu.icon}
+        buttons={perMenu.buttons}
+      />
+    ));
+
+    return <ul className="section-list">{sectionList}</ul>;
   }
 
   render() {
     return (
-      <Layout className={s.content}>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-        <h4>Articles</h4>
-        <ul>
-          {this.props.articles.map((article, i) =>
-            <li key={i}><a href={article.url}>{article.title}</a> by {article.author}</li>
-          )}
-        </ul>
-        <p>
-          <br /><br />
-        </p>
+      <Layout>
+        <div className="Index">
+          <h1>Documentation</h1>
+          <hr />
+          {this._sectionList()}
+          <div className="contributing-info">
+            <h2>Contributing</h2>
+            <ul>
+              <li>
+                <Link to="/coming-soon">
+                  <span>How to contribute</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/coming-soon">
+                  <span>FAQ</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/release-cycle">
+                  <span>Release cycle</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </Layout>
     );
   }
-
 }
 
-export default HomePage;
+export default IndexPage;
