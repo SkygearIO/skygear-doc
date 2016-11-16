@@ -9,11 +9,14 @@
  */
 
 import React, { PropTypes } from 'react';
+import Header from '../Header/Header';
+
 import './Layout.scss';
 
 const Layout = function (props) {
   return (
     <div className="Layout">
+      <Header />
       {props.children}
     </div>
   );
