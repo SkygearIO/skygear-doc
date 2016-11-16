@@ -10,6 +10,7 @@
 
 import React, { PropTypes } from 'react';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 import './Layout.scss';
 
@@ -18,6 +19,7 @@ const Layout = function (props) {
     <div className="Layout">
       <Header />
       {props.children}
+      <Footer />
     </div>
   );
 };
