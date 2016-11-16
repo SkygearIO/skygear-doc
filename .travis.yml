@@ -1,14 +1,40 @@
 language: node_js
+
+cache:
+  directories:
+    - node_modules
+
 node_js:
   - '6'
-env:
-  - CXX=g++-4.8
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
+
 script:
   - npm run lint
   - npm run test
+  - npm run build release
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket:
+      secure: cJBWCJ9zu4VmAVUL6RbXnMgFfjPv2N98ro/gX8SUsce4dzypS0aihZ4p4hV40/kl995t/4C8FE0eSemIGD5idMKvvBBnDfwozlAYn1bYdqDGo6rZ3oaoCC56gNPC6++JUUZmmQd17dmddzmhghIXIYCtYrZake4IVo3QPaCFJfE9wcKul8xjOVG/Lfm1Gyp/D7cF4/WS8Y9yvC/ATE0Dp56UtKY3F30A+UH1datDgM3buxBU8A83JWPZCleP9Qksii5SMXOm4aYdydL+i9ktjIYPu6mSP09TEGCbca4xUKKQ2rM9k8VXLLTDFonh73NiJUejBgCplU6wwnYon0Wn4y4JlWzgPbcTf+j6KtSG2az/yJG+YlMLaTXWggrnyz5mjmW9TXEs/l+S7dCTndnIXOIur6z9xBLiBj6I1DXExZVweuQ8ZNX+IeonFW0yvq8LCjTN6WMme9ELhHeUe1tKlamsrERiDeAD/QL27/9KyliG3+qRc/5b9x+lGa91+5cAfV60bdYxdwCChkUpPJiHdfACjt2pO0pcH2yHiR/Jk3x8cENOUP09UbhPb7s3kwjyZWmmDmeTB11f244kurxDL6QDaPRxpQeka5im/YOPiQHUPH2lb0sg58TboT5YhYnC5+ranvoLsn4zvWkwix/a3H7xBG92idEl57A0Z3HeXGU=
+    skip_cleanup: true
+    acl: public_read
+    local_dir: public
+    on:
+      repo: SkygearIO/skygear-doc
+      branch: restructure
+
+notifications:
+  slack:
+    secure: "qpitj7wBLxf4veJr6yeK2Sago2cIuqn39LDaYGS9vhIDAB8/Kc2PV1Fztxl3TsuatqZBkNnMzPFOXKQjU6chj9F/5hb2WWfnF695iGdoA3pfKl45ayd5loDU3ZmzAwJT3zMbe7G/DdVMQ/PItuI511lZq/S6mtUaFdvDQQQsskOUrZBCxc0cJkgETg4MNhznYYyDdo5U5qI5aupb6DLGoy6LIOnWhjfK7opVekke0Dv64p3FO40PMeZmm/JmzSIJTebBPNRdELJvx8C/N7wKecezqz8xN+ajDHE9PqU8mKcFY3zyrAicZNuLMExAf+bKZztXMbZDovU+jNU5x5a7mIh4sHSDjoT3KK06A7mYnVjtnP+okLlrfjRYmcWwttzGNyAZUhNiC5B88WMn11NfLowZTPEZPY+4lmG8BW28nQKki0EwWlKDltbKAUYhJ+OzpVChyJVaCvoE0P8hlujEczJ7G7FwAfNh+5v/z71JbOubLNds4hdZ6ryuPWzvfsMApzyxukrGcJYDjlMIVBSnp/mli5bDMrBlWa8Ak4CLBPA/PlvrOKdij81pxde3pKSR3/4VOJBN8bqY2PFf4dxOqdZ5uZg4LQLTnNpAa08Pf++VthJlVOkaGRxKTfQi/nLRudKHxP16guksMCphML6gm3SV3ckFHesoZoiS7F6BIkE="
+
+env:
+  global:
+    - PRODUCTION_BRANCH="production"
+    # AWS_ACCESS_KEY_ID
+    - secure: "u/3cyaOW8G4C3/oMSrWPNDEU6CcCmhPSweDwc1EEf/ch0jVC4LfQxtE9kLQRNO9uxCUOgZohMvBn+pArw7b6VPSjnMUhB6rldfjK7R2k+tLH/eSnkCQYaETLoZDqquJmzfrYcFd++pdSwZ8hFRgAOG7UkbII+cK88Q7ZYVeP6HwElLTm+zmyk7S56PQoohGVRgfJbSK34hLJfXMAG7n1nk+WckRX0CmmTMyZlrNOj6XeehXiZLhxY3/uKz0LvMv6ZLK3TgPtwz6jDrUi3uDn1Be6q4DrD3nkcmxjIRrmtvaxYYDw/Ulheg+eOuQwfMvr2RiUgeYOMDCqgqO2ljoMEvcZEBEc41WqHFakDHKWBOA4ideicVY1Y6QWpUah2p/ATPaPi3j0JkMtm3eer60+587viGfyomiH7YoeO5hUAXopipd0cmy+VzEzE7Jvw7vfes4isG+g7JWvKLh6L97tX9YhtmLcffqAmb8p7jJzn9kFMdRAYd+zsAgf0miQDUtDnhT/BTxHHafYvrTXOL+iAm9AVazyLr1XqsPtY2NxhhIK46ePEB6ivpqCaKnrVcvSVdxPTRvcQgnmz36MF4/OXLVz95x8kUOzrK0a8+OP8w7+M+iGcic0zZdMqG7iFKv6zRthx67wGgg71VzmPaqhHa6fxHAj6w7VEK68NJ/6fjg="
+    # AWS_SECRET_ACCESS_KEY
+    - secure: "RLHv4JHUu9dEtzH2vxTCaIZeFV0cGAxg559HxIO1IrdjDtnQD3h64u9PY0Ad5qRQaBoykuvXhy+3b9tDphX6OpWIWP7s30sniLOxpnRuAnoZHFTZ3KPjN5D9d37nwElGeydwtpoLePuhyuk6InatSG7I3rDAJNDbaLAUQLDtRERQslB9EKZNcGD9eAcjQYxf6LARfUjlYbBnBbGWMsGiOlKBRgGkDlRXqT0QEWK98oBiumPx6/uD3r4v7KL9BEXTudE581YdECfmH7nmcYo+PWWgzdGEHBvMc3deMdCYc4pHQOewEncBX2UStAIby6+t11q3FGgdedpsCTOli8R+O/lwcmWGNS6DXFwSwuV7aAeUKJMdFd4+of5kYSFdyzmW5alByEIWK5XlJwCFZUGnu5aSgYFLz/VXlA8a5oJbyChrZ+iuDaQvolaSr97OFGNX9IXrP2hN0M8Iee3O1EduOLw7bDJxX1B/NJfiQ5ipSJ0V4TeSo9DCpaKD6DZeVR7J5o144hygrnS8W8cEqSOUMjmRmXv9SISP17QMUEkNUreb6gAo3mm58rRzXStmvbj5cIalIsXyxpC/kvOZfhWgq1cSA22q3GQTtb2NEFx4OezgK6ic+qpY/LF3ci2F3aSlUiewRBluHDz8Fv5yzw1h82w2Rau0tfIivqU1geCSA/8="
+    # DISTRIBUTION_ID
+    - secure: "wTx+a/LIIw3ItZ51os70ICIbjNVf2eGD965IAHaBt6L5HPAeE9gnph+OU4wu5PSdga/HkM0MOwwm2wClr5K7qrEqbqy5d0WjOEPRlpcJ32jM9pTsCEf2rZIIO2U9MmFkBptChn+tdUCVirumPaSMBHG9ftQVeodGz2eQ6fsAIPKUrMfeakoTDrz9GeB29vlBzaDjh4lweqkgEcduEMNuQ9B65AhI/U3ytQbmom5kcT4sVwrd1gMnfVYLDwjkadiDciW6A7e9dz4rJ7Nr3VtxXVtEd9bypxAnARs/z3uza8s4FNZB6eosF2iVTYEXJne86hmi8gkyAZ5bCenSTkRpXmgVZB0GuHbvkJAwME1H3DEzLLfsodouCkEwo8GnfZ3OCr2zUzUR3+iyL84HUPmt0cEKZjYuNKih3fr3YfxJLCwohJU4n6ruKZMNsqnjPYyfbcl/tsV+DrG2BdbXWs+Z6oYs1TIb+3DQAfiQoCh2mYtRans1nENtfE6Y09rjIlAFUclM615NbRsxNUDUfuIQFvGA1V9KJ82qXNzaaTba+xwOVNHL+gKbcRcLPgIZ+WfQUH/nc/ed5YTkbh4RV2HedOM3aAq2g7leT6WPL4B5RQRYqXn65dnz2u0yAqBdpNyWRvfAMrPGhB4IsHWRYirUSnZdMBydZ2ci7VhzjEMZRMk="
