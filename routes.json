@@ -10,6 +10,10 @@
     "chunk": "main"
   },
   {
+    "path": "/coming-soon",
+    "page": "./pages/comingSoon"
+  },
+  {
     "path": "/about",
     "page": "./pages/about"
   },
