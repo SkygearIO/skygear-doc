@@ -14,7 +14,7 @@
     "page": "./pages/comingSoon"
   },
   {
-    "path": "/tasks/:status(pending|completed)?",
-    "page": "./pages/home"
+    "path": "/guide/:feature/:language/:guideName",
+    "page": "./pages/guide"
   }
 ]
