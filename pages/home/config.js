@@ -21,7 +21,7 @@ export default [
     buttons: [
       {
         name: 'Guide',
-        url: '/guide/auth',
+        url: '/guide/auth/js/basics',
       },
     ],
   },
