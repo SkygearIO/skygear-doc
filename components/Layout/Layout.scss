@@ -58,19 +58,19 @@ hr {
 .Layout {
   margin: 0 auto;
   padding-bottom: 300px;
-  width: calc($screen-lg-min - 30px);
+  width: calc(#{$screen-lg-min} - 30px);
   min-height: 100%;
 }
 
 @media (max-width: $screen-lg-min) {
   .Layout {
-    width: calc($screen-md-min - 22px);
+    width: calc(#{$screen-md-min} - 22px);
   }
 }
 
 @media (max-width: $screen-md-min) {
   .Layout {
-    width: calc($screen-sm-min - 18px);
+    width: calc(#{$screen-sm-min} - 18px);
   }
 }
 

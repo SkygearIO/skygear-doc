@@ -36,7 +36,7 @@
       }
 
       &.primary {
-        @mixin primary-btn;
+        @include primary-btn;
       }
     }
   }

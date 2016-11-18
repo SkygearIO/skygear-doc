@@ -11,7 +11,7 @@
     }
 
     a {
-      @mixin primary-btn;
+      @include primary-btn;
       display: inline-block;
       box-sizing: border-box;
       margin: 0 .625rem;
@@ -66,7 +66,7 @@
       text-align: center;
 
       h2, ul {
-        @mixin horizontal-center-block;
+        @include horizontal-center-block;
       }
     }
   }

@@ -45,13 +45,13 @@ $screen-lg-min: 1200px;
 /*
  * Some commonly use mixins
  * -------------------------------------------------------------------------- */
-@define-mixin horizontal-center-block $display: block {
+@mixin horizontal-center-block($display: block) {
   display: $display;
   margin-left: auto;
   margin-right: auto;
 }
 
-@define-mixin primary-btn{
+@mixin primary-btn {
   padding: .625rem 1rem;
   background-color: $theme-primary-color;
   border-radius: 1.25rem;

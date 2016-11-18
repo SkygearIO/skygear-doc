@@ -12,7 +12,7 @@
   .container {
     margin: 0 auto;
     padding: 4rem 0 5.625rem 0;
-    width: calc($screen-lg-min - 30px);
+    width: calc(#{$screen-lg-min} - 30px);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -54,13 +54,13 @@
 
 @media (max-width: $screen-lg-min) {
   .Footer .container {
-    width: calc($screen-md-min - 22px);
+    width: calc(#{$screen-md-min} - 22px);
   }
 }
 
 @media (max-width: $screen-md-min) {
   .Footer .container {
-    width: calc($screen-sm-min - 18px);
+    width: calc(#{$screen-sm-min} - 18px);
   }
 }
 
@@ -73,7 +73,7 @@
     text-align: center;
 
     .info {
-      @mixin horizontal-center-block;
+      @include horizontal-center-block;
       .Logo {
         background-position: center;
       }
