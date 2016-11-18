@@ -31,7 +31,7 @@ from skygear import static_assets
 from skygear.utils.assets import directory_assets
 
 
-@static_assets('/hello-world')
+@static_assets('hello-world')
 def hello_world():
     return directory_assets('my-assets/files')
 ```
