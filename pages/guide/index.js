@@ -5,6 +5,7 @@ import Layout from '../../components/Layout';
 import guideRoutes from '../../guideRoutes';
 
 import './index.scss';
+import 'highlight.js/styles/default.css';
 
 const Guide = (props) => {
   const {
