@@ -4,6 +4,8 @@ import Layout from '../../components/Layout';
 
 import guideRoutes from '../../guideRoutes';
 
+import './index.scss';
+
 const Guide = (props) => {
   const {
     route: {
@@ -20,7 +22,7 @@ const Guide = (props) => {
   return (
     <Layout>
       <h1>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div className="guide" dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );
 };

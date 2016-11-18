@@ -1,0 +1,37 @@
+ @mixin alertbox() {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+
+.guide {
+  .note {
+    @include alertbox;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+  }
+
+  .tips {
+    @include alertbox;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+  }
+
+  .caution {
+    @include alertbox;
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+  }
+
+  .advanced {
+    @include alertbox;
+    color: #7c6d4a;
+    background-color: #ede9e0;
+    border-color: #e6e1d4;
+  }
+}
