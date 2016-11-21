@@ -49,7 +49,7 @@
     "/android/guide/push": {
       "name": "Android SDK",
       "title": "Push Notifications",
-      "content_path": "./content/coming-soon.md",
+      "content_path": "./content/android/push.md",
       "menu_path": "./menus/android-guide.json"
     },
     "/android/guide/relation": {

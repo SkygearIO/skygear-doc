@@ -136,8 +136,26 @@
         ]
     },
     {
-      "title": "Push Notifications",
-      "url": "/android/guide/push"
+        "title": "Push Notifications",
+        "url": "/android/guide/push",
+        "sub": [
+            {
+                "title": "Delegate Skygear SDK",
+                "url": "#delegate-skygear"
+            },
+            {
+                "title": "Provide GCM Sender ID",
+                "url": "#provide-gcm-sender-id"
+            },
+            {
+                "title": "Trigger GCM Token Registration",
+                "url": "#trigger-registration"
+            },
+            {
+                "title": "Override Notification Handling",
+                "url": "#override-handling"
+            }
+        ]
     },
     {
         "title": "Pubsub",

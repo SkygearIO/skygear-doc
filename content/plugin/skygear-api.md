@@ -26,19 +26,13 @@ push_users(
     'apns': {
         'aps': {
             'alert': 'Greetings from Skygear Plugin',
-        },
-        'from': 'skygear',
-        'operation': 'notification',
+        }
     },
     'gcm': {
         'notification': {
             'title': 'Exciting News for you',
             'body': 'Skygear Plugin sending notifications',
-        },
-        'data': {
-            'from': 'skygear',
-            'operation': 'notification',
-        },
+        }
     },
 });
 
