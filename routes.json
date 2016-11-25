@@ -14,7 +14,7 @@
     "page": "./pages/comingSoon"
   },
   {
-    "path": "/guide/:feature/:language/:guideName",
+    "path": "/guide/:feature/:guideName/:language",
     "page": "./pages/guide"
   }
 ]

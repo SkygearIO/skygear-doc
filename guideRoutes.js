@@ -1,8 +1,8 @@
 const guideRoutes = {
   'auth': {
-    'js': {
-      'basics': {
-        'markdown': require('./content/js/users.md')
+    'basics': {
+      'js': {
+        'markdown': require('./content/auth/basics-js.md')
       }
     }
   }

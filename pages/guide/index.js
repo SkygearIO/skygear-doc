@@ -18,7 +18,7 @@ const Guide = (props) => {
     },
   } = props;
 
-  const { title, html } = guideRoutes[feature][language][guideName].markdown;
+  const { title, html } = guideRoutes[feature][guideName][language].markdown;
 
   return (
     <Layout>
