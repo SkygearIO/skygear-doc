@@ -11,7 +11,11 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
   </head>
   <body>
-    <div id="container"></div>
+    <div id="container">
+      <div style="position: fixed; background: white; top: 0; left: 0; right: 0; bottom: 0;">
+        <img src="/loading.gif" style="display: block; position: absolute; top: 50%; left: 50%; width: 3rem; height: auto; margin: -1.5rem 0 0 -1.5rem;" />
+      </div>
+    </div>
     <script src="<%= bundle %>"></script>
     <%_ if (!debug && config.trackingID) { _%>
     <script>
