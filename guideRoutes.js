@@ -115,6 +115,19 @@ const guideRoutes = {
       },
     },
   },
+  'push-notifications': {
+    'basics': {
+      'js': {
+        'markdown': require('./content/push-notifications/basics-js.md')
+      },
+      'android': {
+        'markdown': require('./content/push-notifications/basics-android.md')
+      },
+      'ios': {
+        'markdown': require('./content/push-notifications/basics-ios.md')
+      },
+    },
+  },
 };
 
 export default guideRoutes;
