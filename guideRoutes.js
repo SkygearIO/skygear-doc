@@ -128,6 +128,58 @@ const guideRoutes = {
       },
     },
   },
+  'cloud-code': {
+    'authenticating-users': {
+      'python': {
+        'markdown': require('./content/cloud-code/authenticating-users-python.md'),
+      },
+    },
+    'calling-skygear-api': {
+      'python': {
+        'markdown': require('./content/cloud-code/calling-skygear-api-python.md'),
+      },
+    },
+    'database-hooks': {
+      'python': {
+        'markdown': require('./content/cloud-code/database-hooks-python.md'),
+      },
+    },
+    'error-handling': {
+      'python': {
+        'markdown': require('./content/cloud-code/error-handling-python.md'),
+      },
+    },
+    'http-endpoint': {
+      'python': {
+        'markdown': require('./content/cloud-code/http-endpoint-python.md'),
+      },
+    },
+    'intro-and-deployment': {
+      'python': {
+        'markdown': require('./content/cloud-code/intro-and-deployment-python.md'),
+      },
+    },
+    'lambda': {
+      'python': {
+        'markdown': require('./content/cloud-code/lambda-python.md'),
+      },
+    },
+    'restful-http-endpoint': {
+      'python': {
+        'markdown': require('./content/cloud-code/restful-http-endpoint-python.md'),
+      },
+    },
+    'scheduled-tasks': {
+      'python': {
+        'markdown': require('./content/cloud-code/scheduled-tasks-python.md'),
+      },
+    },
+    'static-assets': {
+      'python': {
+        'markdown': require('./content/cloud-code/static-assets-python.md'),
+      },
+    },
+  },
 };
 
 export default guideRoutes;
