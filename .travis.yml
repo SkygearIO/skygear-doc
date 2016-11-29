@@ -7,13 +7,10 @@ cache:
 node_js:
   - '6'
 
-before_script:
-  - 'npm install markdown-spellcheck'
-
 script:
   - npm run lint
   - npm run test
-  - mdspell -r --en-us -n 'content/**/*.md'
+  - npm run spell-check
   - npm run build release
 
 deploy:

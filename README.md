@@ -38,8 +38,8 @@ Please refer to `utils/markdown-loader.js` for how it is parsed.
 
 ## Spell checker
 
-- `npm install -g markdown-spellcheck`
-- `mdspell -r --en-us -n 'content/**/*.md'`
+- it uses [markdown-spellcheck](https://github.com/lukeapage/node-markdown-spellcheck)
+- `npm run spell-check`
 - American English spelling is used.
 - Exceptions are in the `.spelling` file.
 
