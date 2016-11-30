@@ -2,23 +2,22 @@ import React, { PropTypes } from 'react';
 
 import Layout from '../../components/Layout';
 
-import guideRoutes from '../../guideRoutes';
-
-import './index.scss';
-import 'highlight.js/styles/default.css';
+require('./index.scss');
+require('highlight.js/styles/default.css');
 
 const Guide = (props) => {
-  const {
-    route: {
-      params: {
-        feature,
-        guideName,
-        language,
-      },
-    },
-  } = props;
+  const currentRoute = props.routes.slice(-1)[0];
 
-  const { title, html } = guideRoutes[feature][guideName][language].markdown;
+  if (!currentRoute.markdown) {
+    return false;
+  }
+
+  const {
+    markdown: {
+      title,
+      html,
+    },
+  } = currentRoute;
 
   return (
     <Layout>
@@ -29,13 +28,9 @@ const Guide = (props) => {
 };
 
 Guide.propTypes = {
-  route: PropTypes.shape({
-    params: PropTypes.shape({
-      feature: PropTypes.string,
-      guideName: PropTypes.string,
-      language: PropTypes.string,
-    }),
-  }),
+  routes: PropTypes.arrayOf(PropTypes.shape({
+    markdown: PropTypes.object,
+  })),
 };
 
 export default Guide;

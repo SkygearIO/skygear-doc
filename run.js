@@ -39,20 +39,9 @@ function run(task) {
 tasks.set('clean', () => del(['public/dist/*', '!public/dist/.git'], { dot: true }));
 
 //
-// Copy ./index.html into the /public folder
-// -----------------------------------------------------------------------------
-tasks.set('html', () => {
-  const webpackConfig = require('./webpack.config');
-  const assets = JSON.parse(fs.readFileSync('./public/dist/assets.json', 'utf8'));
-  const template = fs.readFileSync('./public/index.ejs', 'utf8');
-  const render = ejs.compile(template, { filename: './public/index.ejs' });
-  const output = render({ debug: webpackConfig.debug, bundle: assets.main.js, config });
-  fs.writeFileSync('./public/index.html', output, 'utf8');
-});
-
-//
 // Generate sitemap.xml
 // -----------------------------------------------------------------------------
+// TODO: sitemap
 tasks.set('sitemap', () => {
   const urls = require('./routes.json')
     .filter(x => !x.path.includes(':'))
@@ -88,7 +77,6 @@ tasks.set('build', () => {
   return Promise.resolve()
     .then(() => run('clean'))
     .then(() => run('bundle'))
-    .then(() => run('html'))
     .then(() => run('sitemap'));
 });
 
@@ -122,14 +110,7 @@ tasks.set('start', () => {
       publicPath: webpackConfig.output.publicPath,
       stats: webpackConfig.stats,
     });
-    compiler.plugin('done', stats => {
-      // Generate index.html page
-      const bundle = stats.compilation.chunks.find(x => x.name === 'main').files[0];
-      const template = fs.readFileSync('./public/index.ejs', 'utf8');
-      const render = ejs.compile(template, { filename: './public/index.ejs' });
-      const output = render({ debug: true, bundle: `/dist/${bundle}`, config });
-      fs.writeFileSync('./public/index.html', output, 'utf8');
-
+    compiler.plugin('done', () => {
       // Launch Browsersync after the initial bundling is complete
       // For more information visit https://browsersync.io/docs/options
       if (++count === 1) {

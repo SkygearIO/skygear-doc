@@ -1,6 +1,6 @@
 import { map } from 'lodash';
 import React, { PropTypes } from 'react';
-import Link from '../Link';
+import { Link } from 'react-router';
 
 import './Card.scss';
 

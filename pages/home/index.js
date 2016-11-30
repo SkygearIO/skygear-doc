@@ -1,8 +1,8 @@
 import { map } from 'lodash';
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 import Layout from '../../components/Layout';
-import Link from '../../components/Link/Link';
 import Card from '../../components/Card/Card';
 
 import menuConfig from './config';
@@ -36,12 +36,12 @@ class IndexPage extends Component {
             <h2>Contributing</h2>
             <ul>
               <li>
-                <Link to="/coming-soon">
+                <Link to="/coming-soon/">
                   <span>How to contribute</span>
                 </Link>
               </li>
               <li>
-                <Link to="/coming-soon">
+                <Link to="/coming-soon/">
                   <span>FAQ</span>
                 </Link>
               </li>

@@ -12,7 +12,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const AssetsPlugin = require('assets-webpack-plugin');
+const ReactStaticPlugin = require('react-static-webpack-plugin');
 const pkg = require('./package.json');
 
 const isDebug = global.DEBUG === false ? false : !process.argv.includes('--release');
@@ -22,6 +22,10 @@ const babelConfig = Object.assign({}, pkg.babel, {
   babelrc: false,
   cacheDirectory: useHMR,
 });
+
+const appConfig = {
+  trackingID: 'UA-74838039-4', // Google Analytics Site's ID
+};
 
 // Webpack configuration (main.js => public/dist/main.{hash}.js)
 // http://webpack.github.io/docs/configuration.html
@@ -39,9 +43,9 @@ const config = {
   // Options affecting the output of the compilation
   output: {
     path: path.resolve(__dirname, './public/dist'),
-    publicPath: '/dist/',
-    filename: isDebug ? '[name].js?[hash]' : '[name].[hash].js',
-    chunkFilename: isDebug ? '[id].js?[chunkhash]' : '[id].[chunkhash].js',
+    publicPath: '/',
+    filename: '[name].js?[hash]',
+    chunkFilename: '[id].js?[chunkhash]',
     sourcePrefix: '  ',
   },
 
@@ -72,12 +76,10 @@ const config = {
       'process.env.NODE_ENV': isDebug ? '"development"' : '"production"',
       __DEV__: isDebug,
     }),
-    // Emit a JSON file with assets paths
-    // https://github.com/sporto/assets-webpack-plugin#options
-    new AssetsPlugin({
-      path: path.resolve(__dirname, './public/dist'),
-      filename: 'assets.json',
-      prettyPrint: true,
+    new ReactStaticPlugin({
+      routes: './routes.js',
+      template: './components/HtmlTemplate.js',
+      trackingID: isDebug ? null : appConfig.trackingID,
     }),
   ],
 
@@ -89,21 +91,15 @@ const config = {
         include: [
           path.resolve(__dirname, './actions'),
           path.resolve(__dirname, './components'),
-          path.resolve(__dirname, './core'),
           path.resolve(__dirname, './pages'),
           path.resolve(__dirname, './main.js'),
-          path.resolve(__dirname, './guideRoutes.js'),
+          path.resolve(__dirname, './routes.js'),
         ],
         loader: `babel-loader?${JSON.stringify(babelConfig)}`,
       },
       {
         test: [/\.scss/, /\.css/],
-        loaders: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
+        loaders: ['css', 'postcss', 'sass'],
       },
       {
         test: /\.json$/,

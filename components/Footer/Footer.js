@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.scss';
-import Link from '../Link';
+import { Link } from 'react-router';
 
 const Footer = function () {
   return (
