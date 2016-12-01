@@ -21,7 +21,7 @@ deploy:
       secure: "sDNpK1vQJw0PL0/SSNpX7S280MCk/K5ghy/BYoy/Vem7qR461/obX0vW1u+IoLm6lmCskLP9jN8Kn4N6wQtjJsH24cXW5SR9GnkZDuJEcChAV2HWe3uS8Q//+u6+xASVorGhEe45GUuZB9tHxmIWTK54TRgzkYfYm5JlqKq3zIsN6VbhJwctu7RG+bWOrc9b1l7uIZEVvasb+yuUz6PMwoTJfIGgoA64tLcOrPCQtyTEvqPI73+/iLIovpS1aSZotXxQSOr/Clfn1PYwkcAEkiPWAL250gEMdJUyqX1bhSRPc4ZVQ6REphh4b6AADqI3uG9s9Y4tOHqoY1PPfQySvWQMkpdgudStTNEIz/XmAYg1mzkt7VRMHhARu2xd8bf5iSeNMvrHce56G3+0L54xZCxDF8XsFpXtDaa9nm5UbosgDlemzmKYnFrZpnEsO8yP3wEBhQwwakgnQgCMMNkAGU9sDNZfJAOCx2uKs3t9I9hd8E1O4PbRfhfU5UIpOuCfIScJwRBbiPprM+j0GCvidTlntrnRRNPlpo3V19UioWspeqgQ1DZvj6m7m12sxYpOTTMUEVzPN8suOH/qX5OL2l1dBFVz9iKCHW85O2PbsEwFtKPx5fMf2YxnWgqgE4H5gUURqb6dnY/EZ4hsgkgHEmligYiQHHzZs57jAbhsOmM="
     skip_cleanup: true
     acl: public_read
-    local_dir: public
+    local_dir: build
     on:
       repo: SkygearIO/skygear-doc
       branch: restructure

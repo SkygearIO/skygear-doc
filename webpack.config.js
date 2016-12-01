@@ -42,7 +42,7 @@ const config = {
 
   // Options affecting the output of the compilation
   output: {
-    path: path.resolve(__dirname, './public/dist'),
+    path: path.resolve(__dirname, './build'),
     publicPath: '/',
     filename: '[name].js?[hash]',
     chunkFilename: '[id].js?[chunkhash]',

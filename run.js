@@ -12,6 +12,8 @@
 
 const fs = require('fs');
 const del = require('del');
+const ncp = require('ncp');
+const mkdirp = require('mkdirp');
 const ejs = require('ejs');
 const webpack = require('webpack');
 
@@ -36,7 +38,20 @@ function run(task) {
 //
 // Clean up the output directory
 // -----------------------------------------------------------------------------
-tasks.set('clean', () => del(['public/dist/*', '!public/dist/.git'], { dot: true }));
+tasks.set('clean', () =>
+  del(['build/*', '!build/.git'], { dot: true })
+  .then(() => mkdirp('build'))
+);
+
+//
+// Copy static files such as favicon.ico to the output (build) folder
+// -----------------------------------------------------------------------------
+tasks.set('copy', () =>
+  new Promise((resolve, reject) => {
+    ncp('static', 'build', err => (err ? reject(err) : resolve()));
+  })
+);
+
 
 //
 // Generate sitemap.xml
@@ -46,10 +61,10 @@ tasks.set('sitemap', () => {
   const urls = require('./routes.json')
     .filter(x => !x.path.includes(':'))
     .map(x => ({ loc: x.path }));
-  const template = fs.readFileSync('./public/sitemap.ejs', 'utf8');
-  const render = ejs.compile(template, { filename: './public/sitemap.ejs' });
+  const template = fs.readFileSync('./static/sitemap.ejs', 'utf8');
+  const render = ejs.compile(template, { filename: './static/sitemap.ejs' });
   const output = render({ config, urls });
-  fs.writeFileSync('public/sitemap.xml', output, 'utf8');
+  fs.writeFileSync('build/sitemap.xml', output, 'utf8');
 });
 
 //
@@ -76,6 +91,7 @@ tasks.set('build', () => {
   global.DEBUG = process.argv.includes('--debug') || false;
   return Promise.resolve()
     .then(() => run('clean'))
+    .then(() => run('copy'))
     .then(() => run('bundle'))
     .then(() => run('sitemap'));
 });
@@ -100,35 +116,37 @@ tasks.set('publish', () => {
 tasks.set('start', () => {
   let count = 0;
   global.HMR = !process.argv.includes('--no-hmr'); // Hot Module Replacement (HMR)
-  return run('clean').then(() => new Promise(resolve => {
-    const bs = require('browser-sync').create();
-    const webpackConfig = require('./webpack.config');
-    const compiler = webpack(webpackConfig);
-    // Node.js middleware that compiles application in watch mode with HMR support
-    // http://webpack.github.io/docs/webpack-dev-middleware.html
-    const webpackDevMiddleware = require('webpack-dev-middleware')(compiler, {
-      publicPath: webpackConfig.output.publicPath,
-      stats: webpackConfig.stats,
-    });
-    compiler.plugin('done', () => {
-      // Launch Browsersync after the initial bundling is complete
-      // For more information visit https://browsersync.io/docs/options
-      if (++count === 1) {
-        bs.init({
-          port: process.env.PORT || 3000,
-          ui: { port: Number(process.env.PORT || 3000) + 1 },
-          server: {
-            baseDir: 'public',
-            middleware: [
-              webpackDevMiddleware,
-              require('webpack-hot-middleware')(compiler),
-              require('connect-history-api-fallback')(),
-            ],
-          },
-        }, resolve);
-      }
-    });
-  }));
+  return run('clean')
+    .then(() => run('copy'))
+    .then(() => new Promise(resolve => {
+      const bs = require('browser-sync').create();
+      const webpackConfig = require('./webpack.config');
+      const compiler = webpack(webpackConfig);
+      // Node.js middleware that compiles application in watch mode with HMR support
+      // http://webpack.github.io/docs/webpack-dev-middleware.html
+      const webpackDevMiddleware = require('webpack-dev-middleware')(compiler, {
+        publicPath: webpackConfig.output.publicPath,
+        stats: webpackConfig.stats,
+      });
+      compiler.plugin('done', () => {
+        // Launch Browsersync after the initial bundling is complete
+        // For more information visit https://browsersync.io/docs/options
+        if (++count === 1) {
+          bs.init({
+            port: process.env.PORT || 3000,
+            ui: { port: Number(process.env.PORT || 3000) + 1 },
+            server: {
+              baseDir: 'build',
+              middleware: [
+                webpackDevMiddleware,
+                require('webpack-hot-middleware')(compiler),
+                require('connect-history-api-fallback')(),
+              ],
+            },
+          }, resolve);
+        }
+      });
+    }));
 });
 
 // Execute the specified task or default one. E.g.: node run build
