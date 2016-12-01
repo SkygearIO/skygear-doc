@@ -10,22 +10,12 @@
 
 /* eslint-disable no-console, global-require */
 
-const fs = require('fs');
 const del = require('del');
 const ncp = require('ncp');
 const mkdirp = require('mkdirp');
-const ejs = require('ejs');
 const webpack = require('webpack');
 
-// TODO: Update configuration settings
-const config = {
-  title: 'Skygear Documentation',        // Your website title
-  url: 'https://docs.skygear.io',          // Your website URL
-  project: 'react-static-boilerplate',      // Firebase project. See README.md -> How to Deploy
-  trackingID: 'UA-74838039-4',                 // Google Analytics Site's ID
-};
-
-const tasks = new Map(); // The collection of automation tasks ('clean', 'build', 'publish', etc.)
+const tasks = new Map(); // The collection of automation tasks ('clean', 'build', etc.)
 
 function run(task) {
   const start = new Date();
@@ -52,21 +42,6 @@ tasks.set('copy', () =>
   })
 );
 
-
-//
-// Generate sitemap.xml
-// -----------------------------------------------------------------------------
-// TODO: sitemap
-tasks.set('sitemap', () => {
-  const urls = require('./routes.json')
-    .filter(x => !x.path.includes(':'))
-    .map(x => ({ loc: x.path }));
-  const template = fs.readFileSync('./static/sitemap.ejs', 'utf8');
-  const render = ejs.compile(template, { filename: './static/sitemap.ejs' });
-  const output = render({ config, urls });
-  fs.writeFileSync('build/sitemap.xml', output, 'utf8');
-});
-
 //
 // Bundle JavaScript, CSS and image files with Webpack
 // -----------------------------------------------------------------------------
@@ -92,22 +67,7 @@ tasks.set('build', () => {
   return Promise.resolve()
     .then(() => run('clean'))
     .then(() => run('copy'))
-    .then(() => run('bundle'))
-    .then(() => run('sitemap'));
-});
-
-//
-// Build and publish the website
-// -----------------------------------------------------------------------------
-tasks.set('publish', () => {
-  const firebase = require('firebase-tools');
-  return run('build')
-    .then(() => firebase.login({ nonInteractive: false }))
-    .then(() => firebase.deploy({
-      project: config.project,
-      cwd: __dirname,
-    }))
-    .then(() => { setTimeout(() => process.exit()); });
+    .then(() => run('bundle'));
 });
 
 //
