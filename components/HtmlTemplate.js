@@ -15,11 +15,12 @@ const Html = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href={`/${props.stylesheet}`} />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
       </head>
       <body>
         <div id="root" dangerouslySetInnerHTML={{ __html: props.body }} />
-        <script src="/main.js" />
+        <script src={`/${props.bundle}`} />
         {props.trackingID &&
           <script dangerouslySetInnerHTML={{ __html: gaScript }} />
         }
@@ -33,6 +34,8 @@ Html.propTypes = {
   trackingID: PropTypes.string,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
+  bundle: PropTypes.string.isRequired,
+  stylesheet: PropTypes.string.isRequired,
 };
 
 export default Html;

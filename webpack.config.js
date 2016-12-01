@@ -13,6 +13,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ReactStaticPlugin = require('react-static-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pkg = require('./package.json');
 
 const isDebug = global.DEBUG === false ? false : !process.argv.includes('--release');
@@ -80,7 +81,10 @@ const config = {
       routes: './routes.js',
       template: './components/HtmlTemplate.js',
       trackingID: isDebug ? null : appConfig.trackingID,
+      bundle: 'main.js',
+      stylesheet: 'styles.css',
     }),
+    new ExtractTextPlugin('styles.css', { allChunks: true }),
   ],
 
   // Options affecting the normal modules
@@ -99,7 +103,7 @@ const config = {
       },
       {
         test: [/\.scss/, /\.css/],
-        loaders: ['css', 'postcss', 'sass'],
+        loader: ExtractTextPlugin.extract('style', ['css', 'postcss', 'sass']),
       },
       {
         test: /\.json$/,
