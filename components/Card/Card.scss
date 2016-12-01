@@ -7,7 +7,7 @@
   box-sizing: border-box;
   padding-top: 1rem;
   border: 1px solid $theme-light-gray;
-  border-radius: .625rem;
+  border-radius: 0.625rem;
   overflow: hidden;
 
   .container {
@@ -30,7 +30,7 @@
 
       span {
         color: $theme-gray;
-        font-size: .875rem;
+        font-size: 0.875rem;
       }
     }
   }
@@ -51,7 +51,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        font-size: .75rem;
+        font-size: 0.75rem;
         text-align: center;
         line-height: 2.1875rem;
       }

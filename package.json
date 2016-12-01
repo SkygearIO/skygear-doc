@@ -102,12 +102,13 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
+      "color-hex-length": "long",
       "string-quotes": "single"
     }
   },
   "scripts": {
     "eslint": "eslint components core pages test utils main.js run.js webpack.config.js",
-    "stylelint": "stylelint \"components/**/*.css\" \"pages/**/*.css\"",
+    "stylelint": "stylelint \"components/**/*.scss\" \"components/**/*.css\" \"components/**/*.scss\" \"pages/**/*.css\"",
     "lint": "npm run eslint && npm run stylelint",
     "test": "mocha --compilers js:babel-register",
     "test:watch": "mocha --compilers js:babel-register --reporter min --watch",

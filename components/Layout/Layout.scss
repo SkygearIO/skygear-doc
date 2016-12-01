@@ -7,7 +7,7 @@
 @import '../variables.scss';
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 html {
@@ -25,23 +25,25 @@ body {
   font-size: 16px;
 }
 
-h1, h2, h3{
+h1,
+h2,
+h3 {
   font-weight: normal;
 }
 
 h1 {
   font-size: 2.25rem;
-  margin: .75rem 0;
+  margin: 0.75rem 0;
 }
 
 h2 {
   font-size: 1.5rem;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 h3 {
   font-size: 1.25rem;
-  margin: .25rem 0;
+  margin: 0.25rem 0;
 }
 
 a {
@@ -51,7 +53,7 @@ a {
 }
 
 hr {
-  border-width: 1px 0 0 0;
+  border-width: 1px 0 0;
   border-color: $theme-light-gray;
 }
 

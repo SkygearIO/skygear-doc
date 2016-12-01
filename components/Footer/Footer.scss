@@ -1,6 +1,6 @@
 @import '../variables.scss';
 
-.Footer{
+.Footer {
   position: absolute;
   left: 0;
   right: 0;
@@ -11,7 +11,7 @@
 
   .container {
     margin: 0 auto;
-    padding: 4rem 0 5.625rem 0;
+    padding: 4rem 0 5.625rem;
     width: calc(#{$screen-lg-min} - 30px);
     display: flex;
     flex-direction: row;
@@ -26,7 +26,7 @@
         display: block;
         height: 2.5rem;
         width: 100%;
-        background-image: url("/skygear-logo-sm-white.png");
+        background-image: url('/skygear-logo-sm-white.png');
         background-size: contain;
         background-repeat: no-repeat;
       }
@@ -45,7 +45,7 @@
       margin: 0;
 
       .nav-item {
-        padding: .625rem 0;
+        padding: 0.625rem 0;
         margin: 0 0.5rem;
       }
     }
@@ -67,7 +67,7 @@
 @media (max-width: $screen-sm-min) {
   .Footer .container {
     width: auto;
-    padding: 1rem 0 1rem 0;
+    padding: 1rem 0;
     flex-direction: column-reverse;
     justify-content: flex-start;
     text-align: center;

@@ -5,14 +5,14 @@
   display: flex;
   box-sizing: border-box;
   flex-direction: row;
-  padding: 2rem 0 3.5rem 0;
+  padding: 2rem 0 3.5rem;
   justify-content: space-between;
 
   .Logo {
     display: inline-block;
     height: 2.25rem;
     width: 10rem;
-    background-image: url("/skygear-logo-sm.png");
+    background-image: url('/skygear-logo-sm.png');
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -26,12 +26,12 @@
     padding: 0;
 
     .Menu-item {
-      padding: .625rem 0;
+      padding: 0.625rem 0;
       margin: 0 0.5rem;
 
       .Menu-link {
         padding: 0;
-        font-size: .875rem;
+        font-size: 0.875rem;
         font-family: $rubik-font;
       }
 
@@ -48,14 +48,14 @@
 
     .Logo {
       width: 2.25rem;
-      background-image: url("/skygear-logo-mini.png");
+      background-image: url('/skygear-logo-mini.png');
     }
 
     .Menu {
       justify-content: center;
 
       .Menu-item.primary {
-        padding: .625rem 0;
+        padding: 0.625rem 0;
         background-color: transparent;
         border-radius: 0;
 

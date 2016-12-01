@@ -7,23 +7,23 @@
 /*
  * Scaffolding
  * -------------------------------------------------------------------------- */
-$theme-primary-color: #007BD4;
-$theme-lighter-gray: #F7F7F7;
-$theme-light-gray: #D8D8D8;
-$theme-medium-gray: #ABABAB;
-$theme-gray: #9B9B9B;
+$theme-primary-color: #007bd4;
+$theme-lighter-gray: #f7f7f7;
+$theme-light-gray: #d8d8d8;
+$theme-medium-gray: #ababab;
+$theme-gray: #9b9b9b;
 
-$body-bg: #FFFFFF;
+$body-bg: #ffffff;
 $text-color: #000000;
-$content-color: #4A4A4A;
+$content-color: #4a4a4a;
 $link-color: $theme-primary-color;
 
 $inline-code-color: #000000;
-$inline-code-bg: #EFEFEF;
+$inline-code-bg: #efefef;
 
 $footer-bg: #000000;
 $footer-text-color: #717171;
-$footer-link-color: #CCCCCC;
+$footer-link-color: #cccccc;
 
 /*
  * Typography
@@ -52,7 +52,7 @@ $screen-lg-min: 1200px;
 }
 
 @mixin primary-btn {
-  padding: .625rem 1rem;
+  padding: 0.625rem 1rem;
   background-color: $theme-primary-color;
   border-radius: 1.25rem;
   color: $body-bg;
