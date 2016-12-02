@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react';
 const Html = (props) => {
   const gaScript = `window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
     ga('create','${props.trackingID}','auto');ga('send','pageview')`;
+  const typekitScript = 'try{Typekit.load({ async: true });}catch(e){}';
 
   return (
     <html lang="en">
@@ -17,6 +18,8 @@ const Html = (props) => {
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <link rel="stylesheet" href={`/${props.stylesheet}`} />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <script src="https://use.typekit.net/oof1hhz.js"></script>
+        <script dangerouslySetInnerHTML={{ __html: typekitScript }} />
       </head>
       <body>
         <div id="root" dangerouslySetInnerHTML={{ __html: props.body }} />
