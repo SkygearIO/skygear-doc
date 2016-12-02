@@ -25,6 +25,8 @@ $footer-bg: #000000;
 $footer-text-color: #717171;
 $footer-link-color: #cccccc;
 
+$gutter: 15px;
+
 /*
  * Typography
  * -------------------------------------------------------------------------- */
@@ -41,9 +43,29 @@ $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
 
+$responsive-threshold: $screen-md-min;
+
 /*
  * Some commonly use mixins
  * -------------------------------------------------------------------------- */
+
+@mixin desktop {
+  @media (min-width: $responsive-threshold) {
+    @content;
+  }
+}
+
+@mixin container-width {
+  padding-left: $gutter;
+  padding-right: $gutter;
+  width: 100%;
+
+  @include desktop {
+    @include horizontal-center-block;
+    width: 972px;
+  }
+}
+
 @mixin horizontal-center-block($display: block) {
   display: $display;
   margin-left: auto;

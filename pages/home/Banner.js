@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
 
+import './Banner.scss';
+
 const Banner = function (props) {
   return (
-    <div>
+    <div className="banner">
       {props.children}
     </div>
   );

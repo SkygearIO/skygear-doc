@@ -1,67 +1,20 @@
 @import '../variables.scss';
 
-.Header {
-  width: 100%;
-  display: flex;
-  box-sizing: border-box;
-  flex-direction: row;
-  padding: 2rem 0 3.5rem;
-  justify-content: space-between;
+.header {
+  @include container-width;
 
-  .Logo {
-    display: inline-block;
-    height: 2.25rem;
-    width: 10rem;
-    background-image: url('/skygear-logo-sm.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+  padding-top: 15px;
+  padding-bottom: 20px;
+
+  @include desktop {
+    padding-top: 28px;
   }
 
-  .Menu {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    justify-content: flex-end;
-    margin: 0;
-    padding: 0;
+  .logo {
+    height: 20px;
 
-    .Menu-item {
-      padding: 0.625rem 0;
-      margin: 0 0.5rem;
-
-      .Menu-link {
-        padding: 0;
-        font-size: 0.875rem;
-      }
-
-      &.primary {
-        @include primary-btn;
-      }
-    }
-  }
-}
-
-@media (max-width: $screen-sm-min) {
-  .Header {
-    padding: 0.5rem 1rem;
-
-    .Logo {
-      width: 2.25rem;
-      background-image: url('/skygear-logo-mini.png');
-    }
-
-    .Menu {
-      justify-content: center;
-
-      .Menu-item.primary {
-        padding: 0.625rem 0;
-        background-color: transparent;
-        border-radius: 0;
-
-        .Menu-link {
-          color: $link-color;
-        }
-      }
+    @include desktop {
+      height: 26px;
     }
   }
 }
