@@ -16,7 +16,8 @@ $theme-gray: #9b9b9b;
 $body-bg: #ffffff;
 $text-color: #000000;
 $content-color: #4a4a4a;
-$link-color: $theme-primary-color;
+$link-color: #029bc9;
+$link-hover-color: #007ba2;
 
 $inline-code-color: #000000;
 $inline-code-bg: #efefef;
@@ -43,7 +44,8 @@ $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
 
-$responsive-threshold: $screen-md-min;
+$responsive-threshold: $screen-sm-min;
+$responsive-threshold-minus-one: $screen-sm-min - 1;
 
 /*
  * Some commonly use mixins
@@ -55,15 +57,48 @@ $responsive-threshold: $screen-md-min;
   }
 }
 
+@mixin mobile {
+  @media (max-width: $responsive-threshold-minus-one) {
+    @content;
+  }
+}
+
 @mixin container-width {
+  box-sizing: border-box;
   padding-left: $gutter;
   padding-right: $gutter;
   width: 100%;
 
   @include desktop {
     @include horizontal-center-block;
-    width: 972px;
+    width: calc(100% - 20px);
+    max-width: 992px;
   }
+}
+
+@mixin row {
+  box-sizing: border-box;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+}
+
+@mixin column {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 1px;
+  float: left;
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+@mixin column-4 {
+  @include column;
+  width: 33.33333333%;
+}
+
+@mixin column-12 {
+  @include column;
+  width: 100%;
 }
 
 @mixin horizontal-center-block($display: block) {
@@ -80,5 +115,13 @@ $responsive-threshold: $screen-md-min;
 
   a {
     color: $body-bg;
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
   }
 }

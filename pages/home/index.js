@@ -4,6 +4,7 @@ import Banner from './Banner';
 import Header from '../../components/Header/Header';
 import QuickStart from './QuickStart';
 import Buttons from './Buttons';
+import ButtonsPlaceholder from './ButtonsPlaceholder';
 
 const IndexPage = function () {
   return (
@@ -13,6 +14,7 @@ const IndexPage = function () {
         <QuickStart />
         <Buttons />
       </Banner>
+      <ButtonsPlaceholder />
     </div>
   );
 };

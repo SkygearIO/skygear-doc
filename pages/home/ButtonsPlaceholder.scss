@@ -1,0 +1,13 @@
+@import '../../components/variables.scss';
+
+.buttons-placeholder-container {
+  @include container-width;
+  @include mobile {
+    display: none;
+  }
+}
+
+.buttons-placeholder {
+  height: 0;
+  padding-bottom: 16.66666667%;
+}
