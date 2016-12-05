@@ -57,6 +57,14 @@ hr {
   border-color: $theme-light-gray;
 }
 
+button {
+  outline: 0;
+  border: 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .Layout {
   margin: 0 auto;
   padding-bottom: 300px;

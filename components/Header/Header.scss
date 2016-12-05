@@ -4,10 +4,11 @@
   @include container-width;
 
   padding-top: 15px;
-  padding-bottom: 20px;
+  padding-bottom: 0;
 
   @include desktop {
     padding-top: 28px;
+    padding-bottom: 28px;
   }
 
   .logo {
