@@ -23,7 +23,6 @@ const Html = (props) => {
       </head>
       <body>
         <div id="root" dangerouslySetInnerHTML={{ __html: props.body }} />
-        <script src={`/${props.bundle}`} />
         {props.trackingID &&
           <script dangerouslySetInnerHTML={{ __html: gaScript }} />
         }
