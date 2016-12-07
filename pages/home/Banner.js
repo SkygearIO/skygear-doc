@@ -5,7 +5,9 @@ import './Banner.scss';
 const Banner = function (props) {
   return (
     <div className="banner">
-      {props.children}
+      <div className="banner-icon-bg">
+        {props.children}
+      </div>
     </div>
   );
 };

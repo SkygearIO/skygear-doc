@@ -1,3 +1,21 @@
+@import '../../components/variables.scss';
+
 .banner {
-  background: linear-gradient(to bottom right, #52bfbf, #2f77d0);
+  /* fallbacks */
+  background: #2f77d0;
+
+  background-image: linear-gradient(to bottom right, #52bfbf, #2f77d0);
+}
+
+.banner-icon-bg {
+  @include container-width;
+
+  background-image: url('../../static/images/top-bg.png');
+  background-repeat: no-repeat;
+  background-position: -17px 47px;
+  background-size: 214px 327px;
+
+  @include desktop {
+    background-position: 37px 75px, 0% 0%;
+  }
 }
