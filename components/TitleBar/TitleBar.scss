@@ -1,0 +1,15 @@
+@import '../../components/variables.scss';
+
+.title-bar-container {
+  padding-bottom: 3px;
+
+  @include desktop {
+    padding-bottom: 10px;
+  }
+
+  h1 {
+    @include mobile {
+      line-height: 40px;
+    }
+  }
+}
