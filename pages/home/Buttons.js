@@ -15,10 +15,10 @@ const Buttons = () => (
               <div className="relative-container">
                 <img src={GuideIcon} role="presentation" />
                 <h2>Guides</h2>
-                <p className="linkText">
-                  View the guides
-                </p>
-                <div className="landing-button-arrow" />
+                <div className="linkText">
+                  <span>View the guides</span>
+                  <div className="landing-button-arrow" />
+                </div>
               </div>
             </div>
           </div>
@@ -31,10 +31,10 @@ const Buttons = () => (
               <div className="relative-container">
                 <img src={ApiReferenceIcon} role="presentation" />
                 <h2>API Reference</h2>
-                <p className="linkText">
-                  View the API Reference
-                </p>
-                <div className="landing-button-arrow" />
+                <div className="linkText">
+                  <span>View the API Reference</span>
+                  <div className="landing-button-arrow" />
+                </div>
               </div>
             </div>
           </div>
@@ -47,10 +47,10 @@ const Buttons = () => (
               <div className="relative-container">
                 <img src={SupportIcon} role="presentation" />
                 <h2>Support</h2>
-                <p className="linkText">
-                  Get support
-                </p>
-                <div className="landing-button-arrow" />
+                <div className="linkText">
+                  <span>Get support</span>
+                  <div className="landing-button-arrow" />
+                </div>
               </div>
             </div>
           </div>

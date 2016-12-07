@@ -39,43 +39,6 @@
     margin-bottom: 10px;
   }
 
-  .landing-button-arrow {
-    display: block;
-    position: absolute;
-    right: 0;
-    width: 14px;
-    height: 14px;
-    top: 50%;
-    margin-left: 3px;
-    transform: translateY(-50%);
-    background-image: url('../../static/images/right-arrow.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
-
-    @include desktop {
-      position: relative;
-      display: inline-block;
-      top: auto;
-      right: auto;
-      transform: none;
-      line-height: 25px;
-    }
-  }
-
-  .landing-button:hover {
-    cursor: pointer;
-
-    .linkText {
-      color: $link-hover-color;
-    }
-
-    .landing-button-arrow {
-      cursor: pointer;
-      background-image: url('../../static/images/right-arrow-mouseover.png');
-    }
-  }
-
 
   @include desktop {
     @include column-4;
@@ -133,13 +96,57 @@
   .linkText {
     margin: 3px 0 0;
     font-size: 12px;
-    display: inline-block;
-    line-height: 25px;
     color: $link-color;
 
     @include desktop {
       margin: 16px 0;
       font-size: 18px;
+
+      * {
+        vertical-align: middle;
+      }
+
+      span {
+        line-height: 25px;
+      }
+    }
+  }
+
+  .landing-button-arrow {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 14px;
+    height: 14px;
+    top: 50%;
+    margin-left: 3px;
+    transform: translateY(-50%);
+    background-image: url('../../static/images/right-arrow.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 14px 14px;
+
+    @include desktop {
+      position: relative;
+      display: inline-block;
+      top: auto;
+      right: auto;
+      transform: none;
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  .landing-button:hover {
+    cursor: pointer;
+
+    .linkText {
+      color: $link-hover-color;
+    }
+
+    .landing-button-arrow {
+      cursor: pointer;
+      background-image: url('../../static/images/right-arrow-mouseover.png');
     }
   }
 }
