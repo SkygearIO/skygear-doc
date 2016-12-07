@@ -84,6 +84,7 @@
     font-size: 18px;
     line-height: 18px;
     margin: 0;
+    color: $text-color;
 
     @include desktop {
       font-size: 24px;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import './Buttons.scss';
 
 import GuideIcon from '../../static/images/guides-icon.png';
@@ -11,16 +12,18 @@ const Buttons = () => (
       <div className="buttons-column">
         <div className="buttons-background-fill">
           <div className="landing-button-container">
-            <div className="landing-button">
-              <div className="relative-container">
-                <img src={GuideIcon} role="presentation" />
-                <h2>Guides</h2>
-                <div className="linkText">
-                  <span>View the guides</span>
-                  <div className="landing-button-arrow" />
+            <Link to="/guides">
+              <div className="landing-button">
+                <div className="relative-container">
+                  <img src={GuideIcon} role="presentation" />
+                  <h2>Guides</h2>
+                  <div className="linkText">
+                    <span>View the guides</span>
+                    <div className="landing-button-arrow" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

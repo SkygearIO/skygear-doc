@@ -2,12 +2,14 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import Landing from './pages/home/index';
 import Guide from './pages/guide/index';
+import GuideList from './pages/guideList/index';
 import NotFound from './pages/error/index';
 import ComingSoon from './pages/comingSoon';
 
 const routes = (
   <Route path='/'>
     <IndexRoute title='Skygear Documentation' component={Landing} />
+    <Route path='guides/' component={GuideList} />
     <Route path='guide' component={Guide}>
       <Route path='auth/basics/js/' title='Auth - Basics' markdown={require('./content/auth/basics-js.md')} />
       <Route path='auth/basics/android/' title='Auth - Basics' markdown={require('./content/auth/basics-android.md')} />
