@@ -96,6 +96,11 @@ $responsive-threshold-minus-one: $screen-sm-min - 1;
   width: 33.33333333%;
 }
 
+@mixin column-8 {
+  @include column;
+  width: 66.66666667%;
+}
+
 @mixin column-12 {
   @include column;
   width: 100%;
@@ -105,6 +110,12 @@ $responsive-threshold-minus-one: $screen-sm-min - 1;
   display: $display;
   margin-left: auto;
   margin-right: auto;
+}
+
+@mixin vertical-center-block {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 @mixin primary-btn {
