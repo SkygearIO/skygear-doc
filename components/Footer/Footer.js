@@ -1,38 +1,32 @@
 import React from 'react';
 import './Footer.scss';
-import { Link } from 'react-router';
+
+import SkygearLogo from '../../static/images/footer-logo.png';
 
 const Footer = function () {
   return (
-    <div className="Footer">
-      <div className="container">
-        <div className="info">
-          <a className="Logo" href="https://skygear.io" />
-          <div>© 2008-2016 All rights reserved Oursky Ltd.</div>
-          <div>
-            <span>Tel: +852 2155 9299 | Email: </span>
-            <a href="mailto:hello@skygear.io">hello@skygear.io</a>
+    <footer>
+      <div className="footer-container">
+        <div className="footer-row">
+          <div className="footer-copyright-column">
+            <p>
+              <a href="https://skygear.io">
+                <img src={SkygearLogo} alt="Skygear Logo" className="footer-logo" />
+              </a>
+            </p>
+            <p>
+              © 2008-2016 All rights reserved Oursky Ltd.
+            </p>
+          </div>
+          <div className="footer-contact-column">
+            <p>
+              <span>Tel: +852 2155 9299 | Email: </span>
+              <a href="mailto:hello@skygear.io">hello@skygear.io</a>
+            </p>
           </div>
         </div>
-        <ul className="nav">
-          <li className="nav-item">
-            <Link className="nav-link" to="/get-started">
-              <span>Get started</span>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="https://skygear.io">
-              Features
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="https://github.com/skygearIO/">
-              Github
-            </a>
-          </li>
-        </ul>
       </div>
-    </div>
+    </footer>
   );
 };
 

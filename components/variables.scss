@@ -22,9 +22,7 @@ $link-hover-color: #007ba2;
 $inline-code-color: #000000;
 $inline-code-bg: #efefef;
 
-$footer-bg: #000000;
-$footer-text-color: #717171;
-$footer-link-color: #cccccc;
+$border-color: #becbcf;
 
 $gutter: 15px;
 
@@ -94,6 +92,11 @@ $responsive-threshold-minus-one: $screen-sm-min - 1;
 @mixin column-4 {
   @include column;
   width: 33.33333333%;
+}
+
+@mixin column-6 {
+  @include column;
+  width: 50%;
 }
 
 @mixin column-8 {

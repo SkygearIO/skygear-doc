@@ -6,6 +6,7 @@ import QuickStart from './QuickStart';
 import Buttons from './Buttons';
 import ButtonsPlaceholder from './ButtonsPlaceholder';
 import Contributing from './Contributing';
+import Footer from '../../components/Footer/Footer';
 
 const IndexPage = function () {
   return (
@@ -17,6 +18,7 @@ const IndexPage = function () {
       </Banner>
       <ButtonsPlaceholder />
       <Contributing />
+      <Footer />
     </div>
   );
 };
