@@ -1,10 +1,10 @@
 @import '../../components/variables.scss';
 
 .banner {
-  /* fallbacks */
-  background: #2f77d0;
+  /* fallback */
+  background: #00a5cd;
 
-  background-image: linear-gradient(to bottom right, #52bfbf, #2f77d0);
+  background-image: linear-gradient(to bottom right, #03c2bf, #0076cb);
 }
 
 .banner-icon-bg {
