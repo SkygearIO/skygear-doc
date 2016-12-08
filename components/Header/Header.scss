@@ -1,8 +1,6 @@
 @import '../variables.scss';
 
 .header {
-  @include container-width;
-
   padding-top: 15px;
   padding-bottom: 0;
 

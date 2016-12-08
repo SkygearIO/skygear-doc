@@ -6,7 +6,7 @@ import ApiReferenceIcon from '../../static/images/api-ref.png';
 import SupportIcon from '../../static/images/support.png';
 
 const Buttons = () => (
-  <div className="buttons-container">
+  <div className="buttons-wrapper">
     <div className="buttons-row">
       <div className="buttons-column">
         <div className="buttons-background-fill">
