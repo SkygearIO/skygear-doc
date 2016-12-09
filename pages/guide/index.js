@@ -8,28 +8,27 @@ require('highlight.js/styles/default.css');
 const Guide = (props) => {
   const currentRoute = props.routes.slice(-1)[0];
 
-  if (!currentRoute.markdown) {
+  if (!currentRoute.docHtml || !currentRoute.title) {
     return false;
   }
 
   const {
-    markdown: {
-      title,
-      html,
-    },
+    title,
+    docHtml,
   } = currentRoute;
 
   return (
     <Layout>
       <h1>{title}</h1>
-      <div className="guide" dangerouslySetInnerHTML={{ __html: html }} />
+      <div className="guide" dangerouslySetInnerHTML={{ __html: docHtml }} />
     </Layout>
   );
 };
 
 Guide.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape({
-    markdown: PropTypes.object,
+    title: PropTypes.string,
+    docHtml: PropTypes.string,
   })),
 };
 
