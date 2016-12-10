@@ -1,0 +1,20 @@
+@import '../../components/variables.scss';
+
+.guide-list-section {
+  padding-top: 0;
+
+  @include desktop {
+    padding-top: 10px;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    line-height: 50px;
+    font-family: freight-sans-medium, sans-serif;
+    font-size: 22px;
+
+    @include desktop {
+      font-size: 28px;
+    }
+  }
+}

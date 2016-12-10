@@ -1,0 +1,76 @@
+@import '../../components/variables.scss';
+
+$language-buttons-container-width: 270px;
+
+.guide-list-item {
+  @include clearfix;
+  border-bottom: 1px solid #BECBCF;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  position: relative;
+
+  @include desktop {
+    margin-bottom: 25px;
+  }
+
+  .languages {
+    position: absolute;
+    bottom: 23px;
+    right: 15px;
+    width: $language-buttons-container-width;
+    text-align: right;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .arrow {
+    margin-top: 22px;
+    margin-left: 15px;
+    width: 20px;
+    height: 30px;
+    float: right;
+    background-image: url('../../static/images/right-arrow.png');
+    background-position: center center;
+    background-size: 15px 14px;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-image: url('../../static/images/right-arrow-mouseover.png');
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  .item-info {
+    font-family: freight-sans-book, sans-serif;
+
+    @include desktop {
+      margin-right: $language-buttons-container-width;
+    }
+
+    h3 {
+      font-size: 18px;
+
+      @include desktop {
+        font-size: 22px;
+      }
+    }
+    p.description {
+      font-size: 14px;
+      line-height: 1.42em;
+
+      @include desktop {
+        font-size: 18px;
+      }
+
+      @include mobile {
+        margin-top: 10px;
+        margin-bottom: 13px;
+      }
+    }
+  }
+}

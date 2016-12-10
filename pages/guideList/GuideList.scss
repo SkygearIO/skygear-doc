@@ -1,0 +1,11 @@
+@import '../../components/variables.scss';
+
+.guide-list {
+  @include container-width;
+  padding-top: 0;
+  padding-bottom: 7px;
+
+  @include desktop {
+    padding-top: 13px;
+  }
+}

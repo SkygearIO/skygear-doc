@@ -1,0 +1,65 @@
+@import '../../components/variables.scss';
+
+.language-link {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+
+  .text {
+    margin: 0;
+    font-family: freight-sans-pro, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: $content-color;
+  }
+}
+
+.language-icon {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center 5px;
+}
+
+.language-icon.ios {
+  background-image: url('../../static/images/ios.png');
+  background-size: 20px 24px;
+}
+
+.language-icon.android {
+  background-image: url('../../static/images/android.png');
+  background-size: 23px 27px;
+}
+
+.language-icon.js {
+  background-image: url('../../static/images/js.png');
+  background-size: 22px 26px;
+}
+
+.language-icon.python {
+  background-image: url('../../static/images/python.png');
+  background-size: 22px 26px;
+}
+
+.language-link:hover {
+  .text {
+    color: $link-hover-color;
+  }
+
+  .language-icon.ios {
+    background-image: url('../../static/images/ios-mouseover.png');
+  }
+
+  .language-icon.android {
+    background-image: url('../../static/images/android-mouseover.png');
+  }
+
+  .language-icon.js {
+    background-image: url('../../static/images/js-mouseover.png');
+  }
+
+  .language-icon.python {
+    background-image: url('../../static/images/python-mouseover.png');
+  }
+}
