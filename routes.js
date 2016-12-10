@@ -22,7 +22,7 @@ const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
 const routes = (
   <Route path="/">
     <IndexRoute title="Skygear Documentation" component={Landing} />
-    <Route path="guides/" component={GuideList} />
+    <Route path="guides/" title="Guides" component={GuideList} />
     <Route path="guide" component={Guide}>
       {routesForMarkdownFiles}
     </Route>
