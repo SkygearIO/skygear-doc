@@ -93,6 +93,17 @@ const guideListConfig = {
       ],
     },
     {
+      name: 'Push Notifications',
+      guides: [
+        {
+          title: 'Push Notification Basics',
+          description: 'Sending push notifications with Skygear',
+          baseUrl: '/guide/push-notifications/basics/',
+          languages: ['ios', 'android', 'js'],
+        },
+      ],
+    },
+    {
       name: 'Cloud Functions',
       guides: [
         {
