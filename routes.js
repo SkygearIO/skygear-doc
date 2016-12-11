@@ -9,6 +9,8 @@ import GuideList from './pages/guideList/index';
 import NotFound from './pages/error/index';
 import ComingSoon from './pages/comingSoon';
 
+import './components/Layout.scss';
+
 // does not work when passing './content' as an variable
 const req = require.context('./content', true, /^\.\/.*\.md/);
 

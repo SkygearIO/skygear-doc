@@ -1,3 +1,9 @@
+@import '../../components/variables.scss';
+
+.guide {
+  @include container-width;
+}
+
  @mixin alertbox() {
   padding: 15px;
   margin-bottom: 20px;
@@ -6,7 +12,7 @@
 }
 
 
-.guide {
+.guide-content {
   pre {
     background-color: #f7f7f7;
     padding: 1em;

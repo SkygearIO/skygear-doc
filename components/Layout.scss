@@ -4,7 +4,7 @@
  * Copyright (c) Konstantin Tarkus (@koistya) | MIT license
  */
 
-@import '../variables.scss';
+@import './variables.scss';
 
 ::-webkit-scrollbar {
   display: none;
@@ -76,37 +76,12 @@ button {
   }
 }
 
-.Layout {
-  margin: 0 auto;
-  padding-bottom: 300px;
-  width: calc(#{$screen-lg-min} - 30px);
-  min-height: 100%;
-}
-
-@media (max-width: $screen-lg-min) {
-  .Layout {
-    width: calc(#{$screen-md-min} - 22px);
-  }
-}
-
-@media (max-width: $screen-md-min) {
-  .Layout {
-    width: calc(#{$screen-sm-min} - 18px);
-  }
-}
-
-@media (max-width: $screen-sm-min) {
-  .Layout {
-    width: auto;
-  }
-}
-
 @font-face {
   font-family: 'freight-sans-medium';
-  src: url('../../static/freight-sans-medium.ttf');
+  src: url('../static/freight-sans-medium.ttf');
 }
 
 @font-face {
   font-family: 'freight-sans-book';
-  src: url('../../static/freight-sans-book.ttf');
+  src: url('../static/freight-sans-book.ttf');
 }

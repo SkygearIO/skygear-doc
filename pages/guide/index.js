@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 
-import Layout from '../../components/Layout';
+import Banner from '../../components/Banner/Banner';
+import Header from '../../components/Header/Header';
+import TitleBar from '../../components/TitleBar/TitleBar';
+import Guide from './Guide';
+import Footer from '../../components/Footer/Footer';
 
-require('./index.scss');
-require('highlight.js/styles/default.css');
-
-const Guide = (props) => {
+const GuidePage = (props) => {
   const currentRoute = props.routes.slice(-1)[0];
 
   if (!currentRoute.docHtml || !currentRoute.title) {
@@ -18,18 +19,24 @@ const Guide = (props) => {
   } = currentRoute;
 
   return (
-    <Layout>
-      <h1>{title}</h1>
-      <div className="guide" dangerouslySetInnerHTML={{ __html: docHtml }} />
-    </Layout>
+    <div>
+      <Banner>
+        <Header />
+        <TitleBar>
+          <h1>Guides</h1>
+        </TitleBar>
+      </Banner>
+      <Guide title={title} docHtml={docHtml} />
+      <Footer />
+    </div>
   );
 };
 
-Guide.propTypes = {
+GuidePage.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     docHtml: PropTypes.string,
   })),
 };
 
-export default Guide;
+export default GuidePage;
