@@ -16,18 +16,16 @@ const req = require.context('./content', true, /^\.\/.*\.md/);
 
 const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
   const { title, html } = req(`./${path}`);
-  const url = `${path.slice(0, -'.md'.length)}/`;
+  const url = `guide/${path.slice(0, -'.md'.length)}/`;
   console.log(`[Route generator] file ${path} -> url ${url}`);
-  return <Route key={path} path={url} title={title} docHtml={html} />;
+  return <Route key={path} path={url} component={Guide} title={title} docHtml={html} />;
 });
 
 const routes = (
   <Route path="/">
     <IndexRoute title="Skygear Documentation" component={Landing} />
     <Route path="guides/" title="Guides" component={GuideList} />
-    <Route path="guide" component={Guide}>
-      {routesForMarkdownFiles}
-    </Route>
+    {routesForMarkdownFiles}
     <Route path="coming-soon/" title="Coming Soon" component={ComingSoon} />
     <Route path="*" title="404: Not Found" component={NotFound} />
   </Route>

@@ -4,12 +4,14 @@
   display: inline-block;
   width: 33%;
   text-align: center;
+  margin-right: 0;
 
   .text {
+    display: block;
+    font-size: 18px;
     margin: 0;
     font-family: freight-sans-pro, sans-serif;
     font-weight: 500;
-    font-size: 18px;
     color: $content-color;
   }
 }
@@ -19,7 +21,7 @@
   width: 40px;
   height: 30px;
   background-repeat: no-repeat;
-  background-position: center 5px;
+  background-position: center center;
 }
 
 .language-icon.ios {
@@ -40,6 +42,28 @@
 .language-icon.python {
   background-image: url('../../static/images/python.png');
   background-size: 22px 26px;
+}
+
+.language-link.active {
+  .text {
+    color: $link-color;
+  }
+
+  .language-icon.ios {
+    background-image: url('../../static/images/ios-activate.png');
+  }
+
+  .language-icon.android {
+    background-image: url('../../static/images/android-activate.png');
+  }
+
+  .language-icon.js {
+    background-image: url('../../static/images/js-activate.png');
+  }
+
+  .language-icon.python {
+    background-image: url('../../static/images/python-activate.png');
+  }
 }
 
 .language-link:hover {

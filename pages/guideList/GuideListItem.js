@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import LanguageLink from './LanguageLink';
+import LanguageLink from '../../components/LanguageLink/LanguageLink';
 
 import './GuideListItem.scss';
 

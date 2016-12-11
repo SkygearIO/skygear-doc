@@ -1,8 +1,6 @@
 @import '../../components/variables.scss';
 
-.guide {
-  @include container-width;
-}
+$language-selector-width: 350px;
 
  @mixin alertbox() {
   padding: 15px;
@@ -11,38 +9,115 @@
   border-radius: 4px;
 }
 
+.guide {
+  @include container-width;
+  padding-top: 12px;
 
-.guide-content {
-  pre {
-    background-color: #f7f7f7;
-    padding: 1em;
+  .guide-header {
+    position: relative;
+    padding-bottom: 6px;
+    border-bottom: 1px solid $border-color;
+
+    @include desktop {
+      padding-bottom: 10px;
+    }
+
+    h1 {
+      font-family: freight-sans-book, sans-serif;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 24px;
+
+      @include desktop {
+        margin-right: $language-selector-width;
+        font-size: 34px;
+        line-height: 34px;
+      }
+    }
+
+    .language-selector {
+      text-align: center;
+
+      @include desktop {
+        position: absolute;
+        bottom: 24px;
+        right: 0;
+        width: $language-selector-width;
+        text-align: right;
+      }
+    }
   }
 
-  .note {
-    @include alertbox;
-    color: #31708f;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
+  /* Overriding css of LanguageLink component */
+  .language-link {
+    width: auto;
+    text-align: right;
+    margin-right: 10px;
+
+    &.active .text {
+      color: $link-color;
+    }
+
+    &:hover .text {
+      color: $link-hover-color;
+    }
+
+    .text {
+      display: inline-block;
+      font-size: 16px;
+      vertical-align: middle;
+      color: $theme-gray;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+
+      @include desktop {
+        font-size: 22px;
+      }
+    }
+
+    .language-icon {
+      vertical-align: middle;
+    }
   }
 
-  .tips {
-    @include alertbox;
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-  }
 
-  .caution {
-    @include alertbox;
-    color: #8a6d3b;
-    background-color: #fcf8e3;
-    border-color: #faebcc;
-  }
+  .guide-content {
+    pre {
+      background-color: #f7f7f7;
+      padding: 1em;
+    }
 
-  .advanced {
-    @include alertbox;
-    color: #7c6d4a;
-    background-color: #ede9e0;
-    border-color: #e6e1d4;
+    p {
+    }
+
+    .note {
+      @include alertbox;
+      color: #31708f;
+      background-color: #d9edf7;
+      border-color: #bce8f1;
+    }
+
+    .tips {
+      @include alertbox;
+      color: #3c763d;
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+    }
+
+    .caution {
+      @include alertbox;
+      color: #8a6d3b;
+      background-color: #fcf8e3;
+      border-color: #faebcc;
+    }
+
+    .advanced {
+      @include alertbox;
+      color: #7c6d4a;
+      background-color: #ede9e0;
+      border-color: #e6e1d4;
+    }
   }
 }
