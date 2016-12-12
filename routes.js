@@ -6,6 +6,7 @@ import { Route, IndexRoute } from 'react-router';
 import Landing from './pages/home/index';
 import Guide from './pages/guide/index';
 import GuideList from './pages/guideList/index';
+import ApiReference from './pages/apiReference/index';
 import NotFound from './pages/error/index';
 import ComingSoon from './pages/comingSoon';
 
@@ -26,6 +27,7 @@ const routes = (
     <IndexRoute title="Skygear Documentation" component={Landing} />
     <Route path="guides/" title="Guides" component={GuideList} />
     {routesForMarkdownFiles}
+    <Route path="api-reference/" title="API Reference" component={ApiReference} />
     <Route path="coming-soon/" title="Coming Soon" component={ComingSoon} />
     <Route path="*" title="404: Not Found" component={NotFound} />
   </Route>

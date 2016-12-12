@@ -30,16 +30,18 @@ const Buttons = () => (
       <div className="buttons-column">
         <div className="buttons-background-fill">
           <div className="landing-button-container">
-            <div className="landing-button">
-              <div className="relative-container">
-                <img src={ApiReferenceIcon} role="presentation" />
-                <h2>API Reference</h2>
-                <div className="linkText">
-                  <span>View the API Reference</span>
-                  <div className="landing-button-arrow" />
+            <Link to="/api-reference">
+              <div className="landing-button">
+                <div className="relative-container">
+                  <img src={ApiReferenceIcon} role="presentation" />
+                  <h2>API Reference</h2>
+                  <div className="linkText">
+                    <span>View the API Reference</span>
+                    <div className="landing-button-arrow" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
