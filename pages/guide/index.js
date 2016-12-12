@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 
 import Banner from '../../components/Banner/Banner';
 import Header from '../../components/Header/Header';
-import TitleBar from '../../components/TitleBar/TitleBar';
+import TitleBarWithGuideMenu from './TitleBarWithGuideMenu';
 import Guide from './Guide';
 import Footer from '../../components/Footer/Footer';
 
@@ -53,9 +53,7 @@ const GuidePage = (props) => {
     <div>
       <Banner>
         <Header />
-        <TitleBar>
-          <h1>Guides</h1>
-        </TitleBar>
+        <TitleBarWithGuideMenu />
       </Banner>
       <Guide
         title={title}

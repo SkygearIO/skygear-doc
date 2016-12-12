@@ -2,6 +2,7 @@
 
 .title-bar-container {
   padding-bottom: 3px;
+  position: relative;
 
   @include desktop {
     padding-bottom: 10px;

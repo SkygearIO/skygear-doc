@@ -1,0 +1,22 @@
+.guides-title {
+  .hamburger-icon {
+    cursor: pointer;
+    display: inline-block;
+    width: 35px;
+    height: 40px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-image: url('../../static/images/menu.png');
+    background-size: 24px 16px;
+
+    &:hover {
+      background-image: url('../../static/images/menu-activate.png');
+    }
+  }
+
+  h1 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
