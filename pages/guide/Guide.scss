@@ -36,8 +36,6 @@ $language-selector-width: 350px;
     }
 
     .language-selector {
-      text-align: center;
-
       @include desktop {
         position: absolute;
         bottom: 24px;
