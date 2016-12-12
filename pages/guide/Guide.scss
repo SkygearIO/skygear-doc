@@ -2,13 +2,6 @@
 
 $language-selector-width: 350px;
 
- @mixin alertbox() {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-
 .guide {
   @include container-width;
   padding-top: 12px;
@@ -105,32 +98,78 @@ $language-selector-width: 350px;
       padding: 1em;
     }
 
+    @mixin alertbox() {
+      border-radius: 6px;
+      padding: 5px 40px 5px 60px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      background-repeat: no-repeat;
+      background-position: 20px 25px;
+
+      strong {
+        font-family: freight-sans-bold, sans-serif;
+        font-weight: normal;
+      }
+    }
+
     .note {
       @include alertbox;
-      color: #31708f;
-      background-color: #d9edf7;
-      border-color: #bce8f1;
+      background-color: $doc-note-bg;
+      background-image: url('../../static/images/note.png');
+      background-size: 23px 23px;
+
+      code {
+        background-color: darken($doc-note-bg, 10%);
+      }
+
+      p, code {
+        color: $doc-note-color;
+      }
     }
 
     .tips {
       @include alertbox;
-      color: #3c763d;
-      background-color: #dff0d8;
-      border-color: #d6e9c6;
+      background-color: $doc-tips-bg;
+      background-image: url('../../static/images/tip.png');
+      background-size: 26px 33px;
+
+      code {
+        background-color: darken($doc-tips-bg, 10%);
+      }
+
+      p, code {
+        color: $doc-tips-color;
+      }
     }
 
     .caution {
       @include alertbox;
-      color: #8a6d3b;
-      background-color: #fcf8e3;
-      border-color: #faebcc;
+      background-color: $doc-caution-bg;
+      background-image: url('../../static/images/warning.png');
+      background-size: 25px 23px;
+
+      code {
+        background-color: darken($doc-caution-bg, 10%);
+      }
+
+      p, code {
+        color: $doc-caution-color;
+      }
     }
 
     .advanced {
       @include alertbox;
-      color: #7c6d4a;
-      background-color: #ede9e0;
-      border-color: #e6e1d4;
+      background-color: $doc-advanced-bg;
+      background-image: url('../../static/images/advanced.png');
+      background-size: 26px 26px;
+
+      code {
+        background-color: darken($doc-advanced-bg, 10%);
+      }
+
+      p, code {
+        color: $doc-advanced-color;
+      }
     }
   }
 }
