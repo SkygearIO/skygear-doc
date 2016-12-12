@@ -82,12 +82,27 @@ $language-selector-width: 350px;
 
 
   .guide-content {
-    pre {
-      background-color: #f7f7f7;
-      padding: 1em;
+    h2 {
+      font-family: freight-sans-medium, sans-serif;
+      font-size: 26px;
+      color: $text-color;
+      margin-bottom: 20px;
     }
 
     p {
+      font-family: freight-sans-book, sans-serif;
+      font-size: 16px;
+      color: $text-color;
+      line-height: 26px;
+
+      code {
+        background: $inline-code-bg;
+      }
+    }
+
+    pre {
+      background-color: #f7f7f7;
+      padding: 1em;
     }
 
     .note {

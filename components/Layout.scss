@@ -76,6 +76,11 @@ button {
   }
 }
 
+code {
+  color: $inline-code-color;
+  font-family: $content-code-font;
+}
+
 @font-face {
   font-family: 'freight-sans-medium';
   src: url('../static/freight-sans-medium.ttf');
