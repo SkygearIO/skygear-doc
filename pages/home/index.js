@@ -10,7 +10,7 @@ import Footer from '../../components/Footer/Footer';
 
 const IndexPage = function () {
   return (
-    <div>
+    <div className="landing">
       <Banner>
         <Header />
         <QuickStart />

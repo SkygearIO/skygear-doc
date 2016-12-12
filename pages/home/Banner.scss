@@ -1,23 +1,25 @@
 @import '../../components/variables.scss';
 
-.banner {
-  color: white;
+.landing {
+  .banner {
+    color: white;
 
-  /* fallback */
-  background: #00a5cd;
+    /* fallback */
+    background: #00a5cd;
 
-  background-image: linear-gradient(to bottom right, #03c2bf, #0076cb);
-}
+    background-image: linear-gradient(to bottom right, #03c2bf 15.97%, #0076cb 81.51%);
+  }
 
-.banner-icon-bg {
-  @include container-width;
+  .banner-icon-bg {
+    @include container-width;
 
-  background-image: url('../../static/images/top-bg.png');
-  background-repeat: no-repeat;
-  background-position: -17px 47px;
-  background-size: 214px 327px;
+    background-image: url('../../static/images/top-bg.png');
+    background-repeat: no-repeat;
+    background-position: -17px 47px;
+    background-size: 214px 327px;
 
-  @include desktop {
-    background-position: 37px 75px, 0% 0%;
+    @include desktop {
+      background-position: 37px 75px, 0% 0%;
+    }
   }
 }
