@@ -21,6 +21,10 @@
     padding: 15px $desktop-side-margin;
   }
 
+  @include mobile {
+    margin-left: -$gutter;
+  }
+
   .back-to-overview {
     * {
       vertical-align: middle;
@@ -78,15 +82,76 @@
     }
 
     .guides-menu-item {
+      padding-bottom: 18px;
+
       .guide-name {
         font-family: freight-sans-book;
         color: $text-color;
         font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 0;
 
         @include desktop {
           font-size: 20px;
         }
       }
+
+      .language-links {
+        margin-top: 12px;
+      }
     }
   }
+
+  /* Overriding css of LanguageLink component */
+  .language-link {
+    width: auto;
+    text-align: right;
+    margin-right: 23px;
+
+    &.active .text {
+      color: $link-color;
+    }
+
+    &:hover .text {
+      color: $link-hover-color;
+    }
+
+    .text {
+      display: inline-block;
+      font-size: 12px;
+      vertical-align: middle;
+      color: $theme-gray;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+
+      @include desktop {
+        font-size: 18px;
+      }
+    }
+
+    .language-icon {
+      vertical-align: middle;
+      width: 26px;
+      background-position: left center;
+    }
+
+    .language-icon.ios {
+      background-size: 15px 18px;
+    }
+
+    .language-icon.android {
+      background-size: 17px 20px;
+    }
+
+    .language-icon.js {
+      background-size: 17px 19px;
+    }
+
+    .language-icon.python {
+      background-size: 19px 19px;
+    }
+  }
+
 }
