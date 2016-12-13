@@ -12,6 +12,7 @@ const GuidesMenu = () => (
         <div className="left-arrow" />
         <p>Back To Overview</p>
       </div>
+      <input type="radio" name="guide" id="placeholder-radio-button" />
       {guideListConfig.sections.map(section => (
         <div key={section.name} className="guides-menu-section">
           <p className="section-name">{section.name}</p>
@@ -20,6 +21,9 @@ const GuidesMenu = () => (
               <input type="radio" name="guide" id={`${section.name}${index}`} />
               <label htmlFor={`${section.name}${index}`}>
                 <p className="guide-name">{guide.title}</p>
+              </label>
+              <label htmlFor="placeholder-radio-button">
+                <div className="collapse-button" />
               </label>
               <div className="language-links">
                 {guide.languages.map(language => (
