@@ -99,7 +99,7 @@ $language-selector-width: 350px;
     }
 
     @mixin alertbox() {
-      border-radius: 6px;
+      border-radius: $div-border-radius;
       padding: 5px 40px 5px 60px;
       margin-top: 15px;
       margin-bottom: 15px;

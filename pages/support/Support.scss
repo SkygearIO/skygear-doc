@@ -24,7 +24,7 @@
 
 .support-item-container {
   border: 1px solid $border-color2;
-  border-radius: 6px;
+  border-radius: $div-border-radius;
   margin-bottom: 12px;
 
   @include mobile {

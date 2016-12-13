@@ -23,7 +23,7 @@ $api-reference-item-height-desktop: 90px;
     margin-top: 14px;
     margin-bottom: 14px;
     height: $api-reference-item-height-mobile;
-    border-radius: 6px;
+    border-radius: $div-border-radius;
 
     @include desktop {
       margin-top: 23px;
