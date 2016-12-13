@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import LanguageLink from '../../components/LanguageLink/LanguageLink';
 import guideListConfig from '../guideList/config';
@@ -8,10 +9,12 @@ import './GuidesMenu.scss';
 const GuidesMenu = () => (
   <div className="guides-menu-container">
     <div className="guides-menu">
-      <div className="back-to-overview">
-        <div className="left-arrow" />
-        <p>Back To Overview</p>
-      </div>
+      <Link to="/guides/">
+        <div className="back-to-overview">
+          <div className="left-arrow" />
+          <p>Back To Overview</p>
+        </div>
+      </Link>
       <input type="radio" name="guide" id="placeholder-radio-button" />
       {guideListConfig.sections.map(section => (
         <div key={section.name} className="guides-menu-section">
