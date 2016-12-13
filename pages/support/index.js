@@ -6,19 +6,17 @@ import TitleBar from '../../components/TitleBar/TitleBar';
 import Support from './Support';
 import Footer from '../../components/Footer/Footer';
 
-const SupportPage = function () {
-  return (
-    <div>
-      <Banner>
-        <Header />
-        <TitleBar>
-          <h1>Support</h1>
-        </TitleBar>
-      </Banner>
-      <Support />
-      <Footer />
-    </div>
-  );
-};
+const SupportPage = () => (
+  <div>
+    <Banner>
+      <Header />
+      <TitleBar>
+        <h1>Support</h1>
+      </TitleBar>
+    </Banner>
+    <Support />
+    <Footer />
+  </div>
+);
 
 export default SupportPage;

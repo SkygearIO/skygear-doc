@@ -6,19 +6,17 @@ import TitleBar from '../../components/TitleBar/TitleBar';
 import ApiReference from './ApiReference';
 import Footer from '../../components/Footer/Footer';
 
-const ApiReferencePage = function () {
-  return (
-    <div>
-      <Banner>
-        <Header />
-        <TitleBar>
-          <h1>API Reference</h1>
-        </TitleBar>
-      </Banner>
-      <ApiReference />
-      <Footer />
-    </div>
-  );
-};
+const ApiReferencePage = () => (
+  <div>
+    <Banner>
+      <Header />
+      <TitleBar>
+        <h1>API Reference</h1>
+      </TitleBar>
+    </Banner>
+    <ApiReference />
+    <Footer />
+  </div>
+);
 
 export default ApiReferencePage;

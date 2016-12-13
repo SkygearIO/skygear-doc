@@ -8,19 +8,17 @@ import ButtonsPlaceholder from './ButtonsPlaceholder';
 import Contributing from './Contributing';
 import Footer from '../../components/Footer/Footer';
 
-const IndexPage = function () {
-  return (
-    <div className="landing">
-      <Banner>
-        <Header />
-        <QuickStart />
-        <Buttons />
-      </Banner>
-      <ButtonsPlaceholder />
-      <Contributing />
-      <Footer />
-    </div>
-  );
-};
+const IndexPage = () => (
+  <div className="landing">
+    <Banner>
+      <Header />
+      <QuickStart />
+      <Buttons />
+    </Banner>
+    <ButtonsPlaceholder />
+    <Contributing />
+    <Footer />
+  </div>
+);
 
 export default IndexPage;
