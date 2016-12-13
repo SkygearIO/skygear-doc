@@ -46,6 +46,23 @@ Some advanced usage
 
 Besides `advanced`, you can also use `note`, `tips` and `caution`.
 
+## Creating code switcher (e.g. Objective-C vs Swift)
+
+Any two consecuting fenced code blocks of different languages will be combined
+as a code switcher, e.g.
+
+    ``` objectivec
+    some Objective-C code
+    ```
+
+    ``` swift
+    some swift code
+    ```
+
+Note: Currently it only supports two languages; the behaviour will be unexpected
+if there are more consecutive different language fenced code blocks.
+You can insert paragraphs and text between the codes to avoid this.
+
 ## Skygear document routes and content
 
 - `guideRoutes.js` defines the list of routes
