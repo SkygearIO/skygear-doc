@@ -9,12 +9,7 @@ import Footer from '../../components/Footer/Footer';
 
 import GuideListConfig from '../guideList/config';
 
-function findCurrentLanguage(guideUrl) {
-  const urlWithoutTrailingSlash = guideUrl.slice(-1) === '/' ? guideUrl.slice(0, -1) : guideUrl;
-  return urlWithoutTrailingSlash.substr(urlWithoutTrailingSlash.lastIndexOf('/') + 1);
-}
-
-function findLanguageOptions(guideUrl) {
+function findCurrentGuide(guideUrl) {
   const allGuides = _.flatMap(GuideListConfig.sections, section => section.guides);
   const currentGuide = _.find(allGuides, guide => {
     const { baseUrl, languages } = guide;
@@ -23,6 +18,20 @@ function findLanguageOptions(guideUrl) {
   });
 
   if (_.isEmpty(currentGuide)) {
+    return false;
+  }
+
+  return currentGuide;
+}
+
+function findCurrentLanguage(guideUrl) {
+  const urlWithoutTrailingSlash = guideUrl.slice(-1) === '/' ? guideUrl.slice(0, -1) : guideUrl;
+  return urlWithoutTrailingSlash.substr(urlWithoutTrailingSlash.lastIndexOf('/') + 1);
+}
+
+function findLanguageOptions(guideUrl) {
+  const currentGuide = findCurrentGuide(guideUrl);
+  if (!currentGuide) {
     console.error(`Warnings: cannot find spec for guide ${guideUrl}`);
     return [];
   }
@@ -46,6 +55,7 @@ const GuidePage = (props) => {
     docHtml,
   } = currentRoute;
 
+  const currentGuide = findCurrentGuide(path);
   const languageOptions = findLanguageOptions(path);
   const language = findCurrentLanguage(path);
 
@@ -53,7 +63,10 @@ const GuidePage = (props) => {
     <div>
       <Banner>
         <Header />
-        <TitleBarWithGuideMenu />
+        <TitleBarWithGuideMenu
+          currentGuide={currentGuide}
+          currentLanguage={language}
+        />
       </Banner>
       <Guide
         title={title}
