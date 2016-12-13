@@ -30,7 +30,7 @@ const guideListConfig = {
         {
           title: 'Creating User Profile for Authenticated Users',
           description: 'Saving and retrieving custom profile attributes',
-          baseUrl: '/guide/auth/social-login/',
+          baseUrl: '/guide/auth/user-profile/',
           languages: ['ios', 'android', 'js'],
         },
       ],
