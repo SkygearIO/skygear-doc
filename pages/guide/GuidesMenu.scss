@@ -13,16 +13,14 @@
   background: white;
   box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.25);
 
+  margin-left: -$gutter;
   width: 285px;
   padding: 3px $gutter 45px;
 
   @include desktop {
+    margin-left: -$desktop-side-margin;
     width: 420px;
     padding: 15px $desktop-side-margin;
-  }
-
-  @include mobile {
-    margin-left: -$gutter;
   }
 
   .back-to-overview {

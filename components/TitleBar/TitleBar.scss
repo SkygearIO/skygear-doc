@@ -1,6 +1,7 @@
 @import '../../components/variables.scss';
 
 .title-bar-container {
+  @include clearfix;
   position: relative;
 
   h1 {

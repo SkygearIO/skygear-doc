@@ -1,6 +1,7 @@
 @import '../../components/variables.scss';
 
 .buttons-wrapper {
+  @include container-width;
   font-family: freight-sans-medium, sans-serif;
 
   /* mobile only */

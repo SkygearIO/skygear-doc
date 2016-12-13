@@ -11,15 +11,19 @@
   }
 
   .banner-icon-bg {
-    @include container-width;
-
+    width: 100%;
+    box-sizing: border-box;
     background-image: url('../../static/images/top-bg.png');
     background-repeat: no-repeat;
     background-position: -17px 47px;
     background-size: 214px 327px;
+    padding-left: $gutter;
+    padding-right: $gutter;
 
     @include desktop {
       background-position: 37px 75px, 0% 0%;
+      padding-left: $desktop-side-margin;
+      padding-right: $desktop-side-margin;
     }
   }
 }
