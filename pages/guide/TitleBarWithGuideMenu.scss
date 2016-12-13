@@ -1,6 +1,10 @@
 .guides-title {
   position: relative;
 
+  #hamburger-menu-toggle {
+    display: none;
+  }
+
   .hamburger-icon {
     cursor: pointer;
     display: inline-block;
@@ -20,5 +24,18 @@
   h1 {
     display: inline-block;
     vertical-align: middle;
+  }
+
+  .guides-menu-container {
+    display: none;
+  }
+
+  #hamburger-menu-toggle:checked {
+    &~ .guides-menu-container {
+      display: block;
+    }
+    .hamburger-icon {
+      background-image: url('../../static/images/menu-activate.png');
+    }
   }
 }

@@ -8,7 +8,10 @@ import './TitleBarWithGuideMenu.scss';
 const TitleBarWithGuideMenu = () => (
   <TitleBar>
     <div className="guides-title">
-      <div className="hamburger-icon" />
+      <input type="checkbox" id="hamburger-menu-toggle" />
+      <label htmlFor="hamburger-menu-toggle">
+        <div className="hamburger-icon" />
+      </label>
       <h1>Guides</h1>
       <GuidesMenu />
     </div>
