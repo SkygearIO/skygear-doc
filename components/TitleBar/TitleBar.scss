@@ -1,12 +1,7 @@
 @import '../../components/variables.scss';
 
 .title-bar-container {
-  padding-bottom: 3px;
   position: relative;
-
-  @include desktop {
-    padding-bottom: 10px;
-  }
 
   h1 {
     @include mobile {
