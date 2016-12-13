@@ -9,6 +9,7 @@
  */
 
 const MarkdownIt = require('markdown-it');
+const MarkdownItContainer = require('markdown-it-container');
 const hljs = require('highlight.js');
 const fm = require('front-matter');
 
@@ -31,7 +32,10 @@ module.exports = function markdownLoader(source) {
 
       return '';
     },
-  });
+  }).use(MarkdownItContainer, 'note')
+  .use(MarkdownItContainer, 'tips')
+  .use(MarkdownItContainer, 'caution')
+  .use(MarkdownItContainer, 'advanced');
 
   const frontmatter = fm(source);
   frontmatter.attributes.html = md.render(frontmatter.body);

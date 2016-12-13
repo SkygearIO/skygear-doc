@@ -32,6 +32,20 @@ The site is built using the [react static boilerplate](https://github.com/kriaso
 
 Please refer to `utils/markdown-loader.js` for how it is parsed.
 
+## Creating alert boxes
+
+You can use the following syntax in a markdown file to create an "Advanced" box:
+
+```
+::: advanced
+
+Some advanced usage
+
+:::
+```
+
+Besides `advanced`, you can also use `note`, `tips` and `caution`.
+
 ## Skygear document routes and content
 
 - `guideRoutes.js` defines the list of routes
