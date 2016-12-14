@@ -73,32 +73,47 @@
     position: absolute;
     left: 20px;
     top: 0;
-    width: 30px;
+    width: 35px;
     height: 30px;
 
     @include desktop {
       position: relative;
       width: 100%;
-      height: 50px;
+      height: 60px;
       top: auto;
       left: auto;
       margin-bottom: 20px;
     }
 
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
+    background-position: left center;
+
+    @include desktop {
+      background-position: center center;
+    }
 
     &.sample-project {
       background-image: url('../../static/images/sample-project.png');
+      background-size: 27px 30px;
+      @include desktop {
+        background-size: 43px 50px;
+      }
     }
 
     &.google-group {
       background-image: url('../../static/images/google-group.png');
+      background-size: 27px 30px;
+      @include desktop {
+        background-size: 54px 59px;
+      }
     }
 
     &.email {
       background-image: url('../../static/images/email.png');
+      background-size: 34px 25px;
+      @include desktop {
+        background-size: 58px 42px;
+      }
     }
   }
 
