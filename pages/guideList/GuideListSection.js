@@ -8,7 +8,7 @@ const GuideListSection = (props) => (
   <div className="guide-list-section">
     <h2 id={props.section.name}>{props.section.name}</h2>
     {props.section.guides.map(guide => (
-      <GuideListItem guide={guide} />
+      <GuideListItem key={guide.title} guide={guide} />
     ))}
   </div>
 );

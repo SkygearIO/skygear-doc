@@ -12,7 +12,11 @@ const GuideListItem = (props) => {
     <div className="guide-list-item">
       <div className="languages">
         {languages.map(language => (
-          <LanguageLink key={language} language={language} url={`${baseUrl}${language}/`} />
+          <LanguageLink
+            key={language}
+            language={language}
+            isActive={false}
+            url={`${baseUrl}${language}/`} />
         ))}
       </div>
       <Link to={defaultUrl}>

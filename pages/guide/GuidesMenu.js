@@ -26,7 +26,7 @@ const GuidesMenu = (props) => (
                 type="radio"
                 name="guide"
                 id={`${section.name}${index}`}
-                checked={_.matches(props.currentGuide)(guide)}
+                defaultChecked={_.matches(props.currentGuide)(guide)}
               />
               <label htmlFor={`${section.name}${index}`}>
                 <p className="guide-name">{guide.title}</p>

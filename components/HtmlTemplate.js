@@ -27,6 +27,7 @@ const Html = (props) => {
           <script dangerouslySetInnerHTML={{ __html: gaScript }} />
         }
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+        <script src="/main.js"></script>
       </body>
     </html>
   );

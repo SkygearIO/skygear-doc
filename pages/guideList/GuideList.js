@@ -8,7 +8,7 @@ import './GuideList.scss';
 const GuideList = () => (
   <div className="guide-list">
     {guideListConfig.sections.map(section => (
-      <GuideListSection section={section} />
+      <GuideListSection key={section.name} section={section} />
     ))}
   </div>
 );

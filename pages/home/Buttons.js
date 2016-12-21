@@ -12,7 +12,7 @@ const Buttons = () => (
       <div className="buttons-column">
         <div className="buttons-background-fill">
           <div className="landing-button-container">
-            <Link to="/guides">
+            <Link to="/guides/">
               <div className="landing-button">
                 <div className="relative-container">
                   <img src={GuideIcon} role="presentation" />
@@ -30,7 +30,7 @@ const Buttons = () => (
       <div className="buttons-column">
         <div className="buttons-background-fill">
           <div className="landing-button-container">
-            <Link to="/api-reference">
+            <Link to="/api-reference/">
               <div className="landing-button">
                 <div className="relative-container">
                   <img src={ApiReferenceIcon} role="presentation" />
@@ -48,7 +48,7 @@ const Buttons = () => (
       <div className="buttons-column">
         <div className="buttons-background-fill">
           <div className="landing-button-container">
-            <Link to="/support">
+            <Link to="/support/">
               <div className="landing-button">
                 <div className="relative-container">
                   <img src={SupportIcon} role="presentation" />
