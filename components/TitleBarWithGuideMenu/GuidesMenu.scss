@@ -115,10 +115,10 @@
     display: none;
 
     &:checked {
-      &~ .language-links {
+      & ~ .language-links {
         display: block;
       }
-      &~ label .collapse-button {
+      & ~ label .collapse-button {
         display: block;
       }
     }

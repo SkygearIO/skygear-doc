@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react';
 import Banner from '../../components/Banner/Banner';
 import Header from '../../components/Header/Header';
 import TitleBarWithGuideMenu from '../../components/TitleBarWithGuideMenu/TitleBarWithGuideMenu';
-import Guide from './Guide';
+import GetStarted from './GetStarted';
 import Footer from '../../components/Footer/Footer';
 
 import GuideListConfig from '../guideList/config';
@@ -42,17 +42,11 @@ function findLanguageOptions(guideUrl) {
   }));
 }
 
-const GuidePage = (props) => {
+const GetStartedPage = (props) => {
   const currentRoute = props.routes.slice(-1)[0];
-
-  if (!currentRoute.docHtml || !currentRoute.title) {
-    return false;
-  }
 
   const {
     path,
-    title,
-    docHtml,
   } = currentRoute;
 
   const currentGuide = findCurrentGuide(path);
@@ -68,18 +62,16 @@ const GuidePage = (props) => {
           currentLanguage={language}
         />
       </Banner>
-      <Guide
-        title={title}
-        docHtml={docHtml}
+      <GetStarted
         languageOptions={languageOptions}
-        language={language}
+        language="android"
       />
       <Footer />
     </div>
   );
 };
 
-GuidePage.propTypes = {
+GetStartedPage.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape({
     language: PropTypes.string,
     title: PropTypes.string,
@@ -87,4 +79,4 @@ GuidePage.propTypes = {
   })),
 };
 
-export default GuidePage;
+export default GetStartedPage;

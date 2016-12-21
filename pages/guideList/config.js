@@ -7,7 +7,7 @@ const guideListConfig = {
           title: 'Setup Skygear',
           description: 'Signing up for Skygear hosting and' +
             ' create your first application using our iOS/Android/JavaScript SDK.',
-          baseUrl: '/', // TODO: set up getting started
+          baseUrl: '/guide/get-started/',
           languages: ['ios', 'android', 'js'],
         },
       ],

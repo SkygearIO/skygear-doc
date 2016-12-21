@@ -6,6 +6,9 @@ import { Route, IndexRoute } from 'react-router';
 import Landing from './pages/home/index';
 import Guide from './pages/guide/index';
 import GuideList from './pages/guideList/index';
+import GetStartedIos from './pages/getStarted/ios';
+import GetStartedAndroid from './pages/getStarted/android';
+import GetStartedJs from './pages/getStarted/js';
 import ApiReference from './pages/apiReference/index';
 import Support from './pages/support/index';
 import NotFound from './pages/error/index';
@@ -27,6 +30,9 @@ const routes = (
   <Route path="/">
     <IndexRoute title="Skygear Documentation" component={Landing} />
     <Route path="guides/" title="Guides" component={GuideList} />
+    <Route path="guide/get-started/ios/" title="Get Started" component={GetStartedIos} />
+    <Route path="guide/get-started/android/" title="Get Started" component={GetStartedAndroid} />
+    <Route path="guide/get-started/js/" title="Get Started" component={GetStartedJs} />
     {routesForMarkdownFiles}
     <Route path="api-reference/" title="API Reference" component={ApiReference} />
     <Route path="support/" title="Support" component={Support} />

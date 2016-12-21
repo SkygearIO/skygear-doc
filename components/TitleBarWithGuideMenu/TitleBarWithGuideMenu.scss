@@ -31,7 +31,7 @@
   }
 
   #hamburger-menu-toggle:checked {
-    &~ .guides-menu-container {
+    & ~ .guides-menu-container {
       display: block;
     }
     .hamburger-icon {

@@ -2,8 +2,8 @@ import _ from 'lodash';
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import LanguageLink from '../../components/LanguageLink/LanguageLink';
-import guideListConfig from '../guideList/config';
+import LanguageLink from '../LanguageLink/LanguageLink';
+import guideListConfig from '../../pages/guideList/config';
 
 import './GuidesMenu.scss';
 

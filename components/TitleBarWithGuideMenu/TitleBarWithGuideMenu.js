@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import TitleBar from '../../components/TitleBar/TitleBar';
+import TitleBar from '../TitleBar/TitleBar';
 import GuidesMenu from './GuidesMenu';
 
 import './TitleBarWithGuideMenu.scss';

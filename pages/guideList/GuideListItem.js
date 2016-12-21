@@ -16,7 +16,8 @@ const GuideListItem = (props) => {
             key={language}
             language={language}
             isActive={false}
-            url={`${baseUrl}${language}/`} />
+            url={`${baseUrl}${language}/`}
+          />
         ))}
       </div>
       <Link to={defaultUrl}>
