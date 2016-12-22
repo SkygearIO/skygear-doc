@@ -1,6 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router';
 import './Contributing.scss';
+
+const items = [
+  {
+    title: 'How to contribute',
+    url: 'https://github.com/SkygearIO/skygear-server#how-to-contribute',
+  },
+  {
+    title: 'GitHub',
+    url: 'https://github.com/skygeario/skygear-server',
+  },
+  {
+    title: 'Releases',
+    url: 'https://github.com/SkygearIO/skygear-server/releases',
+  },
+];
 
 const Contributing = () => (
   <div className="contributing-container">
@@ -12,10 +26,9 @@ const Contributing = () => (
           </p>
         </div>
         <ul className="contributing-column-items">
-          <li><Link to="#">How to contribute</Link></li>
-          <li><Link to="#">FAQ</Link></li>
-          <li><Link to="#">Release cycle</Link></li>
-          <li><Link to="#">GitHub</Link></li>
+          {items.map(({ title, url }) => (
+            <li key={title}><a href={url}>{title}</a></li>
+          ))}
         </ul>
       </div>
     </div>
