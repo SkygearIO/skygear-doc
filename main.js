@@ -19,6 +19,6 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 
 ReactDOM.render(
-  <Router routes={routes} history={browserHistory} />,
+  <Router routes={routes} history={browserHistory} onUpdate={() => window.scrollTo(0, 0)} />,
   document.getElementById('root')
 );
