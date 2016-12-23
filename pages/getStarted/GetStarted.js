@@ -17,6 +17,7 @@ const GetStarted = (props) => (
             language={language}
             url={url}
             isActive={language === props.language}
+            isShowEmpty={false}
           />
         ))}
       </div>

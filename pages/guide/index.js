@@ -25,8 +25,13 @@ function findCurrentGuide(guideUrl) {
 }
 
 function findCurrentLanguage(guideUrl) {
-  const urlWithoutTrailingSlash = guideUrl.slice(-1) === '/' ? guideUrl.slice(0, -1) : guideUrl;
-  return urlWithoutTrailingSlash.substr(urlWithoutTrailingSlash.lastIndexOf('/') + 1);
+  const urlWithoutSlash = guideUrl.slice(-1) === '/' ? guideUrl.slice(0, -1) : guideUrl;
+  const lastWordInPath = urlWithoutSlash.substr(urlWithoutSlash.lastIndexOf('/') + 1);
+  const { languages } = findCurrentGuide(guideUrl);
+  if (languages.indexOf(lastWordInPath) === -1) {
+    return '';
+  }
+  return lastWordInPath;
 }
 
 function findLanguageOptions(guideUrl) {

@@ -17,6 +17,7 @@ const GuideListItem = (props) => {
             language={language}
             isActive={false}
             url={`${baseUrl}${language}/`}
+            isShowEmpty
           />
         ))}
       </div>

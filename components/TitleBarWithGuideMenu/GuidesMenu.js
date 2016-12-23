@@ -7,6 +7,11 @@ import guideListConfig from '../../pages/guideList/config';
 
 import './GuidesMenu.scss';
 
+function isEmptyLanguages(languages) {
+  // also consider empty for ['']
+  return !languages || languages.filter(v => v).length === 0;
+}
+
 const GuidesMenu = (props) => (
   <div className="guides-menu-container">
     <div className="guides-menu">
@@ -28,18 +33,30 @@ const GuidesMenu = (props) => (
                 id={`${section.name}${index}`}
                 defaultChecked={_.matches(props.currentGuide)(guide)}
               />
-              <label htmlFor={`${section.name}${index}`}>
-                <p className="guide-name">{guide.title}</p>
-              </label>
-              <label htmlFor="placeholder-radio-button">
-                <div className="collapse-button" />
-              </label>
+              {isEmptyLanguages(guide.languages) &&
+                <label htmlFor="placeholder-radio-button">
+                  <Link to={`${guide.baseUrl}/`}>
+                    <p className="guide-name">{guide.title}</p>
+                  </Link>
+                </label>
+              }
+              {!isEmptyLanguages(guide.languages) &&
+                <label htmlFor={`${section.name}${index}`}>
+                  <p className="guide-name">{guide.title}</p>
+                </label>
+              }
+              {!isEmptyLanguages(guide.languages) &&
+                <label htmlFor="placeholder-radio-button">
+                  <div className="collapse-button" />
+                </label>
+              }
               <div className="language-links">
                 {guide.languages.map(language => (
                   <LanguageLink
                     key={language}
                     language={language}
                     url={`${guide.baseUrl}${language}/`}
+                    isShowEmpty={false}
                     isActive={_.matches(props.currentGuide)(guide) &&
                       language === props.currentLanguage}
                   />

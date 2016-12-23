@@ -44,6 +44,11 @@
   background-size: 22px 26px;
 }
 
+.language-icon.placeholder {
+  background-image: url('../../static/images/view.png');
+  background-size: 23px 23px;
+}
+
 .language-link.active {
   .text {
     color: $link-color;
@@ -63,6 +68,10 @@
 
   .language-icon.python {
     background-image: url('../../static/images/python-activate.png');
+  }
+
+  .language-icon.placeholder {
+    background-image: url('../../static/images/view-activate.png');
   }
 }
 
@@ -85,5 +94,9 @@
 
   .language-icon.python {
     background-image: url('../../static/images/python-mouseover.png');
+  }
+
+  .language-icon.placeholder {
+    background-image: url('../../static/images/view-activate.png');
   }
 }
