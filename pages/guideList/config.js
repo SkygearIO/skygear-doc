@@ -207,6 +207,13 @@ const guideListConfig = {
           baseUrl: '/guide/advanced/database-schema',
           languages: [''],
         },
+        {
+          title: 'Writing your own Authentication Provider',
+          description: 'User authentication with third-party service',
+          // no trailing slash if language not applicable
+          baseUrl: '/guide/advanced/auth-provider/',
+          languages: ['python'],
+        },
       ],
     },
   ],
