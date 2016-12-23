@@ -189,6 +189,17 @@ const guideListConfig = {
         },
       ],
     },
+    {
+      name: 'Advanced',
+      guides: [
+        {
+          title: 'Skygear Command Line Tools',
+          description: 'Managing your database schema and data through the command line interface.',
+          baseUrl: '/guide/advanced/skycli', // no trailing slash if language not applicable
+          languages: [''],
+        },
+      ],
+    },
   ],
 };
 
