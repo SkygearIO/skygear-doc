@@ -178,6 +178,17 @@ const guideListConfig = {
         },
       ],
     },
+    {
+      name: 'Social Network',
+      guides: [
+        {
+          title: 'User Relations Basics',
+          description: 'Creating Friends/Followers relationships',
+          baseUrl: '/guide/social-network/basics/',
+          languages: ['ios', 'android', 'js'],
+        },
+      ],
+    },
   ],
 };
 
