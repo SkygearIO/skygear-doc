@@ -200,7 +200,7 @@ If you are using Skygear portal, you can set the environment variables on the
 * `ASSET_STORE_BUCKET` - `s3` bucket name
 
 ### Apple Push notification related
-* `APNS_ENVABLE` - string, `YES` or `NO`
+* `APNS_ENABLE` - string, `YES` or `NO`
 * `APNS_ENV` - string, `sandbox` or `production`
 * `APNS_CERTIFICATE` - full string of the certificate in PEM format
 * `APNS_PRIVATE_KEY` - full string of the private key in PEM format
