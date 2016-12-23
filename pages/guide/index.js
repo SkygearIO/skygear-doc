@@ -51,7 +51,7 @@ const GuidePage = (props) => {
 
   const {
     path,
-    title,
+    guideTitle,
     docHtml,
   } = currentRoute;
 
@@ -69,7 +69,7 @@ const GuidePage = (props) => {
         />
       </Banner>
       <Guide
-        title={title}
+        title={guideTitle}
         docHtml={docHtml}
         languageOptions={languageOptions}
         language={language}
@@ -82,7 +82,7 @@ const GuidePage = (props) => {
 GuidePage.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape({
     language: PropTypes.string,
-    title: PropTypes.string,
+    guideTtle: PropTypes.string,
     docHtml: PropTypes.string,
   })),
 };
