@@ -21,13 +21,23 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
     bucket:
-      secure: "sDNpK1vQJw0PL0/SSNpX7S280MCk/K5ghy/BYoy/Vem7qR461/obX0vW1u+IoLm6lmCskLP9jN8Kn4N6wQtjJsH24cXW5SR9GnkZDuJEcChAV2HWe3uS8Q//+u6+xASVorGhEe45GUuZB9tHxmIWTK54TRgzkYfYm5JlqKq3zIsN6VbhJwctu7RG+bWOrc9b1l7uIZEVvasb+yuUz6PMwoTJfIGgoA64tLcOrPCQtyTEvqPI73+/iLIovpS1aSZotXxQSOr/Clfn1PYwkcAEkiPWAL250gEMdJUyqX1bhSRPc4ZVQ6REphh4b6AADqI3uG9s9Y4tOHqoY1PPfQySvWQMkpdgudStTNEIz/XmAYg1mzkt7VRMHhARu2xd8bf5iSeNMvrHce56G3+0L54xZCxDF8XsFpXtDaa9nm5UbosgDlemzmKYnFrZpnEsO8yP3wEBhQwwakgnQgCMMNkAGU9sDNZfJAOCx2uKs3t9I9hd8E1O4PbRfhfU5UIpOuCfIScJwRBbiPprM+j0GCvidTlntrnRRNPlpo3V19UioWspeqgQ1DZvj6m7m12sxYpOTTMUEVzPN8suOH/qX5OL2l1dBFVz9iKCHW85O2PbsEwFtKPx5fMf2YxnWgqgE4H5gUURqb6dnY/EZ4hsgkgHEmligYiQHHzZs57jAbhsOmM="
+      secure: cJBWCJ9zu4VmAVUL6RbXnMgFfjPv2N98ro/gX8SUsce4dzypS0aihZ4p4hV40/kl995t/4C8FE0eSemIGD5idMKvvBBnDfwozlAYn1bYdqDGo6rZ3oaoCC56gNPC6++JUUZmmQd17dmddzmhghIXIYCtYrZake4IVo3QPaCFJfE9wcKul8xjOVG/Lfm1Gyp/D7cF4/WS8Y9yvC/ATE0Dp56UtKY3F30A+UH1datDgM3buxBU8A83JWPZCleP9Qksii5SMXOm4aYdydL+i9ktjIYPu6mSP09TEGCbca4xUKKQ2rM9k8VXLLTDFonh73NiJUejBgCplU6wwnYon0Wn4y4JlWzgPbcTf+j6KtSG2az/yJG+YlMLaTXWggrnyz5mjmW9TXEs/l+S7dCTndnIXOIur6z9xBLiBj6I1DXExZVweuQ8ZNX+IeonFW0yvq8LCjTN6WMme9ELhHeUe1tKlamsrERiDeAD/QL27/9KyliG3+qRc/5b9x+lGa91+5cAfV60bdYxdwCChkUpPJiHdfACjt2pO0pcH2yHiR/Jk3x8cENOUP09UbhPb7s3kwjyZWmmDmeTB11f244kurxDL6QDaPRxpQeka5im/YOPiQHUPH2lb0sg58TboT5YhYnC5+ranvoLsn4zvWkwix/a3H7xBG92idEl57A0Z3HeXGU=
     skip_cleanup: true
     acl: public_read
     local_dir: build
     on:
       repo: SkygearIO/skygear-doc
-      branch: restructure
+      branch: staging
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: docs.skygear.io
+    skip_cleanup: true
+    acl: public_read
+    local_dir: build
+    on:
+      repo: SkygearIO/skygear-doc
+      branch: $PRODUCTION_BRANCH
 
 after_deploy:
   - ./scripts/after-deploy.sh
