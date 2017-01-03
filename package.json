@@ -122,6 +122,7 @@
     "clean": "node run clean",
     "build": "node run build",
     "build:debug": "node run build --debug",
+    "invalidate-cf": "node ./scripts/invalidate-cf.js",
     "start": "node run"
   }
 }
