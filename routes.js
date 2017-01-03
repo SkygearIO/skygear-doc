@@ -48,6 +48,7 @@ const routes = (
     <Route path="api-reference/" title={pageTitle} component={ApiReference} />
     <Route path="support/" title={pageTitle} component={Support} />
     <Route path="coming-soon/" title={pageTitle} component={ComingSoon} />
+    <Route path="404/" title={pageTitle} component={NotFound} />
     <Route path="*" title={pageTitle} component={NotFound} />
   </Route>
 );
