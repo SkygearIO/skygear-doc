@@ -95,7 +95,11 @@
           font-size: 20px;
         }
 
-        &:hover {
+        &.active {
+          color: $link-color;
+        }
+
+        &:not(.active):hover {
           color: $link-hover-color;
         }
       }

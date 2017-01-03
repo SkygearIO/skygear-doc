@@ -25,45 +25,54 @@ const GuidesMenu = (props) => (
       {guideListConfig.sections.map(section => (
         <div key={section.name} className="guides-menu-section">
           <p className="section-name">{section.name}</p>
-          {section.guides.map((guide, index) => (
-            <div key={guide.title} className="guides-menu-item">
-              <input
-                type="radio"
-                name="guide"
-                id={`${section.name}${index}`}
-                defaultChecked={_.matches(props.currentGuide)(guide)}
-              />
-              {isEmptyLanguages(guide.languages) &&
-                <label htmlFor="placeholder-radio-button">
-                  <Link to={`${guide.baseUrl}/`}>
-                    <p className="guide-name">{guide.title}</p>
-                  </Link>
-                </label>
-              }
-              {!isEmptyLanguages(guide.languages) &&
-                <label htmlFor={`${section.name}${index}`}>
-                  <p className="guide-name">{guide.title}</p>
-                </label>
-              }
-              {!isEmptyLanguages(guide.languages) &&
-                <label htmlFor="placeholder-radio-button">
-                  <div className="collapse-button" />
-                </label>
-              }
-              <div className="language-links">
-                {guide.languages.map(language => (
-                  <LanguageLink
-                    key={language}
-                    language={language}
-                    url={`${guide.baseUrl}${language}/`}
-                    isShowEmpty={false}
-                    isActive={_.matches(props.currentGuide)(guide) &&
-                      language === props.currentLanguage}
-                  />
-                ))}
+          {section.guides.map((guide, index) => {
+            const isCurrentGuide = _.matches(props.currentGuide)(guide);
+            return (
+              <div key={guide.title} className="guides-menu-item">
+                <input
+                  type="radio"
+                  name="guide"
+                  id={`${section.name}${index}`}
+                  defaultChecked={isCurrentGuide}
+                />
+                {isEmptyLanguages(guide.languages) &&
+                  <label htmlFor="placeholder-radio-button">
+                    <Link to={`${guide.baseUrl}/`}>
+                      <p className={`guide-name ${isCurrentGuide ? 'active' : ''}`}>
+                        {guide.title}
+                      </p>
+                    </Link>
+                  </label>
+                }
+                {!isEmptyLanguages(guide.languages) &&
+                  <label htmlFor={`${section.name}${index}`}>
+                    <p className={`guide-name ${isCurrentGuide ? 'active' : ''}`}>
+                      {guide.title}
+                    </p>
+                  </label>
+                }
+                {!isEmptyLanguages(guide.languages) &&
+                  <label htmlFor="placeholder-radio-button">
+                    <div className="collapse-button" />
+                  </label>
+                }
+                {!isEmptyLanguages(guide.languages) &&
+                  <div className="language-links">
+                    {guide.languages.map(language => (
+                      <LanguageLink
+                        key={language}
+                        language={language}
+                        url={`${guide.baseUrl}${language}/`}
+                        isShowEmpty={false}
+                        isActive={_.matches(props.currentGuide)(guide) &&
+                          language === props.currentLanguage}
+                      />
+                    ))}
+                  </div>
+                }
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       ))}
     </div>
