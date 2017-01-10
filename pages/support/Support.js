@@ -28,6 +28,27 @@ const Support = () => (
       </div>
       <div className="support-column">
         <div className="support-item-container">
+          <a href="https://stackoverflow.com/questions/tagged/skygear" target="_blank">
+            <div className="support-item">
+              <div className="vertical-align">
+                <div className="icon google-group" />
+                <div className="content-wrapper">
+                  <h2>Stack Overflow</h2>
+                  <p className="description">
+                    Our support team will answer any questions tagged with skygear on Stack Overflow as soon as we can!
+                  </p>
+                  <div className="linkText">
+                    <span>Ask questions at Stackoverflow</span>
+                    <div className="right-arrow" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div className="support-column">
+        <div className="support-item-container">
           <a href="https://groups.google.com/forum/#!forum/skygear-user-group" target="_blank">
             <div className="support-item">
               <div className="vertical-align">
