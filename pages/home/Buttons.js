@@ -52,9 +52,9 @@ const Buttons = () => (
               <div className="landing-button">
                 <div className="relative-container">
                   <img src={SupportIcon} role="presentation" />
-                  <h2>Support</h2>
+                  <h2>Need Help?</h2>
                   <div className="linkText">
-                    <span>Get support</span>
+                    <span>Sample projects / Support</span>
                     <div className="landing-button-arrow" />
                   </div>
                 </div>
