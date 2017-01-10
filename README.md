@@ -17,8 +17,18 @@ npm run build
 
 ## Deployment
 
-- Push to `restructure` branch to deploy to
-  [http://docs-staging2.skygear.io.s3-website-us-east-1.amazonaws.com/](http://docs-staging2.skygear.io.s3-website-us-east-1.amazonaws.com/)
+- Push to `production` branch to deploy to
+  [https://docs.skygear.io](https://docs.skygear.io)
+
+- run the following command on your local dev machine to ensure it pass the
+  CI server's requirement:
+
+  ```
+  npm run lint
+  npm run test
+  npm run spell-check
+  npm run build release
+  ```
 
 Files in the `public/` folder will be deployed. The Webpack build creates the bundled js in this folder.
 
