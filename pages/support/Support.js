@@ -35,7 +35,8 @@ const Support = () => (
                 <div className="content-wrapper">
                   <h2>Stack Overflow</h2>
                   <p className="description">
-                    Our support team will answer any questions tagged with skygear on Stack Overflow as soon as we can!
+                    We will answer any questions tagged with
+                    skygear on Stack Overflow as soon as we can!
                   </p>
                   <div className="linkText">
                     <span>Ask questions at Stackoverflow</span>
