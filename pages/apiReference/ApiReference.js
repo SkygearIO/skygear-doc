@@ -7,7 +7,7 @@ const ApiReference = () => (
     <a href="http://cocoadocs.org/docsets/SKYKit/" target="_blank">
       <div className="api-reference-item">
         <h2 className="ios-sdk">
-          iOS SDK
+          iOS SDK (User Auth, Push, Cloud DB, Pubsub)
         </h2>
         <div className="right-arrow" />
       </div>
@@ -15,7 +15,7 @@ const ApiReference = () => (
     <a href="https://docs.skygear.io/android/reference/" target="_blank">
       <div className="api-reference-item">
         <h2 className="android-sdk">
-          Android SDK
+          Android SDK (User Auth, Push, Cloud DB, Pubsub)
         </h2>
         <div className="right-arrow" />
       </div>
@@ -23,7 +23,7 @@ const ApiReference = () => (
     <a href="https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/" target="_blank">
       <div className="api-reference-item">
         <h2 className="js-sdk">
-          JavaScript SDK
+          JavaScript SDK (User Auth, Push, Cloud DB, Pubsub)
         </h2>
         <div className="right-arrow" />
       </div>
@@ -48,6 +48,14 @@ const ApiReference = () => (
       <div className="api-reference-item">
         <h2 className="js-sdk">
           JavaScript SDK (Chat)
+        </h2>
+        <div className="right-arrow" />
+      </div>
+    </a>
+    <a href="https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/function/index.html" target="_blank">
+      <div className="api-reference-item">
+        <h2 className="js-sdk">
+            JS API Reference (Cloud Functions)
         </h2>
         <div className="right-arrow" />
       </div>
