@@ -87,7 +87,9 @@ const config = {
           path.resolve(__dirname, './main.js'),
           path.resolve(__dirname, './routes.js'),
         ],
-        loader: `babel-loader?${JSON.stringify(babelConfig)}`,
+        loader: isDebug ?
+          `babel-loader?${JSON.stringify(babelConfig)}` :
+          `babel-loader?${JSON.stringify(babelConfig)}!strip-loader?strip[]=console.log`,
       },
       {
         test: [/\.scss/, /\.css/],
