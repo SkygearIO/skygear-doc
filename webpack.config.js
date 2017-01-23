@@ -14,6 +14,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ReactStaticPlugin = require('react-static-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const pkg = require('./package.json');
 
 const isDebug = global.DEBUG === false ? false : !process.argv.includes('--release');
@@ -141,6 +142,7 @@ if (isDebug && useHMR) {
   config.entry.unshift('webpack-hot-middleware/client?path=/__webpack_hmr');
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
   config.plugins.push(new webpack.NoEmitOnErrorsPlugin());
+  config.plugins.push(new CopyWebpackPlugin([{ from: 'static/assets', to: 'build/assets' }]));
 }
 
 module.exports = config;
