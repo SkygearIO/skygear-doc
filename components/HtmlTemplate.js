@@ -16,7 +16,9 @@ const Html = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-        <link rel="stylesheet" href={`/${props.stylesheet}`} />
+        {props.stylesheet && (
+          <link rel="stylesheet" href={`/${props.stylesheet}`} />
+        )}
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <script src="https://use.typekit.net/oof1hhz.js"></script>
         <script dangerouslySetInnerHTML={{ __html: typekitScript }} />
@@ -36,9 +38,8 @@ const Html = (props) => {
 Html.propTypes = {
   trackingID: PropTypes.string,
   title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  bundle: PropTypes.string.isRequired,
-  stylesheet: PropTypes.string.isRequired,
+  body: PropTypes.string,
+  stylesheet: PropTypes.string,
 };
 
 export default Html;

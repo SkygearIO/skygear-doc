@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
+    "babel-cli": "^6.22.2",
     "babel-core": "^6.11.4",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.4",
@@ -39,9 +40,10 @@
     "eslint-plugin-import": "^1.12.0",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.5",
     "file-loader": "^0.9.0",
     "front-matter": "^2.1.0",
+    "fs-promise": "^1.0.0",
     "glob": "^7.1.1",
     "highlight.js": "^9.5.0",
     "json-loader": "^0.5.4",
@@ -72,16 +74,16 @@
     "precss": "^1.4.0",
     "react-hot-loader": "^3.0.0-beta.2",
     "react-router": "^3.0.0",
-    "react-static-webpack-plugin": "^1.3.0",
+    "react-static-webpack-plugin": "^2.1.0",
     "s3": "^4.4.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "stylelint": "^7.0.3",
     "stylelint-config-standard": "^11.0.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1",
-    "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.12.2"
+    "webpack": "^2.2.0",
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-hot-middleware": "^2.15.0"
   },
   "babel": {
     "presets": [
@@ -102,7 +104,8 @@
         2,
         "methods"
       ],
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "react/prefer-stateless-function": "off"
     }
   },
   "stylelint": {
@@ -119,10 +122,10 @@
     "test": "mocha --compilers js:babel-register",
     "test:watch": "mocha --compilers js:babel-register --reporter min --watch",
     "spell-check": "mdspell -r --en-us -n 'content/**/*.md'",
-    "clean": "node run clean",
-    "build": "node run build",
-    "build:debug": "node run build --debug",
-    "invalidate-cf": "node ./scripts/invalidate-cf.js",
-    "start": "node run"
+    "clean": "babel-node run clean",
+    "build": "babel-node run build",
+    "build:debug": "babel-node run build --debug",
+    "invalidate-cf": "babel-node ./scripts/invalidate-cf.js",
+    "start": "babel-node run"
   }
 }
