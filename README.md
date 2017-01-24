@@ -37,13 +37,14 @@ Please add the following S3 redirection rule on the deployment S3 bucket for leg
 ```
 <RoutingRules>
   <RoutingRule>
-  <Condition>
-    <KeyPrefixEquals>guide/</KeyPrefixEquals>
-  </Condition>
-  <Redirect>
-    <ReplaceKeyPrefixWith>guides/</ReplaceKeyPrefixWith>
-  </Redirect>
-</RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>guide/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>guides/</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+</RoutingRules>
 ```
 
 ## React Static Boilerplate
