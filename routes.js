@@ -13,13 +13,12 @@ import ApiReference from './pages/apiReference/index';
 import Support from './pages/support/index';
 import NotFound from './pages/error/index';
 import ComingSoon from './pages/comingSoon';
+import { pageTitle } from './config';
 
 import './components/Layout.scss';
 
 // does not work when passing './content' as an variable
 const req = require.context('./content', true, /^\.\/.*\.md/);
-
-const pageTitle = 'Skygear Documentation';
 
 const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
   const { title, html } = req(`./${path}`);

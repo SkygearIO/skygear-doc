@@ -10,14 +10,18 @@
 
 /* eslint-disable no-console, global-require */
 
+const fsp = require('fs-promise');
 const glob = require('glob');
 const join = require('path').join;
 const del = require('del');
 const ncp = require('ncp');
 const mkdirp = require('mkdirp');
 const webpack = require('webpack');
+const React = require('react');
+const { renderToStaticMarkup } = require('react-dom/server');
 
 const appConfig = require('./config');
+const HtmlTemplate = require('./components/HtmlTemplate');
 
 const tasks = new Map(); // The collection of automation tasks ('clean', 'build', etc.)
 
@@ -101,6 +105,21 @@ tasks.set('build', () => {
     .then(files => run('bundle', { MarkdownFilePaths: JSON.stringify(files) }));
 });
 
+tasks.set('createIndexHtmlForDev', () => {
+  const renderDocumentToString = props => {
+    const markup = renderToStaticMarkup(<HtmlTemplate {...props} />);
+    return `<!doctype html>\n${markup}`;
+  };
+
+  const html = renderDocumentToString({
+    title: appConfig.pageTitle,
+    stylesheet: null,
+    body: '',
+  });
+
+  return fsp.writeFile('build/index.html', html);
+});
+
 //
 // Build website and launch it in a browser for testing (default)
 // -----------------------------------------------------------------------------
@@ -109,6 +128,7 @@ tasks.set('start', () => {
   global.HMR = !process.argv.includes('--no-hmr'); // Hot Module Replacement (HMR)
   return run('clean')
     .then(() => run('copy'))
+    .then(() => run('createIndexHtmlForDev'))
     .then(() => run('readMarkdownFiles'))
     .then((files) => new Promise(resolve => {
       const bs = require('browser-sync').create();

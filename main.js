@@ -11,14 +11,27 @@
 import 'babel-polyfill';
 import 'whatwg-fetch';
 
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Router, browserHistory } from 'react-router';
 
 import routes from './routes';
 
-ReactDOM.render(
-  <Router routes={routes} history={browserHistory} onUpdate={() => window.scrollTo(0, 0)} />,
-  document.getElementById('root')
-);
+class RouterWrapper extends Component {
+  render() {
+    return (
+      <Router
+        routes={routes}
+        history={browserHistory}
+        onUpdate={() => window.scrollTo(0, 0)}
+      />
+    );
+  }
+}
+
+ReactDOM.render(<RouterWrapper />, document.getElementById('root'));
+
+if (module.hot) {
+  module.hot.accept();
+}
