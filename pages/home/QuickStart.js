@@ -6,7 +6,7 @@ const QuickStart = () => (
     <h1>Documentation</h1>
     <p className="quick-start-hint">New to Skygear?</p>
     <p>
-      <form action="/guide/get-started/ios/">
+      <form action="/guides/get-started/ios/">
         <button className="quick-start-button">Quick Start</button>
       </form>
     </p>

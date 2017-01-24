@@ -7,7 +7,7 @@ const guideListConfig = {
           title: 'Quickstart with Skygear',
           description: 'Signing up for Skygear hosting and' +
             ' create your first application using our iOS/Android/JavaScript SDK.',
-          baseUrl: '/guide/get-started/',
+          baseUrl: '/guides/get-started/',
           languages: ['ios', 'android', 'js'],
         },
       ],
@@ -18,19 +18,19 @@ const guideListConfig = {
         {
           title: 'User Authentication Basics',
           description: 'User Log-in/Log-out, user access tokens, email and password managements',
-          baseUrl: '/guide/auth/basics/',
+          baseUrl: '/guides/auth/basics/',
           languages: ['ios', 'android', 'js'],
         },
         {
           title: 'Social Login',
           description: 'Third-party login, e.g. Facebook, Google',
-          baseUrl: '/guide/auth/social-login/',
+          baseUrl: '/guides/auth/social-login/',
           languages: ['ios', 'android', 'js'],
         },
         {
           title: 'Creating User Profile for Authenticated Users',
           description: 'Saving and retrieving custom profile attributes',
-          baseUrl: '/guide/auth/user-profile/',
+          baseUrl: '/guides/auth/user-profile/',
           languages: ['ios', 'android', 'js'],
         },
       ],
@@ -42,40 +42,40 @@ const guideListConfig = {
           title: 'Cloud Database Basics',
           description: 'Storing data in the database using Records, with' +
             ' guides to basic record CRUD (create, read, update, delete)',
-          baseUrl: '/guide/cloud-db/basics/',
+          baseUrl: '/guides/cloud-db/basics/',
           languages: ['ios', 'android', 'js'],
         },
         {
           title: 'Performing Data Queries from Database',
           description: 'From the simplest queries to more complex ones' +
             ' such as AND/OR conditions and pagination',
-          baseUrl: '/guide/cloud-db/queries/',
+          baseUrl: '/guides/cloud-db/queries/',
           languages: ['ios', 'android', 'js'],
         },
         {
           title: 'Data Types',
           description: 'A guide to the supported data types:' +
             ' numbers, strings, foreign keys, locations, file uploads and more',
-          baseUrl: '/guide/cloud-db/data-types/',
+          baseUrl: '/guides/cloud-db/data-types/',
           languages: ['ios', 'android', 'js'],
         },
         {
           title: 'Access Control Basics',
           description: 'Setting up restriction to certain database table' +
             ' or individual record is easy',
-          baseUrl: '/guide/cloud-db/acl/',
+          baseUrl: '/guides/cloud-db/acl/',
           languages: ['ios', 'android', 'js'],
         },
         {
           title: 'Offline Storage',
           description: 'Creating cached queries to save query results locally',
-          baseUrl: '/guide/cloud-db/offline-storage/',
+          baseUrl: '/guides/cloud-db/offline-storage/',
           languages: ['ios', 'android', 'js'],
         },
         {
           title: 'Query Subscriptions',
           description: 'Subscribing to database data changes from the client',
-          baseUrl: '/guide/cloud-db/query-subscription/',
+          baseUrl: '/guides/cloud-db/query-subscription/',
           languages: ['ios', 'android', 'js'],
         },
       ],
@@ -87,7 +87,7 @@ const guideListConfig = {
           title: 'PubSub Basics',
           description: 'Adding the publish-subscribe functioality to your' +
             ' app with Skygear',
-          baseUrl: '/guide/pubsub/basics/',
+          baseUrl: '/guides/pubsub/basics/',
           languages: ['ios', 'android', 'js'],
         },
       ],
@@ -98,7 +98,7 @@ const guideListConfig = {
         {
           title: 'Push Notification Basics',
           description: 'Sending push notifications with Skygear',
-          baseUrl: '/guide/push-notifications/basics/',
+          baseUrl: '/guides/push-notifications/basics/',
           languages: ['ios', 'android', 'js'],
         },
       ],
@@ -110,49 +110,49 @@ const guideListConfig = {
           title: 'Introduction and Deployment of Cloud Functions',
           description: 'The first step to using the Skygear cloud functions' +
             ' to have your codes running on Skygear server',
-          baseUrl: '/guide/cloud-function/intro-and-deployment/',
+          baseUrl: '/guides/cloud-function/intro-and-deployment/',
           languages: ['python'],
         },
         {
           title: 'Cloud Functions for Database Event Hooks',
           description: 'Running codes upon database events such as' +
             ' creating, updating or deleting records',
-          baseUrl: '/guide/cloud-function/database-hooks/',
+          baseUrl: '/guides/cloud-function/database-hooks/',
           languages: ['python'],
         },
         {
           title: 'Cloud Functions for Creating Scheduled Tasks',
           description: 'Executing your server codes at specified time' +
             ' or intervals',
-          baseUrl: '/guide/cloud-function/scheduled-tasks/',
+          baseUrl: '/guides/cloud-function/scheduled-tasks/',
           languages: ['python'],
         },
         {
           title: 'Cloud Functions for Skygear SDKs to call',
           description: 'Lambda functions can be called from the SDKs' +
             ' to execute your custom codes on Skygear server',
-          baseUrl: '/guide/cloud-function/lambda/',
+          baseUrl: '/guides/cloud-function/lambda/',
           languages: ['python'],
         },
         {
           title: 'Cloud Functions as HTTP Endpoint',
           description: 'Creating your own HTTP endpoint so that external' +
             ' applications can send GET/POST and other requests to your app',
-          baseUrl: '/guide/cloud-function/http-endpoint/',
+          baseUrl: '/guides/cloud-function/http-endpoint/',
           languages: ['python'],
         },
         {
           title: 'Cloud Functions as Restful HTTP Endpoint',
           description: 'Creating your own set of restful HTTP endpoint easily' +
             ' through cloud functions',
-          baseUrl: '/guide/cloud-function/restful-http-endpoint/',
+          baseUrl: '/guides/cloud-function/restful-http-endpoint/',
           languages: ['python'],
         },
         {
           title: 'Serving Static Assets from Skygear Server',
           description: 'Methods to make your static assets such as images' +
             ' accessible with a URL',
-          baseUrl: '/guide/cloud-function/static-assets/',
+          baseUrl: '/guides/cloud-function/static-assets/',
           languages: ['python'],
         },
         {
@@ -160,20 +160,20 @@ const guideListConfig = {
           description: 'Calling Skygear API, using database connections,' +
             ' pubsub, push notifications, and using the master key to' +
             ' impersonate user for the admin',
-          baseUrl: '/guide/cloud-function/calling-skygear-api/',
+          baseUrl: '/guides/cloud-function/calling-skygear-api/',
           languages: ['python'],
         },
         {
           title: 'Authenticating Users',
           description: 'Getting the authenticated user ID from the cloud' +
             ' functions, and resetting the password of a user',
-          baseUrl: '/guide/cloud-function/authenticating-users/',
+          baseUrl: '/guides/cloud-function/authenticating-users/',
           languages: ['python'],
         },
         {
           title: 'Error Handling',
           description: 'Error handling in cloud functions',
-          baseUrl: '/guide/cloud-function/error-handling/',
+          baseUrl: '/guides/cloud-function/error-handling/',
           languages: ['python'],
         },
       ],
@@ -184,7 +184,7 @@ const guideListConfig = {
         {
           title: 'User Relations Basics',
           description: 'Creating Friends/Followers relationships',
-          baseUrl: '/guide/social-network/basics/',
+          baseUrl: '/guides/social-network/basics/',
           languages: ['ios', 'android', 'js'],
         },
       ],
@@ -196,7 +196,7 @@ const guideListConfig = {
           title: 'Skygear Command Line Tools',
           description: 'Managing your database schema and data through the command line interface.',
           // no trailing slash if language not applicable
-          baseUrl: '/guide/advanced/skycli',
+          baseUrl: '/guides/advanced/skycli',
           languages: [''],
         },
         {
@@ -204,14 +204,14 @@ const guideListConfig = {
           description: 'More details about database record tables, reserved columns,' +
             ' schema migration and reserved tables',
           // no trailing slash if language not applicable
-          baseUrl: '/guide/advanced/database-schema',
+          baseUrl: '/guides/advanced/database-schema',
           languages: [''],
         },
         {
           title: 'Writing your own Authentication Provider',
           description: 'User authentication with third-party service',
           // no trailing slash if language not applicable
-          baseUrl: '/guide/advanced/auth-provider/',
+          baseUrl: '/guides/advanced/auth-provider/',
           languages: ['python'],
         },
       ],
