@@ -32,6 +32,20 @@ npm run build
 
 Files in the `public/` folder will be deployed. The Webpack build creates the bundled js in this folder.
 
+Please add the following S3 redirection rule on the deployment S3 bucket
+
+```
+<RoutingRules>
+  <RoutingRule>
+  <Condition>
+    <KeyPrefixEquals>guide/</KeyPrefixEquals>
+  </Condition>
+  <Redirect>
+    <ReplaceKeyPrefixWith>guides/</ReplaceKeyPrefixWith>
+  </Redirect>
+</RoutingRule>
+```
+
 ## React Static Boilerplate
 
 The site is built using the [react static boilerplate](https://github.com/kriasoft/react-static-boilerplate). You can refer to its documentation for how routes are created.
