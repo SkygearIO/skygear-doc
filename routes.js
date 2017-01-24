@@ -22,7 +22,7 @@ const req = require.context('./content', true, /^\.\/.*\.md/);
 
 const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
   const { title, html } = req(`./${path}`);
-  const url = `guide/${path.slice(0, -'.md'.length)}/`;
+  const url = `guides/${path.slice(0, -'.md'.length)}/`;
   console.log(`[Route generator] file ${path} -> url ${url}`);
   return (
     <Route
@@ -40,9 +40,9 @@ const routes = (
   <Route path="/">
     <IndexRoute title={pageTitle}component={Landing} />
     <Route path="guides/" title={pageTitle} component={GuideList} />
-    <Route path="guide/get-started/ios/" title={pageTitle} component={GetStartedIos} />
-    <Route path="guide/get-started/android/" title={pageTitle} component={GetStartedAndroid} />
-    <Route path="guide/get-started/js/" title={pageTitle} component={GetStartedJs} />
+    <Route path="guides/get-started/ios/" title={pageTitle} component={GetStartedIos} />
+    <Route path="guides/get-started/android/" title={pageTitle} component={GetStartedAndroid} />
+    <Route path="guides/get-started/js/" title={pageTitle} component={GetStartedJs} />
     {routesForMarkdownFiles}
     <Route path="api-reference/" title={pageTitle} component={ApiReference} />
     <Route path="support/" title={pageTitle} component={Support} />

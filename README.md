@@ -32,7 +32,7 @@ npm run build
 
 Files in the `public/` folder will be deployed. The Webpack build creates the bundled js in this folder.
 
-Please add the following S3 redirection rule on the deployment S3 bucket
+Please add the following S3 redirection rule on the deployment S3 bucket for legacy purpose
 
 ```
 <RoutingRules>
