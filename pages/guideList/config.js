@@ -4,7 +4,7 @@ const guideListConfig = {
       name: 'Getting Started',
       guides: [
         {
-          title: 'Setup Skygear',
+          title: 'Quickstart with Skygear',
           description: 'Signing up for Skygear hosting and' +
             ' create your first application using our iOS/Android/JavaScript SDK.',
           baseUrl: '/guide/get-started/',
