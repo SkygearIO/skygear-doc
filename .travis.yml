@@ -1,11 +1,21 @@
-language: node_js
+language: python
+
+python:
+  - '3.5'
 
 cache:
   directories:
     - node_modules
 
-node_js:
-  - '6'
+before_install:
+  - pip install --upgrade pip
+  - pip install awscli
+  - nvm install 6
+  - node -v
+  - npm -v
+
+install:
+  - npm install
 
 script:
   - npm run lint
@@ -20,18 +30,17 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket:
-      secure: cJBWCJ9zu4VmAVUL6RbXnMgFfjPv2N98ro/gX8SUsce4dzypS0aihZ4p4hV40/kl995t/4C8FE0eSemIGD5idMKvvBBnDfwozlAYn1bYdqDGo6rZ3oaoCC56gNPC6++JUUZmmQd17dmddzmhghIXIYCtYrZake4IVo3QPaCFJfE9wcKul8xjOVG/Lfm1Gyp/D7cF4/WS8Y9yvC/ATE0Dp56UtKY3F30A+UH1datDgM3buxBU8A83JWPZCleP9Qksii5SMXOm4aYdydL+i9ktjIYPu6mSP09TEGCbca4xUKKQ2rM9k8VXLLTDFonh73NiJUejBgCplU6wwnYon0Wn4y4JlWzgPbcTf+j6KtSG2az/yJG+YlMLaTXWggrnyz5mjmW9TXEs/l+S7dCTndnIXOIur6z9xBLiBj6I1DXExZVweuQ8ZNX+IeonFW0yvq8LCjTN6WMme9ELhHeUe1tKlamsrERiDeAD/QL27/9KyliG3+qRc/5b9x+lGa91+5cAfV60bdYxdwCChkUpPJiHdfACjt2pO0pcH2yHiR/Jk3x8cENOUP09UbhPb7s3kwjyZWmmDmeTB11f244kurxDL6QDaPRxpQeka5im/YOPiQHUPH2lb0sg58TboT5YhYnC5+ranvoLsn4zvWkwix/a3H7xBG92idEl57A0Z3HeXGU=
+    bucket: $STAGING_BUCKET
     skip_cleanup: true
     acl: public_read
     local_dir: build
     on:
       repo: SkygearIO/skygear-doc
-      branch: staging
+      branch: $STAGING_BRANCH
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: docs.skygear.io
+    bucket: $PRODUCTION_BUCKET
     skip_cleanup: true
     acl: public_read
     local_dir: build
@@ -49,6 +58,9 @@ notifications:
 env:
   global:
     - PRODUCTION_BRANCH="production"
+    - STAGING_BRANCH="staging"
+    - PRODUCTION_BUCKET="docs.skygear.io"
+    - STAGING_BUCKET="docs-staging.skygear.io"
     # AWS_ACCESS_KEY_ID
     - secure: "u/3cyaOW8G4C3/oMSrWPNDEU6CcCmhPSweDwc1EEf/ch0jVC4LfQxtE9kLQRNO9uxCUOgZohMvBn+pArw7b6VPSjnMUhB6rldfjK7R2k+tLH/eSnkCQYaETLoZDqquJmzfrYcFd++pdSwZ8hFRgAOG7UkbII+cK88Q7ZYVeP6HwElLTm+zmyk7S56PQoohGVRgfJbSK34hLJfXMAG7n1nk+WckRX0CmmTMyZlrNOj6XeehXiZLhxY3/uKz0LvMv6ZLK3TgPtwz6jDrUi3uDn1Be6q4DrD3nkcmxjIRrmtvaxYYDw/Ulheg+eOuQwfMvr2RiUgeYOMDCqgqO2ljoMEvcZEBEc41WqHFakDHKWBOA4ideicVY1Y6QWpUah2p/ATPaPi3j0JkMtm3eer60+587viGfyomiH7YoeO5hUAXopipd0cmy+VzEzE7Jvw7vfes4isG+g7JWvKLh6L97tX9YhtmLcffqAmb8p7jJzn9kFMdRAYd+zsAgf0miQDUtDnhT/BTxHHafYvrTXOL+iAm9AVazyLr1XqsPtY2NxhhIK46ePEB6ivpqCaKnrVcvSVdxPTRvcQgnmz36MF4/OXLVz95x8kUOzrK0a8+OP8w7+M+iGcic0zZdMqG7iFKv6zRthx67wGgg71VzmPaqhHa6fxHAj6w7VEK68NJ/6fjg="
     # AWS_SECRET_ACCESS_KEY

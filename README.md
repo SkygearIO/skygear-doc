@@ -47,6 +47,54 @@ Please add the following S3 redirection rule on the deployment S3 bucket for leg
 </RoutingRules>
 ```
 
+To allow replacement of all files upon deployment such that the Android SDK API docs are not removed,
+please set the following S3 IAM policy:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::docs.skygear.io"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:GetObject",
+                "s3:GetObjectAcl",
+                "s3:DeleteObject"
+            ],
+            "Resource": "arn:aws:s3:::docs.skygear.io/*"
+        },
+        {
+            "Sid": "DisallowAllS3ActionsInApiFolder",
+            "Effect": "Deny",
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::docs.skygear.io/android/reference/*",
+                "arn:aws:s3:::docs.skygear.io/android/plugins/*"
+            ]
+        }
+    ]
+}
+```
+
 ## React Static Boilerplate
 
 The site is built using the [react static boilerplate](https://github.com/kriasoft/react-static-boilerplate). You can refer to its documentation for how routes are created.
