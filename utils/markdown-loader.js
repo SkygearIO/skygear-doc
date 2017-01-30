@@ -38,7 +38,7 @@ function displayLanuageName(language) {
   const displayNames = {
     javascript: 'JavaScript',
     java: 'Java',
-    objectivec: 'Objective-C',
+    "obj-c": 'Objective-C',
     python: 'Python',
     swift: 'Swift',
   };
