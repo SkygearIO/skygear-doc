@@ -111,6 +111,10 @@ $language-selector-width: 350px;
       margin-top: 1rem;
 
 
+      img {
+        max-width: 100%;
+      }
+
       @include desktop {
         font-size: 1.1rem;
         line-height: 2.2rem;
