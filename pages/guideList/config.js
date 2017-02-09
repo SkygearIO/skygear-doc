@@ -81,6 +81,17 @@ const guideListConfig = {
       ],
     },
     {
+      name: 'Skygear Chat',
+      guides: [
+        {
+          title: 'Skygear Chat Basics',
+          description: 'Creating chatrooms, sending and receiving messages with Chat APIs',
+          baseUrl: '/guides/chat/basics/',
+          languages: ['ios', 'android', 'js'],
+        },
+      ],
+    },
+    {
       name: 'Skygear PubSub',
       guides: [
         {
