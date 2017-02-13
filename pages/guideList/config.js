@@ -1,17 +1,25 @@
 const guideListConfig = {
   sections: [
     {
-      name: 'Getting Started',
+      name: 'Quick start',
       guides: [
         {
-          title: 'Quickstart with Skygear',
+          title: 'Quick Start for General Apps',
           description: 'Signing up for Skygear hosting and' +
             ' create your first application using our iOS/Android/JavaScript SDK.',
           baseUrl: '/guides/get-started/',
           languages: ['ios', 'android', 'js'],
         },
+        {
+          title: 'Quick Start for Chat Apps',
+          description: 'Signing up for Skygear hosting and' +
+            ' create your first chat application using our iOS/Android/JavaScript SDK.',
+          baseUrl: '/guides/chat-quick-start/',
+          languages: ['ios', 'android', 'js'],
+        },
       ],
     },
+
     {
       name: 'User Authentication',
       guides: [
@@ -76,6 +84,24 @@ const guideListConfig = {
           title: 'Query Subscriptions',
           description: 'Subscribing to database data changes from the client',
           baseUrl: '/guides/cloud-db/query-subscription/',
+          languages: ['ios', 'android', 'js'],
+        },
+      ],
+    },
+    {
+      name: 'Skygear Chat',
+      guides: [
+        {
+          title: 'Quick Start for Chat Apps',
+          description: 'Signing up for Skygear hosting and' +
+            ' create your first chat application using our iOS/Android/JavaScript SDK.',
+          baseUrl: '/guides/chat-quick-start/',
+          languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'Skygear Chat Basics',
+          description: 'Creating chatrooms, sending and receiving messages with Chat APIs',
+          baseUrl: '/guides/chat/basics/',
           languages: ['ios', 'android', 'js'],
         },
       ],

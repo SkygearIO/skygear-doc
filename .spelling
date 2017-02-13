@@ -92,7 +92,9 @@ zmq
 # note: normally codes should be wrapped in backticks `` but may not in titles
 CachedQuery
 catapi
+chatrooms
 currentUser
+distinctByParticipants
 Geo-location
 geolocation
 onUserChanged
@@ -144,3 +146,12 @@ _save
 100m
 v0.12
 v1.5
+
+# nouns (e.g. GitHub Repo)
+aschuch
+AwesomeCache
+dirkbonhomme
+js-cache
+kyperoslo
+lscache
+pamelafox
