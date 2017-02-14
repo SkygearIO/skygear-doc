@@ -24,7 +24,7 @@ $language-selector-width: 350px;
 
       @include desktop {
         margin-right: $language-selector-width;
-         font-size:3rem;
+        font-size:3rem;
         line-height: 3rem;
       }
     }
@@ -77,7 +77,7 @@ $language-selector-width: 350px;
 
   .guide-content {
     h1,h2,h3,h4 {
-      margin-top: 3rem;
+      margin-top: 2rem;
       margin-bottom: 1rem;
     }
 
@@ -89,7 +89,6 @@ $language-selector-width: 350px;
       font-family: freight-sans-medium, sans-serif;
       font-size: 2rem;
       color: $text-color;
-      margin-top: 5rem;
     }
 
     h3 {
@@ -105,8 +104,6 @@ $language-selector-width: 350px;
     p {
       font-family: freight-sans-medium, sans-serif;
       color: $text-color;
-      font-size: 1.1rem;
-      line-height: 2.2rem;
       margin-bottom: 1rem;
       margin-top: 1rem;
 
@@ -116,8 +113,6 @@ $language-selector-width: 350px;
       }
 
       @include desktop {
-        font-size: 1.1rem;
-        line-height: 2.2rem;
       }
 
       code {
