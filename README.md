@@ -118,7 +118,10 @@ Some advanced usage
 :::
 ```
 
-Besides `advanced`, you can also use `note`, `tips` and `caution`.
+Besides `advanced`, you can also use `todo`, `note`, `tips` and `caution`.
+
+`todo` is a special type of box to warn users the section is a WIP. It should
+always include a bullet points list of todo items.
 
 ## Creating code switcher (e.g. Objective-C vs Swift)
 

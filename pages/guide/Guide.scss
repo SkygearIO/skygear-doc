@@ -183,6 +183,21 @@ $language-selector-width: 350px;
       }
     }
 
+    .todo {
+      @include alertbox;
+      background-color: $doc-todo-bg;
+      background-image: url('../../static/images/todo.png');
+      background-size: 25px 23px;
+
+      code {
+        background-color: darken($doc-todo-bg, 10%);
+      }
+
+      p, code, ul {
+        color: $doc-todo-color;
+      }
+    }
+
     .caution {
       @include alertbox;
       background-color: $doc-caution-bg;

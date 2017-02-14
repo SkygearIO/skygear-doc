@@ -32,7 +32,16 @@ const md = new MarkdownIt({
 }).use(MarkdownItContainer, 'note')
 .use(MarkdownItContainer, 'tips')
 .use(MarkdownItContainer, 'caution')
-.use(MarkdownItContainer, 'advanced');
+.use(MarkdownItContainer, 'advanced')
+.use(MarkdownItContainer, 'todo', {
+    render: function(tokens, idx) {
+        if (tokens[idx].nesting === 1) {
+            return '<div class="todo"><p>This guide is a work-in-progress and may contain incomplete info or even errors. Please help post your comments or suggestion at <a href="https://github.com/SkygearIO/skygear-doc/issues">skygear-doc</a>, or <a href="https://docs.skygear.io/support/">contact us</a> if you need further helps.</p>\n';
+        } else {
+            return '</div>\n';
+        }
+    }
+});
 
 function displayLanuageName(language) {
   const displayNames = {
