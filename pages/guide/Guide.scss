@@ -19,13 +19,13 @@ $language-selector-width: 350px;
     h1 {
       font-family: freight-sans-book, sans-serif;
       font-weight: normal;
-      font-size: 3rem;
-      line-height: 3rem;
+      font-size: 2.8rem;
+      line-height: 2rem;
 
       @include desktop {
         margin-right: $language-selector-width;
-        font-size:3rem;
-        line-height: 3rem;
+        font-size: 2.8rem;
+        line-height: 2rem;
       }
     }
 
@@ -87,12 +87,12 @@ $language-selector-width: 350px;
 
     h2 {
       font-family: freight-sans-medium, sans-serif;
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: $text-color;
     }
 
     h3 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
     }
 
     h4 {
@@ -102,7 +102,8 @@ $language-selector-width: 350px;
     }
 
     p {
-      font-family: freight-sans-medium, sans-serif;
+      font-family: Helvetica,Arial,sans-serif;
+      line-height: 145%;
       color: $text-color;
       margin-bottom: 1rem;
       margin-top: 1rem;
