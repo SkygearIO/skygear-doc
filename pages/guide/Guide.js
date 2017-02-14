@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import LanguageLink from '../../components/LanguageLink/LanguageLink';
 
 import './Guide.scss';
-import 'highlight.js/styles/default.css';
+import 'highlight.js/styles/xcode.css';
 
 const Guide = (props) => (
   <div className="guide">
