@@ -129,8 +129,11 @@ $language-selector-width: 350px;
     }
 
     ol {
+        margin: 0 0 0 1.2em;
+        padding: 0;
+    }
+    ol {
       li {
-        font-size: 1.1rem;
         margin-bottom: 1.5rem;
       }
     }
@@ -144,7 +147,7 @@ $language-selector-width: 350px;
       background-position: 20px center;
 
       strong {
-        font-family: freight-sans-bold, sans-serif;
+        font-family: Helvetica,Arial,sans-serif;
         font-weight: normal;
       }
     }
