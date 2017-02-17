@@ -6,7 +6,7 @@ const guideListConfig = {
         {
           title: 'Skygear Installtion Guides',
           description: 'Adding Skygear to your iOS, Android and web apps',
-          baseUrl: '/guides/installation/',
+          baseUrl: '/guides/quickstart/',
           languages: ['ios', 'android', 'js'],
         },
       ],
