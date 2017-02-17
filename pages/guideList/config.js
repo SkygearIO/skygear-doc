@@ -1,10 +1,10 @@
 const guideListConfig = {
   sections: [
     {
-      name: 'Quick Starts',
+      name: 'Quick Start',
       guides: [
         {
-          title: 'Skygear Installtion Guides',
+          title: 'Quick Start Guide',
           description: 'Adding Skygear to your iOS, Android and web apps',
           baseUrl: '/guides/quickstart/',
           languages: ['ios', 'android', 'js'],
