@@ -36,7 +36,7 @@ const md = new MarkdownIt({
 .use(MarkdownItContainer, 'todo', {
   render(tokens, idx) {
     if (tokens[idx].nesting === 1) {
-      return '<div class="todo"><p>This guide is a work-in-progress and may contain incomplete info or even errors. Please help post your comments or suggestion at <a href="https://github.com/SkygearIO/skygear-doc/issues">skygear-doc</a>, or <a href="https://docs.skygear.io/support/">contact us</a> if you need further helps.</p>\n';
+      return '<div class="todo"><p>This guide is a work-in-progress and may contain incomplete info or even errors. Please help <a href="https://github.com/SkygearIO/skygear-doc/issues">contribute</a>, or <a href="https://docs.skygear.io/support/">contact support</a> if you need further helps. Here are a list of info / todos which might help you before this guide is polished.</p>\n';
     }
     return '</div>\n';
   },
