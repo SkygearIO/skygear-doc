@@ -119,6 +119,11 @@ $language-selector-width: 350px;
       code {
         background: $inline-code-bg;
       }
+
+      a code {
+        color: #029bc9;
+        font-weight: bold;
+      }
     }
 
     pre {
