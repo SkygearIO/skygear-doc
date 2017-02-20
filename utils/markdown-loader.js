@@ -10,6 +10,7 @@
 
 const MarkdownIt = require('markdown-it');
 const MarkdownItContainer = require('markdown-it-container');
+const MarkdownItAnchor = require('markdown-it-anchor');
 const hljs = require('highlight.js');
 const fm = require('front-matter');
 
@@ -40,7 +41,8 @@ const md = new MarkdownIt({
     }
     return '</div>\n';
   },
-});
+})
+.use(MarkdownItAnchor);
 
 function displayLanuageName(language) {
   const displayNames = {
