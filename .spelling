@@ -27,6 +27,7 @@ DNS
 Dockerfile
 EC2
 ES6
+env
 filename
 GCM
 GitBash
@@ -47,6 +48,7 @@ json
 JWT
 Kitematic
 libsodium
+macOS
 MongoDB
 Node.js
 Node.js.
@@ -60,12 +62,14 @@ PNS
 PNSs
 Polyfill
 PostgreSQL
+postgresapp.com
 PostGIS
 pubsub
 PyPI
 quickstart
 React.js
 Redis
+runtime
 S3
 SDK
 SDKs
@@ -130,6 +134,7 @@ PrivateDB
 PublicDB
 skycli
 Skygear
+Skygear.io
 skygear
 skygeario
 SKYKit

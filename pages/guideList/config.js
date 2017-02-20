@@ -226,6 +226,13 @@ const guideListConfig = {
           languages: [''],
         },
         {
+          title: 'Setup Skygear Development Server Locally',
+          description: 'Reference for deploy Skygear server',
+          // no trailing slash if language not applicable
+          baseUrl: '/guides/advanced/server',
+          languages: [''],
+        },
+        {
           title: 'Skygear Database Schema',
           description: 'More details about database record tables, reserved columns,' +
             ' schema migration and reserved tables',
