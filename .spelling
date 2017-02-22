@@ -14,8 +14,10 @@ AWS
 boolean
 booleans
 camelCase
+CDN
 CLI
 CloudFormation
+CMS
 CocoaPods
 config
 CoreDB
@@ -32,6 +34,7 @@ filename
 GCM
 GitBash
 GitHub
+github.com
 homebrew
 hostname
 HTML5
@@ -64,6 +67,7 @@ Polyfill
 PostgreSQL
 postgresapp.com
 PostGIS
+Postico
 pubsub
 PyPI
 quickstart

@@ -1,20 +1,12 @@
 const guideListConfig = {
   sections: [
     {
-      name: 'Quick start',
+      name: 'Quick Start',
       guides: [
         {
-          title: 'Quick Start for General Apps',
-          description: 'Signing up for Skygear hosting and' +
-            ' create your first application using our iOS/Android/JavaScript SDK.',
-          baseUrl: '/guides/get-started/',
-          languages: ['ios', 'android', 'js'],
-        },
-        {
-          title: 'Quick Start for Chat Apps',
-          description: 'Signing up for Skygear hosting and' +
-            ' create your first chat application using our iOS/Android/JavaScript SDK.',
-          baseUrl: '/guides/chat-quick-start/',
+          title: 'Quick Start Guide',
+          description: 'Adding Skygear to your iOS, Android and web apps',
+          baseUrl: '/guides/quickstart/',
           languages: ['ios', 'android', 'js'],
         },
       ],
