@@ -6,9 +6,6 @@ import { Route, IndexRoute } from 'react-router';
 import Landing from './pages/home/index';
 import Guide from './pages/guide/index';
 import GuideList from './pages/guideList/index';
-import GetStartedIos from './pages/getStarted/ios';
-import GetStartedAndroid from './pages/getStarted/android';
-import GetStartedJs from './pages/getStarted/js';
 import ApiReference from './pages/apiReference/index';
 import Support from './pages/support/index';
 import NotFound from './pages/error/index';
@@ -40,9 +37,6 @@ const routes = (
   <Route path="/">
     <IndexRoute title={pageTitle}component={Landing} />
     <Route path="guides/" title={pageTitle} component={GuideList} />
-    <Route path="guides/get-started/ios/" title={pageTitle} component={GetStartedIos} />
-    <Route path="guides/get-started/android/" title={pageTitle} component={GetStartedAndroid} />
-    <Route path="guides/get-started/js/" title={pageTitle} component={GetStartedJs} />
     {routesForMarkdownFiles}
     <Route path="api-reference/" title={pageTitle} component={ApiReference} />
     <Route path="support/" title={pageTitle} component={Support} />

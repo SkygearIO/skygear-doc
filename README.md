@@ -44,6 +44,14 @@ Please add the following S3 redirection rule on the deployment S3 bucket for leg
       <ReplaceKeyPrefixWith>guides/</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>guides/get-started/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>guides/quickstart/</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
 </RoutingRules>
 ```
 
