@@ -84,10 +84,9 @@ const guideListConfig = {
       name: 'Skygear Chat',
       guides: [
         {
-          title: 'Quick Start for Chat Apps',
-          description: 'Signing up for Skygear hosting and' +
-            ' create your first chat application using our iOS/Android/JavaScript SDK.',
-          baseUrl: '/guides/chat-quick-start/',
+          title: 'Quick Start for Chat',
+          description: 'Adding Skygea Chat to your iOS, Android and web apps',
+          baseUrl: '/guides/chat/quick-start/',
           languages: ['ios', 'android', 'js'],
         },
         {
