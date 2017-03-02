@@ -73,13 +73,13 @@ The following diagram shows the login flow:
 
 ### Getting the currently logged-in user
 
-You can retrieve the current user from `skygear.currentUser`.
+You can retrieve the current user from [`skygear.currentUser`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-get-currentUser).
 
 ``` javascript
 const user = skygear.currentUser; // if not logged in, it will be null
 ```
 
-If there is an authenticated user, it will give you a user object like this:
+If there is an authenticated user, it will give you a [`User`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/user.js~User.html) object like this:
 
 ``` javascript
 {
@@ -89,11 +89,11 @@ If there is an authenticated user, it will give you a user object like this:
 }
 ```
 
-Please be reminded that the `currentUser` object only exists when user
+Please be reminded that the [`currentUser`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-get-currentUser) object only exists when user
 login / signup Skygear.
 
 To get the latest information (e.g. roles, emails, etc.) of the current user,
-you can ask "Who am I" to Skygear:
+you can ask call [`whoami()`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-whoami):
 
 ``` javascript
 skygear.whoami().then((user) => {
@@ -107,7 +107,7 @@ skygear.whoami().then((user) => {
 ### Observing user changes
 
 The preferred way for your app to handle any logged-in user change is to
-register a callback by using the `skygear.onUserChanged` method.
+register a callback by using the [`skygear.onUserChanged`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-onUserChanged) method.
 The callback will be invoked whenever the user is changed, i.e.
 when any of the followings happens:
 
@@ -137,32 +137,17 @@ handler.cancel(); // The callback is cancelable
 ### Signing up
 
 A user can sign up using a username or an email, along with a password.
-It is done using either `skygear.signupWithUsername` or
-`skygear.signupWithEmail`.
+It is done using either [`skygear.signupWithUsername`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-signupWithUsername) or
+[`skygear.signupWithEmail`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-signupWithEmail).
 
 Skygear does not allow duplicated usernames or emails. Signing up with a
 duplicated identifier will give the error `Duplicated`.
 
 While each of the sign-up functions is resolved with a user object,
 in most cases you need not deal with it because
-you can access the currently logged-in user using `skygear.currentUser`.
+you can access the currently logged-in user using [`skygear.currentUser`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-get-currentUser).
 
-#### Anonymous user
-
-Without being authenticated, a user can read data from the public database but
-cannot perform most of the other operations, including saving data into the
-database.
-
-If you need an authenticated user but do not require a user to
-sign up explicitly with a username or email, you can create an anonymous user
-by calling `skygear.signupAnonymously`.
-
-Every anonymous user has a unique user ID, and behaves exactly the same as
-any user authenticated with a username or an email. The only difference is that
-an anonymous user has no username, email, nor password. Because of the absence
-of username and email, the account will be lost when the access token is lost.
-
-#### Signing up using a username
+[`signupWithUsername`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-signupWithUsername) sample code:
 
 ``` javascript
 import skygear from 'skygear';
@@ -180,7 +165,7 @@ skygear.signupWithUsername(username, password).then((user) => {
 });
 ```
 
-#### Signing up using an email
+[`signupWithEmail`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-signupWithEmail) sample code:
 
 ``` javascript
 import skygear from 'skygear';
@@ -197,8 +182,20 @@ skygear.signupWithEmail(email, password).then((user) => {
   }
 });
 ```
+#### Anonymous user
 
-#### Signing up anonymously
+Without being authenticated, a user can read data from the public database but
+cannot perform most of the other operations, including saving data into the
+database.
+
+If you need an authenticated user but do not require a user to
+sign up explicitly with a username or email, you can create an anonymous user
+by calling [`skygear.signupAnonymously`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-signupAnonymously).
+
+Every anonymous user has a unique user ID, and behaves exactly the same as
+any user authenticated with a username or an email. The only difference is that
+an anonymous user has no username, email, nor password. Because of the absence
+of username and email, the account will be lost when the access token is lost.
 
 ``` javascript
 import skygear from 'skygear';
@@ -222,7 +219,7 @@ If the credentials are incorrect, it will give the error of:
 
 While each of the login functions is resolved with a user object,
 in most cases you need not deal with it because
-you can access the currently logged-in user using `skygear.currentUser`.
+you can access the currently logged-in user using [`skygear.currentUser`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-get-currentUser).
 
 #### Logging in using a username
 
@@ -258,7 +255,7 @@ skygear.loginWithEmail(email, password).then((user) => {
 
 ### Logging out
 
-Logging out the current user is simple using the `skygear.logout` method.
+Logging out the current user is simple using the [`skygear.logout`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-logout) method.
 
 Upon successful logout, the SDK will clear the current user and the access token
 from the local storage.
@@ -277,7 +274,7 @@ skygear.logout().then(() => {
 ### Changing the username and email of a user
 
 To change a user's username and email, you can use
-the `skygear.saveUser` method by
+the [`skygear.saveUser`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-saveUser) method by
 providing the user ID and the new username and/or the new email.
 Every user can change his/her own username/email while
 only users with the admin role can change the usernames/emails of other users.
@@ -285,7 +282,7 @@ only users with the admin role can change the usernames/emails of other users.
 ::: caution
 
 **Caution:** Changing the username/email of the current user will trigger the callback
-registered through `skygear.onUserChanged`, even if the new username/email is
+registered through [`skygear.onUserChanged`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-onUserChanged), even if the new username/email is
 the same as the old one.
 
 :::
@@ -319,12 +316,12 @@ skygear.saveUser({
 ```
 
 To change the username and email at the same time, you can specify both
-`username` and `email` when calling `skygear.saveUser`.
+[`username`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/user.js~User.html#instance-member-username) and [`email`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/user.js~User.html#instance-member-email) when calling [`skygear.saveUser`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-saveUser).
 
 ### Changing the password of a user
 
 The currently logged-in user can change his/her own password.
-This can be done using the `skygear.changePassword` function.
+This can be done using the [`skygear.changePassword`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-changePassword) function.
 
 If the current password is incorrect, the SDK will return an
 `InvalidCredentials` error.
@@ -344,7 +341,7 @@ skygear.changePassword(currentPassword, newPassword).then((user) => {
 ```
 
 Note: Changing the password of the current user will not trigger the callback
-registered through `skygear.onUserChanged`.
+registered through [`skygear.onUserChanged`](https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/class/lib/container.js~Container.html#instance-method-onUserChanged).
 
 #### Invalidating existing access tokens
 
@@ -373,3 +370,9 @@ Not yet implemented.
 ## User Verification
 
 Not yet implemented.
+
+## What's next from here?
+You may want to learn more about:
+
+* [Social Login using Skygear](/guides/auth/social-login/js/)
+* [Setting User Profile](/guides/auth/user-profile/js/)
