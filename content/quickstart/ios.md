@@ -49,10 +49,13 @@ pod install
 
 ## Step 3: Configure Skygear in your app
 
-1. In `AppDelegate.m`, import the Skygear iOS SDK.
+1. In `AppDelegate.m` or `AppDelegate.swift`, import the Skygear iOS SDK.
 
 ```obj-c
 import <SKYKit/SKYKit.h>
+```
+```swift
+import SKYKit
 ```
 
 2. Then add the following lines in the  `application:didFinishLaunchingWithOptions` method to configure your app.
@@ -61,6 +64,10 @@ import <SKYKit/SKYKit.h>
 SKYContainer *container = [SKYContainer defaultContainer];
 [container configAddress:@"https://your-endpoint.skygeario.com/"]; //Your server endpoint
 [container configureWithAPIKey:@"SKYGEAR_API_KEY"]; //Your Skygear API Key
+```
+```swift
+SKYContainer.default().configAddress("<Your endpoint url>")
+SKYContainer.default().configure(withAPIKey: "<Your API Key>")
 ```
 :::note
 You can get your server endpoints and the API keys in the _info page_ in your [developer portal](https://portal.skygear.io/apps) after signing up for the [Skygear Cloud Services](https://portal.skygear.io/signup).
@@ -89,7 +96,9 @@ Practically the codes should not be structured this way. It is for demo only.
             return;
         }
 
-        // Create the table "test" and the record "Hello world"
+        // Create Record Type "test" and put "Hello world" as value of key "content"
+        // Advanced: Skygear Server will create a table "test" and appropriate
+        //           columns in PostgreSQL in Development mode.
         SKYRecord *test = [SKYRecord recordWithRecordType:@"test"];
         test[@"content"] = @"Hello world";
 
@@ -103,6 +112,33 @@ Practically the codes should not be structured this way. It is for demo only.
         }];
     }];
 
+```
+```swift
+// Every record in Skygear must be owned by a user
+// For testing purpose, we have used signupAnonmously to create a record
+// Visit the user authetication documentation to learn more
+// https://docs.skygear.io/guides/auth/basics/ios/
+
+let skygear = SKYContainer.default()
+skygear?.signupAnonymously(completionHandler: { (user, error) in
+    if error != nil {
+        print("Signup Error: \(error?.localizedDescription)")
+        return
+    }
+    
+    // Create Record Type "test" and put "Hello world" as value of key "content"
+    // Advanced: Skygear Server will create a table "test" and appropriate
+    //           columns in PostgreSQL in Development mode.
+    let test = SKYRecord(recordType: "test")
+    test?.setObject("Hello world", forKey: "content" as NSCopying!)
+    skygear?.publicCloudDatabase.save(test, completion: { (record, error) in
+        if error != nil {
+            print("Failed to save a record: \(error?.localizedDescription)")
+            return
+        }
+        print("Record saved with ID: \(record?.recordID.recordName)")
+    })
+})
 ```
 
 If the record is created successfully, you should see the record "Hello World" in your database table "test".
