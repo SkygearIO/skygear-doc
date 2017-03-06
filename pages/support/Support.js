@@ -78,7 +78,8 @@ const Support = () => (
                 <div className="content-wrapper">
                   <h2>Slack</h2>
                   <p className="description">
-                    Slack team for direct chat with Skygear Developers for support, or discuss and learn from other Skygear Users.
+                    Slack team for direct chat with Skygear Developers for support,
+                    or discuss and learn from other Skygear Users.
                   </p>
                   <div className="linkText">
                     <span>Join our Slack team</span>
