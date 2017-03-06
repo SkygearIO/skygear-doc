@@ -101,7 +101,8 @@ please set the following S3 IAM policy:
             ],
             "Resource": [
                 "arn:aws:s3:::docs.skygear.io/android/reference/*",
-                "arn:aws:s3:::docs.skygear.io/android/plugins/*"
+                "arn:aws:s3:::docs.skygear.io/android/plugins/*",
+                "arn:aws:s3:::docs.skygear.io/android/build/*"
             ]
         }
     ]
