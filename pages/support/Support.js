@@ -71,6 +71,27 @@ const Support = () => (
       </div>
       <div className="support-column">
         <div className="support-item-container">
+          <a href="https://skygear.signup.team/" target="_blank">
+            <div className="support-item">
+              <div className="vertical-align">
+                <div className="icon google-group" />
+                <div className="content-wrapper">
+                  <h2>Slack</h2>
+                  <p className="description">
+                    Slack team for direct chat with Skygear Developers for support, or discuss and learn from other Skygear Users.
+                  </p>
+                  <div className="linkText">
+                    <span>Join our Slack team</span>
+                    <div className="right-arrow" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div className="support-column">
+        <div className="support-item-container">
           <a href="mailto:hello@skygear.io">
             <div className="support-item">
               <div className="vertical-align">
