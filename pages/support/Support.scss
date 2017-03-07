@@ -115,6 +115,22 @@
         background-size: 58px 42px;
       }
     }
+
+    &.stackoverflow {
+      background-image: url('../../static/images/stackoverflow.svg');
+      background-size: 34px 25px;
+      @include desktop {
+        background-size: 58px 42px;
+      }
+    }
+
+    &.slack {
+      background-image: url('../../static/images/slack.svg');
+      background-size: 34px 25px;
+      @include desktop {
+        background-size: 58px 42px;
+      }
+    }
   }
 
   h2 {

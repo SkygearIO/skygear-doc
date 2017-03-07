@@ -31,7 +31,7 @@ const Support = () => (
           <a href="https://stackoverflow.com/questions/tagged/skygear" target="_blank">
             <div className="support-item">
               <div className="vertical-align">
-                <div className="icon google-group" />
+                <div className="icon stackoverflow" />
                 <div className="content-wrapper">
                   <h2>Stack Overflow</h2>
                   <p className="description">
@@ -74,7 +74,7 @@ const Support = () => (
           <a href="https://skygear.signup.team/" target="_blank">
             <div className="support-item">
               <div className="vertical-align">
-                <div className="icon google-group" />
+                <div className="icon slack" />
                 <div className="content-wrapper">
                   <h2>Slack</h2>
                   <p className="description">
