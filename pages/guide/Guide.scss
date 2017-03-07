@@ -144,6 +144,29 @@ $language-selector-width: 350px;
       }
     }
 
+    table {
+        color:#333333;
+		border-width: 1px;
+		border-color: #3A3A3A;
+		border-collapse: collapse;
+    }
+
+    th {
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #3A3A3A;
+		background-color: #B3B3B3;
+	}
+
+    td {
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #3A3A3A;
+		background-color: #ffffff;
+	}
+
     @mixin alertbox() {
       border-radius: $div-border-radius;
       padding: 5px 40px 5px 60px;
