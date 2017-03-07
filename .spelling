@@ -29,6 +29,7 @@ dict
 DNS
 Dockerfile
 EC2
+ES5
 ES6
 env
 filename
@@ -140,6 +141,7 @@ PublicDB
 skycli
 Skygear
 Skygear.io
+docs.skygear.io
 skygear
 skygeario
 SKYKit
@@ -172,6 +174,7 @@ SMS
 TBC
 TODO
 todo
+WIP
 
 # exceptions due to symbols
 _id
