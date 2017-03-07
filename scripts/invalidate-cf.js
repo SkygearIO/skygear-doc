@@ -14,8 +14,7 @@ requiedEnv.forEach(function(perEnv) {
 });
 
 const invalidatingPaths = [
-  '/app.js',
-  '/index.html',
+  '/*',
 ];
 
 const maxPaths =
