@@ -4,6 +4,12 @@ const Html = (props) => {
   const gaScript = `window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
     ga('create','${props.trackingID}','auto');ga('send','pageview')`;
   const typekitScript = 'try{Typekit.load({ async: true });}catch(e){}';
+  const mouseflowScript = `var _mfq = _mfq || []; (function() {
+    var mf = document.createElement("script");
+	mf.type = "text/javascript"; mf.async = true;
+	mf.src = "//cdn.mouseflow.com/projects/b0d2d2a4-d999-46f2-bec8-3b8e0ac92958.js";
+	document.getElementsByTagName("head")[0].appendChild(mf);
+	})();`;
 
   return (
     <html lang="en">
@@ -45,6 +51,7 @@ const Html = (props) => {
         }
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
         <script src="/main.js"></script>
+        <script dangerouslySetInnerHTML={{ __html: mouseflowScript }} />
       </body>
     </html>
   );
