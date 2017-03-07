@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  app:
+    image: skygeario/skygear-nodedev
+    volumes:
+    - home:/home/node
+    - .:/usr/src/app
+    ports:
+    - 9000
+    working_dir: /usr/src/app
+    command: npm start
+    environment:
+      PORT: 9000
+
+volumes:
+  home:
+    driver: local

@@ -150,9 +150,11 @@ tasks.set('start', () => {
         // Launch Browsersync after the initial bundling is complete
         // For more information visit https://browsersync.io/docs/options
         if (++count === 1) {
+          const port = parseInt(process.env.PORT, 10) || 3000;
+          const uiPort = parseInt(process.env.UI_PORT, 10) || port + 1;
           bs.init({
-            port: process.env.PORT || 3000,
-            ui: { port: Number(process.env.PORT || 3000) + 1 },
+            port: port,
+            ui: { port: uiPort },
             server: {
               baseDir: 'build',
               middleware: [
