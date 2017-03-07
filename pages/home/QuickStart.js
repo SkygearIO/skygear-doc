@@ -5,11 +5,9 @@ const QuickStart = () => (
   <div className="quick-start">
     <h1>Documentation</h1>
     <p className="quick-start-hint">New to Skygear?</p>
-    <p>
-      <form action="/guides/quickstart/ios/">
-        <button className="quick-start-button">Quick Start</button>
-      </form>
-    </p>
+    <form action="/guides/quickstart/ios/">
+      <button className="quick-start-button">Quick Start</button>
+    </form>
   </div>
 );
 
