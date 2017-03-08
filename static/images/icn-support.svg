@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="24px" viewBox="0 0 26 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 10</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="8.84139785" y="20.667515" width="4.34391259" height="2.28859057" rx="1.14429529"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="4.34391259" height="2.28859057" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Update_21Feb2017" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Guides---Wide" transform="translate(-1250.000000, -28.000000)" stroke="#FFFFFF">
+            <g id="Group-30" transform="translate(1251.000000, 29.000000)">
+                <g id="Group-10">
+                    <path d="M22.0311569,9.45532834 C22.0311569,4.23329469 17.6483732,0 12.2419355,0 C6.83549777,0 2.45271404,4.23329469 2.45271404,9.45532834" id="Oval"></path>
+                    <path d="M5.33116545,9.59211432 C4.80840315,9.15398341 4.20146865,8.90322581 3.5541103,8.90322581 C1.59122938,8.90322581 0,11.2086588 0,14.0525546 C0,16.8964504 1.59122938,19.2018834 3.5541103,19.2018834 C4.20146865,19.2018834 4.80840315,18.9511258 5.33116545,18.5129949 L5.33116545,9.59211432 Z" id="Combined-Shape"></path>
+                    <path d="M24.483872,9.92107926 C23.9611097,9.48294835 23.3541752,9.23219075 22.7068168,9.23219075 C20.7439359,9.23219075 19.1527065,11.5376238 19.1527065,14.3815195 C19.1527065,17.2254153 20.7439359,19.5308483 22.7068168,19.5308483 C23.3541752,19.5308483 23.9611097,19.2800907 24.483872,18.8419598 L24.483872,9.92107926 Z" id="Combined-Shape" transform="translate(21.818289, 14.381520) scale(-1, 1) translate(-21.818289, -14.381520) "></path>
+                    <path d="M4.08064516,19.3286895 C4.08064516,19.3286895 4.39936447,21.6585971 9.26036662,22.040935" id="Path-6"></path>
+                    <use id="Rectangle-5" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

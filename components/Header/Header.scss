@@ -1,8 +1,10 @@
 @import '../variables.scss';
 
 .header {
+  display: flex;
   padding-top: 15px;
   padding-bottom: 0;
+  justify-content: space-between;
 
   @include desktop {
     padding-top: 28px;
