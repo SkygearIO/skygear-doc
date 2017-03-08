@@ -10,35 +10,38 @@ This document is specific for the contribution of skygear-doc
 
 Please take a moment to read this document for the contribution process.
 
+## Skygear Doc Site Generator vs Content
+
+There are two repo related with Skygear Doc:
+* SkygearIO/skygear-doc - Skygear Doc Site Generator, related with style,
+  formating and generate the static doc guides
+* SkygearIO/guides - Skygear Guides in Markdown, all guides are in Markdown
+  format and converted into HTML by Skygear Doc Site Generator
+
 ## Using the issue tracker
 
-The [issue tracker](https://github.com/SkygearIO/skygear-doc/issues) is the
-preferred channel for [change request](#change), [new guide idea](#guide) and
+The [issue tracker of
+skygear-doc](https://github.com/SkygearIO/skygear-doc/issues) is for issues
+related with the site generator.
+
+For issues related with the content of the Guide, please use [issue tracker of
+guides](https://github.com/SkygearIO/guides/issues). It is the preferred channel
+for [change request](#change), [new guide idea](#guide) and 
 [submitting pull requests](#pull-requests).
 
 Please do not use the issue tracker for:
-* Personal support requests 
-* Feature / bug reports about Skygear 
+* Personal support requests
+* Feature / bug reports about Skygear
 
 Instead use [Stack Overflow](http://stackoverflow.com/questions/tagged/skygear) 
-or [Skygear Google Group](https://groups.google.com/forum/#!forum/skygear-user-group).
+, [Skygear Google Group](https://groups.google.com/forum/#!forum/skygear-user-group),
+or [Skygear Slack Team](https://skygear.signup.team/).
 
 The issue tracker have the following labels and their usage are:
-* [Change](https://github.com/SkygearIO/skygear-doc/labels/Change) - Change
+* [Change](https://github.com/SkygearIO/guides/labels/Change) - Change
   requests for existing Guide to avoid confusion, missing details, etc.
-* [Code](https://github.com/SkygearIO/skygear-doc/labels/Code) - Issues related
-  with the [Skygear Doc site](https://docs.skygear.io)
-* [Design
-  Required](https://github.com/SkygearIO/skygear-doc/labels/Design%20Required) -
-  Issues that required UI Designer input on Skygear Doc site.
-* [Guide](https://github.com/SkygearIO/skygear-doc/labels/Guide) - Issue
+* [Guide](https://github.com/SkygearIO/guides/labels/Guide) - Issue
   tracking the writing or revamp of a complete guide.
-* [Focus](https://github.com/SkygearIO/skygear-doc/labels/Focus) - Any issue
-  with assignee and expect to be started soon should be there.
-
-The rest of the issue labels (Drafting Outline, Outline Review, Writing,
-Editorial and Technical Review, Grammar and Styling review) are for tracking of
-guide writing's workflow.
 
 <a name="change"></a>
 ## Change Request
