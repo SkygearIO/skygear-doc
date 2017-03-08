@@ -1,27 +1,17 @@
 import React, { PropTypes } from 'react';
-
-import LanguageLink from '../../components/LanguageLink/LanguageLink';
+import Footer from '../../components/Footer/Footer';
 
 import './Guide.scss';
 import 'highlight.js/styles/xcode.css';
 
 const Guide = (props) => (
   <div className="guide">
-    <div className="guide-header">
-      <h1>{props.title}</h1>
-      <div className="language-selector">
-        {props.languageOptions.map(({ language, url }) => (
-          <LanguageLink
-            key={language}
-            language={language}
-            url={url}
-            isActive={language === props.language}
-            isShowEmpty={false}
-          />
-        ))}
-      </div>
-    </div>
-    <div className="guide-content" dangerouslySetInnerHTML={{ __html: props.docHtml }} />
+    <h1 className="guide-header">{props.title}</h1>
+    <div
+      className="guide-content"
+      dangerouslySetInnerHTML={{ __html: props.docHtml }}
+    />
+    <Footer />
   </div>
 );
 

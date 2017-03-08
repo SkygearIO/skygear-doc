@@ -1,0 +1,60 @@
+@import '../../components/variables.scss';
+
+$banner-height: 194px;
+$guide-menu-width: 330px;
+$footer-height: 132px;
+
+$banner-height-mobile: 118px;
+
+.guide-page {
+  position: absolute;
+
+  .banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $banner-height;
+
+    @include mobile {
+      height: $banner-height-mobile;
+    }
+  }
+
+  .guide-menu {
+    position: fixed;
+    top: $banner-height;
+    bottom: 0;
+    left: 0;
+    width: $guide-menu-width;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    @include mobile {
+      top: $banner-height-mobile;
+      left: -$guide-menu-width;
+      transition: left 0.5s;
+
+      &.active {
+        left: 0;
+      }
+    }
+  }
+
+  .guide {
+    position: fixed;
+    top: $banner-height;
+    right: 0;
+    bottom: 0;
+    left: $guide-menu-width;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    @include mobile {
+      top: $banner-height-mobile;
+      left: 0;
+    }
+  }
+}

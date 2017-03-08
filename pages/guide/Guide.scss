@@ -1,81 +1,25 @@
 @import '../../components/variables.scss';
 
-$language-selector-width: 350px;
-
 .guide {
-  @include container-width;
-  padding-top: 12px;
-  margin-bottom: 12rem;
+  box-sizing: border-box;
+  padding: 0;
 
   .guide-header {
-    position: relative;
-    padding-bottom: 6px;
+    margin: 0 $guide-gutter;
+    padding: 36px 0 24px;
     border-bottom: 1px solid $border-color;
-
-    @include desktop {
-      padding-bottom: 10px;
-    }
-
-    h1 {
-      font-family: freight-sans-book, sans-serif;
-      font-weight: normal;
-      font-size: 2.8rem;
-      line-height: 2rem;
-
-      @include desktop {
-        margin-right: $language-selector-width;
-        font-size: 2.8rem;
-        line-height: 2rem;
-      }
-    }
-
-    .language-selector {
-      @include desktop {
-        position: absolute;
-        bottom: 44px;
-        right: 0;
-        width: $language-selector-width;
-        text-align: right;
-      }
-    }
+    font-family: freight-sans-book, sans-serif;
+    font-weight: normal;
+    font-size: 2.8rem;
+    line-height: 2rem;
   }
-
-  /* Overriding css of LanguageLink component */
-  .language-link {
-    width: auto;
-    text-align: right;
-    margin-right: 10px;
-
-    &.active .text {
-      color: $link-color;
-    }
-
-    &:hover .text {
-      color: $link-hover-color;
-    }
-
-    .text {
-      display: inline-block;
-      font-size: 16px;
-      vertical-align: middle;
-      color: $theme-gray;
-
-      &:hover {
-        color: $link-hover-color;
-      }
-
-      @include desktop {
-        font-size: 22px;
-      }
-    }
-
-    .language-icon {
-      vertical-align: middle;
-    }
-  }
-
 
   .guide-content {
+    padding-top: 12px;
+    padding-left: $guide-gutter;
+    padding-right: $guide-gutter;
+    padding-bottom: 12rem;
+
     h1,h2,h3,h4 {
       margin-top: 2rem;
       margin-bottom: 1rem;
@@ -152,20 +96,20 @@ $language-selector-width: 350px;
     }
 
     th {
-		border-width: 1px;
-		padding: 8px;
-		border-style: solid;
-		border-color: #3A3A3A;
-		background-color: #B3B3B3;
-	}
+  		border-width: 1px;
+  		padding: 8px;
+  		border-style: solid;
+  		border-color: #3A3A3A;
+  		background-color: #B3B3B3;
+  	}
 
     td {
-		border-width: 1px;
-		padding: 8px;
-		border-style: solid;
-		border-color: #3A3A3A;
-		background-color: #ffffff;
-	}
+  		border-width: 1px;
+  		padding: 8px;
+  		border-style: solid;
+  		border-color: #3A3A3A;
+  		background-color: #ffffff;
+  	}
 
     @mixin alertbox() {
       border-radius: $div-border-radius;
@@ -255,6 +199,10 @@ $language-selector-width: 350px;
         color: $doc-advanced-color;
       }
     }
+  }
+
+  footer {
+
   }
 }
 

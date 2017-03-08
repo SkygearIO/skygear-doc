@@ -4,7 +4,7 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import Landing from './pages/home/index';
-import Guide from './pages/guide/index';
+import GuidePage from './pages/guide/GuidePage';
 import GuideList from './pages/guideList/index';
 import ApiReference from './pages/apiReference/index';
 import Support from './pages/support/index';
@@ -25,7 +25,7 @@ const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
     <Route
       key={path}
       path={url}
-      component={Guide}
+      component={GuidePage}
       title={pageTitle}
       guideTitle={title}
       docHtml={html}
