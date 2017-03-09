@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import classNames from 'classnames';
 
 import LanguageLink from '../LanguageLink/LanguageLink';
-import guideListConfig from '../../pages/guideList/config';
+import ContentIndex from '../../content.index';
 
 import './GuidesMenu.scss';
 
@@ -29,7 +29,7 @@ class GuidesMenu extends Component {
         )}
       >
         <input type="radio" name="guide" id="placeholder-radio-button" />
-        {guideListConfig.sections.map(section => (
+        {ContentIndex.sections.map(section => (
           <div key={section.name} className="guides-menu-section">
             <p className="section-name">{section.name}</p>
             {section.guides.map((guide, index) => {

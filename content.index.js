@@ -11,7 +11,6 @@ const guideListConfig = {
         },
       ],
     },
-
     {
       name: 'User Authentication',
       guides: [
