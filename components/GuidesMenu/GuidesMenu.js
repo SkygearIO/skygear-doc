@@ -1,95 +1,112 @@
-import _ from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 
 import LanguageLink from '../LanguageLink/LanguageLink';
-import ContentIndex from '../../content.index';
 
 import './GuidesMenu.scss';
 
-function isEmptyLanguages(languages) {
-  // also consider empty for ['']
-  return !languages || languages.filter(v => v).length === 0;
-}
-
 class GuidesMenu extends Component {
-  render() {
-    const {
-      currentGuide,
-      currentLanguage,
-      shouldShowInMobile,
-    } = this.props;
+  constructor(props) {
+    super(props);
+
+    this.renderLanguageLinks = this.renderLanguageLinks.bind(this);
+    this.renderLanguageLink = this.renderLanguageLink.bind(this);
+    this.renderSectionMenuItem = this.renderSectionMenuItem.bind(this);
+    this.renderGuideMenuItem = this.renderGuideMenuItem.bind(this);
+  }
+
+  renderLanguageLinks() {
+    const { currentGuide } = this.props;
+    const availableLanguages = currentGuide.languages
+      .filter(language => language.length > 0);
+
+    if (availableLanguages.length < 2) {
+      return null;
+    }
 
     return (
-      <div
-        className={classNames(
-          'guide-menu',
-          { active: shouldShowInMobile }
-        )}
-      >
-        <input type="radio" name="guide" id="placeholder-radio-button" />
-        {ContentIndex.sections.map(section => (
-          <div key={section.name} className="guides-menu-section">
-            <p className="section-name">{section.name}</p>
-            {section.guides.map((guide, index) => {
-              const isCurrentGuide = _.matches(currentGuide)(guide);
-              return (
-                <div key={guide.title} className="guides-menu-item">
-                  <input
-                    type="radio"
-                    name="guide"
-                    id={`${section.name}${index}`}
-                    defaultChecked={isCurrentGuide}
-                  />
-                  {isEmptyLanguages(guide.languages) &&
-                    <label htmlFor="placeholder-radio-button">
-                      <Link to={`${guide.baseUrl}/`}>
-                        <p className={`guide-name ${isCurrentGuide ? 'active' : ''}`}>
-                          {guide.title}
-                        </p>
-                      </Link>
-                    </label>
-                  }
-                  {!isEmptyLanguages(guide.languages) &&
-                    <label htmlFor={`${section.name}${index}`}>
-                      <p className={`guide-name ${isCurrentGuide ? 'active' : ''}`}>
-                        {guide.title}
-                      </p>
-                    </label>
-                  }
-                  {!isEmptyLanguages(guide.languages) &&
-                    <label htmlFor="placeholder-radio-button">
-                      <div className="collapse-button" />
-                    </label>
-                  }
-                  {!isEmptyLanguages(guide.languages) &&
-                    <div className="language-links">
-                      {guide.languages.map(language => (
-                        <LanguageLink
-                          key={language}
-                          language={language}
-                          url={`${guide.baseUrl}${language}/`}
-                          isShowEmpty={false}
-                          isActive={_.matches(currentGuide)(guide) &&
-                            language === currentLanguage}
-                        />
-                      ))}
-                    </div>
-                  }
-                </div>
-              );
-            })}
-          </div>
-        ))}
+      <div className="language-links">
+        {availableLanguages.map(this.renderLanguageLink)}
+      </div>
+    );
+  }
+
+  renderLanguageLink(language) {
+    const { currentGuide, currentLanguage } = this.props;
+
+    return (
+      <LanguageLink
+        key={language}
+        language={language}
+        url={`${currentGuide.baseUrl}${language}/`}
+        isShowEmpty={false}
+        isActive={language === currentLanguage}
+      />
+    );
+  }
+
+  renderSectionMenuItem(section) {
+    return (
+      <section key={section.name} className="guides-menu-section">
+        <p className="section-name">{section.name}</p>
+        {section.guides.map(this.renderGuideMenuItem)}
+      </section>
+    );
+  }
+
+  renderGuideMenuItem(guide) {
+    const { currentGuide, currentLanguage } = this.props;
+    const { title, baseUrl, languages } = guide;
+
+    let targetUrl = baseUrl;
+    if (languages.length > 0) {
+      if (currentLanguage && languages.indexOf(currentLanguage) !== -1) {
+        targetUrl += `${currentLanguage}/`;
+      } else {
+        targetUrl += `${languages[0]}/`;
+      }
+    }
+
+    let currentGuideUrl = currentGuide.baseUrl;
+    if (currentLanguage) {
+      currentGuideUrl += `${currentLanguage}/`;
+    } else {
+      currentGuideUrl += '/';
+    }
+
+    return (
+      <div key={title} className="guides-menu-item">
+        <Link to={targetUrl}>
+          <p
+            className={classNames(
+              'guide-name',
+              { active: targetUrl === currentGuideUrl }
+            )}
+          >
+            {guide.title}
+          </p>
+        </Link>
+      </div>
+    );
+  }
+
+  render() {
+    const { contentIndex, shouldShowInMobile } = this.props;
+
+    return (
+      <div className={classNames('guide-menu', { active: shouldShowInMobile })}>
+        {this.renderLanguageLinks()}
+        {contentIndex.sections.map(this.renderSectionMenuItem)}
       </div>
     );
   }
 }
 
 GuidesMenu.propTypes = {
+  contentIndex: PropTypes.object.isRequired,
   currentGuide: PropTypes.object.isRequired,
-  currentLanguage: PropTypes.string.isRequired,
+  currentLanguage: PropTypes.string,
   shouldShowInMobile: PropTypes.bool,
 };
 

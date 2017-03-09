@@ -32,7 +32,11 @@ LanguageLink.propTypes = {
   language: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
-  isShowEmpty: PropTypes.bool.isRequired,
+  isShowEmpty: PropTypes.bool,
+};
+
+LanguageLink.defaultProps = {
+  isShowEmpty: false,
 };
 
 export default LanguageLink;

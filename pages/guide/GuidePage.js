@@ -111,6 +111,7 @@ class GuidePage extends Component {
         </Banner>
         <GuidesMenu
           ref="guide-menu"
+          contentIndex={ContentIndex}
           currentGuide={currentGuide}
           currentLanguage={currentLanguage}
           shouldShowInMobile={menuShouldShowInMobile}
