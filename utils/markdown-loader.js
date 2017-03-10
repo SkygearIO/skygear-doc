@@ -11,6 +11,7 @@
 const MarkdownIt = require('markdown-it');
 const MarkdownItContainer = require('markdown-it-container');
 const MarkdownItAnchor = require('markdown-it-anchor');
+const MarkdownItTOC = require('markdown-it-table-of-contents');
 const hljs = require('highlight.js');
 const fm = require('front-matter');
 
@@ -30,7 +31,8 @@ const md = new MarkdownIt({
 
     return '';
   },
-}).use(MarkdownItContainer, 'note')
+})
+.use(MarkdownItContainer, 'note')
 .use(MarkdownItContainer, 'tips')
 .use(MarkdownItContainer, 'caution')
 .use(MarkdownItContainer, 'advanced')
@@ -42,6 +44,7 @@ const md = new MarkdownIt({
     return '</div>\n';
   },
 })
+.use(MarkdownItTOC, { includeLevel: [2] })
 .use(MarkdownItAnchor);
 
 function displayLanuageName(language) {
