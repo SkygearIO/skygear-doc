@@ -49,99 +49,28 @@
           color: $link-hover-color;
         }
       }
-
-      .language-links {
-        margin-top: 12px;
-      }
     }
   }
 
   .language-links {
-    position: relative;
-    display: none;
-  }
+    margin: 32px 0;
 
-  input[type=radio] {
-    display: none;
+    /* Overriding css of LanguageLink component */
+    a {
+      margin-right: 48px;
 
-    &:checked {
-      & ~ .language-links {
-        display: block;
-      }
-      & ~ label .collapse-button {
-        display: block;
-      }
-    }
-  }
-
-  .collapse-button {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 3px;
-    width: 14px;
-    height: 8px;
-    background-image: url('../../static/images/up-arrow.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    cursor: pointer;
-
-    @include desktop {
-      top: 7px;
-    }
-  }
-
-  /* Overriding css of LanguageLink component */
-  .language-link {
-    width: auto;
-    text-align: right;
-    margin-right: 23px;
-
-    &.active .text {
-      color: $link-color;
-    }
-
-    &:hover .text {
-      color: $link-hover-color;
-    }
-
-    .text {
-      display: inline-block;
-      font-size: 12px;
-      vertical-align: middle;
-      color: $theme-gray;
-
-      &:hover {
-        color: $link-hover-color;
+      &:last-child {
+        margin-right: 0;
       }
 
-      @include desktop {
-        font-size: 18px;
+      .language-link {
+        width: auto;
+        margin: 0;
+      }
+
+      @include mobile {
+        margin-right: 30px;
       }
     }
-
-    .language-icon {
-      vertical-align: middle;
-      width: 26px;
-      background-position: left center;
-    }
-
-    .language-icon.ios {
-      background-size: 15px 18px;
-    }
-
-    .language-icon.android {
-      background-size: 17px 20px;
-    }
-
-    .language-icon.js {
-      background-size: 17px 19px;
-    }
-
-    .language-icon.python {
-      background-size: 19px 19px;
-    }
   }
-
 }

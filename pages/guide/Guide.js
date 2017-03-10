@@ -18,8 +18,6 @@ const Guide = (props) => (
 Guide.propTypes = {
   title: PropTypes.string,
   docHtml: PropTypes.string,
-  languageOptions: PropTypes.array,
-  language: PropTypes.string.isRequired,
 };
 
 export default Guide;

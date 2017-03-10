@@ -9,47 +9,17 @@ import TitleBarWithMenuButton from '../../components/TitleBarWithMenuButton/Titl
 import Guide from './Guide';
 import GuidesMenu from '../../components/GuidesMenu/GuidesMenu';
 
-import GuideListConfig from '../guideList/config';
+import ContentIndex from '../../content.index';
+
+import * as GuidePathDigester from '../../utils/guidePathDigester';
+import * as GuideContentSearcher from '../../utils/guideContentSearcher';
 
 import apiRefIcon from '../../static/images/icn-api-ref.svg';
 import supportIcon from '../../static/images/icn-support.svg';
 
 import './GuidePage.scss';
 
-// TODO: subtract these searching methods and add test cases
-function findCurrentGuide(guideUrl) {
-  const allGuides = _.flatMap(GuideListConfig.sections, section => section.guides);
-  const currentGuide = _.find(allGuides, guide => {
-    const { baseUrl, languages } = guide;
-    const languageUrls = languages.map(language => `${baseUrl}${language}/`);
-    return languageUrls.indexOf(`/${guideUrl}`) >= 0;
-  });
-
-  return currentGuide;
-}
-
-function findCurrentLanguage(guideUrl) {
-  const urlWithoutSlash = guideUrl.slice(-1) === '/' ? guideUrl.slice(0, -1) : guideUrl;
-  const lastWordInPath = urlWithoutSlash.substr(urlWithoutSlash.lastIndexOf('/') + 1);
-  const currentGuide = findCurrentGuide(guideUrl);
-  if (!currentGuide || currentGuide.languages.indexOf(lastWordInPath) === -1) {
-    return '';
-  }
-  return lastWordInPath;
-}
-
-function findLanguageOptions(guideUrl) {
-  const currentGuide = findCurrentGuide(guideUrl);
-  if (!currentGuide) {
-    console.error(`Warnings: cannot find spec for guide ${guideUrl}`);
-    return [];
-  }
-
-  return currentGuide.languages.map(language => ({
-    language: language,
-    url: `${currentGuide.baseUrl}${language}/`,
-  }));
-}
+const ContentGuideDatabase = _.flatMap(ContentIndex.sections, section => section.guides);
 
 class GuidePage extends Component {
   constructor(props) {
@@ -117,9 +87,8 @@ class GuidePage extends Component {
       docHtml,
     } = currentRoute;
 
-    const currentGuide = findCurrentGuide(path);
-    const languageOptions = findLanguageOptions(path);
-    const language = findCurrentLanguage(path);
+    const currentGuide = GuideContentSearcher.search(path, ContentGuideDatabase);
+    const currentLanguage = GuidePathDigester.digest(path).language;
 
     return (
       <div className="guide-page">
@@ -142,15 +111,14 @@ class GuidePage extends Component {
         </Banner>
         <GuidesMenu
           ref="guide-menu"
+          contentIndex={ContentIndex}
           currentGuide={currentGuide}
-          currentLanguage={language}
+          currentLanguage={currentLanguage}
           shouldShowInMobile={menuShouldShowInMobile}
         />
         <Guide
           title={guideTitle}
           docHtml={docHtml}
-          languageOptions={languageOptions}
-          language={language}
         />
       </div>
     );

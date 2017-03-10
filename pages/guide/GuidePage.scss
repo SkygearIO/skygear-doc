@@ -4,6 +4,7 @@ $banner-height: 194px;
 $guide-menu-width: 330px;
 $footer-height: 132px;
 
+$guide-menu-width-mobile: 280px;
 $banner-height-mobile: 118px;
 
 .guide-page {
@@ -33,7 +34,8 @@ $banner-height-mobile: 118px;
 
     @include mobile {
       top: $banner-height-mobile;
-      left: -$guide-menu-width;
+      left: -$guide-menu-width-mobile;
+      width: $guide-menu-width-mobile;
       transition: left 0.5s;
 
       &.active {

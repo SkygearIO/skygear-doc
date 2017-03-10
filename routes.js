@@ -17,6 +17,7 @@ import './components/Layout.scss';
 // does not work when passing './content' as an variable
 const req = require.context('./content', true, /^\.\/.*\.md/);
 
+// TODO: render a routing tree with IndexRedirect
 const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
   const { title, html } = req(`./${path}`);
   const url = `guides/${path.slice(0, -'.md'.length)}/`;
@@ -35,7 +36,7 @@ const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
 
 const routes = (
   <Route path="/">
-    <IndexRoute title={pageTitle}component={Landing} />
+    <IndexRoute title={pageTitle} component={Landing} />
     <Route path="guides/" title={pageTitle} component={GuideList} />
     {routesForMarkdownFiles}
     <Route path="api-reference/" title={pageTitle} component={ApiReference} />
