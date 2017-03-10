@@ -35,7 +35,7 @@ class GuidePage extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     try {
       document.body.addEventListener('click', this.onBodyClick);
     } catch (e) {
