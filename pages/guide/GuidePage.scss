@@ -1,11 +1,5 @@
 @import '../../components/variables.scss';
-
-$banner-height: 194px;
-$guide-menu-width: 330px;
-$footer-height: 132px;
-
-$guide-menu-width-mobile: 280px;
-$banner-height-mobile: 118px;
+@import './dimensions.scss';
 
 .guide-page {
   position: absolute;
