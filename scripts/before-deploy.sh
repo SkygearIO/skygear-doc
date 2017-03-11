@@ -11,6 +11,6 @@ fi
 
 if [[ "$TRAVIS_BRANCH" == "$STAGING_BRANCH" ]]; then
   echo "Removing existing files on staging..."
-  aws s3 rm s3://$PRODUCTION_BUCKET --recursive --exclude "android/*" --exclude "ios/*"
+  aws s3 rm s3://$STAGING_BUCKET --recursive --exclude "android/*" --exclude "ios/*"
   echo "Done"
 fi
