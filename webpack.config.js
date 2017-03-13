@@ -82,9 +82,10 @@ const config = {
       {
         test: /\.jsx?$/,
         include: [
-          path.resolve(__dirname, './actions'),
           path.resolve(__dirname, './components'),
           path.resolve(__dirname, './pages'),
+          path.resolve(__dirname, './utils'),
+          path.resolve(__dirname, './content.index.js'),
           path.resolve(__dirname, './main.js'),
           path.resolve(__dirname, './routes.js'),
         ],
@@ -124,7 +125,7 @@ const config = {
 
 // Optimize the bundle in release (production) mode
 if (!isDebug) {
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: isVerbose } }));
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: isVerbose } })); // eslint-disable-line
   config.plugins.push(new webpack.optimize.AggressiveMergingPlugin());
   config.plugins.push(new ExtractTextPlugin({ filename: 'styles.css', allChunks: true }));
   config.plugins.push(

@@ -35,7 +35,7 @@ const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
 
 const routes = (
   <Route path="/">
-    <IndexRoute title={pageTitle} component={Landing} />
+    <IndexRoute title={pageTitle}component={Landing} />
     <Route path="guides/" title={pageTitle} component={GuideList} />
     {routesForMarkdownFiles}
     <Route path="api-reference/" title={pageTitle} component={ApiReference} />
