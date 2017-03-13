@@ -28,7 +28,7 @@ $code-switcher-tab-active-bg: #f8f8f8;
 $code-bg: #f7f7f7;
 
 $guide-toc-border-color: #e7e7e7;
-$guide-toc-anchor-color: #6C6C6C;
+$guide-toc-anchor-color: #6c6c6c;
 $guide-toc-anchor-active-color: #029bc9;
 
 $guide-menu-bg: #fbfbfb;
@@ -101,6 +101,7 @@ $responsive-threshold-minus-one: $screen-sm-min - 1;
 
   @include desktop {
     @include horizontal-center-block;
+
     width: calc(100% - 20px);
     max-width: 992px;
   }
@@ -123,21 +124,25 @@ $responsive-threshold-minus-one: $screen-sm-min - 1;
 
 @mixin column-4 {
   @include column;
+
   width: 33.33333333%;
 }
 
 @mixin column-6 {
   @include column;
+
   width: 50%;
 }
 
 @mixin column-8 {
   @include column;
+
   width: 66.66666667%;
 }
 
 @mixin column-12 {
   @include column;
+
   width: 100%;
 }
 

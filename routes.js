@@ -21,7 +21,6 @@ const req = require.context('./content', true, /^\.\/.*\.md/);
 const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
   const { title, html } = req(`./${path}`);
   const url = `guides/${path.slice(0, -'.md'.length)}/`;
-  console.log(`[Route generator] file ${path} -> url ${url}`);
   return (
     <Route
       key={path}

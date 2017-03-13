@@ -24,13 +24,13 @@ class Guide extends Component {
   updateTocAnchors() {
     const selfDOM = ReactDOM.findDOMNode(this);
     if (!selfDOM) {
-      console.warn('Failed to find the DOM.');
+      console.warn('Failed to find the DOM.'); // eslint-disable-line
       return;
     }
 
     const tocAnchors = selfDOM.querySelectorAll('.table-of-contents li a');
     if (tocAnchors.length === 0) {
-      console.warn('Cannot find any TOC anchors');
+      console.warn('Cannot find any TOC anchors'); // eslint-disable-line
       return;
     }
 
