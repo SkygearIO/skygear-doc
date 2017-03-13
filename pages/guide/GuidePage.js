@@ -35,7 +35,7 @@ class GuidePage extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     try {
       document.body.addEventListener('click', this.onBodyClick);
     } catch (e) {
@@ -111,12 +111,14 @@ class GuidePage extends Component {
         </Banner>
         <GuidesMenu
           ref="guide-menu"
+          key={`guide-menu:${currentGuide.baseUrl}`}
           contentIndex={ContentIndex}
           currentGuide={currentGuide}
           currentLanguage={currentLanguage}
           shouldShowInMobile={menuShouldShowInMobile}
         />
         <Guide
+          key={`guide:${currentGuide.baseUrl + (currentLanguage || '')}`}
           title={guideTitle}
           docHtml={docHtml}
         />

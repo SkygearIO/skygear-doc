@@ -5,7 +5,6 @@ footer {
   width: 100%;
   border-top: 1px solid $border-color;
   color: $content-color;
-
   padding-top: 20px;
   padding-bottom: 20px;
 
@@ -26,11 +25,13 @@ footer {
 
 .footer-copyright-column {
   @include column-12;
+
   text-align: center;
   font-family: freight-sans-medium, sans-serif;
 
   @include desktop {
     @include column-6;
+
     text-align: left;
   }
 
@@ -46,11 +47,13 @@ footer {
 
 .footer-contact-column {
   @include column-12;
+
   text-align: center;
   font-family: freight-sans-book, sans-serif;
 
   @include desktop {
     @include column-6;
+
     text-align: right;
     margin-top: 5px;
   }
