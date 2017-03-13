@@ -78,7 +78,7 @@ class GuidePage extends Component {
     const currentRoute = routes.slice(-1)[0];
 
     if (!currentRoute.docHtml || !currentRoute.title) {
-      return false;
+      return null;
     }
 
     const {
@@ -89,6 +89,11 @@ class GuidePage extends Component {
 
     const currentGuide = GuideContentSearcher.search(path, ContentGuideDatabase);
     const currentLanguage = GuidePathDigester.digest(path).language;
+
+    if (!currentGuide) {
+      console.warn(`Cannot find guide for path: ${path}`); // eslint-disable-line
+      return null;
+    }
 
     return (
       <div className="guide-page">
