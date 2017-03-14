@@ -21,7 +21,7 @@ const req = require.context('./content', true, /^\.\/.*\.md/);
 
 // TODO: render a routing tree with IndexRedirect
 const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
-  const { title, html } = req(`./${path}`);
+  const { title, description, image, html } = req(`./${path}`);
   const url = `guides/${path.slice(0, -'.md'.length)}/`;
   return (
     <Route
@@ -30,6 +30,8 @@ const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
       component={GuidePage}
       title={pageTitle}
       guideTitle={title}
+      guideDescription={description}
+      guideImage={image}
       docHtml={html}
     />
   );
