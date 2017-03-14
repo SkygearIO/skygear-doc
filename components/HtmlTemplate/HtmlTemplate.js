@@ -13,6 +13,12 @@ const HtmlTemplate = (props) => {
     trackingID,
   } = props;
 
+  // Some meta tags in head tag will be rendered dynamically in and will be put
+  // at the end of the head tag. For those need to be put at the begining of
+  // the head tag, should be rendered here.
+  //
+  // Ref. https://github.com/nfl/react-helmet/issues/239
+  //
   return (
     <html lang="en">
       <head>
