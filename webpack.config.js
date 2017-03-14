@@ -131,9 +131,9 @@ if (!isDebug) {
   config.plugins.push(
     new ReactStaticPlugin({
       routes: './routes.js',
-      template: './components/HtmlTemplate.js',
+      template: './components/HtmlTemplate/HtmlTemplate.js',
       trackingID: isDebug ? null : appConfig.trackingID,
-      stylesheet: 'styles.css',
+      stylesheet: '/styles.css',
     })
   );
 }
