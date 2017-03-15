@@ -72,8 +72,26 @@
       }
 
       a code {
-        color: #029bc9;
+        color: $link-color;
         font-weight: bold;
+      }
+    }
+
+    a {
+      &.external::before {
+        content: url('../../static/images/icn-external.svg');
+        display: inline-block;
+        height: 12px;
+        width: 12px;
+        margin: 0 6px 0 0;
+      }
+
+      &.github::before {
+        content: url('../../static/images/icn-github.svg');
+        display: inline-block;
+        height: 12px;
+        width: 12px;
+        margin: 0 6px 0 0;
       }
     }
 
