@@ -8,12 +8,35 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
+const url = require('url');
+
 const MarkdownIt = require('markdown-it');
 const MarkdownItContainer = require('markdown-it-container');
 const MarkdownItAnchor = require('markdown-it-anchor');
 const MarkdownItTOC = require('markdown-it-table-of-contents');
+const MarkdownItLinkAttributer = require('./markdown-link-attributer');
 const hljs = require('highlight.js');
 const fm = require('front-matter');
+
+function isInternalLink(urlString) {
+  const urlObject = url.parse(urlString);
+  return (
+    !urlObject ||
+    !urlObject.hostname ||
+    urlObject.hostname === 'localhost' ||
+    urlObject.hostname === 'docs.skygear.io' ||
+    urlObject.hostname === 'docs-staging.skygear.io'
+  );
+}
+
+function isGithubLink(urlString) {
+  const urlObject = url.parse(urlString);
+  return (
+    urlObject &&
+    urlObject.hostname &&
+    urlObject.hostname === 'github.com'
+  );
+}
 
 const md = new MarkdownIt({
   html: true,
@@ -45,7 +68,42 @@ const md = new MarkdownIt({
   },
 })
 .use(MarkdownItTOC, { includeLevel: [2] })
-.use(MarkdownItAnchor);
+.use(MarkdownItAnchor)
+.use(MarkdownItLinkAttributer, {
+  attributes: [
+    {
+      key: 'class',
+      value: (token) => {
+        const href = token.attrGet('href');
+        if (href && isGithubLink(href)) {
+          return 'github';
+        }
+        return null;
+      },
+    },
+    {
+      key: 'class',
+      value: (token) => {
+        const href = token.attrGet('href');
+        if (href && !isInternalLink(href)) {
+          return 'external';
+        }
+        return null;
+      },
+    },
+    {
+      key: 'target',
+      value: (token) => {
+        const href = token.attrGet('href');
+        if (href && !isInternalLink(href)) {
+          return '_blank';
+        }
+        return null;
+      },
+    },
+  ],
+});
+
 
 function displayLanuageName(language) {
   const displayNames = {
