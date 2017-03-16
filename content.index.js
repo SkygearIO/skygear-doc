@@ -27,7 +27,7 @@ const guideListConfig = {
           languages: ['ios', 'android', 'js'],
         },
         {
-          title: 'Creating User Profile for Authenticated Users',
+          title: 'User Profile Best Practices',
           description: 'Saving and retrieving custom profile attributes',
           baseUrl: '/guides/auth/user-profile/',
           languages: ['ios', 'android', 'js'],
@@ -45,7 +45,7 @@ const guideListConfig = {
           languages: ['ios', 'android', 'js'],
         },
         {
-          title: 'Performing Data Queries from Database',
+          title: 'Queries',
           description: 'From the simplest queries to more complex ones' +
             ' such as AND/OR conditions and pagination',
           baseUrl: '/guides/cloud-db/queries/',
@@ -123,56 +123,56 @@ const guideListConfig = {
       name: 'Cloud Functions',
       guides: [
         {
-          title: 'Introduction and Deployment of Cloud Functions',
+          title: 'Introduction to Cloud Functions',
           description: 'The first step to using the Skygear cloud functions' +
             ' to have your codes running on Skygear server',
           baseUrl: '/guides/cloud-function/intro-and-deployment/',
           languages: ['python'],
         },
         {
-          title: 'Cloud Functions for Database Event Hooks',
+          title: 'Trigger by Database Event',
           description: 'Running codes upon database events such as' +
             ' creating, updating or deleting records',
           baseUrl: '/guides/cloud-function/database-hooks/',
           languages: ['python'],
         },
         {
-          title: 'Cloud Functions for Creating Scheduled Tasks',
+          title: 'Trigger by Schedule',
           description: 'Executing your server codes at specified time' +
             ' or intervals',
           baseUrl: '/guides/cloud-function/scheduled-tasks/',
           languages: ['python'],
         },
         {
-          title: 'Cloud Functions for Skygear SDKs to call',
+          title: 'Trigger by Client SDK',
           description: 'Lambda functions can be called from the SDKs' +
             ' to execute your custom codes on Skygear server',
           baseUrl: '/guides/cloud-function/lambda/',
           languages: ['python'],
         },
         {
-          title: 'Cloud Functions as HTTP Endpoint',
+          title: 'Trigger by HTTP Endpoint',
           description: 'Creating your own HTTP endpoint so that external' +
             ' applications can send GET/POST and other requests to your app',
           baseUrl: '/guides/cloud-function/http-endpoint/',
           languages: ['python'],
         },
         {
-          title: 'Cloud Functions as Restful HTTP Endpoint',
+          title: 'Trigger by Restful HTTP Endpoint',
           description: 'Creating your own set of restful HTTP endpoint easily' +
             ' through cloud functions',
           baseUrl: '/guides/cloud-function/restful-http-endpoint/',
           languages: ['python'],
         },
         {
-          title: 'Serving Static Assets from Skygear Server',
+          title: 'Serving Static Assets',
           description: 'Methods to make your static assets such as images' +
             ' accessible with a URL',
           baseUrl: '/guides/cloud-function/static-assets/',
           languages: ['python'],
         },
         {
-          title: 'Calling Skygear API from Cloud Functions',
+          title: 'APIs in Cloud Functions',
           description: 'Calling Skygear API, using database connections,' +
             ' pubsub, push notifications, and using the master key to' +
             ' impersonate user for the admin',
@@ -216,7 +216,7 @@ const guideListConfig = {
           languages: [''],
         },
         {
-          title: 'Setup Skygear Development Server Locally',
+          title: 'Deploy Skygear Local Server',
           description: 'Reference for deploy Skygear server',
           // no trailing slash if language not applicable
           baseUrl: '/guides/advanced/server',
@@ -231,7 +231,7 @@ const guideListConfig = {
           languages: [''],
         },
         {
-          title: 'Writing your own Authentication Provider',
+          title: 'Custom Authentication Provider',
           description: 'User authentication with third-party service',
           // no trailing slash if language not applicable
           baseUrl: '/guides/advanced/auth-provider/',
