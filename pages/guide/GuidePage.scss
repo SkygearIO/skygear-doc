@@ -10,6 +10,7 @@
     left: 0;
     width: 100%;
     height: $banner-height;
+    z-index: 2;
 
     @include mobile {
       height: $banner-height-mobile;
@@ -22,6 +23,7 @@
     bottom: 0;
     left: 0;
     width: $guide-menu-width;
+    z-index: 1;
 
     overflow-x: hidden;
     overflow-y: scroll;

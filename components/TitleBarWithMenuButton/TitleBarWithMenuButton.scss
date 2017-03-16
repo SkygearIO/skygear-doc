@@ -32,3 +32,16 @@
     vertical-align: middle;
   }
 }
+
+.guide-search-widget {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 400px;
+  height: 40px;
+  transform: translateY(-20px);
+
+  @include mobile {
+    display: none;
+  }
+}
