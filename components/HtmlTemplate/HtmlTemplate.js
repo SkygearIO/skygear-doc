@@ -10,7 +10,8 @@ const HtmlTemplate = (props) => {
     body,
     title,
     stylesheet,
-    trackingID,
+    gaTrackingID,
+    mouseFlowProjectID
   } = props;
 
   // Some meta tags in head tag will be rendered dynamically in and will be put
@@ -37,8 +38,8 @@ const HtmlTemplate = (props) => {
         <div id="root" dangerouslySetInnerHTML={{ __html: body }} />
 
         <TypeKitScript />
-        <MouseFlowScript />
-        <GAScript trackingID={trackingID} />
+        <MouseFlowScript projectID={mouseFlowProjectID} />
+        <GAScript trackingID={gaTrackingID} />
         <script src="/main.js" />
       </body>
     </html>
@@ -49,7 +50,8 @@ HtmlTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   stylesheet: PropTypes.string,
   body: PropTypes.string,
-  trackingID: PropTypes.string,
+  gaTrackingID: PropTypes.string,
+  mouseFlowProjectID: PropTypes.string,
 };
 
 export default HtmlTemplate;
