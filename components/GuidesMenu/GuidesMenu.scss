@@ -7,17 +7,12 @@
   z-index: 3;
 
   .guides-menu-section {
-    border-bottom: 1px solid $border-color;
 
     .section-name {
       text-transform: uppercase;
       font-family: freight-sans-medium;
       color: $text-color;
-      font-size: 16px;
-
-      @include desktop {
-        font-size: 21px;
-      }
+      font-size: 1.2rem;
 
       @include mobile {
         margin-top: 18px;
@@ -27,19 +22,15 @@
 
     .guides-menu-item {
       position: relative;
-      padding-bottom: 18px;
+      padding-bottom: 0.6rem;
 
       .guide-name {
         font-family: freight-sans-book;
         color: $text-color;
-        font-size: 14px;
+        font-size: 1rem;
         margin-top: 0;
         margin-bottom: 0;
         cursor: pointer;
-
-        @include desktop {
-          font-size: 20px;
-        }
 
         &.active {
           color: $link-color;
@@ -57,7 +48,7 @@
 
     /* Overriding css of LanguageLink component */
     a {
-      margin-right: 48px;
+      margin-right: 1.5rem;
 
       &:last-child {
         margin-right: 0;

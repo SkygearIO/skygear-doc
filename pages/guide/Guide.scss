@@ -8,7 +8,6 @@
   .guide-header {
     margin: 0 $guide-gutter;
     padding: 36px 0 24px;
-    border-bottom: 1px solid $border-color;
     font-family: freight-sans-book, sans-serif;
     font-weight: normal;
     font-size: 2.8rem;
@@ -208,8 +207,6 @@
     .table-of-contents {
       display: block;
       margin: 0;
-      padding: 16px;
-      border: 1px solid $transparent;
 
       @include large-screen {
         position: fixed;
@@ -217,7 +214,6 @@
         top: $banner-height + $guide-toc-gutter;
         right: $guide-toc-gutter;
         width: $guide-toc-width;
-        border-color: $guide-toc-border-color;
       }
 
       &::before {
@@ -225,18 +221,20 @@
         display: block;
         margin: 0;
         padding: 7px 0;
-        font-size: 16px;
+        margin-bottom: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: bold;
       }
 
       ul {
         margin: 0;
         padding: 0;
-        padding-left: 8px;
         list-style: none;
 
         li {
-          font-size: 14px;
-          line-height: 28px;
+          font-size: 0.8rem;
+          line-height: 1rem;
+          margin-bottom: 0.5rem;
 
           a {
             color: $guide-toc-anchor-color;
