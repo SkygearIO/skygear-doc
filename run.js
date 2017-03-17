@@ -10,18 +10,10 @@
 
 /* eslint-disable no-console, global-require */
 
-const fsp = require('fs-promise');
-const glob = require('glob');
-const join = require('path').join;
-const del = require('del');
-const ncp = require('ncp');
-const mkdirp = require('mkdirp');
-const webpack = require('webpack');
-const React = require('react');
-const { renderToStaticMarkup } = require('react-dom/server');
 
+const webpack = require('webpack');
+const path = require('path');
 const appConfig = require('./config');
-const HtmlTemplate = require('./components/HtmlTemplate/HtmlTemplate');
 
 const tasks = new Map(); // The collection of automation tasks ('clean', 'build', etc.)
 
@@ -39,59 +31,11 @@ function run(task, params) {
   });
 }
 
-//
-// Clean up the output directory
-// -----------------------------------------------------------------------------
-tasks.set('clean', () =>
-  del(['build/*', '!build/.git'], { dot: true })
-  .then(() => mkdirp('build'))
-);
-
-//
-// Copy static files such as favicon.ico to the output (build) folder
-// -----------------------------------------------------------------------------
-tasks.set('copy', () =>
-  new Promise((resolve, reject) => {
-    ncp('static', 'build', err => (err ? reject(err) : resolve()));
-  })
-);
-
-//
-// Bundle JavaScript, CSS and image files with Webpack
-// -----------------------------------------------------------------------------
-tasks.set('readMarkdownFiles', () =>
-  new Promise((resolve, reject) => {
-    const markdownDir = join(__dirname, appConfig.contentDir);
-    glob('**/*.md', { cwd: markdownDir }, (err, files) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(files);
-      }
-    });
-  })
-);
-
-//
-// Bundle JavaScript, CSS and image files with Webpack
-// -----------------------------------------------------------------------------
-tasks.set('bundle', (extraParams) => {
-  const webpackConfig = require('./webpack.config');
-
-  const plugin = new webpack.DefinePlugin(extraParams);
-  webpackConfig.plugins.push(plugin);
-
-  return new Promise((resolve, reject) => {
-    webpack(webpackConfig).run((err, stats) => {
-      if (err) {
-        reject(err);
-      } else {
-        console.log(stats.toString(webpackConfig.stats));
-        resolve();
-      }
-    });
-  });
-});
+tasks.set('copy', require('./tasks/copy'));
+tasks.set('clean', require('./tasks/clean'));
+tasks.set('bundle', require('./tasks/bundle'));
+tasks.set('readMarkdownFiles', require('./tasks/readMarkdownFiles'));
+tasks.set('createIndexHtmlForDev', require('./tasks/createIndexHtmlForDev'));
 
 //
 // Build website into a distributable format
@@ -101,35 +45,35 @@ tasks.set('build', () => {
   return Promise.resolve()
     .then(() => run('clean'))
     .then(() => run('copy'))
-    .then(() => run('readMarkdownFiles'))
-    .then(files => run('bundle', { MarkdownFilePaths: JSON.stringify(files) }));
-});
-
-tasks.set('createIndexHtmlForDev', () => {
-  const renderDocumentToString = props => {
-    const markup = renderToStaticMarkup(<HtmlTemplate {...props} />);
-    return `<!doctype html>\n${markup}`;
-  };
-
-  const html = renderDocumentToString({
-    title: appConfig.pageTitle,
-    stylesheet: null,
-    body: '',
-  });
-
-  return fsp.writeFile('build/index.html', html);
+    .then(() => run('readMarkdownFiles', {
+      src: path.join(__dirname, appConfig.contentDir),
+    }))
+    .then(files => run(
+      'bundle',
+      {
+        config: require('./webpack.config'),
+        extra: {
+          MarkdownFilePaths: JSON.stringify(files),
+        },
+      },
+    ));
 });
 
 //
 // Build website and launch it in a browser for testing (default)
 // -----------------------------------------------------------------------------
-tasks.set('start', () => {
+tasks.set('default', () => {
   let count = 0;
   global.HMR = !process.argv.includes('--no-hmr'); // Hot Module Replacement (HMR)
   return run('clean')
     .then(() => run('copy'))
-    .then(() => run('createIndexHtmlForDev'))
-    .then(() => run('readMarkdownFiles'))
+    .then(() => run('createIndexHtmlForDev', {
+      title: appConfig.pageTitle,
+      dest: 'build/index.html',
+    }))
+    .then(() => run('readMarkdownFiles', {
+      src: path.join(__dirname, appConfig.contentDir),
+    }))
     .then((files) => new Promise(resolve => {
       const bs = require('browser-sync').create();
       const webpackConfig = require('./webpack.config');
@@ -170,4 +114,4 @@ tasks.set('start', () => {
 });
 
 // Execute the specified task or default one. E.g.: node run build
-run(/^\w/.test(process.argv[2] || '') ? process.argv[2] : 'start' /* default */);
+run(/^\w/.test(process.argv[2] || '') ? process.argv[2] : 'default');
