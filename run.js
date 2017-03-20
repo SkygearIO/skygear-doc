@@ -34,8 +34,10 @@ function run(task, params) {
 tasks.set('copy', require('./tasks/copy'));
 tasks.set('clean', require('./tasks/clean'));
 tasks.set('bundle', require('./tasks/bundle'));
-tasks.set('readMarkdownFiles', require('./tasks/readMarkdownFiles'));
+tasks.set('scanMarkdownFiles', require('./tasks/scanMarkdownFiles'));
+tasks.set('loadMarkdownAttributes', require('./tasks/loadMarkdownAttributes'));
 tasks.set('createIndexHtmlForDev', require('./tasks/createIndexHtmlForDev'));
+tasks.set('buildSiteIndex', require('./tasks/buildSiteIndex'));
 
 //
 // Build website into a distributable format
@@ -45,7 +47,7 @@ tasks.set('build', () => {
   return Promise.resolve()
     .then(() => run('clean'))
     .then(() => run('copy'))
-    .then(() => run('readMarkdownFiles', {
+    .then(() => run('scanMarkdownFiles', {
       src: path.join(__dirname, appConfig.contentDir),
     }))
     .then(files => run(
@@ -71,7 +73,7 @@ tasks.set('default', () => {
       title: appConfig.pageTitle,
       dest: 'build/index.html',
     }))
-    .then(() => run('readMarkdownFiles', {
+    .then(() => run('scanMarkdownFiles', {
       src: path.join(__dirname, appConfig.contentDir),
     }))
     .then((files) => new Promise(resolve => {
@@ -112,6 +114,33 @@ tasks.set('default', () => {
       });
     }));
 });
+
+//
+// Create / update site index
+// -----------------------------------------------------------------------------
+tasks.set('site-index', () =>
+  run('scanMarkdownFiles', {
+    src: path.join(__dirname, appConfig.contentDir),
+  })
+  .then((files) => run('loadMarkdownAttributes', {
+    files: files,
+    cwd: path.join(__dirname, appConfig.contentDir),
+  }))
+  .then((files) => {
+    const algoliaApplicationID
+      = process.env.ALGOLIA_APP_ID || appConfig.algoliaApplicationID;
+    const algoliaAdminKey = process.env.ALGOLIA_ADMIN_KEY;
+
+    return run('buildSiteIndex', {
+      files: files,
+      config: {
+        baseUrl: appConfig.guideBaseUrl,
+        applicationID: algoliaApplicationID,
+        apiKey: algoliaAdminKey,
+      },
+    });
+  }
+));
 
 // Execute the specified task or default one. E.g.: node run build
 run(/^\w/.test(process.argv[2] || '') ? process.argv[2] : 'default');

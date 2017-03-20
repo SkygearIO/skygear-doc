@@ -12,17 +12,25 @@ import ApiReference from './pages/apiReference/index';
 import Support from './pages/support/index';
 import NotFound from './pages/error/index';
 import ComingSoon from './pages/comingSoon';
+
 import { pageTitle } from './config';
+
+import GuidePathGenerator from './utils/guidePathGenerator';
 
 import './components/Layout.scss';
 
 // does not work when passing './content' as an variable
 const req = require.context('./content', true, /^\.\/.*\.md/);
 
+const guidePathGenerator = new GuidePathGenerator({
+  baseUrl: 'guides/',
+});
+
 // TODO: render a routing tree with IndexRedirect
 const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
   const { title, description, image, html } = req(`./${path}`);
-  const url = `guides/${path.slice(0, -'.md'.length)}/`;
+  const url = guidePathGenerator.generate(path);
+
   return (
     <Route
       key={path}
