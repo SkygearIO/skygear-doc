@@ -1,0 +1,40 @@
+@import "../variables.scss";
+
+.guide-search-item {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: flex-start;
+
+  img {
+    flex: 0 0 30px;
+    margin: 0 8px;
+    width: 30px;
+    height: auto;
+  }
+
+  .guide-search-item-content {
+    h1 {
+      margin: 0;
+      margin-bottom: 8px;
+      padding: 0;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 16px;
+      color: $content-color;
+    }
+
+    .guide-search-item-description {
+      display: block;
+      margin: 8px 0;
+      font-size: 14px;
+      color: lighten($content-color, 20%);
+    }
+
+    .guide-search-item-url {
+      display: block;
+      font-size: 12px;
+      color: $link-color;
+    }
+  }
+}
