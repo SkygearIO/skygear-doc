@@ -3,6 +3,8 @@
 
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
+
+import Container from './pages/container/index';
 import Landing from './pages/home/index';
 import GuidePage from './pages/guide/GuidePage';
 import GuideList from './pages/guideList/index';
@@ -19,7 +21,7 @@ const req = require.context('./content', true, /^\.\/.*\.md/);
 
 // TODO: render a routing tree with IndexRedirect
 const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
-  const { title, html } = req(`./${path}`);
+  const { title, description, image, html } = req(`./${path}`);
   const url = `guides/${path.slice(0, -'.md'.length)}/`;
   return (
     <Route
@@ -28,14 +30,16 @@ const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
       component={GuidePage}
       title={pageTitle}
       guideTitle={title}
+      guideDescription={description}
+      guideImage={image}
       docHtml={html}
     />
   );
 });
 
 const routes = (
-  <Route path="/">
-    <IndexRoute title={pageTitle}component={Landing} />
+  <Route path="/" component={Container}>
+    <IndexRoute title={pageTitle} component={Landing} />
     <Route path="guides/" title={pageTitle} component={GuideList} />
     {routesForMarkdownFiles}
     <Route path="api-reference/" title={pageTitle} component={ApiReference} />

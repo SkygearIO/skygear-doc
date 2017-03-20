@@ -21,7 +21,7 @@ const React = require('react');
 const { renderToStaticMarkup } = require('react-dom/server');
 
 const appConfig = require('./config');
-const HtmlTemplate = require('./components/HtmlTemplate');
+const HtmlTemplate = require('./components/HtmlTemplate/HtmlTemplate');
 
 const tasks = new Map(); // The collection of automation tasks ('clean', 'build', etc.)
 

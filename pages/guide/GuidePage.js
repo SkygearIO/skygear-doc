@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
+import PageMeta from '../../components/PageMeta/PageMeta';
 import Banner from '../../components/Banner/Banner';
 import Header from '../../components/Header/Header';
 import HeaderNav from '../../components/Header/Nav/Nav';
@@ -97,6 +98,11 @@ class GuidePage extends Component {
 
     return (
       <div className="guide-page">
+        <PageMeta
+          ogTitle={currentRoute.guideTitle}
+          ogDescription={currentRoute.guideDescription}
+          ogImage={currentRoute.guideImage}
+        />
         <Banner>
           <Header>
             <HeaderNav
