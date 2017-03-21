@@ -1,20 +1,33 @@
-/**
- * React Static Boilerplate
- * https://github.com/kriasoft/react-static-boilerplate
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 import React from 'react';
+import { Link } from 'react-router';
+
+import Banner from '../../components/Banner/Banner';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+
+import './styles.scss';
 
 const ErrorPage = () => (
-  <div>
-    <h1>Not Found</h1>
-    <p>The page you're looking for was not found.</p>
-  </div>
+  <section className="not-found-page">
+    <Banner>
+      <Header />
+    </Banner>
+    <section className="container">
+      <div className="content">
+        <h1>Oops!</h1>
+        <p>
+          Page not found.
+        </p>
+        <p>
+          What are you looking for?
+        </p>
+        <nav>
+          <Link className="link" to="/">Take me home</Link>
+        </nav>
+      </div>
+    </section>
+    <Footer />
+  </section>
 );
 
 export default ErrorPage;

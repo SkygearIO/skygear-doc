@@ -1,0 +1,74 @@
+@import '../../components/variables.scss';
+
+.not-found-page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .header {
+    padding: 15px 0;
+
+    @include desktop {
+      padding: 24px 0;
+    }
+  }
+
+  .container {
+    position: absolute;
+    top: 54px;
+    right: 0;
+    bottom: 110px;
+    left: 0;
+
+    @include desktop {
+      top: 78px;
+      bottom: 134px;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      margin: 0;
+      transform: translateY(-50%);
+      text-align: center;
+
+      h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 72px;
+        line-height: 85px;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin: 12px 0;
+        padding: 0;
+        font-size: 18px;
+        font-weight: lighter;
+      }
+
+      nav {
+        margin: 32px 0;
+        padding: 0;
+
+        .link {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  };
+
+
+  footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
