@@ -11,7 +11,7 @@ const HtmlTemplate = (props) => {
     title,
     stylesheet,
     gaTrackingID,
-    mouseFlowProjectID
+    mouseFlowProjectID,
   } = props;
 
   // Some meta tags in head tag will be rendered dynamically in and will be put
