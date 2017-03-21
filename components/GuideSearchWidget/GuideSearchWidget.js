@@ -34,6 +34,7 @@ class GuideSearchWidget extends Component {
       = _.debounce(this.onSuggestionsFetchRequested.bind(this), 300);
     this.onSuggestionsClearRequested =
       this.onSuggestionsClearRequested.bind(this);
+    this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
     this.getSuggestionValue = this.getSuggestionValue.bind(this);
     this.renderSuggestion = this.renderSuggestion.bind(this);
 
@@ -75,6 +76,20 @@ class GuideSearchWidget extends Component {
       });
   }
 
+  onSuggestionSelected(event, { suggestion }) {
+    const { url } = suggestion;
+    if (!url) {
+      console.error('Failed to get the url of search item'); // eslint-disable-line
+      return;
+    }
+
+    try {
+      window.location = url;
+    } catch (e) {
+      // skip heading to the url
+    }
+  }
+
   onSuggestionsClearRequested() {
     this.setState({
       suggestions: [],
@@ -96,6 +111,7 @@ class GuideSearchWidget extends Component {
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        onSuggestionSelected={this.onSuggestionSelected}
         getSuggestionValue={this.getSuggestionValue}
         renderSuggestion={this.renderSuggestion}
         inputProps={{
