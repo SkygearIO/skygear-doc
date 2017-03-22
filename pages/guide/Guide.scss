@@ -257,7 +257,7 @@
           a {
             color: $guide-toc-anchor-color;
 
-            &.active {
+            &:hover {
               color: $guide-toc-anchor-active-color;
             }
           }
