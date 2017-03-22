@@ -54,7 +54,16 @@ Please add the following S3 redirection rule on the deployment S3 bucket for leg
     </Condition>
     <Redirect>
       <HostName>docs.skygear.io</HostName>
-      <ReplaceKeyPrefixWith>guides/quickstart/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>guides/intro/quickstart/</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>guides/quickstart/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <HostName>docs.skygear.io</HostName>
+      <ReplaceKeyPrefixWith>guides/intro/quickstart/</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 </RoutingRules>
