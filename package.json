@@ -7,6 +7,7 @@
     "npm": ">=3.8"
   },
   "dependencies": {
+    "algoliasearch": "^3.22.1",
     "babel-polyfill": "^6.9.1",
     "classnames": "^2.2.5",
     "fastclick": "^1.0.6",
@@ -14,6 +15,7 @@
     "markdown-it-anchor": "^3.0.0",
     "markdown-it-table-of-contents": "^0.3.2",
     "react": "^15.2.1",
+    "react-autosuggest": "^9.0.0",
     "react-dom": "^15.2.1",
     "react-helmet": "^4.0.0",
     "react-redux": "^4.4.5",
@@ -132,6 +134,7 @@
     "build": "babel-node run build",
     "build:debug": "babel-node run build --debug",
     "invalidate-cf": "babel-node ./scripts/invalidate-cf.js",
+    "site-index": "babel-node run site-index",
     "start": "babel-node run"
   }
 }

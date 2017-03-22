@@ -122,7 +122,6 @@ class GuidePage extends Component {
         </Banner>
         <GuidesMenu
           ref="guide-menu"
-          key={`guide-menu:${currentGuide.baseUrl}`}
           contentIndex={ContentIndex}
           currentGuide={currentGuide}
           currentLanguage={currentLanguage}

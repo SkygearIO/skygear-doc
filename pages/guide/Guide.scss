@@ -7,11 +7,11 @@
 
   .guide-header {
     margin: 0 $guide-gutter;
-    padding: 36px 0 24px;
+    padding: 24px 0;
     font-family: freight-sans-book, sans-serif;
     font-weight: normal;
-    font-size: 2.8rem;
-    line-height: 2rem;
+    font-size: 45px;
+    line-height: 50px;
 
     @include large-screen {
       margin-right: $guide-toc-width + 2 * $guide-toc-gutter + $guide-gutter;
@@ -257,7 +257,7 @@
           a {
             color: $guide-toc-anchor-color;
 
-            &.active {
+            &:hover {
               color: $guide-toc-anchor-active-color;
             }
           }

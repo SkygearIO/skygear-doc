@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react';
 
 import TitleBar from '../TitleBar/TitleBar';
 
+import GuideSearchWidget from '../../components/GuideSearchWidget/GuideSearchWidget';
+
 import './TitleBarWithMenuButton.scss';
 
 const TitleBarWithMenuButton = (props) => (
@@ -13,6 +15,7 @@ const TitleBarWithMenuButton = (props) => (
       />
       <h1>Guides</h1>
     </div>
+    <GuideSearchWidget />
   </TitleBar>
 );
 

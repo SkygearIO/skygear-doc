@@ -1,49 +1,18 @@
 @import '../../components/variables.scss';
 
 .guide-menu {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  padding: 3px $gutter 45px;
+  padding: 3px $gutter;
   background: $guide-menu-bg;
-  z-index: 3;
-
-  .guides-menu-section {
-    .section-name {
-      text-transform: uppercase;
-      font-family: freight-sans-medium;
-      color: $text-color;
-      font-size: 1.2rem;
-
-      @include mobile {
-        margin-top: 18px;
-        margin-bottom: 12px;
-      }
-    }
-
-    .guides-menu-item {
-      position: relative;
-      padding-bottom: 0.6rem;
-
-      .guide-name {
-        font-family: freight-sans-book;
-        color: $text-color;
-        font-size: 1rem;
-        margin-top: 0;
-        margin-bottom: 0;
-        cursor: pointer;
-
-        &.active {
-          color: $link-color;
-        }
-
-        &:not(.active):hover {
-          color: $link-hover-color;
-        }
-      }
-    }
-  }
 
   .language-links {
-    margin: 32px 0;
+    flex: 0 0 74px;
+    padding: 8px 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid $theme-light-gray;
+    background-color: $guide-menu-bg;
 
     /* Overriding css of LanguageLink component */
     a {
@@ -60,6 +29,47 @@
 
       @include mobile {
         margin-right: 30px;
+      }
+    }
+  }
+
+  nav {
+    flex: 1;
+    overflow-y: auto;
+
+    .guides-menu-section {
+      .section-name {
+        text-transform: uppercase;
+        font-family: freight-sans-medium;
+        color: $text-color;
+        font-size: 1.2rem;
+
+        @include mobile {
+          margin-top: 18px;
+          margin-bottom: 12px;
+        }
+      }
+
+      .guides-menu-item {
+        position: relative;
+        padding-bottom: 0.6rem;
+
+        .guide-name {
+          font-family: freight-sans-book;
+          color: $text-color;
+          font-size: 1rem;
+          margin-top: 0;
+          margin-bottom: 0;
+          cursor: pointer;
+
+          &.active {
+            color: $link-color;
+          }
+
+          &:not(.active):hover {
+            color: $link-hover-color;
+          }
+        }
       }
     }
   }
