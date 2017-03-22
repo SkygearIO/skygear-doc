@@ -25,9 +25,7 @@ const babelConfig = Object.assign({}, pkg.babel, {
   cacheDirectory: useHMR,
 });
 
-const appConfig = {
-  trackingID: 'UA-74838039-4', // Google Analytics Site's ID
-};
+const appConfig = require('./config');
 
 // Webpack configuration (main.js => public/dist/main.{hash}.js)
 // http://webpack.github.io/docs/configuration.html
@@ -132,8 +130,11 @@ if (!isDebug) {
     new ReactStaticPlugin({
       routes: './routes.js',
       template: './components/HtmlTemplate/HtmlTemplate.js',
-      trackingID: isDebug ? null : appConfig.trackingID,
+
+      // custom props
       stylesheet: '/styles.css',
+      gaTrackingID: appConfig.gaTrackingID,
+      mouseFlowProjectID: appConfig.mouseFlowProjectID,
     })
   );
 }
