@@ -97,7 +97,9 @@ class GuidesMenu extends Component {
     return (
       <div className={classNames('guide-menu', { active: shouldShowInMobile })}>
         {this.renderLanguageLinks()}
-        {contentIndex.sections.map(this.renderSectionMenuItem)}
+        <nav>
+          {contentIndex.sections.map(this.renderSectionMenuItem)}
+        </nav>
       </div>
     );
   }
