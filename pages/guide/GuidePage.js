@@ -28,6 +28,7 @@ class GuidePage extends Component {
 
     this.toggleMenuState = this.toggleMenuState.bind(this);
     this.onBodyClick = this.onBodyClick.bind(this);
+    this.onGuideEditButtonClick = this.onGuideEditButtonClick.bind(this);
     this.debouncedSetMenuShouldShowInMobile = _.debounce(
       this.debouncedSetMenuShouldShowInMobile.bind(this), 100);
 
@@ -59,6 +60,10 @@ class GuidePage extends Component {
     if (guideMenuDOM && !guideMenuDOM.contains(event.target)) {
       this.debouncedSetMenuShouldShowInMobile(false);
     }
+  }
+
+  onGuideEditButtonClick() {
+    console.log('Guide edit button click');
   }
 
   toggleMenuState() {
@@ -131,6 +136,7 @@ class GuidePage extends Component {
           key={`guide:${currentGuide.baseUrl + (currentLanguage || '')}`}
           title={guideTitle}
           docHtml={docHtml}
+          editButtonOnClick={this.onGuideEditButtonClick}
         />
       </div>
     );
