@@ -35,6 +35,7 @@ const routesForMarkdownFiles = MarkdownFilePaths.map(path => {
   return (
     <Route
       key={path}
+      filePath={path}
       path={url}
       component={GuidePage}
       title={pageTitle}

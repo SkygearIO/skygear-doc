@@ -2,6 +2,7 @@ const appConfig = {
   contentDir: 'content',
   pageTitle: 'Skygear Documentation',
   guideBaseUrl: 'https://docs.skygear.io/guides/',
+  guideEditBaseUrl: 'https://github.com/SkygearIO/guides/edit/master/',
   gaTrackingID: 'UA-74838039-4',
   mouseFlowProjectID: 'b0d2d2a4-d999-46f2-bec8-3b8e0ac92958',
   algoliaApplicationID: 'VFKAXHLYNR',

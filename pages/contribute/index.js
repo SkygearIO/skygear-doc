@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Banner from '../../components/Banner/Banner';
 import Header from '../../components/Header/Header';
@@ -8,7 +8,11 @@ import apiRefIcon from '../../static/images/icn-api-ref.svg';
 import supportIcon from '../../static/images/icn-support.svg';
 import prScreenshot from '../../static/assets/contribute/pr-screenshot.png';
 
+import { guideEditBaseUrl } from '../../config';
+
 import './style.scss';
+
+const LocalStorageKey = 'contribute-do-not-show-again';
 
 class ContributePgae extends Component {
   constructor(props) {
@@ -18,24 +22,52 @@ class ContributePgae extends Component {
     this.onDoNotShowAgainToggleValueChange
       = this.onDoNotShowAgainToggleValueChange.bind(this);
 
-    // TODO: restore do not show again button state
+    // restore do not show again button state
+    let defaultDoNotShowAgain = false;
+    try {
+      defaultDoNotShowAgain
+        = window.localStorage.getItem(LocalStorageKey) === 'true';
+    } catch (e) {
+      // skip, maybe it is under server rendering
+    }
+
     this.state = {
-      doNotShowAgain: false,
+      doNotShowAgain: defaultDoNotShowAgain,
     };
   }
 
   componentWillMount() {
-    // TODO: make sure guide url is indicated
+    const { router } = this.props;
+    const { query } = router.location;
+
+    if (!query || !query.file) {
+      router.replace('/');
+      return;
+    }
+
+    this.setState({
+      redirectFilePath: query.file,
+    }, () => {
+      const { doNotShowAgain } = this.state;
+      if (doNotShowAgain) {
+        this.onRedirectButtonClick();
+      }
+    });
   }
 
-  onRedirectButtonClick(event) {
-    // TODO: redirect to correct markdown file editing state
-    console.log('Redirect button clicked', event);
+  onRedirectButtonClick() {
+    const { doNotShowAgain, redirectFilePath } = this.state;
+
+    try {
+      window.localStorage.setItem(LocalStorageKey, doNotShowAgain);
+      window.location = `${guideEditBaseUrl}${redirectFilePath}`;
+    } catch (e) {
+      // skip, maybe it is under server rendering
+      return;
+    }
   }
 
   onDoNotShowAgainToggleValueChange(event) {
-    console.log('Do not show again toggle value changed, checked: ', event.target.checked);
-
     this.setState({
       doNotShowAgain: event.target.checked,
     });
@@ -118,5 +150,10 @@ class ContributePgae extends Component {
     );
   }
 }
+
+ContributePgae.propTypes = {
+  // routes: PropTypes.arrayOf(PropTypes.object),
+  router: PropTypes.object,
+};
 
 export default ContributePgae;

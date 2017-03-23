@@ -63,7 +63,19 @@ class GuidePage extends Component {
   }
 
   onGuideEditButtonClick() {
-    console.log('Guide edit button click');
+    const { routes, router } = this.props;
+    const currentRoute = routes.slice(-1)[0];
+    const { filePath } = currentRoute;
+    if (!filePath) {
+      return;
+    }
+
+    router.push({
+      pathname: '/contribute/',
+      query: {
+        file: filePath,
+      },
+    });
   }
 
   toggleMenuState() {
@@ -145,10 +157,15 @@ class GuidePage extends Component {
 
 GuidePage.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape({
-    language: PropTypes.string,
+    filePath: PropTypes.string,
+    path: PropTypes.string,
+    title: PropTypes.string,
     guideTtle: PropTypes.string,
+    guideDescription: PropTypes.string,
+    guideImage: PropTypes.string,
     docHtml: PropTypes.string,
   })),
+  router: PropTypes.object,
 };
 
 export default GuidePage;
