@@ -19,13 +19,11 @@
   }
 
   .guide-content {
-    padding-top: 12px;
-    padding-left: $guide-gutter;
-    padding-right: $guide-gutter;
-    padding-bottom: 12rem;
+    margin: 12px $guide-gutter;
+    padding: 0;
 
     @include large-screen {
-      margin-right: $guide-meta-section-width + 2 * $guide-meta-section-gutter;
+      margin-right: $guide-meta-section-width + 2 * $guide-meta-section-gutter + $guide-gutter;
     }
 
     h1,h2,h3,h4 {

@@ -50,14 +50,15 @@ class Guide extends Component {
 
     // mark the selected anchor to active
     let foundAnchor = false;
-    tocAnchors.forEach((anchor) => {
+    for (let idx = 0; idx < tocAnchors.length; idx++) {
+      const anchor = tocAnchors.item(idx);
       if (anchor.href === currentLocation) {
         anchor.classList.add('active');
         foundAnchor = true;
       } else {
         anchor.classList.remove('active');
       }
-    });
+    }
     if (!foundAnchor) {
       tocAnchors[0].classList.add('active');
     }

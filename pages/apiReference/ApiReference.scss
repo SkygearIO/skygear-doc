@@ -5,7 +5,7 @@ $api-reference-item-height-desktop: 90px;
 
 .api-reference {
   @include container-width;
-  font-family: freight-sans-medium;
+  font-family: freight-sans-medium, sans-serif;
   color: $text-color;
   padding-top: 15px;
   padding-bottom: 40px;
