@@ -10,10 +10,14 @@ import TitleBarWithMenuButton from '../../components/TitleBarWithMenuButton/Titl
 import Guide from './Guide';
 import GuidesMenu from '../../components/GuidesMenu/GuidesMenu';
 
+import * as ContributePage from '../../pages/contribute';
+
 import ContentIndex from '../../content.index';
 
 import * as GuidePathDigester from '../../utils/guidePathDigester';
 import * as GuideContentSearcher from '../../utils/guideContentSearcher';
+
+import  { guideEditBaseUrl } from '../../config';
 
 import apiRefIcon from '../../static/images/icn-api-ref.svg';
 import supportIcon from '../../static/images/icn-support.svg';
@@ -68,6 +72,15 @@ class GuidePage extends Component {
     const { filePath } = currentRoute;
     if (!filePath) {
       return;
+    }
+
+    try {
+      if (window.localStorage.getItem(ContributePage.LocalStorageKey) === 'true') {
+        window.location = `${guideEditBaseUrl}${filePath}`;
+        return;
+      }
+    } catch (e) {
+      // skip, maybe it is under server rendering
     }
 
     router.push({

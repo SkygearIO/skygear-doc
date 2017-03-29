@@ -12,7 +12,7 @@ import { guideEditBaseUrl } from '../../config';
 
 import './style.scss';
 
-const LocalStorageKey = 'contribute-do-not-show-again';
+export const LocalStorageKey = 'contribute-do-not-show-again';
 
 class ContributePgae extends Component {
   constructor(props) {
@@ -47,11 +47,6 @@ class ContributePgae extends Component {
 
     this.setState({
       redirectFilePath: query.file,
-    }, () => {
-      const { doNotShowAgain } = this.state;
-      if (doNotShowAgain) {
-        this.onRedirectButtonClick();
-      }
     });
   }
 
