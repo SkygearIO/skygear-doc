@@ -9,6 +9,7 @@ import supportIcon from '../../static/images/icn-support.svg';
 import prScreenshot from '../../static/assets/contribute/pr-screenshot.png';
 
 import { guideEditBaseUrl } from '../../config';
+import { getWindow } from '../../utils/browserProxy';
 
 import './style.scss';
 
@@ -23,16 +24,8 @@ class ContributePgae extends Component {
       = this.onDoNotShowAgainToggleValueChange.bind(this);
 
     // restore do not show again button state
-    let defaultDoNotShowAgain = false;
-    try {
-      defaultDoNotShowAgain
-        = window.localStorage.getItem(LocalStorageKey) === 'true';
-    } catch (e) {
-      // skip, maybe it is under server rendering
-    }
-
     this.state = {
-      doNotShowAgain: defaultDoNotShowAgain,
+      doNotShowAgain: getWindow().localStorage.getItem(LocalStorageKey) === 'true',
     };
   }
 
@@ -53,13 +46,9 @@ class ContributePgae extends Component {
   onRedirectButtonClick() {
     const { doNotShowAgain, redirectFilePath } = this.state;
 
-    try {
-      window.localStorage.setItem(LocalStorageKey, doNotShowAgain);
-      window.location = `${guideEditBaseUrl}${redirectFilePath}`;
-    } catch (e) {
-      // skip, maybe it is under server rendering
-      return;
-    }
+    const Window = getWindow();
+    Window.localStorage.setItem(LocalStorageKey, doNotShowAgain);
+    Window.location = `${guideEditBaseUrl}${redirectFilePath}`;
   }
 
   onDoNotShowAgainToggleValueChange(event) {

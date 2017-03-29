@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Footer from '../../components/Footer/Footer';
 
+import { canUseDOM, getDocument } from '../../utils/browserProxy';
+
 import './Guide.scss';
 import 'highlight.js/styles/xcode.css';
 
@@ -28,6 +30,11 @@ class Guide extends Component {
   }
 
   updateTocAnchors() {
+    if (!canUseDOM()) {
+      // skip, maybe it is under server rendering
+      return;
+    }
+
     const selfDOM = ReactDOM.findDOMNode(this);
     if (!selfDOM) {
       console.warn('Failed to find the DOM.'); // eslint-disable-line
@@ -40,15 +47,8 @@ class Guide extends Component {
       return;
     }
 
-    let currentLocation;
-    try {
-      currentLocation = document.location.href;
-    } catch (e) {
-      // skip, maybe it is under server rendering
-      return;
-    }
-
     // mark the selected anchor to active
+    const currentLocation = getDocument().location.href;
     let foundAnchor = false;
     for (let idx = 0; idx < tocAnchors.length; idx++) {
       const anchor = tocAnchors.item(idx);
@@ -69,6 +69,11 @@ class Guide extends Component {
    * ToC plugin and inject the edit section as its sibling.
    */
   injectEditSection() {
+    if (!canUseDOM()) {
+      // skip, maybe it is under server rendering
+      return;
+    }
+
     const { editButtonOnClick } = this.props;
 
     const selfDOM = ReactDOM.findDOMNode(this);
@@ -83,36 +88,33 @@ class Guide extends Component {
       return;
     }
 
-    try {
-      // prevent duplication
-      const oldEditSection = selfDOM.querySelector('.edit-section');
-      if (oldEditSection) {
-        oldEditSection.parentNode.removeChild(oldEditSection);
-      }
+    const Document = getDocument();
 
-      const tipElem = document.createElement('span');
-      tipElem.appendChild(
-        document.createTextNode(
-          'Find some minor issues? You can edit this doc here.'
-        )
-      );
-
-      const editButton = document.createElement('button');
-      editButton.appendChild(document.createTextNode('Edit'));
-      if (editButtonOnClick) {
-        editButton.addEventListener('click', editButtonOnClick);
-      }
-
-      const editSection = document.createElement('section');
-      editSection.classList.add('edit-section');
-      editSection.appendChild(tipElem);
-      editSection.appendChild(editButton);
-
-      tocNode.parentNode.insertBefore(editSection, tocNode.nextSibling);
-    } catch (e) {
-      // skip, maybe it is under server rendering
-      return;
+    // prevent duplication
+    const oldEditSection = selfDOM.querySelector('.edit-section');
+    if (oldEditSection) {
+      oldEditSection.parentNode.removeChild(oldEditSection);
     }
+
+    const tipElem = Document.createElement('span');
+    tipElem.appendChild(
+      Document.createTextNode(
+        'Find some minor issues? You can edit this doc here.'
+      )
+    );
+
+    const editButton = Document.createElement('button');
+    editButton.appendChild(Document.createTextNode('Edit'));
+    if (editButtonOnClick) {
+      editButton.addEventListener('click', editButtonOnClick);
+    }
+
+    const editSection = Document.createElement('section');
+    editSection.classList.add('edit-section');
+    editSection.appendChild(tipElem);
+    editSection.appendChild(editButton);
+
+    tocNode.parentNode.insertBefore(editSection, tocNode.nextSibling);
   }
 
   /*
@@ -120,36 +122,36 @@ class Guide extends Component {
    * with a container, namely meta section.
    */
   buildMetaSection() {
+    if (!canUseDOM()) {
+      // skip, maybe it is under server rendering
+      return;
+    }
+
     const selfDOM = ReactDOM.findDOMNode(this);
     if (!selfDOM) {
       console.warn('Failed to find the DOM.'); // eslint-disable-line
       return;
     }
 
-    try {
-      if (selfDOM.querySelector('.meta-section')) {
-        // already exist
-        return;
-      }
-      const tocSection = selfDOM.querySelector('.table-of-contents');
-      if (!tocSection) {
-        console.warn('Cannot find the table of contents DOM');  // eslint-disable-line
-        return;
-      }
-
-      const metaSection = document.createElement('section');
-      metaSection.classList.add('meta-section');
-      tocSection.parentNode.insertBefore(metaSection, tocSection);
-
-      metaSection.appendChild(tocSection);
-
-      const editSection = selfDOM.querySelector('.edit-section');
-      if (editSection) {
-        metaSection.appendChild(editSection);
-      }
-    } catch (e) {
-      // skip, maybe it is under server rendering
+    if (selfDOM.querySelector('.meta-section')) {
+      // already exist
       return;
+    }
+    const tocSection = selfDOM.querySelector('.table-of-contents');
+    if (!tocSection) {
+      console.warn('Cannot find the table of contents DOM');  // eslint-disable-line
+      return;
+    }
+
+    const metaSection = getDocument().createElement('section');
+    metaSection.classList.add('meta-section');
+    tocSection.parentNode.insertBefore(metaSection, tocSection);
+
+    metaSection.appendChild(tocSection);
+
+    const editSection = selfDOM.querySelector('.edit-section');
+    if (editSection) {
+      metaSection.appendChild(editSection);
     }
   }
 

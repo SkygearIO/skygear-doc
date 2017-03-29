@@ -16,8 +16,9 @@ import ContentIndex from '../../content.index';
 
 import * as GuidePathDigester from '../../utils/guidePathDigester';
 import * as GuideContentSearcher from '../../utils/guideContentSearcher';
+import { getWindow } from '../../utils/browserProxy';
 
-import  { guideEditBaseUrl } from '../../config';
+import { guideEditBaseUrl } from '../../config';
 
 import apiRefIcon from '../../static/images/icn-api-ref.svg';
 import supportIcon from '../../static/images/icn-support.svg';
@@ -74,13 +75,10 @@ class GuidePage extends Component {
       return;
     }
 
-    try {
-      if (window.localStorage.getItem(ContributePage.LocalStorageKey) === 'true') {
-        window.location = `${guideEditBaseUrl}${filePath}`;
-        return;
-      }
-    } catch (e) {
-      // skip, maybe it is under server rendering
+    const Window = getWindow();
+    if (Window.localStorage.getItem(ContributePage.LocalStorageKey) === 'true') {
+      Window.location = `${guideEditBaseUrl}${filePath}`;
+      return;
     }
 
     router.push({
