@@ -1,0 +1,102 @@
+@import '../../components/variables.scss';
+
+.contribute-page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .banner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    .header {
+      padding: 15px 0;
+
+      @include desktop {
+        padding: 24px 0;
+      }
+    }
+  }
+
+  .content {
+    position: absolute;
+    top: 54px;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    max-width: 780px;
+    margin: 0;
+    padding: 32px $gutter;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 16px;
+    line-height: 26px;
+
+    @include desktop {
+      top: 78px;
+    }
+
+    h1 {
+      margin: 8px 0;
+      font-size: 34px;
+      line-height: 40px;
+      font-weight: normal;
+    }
+
+    h2 {
+      margin: 8px 0;
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: normal;
+    }
+
+    hr {
+      border: 1px solid $transparent;
+      border-top: 1px solid $border-color;
+      margin: 20px 0;
+    }
+
+    p {
+      margin: 16px 0;
+    }
+
+    li {
+      margin: 16px 0;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    button {
+      margin: 0;
+      padding: 14px 84px;
+      background-color: $action-button-bg;
+      color: white;
+      font-size: 20px;
+      line-height: 24px;
+      border-radius: 6px;
+
+      &:active {
+        background-color: darken($action-button-bg, 10%);
+      }
+    }
+
+    .input-group {
+      margin: 16px 0;
+      padding: 0;
+
+      input[type="checkbox"] {
+        margin: 0;
+        margin-right: 8px;
+      }
+    }
+  }
+}

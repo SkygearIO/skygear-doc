@@ -10,10 +10,15 @@ import TitleBarWithMenuButton from '../../components/TitleBarWithMenuButton/Titl
 import Guide from './Guide';
 import GuidesMenu from '../../components/GuidesMenu/GuidesMenu';
 
+import * as ContributePage from '../../pages/contribute';
+
 import ContentIndex from '../../content.index';
 
 import * as GuidePathDigester from '../../utils/guidePathDigester';
 import * as GuideContentSearcher from '../../utils/guideContentSearcher';
+import { getWindow } from '../../utils/browserProxy';
+
+import { guideEditBaseUrl } from '../../config';
 
 import apiRefIcon from '../../static/images/icn-api-ref.svg';
 import supportIcon from '../../static/images/icn-support.svg';
@@ -28,6 +33,7 @@ class GuidePage extends Component {
 
     this.toggleMenuState = this.toggleMenuState.bind(this);
     this.onBodyClick = this.onBodyClick.bind(this);
+    this.onGuideEditButtonClick = this.onGuideEditButtonClick.bind(this);
     this.debouncedSetMenuShouldShowInMobile = _.debounce(
       this.debouncedSetMenuShouldShowInMobile.bind(this), 100);
 
@@ -59,6 +65,28 @@ class GuidePage extends Component {
     if (guideMenuDOM && !guideMenuDOM.contains(event.target)) {
       this.debouncedSetMenuShouldShowInMobile(false);
     }
+  }
+
+  onGuideEditButtonClick() {
+    const { routes, router } = this.props;
+    const currentRoute = routes.slice(-1)[0];
+    const { filePath } = currentRoute;
+    if (!filePath) {
+      return;
+    }
+
+    const Window = getWindow();
+    if (Window.localStorage.getItem(ContributePage.LocalStorageKey) === 'true') {
+      Window.location = `${guideEditBaseUrl}${filePath}`;
+      return;
+    }
+
+    router.push({
+      pathname: '/contribute/',
+      query: {
+        file: filePath,
+      },
+    });
   }
 
   toggleMenuState() {
@@ -131,6 +159,7 @@ class GuidePage extends Component {
           key={`guide:${currentGuide.baseUrl + (currentLanguage || '')}`}
           title={guideTitle}
           docHtml={docHtml}
+          editButtonOnClick={this.onGuideEditButtonClick}
         />
       </div>
     );
@@ -139,10 +168,15 @@ class GuidePage extends Component {
 
 GuidePage.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape({
-    language: PropTypes.string,
+    filePath: PropTypes.string,
+    path: PropTypes.string,
+    title: PropTypes.string,
     guideTtle: PropTypes.string,
+    guideDescription: PropTypes.string,
+    guideImage: PropTypes.string,
     docHtml: PropTypes.string,
   })),
+  router: PropTypes.object,
 };
 
 export default GuidePage;

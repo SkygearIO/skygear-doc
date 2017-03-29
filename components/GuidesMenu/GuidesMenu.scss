@@ -4,27 +4,30 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 3px $gutter;
+  padding: 3px 0;
   background: $guide-menu-bg;
 
   .language-links {
-    flex: 0 0 74px;
-    padding: 8px 0;
-    box-sizing: border-box;
+    flex: 0 0 57px;
+    padding: 8px $gutter;
     border-bottom: 1px solid $theme-light-gray;
     background-color: $guide-menu-bg;
 
     /* Overriding css of LanguageLink component */
     a {
-      margin-right: 1.5rem;
-
-      &:last-child {
-        margin-right: 0;
-      }
+      display: inline-block;
+      width: 33%;
+      padding: 0;
+      padding-right: 18px;
+      box-sizing: border-box;
 
       .language-link {
         width: auto;
         margin: 0;
+
+        .text {
+          font-size: 16px;
+        }
       }
 
       @include mobile {
@@ -35,12 +38,13 @@
 
   nav {
     flex: 1;
+    padding: 0 $gutter;
     overflow-y: auto;
 
     .guides-menu-section {
       .section-name {
         text-transform: uppercase;
-        font-family: freight-sans-medium;
+        font-family: freight-sans-medium, sans-serif;
         color: $text-color;
         font-size: 1.2rem;
 
@@ -55,7 +59,7 @@
         padding-bottom: 0.6rem;
 
         .guide-name {
-          font-family: freight-sans-book;
+          font-family: freight-sans-book, sans-serif;
           color: $text-color;
           font-size: 1rem;
           margin-top: 0;

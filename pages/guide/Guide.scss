@@ -14,18 +14,16 @@
     line-height: 50px;
 
     @include large-screen {
-      margin-right: $guide-toc-width + 2 * $guide-toc-gutter + $guide-gutter;
+      margin-right: $guide-meta-section-width + 2 * $guide-meta-section-gutter + $guide-gutter;
     }
   }
 
   .guide-content {
-    padding-top: 12px;
-    padding-left: $guide-gutter;
-    padding-right: $guide-gutter;
-    padding-bottom: 12rem;
+    margin: 12px $guide-gutter;
+    padding: 0;
 
     @include large-screen {
-      margin-right: $guide-toc-width + 2 * $guide-toc-gutter;
+      margin-right: $guide-meta-section-width + 2 * $guide-meta-section-gutter + $guide-gutter;
     }
 
     h1,h2,h3,h4 {
@@ -222,44 +220,75 @@
       }
     }
 
-    .table-of-contents {
+    .meta-section {
       display: block;
       margin: 0;
 
       @include large-screen {
         position: fixed;
         display: inline-block;
-        top: $banner-height + $guide-toc-gutter;
-        right: $guide-toc-gutter;
-        width: $guide-toc-width;
+        top: $banner-height + $guide-meta-section-gutter;
+        right: $guide-meta-section-gutter;
+        width: $guide-meta-section-width;
       }
 
-      &::before {
-        content: "Contents";
-        display: block;
-        margin: 0;
-        padding: 7px 0;
-        margin-bottom: 0.5rem;
-        font-size: 0.8rem;
-        font-weight: bold;
-      }
-
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-
-        li {
-          font-size: 0.8rem;
-          line-height: 1rem;
+      .table-of-contents {
+        &::before {
+          content: "Contents";
+          display: block;
+          margin: 0;
+          padding: 7px 0;
           margin-bottom: 0.5rem;
+          font-size: 12px;
+          font-weight: bold;
+        }
 
-          a {
-            color: $guide-toc-anchor-color;
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
 
-            &:hover {
-              color: $guide-toc-anchor-active-color;
+          li {
+            font-size: 12px;
+            line-height: 16px;
+            margin-bottom: 0.5rem;
+
+            a {
+              color: $guide-toc-anchor-color;
+
+              &:hover {
+                color: $guide-toc-anchor-active-color;
+              }
             }
+          }
+        }
+      }
+
+      .edit-section {
+        display: flex;
+        flex-direction: row;
+        margin: 32px 0;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+          font-size: 14px;
+          line-height: 17px;
+        }
+
+        button {
+          flex: 0 0 74px;
+          margin: 0;
+          padding: 10px 22px;
+          box-sizing: border-box;
+          background-color: $action-button-bg;
+          color: white;
+          font-size: 16px;
+          line-height: 18px;
+          border-radius: 6px;
+
+          &:active {
+            background-color: darken($action-button-bg, 10%);
           }
         }
       }
