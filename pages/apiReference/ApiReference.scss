@@ -1,8 +1,5 @@
 @import '../../components/variables.scss';
 
-$api-reference-item-height-mobile: 75px;
-$api-reference-item-height-desktop: 90px;
-
 .api-reference {
   @include container-width;
   font-family: freight-sans-medium, sans-serif;
@@ -22,13 +19,13 @@ $api-reference-item-height-desktop: 90px;
 
     margin-top: 14px;
     margin-bottom: 14px;
-    height: $api-reference-item-height-mobile;
+    height: 75px;
     border-radius: $div-border-radius;
 
     @include desktop {
       margin-top: 23px;
       margin-bottom: 23px;
-      height: $api-reference-item-height-desktop;
+      height: 90px;
     }
 
     &:hover {
@@ -53,17 +50,24 @@ $api-reference-item-height-desktop: 90px;
     }
 
     h2 {
+      position: absolute;
+      top: 50%;
+      left: 25px;
+      right: 65px;
+      box-sizing: border-box;
       background-repeat: no-repeat;
       background-position: left center;
+      margin: 0;
+      padding: 0;
       padding-left: 60px;
-      margin: 0 15px 0 0;
       color: $text-color;
+      transform: translateY(-50%);
 
-      line-height: $api-reference-item-height-mobile;
+      line-height: 30px;
       font-size: 18px;
 
       @include desktop {
-        line-height: $api-reference-item-height-desktop;
+        line-height: 40px;
         font-size: 20px;
       }
 
