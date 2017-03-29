@@ -4,7 +4,10 @@ import './ApiReference.scss';
 
 const ApiReference = () => (
   <div className="api-reference">
-    <a href="http://cocoadocs.org/docsets/SKYKit/" target="_blank">
+    <a
+      href="https://docs.skygear.io/ios/reference/"
+      target="_blank"
+    >
       <div className="api-reference-item">
         <h2 className="ios-sdk">
           iOS SDK (User Auth, Push, Cloud DB, Pubsub)
@@ -28,7 +31,7 @@ const ApiReference = () => (
         <div className="right-arrow" />
       </div>
     </a>
-    <a href="http://cocoadocs.org/docsets/SKYKitChat/0.0.1/Classes/SKYChatExtension.html" target="_blank">
+    <a href="http://cocoadocs.org/docsets/SKYKitChat/" target="_blank">
       <div className="api-reference-item">
         <h2 className="ios-sdk">
           iOS SDK (Chat)
