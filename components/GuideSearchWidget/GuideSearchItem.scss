@@ -13,7 +13,12 @@
     height: auto;
   }
 
-  .guide-search-item-content {
+  .guide-search-item-container {
+    em {
+      font-style: normal;
+      color: $content-highlight-color;
+    }
+
     h1 {
       margin: 0;
       margin-bottom: 8px;
@@ -27,14 +32,19 @@
     .guide-search-item-description {
       display: block;
       margin: 8px 0;
-      font-size: 14px;
-      color: lighten($content-color, 20%);
+      font-size: 12px;
+      color: $content-color;
     }
 
-    .guide-search-item-url {
+    .guide-search-item-content {
       display: block;
+      margin: 8px 0;
       font-size: 12px;
-      color: $link-color;
+      color: lighten($content-color, 10%);
+
+      em {
+        color: lighten($content-highlight-color, 10%);
+      }
     }
   }
 }
