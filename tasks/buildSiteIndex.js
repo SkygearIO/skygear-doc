@@ -3,6 +3,10 @@
 const GuidePathGenerator = require('../utils/guidePathGenerator');
 const algoliasearch = require('algoliasearch');
 
+const CodeBlockRegex = /```[^`]+```/gm;
+const NotAlphaNumericOrDotOrSpaceRegex = /[^0-9a-z\.\s]/gmi; // eslint-disable-line
+const MultiSpaceRegex = /\s+/gmi;
+
 module.exports = ({ files, config }) => {
   const { baseUrl, applicationID, apiKey } = config;
 
@@ -25,11 +29,15 @@ module.exports = ({ files, config }) => {
         title: perFile.attributes.title,
         description: perFile.attributes.description,
         image: perFile.attributes.image,
+        content: perFile.content
+          .replace(CodeBlockRegex, '')
+          .replace(NotAlphaNumericOrDotOrSpaceRegex, ' ')
+          .replace(MultiSpaceRegex, ' '),
       }));
 
   const guideIndex = algoliaClient.initIndex('guides');
   return guideIndex.setSettings({
-    searchableAttributes: ['url', 'title', 'description'],
+    searchableAttributes: ['title', 'description', 'content'],
   })
   .then(() => guideIndex.saveObjects(guideIndexData));
 };

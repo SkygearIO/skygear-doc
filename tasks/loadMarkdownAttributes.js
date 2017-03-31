@@ -12,9 +12,11 @@ module.exports = ({ files, cwd }) => {
           return;
         }
 
+        const formatedData = frontMatter(data);
         resolve({
           fileName: eachFile,
-          attributes: frontMatter(data).attributes,
+          attributes: formatedData.attributes,
+          content: formatedData.body.replace(/\n/g, ' '),
         });
       });
     }));
