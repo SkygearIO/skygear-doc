@@ -8,7 +8,7 @@ import './TitleBarWithMenuButton.scss';
 
 const TitleBarWithMenuButton = (props) => (
   <TitleBar>
-    <div className="guides-title">
+    <div className="guide-title">
       <div
         className="hamburger-icon"
         onClick={props.onMenuButtonClick}

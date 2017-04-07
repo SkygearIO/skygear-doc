@@ -1,0 +1,54 @@
+@import '../../components/variables.scss';
+
+$banner-height: 194px;
+$banner-height-mobile: 118px;
+
+.guide-list-page {
+  .banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $banner-height;
+    z-index: 2;
+
+    @include mobile {
+      height: $banner-height-mobile;
+    }
+  }
+
+  .title-bar-container {
+    .guide-list-title {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .guide-search-widget {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 400px;
+      height: 40px;
+      transform: translateY(-20px);
+
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+
+  .guide-list-container {
+    position: fixed;
+    top: $banner-height;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    @include mobile {
+      top: $banner-height-mobile;
+    }
+  }
+}

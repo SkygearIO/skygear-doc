@@ -1,47 +1,49 @@
 @import '../variables.scss';
 
-.guides-title {
-  position: relative;
+.title-bar-container {
+  .guide-title {
+    position: relative;
 
-  #hamburger-menu-toggle {
-    display: none;
+    #hamburger-menu-toggle {
+      display: none;
+    }
+
+    .hamburger-icon {
+      cursor: pointer;
+      display: none;
+      width: 35px;
+      height: 40px;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-image: url('../../static/images/menu.png');
+      background-size: 24px 16px;
+
+      &:hover {
+        background-image: url('../../static/images/menu-activate.png');
+      }
+
+      @include mobile {
+        display: inline-block;
+      }
+    }
+
+    h1 {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 
-  .hamburger-icon {
-    cursor: pointer;
-    display: none;
-    width: 35px;
+  .guide-search-widget {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 400px;
     height: 40px;
-    vertical-align: middle;
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-image: url('../../static/images/menu.png');
-    background-size: 24px 16px;
-
-    &:hover {
-      background-image: url('../../static/images/menu-activate.png');
-    }
+    transform: translateY(-20px);
 
     @include mobile {
-      display: inline-block;
+      display: none;
     }
-  }
-
-  h1 {
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
-
-.guide-search-widget {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 400px;
-  height: 40px;
-  transform: translateY(-20px);
-
-  @include mobile {
-    display: none;
   }
 }
