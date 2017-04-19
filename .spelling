@@ -168,6 +168,8 @@ utils
 versioning
 whitelist
 writable
+unregister
+Unregistering
 
 # short forms
 e.g.
