@@ -1,40 +1,16 @@
 @import '../../components/variables.scss';
 
-$banner-height: 194px;
-$banner-height-mobile: 118px;
+$banner-height: 72px;
+$language-buttons-container-width: 270px;
 
 .guide-list-page {
-  .banner {
+  .header-banner {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: $banner-height;
     z-index: 2;
-
-    @include mobile {
-      height: $banner-height-mobile;
-    }
-  }
-
-  .title-bar-container {
-    .guide-list-title {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .guide-search-widget {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      width: 400px;
-      height: 40px;
-      transform: translateY(-20px);
-
-      @include mobile {
-        display: none;
-      }
-    }
   }
 
   .guide-list-container {
@@ -43,12 +19,112 @@ $banner-height-mobile: 118px;
     right: 0;
     bottom: 0;
     left: 0;
+    width: 100%;
 
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 
-    @include mobile {
-      top: $banner-height-mobile;
+    .guide-list {
+      @include container-width;
+      padding-top: 0;
+      padding-bottom: 7px;
+
+      @include desktop {
+        padding-top: 13px;
+      }
+
+      .guide-list-section {
+        padding-top: 0;
+
+        @include desktop {
+          padding-top: 10px;
+        }
+
+        .guide-list-section-title {
+          text-transform: uppercase;
+          line-height: 50px;
+          font-family: freight-sans-medium, sans-serif;
+          font-size: 22px;
+
+          @include desktop {
+            font-size: 28px;
+          }
+        }
+
+        .guide-list-item {
+          @include clearfix;
+          border-bottom: 1px solid #BECBCF;
+          padding-bottom: 5px;
+          margin-bottom: 15px;
+          position: relative;
+
+          @include desktop {
+            margin-bottom: 25px;
+          }
+
+          .languages {
+            position: absolute;
+            bottom: 23px;
+            right: 15px;
+            width: $language-buttons-container-width;
+            text-align: right;
+
+            @include mobile {
+              display: none;
+            }
+          }
+
+          .arrow {
+            margin-top: 22px;
+            margin-left: 15px;
+            width: 20px;
+            height: 30px;
+            float: right;
+            background-image: url('../../static/images/right-arrow.png');
+            background-position: center center;
+            background-size: 15px 14px;
+            background-repeat: no-repeat;
+
+            &:hover {
+              background-image: url('../../static/images/right-arrow-mouseover.png');
+            }
+
+            @include desktop {
+              display: none;
+            }
+          }
+
+          .item-info {
+            font-family: freight-sans-book, sans-serif;
+
+            @include desktop {
+              margin-right: $language-buttons-container-width;
+            }
+
+            h3 {
+              font-size: 18px;
+
+              @include desktop {
+                font-size: 22px;
+              }
+            }
+
+            p.description {
+              font-size: 14px;
+              line-height: 1.42em;
+
+              @include desktop {
+                font-size: 18px;
+              }
+
+              @include mobile {
+                margin-top: 10px;
+                margin-bottom: 13px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

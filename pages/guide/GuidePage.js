@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 import PageMeta from '../../components/PageMeta/PageMeta';
-import Banner from '../../components/Banner/Banner';
 import Header from '../../components/Header/Header';
 import HeaderNav from '../../components/Header/Nav/Nav';
 import TitleBarWithMenuButton from '../../components/TitleBarWithMenuButton/TitleBarWithMenuButton';
@@ -20,6 +19,7 @@ import { getWindow } from '../../utils/browserProxy';
 
 import { guideEditBaseUrl } from '../../config';
 
+import guidesIcon from '../../static/images/icn-guides.svg';
 import apiRefIcon from '../../static/images/icn-api-ref.svg';
 import supportIcon from '../../static/images/icn-support.svg';
 
@@ -131,23 +131,26 @@ class GuidePage extends Component {
           ogDescription={currentRoute.guideDescription}
           ogImage={currentRoute.guideImage}
         />
-        <Banner>
-          <Header>
-            <HeaderNav
-              href="/api-reference/"
-              img={apiRefIcon}
-              text="API reference"
-            />
-            <HeaderNav
-              href="/support/"
-              img={supportIcon}
-              text="Support"
-            />
-          </Header>
-          <TitleBarWithMenuButton
-            onMenuButtonClick={this.toggleMenuState}
+        <Header>
+          <HeaderNav
+            img={guidesIcon}
+            text="Guides"
+            active
           />
-        </Banner>
+          <HeaderNav
+            href="/api-reference/"
+            img={apiRefIcon}
+            text="API reference"
+          />
+          <HeaderNav
+            href="/support/"
+            img={supportIcon}
+            text="Support"
+          />
+        </Header>
+        <TitleBarWithMenuButton
+          onMenuButtonClick={this.toggleMenuState}
+        />
         <GuidesMenu
           ref="guide-menu"
           contentIndex={ContentIndex}
