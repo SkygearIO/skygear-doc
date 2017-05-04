@@ -1,21 +1,44 @@
 @import '../variables.scss';
 
-.header {
-  display: flex;
-  padding-top: 15px;
-  padding-bottom: 0;
-  justify-content: space-between;
+.header-banner {
+  color: white;
 
-  @include desktop {
-    padding-top: 28px;
-    padding-bottom: 28px;
-  }
+  /* fallback */
+  background: #00a5cd;
+  background-image: linear-gradient(165deg, #03c2bf 15.97%, #0076cb);
 
-  .logo {
-    height: 20px;
+  .header-banner-background {
+    width: 100%;
+    box-sizing: border-box;
+    background-image: url('../../static/images/top-bg.png');
+    background-repeat: no-repeat;
+    background-position: -17px 47px;
+    background-size: 214px 327px;
+    padding-left: $gutter;
+    padding-right: $gutter;
 
     @include desktop {
-      height: 26px;
+      background-position: 37px 75px, 0% 0%;
+      padding-left: $desktop-side-margin;
+      padding-right: $desktop-side-margin;
+    }
+
+    .header {
+      display: flex;
+      padding: 12px 0;
+      justify-content: space-between;
+
+      .logo-anchor {
+        display: inline-block;
+        width: 175px;
+        height: 30px;
+        margin: 9px 0;
+        background-image: url('../../static/docs-logo.png');
+        background-size: 100% auto;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
     }
   }
 }
