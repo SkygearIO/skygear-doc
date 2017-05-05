@@ -30,7 +30,9 @@
 
       .logo-anchor {
         display: inline-block;
-        width: 175px;
+        flex-basis: 175px;
+        flex-grow: 0;
+        flex-shrink: 2;
         height: 30px;
         margin: 9px 0;
         background-image: url('../../static/docs-logo.png');
@@ -39,6 +41,32 @@
         background-repeat: no-repeat;
       }
 
+      .header-nav {
+        display: block;
+        flex-basis: 490px;
+        flex-grow: 0;
+        flex-shrink: 1;
+        margin: 0 16px;
+      }
+
+      .guide-search-widget {
+        display: none;
+        flex-basis: 250px;
+        flex-grow: 0;
+        flex-shrink: 2;
+        height: 38px;
+        margin: 5px 0;
+        z-index: 1;
+
+        @include desktop {
+          display: block;
+        }
+
+        .suggestion-container {
+          width: 400px;
+          transform: translateX(-150px);
+        }
+      }
     }
   }
 }

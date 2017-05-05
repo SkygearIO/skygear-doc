@@ -4,17 +4,13 @@
 .guide-page {
   position: absolute;
 
-  .banner {
+  .header-banner {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: $banner-height;
     z-index: 2;
-
-    @include mobile {
-      height: $banner-height-mobile;
-    }
   }
 
   .guide-menu {
@@ -29,7 +25,6 @@
     overflow-y: auto;
 
     @include mobile {
-      top: $banner-height-mobile;
       left: -$guide-menu-width-mobile;
       width: $guide-menu-width-mobile;
       transition: left 0.5s;
@@ -51,7 +46,6 @@
     overflow-y: scroll;
 
     @include mobile {
-      top: $banner-height-mobile;
       left: 0;
     }
   }

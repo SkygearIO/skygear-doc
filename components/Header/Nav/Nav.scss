@@ -1,12 +1,18 @@
 @import '../../variables.scss';
 
-.header-nav {
+.header-nav-item {
+  display: inline-block;
   color: $body-bg;
-  margin-left: 36px;
+  margin-left: 18px;
+  border-radius: 100px;
 
   &:hover {
     color: $body-bg;
     opacity: 0.8;
+  }
+
+  &.active {
+    background-color: rgba(255, 255, 255, 0.3);
   }
 
   @include mobile {
@@ -17,12 +23,15 @@
     display: inline-block;
     height: 24px;
     width: auto;
-    margin: 0 12px;
+    margin: 12px 18px;
     vertical-align: middle;
   }
 
   span {
-    font-size: 20px;
+    display: inline-block;
+    margin: 12px 18px;
+    margin-left: 0;
+    font-size: 16px;
     line-height: 24px;
     vertical-align: middle;
 
