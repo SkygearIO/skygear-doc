@@ -1,13 +1,7 @@
 import React from 'react';
 
 import Header from '../../components/Header/Header';
-import HeaderNav from '../../components/Header/Nav/Nav';
-import TitleBar from '../../components/TitleBar/TitleBar';
 import Footer from '../../components/Footer/Footer';
-
-import guidesIcon from '../../static/images/icn-guides.svg';
-import apiRefIcon from '../../static/images/icn-api-ref.svg';
-import supportIcon from '../../static/images/icn-support.svg';
 
 import './style.scss';
 
@@ -41,23 +35,7 @@ const SupportItem = ({
 
 export default () => (
   <div className="support-page">
-    <Header>
-      <HeaderNav
-        href="/guides/"
-        img={guidesIcon}
-        text="Guides"
-      />
-      <HeaderNav
-        href="/api-reference/"
-        img={apiRefIcon}
-        text="API reference"
-      />
-      <HeaderNav
-        img={supportIcon}
-        text="Support"
-        active
-      />
-    </Header>
+    <Header />
     <div className="support-container">
       <div className="support-content">
         <div className="support-items">

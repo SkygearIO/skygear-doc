@@ -1,13 +1,7 @@
 import React from 'react';
 
 import Header from '../../components/Header/Header';
-import HeaderNav from '../../components/Header/Nav/Nav';
-import TitleBar from '../../components/TitleBar/TitleBar';
 import Footer from '../../components/Footer/Footer';
-
-import guidesIcon from '../../static/images/icn-guides.svg';
-import apiRefIcon from '../../static/images/icn-api-ref.svg';
-import supportIcon from '../../static/images/icn-support.svg';
 
 import './style.scss';
 
@@ -43,23 +37,7 @@ const JavascriptApiReferenceItem = (props) => {
 
 export default () => (
   <div className="api-reference-page">
-    <Header>
-      <HeaderNav
-        href="/guides/"
-        img={guidesIcon}
-        text="Guides"
-      />
-      <HeaderNav
-        img={apiRefIcon}
-        text="API reference"
-        active
-      />
-      <HeaderNav
-        href="/support/"
-        img={supportIcon}
-        text="Support"
-      />
-    </Header>
+    <Header />
     <div className="api-reference-container">
       <div className="api-reference">
         <IosApiReferenceItem

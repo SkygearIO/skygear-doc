@@ -48,12 +48,19 @@ $doc-advanced-color: #325b8e;
 $border-color: #becbcf;
 $border-color2: #e8e8e8;
 
+$header-nav-item-active-color: rgba(255, 255, 255, 0.3);
+$header-nav-pulldown-bg-color: rgba(255, 255, 255, 0.3);
+$header-nav-pulldown-active-bg-color: #ffffff;
+
 $gutter: 15px;
 $desktop-side-margin: 40px;
 
 $div-border-radius: 6px;
 
 $action-button-bg: #fb914c;
+
+$header-height: 72px;
+$header-tablet-height: 122px;
 
 /*
  * Typography
@@ -71,9 +78,6 @@ $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
 
-$responsive-threshold: $screen-sm-min;
-$responsive-threshold-minus-one: $screen-sm-min - 1;
-
 /*
  * Some commonly use mixins
  * -------------------------------------------------------------------------- */
@@ -85,14 +89,29 @@ $responsive-threshold-minus-one: $screen-sm-min - 1;
 }
 
 @mixin desktop {
-  @media (min-width: $responsive-threshold) {
+  @media (min-width: $screen-sm-min) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $screen-md-min - 1) {
     @content;
   }
 }
 
 @mixin mobile {
-  @media (max-width: $responsive-threshold-minus-one) {
+  @media (max-width: $screen-sm-min - 1) {
     @content;
+  }
+}
+
+@mixin below-header($position-option: fixed) {
+  position: $position-option;
+  top: $header-height;
+
+  @include tablet {
+    top: $header-tablet-height;
   }
 }
 

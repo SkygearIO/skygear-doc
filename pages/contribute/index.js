@@ -1,11 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 import Header from '../../components/Header/Header';
-import HeaderNav from '../../components/Header/Nav/Nav';
 
-import guidesIcon from '../../static/images/icn-guides.svg';
-import apiRefIcon from '../../static/images/icn-api-ref.svg';
-import supportIcon from '../../static/images/icn-support.svg';
 import prScreenshot from '../../static/assets/contribute/pr-screenshot.png';
 
 import { guideEditBaseUrl } from '../../config';
@@ -60,23 +56,7 @@ class ContributePgae extends Component {
   render() {
     return (
       <section className="contribute-page">
-        <Header>
-          <HeaderNav
-            img={guidesIcon}
-            text="Guides"
-            active
-          />
-          <HeaderNav
-            href="/api-reference/"
-            img={apiRefIcon}
-            text="API reference"
-          />
-          <HeaderNav
-            href="/support/"
-            img={supportIcon}
-            text="Support"
-          />
-        </Header>
+        <Header />
         <div className="wrapper">
           <div className="content">
             <h1>Contributing to the Skygear guides</h1>

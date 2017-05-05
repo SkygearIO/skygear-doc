@@ -3,18 +3,8 @@
 $banner-height: 72px;
 
 .support-page {
-  .header-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: $banner-height;
-    z-index: 2;
-  }
-
   .support-container {
-    position: fixed;
-    top: $banner-height;
+    @include below-header;
     right: 0;
     bottom: 0;
     left: 0;
@@ -205,13 +195,3 @@ $banner-height: 72px;
     }
   }
 }
-
-
-
-
-
-
-
-
-
-

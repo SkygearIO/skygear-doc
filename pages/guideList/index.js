@@ -2,14 +2,8 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 import Header from '../../components/Header/Header';
-import HeaderNav from '../../components/Header/Nav/Nav';
-import TitleBar from '../../components/TitleBar/TitleBar';
 import Footer from '../../components/Footer/Footer';
 import LanguageLink from '../../components/LanguageLink/LanguageLink';
-
-import guidesIcon from '../../static/images/icn-guides.svg';
-import apiRefIcon from '../../static/images/icn-api-ref.svg';
-import supportIcon from '../../static/images/icn-support.svg';
 
 import './style.scss';
 
@@ -73,23 +67,7 @@ GuideListSection.propTypes = {
 
 const GuideListPage = () => (
   <div className="guide-list-page">
-    <Header>
-      <HeaderNav
-        img={guidesIcon}
-        text="Guides"
-        active
-      />
-      <HeaderNav
-        href="/api-reference/"
-        img={apiRefIcon}
-        text="API reference"
-      />
-      <HeaderNav
-        href="/support/"
-        img={supportIcon}
-        text="Support"
-      />
-    </Header>
+    <Header />
     <div className="guide-list-container">
       <div className="guide-list">
         {ContentIndex.sections.map(section => (

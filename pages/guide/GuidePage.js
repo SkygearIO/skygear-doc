@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 
 import PageMeta from '../../components/PageMeta/PageMeta';
 import Header from '../../components/Header/Header';
-import HeaderNav from '../../components/Header/Nav/Nav';
-import TitleBarWithMenuButton from '../../components/TitleBarWithMenuButton/TitleBarWithMenuButton';
+import TitleBarWithMenuButton
+  from '../../components/TitleBarWithMenuButton/TitleBarWithMenuButton';
 import Guide from './Guide';
 import GuidesMenu from '../../components/GuidesMenu/GuidesMenu';
 
@@ -18,10 +18,6 @@ import * as GuideContentSearcher from '../../utils/guideContentSearcher';
 import { getWindow } from '../../utils/browserProxy';
 
 import { guideEditBaseUrl } from '../../config';
-
-import guidesIcon from '../../static/images/icn-guides.svg';
-import apiRefIcon from '../../static/images/icn-api-ref.svg';
-import supportIcon from '../../static/images/icn-support.svg';
 
 import './GuidePage.scss';
 
@@ -131,23 +127,7 @@ class GuidePage extends Component {
           ogDescription={currentRoute.guideDescription}
           ogImage={currentRoute.guideImage}
         />
-        <Header>
-          <HeaderNav
-            img={guidesIcon}
-            text="Guides"
-            active
-          />
-          <HeaderNav
-            href="/api-reference/"
-            img={apiRefIcon}
-            text="API reference"
-          />
-          <HeaderNav
-            href="/support/"
-            img={supportIcon}
-            text="Support"
-          />
-        </Header>
+        <Header />
         <TitleBarWithMenuButton
           onMenuButtonClick={this.toggleMenuState}
         />

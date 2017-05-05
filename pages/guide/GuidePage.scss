@@ -4,18 +4,8 @@
 .guide-page {
   position: absolute;
 
-  .header-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: $banner-height;
-    z-index: 2;
-  }
-
   .guide-menu {
-    position: fixed;
-    top: $banner-height;
+    @include below-header;
     bottom: 0;
     left: 0;
     width: $guide-menu-width;
@@ -36,8 +26,7 @@
   }
 
   .guide {
-    position: fixed;
-    top: $banner-height;
+    @include below-header;
     right: 0;
     bottom: 0;
     left: $guide-menu-width;
