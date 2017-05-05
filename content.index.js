@@ -9,6 +9,12 @@ const guideListConfig = {
           baseUrl: '/guides/intro/quickstart/',
           languages: ['ios', 'android', 'js'],
         },
+        {
+          title: 'Integrating frameworks',
+          description: 'Integrating Webpack, Ionic and Angular',
+          baseUrl: '/guides/intro/integration/',
+          languages: ['js'],
+        },
       ],
     },
     {
