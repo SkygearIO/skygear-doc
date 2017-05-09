@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -10,7 +10,7 @@ const SupportItem = ({
   title,
   description,
   iconClassName,
-  linkText
+  linkText,
 }) => (
   <div className="support-item">
     <div className="support-item-container">
@@ -33,6 +33,20 @@ const SupportItem = ({
   </div>
 );
 
+SupportItem.propTypes = {
+  url: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  iconClassName: PropTypes.string.isRequired,
+  linkText: PropTypes.string.isRequired,
+};
+
+SupportItem.defaultProps = {
+  url: '#',
+  description: '',
+  iconClassName: '',
+};
+
 export default () => (
   <div className="support-page">
     <Header />
@@ -43,7 +57,7 @@ export default () => (
             url="https://github.com/skygear-demo"
             title="Sample Project"
             description={
-              "Get inspirations for your own applications with these samples."
+              'Get inspirations for your own applications with these samples.'
             }
             iconClassName="sample-project"
             linkText="View more on GitHub"
@@ -52,8 +66,8 @@ export default () => (
             url="https://stackoverflow.com/questions/tagged/skygear"
             title="Stack Overflow"
             description={
-              "We will answer any questions tagged with" +
-              "skygear on Stack Overflow as soon as we can!"
+              'We will answer any questions tagged with' +
+              'skygear on Stack Overflow as soon as we can!'
             }
             iconClassName="stackoverflow"
             linkText="Ask questions at Stackoverflow"
@@ -62,8 +76,8 @@ export default () => (
             url="https://groups.google.com/forum/#!forum/skygear-user-group"
             title="Google Group"
             description={
-              "Connect with other developers to share tips and get " +
-              "guestions answered."
+              'Connect with other developers to share tips and get ' +
+              'guestions answered.'
             }
             iconClassName="google-group"
             linkText="Join our Google Group"
@@ -72,8 +86,8 @@ export default () => (
             url="https://skygear.signup.team/"
             title="Slack"
             description={
-              "Slack team for direct chat with Skygear Developers " +
-              "for support, or discuss and learn from other Skygear Users."
+              'Slack team for direct chat with Skygear Developers ' +
+              'for support, or discuss and learn from other Skygear Users.'
             }
             iconClassName="slack"
             linkText="Join our Slack team"

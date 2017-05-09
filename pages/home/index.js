@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 import Footer from '../../components/Footer/Footer';
@@ -30,6 +30,17 @@ const NavButton = ({ to, icon, text, linkText }) => (
   </div>
 );
 
+NavButton.propTypes = {
+  to: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  linkText: PropTypes.string,
+};
+
+NavButton.defaultProps = {
+  linkText: '',
+};
+
 const NavButtons = () => (
   <div className="nav-buttons">
     <div className="nav-button-row">
@@ -60,6 +71,16 @@ const ContributingItem = ({ title, url }) => (
     <a href={url}>{title}</a>
   </li>
 );
+
+ContributingItem.propTypes = {
+  title: PropTypes.string,
+  url: PropTypes.string,
+};
+
+ContributingItem.defaultProps = {
+  title: '',
+  url: '#',
+};
 
 const Contributing = () => (
   <div className="contributing-container">

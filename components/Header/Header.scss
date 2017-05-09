@@ -8,7 +8,6 @@
   height: $header-height;
   z-index: 2;
   color: white;
-
   background: #00a5cd;
   background-image: linear-gradient(165deg, #03c2bf 15.97%, #0076cb);
 
@@ -245,7 +244,7 @@
           }
 
           @include mobile {
-            display: block
+            display: block;
           }
         }
 

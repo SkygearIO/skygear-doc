@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 import './style.scss';
 
-const ApiReferenceItem = ({url, title, titleClassName}) => (
+const ApiReferenceItem = ({ url, title, titleClassName }) => (
   <a href={url} target="_blank">
     <div className="api-reference-item">
       <h2 className={titleClassName}>{title}</h2>
@@ -14,26 +14,24 @@ const ApiReferenceItem = ({url, title, titleClassName}) => (
   </a>
 );
 
-const IosApiReferenceItem = (props) => {
-  return ApiReferenceItem({
-    ...props,
-    titleClassName: 'ios-sdk'
-  });
+ApiReferenceItem.propTypes = {
+  url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  titleClassName: PropTypes.string,
 };
 
-const AndroidApiReferenceItem = (props) => {
-  return ApiReferenceItem({
-    ...props,
-    titleClassName: 'android-sdk'
-  });
+ApiReferenceItem.defaultProps = {
+  titleClassName: '',
 };
 
-const JavascriptApiReferenceItem = (props) => {
-  return ApiReferenceItem({
-    ...props,
-    titleClassName: 'js-sdk'
-  });
-};
+const IosApiReferenceItem
+  = (props) => <ApiReferenceItem {...props} titleClassName="ios-sdk" />;
+
+const AndroidApiReferenceItem
+  = (props) => <ApiReferenceItem {...props} titleClassName="android-sdk" />;
+
+const JavascriptApiReferenceItem
+  = (props) => <ApiReferenceItem {...props} titleClassName="js-sdk" />;
 
 export default () => (
   <div className="api-reference-page">

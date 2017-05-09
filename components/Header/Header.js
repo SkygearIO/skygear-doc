@@ -69,10 +69,10 @@ class Header extends Component {
   getActiveNavigationItemProps() {
     const currentPathname = window.location.pathname;
     return (
-      _.find(NavigationItemsProps, function ({ href }) {
-        return currentPathname.indexOf(href) === 0;
-      }) ||
-      NavigationItemsProps[0]
+      _.find(
+        NavigationItemsProps,
+        ({ href }) => currentPathname.indexOf(href) === 0
+      ) || NavigationItemsProps[0]
     );
   }
 
