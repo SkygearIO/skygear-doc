@@ -215,30 +215,66 @@
         }
       }
 
-      .guide-search-widget {
-        display: block;
-        width: 250px;
-        flex-basis: 250px;
-        flex-grow: 0;
-        flex-shrink: 2;
-        height: 38px;
+      .widget-wrapper {
+        display: flex;
+        max-width: 100%;
+        flex: 0 2 250px;
         margin: 5px 0;
-        z-index: 1;
+        padding: 0;
 
         @include tablet {
-          width: 100%;
           flex-basis: 100%;
-          margin: 12px 0 0 0;
+          margin-top: 12px;
+          margin-bottom: 0;
         }
 
-        .suggestion-container {
-          width: 400px;
-          box-sizing: border-box;
-          transform: translateX(-150px);
+        .mobile-hamburger-button {
+          display: none;
+          flex: 0 0 35px;
+          height: 38px;
+          margin: 0;
+          vertical-align: middle;
+          background-repeat: no-repeat;
+          background-position: left center;
+          background-image: url('../../static/images/menu.png');
+          background-size: 24px 16px;
+          cursor: pointer;
+
+          &:hover {
+            background-image: url('../../static/images/menu-activate.png');
+          }
+
+          @include mobile {
+            display: block
+          }
+        }
+
+        .guide-search-widget {
+          display: block;
+          max-width: 250px;
+          flex: 0 1 250px;
+          height: 38px;
+          margin: 0;
+          z-index: 1;
 
           @include tablet {
-            max-width: 100%;
-            transform: none;
+            max-width: none;
+            flex-basis: 100%;
+          }
+
+          .suggestion-container {
+            width: 400px;
+            box-sizing: border-box;
+            transform: translateX(-150px);
+
+            @include tablet {
+              // max-width: 100%;
+              transform: none;
+            }
+
+            @include mobile {
+              width: 100%;
+            }
           }
         }
       }

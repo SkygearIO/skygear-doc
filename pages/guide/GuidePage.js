@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 
 import PageMeta from '../../components/PageMeta/PageMeta';
 import Header from '../../components/Header/Header';
-import TitleBarWithMenuButton
-  from '../../components/TitleBarWithMenuButton/TitleBarWithMenuButton';
 import Guide from './Guide';
 import GuidesMenu from '../../components/GuidesMenu/GuidesMenu';
 
@@ -30,8 +28,9 @@ class GuidePage extends Component {
     this.toggleMenuState = this.toggleMenuState.bind(this);
     this.onBodyClick = this.onBodyClick.bind(this);
     this.onGuideEditButtonClick = this.onGuideEditButtonClick.bind(this);
+    this.setMenuShouldShowInMobile = this.setMenuShouldShowInMobile.bind(this);
     this.debouncedSetMenuShouldShowInMobile = _.debounce(
-      this.debouncedSetMenuShouldShowInMobile.bind(this), 100);
+      this.setMenuShouldShowInMobile, 100);
 
     this.state = {
       menuShouldShowInMobile: false,
@@ -43,6 +42,14 @@ class GuidePage extends Component {
       document.body.addEventListener('click', this.onBodyClick);
     } catch (e) {
       // skip add event listener
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const currentRoute = this.props.routes.slice(-1)[0];
+    const nextRoute = nextProps.routes.slice(-1)[0];
+    if (nextRoute.path !== currentRoute.path) {
+      this.setMenuShouldShowInMobile(false);
     }
   }
 
@@ -85,15 +92,15 @@ class GuidePage extends Component {
     });
   }
 
-  toggleMenuState() {
-    const { menuShouldShowInMobile } = this.state;
-    this.debouncedSetMenuShouldShowInMobile(!menuShouldShowInMobile);
-  }
-
-  debouncedSetMenuShouldShowInMobile(shouldShow) {
+  setMenuShouldShowInMobile(shouldShow) {
     this.setState({
       menuShouldShowInMobile: shouldShow,
     });
+  }
+
+  toggleMenuState() {
+    const { menuShouldShowInMobile } = this.state;
+    this.debouncedSetMenuShouldShowInMobile(!menuShouldShowInMobile);
   }
 
   render() {
@@ -127,9 +134,9 @@ class GuidePage extends Component {
           ogDescription={currentRoute.guideDescription}
           ogImage={currentRoute.guideImage}
         />
-        <Header />
-        <TitleBarWithMenuButton
-          onMenuButtonClick={this.toggleMenuState}
+        <Header
+          onHamburgerButtonClick={this.toggleMenuState}
+          showMobileHamburgerButton
         />
         <GuidesMenu
           ref="guide-menu"

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 
@@ -18,6 +18,8 @@ import supportMobileIcon from '../../static/images/icn-support-mobile.svg';
 import supportActiveIcon from '../../static/images/icn-support-active.svg';
 
 import './Header.scss';
+
+const NoOpCallback = () => null;
 
 const NavigationItemsProps = [
   {
@@ -128,6 +130,19 @@ class Header extends Component {
     );
   }
 
+  renderMobileHamburgerButton() {
+    if (!this.props.showMobileHamburgerButton) {
+      return null;
+    }
+
+    return (
+      <div
+        className="mobile-hamburger-button"
+        onClick={this.props.onHamburgerButtonClick}
+      />
+    );
+  }
+
   render() {
     return (
       <div className="header-banner">
@@ -136,12 +151,25 @@ class Header extends Component {
             <Link to="/" className="logo-anchor" />
             {this.renderNavigationList()}
             {this.renderNavigationPulldown()}
-            <GuideSearchWidget />
+            <div className="widget-wrapper">
+              {this.renderMobileHamburgerButton()}
+              <GuideSearchWidget />
+            </div>
           </div>
         </div>
       </div>
     );
   }
 }
+
+Header.propTypes = {
+  showMobileHamburgerButton: PropTypes.bool,
+  onHamburgerButtonClick: PropTypes.func,
+};
+
+Header.defaultProps = {
+  showMobileHamburgerButton: false,
+  onHamburgerButtonClick: NoOpCallback,
+};
 
 export default Header;
