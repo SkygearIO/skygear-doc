@@ -14,6 +14,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const appConfig = require('./config');
+const contentIndex = require('./content.index');
 
 const tasks = new Map(); // The collection of automation tasks ('clean', 'build', etc.)
 
@@ -131,8 +132,21 @@ tasks.set('site-index', () =>
       = process.env.ALGOLIA_APP_ID || appConfig.algoliaApplicationID;
     const algoliaAdminKey = process.env.ALGOLIA_ADMIN_KEY;
 
+    const sections
+      = contentIndex.sections.reduce((allSections, eachSection) => {
+        if (!eachSection.id) {
+          return allSections;
+        }
+
+        return {
+          ...allSections,
+          [eachSection.id]: eachSection,
+        };
+      }, {});
+
     return run('buildSiteIndex', {
-      files: files,
+      files,
+      sections,
       config: {
         baseUrl: appConfig.guideBaseUrl,
         applicationID: algoliaApplicationID,
