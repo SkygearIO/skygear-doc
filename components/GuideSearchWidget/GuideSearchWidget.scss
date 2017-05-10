@@ -113,4 +113,26 @@
       }
     }
   }
+
+  .guide-search-empty {
+    position: relative;
+    border: 1px solid $border-color;
+    background-color: $body-bg;
+    box-shadow: 0 0 8px $theme-light-gray;
+
+    span {
+      display: block;
+      margin: 50px 44px 66px;
+      color: $theme-medium-gray;
+      text-align: center;
+    }
+
+    img {
+      position: absolute;
+      display: inline-block;
+      right: 0;
+      bottom: 0;
+      margin: 16px;
+    }
+  }
 }

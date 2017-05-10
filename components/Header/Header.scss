@@ -264,7 +264,20 @@
             transform: translateX(-150px);
 
             @include tablet {
-              // max-width: 100%;
+              transform: none;
+            }
+
+            @include mobile {
+              width: 100%;
+            }
+          }
+
+          .guide-search-empty {
+            width: 400px;
+            box-sizing: border-box;
+            transform: translateX(-150px);
+
+            @include tablet {
               transform: none;
             }
 

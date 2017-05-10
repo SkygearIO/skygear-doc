@@ -14,7 +14,6 @@ import './GuideSearchWidget.scss';
 // AutosuggestTheme defines what className will be assigned to
 // components under Autosuggest
 const AutosuggestTheme = {
-  container: 'guide-search-widget',
   input: 'search-input',
   inputOpen: 'search-input-active',
   inputFocused: 'search-input-active',
@@ -37,8 +36,6 @@ class GuideSearchWidget extends Component {
     this.onKeyDown = this.onKeyDown.bind(this);
     this.onSuggestionsFetchRequested
       = _.debounce(this.onSuggestionsFetchRequested.bind(this), 300);
-    this.onSuggestionsClearRequested =
-      this.onSuggestionsClearRequested.bind(this);
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
     this.getSectionSuggestions = this.getSectionSuggestions.bind(this);
     this.getSuggestionValue = this.getSuggestionValue.bind(this);
@@ -69,6 +66,10 @@ class GuideSearchWidget extends Component {
   }
 
   onSuggestionsFetchRequested({ value }) {
+    this.setState({
+      noResults: false,
+    });
+
     if (value.length === 0) {
       this.setState({
         suggestions: [],
@@ -98,11 +99,14 @@ class GuideSearchWidget extends Component {
           suggestionMap[guideSection.id].push(eachGuide);
         });
 
+        const suggestions = sections.map((eachSection) => ({
+          ...eachSection,
+          suggestions: suggestionMap[eachSection.id],
+        }));
+
         this.setState({
-          suggestions: sections.map((eachSection) => ({
-            ...eachSection,
-            suggestions: suggestionMap[eachSection.id],
-          })),
+          noResults: suggestions.length === 0,
+          suggestions,
         });
       });
   }
@@ -121,18 +125,25 @@ class GuideSearchWidget extends Component {
     }
   }
 
-  onSuggestionsClearRequested() {
-    this.setState({
-      suggestions: [],
-    });
-  }
-
   getSectionSuggestions(section) {
     return section.suggestions;
   }
 
   getSuggestionValue(suggestion) {
     return suggestion.title;
+  }
+
+  renderEmptyState() {
+    if (!this.state.noResults) {
+      return null;
+    }
+
+    return (
+      <div className="guide-search-empty">
+        <span>Sorry, no results found. Try different keywords?</span>
+        <img src={algoliaLogo} alt="Search by Algolia" />
+      </div>
+    );
   }
 
   renderSectionTitle(section) {
@@ -160,25 +171,28 @@ class GuideSearchWidget extends Component {
   render() {
     const { value, suggestions } = this.state;
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        onSuggestionSelected={this.onSuggestionSelected}
-        getSectionSuggestions={this.getSectionSuggestions}
-        getSuggestionValue={this.getSuggestionValue}
-        renderSectionTitle={this.renderSectionTitle}
-        renderSuggestion={this.renderSuggestion}
-        renderSuggestionsContainer={this.renderSuggestionsContainer}
-        inputProps={{
-          value: value,
-          onChange: this.onChange,
-          onKeyDown: this.onKeyDown,
-          placeholder: 'Search',
-        }}
-        theme={AutosuggestTheme}
-        multiSection
-      />
+      <section className="guide-search-widget">
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionSelected={this.onSuggestionSelected}
+          getSectionSuggestions={this.getSectionSuggestions}
+          getSuggestionValue={this.getSuggestionValue}
+          renderSectionTitle={this.renderSectionTitle}
+          renderSuggestion={this.renderSuggestion}
+          renderSuggestionsContainer={this.renderSuggestionsContainer}
+          inputProps={{
+            value: value,
+            onChange: this.onChange,
+            onKeyDown: this.onKeyDown,
+            placeholder: 'Search',
+          }}
+          theme={AutosuggestTheme}
+          multiSection
+          alwaysRenderSuggestions
+        />
+        {this.renderEmptyState()}
+      </section>
     );
   }
 }
