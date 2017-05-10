@@ -125,7 +125,7 @@
   },
   "scripts": {
     "eslint": "eslint components core pages test utils config.js main.js routes.js run.js webpack.config.js",
-    "stylelint": "stylelint \"components/**/*.scss\" \"components/**/*.css\" \"components/**/*.scss\" \"pages/**/*.css\"",
+    "stylelint": "stylelint \"components/**/*.scss\" \"components/**/*.css\" \"pages/**/*.scss\" \"pages/**/*.css\"",
     "lint": "npm run eslint && npm run stylelint",
     "test": "mocha --compilers js:babel-register",
     "test:watch": "mocha --compilers js:babel-register --reporter min --watch",

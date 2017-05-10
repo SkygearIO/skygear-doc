@@ -109,6 +109,8 @@ $screen-lg-min: 1200px;
 @mixin below-header($position-option: fixed) {
   position: $position-option;
   top: $header-height;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   @include tablet {
     top: $header-tablet-height;

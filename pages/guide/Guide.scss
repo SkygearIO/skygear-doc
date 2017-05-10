@@ -26,7 +26,10 @@
       margin-right: $guide-meta-section-width + 2 * $guide-meta-section-gutter + $guide-gutter;
     }
 
-    h1,h2,h3,h4 {
+    h1,
+    h2,
+    h3,
+    h4 {
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
@@ -53,12 +56,11 @@
     }
 
     p {
-      font-family: Helvetica,Arial,sans-serif;
+      font-family: Helvetica, Arial, sans-serif;
       line-height: 145%;
       color: $text-color;
       margin-bottom: 1rem;
       margin-top: 1rem;
-
 
       img {
         max-width: 100%;
@@ -100,8 +102,8 @@
     }
 
     ol {
-        margin: 0 0 0 1.2em;
-        padding: 0;
+      margin: 0 0 0 1.2em;
+      padding: 0;
 
       li {
         margin-bottom: 1.5rem;
@@ -109,27 +111,27 @@
     }
 
     table {
-      color:#333333;
+      color: #333333;
       border-width: 1px;
-      border-color: #3A3A3A;
+      border-color: #3a3a3a;
       border-collapse: collapse;
     }
 
     th {
-  		border-width: 1px;
-  		padding: 8px;
-  		border-style: solid;
-  		border-color: #3A3A3A;
-  		background-color: #B3B3B3;
-  	}
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #3a3a3a;
+      background-color: #b3b3b3;
+    }
 
     td {
-  		border-width: 1px;
-  		padding: 8px;
-  		border-style: solid;
-  		border-color: #3A3A3A;
-  		background-color: #ffffff;
-  	}
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #3a3a3a;
+      background-color: #ffffff;
+    }
 
     @mixin alertbox() {
       border-radius: $div-border-radius;
@@ -140,13 +142,14 @@
       background-position: 20px center;
 
       strong {
-        font-family: Helvetica,Arial,sans-serif;
+        font-family: Helvetica, Arial, sans-serif;
         font-weight: normal;
       }
     }
 
     .note {
       @include alertbox;
+
       background-color: $doc-note-bg;
       background-image: url('../../static/images/note.png');
       background-size: 23px 23px;
@@ -155,13 +158,15 @@
         background-color: darken($doc-note-bg, 10%);
       }
 
-      p, code {
+      p,
+      code {
         color: $doc-note-color;
       }
     }
 
     .tips {
       @include alertbox;
+
       background-color: $doc-tips-bg;
       background-image: url('../../static/images/tip.png');
       background-size: 26px 33px;
@@ -170,13 +175,15 @@
         background-color: darken($doc-tips-bg, 10%);
       }
 
-      p, code {
+      p,
+      code {
         color: $doc-tips-color;
       }
     }
 
     .todo {
       @include alertbox;
+
       background-color: $doc-todo-bg;
       background-image: url('../../static/images/todo.png');
       background-size: 25px 23px;
@@ -185,13 +192,16 @@
         background-color: darken($doc-todo-bg, 10%);
       }
 
-      p, code, ul {
+      p,
+      code,
+      ul {
         color: $doc-todo-color;
       }
     }
 
     .caution {
       @include alertbox;
+
       background-color: $doc-caution-bg;
       background-image: url('../../static/images/warning.png');
       background-size: 25px 23px;
@@ -200,13 +210,15 @@
         background-color: darken($doc-caution-bg, 10%);
       }
 
-      p, code {
+      p,
+      code {
         color: $doc-caution-color;
       }
     }
 
     .advanced {
       @include alertbox;
+
       background-color: $doc-advanced-bg;
       background-image: url('../../static/images/advanced.png');
       background-size: 26px 26px;
@@ -215,7 +227,8 @@
         background-color: darken($doc-advanced-bg, 10%);
       }
 
-      p, code {
+      p,
+      code {
         color: $doc-advanced-color;
       }
     }
@@ -234,7 +247,7 @@
 
       .table-of-contents {
         &::before {
-          content: "Contents";
+          content: 'Contents';
           display: block;
           margin: 0;
           padding: 7px 0;
@@ -314,7 +327,6 @@ $switcher-height: 28px;
     text-align: center;
     background-color: $code-switcher-tab-bg;
     cursor: pointer;
-
     width: 100px;
     font-size: 14px;
 
@@ -342,7 +354,8 @@ $switcher-height: 28px;
     }
   }
 
-  input[type=radio], div.body {
+  input[type=radio],
+  div.body {
     display: none;
   }
 
@@ -350,9 +363,8 @@ $switcher-height: 28px;
     background: $code-switcher-tab-active-bg;
     color: $text-color;
 
-    &+ .body {
+    & + .body {
       display: block;
     }
   }
-
 }

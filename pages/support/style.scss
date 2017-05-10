@@ -5,12 +5,14 @@ $banner-height: 72px;
 .support-page {
   .support-container {
     @include below-header;
+
     right: 0;
     bottom: 0;
     left: 0;
 
     .support-content {
       @include container-width;
+
       padding-bottom: 120px;
       padding-top: 20px;
 
@@ -24,6 +26,7 @@ $banner-height: 72px;
 
         .support-item {
           @include column-12;
+
           @include desktop {
             @include column-4;
           }
@@ -87,6 +90,7 @@ $banner-height: 72px;
                 &.sample-project {
                   background-image: url('../../static/images/sample-project.png');
                   background-size: 27px 30px;
+
                   @include desktop {
                     background-size: 43px 50px;
                   }
@@ -95,6 +99,7 @@ $banner-height: 72px;
                 &.google-group {
                   background-image: url('../../static/images/google-group.png');
                   background-size: 27px 30px;
+
                   @include desktop {
                     background-size: 54px 59px;
                   }
@@ -103,6 +108,7 @@ $banner-height: 72px;
                 &.email {
                   background-image: url('../../static/images/email.png');
                   background-size: 34px 25px;
+
                   @include desktop {
                     background-size: 58px 42px;
                   }
@@ -111,6 +117,7 @@ $banner-height: 72px;
                 &.stackoverflow {
                   background-image: url('../../static/images/stackoverflow.svg');
                   background-size: 34px 25px;
+
                   @include desktop {
                     background-size: 58px 42px;
                   }
@@ -119,6 +126,7 @@ $banner-height: 72px;
                 &.slack {
                   background-image: url('../../static/images/slack.svg');
                   background-size: 34px 25px;
+
                   @include desktop {
                     background-size: 58px 42px;
                   }

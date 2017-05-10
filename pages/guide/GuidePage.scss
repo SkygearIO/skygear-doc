@@ -6,13 +6,11 @@
 
   .guide-menu {
     @include below-header;
+
     bottom: 0;
     left: 0;
     width: $guide-menu-width;
     z-index: 1;
-
-    overflow-x: hidden;
-    overflow-y: auto;
 
     @include mobile {
       left: -$guide-menu-width-mobile;
@@ -27,12 +25,10 @@
 
   .guide {
     @include below-header;
+
     right: 0;
     bottom: 0;
     left: $guide-menu-width;
-
-    overflow-x: hidden;
-    overflow-y: scroll;
 
     @include mobile {
       left: 0;

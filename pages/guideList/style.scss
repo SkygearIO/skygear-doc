@@ -6,16 +6,15 @@ $language-buttons-container-width: 270px;
 .guide-list-page {
   .guide-list-container {
     @include below-header;
+
     right: 0;
     bottom: 0;
     left: 0;
     width: 100%;
 
-    overflow-x: hidden;
-    overflow-y: auto;
-
     .guide-list {
       @include container-width;
+
       padding-top: 0;
       padding-bottom: 7px;
 
@@ -43,7 +42,8 @@ $language-buttons-container-width: 270px;
 
         .guide-list-item {
           @include clearfix;
-          border-bottom: 1px solid #BECBCF;
+
+          border-bottom: 1px solid #becbcf;
           padding-bottom: 5px;
           margin-bottom: 15px;
           position: relative;
