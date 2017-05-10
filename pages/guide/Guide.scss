@@ -24,9 +24,9 @@
 
     h1 {
       margin: 0;
-      font-family: freight-sans-book, sans-serif;
+      font-family: $content-heading-font;
       font-weight: normal;
-      font-size: 45px;
+      font-size: 2rem;
       line-height: 50px;
     }
 
@@ -62,33 +62,32 @@
     h2,
     h3,
     h4 {
+      font-family: $content-heading-font;
       margin-top: 2rem;
       margin-bottom: 1rem;
-    }
-
-    h1 {
-      font-size: 2.4rem;
-    }
-
-    h2 {
-      font-family: freight-sans-medium, sans-serif;
-      font-size: 1.8rem;
       font-weight: bold;
       color: $text-color;
     }
 
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
     h3 {
       font-size: 1.3rem;
+      font-weight: normal;
     }
 
     h4 {
-      font-size: 1.4rem;
-      font-family: freight-sans-medium, sans-serif;
+      font-size: 1.2rem;
       font-weight: normal;
     }
 
     p {
-      font-family: Helvetica, Arial, sans-serif;
       line-height: 145%;
       color: $text-color;
       margin-bottom: 1rem;
@@ -133,12 +132,16 @@
       margin-bottom: 2rem;
     }
 
-    ol {
-      margin: 0 0 0 1.2em;
+    ol,
+    ul {
+      margin: 1.5rem 0;
       padding: 0;
+      padding-left: 1.5rem;
+      list-style-position: outside;
 
       li {
-        margin-bottom: 1.5rem;
+        margin: 0;
+        margin-bottom: 0.833333333rem;
       }
     }
 
