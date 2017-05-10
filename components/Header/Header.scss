@@ -44,8 +44,9 @@
 
       .logo-anchor {
         display: inline-block;
-        flex-basis: 175px;
-        flex-grow: 0;
+        max-width: 175px;
+        flex-basis: 100px;
+        flex-grow: 1;
         flex-shrink: 2;
         height: 30px;
         margin: 9px 0;
@@ -53,10 +54,6 @@
         background-size: 100% auto;
         background-position: center;
         background-repeat: no-repeat;
-
-        @include tablet {
-          flex-shrink: 0;
-        }
       }
 
       .header-nav {
@@ -152,7 +149,7 @@
       .header-nav-pulldown {
         position: relative;
         display: block;
-        flex-basis: 50%;
+        flex-basis: 190px;
         flex-grow: 1;
         flex-shrink: 0;
         text-align: right;
