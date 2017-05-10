@@ -2,12 +2,48 @@ import React, { Component, PropTypes } from 'react';
 
 import './GuideSearchItem.scss';
 
-const DefaultImagea = require('../../static/skygear-logo-mini.png');
+import IosLogo from '../../static/images/ios.png';
+import AndroidLogo from '../../static/images/android.png';
+import JavascriptLogo from '../../static/images/js.png';
+import PythonLogo from '../../static/images/python.png';
+import SkygearLogo from '../../static/skygear-logo-mini.png';
 
 const ContentSubstringLeftOffset = 50;
 const ContentSubstringLength = 150;
 
+const getImageByPlatform = (platform) => {
+  if (!platform) {
+    return null;
+  }
+
+  const lowerCasePlatformName = platform.toLowerCase();
+  switch (lowerCasePlatformName) {
+    case 'ios':
+      return IosLogo;
+    case 'android':
+      return AndroidLogo;
+    case 'js':
+    case 'javascript':
+      return JavascriptLogo;
+    case 'py':
+    case 'python':
+      return PythonLogo;
+    default:
+      return null;
+  }
+};
+
 class GuideSearchItem extends Component {
+  renderGuideImage() {
+    const { item } = this.props;
+    const { platform } = item.meta;
+    const platformImage = getImageByPlatform(platform);
+
+    return (
+      <img src={item.image || platformImage || SkygearLogo} alt="guide" />
+    );
+  }
+
   renderTitle() {
     const { item } = this.props;
     const hitTitleInfo = item._highlightResult.title;
@@ -17,29 +53,6 @@ class GuideSearchItem extends Component {
     }
 
     return <h1>{item.title}</h1>;
-  }
-
-  renderDescription() {
-    const { item } = this.props;
-    if (!item.description) {
-      return null;
-    }
-
-    const hitDescriptionInfo = item._highlightResult.description;
-    if (hitDescriptionInfo.matchedWords.length > 0) {
-      return (
-        <span
-          className="guide-search-item-description"
-          dangerouslySetInnerHTML={{ __html: hitDescriptionInfo.value }}
-        />
-      );
-    }
-
-    return (
-      <span className="guide-search-item-description">
-        {item.description}
-      </span>
-    );
   }
 
   renderMatchedContent() {
@@ -83,14 +96,11 @@ class GuideSearchItem extends Component {
   }
 
   render() {
-    const { item } = this.props;
-
     return (
       <section className="guide-search-item">
-        <img src={item.image || DefaultImagea} alt="guide" />
+        {this.renderGuideImage()}
         <div className="guide-search-item-container">
           {this.renderTitle()}
-          {this.renderDescription()}
           {this.renderMatchedContent()}
         </div>
       </section>

@@ -7,6 +7,8 @@ import GuideSearchItem from './GuideSearchItem';
 
 import { algoliaApplicationID, algoliaSearchApiKey } from '../../config';
 
+import algoliaLogo from '../../static/images/icn-search-by-algolia.svg';
+
 import './GuideSearchWidget.scss';
 
 // AutosuggestTheme defines what className will be assigned to
@@ -16,6 +18,8 @@ const AutosuggestTheme = {
   input: 'search-input',
   inputOpen: 'search-input-active',
   inputFocused: 'search-input-active',
+  sectionContainer: 'suggestion-section-container',
+  sectionTitle: 'suggestion-section-title',
   suggestionsContainer: 'suggestion-container',
   suggestionsContainerOpen: 'suggestion-container-open',
   suggestionsList: 'suggestion-list',
@@ -30,13 +34,17 @@ class GuideSearchWidget extends Component {
     super(props);
 
     this.onChange = this.onChange.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
     this.onSuggestionsFetchRequested
       = _.debounce(this.onSuggestionsFetchRequested.bind(this), 300);
     this.onSuggestionsClearRequested =
       this.onSuggestionsClearRequested.bind(this);
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
+    this.getSectionSuggestions = this.getSectionSuggestions.bind(this);
     this.getSuggestionValue = this.getSuggestionValue.bind(this);
+    this.renderSectionTitle = this.renderSectionTitle.bind(this);
     this.renderSuggestion = this.renderSuggestion.bind(this);
+    this.renderSuggestionsContainer = this.renderSuggestionsContainer.bind(this);
 
     const algoliaClient = algoliasearch(algoliaApplicationID, algoliaSearchApiKey);
     this.algoliaIndex = algoliaClient.initIndex('guides');
@@ -51,6 +59,13 @@ class GuideSearchWidget extends Component {
     this.setState({
       value: newValue,
     });
+  }
+
+  onKeyDown(event) {
+    if (event.keyCode === 13) {
+      // enter key
+      this.onSuggestionsFetchRequested(this.state);
+    }
   }
 
   onSuggestionsFetchRequested({ value }) {
@@ -70,8 +85,24 @@ class GuideSearchWidget extends Component {
           return;
         }
 
+        const sections = [];
+        const suggestionMap = {};
+
+        guides.hits.forEach((eachGuide) => {
+          const guideSection = eachGuide.meta.section;
+          if (!suggestionMap[guideSection.id]) {
+            sections.push(guideSection);
+            suggestionMap[guideSection.id] = [];
+          }
+
+          suggestionMap[guideSection.id].push(eachGuide);
+        });
+
         this.setState({
-          suggestions: guides.hits,
+          suggestions: sections.map((eachSection) => ({
+            ...eachSection,
+            suggestions: suggestionMap[eachSection.id],
+          })),
         });
       });
   }
@@ -96,12 +127,34 @@ class GuideSearchWidget extends Component {
     });
   }
 
+  getSectionSuggestions(section) {
+    return section.suggestions;
+  }
+
   getSuggestionValue(suggestion) {
     return suggestion.title;
   }
 
+  renderSectionTitle(section) {
+    return section.name;
+  }
+
   renderSuggestion(suggestion) {
     return <GuideSearchItem item={suggestion} />;
+  }
+
+  renderSuggestionsContainer({ containerProps, children }) {
+    return (
+      <div {...containerProps}>
+        <div className="suggestion-container-header">Guides</div>
+        <div className="suggestion-container-content">
+          {children}
+        </div>
+        <div className="suggestion-container-footer">
+          <img src={algoliaLogo} alt="Search by Algolia" />
+        </div>
+      </div>
+    );
   }
 
   render() {
@@ -112,13 +165,19 @@ class GuideSearchWidget extends Component {
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         onSuggestionSelected={this.onSuggestionSelected}
+        getSectionSuggestions={this.getSectionSuggestions}
         getSuggestionValue={this.getSuggestionValue}
+        renderSectionTitle={this.renderSectionTitle}
         renderSuggestion={this.renderSuggestion}
+        renderSuggestionsContainer={this.renderSuggestionsContainer}
         inputProps={{
           value: value,
           onChange: this.onChange,
+          onKeyDown: this.onKeyDown,
+          placeholder: 'Search',
         }}
         theme={AutosuggestTheme}
+        multiSection
       />
     );
   }
