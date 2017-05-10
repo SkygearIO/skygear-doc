@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="20px" viewBox="0 0 22 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 10</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="7.30376344" y="17.0731645" width="3.58844953" height="1.89057482" rx="0.94528741"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="3.58844953" height="1.89057482" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile--Top-Menu" transform="translate(-167.000000, -145.000000)" stroke="#029BC9">
+            <g id="Group-15" transform="translate(153.000000, 56.000000)">
+                <g id="Group-14" transform="translate(15.000000, 90.000000)">
+                    <g id="Group-10">
+                        <path d="M18.1996514,7.81092341 C18.1996514,3.49706953 14.5790909,0 10.1129032,0 C5.64671555,0 2.02615508,3.49706953 2.02615508,7.81092341" id="Oval"></path>
+                        <path d="M4.40400624,7.92392052 C3.97215913,7.56198629 3.47077845,7.35483871 2.93600416,7.35483871 C1.31449384,7.35483871 0,9.25932686 0,11.6086321 C0,13.9579372 1.31449384,15.8624254 2.93600416,15.8624254 C3.47077845,15.8624254 3.97215913,15.6552778 4.40400624,15.2933436 L4.40400624,7.92392052 Z" id="Combined-Shape"></path>
+                        <path d="M20.2258073,8.19567417 C19.7939602,7.83373995 19.2925795,7.62659236 18.7578052,7.62659236 C17.1362949,7.62659236 15.821801,9.53108051 15.821801,11.8803857 C15.821801,14.2296909 17.1362949,16.1341791 18.7578052,16.1341791 C19.2925795,16.1341791 19.7939602,15.9270315 20.2258073,15.5650972 L20.2258073,8.19567417 Z" id="Combined-Shape" transform="translate(18.023804, 11.880386) scale(-1, 1) translate(-18.023804, -11.880386) "></path>
+                        <path d="M3.37096774,15.9671783 C3.37096774,15.9671783 3.6342576,17.8918846 7.64986808,18.2077289" id="Path-6"></path>
+                        <use id="Rectangle-5" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -3,10 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 import PageMeta from '../../components/PageMeta/PageMeta';
-import Banner from '../../components/Banner/Banner';
 import Header from '../../components/Header/Header';
-import HeaderNav from '../../components/Header/Nav/Nav';
-import TitleBarWithMenuButton from '../../components/TitleBarWithMenuButton/TitleBarWithMenuButton';
 import Guide from './Guide';
 import GuidesMenu from '../../components/GuidesMenu/GuidesMenu';
 
@@ -20,9 +17,6 @@ import { getWindow } from '../../utils/browserProxy';
 
 import { guideEditBaseUrl } from '../../config';
 
-import apiRefIcon from '../../static/images/icn-api-ref.svg';
-import supportIcon from '../../static/images/icn-support.svg';
-
 import './GuidePage.scss';
 
 const ContentGuideDatabase = _.flatMap(ContentIndex.sections, section => section.guides);
@@ -34,8 +28,9 @@ class GuidePage extends Component {
     this.toggleMenuState = this.toggleMenuState.bind(this);
     this.onBodyClick = this.onBodyClick.bind(this);
     this.onGuideEditButtonClick = this.onGuideEditButtonClick.bind(this);
+    this.setMenuShouldShowInMobile = this.setMenuShouldShowInMobile.bind(this);
     this.debouncedSetMenuShouldShowInMobile = _.debounce(
-      this.debouncedSetMenuShouldShowInMobile.bind(this), 100);
+      this.setMenuShouldShowInMobile, 100);
 
     this.state = {
       menuShouldShowInMobile: false,
@@ -47,6 +42,14 @@ class GuidePage extends Component {
       document.body.addEventListener('click', this.onBodyClick);
     } catch (e) {
       // skip add event listener
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const currentRoute = this.props.routes.slice(-1)[0];
+    const nextRoute = nextProps.routes.slice(-1)[0];
+    if (nextRoute.path !== currentRoute.path) {
+      this.setMenuShouldShowInMobile(false);
     }
   }
 
@@ -89,15 +92,15 @@ class GuidePage extends Component {
     });
   }
 
-  toggleMenuState() {
-    const { menuShouldShowInMobile } = this.state;
-    this.debouncedSetMenuShouldShowInMobile(!menuShouldShowInMobile);
-  }
-
-  debouncedSetMenuShouldShowInMobile(shouldShow) {
+  setMenuShouldShowInMobile(shouldShow) {
     this.setState({
       menuShouldShowInMobile: shouldShow,
     });
+  }
+
+  toggleMenuState() {
+    const { menuShouldShowInMobile } = this.state;
+    this.debouncedSetMenuShouldShowInMobile(!menuShouldShowInMobile);
   }
 
   render() {
@@ -131,23 +134,10 @@ class GuidePage extends Component {
           ogDescription={currentRoute.guideDescription}
           ogImage={currentRoute.guideImage}
         />
-        <Banner>
-          <Header>
-            <HeaderNav
-              href="/api-reference/"
-              img={apiRefIcon}
-              text="API reference"
-            />
-            <HeaderNav
-              href="/support/"
-              img={supportIcon}
-              text="Support"
-            />
-          </Header>
-          <TitleBarWithMenuButton
-            onMenuButtonClick={this.toggleMenuState}
-          />
-        </Banner>
+        <Header
+          onHamburgerButtonClick={this.toggleMenuState}
+          showMobileHamburgerButton
+        />
         <GuidesMenu
           ref="guide-menu"
           contentIndex={ContentIndex}

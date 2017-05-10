@@ -1,22 +1,73 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-import Banner from '../../components/Banner/Banner';
 import Header from '../../components/Header/Header';
-import TitleBar from '../../components/TitleBar/TitleBar';
-import ApiReference from './ApiReference';
 import Footer from '../../components/Footer/Footer';
 
-const ApiReferencePage = () => (
-  <div>
-    <Banner>
-      <Header />
-      <TitleBar>
-        <h1>API Reference</h1>
-      </TitleBar>
-    </Banner>
-    <ApiReference />
-    <Footer />
-  </div>
+import './style.scss';
+
+const ApiReferenceItem = ({ url, title, titleClassName }) => (
+  <a href={url} target="_blank">
+    <div className="api-reference-item">
+      <h2 className={titleClassName}>{title}</h2>
+      <div className="right-arrow" />
+    </div>
+  </a>
 );
 
-export default ApiReferencePage;
+ApiReferenceItem.propTypes = {
+  url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  titleClassName: PropTypes.string,
+};
+
+ApiReferenceItem.defaultProps = {
+  titleClassName: '',
+};
+
+const IosApiReferenceItem
+  = (props) => <ApiReferenceItem {...props} titleClassName="ios-sdk" />;
+
+const AndroidApiReferenceItem
+  = (props) => <ApiReferenceItem {...props} titleClassName="android-sdk" />;
+
+const JavascriptApiReferenceItem
+  = (props) => <ApiReferenceItem {...props} titleClassName="js-sdk" />;
+
+export default () => (
+  <div className="api-reference-page">
+    <Header />
+    <div className="api-reference-container">
+      <div className="api-reference">
+        <IosApiReferenceItem
+          url="https://docs.skygear.io/ios/reference/"
+          title="iOS SDK (User Auth, Push, Cloud DB, Pubsub)"
+        />
+        <AndroidApiReferenceItem
+          url="https://docs.skygear.io/android/reference/"
+          title="Android SDK (User Auth, Push, Cloud DB, Pubsub)"
+        />
+        <JavascriptApiReferenceItem
+          url="https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/"
+          title="JavaScript SDK (User Auth, Push, Cloud DB, Pubsub)"
+        />
+        <IosApiReferenceItem
+          url="http://cocoadocs.org/docsets/SKYKitChat/"
+          title="iOS SDK (Chat)"
+        />
+        <AndroidApiReferenceItem
+          url="https://docs.skygear.io/android/plugins/chat/reference/"
+          title="Android SDK (Chat)"
+        />
+        <JavascriptApiReferenceItem
+          url="https://doc.esdoc.org/github.com/skygeario/chat-SDK-JS/"
+          title="JavaScript SDK (Chat)"
+        />
+        <JavascriptApiReferenceItem
+          url="https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/function/index.html"
+          title="JS API Reference (Cloud Functions)"
+        />
+      </div>
+      <Footer />
+    </div>
+  </div>
+);

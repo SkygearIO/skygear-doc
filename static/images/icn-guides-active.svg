@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="21px" viewBox="0 0 18 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 5guide</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0,2.69896531 L11.8978629,2.69896531 C13.5525628,2.69896531 14.8939621,4.04215214 14.8939621,5.69282408 L14.8939621,17.0061412 C14.8939621,18.6596038 13.5459536,20 11.8978629,20 L2.99609916,20 C1.34139929,20 0,18.6568132 0,17.0061412 L0,2.69896531 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="14.8939621" height="17.3010347" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile--Top-Menu" transform="translate(-213.000000, -24.000000)" stroke="#029BC9">
+            <g id="Guide" transform="translate(213.000000, 25.000000)">
+                <g id="Group-5">
+                    <use id="Rectangle-9" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                    <path d="M0.992743888,1.50845267 L12.9753418,1.50845267 C14.6293952,1.50845267 15.9702705,2.84379689 15.9702705,4.51168872 L15.9702705,18.5260743" id="Path-14"></path>
+                    <path d="M2.26287734,0.308452671 L14.2454753,0.308452671 C15.8995287,0.308452671 17.2404039,1.64379689 17.2404039,3.31168872 L17.2404039,17.3260743" id="Path-14"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

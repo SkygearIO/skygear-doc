@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import Banner from '../../components/Banner/Banner';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
-import './styles.scss';
+import './style.scss';
 
 const ErrorPage = () => (
   <section className="not-found-page">
-    <Banner>
-      <Header />
-    </Banner>
+    <Header />
     <section className="container">
       <div className="content">
         <h1>Oops!</h1>
