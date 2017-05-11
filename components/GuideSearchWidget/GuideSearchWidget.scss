@@ -39,27 +39,100 @@
       display: block;
     }
 
-    .suggestion-list {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
+    .suggestion-container-header {
+      padding: 16px 24px;
+      color: $theme-medium-gray;
+      font-size: 16px;
+      line-height: 19px;
 
-      .suggestion-list-item {
-        cursor: pointer;
+      @media (max-height: 850px) {
+        padding: 8px 24px;
+        line-height: 16px;
+      }
+    }
+
+    .suggestion-container-content {
+      @media (max-height: 850px) {
+        max-height: 350px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .suggestion-section-container {
         margin: 0;
-        padding: 8px 0;
-        box-sizing: border-box;
-        border-bottom: 1px solid $theme-light-gray;
-        color: $content-color;
+        margin-bottom: 24px;
 
         &:last-child {
-          border-bottom-color: $body-bg;
+          margin-bottom: 0;
         }
 
-        &.suggestion-list-item-highlighted {
-          background-color: $theme-lighter-gray;
+        .suggestion-section-title {
+          padding: 7px 24px;
+          color: $content-color;
+          font-size: 16px;
+          font-weight: bold;
+        }
+
+        .suggestion-list {
+          margin: 0;
+          margin-bottom: 24px;
+          padding: 0;
+          list-style-type: none;
+
+          .suggestion-list-item {
+            cursor: pointer;
+            margin: 0;
+            padding: 8px 24px;
+            box-sizing: border-box;
+            color: $content-color;
+
+            &:nth-child(odd) {
+              background-color: $theme-lighter-gray;
+            }
+
+            &.suggestion-list-item-highlighted {
+              background-color: $theme-light-gray;
+            }
+          }
         }
       }
+    }
+
+    .suggestion-container-footer {
+      padding: 14px 16px;
+      text-align: right;
+
+      @media (max-height: 850px) {
+        padding: 8px 16px;
+      }
+
+      img {
+        display: inline-block;
+        width: auto;
+        height: 16px;
+      }
+    }
+  }
+
+  .guide-search-empty {
+    position: relative;
+    border: 1px solid $border-color;
+    background-color: $body-bg;
+    box-shadow: 0 0 8px $theme-light-gray;
+
+    span {
+      display: block;
+      margin: 50px 44px 66px;
+      color: $theme-medium-gray;
+      text-align: center;
+    }
+
+    img {
+      position: absolute;
+      display: inline-block;
+      right: 0;
+      bottom: 0;
+      margin: 16px;
     }
   }
 }

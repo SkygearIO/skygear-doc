@@ -1,6 +1,7 @@
 const guideListConfig = {
   sections: [
     {
+      id: 'intro',
       name: 'Quick Start',
       guides: [
         {
@@ -18,6 +19,7 @@ const guideListConfig = {
       ],
     },
     {
+      id: 'auth',
       name: 'User Authentication',
       guides: [
         {
@@ -41,6 +43,7 @@ const guideListConfig = {
       ],
     },
     {
+      id: 'cloud-db',
       name: 'Skygear Cloud Database',
       guides: [
         {
@@ -86,6 +89,7 @@ const guideListConfig = {
       ],
     },
     {
+      id: 'chat',
       name: 'Skygear Chat',
       guides: [
         {
@@ -103,6 +107,7 @@ const guideListConfig = {
       ],
     },
     {
+      id: 'pubsub',
       name: 'Skygear PubSub',
       guides: [
         {
@@ -115,6 +120,7 @@ const guideListConfig = {
       ],
     },
     {
+      id: 'push-notifications',
       name: 'Push Notifications',
       guides: [
         {
@@ -126,6 +132,7 @@ const guideListConfig = {
       ],
     },
     {
+      id: 'cloud-function',
       name: 'Cloud Functions',
       guides: [
         {
@@ -201,6 +208,7 @@ const guideListConfig = {
       ],
     },
     {
+      id: 'social-network',
       name: 'Social Network',
       guides: [
         {
@@ -212,6 +220,7 @@ const guideListConfig = {
       ],
     },
     {
+      id: 'advanced',
       name: 'Advanced',
       guides: [
         {

@@ -1,13 +1,14 @@
 /* eslint-disable no-console */
+const crypto = require('crypto');
 
 const GuidePathGenerator = require('../utils/guidePathGenerator');
+const GuidePathDigester = require('../utils/guidePathDigester');
 const algoliasearch = require('algoliasearch');
 
-const CodeBlockRegex = /```[^`]+```/gm;
 const NotAlphaNumericOrDotOrSpaceRegex = /[^0-9a-z\.\s]/gmi; // eslint-disable-line
 const MultiSpaceRegex = /\s+/gmi;
 
-module.exports = ({ files, config }) => {
+module.exports = ({ files, sections, config }) => {
   const { baseUrl, applicationID, apiKey } = config;
 
   if (!applicationID) {
@@ -20,20 +21,40 @@ module.exports = ({ files, config }) => {
 
   const algoliaClient = algoliasearch(applicationID, apiKey);
 
-  const pathGenerator = new GuidePathGenerator({ baseUrl });
+  const absolutePathGenerator = new GuidePathGenerator({ baseUrl });
+  const relativePathGenerator = new GuidePathGenerator({ baseUrl: 'guides/' });
   const guideIndexData
     = files.filter((perFile) => (perFile.fileName && perFile.attributes.title))
-      .map((perFile) => ({
-        objectID: perFile.fileName,
-        url: pathGenerator.generate(perFile.fileName),
-        title: perFile.attributes.title,
-        description: perFile.attributes.description,
-        image: perFile.attributes.image,
-        content: perFile.content
-          .replace(CodeBlockRegex, '')
-          .replace(NotAlphaNumericOrDotOrSpaceRegex, ' ')
-          .replace(MultiSpaceRegex, ' '),
-      }));
+      .map((perFile) => {
+        const objectIDHasher = crypto.createHash('sha256');
+        objectIDHasher.update(perFile.fileName);
+
+        const relativePath = relativePathGenerator.generate(perFile.fileName);
+        const digest = GuidePathDigester.digest(relativePath);
+        const foundSection = sections[digest.section];
+
+        if (!foundSection) {
+          console.warn(`Failed to find section for ${relativePath}`);
+        }
+
+        return {
+          objectID: objectIDHasher.digest('hex').substr(0, 12),
+          url: absolutePathGenerator.generate(perFile.fileName),
+          title: perFile.attributes.title,
+          description: perFile.attributes.description,
+          image: perFile.attributes.image,
+          content: perFile.content
+            .replace(NotAlphaNumericOrDotOrSpaceRegex, ' ')
+            .replace(MultiSpaceRegex, ' '),
+          meta: {
+            section: foundSection && {
+              id: foundSection.id,
+              name: foundSection.name,
+            },
+            platform: digest.language,
+          },
+        };
+      });
 
   const guideIndex = algoliaClient.initIndex('guides');
   return guideIndex.setSettings({
