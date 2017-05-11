@@ -66,9 +66,10 @@ $header-tablet-height: 122px;
  * Typography
  * -------------------------------------------------------------------------- */
 
-$font-family-base: Helvetica,Arial,sans-serif;
-$content-font: 'Helvetica';
-$content-code-font: 'Courier New', Courier, monospace;
+$font-family-base: Helvetica, Arial, sans-serif;
+$content-font: $font-family-base;
+$content-heading-font: Lato, $font-family-base;
+$content-code-font: 'Roboto Mono', 'Courier New', Courier, monospace;
 
 /*
  * Media queries breakpoints

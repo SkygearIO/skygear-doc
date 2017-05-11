@@ -29,8 +29,7 @@ const HtmlTemplate = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{title}</title>
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-
-        <StyleSheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic" />
+        <StyleSheet href="https://fonts.googleapis.com/css?family=Roboto+Mono" />
         <StyleSheet href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <StyleSheet href={stylesheet} />
       </head>
