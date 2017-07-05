@@ -39,11 +39,11 @@ export default () => (
     <div className="api-reference-container">
       <div className="api-reference">
         <IosApiReferenceItem
-          url="https://docs.skygear.io/ios/reference/"
+          url="/ios/reference/"
           title="iOS SDK (User Auth, Push, Cloud DB, Pubsub)"
         />
         <AndroidApiReferenceItem
-          url="https://docs.skygear.io/android/reference/"
+          url="/android/reference/"
           title="Android SDK (User Auth, Push, Cloud DB, Pubsub)"
         />
         <JavascriptApiReferenceItem
@@ -55,7 +55,7 @@ export default () => (
           title="iOS SDK (Chat)"
         />
         <AndroidApiReferenceItem
-          url="https://docs.skygear.io/android/plugins/chat/reference/"
+          url="/android/plugins/chat/reference/"
           title="Android SDK (Chat)"
         />
         <JavascriptApiReferenceItem
