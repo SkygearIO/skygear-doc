@@ -138,6 +138,8 @@ base64
 DistinctByParticipants
 includeLastmessage
 pageSize
+loginWithUsername
+loginWithEmail
 
 # Skygear terms
 UI
