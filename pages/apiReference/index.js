@@ -47,7 +47,7 @@ export default () => (
           title="Android SDK (User Auth, Push, Cloud DB, Pubsub)"
         />
         <JavascriptApiReferenceItem
-          url="https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/"
+          url="https://docs.skygear.io/js/reference/v0.24/"
           title="JavaScript SDK (User Auth, Push, Cloud DB, Pubsub)"
         />
         <IosApiReferenceItem
@@ -63,7 +63,7 @@ export default () => (
           title="JavaScript SDK (Chat)"
         />
         <JavascriptApiReferenceItem
-          url="https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/function/index.html"
+          url="https://docs.skygear.io/js/reference/v0.24/"
           title="JS API Reference (Cloud Functions)"
         />
       </div>
