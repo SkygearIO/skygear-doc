@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import LanguageLink from '../../components/LanguageLink/LanguageLink';
+import VersionBanner from '../../components/VersionBanner/VersionBanner';
 
 import './style.scss';
 
@@ -69,6 +70,7 @@ const GuideListPage = () => (
   <div className="guide-list-page">
     <Header />
     <div className="guide-list-container">
+      <VersionBanner />
       <div className="guide-list">
         {ContentIndex.sections.map(section => (
           <GuideListSection key={section.name} section={section} />
