@@ -25,6 +25,8 @@ const babelConfig = Object.assign({}, pkg.babel, {
   cacheDirectory: useHMR,
 });
 
+const version = require('./version');
+
 const appConfig = require('./config');
 
 // Webpack configuration (main.js => public/dist/main.{hash}.js)
@@ -77,6 +79,10 @@ const config = {
   // Options affecting the normal modules
   module: {
     rules: [
+      {
+        test: /config\.js/,
+        loader: `preprocess-loader?version=${version}`,
+      },
       {
         test: /\.jsx?$/,
         include: [

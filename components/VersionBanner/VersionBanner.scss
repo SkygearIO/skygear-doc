@@ -1,0 +1,14 @@
+@import '../../components/variables.scss';
+
+.guide-list-header {
+  font-family: freight-sans-medium, sans-serif;
+  background-color: $guide-version-header-bg-color;
+
+  .guide-version-section {
+    padding: 15px;
+
+    .guide-redirect-link {
+      margin-left: 7px;
+    }
+  }
+}
