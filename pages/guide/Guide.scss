@@ -1,6 +1,8 @@
 @import '../../components/variables.scss';
 @import './dimensions.scss';
 
+$version-banner-single-line-height: 50px;
+
 .guide {
   box-sizing: border-box;
   padding: 0;
@@ -275,7 +277,7 @@
       @include large-screen {
         position: fixed;
         display: inline-block;
-        top: $banner-height + $table-of-contents-section-gutter;
+        top: $banner-height + $table-of-contents-section-gutter + $version-banner-single-line-height;
         right: $table-of-contents-section-gutter;
         width: $table-of-contents-section-width;
       }

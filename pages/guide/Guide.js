@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Footer from '../../components/Footer/Footer';
+import VersionBanner from '../../components/VersionBanner/VersionBanner';
 
 import { canUseDOM, getDocument } from '../../utils/browserProxy';
 
@@ -62,6 +63,7 @@ class Guide extends Component {
     const { title, docHtml, editButtonOnClick } = this.props;
     return (
       <div className="guide">
+        <VersionBanner />
         <div className="guide-header">
           <h1>{title}</h1>
           <button onClick={editButtonOnClick}>Edit this page</button>
