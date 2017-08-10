@@ -83,7 +83,7 @@ export default () => (
             linkText="Join our Google Group"
           />
           <SupportItem
-            url="https://skygear.signup.team/"
+            url="https://slack.skygear.io/"
             title="Slack"
             description={
               'Slack team for direct chat with Skygear Developers ' +

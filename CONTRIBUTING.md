@@ -35,7 +35,7 @@ Please do not use the issue tracker for:
 
 Instead use [Stack Overflow](http://stackoverflow.com/questions/tagged/skygear) 
 , [Skygear Google Group](https://groups.google.com/forum/#!forum/skygear-user-group),
-or [Skygear Slack Team](https://skygear.signup.team/).
+or [Skygear Slack Team](https://slack.skygear.io/).
 
 The issue tracker have the following labels and their usage are:
 * [Change](https://github.com/SkygearIO/guides/labels/Change) - Change
