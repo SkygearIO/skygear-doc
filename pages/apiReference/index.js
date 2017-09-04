@@ -40,31 +40,31 @@ export default () => (
       <div className="api-reference">
         <IosApiReferenceItem
           url="https://docs.skygear.io/ios/reference/"
-          title="iOS SDK (User Auth, Push, Cloud DB, Pubsub)"
+          title="Core - iOS SDK (User Auth, Push, Cloud DB, Pubsub)"
         />
         <AndroidApiReferenceItem
           url="https://docs.skygear.io/android/reference/"
-          title="Android SDK (User Auth, Push, Cloud DB, Pubsub)"
+          title="Core - Android SDK (User Auth, Push, Cloud DB, Pubsub)"
         />
         <JavascriptApiReferenceItem
           url="https://docs.skygear.io/js/reference/"
-          title="JavaScript SDK (User Auth, Push, Cloud DB, Pubsub)"
+          title="Core - JavaScript SDK (User Auth, Push, Cloud DB, Pubsub)"
         />
         <IosApiReferenceItem
           url="http://cocoadocs.org/docsets/SKYKitChat/"
-          title="iOS SDK (Chat)"
+          title="Chat - iOS SDK"
         />
         <AndroidApiReferenceItem
           url="/android/plugins/chat/reference/"
-          title="Android SDK (Chat)"
+          title="Chat - Android SDK"
         />
         <JavascriptApiReferenceItem
           url="https://doc.esdoc.org/github.com/skygeario/chat-SDK-JS/"
-          title="JavaScript SDK (Chat)"
+          title="Chat - JavaScript SDK"
         />
         <JavascriptApiReferenceItem
-          url="https://doc.esdoc.org/github.com/skygeario/skygear-SDK-JS/function/index.html"
-          title="JS API Reference (Cloud Functions)"
+          url="https://docs.skygear.io/js/reference/latest/identifiers.html#skygear-core-lib-cloud"
+          title="Cloud Function - Javascript API Reference"
         />
       </div>
       <Footer />
