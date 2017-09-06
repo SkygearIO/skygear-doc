@@ -55,11 +55,11 @@ export default () => (
           title="Chat - iOS SDK"
         />
         <AndroidApiReferenceItem
-          url="/android/plugins/chat/reference/"
+          url="https://docs.skygear.io/android/chat/reference/latest/"
           title="Chat - Android SDK"
         />
         <JavascriptApiReferenceItem
-          url="https://doc.esdoc.org/github.com/skygeario/chat-SDK-JS/"
+          url="https://docs.skygear.io/js/chat/reference/latest/"
           title="Chat - JavaScript SDK"
         />
         <JavascriptApiReferenceItem
