@@ -51,7 +51,7 @@ export default () => (
           title="Core - JavaScript SDK (User Auth, Push, Cloud DB, Pubsub)"
         />
         <IosApiReferenceItem
-          url="http://cocoadocs.org/docsets/SKYKitChat/"
+          url="https://docs.skygear.io/ios/chat/reference/latest/"
           title="Chat - iOS SDK"
         />
         <AndroidApiReferenceItem
