@@ -104,6 +104,12 @@ const guideListConfig = {
           baseUrl: '/guides/chat/basics/',
           languages: ['ios', 'android', 'js'],
         },
+        {
+          title: 'Skygear Chat Data Models',
+          description: 'Data models of Skygear Chat',
+          baseUrl: '/guides/chat/models',
+          languages: ['']
+        },
       ],
     },
     {
