@@ -3,18 +3,20 @@ const canUseDOM = () => (typeof window !== 'undefined' && typeof document !== 'u
 const NullFunction = () => null;
 
 const getWindow = () => {
-  if (canUseDOM()) {
-    return window;
-  }
+  const theWindow = canUseDOM() ? window : {};
 
   // Defined according to the usage. Cannot find a smart way to define it.
-  return {
-    localStorage: {
+  if (typeof theWindow.localStorage === 'undefined') {
+    theWindow.localStorage = {
       getItem: NullFunction,
       setItem: NullFunction,
-    },
-    location: null,
-  };
+    };
+  }
+
+  if (typeof theWindow.location === 'undefined') {
+    theWindow.location = null;
+  }
+  return theWindow;
 };
 
 const getDocument = () => {
