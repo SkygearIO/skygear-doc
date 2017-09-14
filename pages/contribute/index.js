@@ -11,7 +11,7 @@ import './style.scss';
 
 export const LocalStorageKey = 'contribute-do-not-show-again';
 
-class ContributePgae extends Component {
+class ContributePage extends Component {
   constructor(props) {
     super(props);
 
@@ -120,8 +120,8 @@ class ContributePgae extends Component {
   }
 }
 
-ContributePgae.propTypes = {
+ContributePage.propTypes = {
   router: PropTypes.object,
 };
 
-export default ContributePgae;
+export default ContributePage;
