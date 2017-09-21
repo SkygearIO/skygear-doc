@@ -146,35 +146,35 @@ const guideListConfig = {
           description: 'The first step to using the Skygear cloud functions' +
             ' to have your codes running on Skygear server',
           baseUrl: '/guides/cloud-function/intro-and-deployment/',
-          languages: ['python'],
+          languages: ['python', 'js'],
         },
         {
           title: 'Trigger by Database Event',
           description: 'Running codes upon database events such as' +
             ' creating, updating or deleting records',
           baseUrl: '/guides/cloud-function/database-hooks/',
-          languages: ['python'],
+          languages: ['python', 'js'],
         },
         {
           title: 'Trigger by Schedule',
           description: 'Executing your server codes at specified time' +
             ' or intervals',
           baseUrl: '/guides/cloud-function/scheduled-tasks/',
-          languages: ['python'],
+          languages: ['python', 'js'],
         },
         {
           title: 'Trigger by Client SDK',
           description: 'Lambda functions can be called from the SDKs' +
             ' to execute your custom codes on Skygear server',
           baseUrl: '/guides/cloud-function/lambda/',
-          languages: ['python'],
+          languages: ['python', 'js'],
         },
         {
           title: 'Trigger by HTTP Endpoint',
           description: 'Creating your own HTTP endpoint so that external' +
             ' applications can send GET/POST and other requests to your app',
           baseUrl: '/guides/cloud-function/http-endpoint/',
-          languages: ['python'],
+          languages: ['python', 'js'],
         },
         {
           title: 'Trigger by Restful HTTP Endpoint',
@@ -188,7 +188,7 @@ const guideListConfig = {
           description: 'Methods to make your static assets such as images' +
             ' accessible with a URL',
           baseUrl: '/guides/cloud-function/static-assets/',
-          languages: ['python'],
+          languages: ['python', 'js'],
         },
         {
           title: 'APIs in Cloud Functions',
@@ -196,20 +196,20 @@ const guideListConfig = {
             ' pubsub, push notifications, and using the master key to' +
             ' impersonate user for the admin',
           baseUrl: '/guides/cloud-function/calling-skygear-api/',
-          languages: ['python'],
+          languages: ['python', 'js'],
         },
         {
           title: 'Authenticating Users',
           description: 'Getting the authenticated user ID from the cloud' +
             ' functions, and resetting the password of a user',
           baseUrl: '/guides/cloud-function/authenticating-users/',
-          languages: ['python'],
+          languages: ['python', 'js'],
         },
         {
           title: 'Error Handling',
           description: 'Error handling in cloud functions',
           baseUrl: '/guides/cloud-function/error-handling/',
-          languages: ['python'],
+          languages: ['python', 'js'],
         },
       ],
     },
