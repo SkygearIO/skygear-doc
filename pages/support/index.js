@@ -73,14 +73,14 @@ export default () => (
             linkText="Ask questions at Stackoverflow"
           />
           <SupportItem
-            url="https://groups.google.com/forum/#!forum/skygear-user-group"
-            title="Google Group"
+            url="https://discuss.skygear.io"
+            title="Forum"
             description={
-              'Connect with other developers to share tips and get ' +
-              'guestions answered.'
+              'Official support from Skygear Developers, learn tips ' +
+              'and have your guestions answered.'
             }
             iconClassName="google-group"
-            linkText="Join our Google Group"
+            linkText="Talk with us"
           />
           <SupportItem
             url="https://slack.skygear.io/"
