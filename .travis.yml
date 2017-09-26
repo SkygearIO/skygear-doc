@@ -1,69 +1,16 @@
-language: python
+language: node_js
 
-python:
-  - '3.5'
+node_js: 6
 
 cache:
   directories:
     - node_modules
-
-before_install:
-  - pip install --upgrade pip
-  - pip install awscli
-  - nvm install 6
-  - node -v
-  - npm -v
-
-install:
-  - npm install
 
 script:
   - npm run lint
   - npm run test
   - npm run build release
 
-before_deploy:
-  - ./scripts/before-deploy.sh
-
-deploy:
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: $STAGING_BUCKET
-    skip_cleanup: true
-    acl: public_read
-    local_dir: build
-    on:
-      repo: SkygearIO/skygear-doc
-      branch: $STAGING_BRANCH
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: $PRODUCTION_BUCKET
-    skip_cleanup: true
-    acl: public_read
-    local_dir: build
-    on:
-      repo: SkygearIO/skygear-doc
-      branch: $PRODUCTION_BRANCH
-
-after_deploy:
-  - ./scripts/after-deploy.sh
-
 notifications:
   slack:
     secure: "qpitj7wBLxf4veJr6yeK2Sago2cIuqn39LDaYGS9vhIDAB8/Kc2PV1Fztxl3TsuatqZBkNnMzPFOXKQjU6chj9F/5hb2WWfnF695iGdoA3pfKl45ayd5loDU3ZmzAwJT3zMbe7G/DdVMQ/PItuI511lZq/S6mtUaFdvDQQQsskOUrZBCxc0cJkgETg4MNhznYYyDdo5U5qI5aupb6DLGoy6LIOnWhjfK7opVekke0Dv64p3FO40PMeZmm/JmzSIJTebBPNRdELJvx8C/N7wKecezqz8xN+ajDHE9PqU8mKcFY3zyrAicZNuLMExAf+bKZztXMbZDovU+jNU5x5a7mIh4sHSDjoT3KK06A7mYnVjtnP+okLlrfjRYmcWwttzGNyAZUhNiC5B88WMn11NfLowZTPEZPY+4lmG8BW28nQKki0EwWlKDltbKAUYhJ+OzpVChyJVaCvoE0P8hlujEczJ7G7FwAfNh+5v/z71JbOubLNds4hdZ6ryuPWzvfsMApzyxukrGcJYDjlMIVBSnp/mli5bDMrBlWa8Ak4CLBPA/PlvrOKdij81pxde3pKSR3/4VOJBN8bqY2PFf4dxOqdZ5uZg4LQLTnNpAa08Pf++VthJlVOkaGRxKTfQi/nLRudKHxP16guksMCphML6gm3SV3ckFHesoZoiS7F6BIkE="
-
-env:
-  global:
-    - PRODUCTION_BRANCH="production"
-    - STAGING_BRANCH="staging"
-    - PRODUCTION_BUCKET="docs.skygear.io"
-    - STAGING_BUCKET="docs-staging.skygear.io"
-    - DISTRIBUTION_ID="E31J8XF8IPV2V"
-    # AWS_ACCESS_KEY_ID
-    - secure: "u/3cyaOW8G4C3/oMSrWPNDEU6CcCmhPSweDwc1EEf/ch0jVC4LfQxtE9kLQRNO9uxCUOgZohMvBn+pArw7b6VPSjnMUhB6rldfjK7R2k+tLH/eSnkCQYaETLoZDqquJmzfrYcFd++pdSwZ8hFRgAOG7UkbII+cK88Q7ZYVeP6HwElLTm+zmyk7S56PQoohGVRgfJbSK34hLJfXMAG7n1nk+WckRX0CmmTMyZlrNOj6XeehXiZLhxY3/uKz0LvMv6ZLK3TgPtwz6jDrUi3uDn1Be6q4DrD3nkcmxjIRrmtvaxYYDw/Ulheg+eOuQwfMvr2RiUgeYOMDCqgqO2ljoMEvcZEBEc41WqHFakDHKWBOA4ideicVY1Y6QWpUah2p/ATPaPi3j0JkMtm3eer60+587viGfyomiH7YoeO5hUAXopipd0cmy+VzEzE7Jvw7vfes4isG+g7JWvKLh6L97tX9YhtmLcffqAmb8p7jJzn9kFMdRAYd+zsAgf0miQDUtDnhT/BTxHHafYvrTXOL+iAm9AVazyLr1XqsPtY2NxhhIK46ePEB6ivpqCaKnrVcvSVdxPTRvcQgnmz36MF4/OXLVz95x8kUOzrK0a8+OP8w7+M+iGcic0zZdMqG7iFKv6zRthx67wGgg71VzmPaqhHa6fxHAj6w7VEK68NJ/6fjg="
-    # AWS_SECRET_ACCESS_KEY
-    - secure: "RLHv4JHUu9dEtzH2vxTCaIZeFV0cGAxg559HxIO1IrdjDtnQD3h64u9PY0Ad5qRQaBoykuvXhy+3b9tDphX6OpWIWP7s30sniLOxpnRuAnoZHFTZ3KPjN5D9d37nwElGeydwtpoLePuhyuk6InatSG7I3rDAJNDbaLAUQLDtRERQslB9EKZNcGD9eAcjQYxf6LARfUjlYbBnBbGWMsGiOlKBRgGkDlRXqT0QEWK98oBiumPx6/uD3r4v7KL9BEXTudE581YdECfmH7nmcYo+PWWgzdGEHBvMc3deMdCYc4pHQOewEncBX2UStAIby6+t11q3FGgdedpsCTOli8R+O/lwcmWGNS6DXFwSwuV7aAeUKJMdFd4+of5kYSFdyzmW5alByEIWK5XlJwCFZUGnu5aSgYFLz/VXlA8a5oJbyChrZ+iuDaQvolaSr97OFGNX9IXrP2hN0M8Iee3O1EduOLw7bDJxX1B/NJfiQ5ipSJ0V4TeSo9DCpaKD6DZeVR7J5o144hygrnS8W8cEqSOUMjmRmXv9SISP17QMUEkNUreb6gAo3mm58rRzXStmvbj5cIalIsXyxpC/kvOZfhWgq1cSA22q3GQTtb2NEFx4OezgK6ic+qpY/LF3ci2F3aSlUiewRBluHDz8Fv5yzw1h82w2Rau0tfIivqU1geCSA/8="
-    # ALGOLIA_ADMIN_KEY
-    - secure: "mQXxgQFammltUbnwiqkzyLJLMhnh4H4Am+DFFhrDOXmXoilNcyxJEo7wN0DXP//M4aB2roJIV6uBI6g4eMrTpvSQdXL29gbsuGDsS0jIayhkSa+GoXyQfOMTNlBMCcmc8vzTT3B2fWhkKZbsKdcn3l7mD4GgC0/62pnPpBgTYjS83SXT/jdf2Y62v36pTxASTJY1W5gf/vfc7z0yhoohhiE74+7V02WT+eMT48oLh0SBUb00R2+U7waM2zlm8DLrctP4EhGqLACWKTwgH3HioGxr96CJgHoH5F1JTJ7pTX4IA9bqeycHHh0AvgoiHAF2CY4ptvo3WCEZzKEhYWGOAogr56Lbbo0LitxzeNFTrrh+xLWrJhSArimCj0UtZuBO/Rl6cx7o9EkiQNcvBCi2DHNqjTfllYRhfS1m2WPxjpPtWeFbUOlSuLmW7xgO0ZMctJudq2fBXQFZQcidNrljR8pDhrq6biX4w2I4wZrrGfTrvq6NV6iGSv2s/ofvo8dWhDiFHEVbh51gzkpAq+1h60n+WZKnGLLpn+RPZqEH0XeGy0GhqIa+u55lcnBqaJjk8IQyyvsMaQgqkhuUdbOiJXYWkWRdeoDFHK64qBVsAOpPJReedB7vQQJcWP14InDxnZi2mfhgCDlkF6RZvywEb3GhXP/yFrrMMOxi6YEMmlc="
