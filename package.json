@@ -130,7 +130,7 @@
     "lint": "npm run eslint && npm run stylelint",
     "test": "mocha --compilers js:babel-register",
     "test:watch": "mocha --compilers js:babel-register --reporter min --watch",
-    "spell-check": "mdspell -r --en-us -n 'content/**/*.md'",
+    "spell-check": "cd content; mdspell -r --en-us -n '**/*.md' '!node_modules/**/*.md' '!dist/**/*.md'",
     "clean": "babel-node run clean",
     "build": "babel-node run build",
     "build:debug": "babel-node run build --debug",
