@@ -68,11 +68,23 @@ const guideListConfig = {
           languages: ['ios', 'android', 'js'],
         },
         {
-          title: 'Access Control Basics',
+          title: 'Access Control Overview',
           description: 'Setting up restriction to certain database table' +
             ' or individual record is easy',
-          baseUrl: '/guides/cloud-db/acl/',
+          baseUrl: '/guides/cloud-db/acl-overview/',
           languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'Record-based ACL',
+          description: 'Setting up access control on record level',
+          baseUrl: '/guides/cloud-db/record-acl/',
+          languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'Field-based ACL',
+          description: 'Setting up access control on record field level',
+          baseUrl: '/guides/cloud-db/field-acl',
+          languages: [''],
         },
         {
           title: 'Offline Storage',
