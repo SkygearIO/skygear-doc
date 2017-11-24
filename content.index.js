@@ -157,8 +157,8 @@ const guideListConfig = {
           title: 'Introduction to Cloud Functions',
           description: 'The first step to using the Skygear cloud functions' +
             ' to have your codes running on Skygear server',
-          baseUrl: '/guides/cloud-function/intro-and-deployment/',
-          languages: ['python', 'js'],
+          baseUrl: '/guides/cloud-function/intro-and-deployment',
+          languages: [''],
         },
         {
           title: 'Trigger by Database Event',
