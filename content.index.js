@@ -142,6 +142,18 @@ const guideListConfig = {
       name: 'Push Notifications',
       guides: [
         {
+          title: 'Setting up FCM for Android Push Notification',
+          description: 'Getting FCM server keys for sending push notifications',
+          baseUrl: '/guides/push-notifications/config-fcm/',
+          languages: ['android'],
+        },
+        {
+          title: 'Setting up APN for iOS Push Notification',
+          description: 'Getting APN certs for sending push notifications',
+          baseUrl: '/guides/push-notifications/config-apn/',
+          languages: ['ios'],
+        },
+        {
           title: 'Push Notification Basics',
           description: 'Sending push notifications with Skygear',
           baseUrl: '/guides/push-notifications/basics/',
