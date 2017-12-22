@@ -35,6 +35,12 @@ const guideListConfig = {
           languages: ['ios', 'android', 'js'],
         },
         {
+          title: 'Custom token',
+          description: 'Integrate authentication server to Skygear using JWT',
+          baseUrl: '/guides/auth/custom-token/',
+          languages: ['ios', 'android', 'js'],
+        },
+        {
           title: 'User Profile Best Practices',
           description: 'Saving and retrieving custom profile attributes',
           baseUrl: '/guides/auth/user-profile/',
