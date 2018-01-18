@@ -148,6 +148,12 @@ const guideListConfig = {
       name: 'Push Notifications',
       guides: [
         {
+          title: 'Setting up Push Notification',
+          description: 'Setting Push Notification with FCM or APN',
+          baseUrl: '/guides/push-notifications/config/',
+          languages: ['ios', 'android'],
+        },
+        {
           title: 'Push Notification Basics',
           description: 'Sending push notifications with Skygear',
           baseUrl: '/guides/push-notifications/basics/',
