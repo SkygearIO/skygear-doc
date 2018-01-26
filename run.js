@@ -39,6 +39,7 @@ tasks.set('scanMarkdownFiles', require('./tasks/scanMarkdownFiles'));
 tasks.set('loadMarkdownAttributes', require('./tasks/loadMarkdownAttributes'));
 tasks.set('createIndexHtmlForDev', require('./tasks/createIndexHtmlForDev'));
 tasks.set('buildSiteIndex', require('./tasks/buildSiteIndex'));
+tasks.set('deleteSiteIndex', require('./tasks/deleteSiteIndex'));
 
 //
 // Build website into a distributable format
@@ -144,7 +145,12 @@ tasks.set('site-index', () =>
         };
       }, {});
 
-    return run('buildSiteIndex', {
+    return run('deleteSiteIndex', {
+      config: {
+        applicationID: algoliaApplicationID,
+        apiKey: algoliaAdminKey,
+      },
+    }).then(() => run('buildSiteIndex', {
       files,
       sections,
       config: {
@@ -152,7 +158,7 @@ tasks.set('site-index', () =>
         applicationID: algoliaApplicationID,
         apiKey: algoliaAdminKey,
       },
-    });
+    }));
   }
 ));
 
