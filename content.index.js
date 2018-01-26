@@ -35,7 +35,7 @@ const guideListConfig = {
           languages: ['ios', 'android', 'js'],
         },
         {
-          title: 'Custom token',
+          title: 'Authenticate with a custom auth system',
           description: 'Integrate authentication server to Skygear using JWT',
           baseUrl: '/guides/auth/custom-token/',
           languages: ['ios', 'android', 'js'],
