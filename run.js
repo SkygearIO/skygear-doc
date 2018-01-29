@@ -39,7 +39,7 @@ tasks.set('scanMarkdownFiles', require('./tasks/scanMarkdownFiles'));
 tasks.set('loadMarkdownAttributes', require('./tasks/loadMarkdownAttributes'));
 tasks.set('createIndexHtmlForDev', require('./tasks/createIndexHtmlForDev'));
 tasks.set('buildSiteIndex', require('./tasks/buildSiteIndex'));
-tasks.set('deleteSiteIndex', require('./tasks/deleteSiteIndex'));
+tasks.set('replaceSiteIndex', require('./tasks/replaceSiteIndex'));
 
 //
 // Build website into a distributable format
@@ -120,6 +120,12 @@ tasks.set('default', () => {
 //
 // Create / update site index
 // -----------------------------------------------------------------------------
+
+const getAlgoliaConfig = () => ({
+  applicationID: process.env.ALGOLIA_APP_ID || appConfig.algoliaApplicationID,
+  apiKey: process.env.ALGOLIA_ADMIN_KEY,
+});
+
 tasks.set('site-index', () =>
   run('scanMarkdownFiles', {
     src: path.join(__dirname, appConfig.contentDir),
@@ -129,10 +135,6 @@ tasks.set('site-index', () =>
     cwd: path.join(__dirname, appConfig.contentDir),
   }))
   .then((files) => {
-    const algoliaApplicationID
-      = process.env.ALGOLIA_APP_ID || appConfig.algoliaApplicationID;
-    const algoliaAdminKey = process.env.ALGOLIA_ADMIN_KEY;
-
     const sections
       = contentIndex.sections.reduce((allSections, eachSection) => {
         if (!eachSection.id) {
@@ -145,22 +147,24 @@ tasks.set('site-index', () =>
         };
       }, {});
 
-    return run('deleteSiteIndex', {
-      config: {
-        applicationID: algoliaApplicationID,
-        apiKey: algoliaAdminKey,
-      },
-    }).then(() => run('buildSiteIndex', {
+    return run('buildSiteIndex', {
       files,
       sections,
       config: {
+        ...getAlgoliaConfig(),
         baseUrl: appConfig.guideBaseUrl,
-        applicationID: algoliaApplicationID,
-        apiKey: algoliaAdminKey,
+        indexName: 'guides-new',
       },
-    }));
-  }
-));
+    });
+  })
+  .then(() => run('replaceSiteIndex', {
+    config: {
+      ...getAlgoliaConfig(),
+      srcIndex: 'guides-new',
+      destIndex: 'guides',
+    },
+  }))
+);
 
 // Execute the specified task or default one. E.g.: node run build
 run(/^\w/.test(process.argv[2] || '') ? process.argv[2] : 'default');

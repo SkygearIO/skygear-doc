@@ -9,7 +9,7 @@ const NotAlphaNumericOrDotOrSpaceRegex = /[^0-9a-z\.\s]/gmi; // eslint-disable-l
 const MultiSpaceRegex = /\s+/gmi;
 
 module.exports = ({ files, sections, config }) => {
-  const { baseUrl, applicationID, apiKey } = config;
+  const { baseUrl, applicationID, apiKey, indexName } = config;
 
   if (!applicationID) {
     return Promise.reject(new Error('Missing Application ID for Algolia'));
@@ -56,7 +56,7 @@ module.exports = ({ files, sections, config }) => {
         };
       });
 
-  const guideIndex = algoliaClient.initIndex('guides');
+  const guideIndex = algoliaClient.initIndex(indexName || 'guides');
   return guideIndex.setSettings({
     searchableAttributes: ['title', 'description', 'content'],
   })
