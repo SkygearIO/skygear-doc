@@ -128,6 +128,13 @@ const guideListConfig = {
           baseUrl: '/guides/chat/models',
           languages: ['']
         },
+        {
+          title: 'Trigger by Chat Operations',
+          description: 'Running cloud code upon chat operations such as conversation creation or message sending',
+          baseUrl: '/guides/chat/cloud-event-hook/',
+          languages: ['python', 'js']
+        },
+
       ],
     },
     {
