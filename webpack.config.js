@@ -150,7 +150,7 @@ if (isDebug && useHMR) {
   config.entry.unshift('webpack-hot-middleware/client?path=/__webpack_hmr');
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
   config.plugins.push(new webpack.NoEmitOnErrorsPlugin());
-  config.plugins.push(new CopyWebpackPlugin([{ from: 'static/assets', to: 'build/assets' }]));
+  config.plugins.push(new CopyWebpackPlugin([{ from: 'content/assets', to: 'build/assets' }]));
 }
 
 module.exports = config;

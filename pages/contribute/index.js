@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 import Header from '../../components/Header/Header';
 
-import prScreenshot from '../../static/assets/contribute/pr-screenshot.png';
+import prScreenshot from '../../static/images/pr-screenshot.png';
 
 import { guideEditBaseUrl } from '../../config';
 import { getWindow } from '../../utils/browserProxy';
