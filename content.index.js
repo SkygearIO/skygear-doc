@@ -129,8 +129,8 @@ const guideListConfig = {
           languages: ['']
         },
         {
-          title: 'Trigger by Chat Operations',
-          description: 'Running cloud code upon chat operations such as conversation creation or message sending',
+          title: 'Chat Event Hooks',
+          description: 'Running codes upon chat event such as message sent',
           baseUrl: '/guides/chat/cloud-event-hook/',
           languages: ['python', 'js']
         },
@@ -213,6 +213,12 @@ const guideListConfig = {
             ' through cloud functions',
           baseUrl: '/guides/cloud-function/restful-http-endpoint/',
           languages: ['python'],
+        },
+        {
+          title: 'Trigger by Chat Events',
+          description: 'Running codes upon chat event such as message sent',
+          baseUrl: '/guides/chat/cloud-event-hook/',
+          languages: ['python', 'js']
         },
         {
           title: 'Serving Static Assets',
