@@ -251,18 +251,6 @@ const guideListConfig = {
       ],
     },
     {
-      id: 'social-network',
-      name: 'Social Network',
-      guides: [
-        {
-          title: 'User Relations Basics',
-          description: 'Creating Friends/Followers relationships',
-          baseUrl: '/guides/social-network/basics/',
-          languages: ['ios', 'android', 'js'],
-        },
-      ],
-    },
-    {
       id: 'advanced',
       name: 'Advanced',
       guides: [
@@ -293,6 +281,12 @@ const guideListConfig = {
           description: 'Handle error with error codes in SDK when operations fail',
           // no trailing slash if language not applicable
           baseUrl: '/guides/advanced/sdk-error-handling/',
+          languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'User Relations',
+          description: 'Creating Friends/Followers relationships',
+          baseUrl: '/guides/social-network/basics/',
           languages: ['ios', 'android', 'js'],
         },
       ],
