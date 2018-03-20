@@ -141,6 +141,7 @@ if (!isDebug) {
       stylesheet: '/styles.css',
       gaTrackingID: appConfig.gaTrackingID,
       mouseFlowProjectID: appConfig.mouseFlowProjectID,
+      googleTagManagerID: appConfig.googleTagManagerID,
     })
   );
 }

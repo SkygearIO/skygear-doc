@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 
 import StyleSheet from './StyleSheet';
 import GAScript from './GAScript';
+import GoogleTagManagerScript from './GoogleTagManagerScript';
 import TypeKitScript from './TypeKitScript';
 import MouseFlowScript from './MouseFlowScript';
 
@@ -12,6 +13,7 @@ const HtmlTemplate = (props) => {
     stylesheet,
     gaTrackingID,
     mouseFlowProjectID,
+    googleTagManagerID,
   } = props;
 
   // Some meta tags in head tag will be rendered dynamically in and will be put
@@ -39,6 +41,7 @@ const HtmlTemplate = (props) => {
         <TypeKitScript />
         <MouseFlowScript projectID={mouseFlowProjectID} />
         <GAScript trackingID={gaTrackingID} />
+        <GoogleTagManagerScript trackingID={googleTagManagerID} />
         <script src="/main.js" />
       </body>
     </html>
@@ -50,6 +53,7 @@ HtmlTemplate.propTypes = {
   stylesheet: PropTypes.string,
   body: PropTypes.string,
   gaTrackingID: PropTypes.string,
+  googleTagManagerID: PropTypes.string,
   mouseFlowProjectID: PropTypes.string,
 };
 
