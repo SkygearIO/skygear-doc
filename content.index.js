@@ -46,6 +46,12 @@ const guideListConfig = {
           baseUrl: '/guides/auth/user-profile/',
           languages: ['ios', 'android', 'js'],
         },
+        {
+          title: 'Disabling User Accounts',
+          description: 'Learn how to disable a user account',
+          baseUrl: '/guides/auth/disable/',
+          languages: ['ios', 'android', 'js'],
+        },
       ],
     },
     {
