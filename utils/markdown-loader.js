@@ -112,6 +112,7 @@ function displayLanuageName(language) {
     'obj-c': 'Objective-C',
     python: 'Python',
     swift: 'Swift',
+    kotlin: 'Kotlin',
   };
   return displayNames[language];
 }
