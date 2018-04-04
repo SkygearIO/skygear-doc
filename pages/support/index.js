@@ -54,7 +54,7 @@ export default () => (
       <div className="support-content">
         <div className="support-items">
           <SupportItem
-            url="https://github.com/skygear-demo"
+            url="https://demo.skygear.io"
             title="Sample Project"
             description={
               'Get inspirations for your own applications with these samples.'
