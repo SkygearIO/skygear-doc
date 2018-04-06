@@ -114,6 +114,7 @@ $screen-lg-min: 1200px;
   top: $header-height;
   overflow-x: hidden;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 
   @include tablet {
     top: $header-tablet-height;
