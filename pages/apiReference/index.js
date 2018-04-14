@@ -33,6 +33,9 @@ const AndroidApiReferenceItem
 const JavascriptApiReferenceItem
   = (props) => <ApiReferenceItem {...props} titleClassName="js-sdk" />;
 
+const PythonApiReferenceItem
+  = (props) => <ApiReferenceItem {...props} titleClassName="py-sdk" />;
+
 export default () => (
   <div className="api-reference-page">
     <Header />
@@ -63,8 +66,16 @@ export default () => (
           title="Chat - JavaScript SDK"
         />
         <JavascriptApiReferenceItem
+          url="https://docs.skygear.io/js/chat/reference/latest/class/lib/cloud.js~SkygearChatCloudContainer.html"
+          title="Chat Cloud Function - JavaScript API Reference"
+        />
+        <JavascriptApiReferenceItem
           url="https://docs.skygear.io/js/reference/latest/identifiers.html#skygear-core-lib-cloud"
           title="Cloud Function - Javascript API Reference"
+        />
+        <PythonApiReferenceItem
+          url="https://docs.skygear.io/py/reference/latest/"
+          title="Cloud Function - Python API Reference"
         />
       </div>
       <Footer />

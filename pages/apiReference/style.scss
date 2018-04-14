@@ -107,6 +107,15 @@ $banner-height: 72px;
               background-size: 32px 37px;
             }
           }
+
+          &.py-sdk {
+            background-image: url('../../static/images/python.png');
+            background-size: auto 24px;
+
+            @include desktop {
+              background-size: 32px 37px;
+            }
+          }
         }
       }
     }
