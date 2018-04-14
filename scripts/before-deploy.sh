@@ -9,7 +9,8 @@ if [[ "$TRAVIS_BRANCH" == "$PRODUCTION_BRANCH" ]]; then
     --recursive \
     --exclude "android/*" \
     --exclude "js/*" \
-    --exclude "ios/*"
+    --exclude "ios/*" \
+    --exclude "py/*"
   echo "Done"
 fi
 
@@ -19,6 +20,7 @@ if [[ "$TRAVIS_BRANCH" == "$STAGING_BRANCH" ]]; then
     --recursive \
     --exclude "android/*" \
     --exclude "js/*" \
-    --exclude "ios/*"
+    --exclude "ios/*" \
+    --exclude "py/*"
   echo "Done"
 fi
