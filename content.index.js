@@ -78,7 +78,7 @@ const guideListConfig = {
           languages: ['ios', 'android', 'js'],
         },
         {
-          title: 'Working with Relational Records',
+          title: 'Relational Records',
           description: 'Create and query Skygear references, eager loading',
           baseUrl: '/guides/cloud-db/relational-records/',
           languages: ['ios', 'android', 'js'],
@@ -90,7 +90,7 @@ const guideListConfig = {
           languages: ['ios', 'android', 'js'],
         },
         {
-          title: 'Working with Other Data Types',
+          title: 'Location, Auto-increment sequence fields',
           description: 'Create and query locations and sequence',
           baseUrl: '/guides/cloud-db/data-types/',
           languages: ['ios','android','js'],
