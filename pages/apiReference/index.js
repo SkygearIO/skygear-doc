@@ -66,6 +66,10 @@ export default () => (
           url="https://docs.skygear.io/js/reference/latest/identifiers.html#skygear-core-lib-cloud"
           title="Cloud Function - Javascript API Reference"
         />
+        <JavascriptApiReferenceItem
+          url="https://docs.skygear.io/js/chat/reference/latest/class/lib/cloud.js~SkygearChatCloudContainer.html"
+          title="Chat Cloud Function - JavaScript API Reference"
+        />
       </div>
       <Footer />
     </div>

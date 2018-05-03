@@ -82,7 +82,7 @@ $banner-height: 72px;
           }
 
           &.ios-sdk {
-            background-image: url('../../static/images/ios-outline.png');
+            background-image: url('../../static/images/line-ios.svg');
             background-size: auto 24px;
 
             @include desktop {
@@ -91,7 +91,7 @@ $banner-height: 72px;
           }
 
           &.android-sdk {
-            background-image: url('../../static/images/android-outline.png');
+            background-image: url('../../static/images/line-android.svg');
             background-size: auto 24px;
 
             @include desktop {
@@ -100,7 +100,16 @@ $banner-height: 72px;
           }
 
           &.js-sdk {
-            background-image: url('../../static/images/js-outline.png');
+            background-image: url('../../static/images/line-js.svg');
+            background-size: auto 24px;
+
+            @include desktop {
+              background-size: 32px 37px;
+            }
+          }
+
+          &.py-sdk {
+            background-image: url('../../static/images/line-python.svg');
             background-size: auto 24px;
 
             @include desktop {
