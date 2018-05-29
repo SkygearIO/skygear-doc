@@ -6,9 +6,6 @@ const Nav = (props) => {
   const {
     active,
     href,
-    img,
-    imageOnMobile,
-    activeImageOnMobile,
     text,
     className,
     ...otherProps
@@ -41,7 +38,7 @@ const Nav = (props) => {
 
   return (
     <a
-      target='_blank'
+      target="_blank"
       className={cxNames}
       href={href}
       {...otherProps}
