@@ -15,23 +15,6 @@ const Nav = (props) => {
   } = props;
 
   const content = [
-    <img
-      key="nav-img"
-      src={img}
-      alt={text}
-    />,
-    <img
-      key="nav-img-mobile"
-      className="mobile"
-      src={imageOnMobile || img}
-      alt={text}
-    />,
-    <img
-      key="nav-img-mobile-active"
-      className="mobile-active"
-      src={activeImageOnMobile || imageOnMobile || img}
-      alt={text}
-    />,
     <span key="nav-text">
       {text}
     </span>,
@@ -44,7 +27,7 @@ const Nav = (props) => {
       className.split(' '),
     );
 
-  if (href && href.indexOf('#') !== 0) {
+  if (href && href.indexOf('https') !== 0) {
     return (
       <Link
         className={cxNames}
@@ -58,8 +41,9 @@ const Nav = (props) => {
 
   return (
     <a
+      target='_blank'
       className={cxNames}
-      href="#"
+      href={href}
       {...otherProps}
     >
       {content}
@@ -69,11 +53,8 @@ const Nav = (props) => {
 
 Nav.propTypes = {
   active: PropTypes.bool,
-  activeImageOnMobile: PropTypes.string,
-  imageOnMobile: PropTypes.string,
   className: PropTypes.string,
   href: PropTypes.string,
-  img: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 
