@@ -7,15 +7,6 @@ import GuideSearchWidget
   from '../../components/GuideSearchWidget/GuideSearchWidget';
 import Nav from './Nav/Nav';
 
-import guidesIcon from '../../static/images/icn-guides.svg';
-import guidesMobileIcon from '../../static/images/icn-guides-mobile.svg';
-import guidesActiveIcon from '../../static/images/icn-guides-active.svg';
-import apiRefIcon from '../../static/images/icn-api-ref.svg';
-import apiRefMobileIcon from '../../static/images/icn-api-ref-mobile.svg';
-import apiRefActiveIcon from '../../static/images/icn-api-ref-active.svg';
-import supportIcon from '../../static/images/icn-support.svg';
-import supportMobileIcon from '../../static/images/icn-support-mobile.svg';
-import supportActiveIcon from '../../static/images/icn-support-active.svg';
 
 import './Header.scss';
 
@@ -25,23 +16,22 @@ const NavigationItemsProps = [
   {
     text: 'Guides',
     href: '/guides/',
-    img: guidesIcon,
-    imageOnMobile: guidesMobileIcon,
-    activeImageOnMobile: guidesActiveIcon,
   },
   {
     text: 'API Referece',
     href: '/api-reference/',
-    img: apiRefIcon,
-    imageOnMobile: apiRefMobileIcon,
-    activeImageOnMobile: apiRefActiveIcon,
   },
   {
-    text: 'Support',
-    href: '/support/',
-    img: supportIcon,
-    imageOnMobile: supportMobileIcon,
-    activeImageOnMobile: supportActiveIcon,
+    text: 'Demo',
+    href: 'https://demo.skygear.io/',
+  },
+  {
+    text: 'Forum',
+    href: 'https://discuss.skygear.io/',
+  },
+  {
+    text: 'Slack',
+    href: 'https://slack.skygear.io/',
   },
 ];
 
@@ -79,16 +69,14 @@ class Header extends Component {
   renderNaviationItem({ text, href, ...otherProps }) {
     const currentPathname = window.location.pathname;
     let isActive = false;
-    let autoHref = href;
     if (currentPathname.indexOf(href) === 0) {
-      autoHref = '#';
       isActive = true;
     }
 
     return (
       <Nav
         key={`nav-item-${text.toLowerCase()}`}
-        href={autoHref}
+        href={href}
         text={text}
         active={isActive}
         {...otherProps}

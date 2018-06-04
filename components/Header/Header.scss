@@ -70,34 +70,9 @@
             opacity: 0.8;
           }
 
-          img {
-            display: inline-block;
-            height: 24px;
-            width: auto;
-            margin: 12px 18px;
-            vertical-align: middle;
-
-            @include mobile {
-              display: none;
-            }
-
-            &.mobile {
-              display: none;
-
-              @include mobile {
-                display: inline-block;
-              }
-            }
-
-            &.mobile-active {
-              display: none;
-            }
-          }
-
           span {
             display: inline-block;
             margin: 12px 18px;
-            margin-left: 0;
             font-size: 16px;
             line-height: 24px;
             vertical-align: middle;
@@ -109,18 +84,6 @@
 
           &.active {
             background-color: $header-nav-item-active-color;
-
-            img {
-              @include mobile {
-                display: none;
-              }
-
-              &.mobile-active {
-                @include mobile {
-                  display: inline-block;
-                }
-              }
-            }
 
             span {
               @include mobile {
@@ -168,14 +131,6 @@
 
           &:hover {
             opacity: 1;
-          }
-
-          img {
-            display: inline-block;
-
-            &.mobile {
-              display: none;
-            }
           }
 
           span {
