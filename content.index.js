@@ -56,65 +56,86 @@ const guideListConfig = {
     },
     {
       id: 'cloud-db',
-      name: 'Skygear Cloud Database',
+      name: 'Cloud Database',
       guides: [
         {
           title: 'Cloud Database Basics',
-          description: 'Storing data in the database using Records, with' +
-            ' guides to basic record CRUD (create, read, update, delete)',
+          description: 'Intro to Skygear records, ' +
+            ' public and private database and Skygear data type',
           baseUrl: '/guides/cloud-db/basics/',
           languages: ['ios', 'android', 'js'],
         },
         {
-          title: 'Queries',
-          description: 'From the simplest queries to more complex ones' +
-            ' such as AND/OR conditions and pagination',
+          title: 'Basic CRUD',
+          description: 'Create, update, query and delete Skygear records',
+          baseUrl: '/guides/cloud-db/crud/',
+          languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'More About Queries',
+          description: 'Query conditions, paginations and record counts',
           baseUrl: '/guides/cloud-db/queries/',
           languages: ['ios', 'android', 'js'],
         },
         {
-          title: 'Data Types',
-          description: 'A guide to the supported data types:' +
-            ' numbers, strings, foreign keys, locations, file uploads and more',
+          title: 'Relational Records',
+          description: 'Create and query Skygear references, eager loading',
+          baseUrl: '/guides/cloud-db/relational-records/',
+          languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'File Storage',
+          description: 'Create and query files in Skygear',
+          baseUrl: '/guides/cloud-db/files/',
+          languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'Location, Auto-increment sequence fields',
+          description: 'Create and query locations and sequence',
           baseUrl: '/guides/cloud-db/data-types/',
-          languages: ['ios', 'android', 'js'],
+          languages: ['ios','android','js'],
         },
         {
-          title: 'Access Control Overview',
-          description: 'Setting up restriction to certain database table' +
-            ' or individual record is easy',
-          baseUrl: '/guides/cloud-db/acl-overview/',
-          languages: ['ios', 'android', 'js'],
-        },
-        {
-          title: 'Record-based ACL',
-          description: 'Setting up access control on record level',
-          baseUrl: '/guides/cloud-db/record-acl/',
-          languages: ['ios', 'android', 'js'],
-        },
-        {
-          title: 'Field-based ACL',
-          description: 'Setting up access control on record field level',
-          baseUrl: '/guides/cloud-db/field-acl',
-          languages: [''],
-        },
-        {
-          title: 'Offline Storage',
-          description: 'Creating cached queries to save query results locally',
+          title: 'Cached query',
+          description: 'Working with offline storage',
           baseUrl: '/guides/cloud-db/offline-storage/',
           languages: ['ios', 'android', 'js'],
         },
         {
           title: 'Query Subscriptions',
-          description: 'Subscribing to database data changes from the client',
+          description: 'Subscribe to database data changes from the client',
           baseUrl: '/guides/cloud-db/query-subscription/',
           languages: ['ios', 'android', 'js'],
         },
       ],
     },
     {
+      id: 'acl',
+      name: 'Access Control',
+      guides: [
+        {
+          title: 'Access Control Basics',
+          description: 'Intro to access control in Skygear',
+          baseUrl: '/guides/acl/acl-overview/',
+          languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'Record-based ACL',
+          description: 'Set the ACL of a record type',
+          baseUrl: '/guides/acl/record-acl/',
+          languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'Field-based ACL',
+          description: 'Set the ACL of a record field',
+          baseUrl: '/guides/acl/field-acl',
+          languages: [''],
+        },
+      ],
+    },
+    {
       id: 'chat',
-      name: 'Skygear Chat',
+      name: 'Real-time Chat',
       guides: [
         {
           title: 'Quick Start for Chat',
@@ -299,6 +320,12 @@ const guideListConfig = {
           description: 'Creating Friends/Followers relationships',
           baseUrl: '/guides/social-network/basics/',
           languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'Record Storage',
+          description: 'Working with the Skygear offline database',
+          baseUrl: '/guides/advanced/record-storage/',
+          languages: ['ios'],
         },
       ],
     },
