@@ -52,6 +52,12 @@ const guideListConfig = {
           baseUrl: '/guides/auth/disable/',
           languages: ['ios', 'android', 'js'],
         },
+        {
+          title: 'Password Policy',
+          description: 'Enforce stronger passwords with Password Policy',
+          baseUrl: '/guides/auth/password-policy/',
+          languages: ['ios', 'android', 'js'],
+        },
       ],
     },
     {
