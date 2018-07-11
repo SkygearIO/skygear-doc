@@ -207,6 +207,48 @@ const guideListConfig = {
       ],
     },
     {
+      id: 'cms',
+      name: 'CMS',
+      guides: [
+        {
+          title: 'CMS Basics',
+          description: 'Learn how to configure the CMS for your business users.',
+          baseUrl: '/guides/cms/cms-basics',
+          languages: [''],
+        },
+        {
+          title: 'Configuring the CMS Record Page',
+          description: 'Enable your admins to view, update, and create records.',
+          baseUrl: '/guides/cms/cms-records',
+          languages: [''],
+        },
+        {
+          title: 'CMS Field Types',
+          description: 'Field types in CMS refers to the UI presentation of a field. Learn more.',
+          baseUrl: '/guides/cms/cms-field-type',
+          languages: [''],
+        },
+        {
+          title: 'Configuring Imports and Exports',
+          description: 'Enable your admins to import and export records.',
+          baseUrl: '/guides/cms/cms-import',
+          languages: [''],
+        },
+        {
+          title: 'Configuring the User Management Dashboard',
+          description: 'Manage your users with the user management dashboard.',
+          baseUrl: '/guides/cms/cms-user',
+          languages: [''],
+        },
+        {
+          title: 'Configuring the Push Notification Dashboard',
+          description: 'Broadcast push notifications to your users with the push dashboard.',
+          baseUrl: '/guides/cms/cms-push',
+          languages: [''],
+        },
+      ],
+    },
+    {
       id: 'cloud-function',
       name: 'Cloud Functions',
       guides: [
