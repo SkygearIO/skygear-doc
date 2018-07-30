@@ -321,12 +321,6 @@ const guideListConfig = {
           baseUrl: '/guides/social-network/basics/',
           languages: ['ios', 'android', 'js'],
         },
-        {
-          title: 'Record Storage',
-          description: 'Working with the Skygear offline database',
-          baseUrl: '/guides/advanced/record-storage/',
-          languages: ['ios'],
-        },
       ],
     },
   ],
