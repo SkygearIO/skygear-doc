@@ -240,12 +240,6 @@ const guideListConfig = {
           baseUrl: '/guides/cms/cms-user',
           languages: [''],
         },
-        {
-          title: 'Configuring the Push Notification Dashboard',
-          description: 'Broadcast push notifications to your users with the push dashboard.',
-          baseUrl: '/guides/cms/cms-push',
-          languages: [''],
-        },
       ],
     },
     {
