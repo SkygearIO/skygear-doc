@@ -64,6 +64,14 @@ a:hover {
   color: $link-hover-color;
 }
 
+a > code {
+  color: $link-color;
+}
+
+a > code:hover {
+  color: $link-hover-color;
+}
+
 hr {
   border-width: 1px 0 0;
   border-color: $theme-light-gray;
