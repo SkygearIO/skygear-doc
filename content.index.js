@@ -211,7 +211,7 @@ const guideListConfig = {
       name: 'CMS',
       guides: [
         {
-          title: 'CMS Basics',
+          title: 'CMS Quick Start',
           description: 'Learn how to configure the CMS for your business users.',
           baseUrl: '/guides/cms/cms-basics',
           languages: [''],
