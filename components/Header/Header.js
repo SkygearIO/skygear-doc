@@ -18,7 +18,7 @@ const NavigationItemsProps = [
     href: '/guides/',
   },
   {
-    text: 'API Referece',
+    text: 'API Reference',
     href: '/api-reference/',
   },
   {
