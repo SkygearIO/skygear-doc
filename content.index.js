@@ -58,6 +58,18 @@ const guideListConfig = {
           baseUrl: '/guides/auth/password-policy/',
           languages: ['ios', 'android', 'js'],
         },
+        {
+          title: 'Email Verification',
+          description: 'Verify user email',
+          baseUrl: '/guides/auth/email-verification/',
+          languages: ['ios', 'android', 'js'],
+        },
+        {
+          title: 'SMS Verification',
+          description: 'Verify user phone number via SMS',
+          baseUrl: '/guides/auth/sms-verification/',
+          languages: ['ios', 'android', 'js'],
+        },
       ],
     },
     {
