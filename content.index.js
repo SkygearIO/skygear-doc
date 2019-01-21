@@ -216,6 +216,12 @@ const guideListConfig = {
           baseUrl: '/guides/push-notifications/basics/',
           languages: ['ios', 'android', 'js'],
         },
+        {
+          title: 'Migrate to FCM from GCM',
+          description: 'Migrate existing GCM push notification to FCM',
+          baseUrl: '/guides/push-notifications/android-migrate-fcm',
+          languages: [''],
+        }
       ],
     },
     {
