@@ -1,5 +1,11 @@
 # Skygear Documentation Site Generator
 
+This repo is **DEPRECATED**
+
+The new Skygear Guides are in Gitbook at docs.skygear.io
+
+## What was it?
+
 This is the repository and issue trackers for Skygear Documentation Site
 Generator. The guides are in markdown format at
 [skygeario/guides](https://github.com/skygeario/guides).
